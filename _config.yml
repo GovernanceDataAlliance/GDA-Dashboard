@@ -1,0 +1,8 @@
+# Site settings
+title: GDA Dashboard
+description:  G-G-GDA!
+
+url: "http://vizzuality.github.io" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
