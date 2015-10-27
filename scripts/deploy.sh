@@ -3,7 +3,7 @@
 git fetch
 
 git branch -D gh-pages
-git checkout gh-pages
+git checkout -b gh-pages
 
 git rebase develop
 
