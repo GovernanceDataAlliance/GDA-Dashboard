@@ -11,12 +11,14 @@ are performing for a number of indicators created by the GDA partners.
 
 The dashboard is powered by
 [Jekyll](https://upload.wikimedia.org/wikipedia/commons/7/78/Dr_Jekyll_and_Mr_Hyde_poster_edit2.jpg).
-Once you've installed the Jekyll gem, you can use the `jekyll` command
-to build and run the application:
+Once you've installed the Jekyll gem and other deps, you can use npm to
+build and run the application:
 
 ```
 bundle install
-jekyll serve
+npm install
+
+npm run
 ```
 
 [Go go go!](http://localhost:4000)
