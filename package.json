@@ -12,7 +12,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "bundle exec jekyll serve & ./node_modules/webpack/bin/webpack.js --progress --colors --watch",
-    "build": "bundle exec jekyll build & ./node_modules/webpack/bin/webpack.js --progress --colors"
+    "build": "bundle exec jekyll build & ./node_modules/webpack/bin/webpack.js --progress --colors",
+    "deploy": "./scripts/deploy.sh"
   },
   "repository": {
     "type": "git",

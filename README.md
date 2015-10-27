@@ -18,7 +18,7 @@ build and run the application:
 bundle install
 npm install
 
-npm run
+npm start
 ```
 
 [Go go go!](http://localhost:4000)
@@ -27,11 +27,17 @@ npm run
 
 ### Staging
 
-The app is staged on Github Pages, which is easy to deploy to:
+The app is staged on Github Pages, and we have a command to do
+everything for you:
 
 ```
-git push origin develop:gh-pages
+npm run deploy
 ```
 
 Github Pages handles all the building, etc. for you. [Check it
 out!](http://vizzuality.github.io/GDA-Dashboard)
+
+A note on what this command doing: so that we don't have to constantly commit
+compiled files (like js/bundle.js), we ignore them in Git and then force
+push them up to gh-pages for deploys. Because of this, you should
+*never* work directly on the gh-pages branch, it is entirely disposable.
