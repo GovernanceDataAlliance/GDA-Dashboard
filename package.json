@@ -9,7 +9,9 @@
     "browserify": "^12.0.0",
     "grunt-contrib-watch": "^0.6.1",
     "jasmine": "^2.3.2",
+    "jasmine-ajax": "^3.2.0",
     "jquery": "^2.1.4",
+    "sinon": "^1.17.2",
     "watchify": "^3.5.0"
   },
   "devDependencies": {
