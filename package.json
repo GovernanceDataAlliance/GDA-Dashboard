@@ -2,7 +2,7 @@
   "name": "gda-dashboard",
   "version": "1.0.0",
   "description": "The Governance Data Alliance is a group of NGOs, governments, firms, and donors who are working to improve the quality, availability, breadth, and use of governance data.",
-  "main": "webpack.config.js",
+  "main": "js/bundle.js",
   "dependencies": {
     "backbone": "^1.2.3",
     "backbone.marionette": "^2.4.3",
