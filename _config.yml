@@ -7,4 +7,8 @@ url: "http://vizzuality.github.io" # the base hostname & protocol for your site
 # Build settings
 markdown: kramdown
 
+sass:
+  sass_dir: _sass
+
 exclude: ['scripts', 'node_modules']
+
