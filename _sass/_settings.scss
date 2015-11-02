@@ -24,15 +24,15 @@ $wrap-padding: 0;
 ////////////////////
 //**** Fonts ****//
 ////////////////////
-$font-main: "Raleway";
-$font-numbers: "Lato";
+$font-main: 'Karla', sans-serif;
+$font-secondary: 'Arimo';
 
 //Font sizes
-$font-size-extra-big: 52px;
-$font-size-big: 40px;
-$font-size-medium: 26px;
-$font-size: 15px;
-$font-size-small: 12px;
+$font-size-extra-big: 76px;
+$font-size-big: 46px;
+$font-size-medium: 30px;
+$font-size: 18px;
+$font-size-small: 15px;
 
 
 ////////////////////
@@ -40,25 +40,24 @@ $font-size-small: 12px;
 ////////////////////
 $white: #fff;
 $black: #000;
-$navy-blue: #1A3398;
-$dark-blue: #303F5A;
-$fucsia: #A80041;
+$grey: #69768D;
+$light-grey: #999999;
+$dark-blue: #1F2329;
+$red: #EF5F5F;
+$blue: #ABCEEE;
+$yellow: #FECE08;
+
+$soft-grey: #ddd;
 
 //Theme colors
-$color-1: $navy-blue;
-$color-2: $fucsia;
-$color-3: $dark-blue;
-
-$dark-grey: #474444;
-$medium-grey: #595959;
-$soft-grey: #afafaf;
-$light-grey: #dedede;
-$ultra-light-grey: #F0F0F0;
+$color-1: $dark-blue;
+$color-2: $red;
+$color-3: $yellow;
 
 //Font colors
-$font-color-1: $dark-grey;
-$font-color-2: $white;
-$font-color-3: $soft-grey;
+$font-color-1: $light-grey;
+$font-color-2: $black;
+$font-color-3: $white;
 
 
 ////////////////////
