@@ -23,8 +23,7 @@ module.exports = function(grunt) {
     jasmine: {
       main: {
         options: {
-          specs: 'js/test/**/*Spec.js',
-          helpers: 'js/test/**/*Helper.js'
+          specs: 'js/test/bundle.js',
         }
       }
     },
@@ -37,7 +36,7 @@ module.exports = function(grunt) {
 
       test: {
         src: ['js/test/**/*.js'],
-        dest: 'js/bundle.js'
+        dest: 'js/test/bundle.js'
       }
     },
 
@@ -45,12 +44,11 @@ module.exports = function(grunt) {
       js: {
         files: ['js/src/**/*'],
         tasks: ['browserify:main']
-      },
-
-      test: {
-        files: ['js/test/**/*'],
-        tasks: ['browserify:test']
       }
+    },
+
+    clean: {
+      test: ['js/test/bundle.js']
     }
   });
 
@@ -58,7 +56,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-watch')
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
   grunt.registerTask('default', ['jekyll']);
   grunt.registerTask('build', ['browserify:main']);
+  grunt.registerTask('test', ['clean:test', 'browserify:test', 'jasmine']);
 };
