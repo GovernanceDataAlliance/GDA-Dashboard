@@ -17,6 +17,7 @@ build and run the application:
 ```
 bundle install
 npm install
+npm install -g grunt-cli
 
 npm start
 ```
