@@ -7,6 +7,7 @@
     "backbone": "^1.2.3",
     "backbone.marionette": "^2.4.3",
     "browserify": "^12.0.0",
+    "jasmine": "^2.3.2",
     "jquery": "^2.1.4",
     "watchify": "^3.5.0"
   },
@@ -15,6 +16,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "bundle exec jekyll serve & ./node_modules/watchify/bin/cmd.js js/main.js -o js/bundle.js",
     "build": "bundle exec jekyll build & ./node_modules/browserify/bin/cmd.js js/main.js -o js/bundle.js",
+    "test": "cd js/test && python -m SimpleHTTPServer 1337 & ./node_modules/watchify/bin/cmd.js js/test/spec/* -o js/test/bundle.js",
     "deploy": "./scripts/deploy.sh"
   },
   "repository": {
