@@ -1,6 +1,7 @@
 {
   "cartodb": {
     "user_name": "gda",
-    "country_table_name": "world_borders"
+    "country_table_name": "world_borders",
+    "indicator_data_table_name": "indicator_data"
   }
 }
