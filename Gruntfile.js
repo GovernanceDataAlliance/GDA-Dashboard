@@ -10,13 +10,6 @@ module.exports = function(grunt) {
           dest: '<%= dist %>',
           config: '_config.yml'
         }
-      },
-      serve: {
-        options: {
-          serve: true,
-          dest: '_site',
-          future: true
-        }
       }
     },
 
@@ -50,11 +43,24 @@ module.exports = function(grunt) {
       js: {
         files: ['js/src/**/*'],
         tasks: ['browserify:main']
+      },
+      jekyll: {
+        files: ['*'],
+        tasks: ['jekyll:dist']
       }
     },
 
     clean: {
       test: ['js/test/bundle.js']
+    },
+
+    connect: {
+      server: {
+        options: {
+          port: 4000,
+          base: '_site'
+        }
+      }
     }
   });
 
@@ -63,8 +69,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
-  grunt.registerTask('default', ['jekyll']);
-  grunt.registerTask('build', ['browserify:main']);
+  grunt.registerTask('build', ['browserify:main', 'jekyll:dist']);
+  grunt.registerTask('default', ['build', 'connect', 'watch']);
   grunt.registerTask('test', ['clean:test', 'browserify:test', 'jasmine']);
 };
