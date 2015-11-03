@@ -10,6 +10,7 @@
     "jasmine": "^2.3.2",
     "jasmine-ajax": "^3.2.0",
     "jquery": "^2.1.4",
+    "lodash": "^3.10.1",
     "sinon": "^1.17.2",
     "watchify": "^3.5.0"
   },

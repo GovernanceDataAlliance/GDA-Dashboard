@@ -1,5 +1,6 @@
 var Backbone = require('backbone'),
-    format = require('./format.js');
+    format = require('./format.js'),
+    _ = require('lodash');
 
 var BASE_URL = "http://{0}.cartodb.com/api/v2/sql";
 
@@ -16,7 +17,12 @@ var CartoDBModel = Backbone.Model.extend({
 
     var where = "";
     if (this.id !== undefined) {
-      where = "WHERE id="+this.id;
+      var id_field = this.id_field || 'id';
+
+      var id = this.id;
+      if (_.isString(id)) { id = "'"+id+"'"; }
+
+      where = "WHERE " + id_field + "=" + id;
     }
 
     return format("SELECT {0} FROM {1} {2}", columns, this.table, where);
