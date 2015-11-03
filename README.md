@@ -26,10 +26,17 @@ npm start
 
 ## Deployment
 
+### Continuous Integration
+
+The app is staged on Github Pages, and is continuously deployed using
+Travis. When code is pushed to `develop`, Travis will run the tests and
+will automatically deploy to Github Pages if they pass. Take a look at
+`/scripts/cibuild` if you want to see how it works.
+
 ### Staging
 
-The app is staged on Github Pages, and we have a command to do
-everything for you:
+As said, the app is staged on Github Pages automatically, but there is a
+command should you need to do it manually (probably never):
 
 ```
 npm run deploy
