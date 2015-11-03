@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 
     browserify: {
       main: {
-        src: ['js/src/**/*.js'],
+        src: ['js/src/main.js'],
         dest: 'js/bundle.js'
       },
 
