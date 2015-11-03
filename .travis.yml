@@ -6,6 +6,9 @@ before_script:
 - npm install -g grunt-cli
 script: npm test
 after_success: bash ./scripts/cibuild
+branches:
+  only:
+    - develop
 env:
   global:
   - GH_REF: github.com/Vizzuality/GDA-Dashboard.git
