@@ -31,12 +31,18 @@ module.exports = function(grunt) {
     browserify: {
       main: {
         src: ['js/src/main.js'],
-        dest: 'js/bundle.js'
+        dest: 'js/bundle.js',
+        options: {
+          transform: ['brfs']
+        }
       },
 
       test: {
         src: ['js/test/**/*.js'],
-        dest: 'js/test/bundle.js'
+        dest: 'js/test/bundle.js',
+        options: {
+          transform: ['brfs']
+        }
       }
     },
 
