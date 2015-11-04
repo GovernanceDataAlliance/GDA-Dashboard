@@ -1,14 +1,20 @@
+var rewriteRulesSnippet = require("grunt-connect-rewrite/lib/utils").rewriteRequest;
+var serveStatic = require('serve-static');
+
 module.exports = function(grunt) {
   grunt.initConfig({
     jekyll: {
       options: {
         bundleExec: true,
-        src : '<%= app %>'
+        src : '<%= app %>',
+        dest: '<%= dist %>',
+        config: '_config.yml'
       },
-      dist: {
+      dist: { options: {} },
+      dev: {
         options: {
-          dest: '<%= dist %>',
-          config: '_config.yml'
+          watch: true,
+          incremental: true
         }
       }
     },
@@ -45,7 +51,7 @@ module.exports = function(grunt) {
         tasks: ['browserify:main']
       },
       jekyll: {
-        files: ['*'],
+        files: ['js/src/**/*', '**/*.html', 'css/**/*', '_sass/**/*'],
         tasks: ['jekyll:dist']
       }
     },
@@ -55,10 +61,19 @@ module.exports = function(grunt) {
     },
 
     connect: {
-      server: {
+      options: {
+        debug: true,
+        port: 4000,
+        base: '_site',
+      },
+      rules: [
+        {from: '(^((?!css|html|js|img|fonts|\/$).)*$)', to: "$1.html"}
+      ],
+      development: {
         options: {
-          port: 4000,
-          base: '_site'
+          middleware: function (connect, options) {
+            return [rewriteRulesSnippet, serveStatic(require("path").resolve(options.base[0]))];
+          }
         }
       }
     }
@@ -70,8 +85,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks("grunt-connect-rewrite");
 
   grunt.registerTask('build', ['browserify:main', 'jekyll:dist']);
-  grunt.registerTask('default', ['build', 'connect', 'watch']);
+  grunt.registerTask('default', ['build', 'configureRewriteRules', 'connect:development', 'watch']);
   grunt.registerTask('test', ['clean:test', 'browserify:test', 'jasmine']);
 };
