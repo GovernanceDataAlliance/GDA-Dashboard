@@ -36,6 +36,14 @@ module.exports = function(grunt) {
         }
       },
 
+      countries: {
+        src: ['js/src/countries_main.js'],
+        dest: 'js/countries_bundle.js',
+        options: {
+          transform: ['brfs']
+        }
+      },
+
       test: {
         src: ['js/test/**/*.js'],
         dest: 'js/test/bundle.js',
@@ -48,7 +56,7 @@ module.exports = function(grunt) {
     watch: {
       js: {
         files: ['js/src/**/*'],
-        tasks: ['browserify:main']
+        tasks: ['browserify:main', 'browserify:countries']
       },
       jekyll: {
         files: ['js/src/**/*', '**/*.html', 'css/**/*', '_sass/**/*'],
@@ -87,7 +95,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks("grunt-connect-rewrite");
 
-  grunt.registerTask('build', ['browserify:main', 'jekyll:dist']);
+  grunt.registerTask('build', ['browserify:main', 'browserify:countries', 'jekyll:dist']);
   grunt.registerTask('default', ['build', 'configureRewriteRules', 'connect:development', 'watch']);
   grunt.registerTask('test', ['clean:test', 'browserify:test', 'jasmine']);
 };
