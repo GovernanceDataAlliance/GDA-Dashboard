@@ -7,7 +7,9 @@ describe('Countries Router', function() {
   var router;
 
   beforeEach(function() {
-    router = new Router();
+    router = new Router({$el: {}});
+    sinon.stub(router.views);
+
     Backbone.history.start();
   });
 
