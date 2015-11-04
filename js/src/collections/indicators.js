@@ -3,9 +3,7 @@ var CONFIG = require('../../config.json');
 
 var Handlebars = require('handlebars');
 
-var fs = require('fs');
-var SQL = Handlebars.compile(
-  fs.readFileSync(__dirname + '/../templates/queries/indicators.sql.hbs', 'utf8'));
+var SQL = Handlebars.compile(require('../templates/queries/indicators.sql.hbs'));
 
 var Indicators = CartoDBCollection.extend({
   user_name: CONFIG.cartodb.user_name,

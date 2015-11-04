@@ -1,5 +1,6 @@
 var rewriteRulesSnippet = require("grunt-connect-rewrite/lib/utils").rewriteRequest;
 var serveStatic = require('serve-static');
+var stringify = require('stringify');
 
 module.exports = function(grunt) {
   grunt.initConfig({
@@ -32,7 +33,7 @@ module.exports = function(grunt) {
         src: ['js/src/main.js'],
         dest: 'js/bundle.js',
         options: {
-          transform: ['brfs']
+          transform: [stringify(['.hbs', '.txt', '.sql', '.md'])]
         }
       },
 
@@ -40,7 +41,7 @@ module.exports = function(grunt) {
         src: ['js/src/countries_main.js'],
         dest: 'js/countries_bundle.js',
         options: {
-          transform: ['brfs']
+          transform: [stringify(['.hbs', '.txt', '.sql', '.md'])]
         }
       },
 
@@ -48,7 +49,7 @@ module.exports = function(grunt) {
         src: ['js/test/**/*.js'],
         dest: 'js/test/bundle.js',
         options: {
-          transform: ['brfs']
+          transform: [stringify(['.hbs', '.txt', '.sql', '.md'])]
         }
       }
     },
