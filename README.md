@@ -24,6 +24,15 @@ npm start
 
 [Go go go!](http://localhost:4000)
 
+## Jekyll
+
+### Adding new pages
+
+In development, and on Github Pages, requests are rewritten to `.html`
+files as necessary. For example, `/countries --> /countries.html`. So,
+creating a new page is easy: just add a new HTML file! Jekyll will
+handle compilation, and the middleware will handle rewriting.
+
 ## Deployment
 
 ### Continuous Integration
