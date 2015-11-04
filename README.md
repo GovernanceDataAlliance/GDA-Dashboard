@@ -24,12 +24,28 @@ npm start
 
 [Go go go!](http://localhost:4000)
 
+## Jekyll
+
+### Adding new pages
+
+In development, and on Github Pages, requests are rewritten to `.html`
+files as necessary. For example, `/countries --> /countries.html`. So,
+creating a new page is easy: just add a new HTML file! Jekyll will
+handle compilation, and the middleware will handle rewriting.
+
 ## Deployment
+
+### Continuous Integration
+
+The app is staged on Github Pages, and is continuously deployed using
+Travis. When code is pushed to `develop`, Travis will run the tests and
+will automatically deploy to Github Pages if they pass. Take a look at
+`/scripts/cibuild` if you want to see how it works.
 
 ### Staging
 
-The app is staged on Github Pages, and we have a command to do
-everything for you:
+As said, the app is staged on Github Pages automatically, but there is a
+command should you need to do it manually (probably never):
 
 ```
 npm run deploy
