@@ -1,14 +1,20 @@
-<header class="l-header">
-	<div class="wrapper">
-	  <a class="c-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
+<header class="l-header is-{{ page.name }}">
+	<div class="wrap">
+		<div class="row">
+			<div class="grid-6">
+		  	<a class="c-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
+			</div>
 
-	  <nav class="m-site-navigation">
-	  	<ul>
-	  		<li><a href="#">Countries</a></li>
-	  		<li><a href="#">Indexes</a></li>
-	  		<li><a href="#">About the Alliance</a></li>
-	  	</ul>
-	  </nav>	
+			<div class="grid-4 offset-2">
+			  <nav>
+			  	<ul class="m-site-navigation">
+			  		<li><a href="#">Countries</a></li>
+			  		<li><a href="#">Indexes</a></li>
+			  		<li><a href="#">About the Alliance</a></li>
+			  	</ul>
+			  </nav>	
+			</div>
+		</div>
 	</div>
 
 </header>

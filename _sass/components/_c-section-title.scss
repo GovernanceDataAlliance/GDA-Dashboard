@@ -1,0 +1,11 @@
+.c-section-title {
+	font-size: rem(72px);
+
+	&.-light {
+		color: $font-color-3;
+	}
+
+	&.-dark {
+		color: $font-color-2;
+	}
+}

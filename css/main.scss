@@ -9,13 +9,17 @@
   "helpers",
   "components",
 
-  "layout/layout",
-  "layout/grid",
-
   "base/general",
-  "base/buttons",
-  "base/icons",
-  "base/form",
-  "base/table",
+
+  "layout/grid",
+  "layout/l-banner",
+  "layout/l-content",
+  "layout/l-footer",
+  "layout/l-header",
+  "layout/l-prefooter",
+
+  "modules/m-site-navigation",
+
+  "components/c-section-title",
 
   "states";

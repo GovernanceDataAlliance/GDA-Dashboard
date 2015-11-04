@@ -1,3 +1,10 @@
 .l-footer {
-	
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-content: center;
+	height: rem(60px);
+	background-color: $color-1;
 }
