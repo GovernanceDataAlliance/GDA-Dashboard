@@ -3,13 +3,10 @@
   "helpers",
   "components",
 
-  "layout/layout",
-  "layout/grid",
+  "layout/*",
 
-  "base/general",
-  "base/buttons",
-  "base/icons",
-  "base/form",
-  "base/table",
+  "base/*",
+
+  "modules/*"
 
   "states";
