@@ -69,6 +69,15 @@ module.exports = function(grunt) {
       test: ['js/test/bundle.js']
     },
 
+    uglify: {
+      dist: {
+        files: {
+          'js/bundle.js': 'js/bundle.js',
+          'js/countries_bundle.js': 'js/countries_bundle.js'
+        }
+      }
+    },
+
     connect: {
       options: {
         debug: true,
@@ -95,8 +104,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks("grunt-connect-rewrite");
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   grunt.registerTask('build', ['browserify:main', 'browserify:countries', 'jekyll:dist']);
+  grunt.registerTask('dist', ['build', 'uglify:dist']);
   grunt.registerTask('default', ['build', 'configureRewriteRules', 'connect:development', 'watch']);
   grunt.registerTask('test', ['clean:test', 'browserify:test', 'jasmine']);
 };
