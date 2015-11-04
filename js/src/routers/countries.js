@@ -3,6 +3,7 @@ var Backbone = require('backbone');
 var Router = Backbone.Router.extend({
 
   routes: {
+    "compare": "compare",
     ":iso": "show",
     "*path": "index"
   },
@@ -11,6 +12,9 @@ var Router = Backbone.Router.extend({
   },
 
   show: function(iso) {
+  },
+
+  compare: function() {
   }
 
 });
