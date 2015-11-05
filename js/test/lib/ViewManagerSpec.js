@@ -21,6 +21,22 @@ describe('View Manager', function() {
     });
   });
 
+  describe('.getView', function() {
+    var view,
+        viewName = 'show';
+
+    beforeEach(function() {
+      viewManager = new ViewManager({$el: {}});
+
+      view = {};
+      viewManager.addView(viewName, view);
+    });
+
+    it('returns the chosen view', function() {
+      expect(viewManager.getView(viewName)).toBe(view);
+    });
+  });
+
   describe('.showView', function() {
     var showSpy  = sinon.spy(),
         hideSpy  = sinon.spy(),

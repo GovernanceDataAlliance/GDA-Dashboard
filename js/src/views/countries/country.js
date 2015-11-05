@@ -18,13 +18,18 @@ var CountryView = Backbone.View.extend({
       throw new Error('CountryView requires a Country ISO ID');
     }
 
-    this.country = new Country({id: options.iso});
+    this.iso = options.iso;
+    this.initializeData();
+  },
+
+  initializeData: function() {
+    this.country = new Country({id: this.iso});
     this.listenTo(this.country, 'sync', this.renderCountry);
     this.country.fetch();
 
     this.indicators = new Indicators();
     this.listenTo(this.indicators, 'sync', this.renderIndicators);
-    this.indicators.forCountry(options.iso);
+    this.indicators.forCountry(this.iso);
   },
 
   render: function() {
@@ -41,6 +46,16 @@ var CountryView = Backbone.View.extend({
     var listView = new IndicatorListView({
       indicators: this.indicators});
     this.$('.js--indicators').append(listView.render().el);
+  },
+
+  setCountry: function(iso) {
+    if (this.iso === iso) { return; }
+
+    this.stopListening(this.indicators);
+    this.stopListening(this.country);
+
+    this.iso = iso;
+    this.initializeData();
   },
 
   show: function() {

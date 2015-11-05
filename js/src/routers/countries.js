@@ -22,6 +22,8 @@ var Router = Backbone.Router.extend({
     if (!this.views.hasView('show')) {
       var view = new CountryView({iso: iso});
       this.views.addView('show', view);
+    } else {
+      this.views.getView('show').setCountry(iso);
     }
 
     this.views.showView('show');
