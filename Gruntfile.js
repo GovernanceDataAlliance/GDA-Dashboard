@@ -55,13 +55,9 @@ module.exports = function(grunt) {
     },
 
     watch: {
-      js: {
-        files: ['js/src/**/*'],
-        tasks: ['browserify:main', 'browserify:countries']
-      },
-      jekyll: {
+      all: {
         files: ['js/src/**/*', '**/*.html', 'css/**/*', '_sass/**/*'],
-        tasks: ['jekyll:dist']
+        tasks: ['browserify:main', 'browserify:countries', 'jekyll:dist']
       }
     },
 
