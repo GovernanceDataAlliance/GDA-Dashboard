@@ -5,7 +5,11 @@ var BASE_URL = "http://{0}.cartodb.com/api/v2/sql";
 
 var CartoDBCollection = Backbone.Collection.extend({
   url: function() {
-    return format(BASE_URL, this.user_name) + "?q=" + this._getQuery();
+    return this._urlForQuery(this._getQuery());
+  },
+
+  _urlForQuery: function(query) {
+    return format(BASE_URL, this.user_name) + "?q=" + query;
   },
 
   _getQuery: function() {

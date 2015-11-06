@@ -1,0 +1,139 @@
+{
+  "success": {
+    "rows": [{
+      "desired_direction": null,
+      "has_historical_info": null,
+      "max_score": 100,
+      "methodology_link": null,
+      "min_score": 0,
+      "product_description": null,
+      "product_logo": null,
+      "product_name": null,
+      "short_name": "irm_action_plan_percent_star",
+      "units": "percent",
+      "iso": "ALB",
+      "notes": null,
+      "score": 23,
+      "score_text": null,
+      "year": 2014
+    },
+    {
+      "desired_direction": null,
+      "has_historical_info": null,
+      "max_score": null,
+      "methodology_link": null,
+      "min_score": null,
+      "product_description": null,
+      "product_logo": null,
+      "product_name": null,
+      "short_name": "irm_action_plan_count_star",
+      "units": "count",
+      "iso": "ALB",
+      "notes": null,
+      "score": 7,
+      "score_text": null,
+      "year": 2014
+    },
+    {
+      "desired_direction": null,
+      "has_historical_info": null,
+      "max_score": 1,
+      "methodology_link": null,
+      "min_score": 0,
+      "product_description": null,
+      "product_logo": null,
+      "product_name": null,
+      "short_name": "ogp_regular_consult_forum",
+      "units": "yes/no",
+      "iso": "ALB",
+      "notes": null,
+      "score": 0,
+      "score_text": "No",
+      "year": 2015
+    },
+    {
+      "desired_direction": null,
+      "has_historical_info": null,
+      "max_score": 1,
+      "methodology_link": null,
+      "min_score": 0,
+      "product_description": null,
+      "product_logo": null,
+      "product_name": null,
+      "short_name": "ogp_regular_consult_forum",
+      "units": "yes/no",
+      "iso": "ALB",
+      "notes": null,
+      "score": 0,
+      "score_text": "No",
+      "year": 2014
+    },
+    {
+      "desired_direction": null,
+      "has_historical_info": null,
+      "max_score": 150,
+      "methodology_link": null,
+      "min_score": 0,
+      "product_description": null,
+      "product_logo": null,
+      "product_name": null,
+      "short_name": "rti_rating",
+      "units": "count",
+      "iso": "ALB",
+      "notes": null,
+      "score": 69,
+      "score_text": null,
+      "year": 2015
+    }
+    ],
+    "time": 0.002,
+    "fields": {
+      "desired_direction": {
+        "type": "string"
+      },
+      "has_historical_info": {
+        "type": "boolean"
+      },
+      "max_score": {
+        "type": "number"
+      },
+      "methodology_link": {
+        "type": "string"
+      },
+      "min_score": {
+        "type": "number"
+      },
+      "product_description": {
+        "type": "string"
+      },
+      "product_logo": {
+        "type": "string"
+      },
+      "product_name": {
+        "type": "string"
+      },
+      "short_name": {
+        "type": "string"
+      },
+      "units": {
+        "type": "string"
+      },
+      "iso": {
+        "type": "string"
+      },
+      "notes": {
+        "type": "string"
+      },
+      "score": {
+        "type": "number"
+      },
+      "score_text": {
+        "type": "string"
+      },
+      "year": {
+        "type": "number"
+      }
+    },
+    "total_rows": 5
+  }
+}
