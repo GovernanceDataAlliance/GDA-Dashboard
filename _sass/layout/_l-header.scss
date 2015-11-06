@@ -1,13 +1,13 @@
 /* Layout header */
 .l-header {
-	padding: rem(20px) 0;
+  padding: rem(20px) 0;
 
-	> .wrap {
-		display: flex;
-		align-content: center;
-		justify-content: space-between;
-	}
+  > .wrap {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+  }
 
-	@media screen and (min-width: $screen-m) {
-	}
+  @media screen and (min-width: $screen-m) {
+  }
 }

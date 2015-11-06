@@ -1,40 +1,40 @@
 .l-banner {
-	display: flex;
-	padding: rem(50px) 0;
-	background-color: $color-1;
-	text-align: center;
+  display: flex;
+  padding: rem(50px) 0;
+  background-color: $color-1;
+  text-align: center;
 
-	> .wrap {
-		display: flex;
-		justify-content: center;
-		flex-direction: column;
-	}
+  > .wrap {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
 
 
-	@media screen and (min-width: $screen-m) {
-		min-height: rem(525px);
-		padding: rem(60px) 0;
+  @media screen and (min-width: $screen-m) {
+    min-height: rem(525px);
+    padding: rem(60px) 0;
 
-		&.-main {
-			min-height: rem(810px);
-			padding: rem(195px) 0 rem(110px) 0;
-			background-color: $color-1;
+    &.-main {
+      min-height: rem(810px);
+      padding: rem(195px) 0 rem(110px) 0;
+      background-color: $color-1;
 
-			> .wrap {
-				justify-content: space-between;
-			}
-		}
+      > .wrap {
+        justify-content: space-between;
+      }
+    }
 
-		&.-detail {
-			min-height: rem(435px);
-			padding: rem(60px) 0;
-			background-color: $white;
-			text-align: left;
+    &.-detail {
+      min-height: rem(435px);
+      padding: rem(60px) 0;
+      background-color: $white;
+      text-align: left;
 
-			> .wrap {
-				align-items: flex-start;
-				justify-content: space-between;
-			}
-		}
-	}
+      > .wrap {
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+    }
+  }
 }

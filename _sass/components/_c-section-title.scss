@@ -1,42 +1,42 @@
 .c-section-title {
-	font-size: rem(46px);
-	line-height: 1em;
-	padding-bottom: rem(20px);
+  font-size: rem(46px);
+  line-height: 1em;
+  padding-bottom: rem(20px);
 
-	&.-light {
-		color: $font-color-3;
-	}
+  &.-light {
+    color: $font-color-3;
+  }
 
-	&.-dark {
-		color: $font-color-2;
-	}
+  &.-dark {
+    color: $font-color-2;
+  }
 
-	&.-secondary {
-		font-size: rem(24px);
-		text-align: center;
-	}
+  &.-secondary {
+    font-size: rem(24px);
+    text-align: center;
+  }
 
-	&.-highlighted {
-		position: relative;
+  &.-highlighted {
+    position: relative;
 
-		&:after {
-			content: "";
-			@extend %centerx;
-			bottom: 0;
-			width: rem(60px);
-			height: rem(4px);
-			background-color: $color-3;
-		}
-	}
+    &:after {
+      content: "";
+      @extend %centerx;
+      bottom: 0;
+      width: rem(60px);
+      height: rem(4px);
+      background-color: $color-3;
+    }
+  }
 
-	@media screen and (min-width: $screen-m) {
-		font-size: rem(72px);
-		
-		&.-secondary {
-			max-width: 75%;
-			margin: 0 auto;
-			font-size: rem(46px);
-		}
+  @media screen and (min-width: $screen-m) {
+    font-size: rem(72px);
 
-	}
+    &.-secondary {
+      max-width: 75%;
+      margin: 0 auto;
+      font-size: rem(46px);
+    }
+
+  }
 }

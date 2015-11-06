@@ -1,22 +1,22 @@
 .l-footer {
-	background-color: $color-1;
+  background-color: $color-1;
 
-	> .wrap {
-		display: flex;
-		flex-direction: column;
-		padding: rem(20px) 0;
-		align-items: center;
-	}
+  > .wrap {
+    display: flex;
+    flex-direction: column;
+    padding: rem(20px) 0;
+    align-items: center;
+  }
 
-	@media screen and (min-width: $screen-m) {
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		right: 0;
+  @media screen and (min-width: $screen-m) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
-		> .wrap {
-			flex-direction: row;
-			justify-content: space-between;
-		}
-	}
+    > .wrap {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
 }
