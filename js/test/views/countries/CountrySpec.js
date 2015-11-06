@@ -29,50 +29,6 @@ describe('Country View', function() {
     var oldIso = 'GBR',
         newIso = 'ALB';
 
-    describe("given the same ISO", function() {
-      var view;
-      var sandbox;
-      var countryFetchSpy,
-          indicatorsFetchSpy;
-      var renderCountrySpy,
-          renderIndicatorsSpy;
-
-      beforeEach(function() {
-        sandbox = sinon.sandbox.create();
-        countryFetchSpy = sandbox.spy(Country.prototype, 'fetch');
-        indicatorsFetchSpy = sandbox.spy(Indicators.prototype, 'forCountry');
-
-        view = new CountryView({iso: oldIso});
-        renderCountrySpy = sandbox.spy(view, 'renderCountry');
-        renderIndicatorsSpy = sandbox.spy(view, 'renderIndicators');
-
-        view.setCountry(oldIso);
-
-        server.respondWith(JSON.stringify(responses.success));
-        server.respond();
-      });
-
-      afterEach(function() {
-        sandbox.restore();
-      });
-
-      it("does not render countries", function() {
-        expect(renderCountrySpy.callCount).toBe(0);
-      });
-
-      it("does not render indicators", function() {
-        expect(renderIndicatorsSpy.callCount).toBe(0);
-      });
-
-      it("does not fetch the country", function() {
-        expect(countryFetchSpy.callCount).toBe(2);
-      });
-
-      it("does not fetch the indicators", function() {
-        expect(indicatorsFetchSpy.callCount).toBe(1);
-      });
-    });
-
     describe("given a new ISO", function() {
       var view;
       var sandbox;
