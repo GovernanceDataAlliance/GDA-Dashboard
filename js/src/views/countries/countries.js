@@ -13,7 +13,6 @@ var CountriesView = Backbone.View.extend({
     options = options || {};
 
     this.countries = new Countries();
-    this.listenTo(this.countries, 'sync', this.renderCountryList);
   },
 
   render: function() {
