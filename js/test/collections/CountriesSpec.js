@@ -1,4 +1,4 @@
-var Countries = require('../../collections/countries.js');
+var Countries = require('../../src/collections/countries.js');
 
 describe("Countries", function() {
 

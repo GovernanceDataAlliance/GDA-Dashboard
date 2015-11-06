@@ -4,4 +4,5 @@ _site
 node_modules
 
 js/bundle.js
+js/countries_bundle.js
 js/test/bundle.js

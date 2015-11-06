@@ -1,14 +1,21 @@
+var rewriteRulesSnippet = require("grunt-connect-rewrite/lib/utils").rewriteRequest;
+var serveStatic = require('serve-static');
+var stringify = require('stringify');
+
 module.exports = function(grunt) {
   grunt.initConfig({
     jekyll: {
       options: {
         bundleExec: true,
-        src : '<%= app %>'
+        src : '<%= app %>',
+        dest: '<%= dist %>',
+        config: '_config.yml'
       },
-      dist: {
+      dist: { options: {} },
+      dev: {
         options: {
-          dest: '<%= dist %>',
-          config: '_config.yml'
+          watch: true,
+          incremental: true
         }
       }
     },
@@ -23,23 +30,37 @@ module.exports = function(grunt) {
 
     browserify: {
       main: {
-        src: ['js/src/**/*.js'],
-        dest: 'js/bundle.js'
+        src: ['js/src/main.js'],
+        dest: 'js/bundle.js',
+        options: {
+          transform: [stringify(['.hbs', '.txt', '.sql', '.md'])]
+        }
+      },
+
+      countries: {
+        src: ['js/src/countries_main.js'],
+        dest: 'js/countries_bundle.js',
+        options: {
+          transform: [stringify(['.hbs', '.txt', '.sql', '.md'])]
+        }
       },
 
       test: {
         src: ['js/test/**/*.js'],
-        dest: 'js/test/bundle.js'
+        dest: 'js/test/bundle.js',
+        options: {
+          transform: [stringify(['.hbs', '.txt', '.sql', '.md'])]
+        }
       }
     },
 
     watch: {
       js: {
         files: ['js/src/**/*'],
-        tasks: ['browserify:main']
+        tasks: ['browserify:main', 'browserify:countries']
       },
       jekyll: {
-        files: ['*'],
+        files: ['js/src/**/*', '**/*.html', 'css/**/*', '_sass/**/*'],
         tasks: ['jekyll:dist']
       }
     },
@@ -48,11 +69,29 @@ module.exports = function(grunt) {
       test: ['js/test/bundle.js']
     },
 
+    uglify: {
+      dist: {
+        files: {
+          'js/bundle.js': 'js/bundle.js',
+          'js/countries_bundle.js': 'js/countries_bundle.js'
+        }
+      }
+    },
+
     connect: {
-      server: {
+      options: {
+        debug: true,
+        port: 4000,
+        base: '_site',
+      },
+      rules: [
+        {from: '(^((?!css|html|js|img|fonts|\/$).)*$)', to: "$1.html"}
+      ],
+      development: {
         options: {
-          port: 4000,
-          base: '_site'
+          middleware: function (connect, options) {
+            return [rewriteRulesSnippet, serveStatic(require("path").resolve(options.base[0]))];
+          }
         }
       }
     }
@@ -64,8 +103,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks("grunt-connect-rewrite");
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('build', ['browserify:main', 'jekyll:dist']);
-  grunt.registerTask('default', ['build', 'connect', 'watch']);
+  grunt.registerTask('build', ['browserify:main', 'browserify:countries', 'jekyll:dist']);
+  grunt.registerTask('dist', ['build', 'uglify:dist']);
+  grunt.registerTask('default', ['build', 'configureRewriteRules', 'connect:development', 'watch']);
   grunt.registerTask('test', ['clean:test', 'browserify:test', 'jasmine']);
 };

@@ -1,6 +1,6 @@
 var sinon = require('sinon');
 
-var CartoDBCollection = require('../../lib/cartodb_collection.js');
+var CartoDBCollection = require('../../src/lib/cartodb_collection.js');
 
 var responses = require('../responses/cartodb_collection.json');
 
