@@ -18,10 +18,19 @@ var CountryListView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(template({
-      countriesByRegion: this.countries.groupByRegion()
+      countriesByRegion: this._getRegions()
     }));
 
     return this;
+  },
+
+  _getRegions: function() {
+    var groupedRegions = this.countries.groupByRegion();
+    var sortedRegions = _.mapValues(groupedRegions, function(countries, region) {
+      return _.sortBy(countries, 'name');
+    });
+
+    return sortedRegions;
   }
 });
 
