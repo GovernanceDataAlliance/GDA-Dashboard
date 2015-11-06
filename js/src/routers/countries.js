@@ -1,7 +1,8 @@
 var Backbone = require('backbone');
 
 var ViewManager = require('../lib/view_manager.js'),
-    CountryView = require('../views/countries/country.js');
+    CountryView = require('../views/countries/country.js'),
+    CountriesView = require('../views/countries/countries.js');
 
 var Router = Backbone.Router.extend({
 
@@ -16,6 +17,12 @@ var Router = Backbone.Router.extend({
   },
 
   index: function() {
+    if (!this.views.hasView('index')) {
+      var view = new CountriesView();
+      this.views.addView('index', view);
+    }
+
+    this.views.showView('index');
   },
 
   show: function(iso) {

@@ -60,7 +60,9 @@ var CountryView = Backbone.View.extend({
 
   show: function() {
     this.render();
-  }
+  },
+
+  hide: function() {}
 });
 
 module.exports = CountryView;
