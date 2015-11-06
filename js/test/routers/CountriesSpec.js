@@ -2,6 +2,7 @@ var sinon = require('sinon');
 
 var Backbone = require('backbone');
 var Router = require('../../src/routers/countries.js');
+var CountryView = require('../../src/views/countries/country.js');
 
 describe('Countries Router', function() {
   var router;
@@ -38,16 +39,24 @@ describe('Countries Router', function() {
 
     it('triggers the "show" route', function () {
       var show = spyOn(router, 'show').and.callThrough();
-
       var updateHashSpy = spyOn(Backbone.history, '_updateHash').and.callFake(function (loc, frag) {
         expect(frag).toEqual('/'+ISO);
-        router.show();
+        router.show(frag);
       });
 
       router.navigate('#/'+ISO, {trigger: true});
 
       expect(updateHashSpy).toHaveBeenCalled();
       expect(show).toHaveBeenCalled();
+    });
+
+    it('creates a CountryView and passes in the iso', function() {
+      var initSpy = spyOn(CountryView.prototype, 'initialize');
+
+      router.navigate('#/'+ISO, {trigger: true});
+
+      expect(initSpy).toHaveBeenCalled();
+      expect(initSpy).toHaveBeenCalledWith({iso: ISO});
     });
   });
 

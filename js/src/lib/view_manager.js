@@ -17,6 +17,10 @@ var ViewManager = Backbone.Model.extend({
     this.set('views', views);
   },
 
+  getView: function(viewName) {
+    return this.get('views')[viewName];
+  },
+
   showView: function(viewName) {
     var view = this.get('views')[viewName];
     if (view !== undefined) {
