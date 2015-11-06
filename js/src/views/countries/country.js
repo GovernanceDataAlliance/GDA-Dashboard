@@ -32,8 +32,13 @@ var CountryView = Backbone.View.extend({
     this.indicators.forCountry(this.iso);
   },
 
-  render: function() {
+  render: function(rerender) {
     this.$el.html(template());
+
+    if (rerender === true) {
+      this.renderCountry();
+      this.renderIndicators();
+    }
   },
 
   renderCountry: function() {
@@ -49,7 +54,7 @@ var CountryView = Backbone.View.extend({
   },
 
   setCountry: function(iso) {
-    if (this.iso === iso) { return; }
+    if (this.iso === iso) { this.render(true); }
 
     this.stopListening(this.indicators);
     this.stopListening(this.country);
