@@ -1,0 +1,5 @@
+.btn-mobile-menu {
+  @media screen and (min-width: $screen-m) {
+    display: none;
+  }
+}

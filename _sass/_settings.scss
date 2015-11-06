@@ -1,0 +1,65 @@
+/*
+ * Add here values that
+ * affect the whole proyect
+ */
+////////////////////
+//**** Screen ****//
+////////////////////
+$screen-s: 540px;
+$screen-m: 768px;
+$screen-l: 960px;
+$screen-xl: 1200px;
+
+
+////////////////////
+//****  Grid  ****//
+////////////////////
+$grid-columns: 12;
+$grid-max-width: 960px;
+$grid-gutter-width: 1%;
+$grid-padding: 0;
+$wrap-padding: 20px;
+
+
+////////////////////
+//**** Fonts ****//
+////////////////////
+$font-main: 'Karla', sans-serif;
+$font-secondary: 'Arimo';
+
+//Font sizes
+$font-size: 18px;
+
+
+////////////////////
+//**** Colors ****//
+////////////////////
+$white: #fff;
+$black: #000;
+$grey: #69768D;
+$light-grey: #999999;
+$dark-blue: #1F2329;
+$red: #EF5F5F;
+$blue: #ABCEEE;
+$yellow: #FECE08;
+
+$soft-grey: #ddd;
+
+//Theme colors
+$color-1: $dark-blue;
+$color-2: $red;
+$color-3: $yellow;
+
+//Font colors
+$font-color-1: $light-grey;
+$font-color-2: $black;
+$font-color-3: $white;
+
+
+////////////////////
+//**** Margins ***//
+////////////////////
+$margin-extra-large: 40px;
+$margin-large: 30px;
+$margin-medium: 20px;
+$margin-small: 10px;

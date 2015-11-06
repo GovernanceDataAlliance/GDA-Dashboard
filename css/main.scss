@@ -1,9 +1,28 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
+
+
 @charset "utf-8";
+@import 'normalize.scss';
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-        "base"
-;
+  "settings",
+  "helpers",
+
+  "base/general",
+
+  "layout/grid",
+  "layout/l-banner",
+  "layout/l-content",
+  "layout/l-footer",
+  "layout/l-header",
+  "layout/l-prefooter",
+
+  "modules/m-site-navigation",
+
+  "components/buttons",
+  "components/c-section-title",
+
+  "states";
