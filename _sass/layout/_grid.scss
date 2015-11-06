@@ -2,11 +2,7 @@
   display: block;
   max-width: rem($grid-max-width);
   margin: 0 auto;
-  padding: 0 $grid-padding;
-
-  @media screen and (min-width: $screen-xl) {
-    padding: 0 $wrap-padding;
-  }
+  padding: 0 $wrap-padding;
 }
 
 .row {

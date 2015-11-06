@@ -1,5 +1,6 @@
 .c-section-title {
-	font-size: rem(72px);
+	font-size: rem(46px);
+	line-height: 1em;
 
 	&.-light {
 		color: $font-color-3;
@@ -7,5 +8,9 @@
 
 	&.-dark {
 		color: $font-color-2;
+	}
+
+	@media screen and (min-width: $screen-m) {
+		font-size: rem(72px);
 	}
 }

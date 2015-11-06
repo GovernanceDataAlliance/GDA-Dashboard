@@ -1,29 +1,28 @@
 .l-banner {
-		display: flex;
+	display: flex;
+	align-content: center;
+	padding: rem(50px) 0;
+	background-color: $color-1;
+	text-align: center;
 
-	&.-home {
-		min-height: rem(810px);
-		padding: rem(195px) 0 rem(110px) 0;
-		flex-direction: column;
-		align-content: center;
-		justify-content: space-between;
-		background-color: $color-1;
-	}
-
-	&.-section {
+	@media screen and (min-width: $screen-m) {
 		min-height: rem(525px);
-		flex-direction: column;
-		align-content: center;
 		padding: rem(60px) 0;
-		background-color: $color-1;
-	}
 
-	&.-detail {
-		min-height: rem(435px);
-		flex-direction: column;
-		align-content: flex-start;
-		justify-content: space-between;
-		padding: rem(60px) 0;
-		background-color: $white;
+		&.-main {
+			flex-direction: column;
+			min-height: rem(810px);
+			padding: rem(195px) 0 rem(110px) 0;
+			background-color: $color-1;
+		}
+
+		&.-detail {
+			min-height: rem(435px);
+			align-content: flex-start;
+			justify-content: space-between;
+			padding: rem(60px) 0;
+			background-color: $white;
+			text-align: left;
+		}
 	}
 }
