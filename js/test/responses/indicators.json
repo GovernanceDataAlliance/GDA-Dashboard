@@ -135,5 +135,58 @@
       }
     },
     "total_rows": 5
+  },
+  "successSmall": {
+    "rows": [{
+      "desired_direction": null,
+      "has_historical_info": null,
+      "max_score": null,
+      "methodology_link": null,
+      "min_score": null,
+      "product_description": null,
+      "product_logo": null,
+      "product_name": null,
+      "short_name": "irm_action_plan_count_star",
+      "units": "count",
+      "iso": "ALB",
+      "notes": null,
+      "score": 7,
+      "score_text": null,
+      "year": 2014
+    },
+    {
+      "desired_direction": null,
+      "has_historical_info": null,
+      "max_score": 1,
+      "methodology_link": null,
+      "min_score": 0,
+      "product_description": null,
+      "product_logo": null,
+      "product_name": null,
+      "short_name": "ogp_regular_consult_forum",
+      "units": "yes/no",
+      "iso": "ALB",
+      "notes": null,
+      "score": 0,
+      "score_text": "No",
+      "year": 2015
+    },
+    {
+      "desired_direction": null,
+      "has_historical_info": null,
+      "max_score": 1,
+      "methodology_link": null,
+      "min_score": 0,
+      "product_description": null,
+      "product_logo": null,
+      "product_name": null,
+      "short_name": "ogp_regular_consult_forum",
+      "units": "yes/no",
+      "iso": "ALB",
+      "notes": null,
+      "score": 0,
+      "score_text": "No",
+      "year": 2014
+    }]
   }
 }
