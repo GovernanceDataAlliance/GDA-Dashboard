@@ -3,7 +3,9 @@ var sinon = require('sinon');
 var Backbone = require('backbone');
 var Router = require('../../src/routers/indicators.js');
 
-describe('Countries Router', function() {
+var IndicatorView = require('../../src/views/indicators/indicator.js');
+
+describe('Indicator Router', function() {
   var router;
 
   beforeEach(function() {
@@ -31,6 +33,15 @@ describe('Countries Router', function() {
 
       expect(updateHashSpy).toHaveBeenCalled();
       expect(show).toHaveBeenCalled();
+    });
+
+    it('creates a IndicatorView and passes in the id', function() {
+      var initSpy = spyOn(IndicatorView.prototype, 'initialize');
+
+      router.navigate('#/'+id, {trigger: true});
+
+      expect(initSpy).toHaveBeenCalled();
+      expect(initSpy).toHaveBeenCalledWith({id: id});
     });
   });
 

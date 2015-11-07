@@ -1,7 +1,8 @@
 var Backbone = require('backbone');
 
 var ViewManager = require('../lib/view_manager.js'),
-    IndicatorsView = require('../views/indicators/indicators.js');
+    IndicatorsView = require('../views/indicators/indicators.js'),
+    IndicatorView = require('../views/indicators/indicator.js');
 
 var Router = Backbone.Router.extend({
 
@@ -24,6 +25,14 @@ var Router = Backbone.Router.extend({
   },
 
   show: function(id) {
+    if (!this.views.hasView('show')) {
+      var view = new IndicatorView({id: id});
+      this.views.addView('show', view);
+    } else {
+      this.views.getView('show').setIndicator(id);
+    }
+
+    this.views.showView('show');
   }
 
 });
