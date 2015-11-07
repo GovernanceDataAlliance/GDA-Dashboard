@@ -1,4 +1,5 @@
 var _ = require('lodash');
+var sinon = require('sinon');
 
 var Countries = require('../../src/collections/countries.js');
 
@@ -58,6 +59,38 @@ describe("Countries", function() {
       var oceania = groupedCollection['Oceania'];
       expect(oceania).toBeDefined();
       expect(oceania[0].name).toEqual('Kiribati');
+    });
+  });
+
+  describe(".withRankForIndicator", function() {
+    var requests;
+
+    beforeEach(function() {
+      var xhr = sinon.useFakeXMLHttpRequest();
+      requests = [];
+
+      xhr.onCreate = function (xhr) {
+        requests.push(xhr);
+      };
+    });
+
+    describe('given an indicator id', function() {
+      var ID = 'environmental_democracy_index';
+      var request;
+
+      beforeEach(function() {
+        collection = new Countries({});
+        collection.withRankForIndicator(ID);
+
+        request = requests[0];
+        request.respond(200, { "Content-Type": "application/json" }, '[{}]');
+      });
+
+      it('sends a query to get all attributes', function() {
+        var paramsRegex = new RegExp("\\?q=SELECT .*, rank\\(\\) OVER \\(PARTITION BY short_name ORDER BY score DESC\\) AS rank FROM indicator_data i JOIN world_borders c ON i.iso=c.iso3 WHERE i.short_name = '"+ID+"'");
+        expect(request.url.replace(/\n/gm," ").replace(/\s+/g,' ').trim()).
+          toMatch(paramsRegex);
+      });
     });
   });
 });

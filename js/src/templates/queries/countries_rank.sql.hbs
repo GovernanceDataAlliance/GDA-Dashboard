@@ -1,0 +1,10 @@
+SELECT
+  c.name,
+  i.iso,
+  i.short_name,
+  i.score,
+  rank() OVER (PARTITION BY short_name ORDER BY score DESC) AS rank
+FROM indicator_data i
+  JOIN world_borders c
+    ON i.iso=c.iso3
+WHERE i.short_name = '{{id}}'
