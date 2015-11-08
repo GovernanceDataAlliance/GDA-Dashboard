@@ -1,8 +1,10 @@
-var Backbone = require('backbone');
+var Backbone = require('backbone'),
+    URI = require('urijs');
 
 var ViewManager = require('../lib/view_manager.js'),
     CountryView = require('../views/countries/country.js'),
-    CountriesView = require('../views/countries/countries.js');
+    CountriesView = require('../views/countries/countries.js'),
+    CompareView = require('../views/countries/compare.js');
 
 var Router = Backbone.Router.extend({
 
@@ -37,6 +39,15 @@ var Router = Backbone.Router.extend({
   },
 
   compare: function() {
+    var params = URI("?" + window.location.hash.split("?")[1]).query(true);
+        countries = params['countries[]'];
+
+    if (!this.views.hasView('compare')) {
+      var view = new CompareView({countries: countries});
+      this.views.addView('compare', view);
+    }
+
+    this.views.showView('compare');
   }
 
 });
