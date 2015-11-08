@@ -4,6 +4,7 @@
   "description": "The Governance Data Alliance is a group of NGOs, governments, firms, and donors who are working to improve the quality, availability, breadth, and use of governance data.",
   "main": "js/bundle.js",
   "dependencies": {
+    "async": "^1.5.0",
     "backbone": "^1.2.3",
     "backbone.marionette": "^2.4.3",
     "browserify": "^12.0.0",
