@@ -14,10 +14,21 @@ var Countries = CartoDBCollection.extend({
 
   url: function() {
     // Ignore countries without a valid region ID
-    var whereClause = "WHERE region > 0",
-        query = [this._getQuery(), whereClause].join(" ");
+    var whereClause = "WHERE region > 0";
 
+    var query = [this._getQuery(), whereClause].join(" ");
     return this._urlForQuery(query);
+  },
+
+  forIds: function(ids) {
+    var id = [].
+      concat(ids).
+      map(function(i) { return "'"+i+"'"; }).
+      join(", ");
+    var whereClause = "AND iso3 IN (" + id + ")";
+
+    var url = [this.url(), whereClause].join(" ");
+    return this.fetch({url: url});
   },
 
   groupByRegion: function() {

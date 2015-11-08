@@ -22,6 +22,36 @@ describe("Countries", function() {
     });
   });
 
+  describe(".forIds", function() {
+    var requests;
+
+    beforeEach(function() {
+      var xhr = sinon.useFakeXMLHttpRequest();
+      requests = [];
+
+      xhr.onCreate = function (xhr) {
+        requests.push(xhr);
+      };
+    });
+
+    describe("given multiple IDs", function() {
+      var request;
+
+      beforeEach(function() {
+        var collection = new Countries();
+        collection.forIds(['GBR', 'ALB']);
+
+        request = requests[0];
+        request.respond(200, { "Content-Type": "application/json" }, "[{}]");
+      });
+
+      it("appends filters to retrieve only countries with those IDs", function() {
+        var paramsRegex = new RegExp("WHERE .* AND iso3 IN \\('GBR', 'ALB'\\)$");
+        expect(request.url).toMatch(paramsRegex);
+      });
+    });
+  });
+
   describe(".groupByRegion", function() {
     var collection,
         groupedCollection;
