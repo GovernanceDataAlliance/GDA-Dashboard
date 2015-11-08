@@ -1,0 +1,33 @@
+{
+  "forComparison": [
+    [{
+      "desired_direction":null,"has_historical_info":null,"max_score":100,"methodology_link":null,"min_score":0,"product_description":null,"product_logo":null,"product_name":null,"short_name":"irm_action_plan_percent_star","units":"percent","iso":"GBR","notes":null,"score":19,"score_text":null,"year":2015
+    },{
+      "desired_direction":null,"has_historical_info":null,"max_score":null,"methodology_link":null,"min_score":null,"product_description":null,"product_logo":null,"product_name":null,"short_name":"irm_action_plan_count_star","units":"count","iso":"GBR","notes":null,"score":4,"score_text":null,"year":2015
+    },{
+      "desired_direction":null,"has_historical_info":null,"max_score":1,"methodology_link":null,"min_score":0,"product_description":null,"product_logo":null,"product_name":null,"short_name":"ogp_regular_consult_forum","units":"yes/no","iso":"GBR","notes":null,"score":1,"score_text":"Yes","year":2015
+    },{
+      "desired_direction":null,"has_historical_info":null,"max_score":1,"methodology_link":null,"min_score":0,"product_description":null,"product_logo":null,"product_name":null,"short_name":"ogp_regular_consult_forum","units":"yes/no","iso":"GBR","notes":null,"score":1,"score_text":"Yes","year":2014
+    },{
+      "desired_direction":null,"has_historical_info":null,"max_score":3,"methodology_link":null,"min_score":0,"product_description":null,"product_logo":null,"product_name":null,"short_name":"environmental_democracy_index","units":"average","iso":"GBR","notes":null,"score":2.14,"score_text":null,"year":2015
+    },{
+      "desired_direction":null,"has_historical_info":null,"max_score":150,"methodology_link":null,"min_score":0,"product_description":null,"product_logo":null,"product_name":null,"short_name":"rti_rating","units":"count","iso":"GBR","notes":null,"score":100,"score_text":null,"year":2015
+    },{
+      "desired_direction":null,"has_historical_info":null,"max_score":100,"methodology_link":null,"min_score":0,"product_description":null,"product_logo":null,"product_name":null,"short_name":"resource_governance_index","units":"average","iso":"GBR","notes":"Commodity covered: Hydrocarbons.","score":88,"score_text":null,"year":2013
+    },{
+      "desired_direction":null,"has_historical_info":null,"max_score":100,"methodology_link":null,"min_score":0,"product_description":null,"product_logo":null,"product_name":null,"short_name":"resource_governance_index","units":"average","iso":"GBR","notes":"Commodity covered: Hydrocarbons.","score":88,"score_text":null,"year":2013
+    }],
+
+    [{
+      "desired_direction":null,"has_historical_info":null,"max_score":100,"methodology_link":null,"min_score":0,"product_description":null,"product_logo":null,"product_name":null,"short_name":"irm_action_plan_percent_star","units":"percent","iso":"ALB","notes":null,"score":23,"score_text":null,"year":2014
+    },{
+      "desired_direction":null,"has_historical_info":null,"max_score":null,"methodology_link":null,"min_score":null,"product_description":null,"product_logo":null,"product_name":null,"short_name":"irm_action_plan_count_star","units":"count","iso":"ALB","notes":null,"score":7,"score_text":null,"year":2014
+    },{
+      "desired_direction":null,"has_historical_info":null,"max_score":1,"methodology_link":null,"min_score":0,"product_description":null,"product_logo":null,"product_name":null,"short_name":"ogp_regular_consult_forum","units":"yes/no","iso":"ALB","notes":null,"score":0,"score_text":"No","year":2015
+    },{
+      "desired_direction":null,"has_historical_info":null,"max_score":1,"methodology_link":null,"min_score":0,"product_description":null,"product_logo":null,"product_name":null,"short_name":"ogp_regular_consult_forum","units":"yes/no","iso":"ALB","notes":null,"score":0,"score_text":"No","year":2014
+    },{
+      "desired_direction":null,"has_historical_info":null,"max_score":150,"methodology_link":null,"min_score":0,"product_description":null,"product_logo":null,"product_name":null,"short_name":"rti_rating","units":"count","iso":"ALB","notes":null,"score":69,"score_text":null,"year":2015
+    }]
+  ]
+}
