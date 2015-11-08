@@ -45,6 +45,8 @@ var Router = Backbone.Router.extend({
     if (!this.views.hasView('compare')) {
       var view = new CompareView({countries: countries});
       this.views.addView('compare', view);
+    } else {
+      this.views.getView('compare').setCountries(countries);
     }
 
     this.views.showView('compare');
