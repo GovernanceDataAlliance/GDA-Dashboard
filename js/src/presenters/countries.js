@@ -1,5 +1,13 @@
+var _ = require('lodash');
+
 var CountriesPresenter = {
-  forComparison: function(countries) {
+  forComparison: function(countries, order) {
+    if (order !== undefined) {
+      countries = _.map(order, function(id) {
+        return _.findWhere(countries, {iso3: id});
+      });
+    }
+
     var expectedLength = 3;
     if (countries.length >= expectedLength) {
       return countries.map(function(c) { return c.name });

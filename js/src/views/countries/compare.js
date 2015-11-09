@@ -1,6 +1,7 @@
 var Backbone = require('backbone'),
     async = require('async'),
-    Handlebars = require('handlebars');
+    Handlebars = require('handlebars'),
+    _ = require('lodash');
 
 var Countries = require('../../collections/countries.js'),
     Indicators = require('../../collections/indicators.js');
@@ -16,7 +17,7 @@ var CompareView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
 
-    this.countryIds = options.countries;
+    this.countryIds = _.uniq(options.countries);
     this.initializeData();
   },
 
@@ -39,9 +40,9 @@ var CompareView = Backbone.View.extend({
   },
 
   renderCountries: function() {
-    var formattedCountries =
-      CountriesPresenter.forComparison(this.countries.toJSON());
-    console.log(formattedCountries);
+    var formattedCountries = CountriesPresenter.forComparison(
+      this.countries.toJSON(), this.countryIds);
+
     this.$('.js--comparison-header').html(headerTemplate({
       countries: formattedCountries
     }));

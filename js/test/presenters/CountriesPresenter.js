@@ -16,6 +16,21 @@ describe('Countries Presenter', function() {
       });
     });
 
+    describe('given a collection of models in the wrong order', function() {
+      var input = [{iso3: 'ALB', name: 1}, {iso3: 'GBR', name: 2}],
+          orderedIds = ['GBR', 'ALB'],
+          output;
+
+      beforeEach(function() {
+        output = Presenter.forComparison(input, orderedIds);
+      });
+
+      it('returns the models matching the input IDs', function() {
+        var expectedOutput = [2, 1, '-'];
+        expect(output).toEqual(expectedOutput);
+      });
+    });
+
     describe('given a three-element array', function() {
       var input = [{name: 1}, {name: 2}, {name: 3}],
           output;
