@@ -12,6 +12,10 @@ var template = Handlebars.compile(
   require('../../templates/countries/country.hbs'));
 
 var CountryView = Backbone.View.extend({
+  events: {
+    "click .js--download": "download"
+  },
+
   initialize: function(options) {
     options = options || {};
     if (options.iso === undefined) {
@@ -51,6 +55,14 @@ var CountryView = Backbone.View.extend({
     var listView = new IndicatorListView({
       indicators: this.indicators});
     this.$('.js--indicators').append(listView.render().el);
+  },
+
+  download: function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    var url = this.indicators.downloadForCountry(this.iso);
+    window.location = url;
   },
 
   setCountry: function(iso) {

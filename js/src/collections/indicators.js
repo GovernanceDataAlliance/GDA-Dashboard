@@ -14,6 +14,13 @@ var Indicators = CartoDBCollection.extend({
         url = this._urlForQuery(query);
 
     return this.fetch({url: url});
+  },
+
+  downloadForCountry: function(iso) {
+    var query = SQL({ table: this.table, iso: iso}),
+        url = this._urlForQuery(query) + '&format=csv';
+
+    return url;
   }
 });
 

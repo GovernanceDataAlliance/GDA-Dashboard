@@ -20,6 +20,24 @@ describe("Indicators", function() {
     expect(Indicators).toBeDefined();
   });
 
+  describe('.downloadForCountry', function() {
+    describe('given an ISO code', function() {
+      var ISO = 'GBR',
+          url;
+
+      beforeEach(function() {
+        var collection = new Indicators({});
+        url = collection.downloadForCountry(ISO);
+      });
+
+      it('returns a CartoDB URL with format=csv', function() {
+        var paramsRegex = new RegExp("\\?q=SELECT .* FROM indicator_data AS d INNER JOIN indicator_config AS c ON d.short_name = c.short_name WHERE d.iso = '"+ISO+"' &format=csv");
+        expect(url.replace(/\n/gm," ").replace(/\s+/g,' ').trim()).
+          toMatch(paramsRegex);
+      });
+    });
+  });
+
   describe('.forCountry', function() {
     describe('given an ISO code', function() {
       var ISO = 'ALB';
