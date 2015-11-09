@@ -14,13 +14,15 @@ var IndicatorsPresenter = {
       var indicatorDefinition = _.compact(indicators)[0],
           row = [indicatorDefinition.get('short_name')];
 
-      _.each(indicators, function(indicator) {
+      var i = 0;
+      for (; i<3; i++) {
+        var indicator = indicators[i];
         if (indicator && indicator.get('score')) {
           row.push(indicator.get('score'));
         } else {
           row.push('-');
         }
-      });
+      };
 
       scoresForComparison.push(row);
     });

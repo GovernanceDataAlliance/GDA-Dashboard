@@ -6,6 +6,7 @@ var Countries = require('../../collections/countries.js'),
     Indicators = require('../../collections/indicators.js');
 
 var IndicatorsPresenter = require('../../presenters/indicators.js');
+    CountriesPresenter = require('../../presenters/countries.js');
 
 var template = Handlebars.compile(require('../../templates/countries/compare.hbs')),
     headerTemplate = Handlebars.compile(require('../../templates/countries/compare-table-header.hbs')),
@@ -38,8 +39,11 @@ var CompareView = Backbone.View.extend({
   },
 
   renderCountries: function() {
+    var formattedCountries =
+      CountriesPresenter.forComparison(this.countries.toJSON());
+    console.log(formattedCountries);
     this.$('.js--comparison-header').html(headerTemplate({
-      countries: this.countries.toJSON()
+      countries: formattedCountries
     }));
   },
 
