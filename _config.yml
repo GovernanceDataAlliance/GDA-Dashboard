@@ -2,7 +2,8 @@
 title: GDA Dashboard
 description:  G-G-GDA!
 
-url: "http://vizzuality.github.io" # the base hostname & protocol for your site
+url: "http://vizzuality.github.io/GDA-Dashboard"
+baseurl: '/GDA-Dashboard'
 
 # Build settings
 markdown: kramdown
