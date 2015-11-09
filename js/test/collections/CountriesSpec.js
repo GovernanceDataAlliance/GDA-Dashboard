@@ -92,6 +92,24 @@ describe("Countries", function() {
     });
   });
 
+  describe('.downloadRanksForIndicator', function() {
+    describe('given an ID', function() {
+      var ID = 'environmental_democracy_index',
+          url;
+
+      beforeEach(function() {
+        var collection = new Countries({});
+        url = collection.downloadRanksForIndicator(ID);
+      });
+
+      it('returns a CartoDB URL with format=csv', function() {
+        var paramsRegex = new RegExp("\\?q=SELECT .*, rank\\(\\) OVER \\(PARTITION BY short_name ORDER BY score DESC\\) AS rank FROM indicator_data i JOIN world_borders c ON i.iso=c.iso3 WHERE i.short_name = '"+ID+"' &format=csv");
+        expect(url.replace(/\n/gm," ").replace(/\s+/g,' ').trim()).
+          toMatch(paramsRegex);
+      });
+    });
+  });
+
   describe(".withRankForIndicator", function() {
     var requests;
 

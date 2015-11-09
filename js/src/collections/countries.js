@@ -40,6 +40,13 @@ var Countries = CartoDBCollection.extend({
         url = this._urlForQuery(query);
 
     return this.fetch({url: url});
+  },
+
+  downloadRanksForIndicator: function(id) {
+    var query = SQL({ id: id }),
+        url = this._urlForQuery(query) + '&format=csv';
+
+    return url;
   }
 });
 

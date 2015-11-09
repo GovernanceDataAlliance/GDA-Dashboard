@@ -12,6 +12,10 @@ var template = Handlebars.compile(
   require('../../templates/indicators/indicator.hbs'));
 
 var IndicatorView = Backbone.View.extend({
+  events: {
+    "click .js--download": "download"
+  },
+
   initialize: function(options) {
     options = options || {};
 
@@ -48,6 +52,14 @@ var IndicatorView = Backbone.View.extend({
     var headerView = new IndicatorHeaderView({
       indicator: this.indicator});
     this.$('.js--indicator-header').append(headerView.render().el);
+  },
+
+  download: function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    var url = this.countries.downloadRanksForIndicator(this.id);
+    window.location = url;
   },
 
   setIndicator: function(id) {
