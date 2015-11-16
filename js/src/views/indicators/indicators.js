@@ -9,6 +9,7 @@ var template = Handlebars.compile(
   require('../../templates/indicators/indicators.hbs'));
 
 var IndicatorsView = Backbone.View.extend({
+
   initialize: function(options) {
     options = options || {};
 
