@@ -9,27 +9,27 @@
   &:hover {
     background-color: $color-2;
 
-    > .index-name,
-    > .index-organization,
-    > .index-score {
+    .index-name,
+    .index-organization,
+    .index-score {
       color: $font-color-3; 
     }
   }
 
-  > .index-name {
+  .index-name {
     font-size: rem(24px);
     color: $font-color-2;
     text-align: right;
     word-wrap: break-word;
   }
 
-  > .index-organization {
+  .index-organization {
     font-size: rem(15px);
     color: $font-color-1;
     text-align: left;
   }
 
-  > .index-score {
+  .index-score {
     font-size: rem(80px);
     color: $font-color-2;
     text-align: left;

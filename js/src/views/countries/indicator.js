@@ -16,7 +16,6 @@ var IndicatorView = Backbone.View.extend({
   },
 
   render: function() {
-    console.log(this.indicator.toJSON());
     this.$el.html(template(this.indicator.toJSON()));
     return this;
   }

@@ -1,12 +1,14 @@
-<p class="index-name">
-  {{short_name}}
-</p>
-{{#if organization}}
-  <p class="index-organization">
-    {{organization}}
+<a href="/indicators#{{short_name}}">
+  <p class="index-name">
+    {{short_name}}
   </p>
-{{/if}}
-<p class="index-score">
-  {{#each data}} {{score}} {{/each}}
-</p>
+  {{#if organization}}
+    <p class="index-organization">
+      {{organization}}
+    </p>
+  {{/if}}
+  <p class="index-score">
+    {{#each data}} {{score}} {{/each}}
+  </p>
+</a>
 
