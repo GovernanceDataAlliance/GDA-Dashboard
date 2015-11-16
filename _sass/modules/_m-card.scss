@@ -1,0 +1,37 @@
+.m-card {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 25%;
+  height: 250px;
+  margin-bottom: 20px;
+  padding: rem(20px); 
+
+  &:hover {
+    background-color: $color-2;
+
+    > .index-name,
+    > .index-organization,
+    > .index-score {
+      color: $font-color-3; 
+    }
+  }
+
+  > .index-name {
+    font-size: rem(24px);
+    color: $font-color-2;
+    text-align: right;
+    word-wrap: break-word;
+  }
+
+  > .index-organization {
+    font-size: rem(15px);
+    color: $font-color-1;
+    text-align: left;
+  }
+
+  > .index-score {
+    font-size: rem(80px);
+    color: $font-color-2;
+    text-align: left;
+  }
+}
