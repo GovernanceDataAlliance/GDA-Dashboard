@@ -6,6 +6,10 @@ var template = Handlebars.compile(
   require('../../templates/countries/indicator.hbs'));
 
 var IndicatorView = Backbone.View.extend({
+
+  tagName: 'li',
+  className : 'm-card',
+
   initialize: function(options) {
     options = options || {};
     this.indicator = options.indicator;
@@ -13,7 +17,6 @@ var IndicatorView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(template(this.indicator.toJSON()));
-
     return this;
   }
 });
