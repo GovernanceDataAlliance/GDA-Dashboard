@@ -6,17 +6,23 @@
   margin-bottom: 20px;
   padding: rem(20px); 
 
+  &.-indexes {
+    flex-basis: 33%;
+  }
+
   &:hover {
     background-color: $color-2;
 
     .index-name,
     .index-organization,
-    .index-score {
+    .index-score,
+    h3 {
       color: $font-color-3; 
     }
   }
 
-  .index-name {
+  .index-name, 
+  h3 {
     font-size: rem(24px);
     color: $font-color-2;
     text-align: right;
