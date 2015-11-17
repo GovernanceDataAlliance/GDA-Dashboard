@@ -11,7 +11,6 @@ var template = Handlebars.compile(
   require('../../templates/countries/indicator_list.hbs'));
 
 var IndicatorListView = Backbone.View.extend({
-  className: 'wrap',
   
   initialize: function(options) {
     options = options || {};
