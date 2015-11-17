@@ -1,13 +1,10 @@
 .l-banner {
-  display: flex;
   padding: rem(50px) 0;
   background-color: $color-1;
-  text-align: center;
 
   > .wrap {
     display: flex;
     justify-content: center;
-    flex-direction: column;
   }
 
 
@@ -22,6 +19,8 @@
 
       > .wrap {
         justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
       }
     }
 
@@ -32,8 +31,9 @@
       text-align: left;
 
       > .wrap {
+        flex-direction: column;
         align-items: flex-start;
-        justify-content: space-between;
+        justify-content: space-around;
       }
     }
   }
