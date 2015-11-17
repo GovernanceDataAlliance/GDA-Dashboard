@@ -1,6 +1,6 @@
 # Site settings
 title: GDA Dashboard
-description:  G-G-GDA!
+description: Governance Data Alliance Dashboard
 
 url: "http://vizzuality.github.io/GDA-Dashboard"
 baseurl: '/GDA-Dashboard'
