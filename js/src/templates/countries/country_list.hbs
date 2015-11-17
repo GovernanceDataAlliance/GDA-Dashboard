@@ -1,8 +1,12 @@
-{{#each countriesByRegion}}
-  <h2>{{@key}}</h2>
-  <ul>
-    {{#each this}}
-      <li><a href="#{{iso3}}" title="{{name}}">{{name}}</a></li>
-    {{/each}}
-  </ul>
-{{/each}}
+<div class="wrap">
+  {{#each countriesByRegion}}
+    <div class="m-region-list"> 
+      <h2>{{@key}}</h2>
+      <ul>
+        {{#each this}}
+          <li><a href="#{{iso3}}" title="{{name}}">{{name}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/each}}
+</div>

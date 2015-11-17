@@ -1,5 +1,12 @@
 .l-content {
+  padding-top: rem(50px);
   padding-bottom: rem(120px);
+
+  > .wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
   &.-main {
     padding: rem(100px) 0 rem(200px);

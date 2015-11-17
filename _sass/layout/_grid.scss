@@ -1,5 +1,6 @@
 .wrap {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
   max-width: rem($grid-max-width);
   margin: 0 auto;
   padding: 0 $wrap-padding;
