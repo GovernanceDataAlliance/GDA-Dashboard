@@ -1,0 +1,30 @@
+.m-list {
+  &.-home {
+    > .list-item {
+      display: flex;
+
+      margin-top: 75px;
+
+      img {
+        margin-right: 50px;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      h3 {
+        color: $font-color-2;
+        margin-bottom: 20px;
+      }
+
+      p {
+        color: $font-color-1;
+        font-size: 15px;
+        line-height: 1.5rem;
+      }
+    }
+  }
+}
