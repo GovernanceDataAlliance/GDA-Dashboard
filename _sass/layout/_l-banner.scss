@@ -1,15 +1,19 @@
 .l-banner {
   padding: rem(50px) 0;
   background-color: $color-1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   > .wrap {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
 
   @media screen and (min-width: $screen-m) {
-    min-height: rem(525px);
+    min-height: rem(400px);
     padding: rem(60px) 0;
 
     &.-main {
@@ -44,11 +48,12 @@
     }
 
     &.-detail {
-      min-height: rem(435px);
+      min-height: rem(400px);
       padding: rem(60px) 0;
       background-color: $white;
       text-align: left;
       background-color: $color-1;
+      justify-content: flex-start;
 
       > .wrap {
         flex-direction: column;
