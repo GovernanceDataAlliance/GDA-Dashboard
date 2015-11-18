@@ -1,6 +1,24 @@
 .m-region-list {
   display: flex;
-  flex-basis: 33%;
-  flex-direction: column;
+  flex-basis: 100%;
   padding: 0 rem(10px);
+  flex-direction: column;
+  margin-bottom: rem(20px);
+
+  h2 {
+    color: $font-color-2;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    height: 400px;
+
+    li {
+      width: 25%;
+      padding-left: 1%;
+    }
+  }
 }
