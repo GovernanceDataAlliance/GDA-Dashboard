@@ -23,6 +23,26 @@
       }
     }
 
+    &.-about {
+      color: $font-color-3;
+
+      > .wrap {
+        justify-content: flex-start;
+        flex-direction: column;
+      }
+
+      h2 {
+        font-size: rem(30px);
+      }
+
+      p {
+        width: 65%;
+        font-size: rem(15px);
+        line-height: 1.5rem;
+        margin-top: 40px;
+      }
+    }
+
     &.-detail {
       min-height: rem(435px);
       padding: rem(60px) 0;
