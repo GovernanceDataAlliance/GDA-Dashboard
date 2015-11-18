@@ -37,5 +37,25 @@
         justify-content: space-around;
       }
     }
+
+    &.-indicatordetail {
+      min-height: rem(435px);
+      padding: rem(60px) 0;
+      background-color: $white;
+      text-align: center;
+      background-color: $color-1;
+
+      > .wrap {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      p {
+        width: 75%;
+        margin-top: 40px;
+        line-height: 1.5rem;
+      }
+    }
   }
 }

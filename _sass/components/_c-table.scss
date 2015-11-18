@@ -1,0 +1,30 @@
+.c-table {
+  width: 100%;
+  font-size: rem(16px);
+}
+
+.c-table.-countries {
+  font-weight: 600;
+  margin-top: 20px;
+
+  td {
+    padding: 10px 0;
+  }
+
+  tr {
+    border-top: 1px solid #F3F3F3;
+
+    > .rank {
+      font-weight: 200;
+      color: $font-color-1;
+    }
+
+    > .name {
+      color: $font-color-2;
+    }
+
+    > .score {
+      color: $rank-1;
+    }
+  }
+}
