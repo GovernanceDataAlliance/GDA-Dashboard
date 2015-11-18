@@ -18,7 +18,7 @@ describe('Indicators Presenter', function() {
       result = Presenter.forComparison(collections);
     });
 
-    it('rotates multiple collections of Indicators for renderin', function() {
+    it('rotates multiple collections of Indicators for rendering', function() {
       var expected = [
         ["irm_action_plan_percent_star",19,23,'-'],
         ["irm_action_plan_count_star",4,7,'-'],
