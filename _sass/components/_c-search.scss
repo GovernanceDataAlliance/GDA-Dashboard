@@ -1,0 +1,18 @@
+.c-search {
+  width: 650px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  &.-main {
+    margin-top: 20px;
+    padding: 50px 100px;
+  }
+
+  > input {
+    flex-grow: 1;
+    margin-right: 10px;
+  }
+}

@@ -1,5 +1,15 @@
-<ul>
-  {{#each countries}}
-    <li>{{rank}} - {{name}}: {{score}}</li>
-  {{/each}}
-</ul>
+<div class="c-table-metadata -countries">
+  <a href="#" class="js--download">Download</a>
+</div>
+
+<table class="c-table -countries">
+  <tbody>
+    {{#each countries}}
+      <tr>
+        <td class="rank">{{rank}}</td>
+        <td class="name">{{name}}</td>
+        <td class="score">{{score}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

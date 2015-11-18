@@ -18,7 +18,8 @@ var IndicatorHeaderView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(template({
-      name: this.indicator.get('product_name')
+      name: this.indicator.get('product_name'),
+      description: this.indicator.get('product_description')
     }));
 
     return this;
