@@ -12,7 +12,7 @@ var IndicatorsPresenter = {
     _.each(keys, function(key) {
       var indicators = collections.map(function(collection) { return collection.findWhere({short_name: key}); });
       var indicatorDefinition = _.compact(indicators)[0],
-          row = [indicatorDefinition.get('short_name')];
+          row = [indicatorDefinition.get('product_name')];
 
       var i = 0;
       for (; i<3; i++) {
