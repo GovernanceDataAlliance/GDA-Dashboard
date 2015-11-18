@@ -1,12 +1,28 @@
-.m-region-list {
+.m-list {
   display: flex;
-  flex-basis: 100%;
+  width: 100%;
   padding: 0 rem(10px);
   flex-direction: column;
   margin-bottom: rem(20px);
 
-  h2 {
+  &.-indexes {
+    width: 46%;
+    float: left;
+    margin: 2%;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  h2, 
+  h3 {
     color: $font-color-2;
+  }
+
+  a {
+    display: block;
   }
 
   ul {
