@@ -9,10 +9,6 @@
   }
 
   @media screen and (min-width: $screen-m) {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
 
     > .wrap {
       flex-direction: row;
