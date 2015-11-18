@@ -1,14 +1,22 @@
 {{!-- <a href="/indicators#{{short_name}}"> --}}
-  <p class="index-name">
-    {{short_name}}
-  </p>
-  {{#if organization}}
-    <p class="index-organization">
-      {{organization}}
+  <div class="index-description">
+    <p class="name">
+      {{short_name}}
     </p>
-  {{/if}}
-  <p class="index-score">
-    {{score}}
-  </p>
+    {{#if organization}}
+      <p class="organization">
+        {{organization}}
+      </p>
+    {{/if}}
+    <p class="description">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur aliquam dolor fugiat dignissimos quam libero aliquid ex ut illum! Ipsam optio dolore eaque, ea rerum eos nesciunt, est repudiandae alias.
+    </p>
+    <a class="btn-read-more" href="#">Read more</a>
+  </div>
+  <div class="index-score"> 
+    <p class="score">
+      {{score}}
+    </p>
+  </div>
 {{!-- </a> --}}
 

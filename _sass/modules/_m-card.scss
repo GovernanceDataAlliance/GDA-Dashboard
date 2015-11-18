@@ -1,7 +1,7 @@
 .m-card {
   display: flex;
-  flex-direction: column;
-  flex-basis: 25%;
+  flex-basis: 100%;
+  justify-content: space-between;
   height: 250px;
   margin-bottom: 20px;
   padding: rem(20px); 
@@ -10,34 +10,48 @@
     flex-basis: 33%;
   }
 
-  &:hover {
-    background-color: $color-2;
+  // &:hover {
+  //   background-color: $color-2;
 
-    .index-name,
-    .index-organization,
-    .index-score,
+  //   .name,
+  //   .organization,
+  //   .score,
+  //   h3 {
+  //     color: $font-color-3; 
+  //   }
+  // }
+  
+  .index-description {
+    width: 45%;
+
+    > .name, 
     h3 {
-      color: $font-color-3; 
+      font-size: rem(24px);
+      color: $font-color-2;
+      margin-bottom: rem(20px);
+    }
+
+    > .description {
+       margin-bottom: rem(20px);
+    }
+
+    > .organization {
+      font-size: rem(15px);
+      color: $font-color-1;
+      margin-bottom: rem(20px);
     }
   }
 
-  .index-name, 
-  h3 {
-    font-size: rem(24px);
-    color: $font-color-2;
-    text-align: right;
-    word-wrap: break-word;
-  }
-
-  .index-organization {
-    font-size: rem(15px);
-    color: $font-color-1;
-    text-align: left;
-  }
-
   .index-score {
-    font-size: rem(80px);
-    color: $font-color-2;
-    text-align: left;
+    > .score {
+      font-size: rem(80px);
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      color: $font-color-2;
+      background-color: $light-grey;
+      text-align: center;
+      line-height: 200px;
+    }
   }
 }
