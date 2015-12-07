@@ -6,9 +6,9 @@
   margin-bottom: 20px;
   padding: rem(20px);
 
-  transition: all .2s ease-in;
+  // transition: all .2s ease-in;
 
-  .is-dashboard & {
+  .is-dashboard-layout & {
     flex-basis: 33%;
     flex-direction: column;
   }
@@ -36,7 +36,7 @@
       margin-bottom: rem(20px);
     }
 
-    .is-dashboard & {
+    .is-dashboard-layout & {
 
       > .description, 
       > .btn-read-more {
@@ -85,7 +85,7 @@
       }
     }
 
-    .is-dashboard & {
+    .is-dashboard-layout & {
       > .resume {
         flex-direction: column;
         align-items: flex-start;

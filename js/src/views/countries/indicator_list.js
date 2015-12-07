@@ -11,6 +11,7 @@ var IndicatorListView = Backbone.View.extend({
 
   tagName: 'ul',
   className : 'l-grid',
+  id: 'indicatorsContainer',
   
   initialize: function(options) {
     options = options || {};
