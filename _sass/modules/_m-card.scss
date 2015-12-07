@@ -2,27 +2,22 @@
   display: flex;
   flex-basis: 100%;
   justify-content: space-between;
-  height: 250px;
+  height: 300px;
   margin-bottom: 20px;
-  padding: rem(20px); 
+  padding: rem(20px);
 
-  // &.-indexes {
-  //   flex-basis: 33%;
-  // }
+  transition: all .2s ease-in;
 
-  // &:hover {
-  //   background-color: $color-2;
-
-  //   .name,
-  //   .organization,
-  //   .score,
-  //   h3 {
-  //     color: $font-color-3; 
-  //   }
-  // }
+  .is-dashboard & {
+    flex-basis: 33%;
+    flex-direction: column;
+  }
   
   .index-description {
-    width: 45%;
+    display: flex;
+    flex-basis: 50%;
+    flex-direction: column;
+    justify-content: space-between;
 
     > .name, 
     h3 {
@@ -40,18 +35,66 @@
       color: $font-color-1;
       margin-bottom: rem(20px);
     }
+
+    .is-dashboard & {
+
+      > .description, 
+      > .btn-read-more {
+        display: none;
+      }
+
+    }
   }
 
   .index-score {
-    > .score {
-      font-size: rem(80px);
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      color: $font-color-2;
-      background-color: $light-grey;
-      text-align: center;
-      line-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    > .resume {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      > .graph {
+        width: 50%;
+        height: 100px;
+        background-color: #ddd;
+      }
+
+      > .global-score {
+        font-size: rem(80px);
+        color: $font-color-2;
+      }
+    }
+
+    > .partial-scores {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: rem(20px);
+      background-color: #ddd;
+
+      > li {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .is-dashboard & {
+      > .resume {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      > .partial-scores,
+      > .btn-read-more {
+        display: none;
+      }
     }
   }
 }
