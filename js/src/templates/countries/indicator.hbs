@@ -13,10 +13,31 @@
     </p>
     <a class="btn-read-more" href="#">Read more</a>
   </div>
-  <div class="index-score"> 
-    <p class="score">
-      {{score}}
-    </p>
+
+  <div class="index-score">
+    <div class="resume">
+      <div class="graph"></div>
+      <p class="global-score">
+        {{score}}
+      </p>
+    </div>
+
+    <ul class="partial-scores">
+      <li>
+        <p id="global">3</p>
+        <p>globally</p>
+      </li>
+      <li>
+        <p id="continent">2</p>
+        <p>In America</p>
+      </li>
+      <li>
+        <p id="developed">1</p>
+        <p>In Developed countries</p>
+      </li>
+    </ul>
+
+    <a class="btn-read-more" href="#">See past data</a>
   </div>
 {{!-- </a> --}}
 

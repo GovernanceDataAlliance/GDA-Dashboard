@@ -6,7 +6,8 @@ var Country = require('../../models/country.js'),
     Indicators = require('../../collections/indicators.js');
 
 var CountryHeaderView = require('./country_header.js'),
-    IndicatorListView = require('./indicator_list.js');
+    IndicatorListView = require('./indicator_list.js'),
+    CountryToolbarView = require('./country_toolbar.js');
 
 var template = Handlebars.compile(
   require('../../templates/countries/country.hbs'));
@@ -38,9 +39,11 @@ var CountryView = Backbone.View.extend({
 
   render: function(rerender) {
     this.$el.html(template());
+    this.renderToolbar();
 
     if (rerender === true) {
       this.renderCountry();
+      this.renderToolbar();
       this.renderIndicators();
     }
   },
@@ -49,6 +52,11 @@ var CountryView = Backbone.View.extend({
     var headerView = new CountryHeaderView({
       country: this.country});
     this.$('.js--country-header').append(headerView.render().el);
+  },
+
+  renderToolbar: function() {
+    var toolbarView = new CountryToolbarView();
+    this.$('.js--country-toolbar').append(toolbarView.render().el);
   },
 
   renderIndicators: function() {

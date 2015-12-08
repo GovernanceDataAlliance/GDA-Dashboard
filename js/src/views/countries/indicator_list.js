@@ -7,10 +7,11 @@ var IndicatorView = require('./indicator.js');
 var Indicators = require('../../collections/indicators.js'),
     IndicatorService = require('../../lib/services/indicator.js');
 
-var template = Handlebars.compile(
-  require('../../templates/countries/indicator_list.hbs'));
-
 var IndicatorListView = Backbone.View.extend({
+
+  tagName: 'ul',
+  className : 'l-grid',
+  id: 'indicatorsContainer',
   
   initialize: function(options) {
     options = options || {};
@@ -19,14 +20,12 @@ var IndicatorListView = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(template({}));
-
     this.indicators.each(function(indicator) {
       var indicatorView = new IndicatorView({
         indicator: indicator});
-      this.$('ul').append(indicatorView.render().el);
+      this.$el.append(indicatorView.render().el);
     }.bind(this));
-
+    
     return this;
   }
 });

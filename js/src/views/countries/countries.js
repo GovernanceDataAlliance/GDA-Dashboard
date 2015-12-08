@@ -9,9 +9,9 @@ var template = Handlebars.compile(
   require('../../templates/countries/countries.hbs'));
 
 var CountriesView = Backbone.View.extend({
+  
   initialize: function(options) {
     options = options || {};
-
     this.countries = new Countries();
   },
 
