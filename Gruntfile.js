@@ -38,7 +38,7 @@ module.exports = function(grunt) {
       },
 
       welcome: {
-        src: ['js/src/welcome.js'],
+        src: ['js/src/welcome_main.js'],
         dest: 'js/welcome_bundle.js',
         options: {
           transform: [stringify(['.hbs', '.txt', '.sql', '.md'])]
