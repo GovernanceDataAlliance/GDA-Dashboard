@@ -3,8 +3,7 @@ var Backbone = require('backbone'),
     _ = require('lodash');
     $ = require('jquery');
 
-var template = Handlebars.compile(require('../../templates/common/search_tpl.hbs')),
-    templateSuggestions = Handlebars.compile(require('../../templates/common/search_suggestions_tpl.hbs'));
+var templateSuggestions = Handlebars.compile(require('../../templates/common/search_suggestions_tpl.hbs'));
 
 var SearchCollection = require('../../collections/search_collection.js');
 
@@ -13,7 +12,7 @@ var SearchView = Backbone.View.extend({
   el: "#searchBox",
 
   defaults: {
-    elContent: '.searchContent',
+    elContent: '#searchContent',
     elInput: '#searchMap',
     elSearchParent: '#searchBox',
     elSuggestions: '.search-suggestions',
@@ -51,16 +50,9 @@ var SearchView = Backbone.View.extend({
     var self = this;
 
     this.searchCollection.fetch().done(function(data) {
-      // self.render();
       self.setListeners();
     });
   },
-
-  // render: function() {
-  //   this.$(this.elContent).html(template());
-
-  //   // this.setEvents();
-  // },
 
   onSearch: function(ev) {
     var target = ev ? ev.currentTarget : this.elInput;
