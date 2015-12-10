@@ -3,19 +3,27 @@ var Backbone = require('backbone'),
     _ = require('lodash');
     $ = require('jquery');
 
-var template = Handlebars.compile(
-  require('../../templates/common/search_tpl.hbs')),
+var template = Handlebars.compile(require('../../templates/common/search_tpl.hbs')),
     templateSuggestions = Handlebars.compile(require('../../templates/common/search_suggestions_tpl.hbs'));
+
 var SearchCollection = require('../../collections/search_collection.js');
 
 var SearchView = Backbone.View.extend({
 
+  el: "#searchBox",
+
   defaults: {
     elContent: '.searchContent',
-    elInput: '#search',
+    elInput: '#searchMap',
     elSearchParent: '#searchBox',
     elSuggestions: '.search-suggestions',
     closeOnClick: true
+  },
+
+  events: {
+    'keyup #searchMap' : 'onSearch',
+    'focus #searchMap' : 'highlight',
+    'keydown #searchMap': 'highlightResultsBox',
   },
 
   initialize: function(settings) {
@@ -30,18 +38,7 @@ var SearchView = Backbone.View.extend({
     this.elSuggestions = this.options.elSuggestions;
 
     this.closeOnClick = this.options.closeOnClick;
-    this.setEvents();
     this.getData();
-  },
-
-  setEvents: function() {
-    this.events = {};
-    this.events['keyup ' + this.elInput] = 'onSearch';
-    this.events['focus ' + this.elInput] = 'highlight';
-    this.events['keydown ' + this.elInput] = 'highlightResultsBox';
-    // this.events['click .search-area'] = 'searchArea';
-
-    this.delegateEvents();
   },
 
   setListeners: function() {
@@ -53,19 +50,17 @@ var SearchView = Backbone.View.extend({
   getData: function() {
     var self = this;
 
-    var data = this.searchCollection.fetch();
-
-    $.when(data).then(function() {
-      self.render();
+    this.searchCollection.fetch().done(function(data) {
+      // self.render();
       self.setListeners();
     });
   },
 
-  render: function() {
-    var data = [];
+  // render: function() {
+  //   this.$(this.elContent).html(template());
 
-    this.$(this.elContent).html(this.template({ }));
-  },
+  //   // this.setEvents();
+  // },
 
   onSearch: function(ev) {
     var target = ev ? ev.currentTarget : this.elInput;
@@ -119,7 +114,6 @@ var SearchView = Backbone.View.extend({
   showSuggestions: function(text) {
     text = text.toLowerCase();
     var search = this.searchCollection.toJSON();
-
     if(this.searchTimer) {
       clearTimeout(this.timer);
     }
@@ -140,7 +134,7 @@ var SearchView = Backbone.View.extend({
       });
 
       this.trigger('results', search);
-      this.$(this.elSuggestions).html(this.templateSuggestions({data: search}));
+      this.$(this.elSuggestions).html(templateSuggestions({data: search}));
       this.$(this.elContent).addClass('visible');
     }, this), 100);
   },
@@ -164,49 +158,7 @@ var SearchView = Backbone.View.extend({
     if(key === 27) {
       this.unHighlight();
     }
-  },
-
-  // searchArea: function(ev) {
-  //   ev.preventDefault();
-  //   var $target = $(ev.currentTarget);
-  //   var iso = $target.data('iso');
-  //   var area = this.searchCollection.where({ iso: iso });
-
-  //   if(area[0]) {
-  //     var bbox = area[0].get('bbox');
-
-  //     Backbone.Events.trigger('map:set:fitbounds', bbox);
-  //     Backbone.Events.trigger('map:set:mask', iso, 0.8, {
-  //       query: 'select * from grpcountries_250k_polygon',
-  //       tableName: 'grpcountries_250k_polygon'
-  //     });
-
-  //     this.trigger('selected', iso, area[0].get('name'));
-  //     this.setSelected(area[0]);
-  //   }
-
-  //   if(this.closeOnClick) {
-  //     this.unHighlight();
-  //   } else {
-  //     this.$(this.elSuggestions +' li').removeClass('selected');
-  //     $target.addClass('selected');
-  //   }
-  // },
-
-  // setSelected: function(area) {
-  //   var searchCollection = _.clone(this.searchCollection);
-
-  //   _.map(searchCollection.models, function(model){
-  //     var active = false;
-
-  //     if(model.get('iso') === area.get('iso')) {
-  //       active = true;
-  //     }
-  //     model.set({selected: active});
-  //   });
-
-  //   this.searchCollection.reset(searchCollection.models);
-  // }
+  }
 
 });
 
