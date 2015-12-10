@@ -5,7 +5,7 @@ var Backbone = require('backbone'),
 
 var templateSuggestions = Handlebars.compile(require('../../templates/common/search_suggestions_tpl.hbs'));
 
-var SearchCollection = require('../../collections/search_collection.js');
+var SearchCollection = require('../../collections/countries.js');
 
 var SearchView = Backbone.View.extend({
 

@@ -3,6 +3,8 @@ _site
 
 node_modules
 
+npm-debug.log
+
 js/bundle.js
 js/countries_bundle.js
 js/indicators_bundle.js
