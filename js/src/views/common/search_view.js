@@ -1,6 +1,7 @@
 var Backbone = require('backbone'),
     Handlebars = require('handlebars'),
     _ = require('lodash');
+    $ = require('jquery');
 
 var template = Handlebars.compile(
   require('../../templates/common/search_tpl.hbs')),
@@ -30,7 +31,7 @@ var SearchView = Backbone.View.extend({
 
     this.closeOnClick = this.options.closeOnClick;
     this.setEvents();
-    // this.getData();
+    this.getData();
   },
 
   setEvents: function() {
@@ -52,7 +53,9 @@ var SearchView = Backbone.View.extend({
   getData: function() {
     var self = this;
 
-    $.when(this.searchCollection.getData()).then(function() {
+    var data = this.searchCollection.fetch();
+
+    $.when(data).then(function() {
       self.render();
       self.setListeners();
     });

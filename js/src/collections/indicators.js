@@ -18,7 +18,7 @@ var Indicators = CartoDBCollection.extend({
   downloadForCountry: function(iso) {
     var query = SQL({ table: this.table, iso: iso}),
         url = this._urlForQuery(query) + '&format=csv';
-
+    console.log(url);
     return url;
   }
 });

@@ -1,28 +1,26 @@
-var Backbone = require('backbone');
+var _ = require('lodash');
 
-var SearchCollection = Backbone.Collection.extend({
+var CartoDBCollection = require('../lib/cartodb_collection.js');
+var CONFIG = require('../../config.json');
 
-  url: 'data/countries.json', 
+var Handlebars = require('handlebars');
 
-  parse: function(data) {
-    return data.rows;
-  },
-  
-  getData: function() {
-    var self = this;
-    var fetchOptions;
-    var query = 'SELECT initcap(s_name) as name, bbox, iso3 as iso FROM grpcountries_250k_polygon';
+var SQL = Handlebars.compile(require('../templates/queries/countries_rank.sql.hbs'));
 
-    fetchOptions = {
-      dataType: 'json',
-      data: {
-        q: query,
-        format: 'json'
-      }
-    };
+var SearchCollection = CartoDBCollection.extend({
+  user_name: CONFIG.cartodb.user_name,
+  table: CONFIG.cartodb.country_table_name,
+  columns: ['iso3', 'region_name', 'name'],
 
-    return this.fetch(fetchOptions);
+  url: function() {
+    // Ignore countries without a valid region ID
+    var whereClause = "WHERE region > 0";
+
+    var query = [this._getQuery(), whereClause].join(" ");
+    
+    return this._urlForQuery(query);
   }
+
 });
 
 module.exports = SearchCollection;
