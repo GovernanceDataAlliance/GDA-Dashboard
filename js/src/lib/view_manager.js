@@ -25,7 +25,7 @@ var ViewManager = Backbone.Model.extend({
     var view = this.get('views')[viewName];
     if (view !== undefined) {
       this.set('currentView', view);
-
+      
       view.show();
       this.$el.html(view.el);
       this._hideViewsExcept(viewName);

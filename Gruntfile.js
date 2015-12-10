@@ -37,6 +37,14 @@ module.exports = function(grunt) {
         }
       },
 
+      welcome: {
+        src: ['js/src/welcome_main.js'],
+        dest: 'js/welcome_bundle.js',
+        options: {
+          transform: [stringify(['.hbs', '.txt', '.sql', '.md'])]
+        }
+      },
+
       countries: {
         src: ['js/src/countries_main.js'],
         dest: 'js/countries_bundle.js',
@@ -65,7 +73,7 @@ module.exports = function(grunt) {
     watch: {
       all: {
         files: ['js/src/**/*', '**/*.html', 'css/**/*', '_sass/**/*'],
-        tasks: ['browserify:main', 'browserify:countries', 'browserify:indicators', 'jekyll:dist']
+        tasks: ['browserify:main', 'browserify:countries', 'browserify:indicators', 'browserify:welcome',  'jekyll:dist']
       }
     },
 
@@ -78,7 +86,8 @@ module.exports = function(grunt) {
         files: {
           'js/bundle.js': 'js/bundle.js',
           'js/countries_bundle.js': 'js/countries_bundle.js',
-          'js/indicators_bundle.js': 'js/indicators_bundle.js'
+          'js/indicators_bundle.js': 'js/indicators_bundle.js',
+          'js/welcome_bundle.js': 'js/welcome_bundle.js'
         }
       }
     },
@@ -111,7 +120,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-connect-rewrite");
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('build', ['browserify:main', 'browserify:countries', 'browserify:indicators', 'jekyll:dist']);
+  grunt.registerTask('build', ['browserify:main', 'browserify:countries', 'browserify:indicators', 'browserify:welcome', 'jekyll:dist']);
   grunt.registerTask('dist', ['build', 'uglify:dist']);
   grunt.registerTask('default', ['build', 'configureRewriteRules', 'connect:development', 'watch']);
   grunt.registerTask('test', ['clean:test', 'browserify:test', 'jasmine']);
