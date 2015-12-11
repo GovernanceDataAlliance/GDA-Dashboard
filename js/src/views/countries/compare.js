@@ -14,14 +14,19 @@ var template = Handlebars.compile(require('../../templates/countries/compare.hbs
     indicatorTemplate = Handlebars.compile(require('../../templates/countries/compare-table-body.hbs'));
 
 var CompareView = Backbone.View.extend({
-  initialize: function(options) {
-    options = options || {};
 
-    this.countryIds = _.uniq(options.countries);
-    this.initializeData();
+  initialize: function(options) {
+    console.log('initialize');
+    options = options || {};
+    
+    if (options && options.countries != null) {
+      this.countryIds = _.uniq(options.countries);
+      this.initializeData();
+    };
   },
 
   initializeData: function() {
+    console.log('initializeData')
     this.countries = new Countries();
     this.listenTo(this.countries, 'sync', this.renderCountries);
     this.countries.forIds(this.countryIds);
@@ -33,8 +38,7 @@ var CompareView = Backbone.View.extend({
     async.map(this.countryIds, createIndicatorCollection, this.renderIndicators.bind(this));
   },
 
-  render: function() {
-    this.$el.html(template());
+  render: function() {    this.$el.html(template());
 
     return this;
   },
@@ -59,6 +63,7 @@ var CompareView = Backbone.View.extend({
   },
 
   setCountries: function(countries) {
+    console.log('setCountries')
     this.countryIds = countries;
     this.initializeData();
   },
