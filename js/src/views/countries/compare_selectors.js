@@ -26,7 +26,7 @@ var CompareSelectorsView = Backbone.View.extend({
     var self = this;
 
     this.countriesCollection.fetch().done(function(countries) {
-      self.render(countries);
+      self.render(countries.rows);
     });
   },
 
@@ -36,7 +36,7 @@ var CompareSelectorsView = Backbone.View.extend({
     // console.log(this.el);
     // console.log(this.$el);
 
-    console.log('hola')
+    console.log(countries)
 
     $('.js--compare-selectors').html(template({'countries': countries}));
   }

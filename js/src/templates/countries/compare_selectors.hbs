@@ -1,15 +1,18 @@
-<select name="country1" id="country1">
-  {{#each country}}
-    <option value="{{this.iso3}}">{{this.name}}</option>
-  {{/each}}
-</select>
-<select name="country2" id="country2">
-  {{#each country}}
-    <option value="{{this.iso3}}">{{this.name}}</option>
-  {{/each}}
-</select>
-<select name="country3" id="country3">
-  {{#each country}}
-    <option value="{{this.iso3}}">{{this.name}}</option>
-  {{/each}}
-</select>
+<div class="wrap">
+  <select name="country1" id="country1">
+    {{#each countries}}
+      <option value="{{this.iso3}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+  <select name="country2" id="country2">
+    {{#each countries}}
+      <option value="{{this.iso3}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+  <select name="country3" id="country3">
+    {{#each countries}}
+      <option value="{{this.iso3}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+</div>
+  
