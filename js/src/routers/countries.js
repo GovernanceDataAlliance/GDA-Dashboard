@@ -39,10 +39,9 @@ var Router = Backbone.Router.extend({
   },
 
   compare: function() {
-    var params =  URI("?" + window.location.hash.split("?")[1])._parts.query != 'undefined' ? URI("?" + window.location.hash.split("?")[1]).query(true) : null;
+    var params =  URI("?" + window.location.hash.split("?")[1]).query(true),
+        countries = params && params['countries[]'] ? params['countries[]'] : null;
 
-    var countries = params && params['countries[]'] ? params['countries[]'] : null;
-    
     if (!this.views.hasView('compare')) {
       var view = new CompareView({countries: countries});
       this.views.addView('compare', view);
