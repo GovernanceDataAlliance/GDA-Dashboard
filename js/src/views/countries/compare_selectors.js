@@ -36,8 +36,6 @@ var CompareSelectorsView = Backbone.View.extend({
     // console.log(this.el);
     // console.log(this.$el);
 
-    console.log(countries)
-
     $('.js--compare-selectors').html(template({'countries': countries}));
   }
 });
