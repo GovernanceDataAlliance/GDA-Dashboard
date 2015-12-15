@@ -28,7 +28,6 @@ var CompareView = Backbone.View.extend({
 
     if (options && options.countries != null) {
       this.countryIds = _.uniq(options.countries);
-      // this.initializeData();
     };
 
     this.setListeners();
@@ -39,20 +38,6 @@ var CompareView = Backbone.View.extend({
   setListeners: function() {
     Backbone.Events.on('country:selected', (this.countryRecived).bind(this));
   },
-
-  //Adam
-  // initializeData: function() {
-  //   this.countries = new Countries();
-  //   this.listenTo(this.countries, 'sync', this.renderCountries);
-  //   this.countries.forIds(this.countryIds);
-
-  //   var indicatorScoresCollection = function(id, cb) {
-  //     var collection = new IndicatorsScores();
-  //     collection.forCountry(id).then(function() { cb(null, collection); });
-  //   };
-
-  //   // async.map(this.countryIds, indicatorScoresCollection, this.renderIndicatorsScores.bind(this));
-  // },
 
   initializeData: function() {
     this.indicatorScoresCollection = new IndicatorsScores();
@@ -87,19 +72,6 @@ var CompareView = Backbone.View.extend({
     }.bind(this));
 
   },  
-
-
-  //Adam
-  // renderIndicatorsScores: function(err, collections) {
-  //   if (err) { return; }
-
-  //   var formattedCollections =
-  //     IndicatorsPresenter.forComparison(collections);
-  //   this.$('.js--comparison-indicators').html(indicatorTemplate({
-  //     collections: formattedCollections
-  //   }));
-  // },
-
 
   renderSelectors: function() {
     var selectors = new CompareSelectorsView({ el: '.js--comparison-indicators' });
