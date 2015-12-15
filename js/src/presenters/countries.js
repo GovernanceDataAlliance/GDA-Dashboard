@@ -8,7 +8,7 @@ var CountriesPresenter = {
       });
     }
 
-    var expectedLength = 3;
+    var expectedLength = 1;
     if (countries.length >= expectedLength) {
       return countries.map(function(c) { return c.name });
     }

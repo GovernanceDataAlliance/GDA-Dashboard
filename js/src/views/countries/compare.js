@@ -19,11 +19,17 @@ var CompareView = Backbone.View.extend({
 
   initialize: function(options) {
     options = options || {};
-    
+
     if (options && options.countries != null) {
       this.countryIds = _.uniq(options.countries);
       this.initializeData();
     };
+
+    this.setListeners();
+  },
+
+  setListeners: function() {
+    Backbone.Events.on('country:selected', (this.countryRecived).bind(this));
   },
 
   initializeData: function() {
@@ -72,6 +78,10 @@ var CompareView = Backbone.View.extend({
       this.countryIds = countries;
       this.initializeData();
     };
+  },
+
+  countryRecived: function(countries, order) {
+    console.log('hola ' + countries, order);
   },
 
   show: function() {

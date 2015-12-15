@@ -12,6 +12,10 @@ var CompareSelectorsView = Backbone.View.extend({
 
   // el: '.js--compare-selectors',
 
+  events: {
+    'change .js--compare-selector': 'getCountry'
+  },
+
   initialize: function(options) {
     options = options || {};
     this.country = options.country;
@@ -36,7 +40,24 @@ var CompareSelectorsView = Backbone.View.extend({
     // console.log(this.el);
     // console.log(this.$el);
 
+    var countries = _.sortByOrder(countries, ['name']);
     $('.js--compare-selectors').html(template({'countries': countries}));
+
+    //this is due to the 'el' problem.
+     this.setEvents();
+  },
+
+  setEvents: function() {
+    $('.js--compare-selector').on('change', this.getCountry);
+  },
+
+  getCountry: function(e) {
+    e && e.preventDefault();
+
+    var selectedCountry = $(e.currentTarget).val();
+    var order = $(e.currentTarget).attr('id').split('-')[1];
+
+    Backbone.Events.trigger('country:selected', selectedCountry, order);
   }
 });
 
