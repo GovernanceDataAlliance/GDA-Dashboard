@@ -1,0 +1,22 @@
+.m-comparison-table {
+  display: flex;
+
+  > .table-column {
+    flex-basis: 25%;
+  }
+
+  .table-cell {
+    height: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .table-header .table-cell {
+    justify-content: flex-start;
+  }
+  
+
+
+}

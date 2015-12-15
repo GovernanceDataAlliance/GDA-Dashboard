@@ -63,14 +63,11 @@ var CompareView = Backbone.View.extend({
 
 
   renderCountryScores: function(iso, order) {
-
     this.indicatorScoresCollection.forCountry(iso).done(function(data) {
 
       var scores = _.sortByOrder(data.rows, ['short_name']);
       this.$('.js--country-' + order).html(countryScoresTemplate({ 'scores': scores }))
-
     }.bind(this));
-
   },  
 
   renderSelectors: function() {
