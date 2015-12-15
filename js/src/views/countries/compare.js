@@ -4,14 +4,15 @@ var Backbone = require('backbone'),
     _ = require('lodash');
 
 var Countries = require('../../collections/countries.js'),
-    Indicators = require('../../collections/indicators.js');
+    Indicators = require('../../collections/indicator_configs.js');
+    IndicatorsScores = require('../../collections/indicators.js');
 
 var IndicatorsPresenter = require('../../presenters/indicators.js');
     CountriesPresenter = require('../../presenters/countries.js');
 
 var template = Handlebars.compile(require('../../templates/countries/compare.hbs')),
-    headerTemplate = Handlebars.compile(require('../../templates/countries/compare-table-header.hbs')),
-    indicatorTemplate = Handlebars.compile(require('../../templates/countries/compare-table-body.hbs'));
+    // headerTemplate = Handlebars.compile(require('../../templates/countries/compare-table-header.hbs')),
+    indicatorsTemplate = Handlebars.compile(require('../../templates/countries/compare-indicators.hbs'));
 
 var CompareSelectorsView = require('./compare_selectors.js');
 
@@ -26,6 +27,8 @@ var CompareView = Backbone.View.extend({
     };
 
     this.setListeners();
+
+    this.renderIndicators();
   },
 
   setListeners: function() {
@@ -38,10 +41,11 @@ var CompareView = Backbone.View.extend({
     this.countries.forIds(this.countryIds);
 
     var createIndicatorCollection = function(id, cb) {
-      var collection = new Indicators();
+      var collection = new IndicatorsScores();
       collection.forCountry(id).then(function() { cb(null, collection); });
     };
-    async.map(this.countryIds, createIndicatorCollection, this.renderIndicators.bind(this));
+
+    // async.map(this.countryIds, createIndicatorCollection, this.renderIndicators.bind(this));
   },
 
   render: function() {    
@@ -54,19 +58,29 @@ var CompareView = Backbone.View.extend({
     var formattedCountries = CountriesPresenter.forComparison(
       this.countries.toJSON(), this.countryIds);
 
-    this.$('.js--comparison-header').html(headerTemplate({
-      countries: formattedCountries
-    }));
+    // this.$('.js--comparison-header').html(headerTemplate({
+    //   countries: formattedCountries
+    // }));
   },
 
-  renderIndicators: function(err, collections) {
-    if (err) { return; }
+  //Adam
+  // renderIndicators: function(err, collections) {
+  //   if (err) { return; }
 
-    var formattedCollections =
-      IndicatorsPresenter.forComparison(collections);
-    this.$('.js--comparison-indicators').html(indicatorTemplate({
-      collections: formattedCollections
-    }));
+  //   var formattedCollections =
+  //     IndicatorsPresenter.forComparison(collections);
+  //   this.$('.js--comparison-indicators').html(indicatorTemplate({
+  //     collections: formattedCollections
+  //   }));
+  // },
+
+  renderIndicators: function() {
+    var indicatorsCollection = new Indicators();
+    
+    indicatorsCollection.fetch().done(function(indicators) {
+      var indicators = _.sortByOrder(indicators.rows, ['short_name']);
+      this.$('.js--comparison-indicators').html(indicatorsTemplate({ 'indicators': indicators }))
+    }.bind(this))
   },
 
   renderSelectors: function() {
@@ -81,7 +95,7 @@ var CompareView = Backbone.View.extend({
   },
 
   countryRecived: function(countries, order) {
-    console.log('hola ' + countries, order);
+    console.log( countries, order );
   },
 
   show: function() {
