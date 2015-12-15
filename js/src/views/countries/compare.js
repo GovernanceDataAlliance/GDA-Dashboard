@@ -57,6 +57,7 @@ var CompareView = Backbone.View.extend({
 
     indicatorsCollection.fetch().done(function(indicators) {
       var indicators = _.sortByOrder(indicators.rows, ['short_name']);
+      console.log(indicators);
       this.$('.js--comparison-indicators').html(indicatorsTemplate({ 'indicators': indicators }))
     }.bind(this))
   },
@@ -64,10 +65,11 @@ var CompareView = Backbone.View.extend({
 
   renderCountryScores: function(iso, order) {
     this.indicatorScoresCollection.forCountry(iso).done(function(data) {
-
       var scores = _.sortByOrder(data.rows, ['short_name']);
+      console.log(data);
       this.$('.js--country-' + order).html(countryScoresTemplate({ 'scores': scores }))
     }.bind(this));
+
   },  
 
   renderSelectors: function() {
@@ -83,7 +85,6 @@ var CompareView = Backbone.View.extend({
 
   countryRecived: function(iso, order) {
     compareStatus.set('country'+order, iso);
-
     this.renderCountryScores(iso, order);
   },
 

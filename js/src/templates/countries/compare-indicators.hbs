@@ -1,5 +1,8 @@
 <ul class="table-header">
   {{#each indicators}}
-    <li class="table-cell {{short_name}}">{{product_name}}</li>
+    <li class="table-cell {{short_name}}">
+      <h3>{{product_name}}</h3>
+      <button data-info="{{product_description}}">i</button>
+    </li>
   {{/each}}
 </ul>

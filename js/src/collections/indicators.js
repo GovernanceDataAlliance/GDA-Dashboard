@@ -12,7 +12,8 @@ var Indicators = CartoDBCollection.extend({
   forCountry: function(iso) {
     var query = SQL({ table: this.table, iso: iso}),
         url = this._urlForQuery(query);
-    return this.fetch({url: url});
+    var data =  this.fetch({url: url});
+    return data;
   },
 
   downloadForCountry: function(iso) {
