@@ -1,6 +1,7 @@
 var _ = require('lodash');
 
 var IndicatorsPresenter = {
+  
   forComparison: function(collections) {
     var keys = _.uniq(_.flatten(
       collections.map(function(indicators) {
