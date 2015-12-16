@@ -3,13 +3,11 @@ var Backbone = require('backbone'),
     _ = require('lodash');
     $ = require('jquery');
 
-var template = Handlebars.compile(require('../../templates/common/modal_window_tpl.hbs'));
+var modalWindowtemplate = Handlebars.compile(require('../../templates/common/modal_window_tpl.hbs'));
 
 var ModalWindowView = Backbone.View.extend({
 
   el: 'body',
-
-  template: handlebars.compile(tpl),
 
   events: function() {
     if (window.ontouchstart) {
@@ -32,8 +30,8 @@ var ModalWindowView = Backbone.View.extend({
     $(document).keyup(_.bind(this.onKeyUp, this));
   },
 
-  render: function(data) {
-    this.$el.append(this.template(data));
+  render: function(info) {
+    this.$el.append(modalWindowtemplate({info}));
     this.toogleState();
   },
 
@@ -46,7 +44,6 @@ var ModalWindowView = Backbone.View.extend({
   },
 
   close: function() {
-    console.log('hola');
     $('.m-modal-window').remove();
     this.toogleState();
   },
