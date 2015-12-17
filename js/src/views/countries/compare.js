@@ -32,12 +32,7 @@ var CompareView = Backbone.View.extend({
 
     if (options && options.countries != null) {
       this.countryIds = _.uniq(options.countries);
-
-      $.each(this.countryIds, function(i, country) {
-        this.countryRecived(country, i+1)
-      }.bind(this))
     };
-
   },
 
   setListeners: function() {
@@ -73,11 +68,10 @@ var CompareView = Backbone.View.extend({
       var scores = _.sortByOrder(data.rows, ['short_name']);
       this.$('.js--country-' + order).html(countryScoresTemplate({ 'scores': scores, 'iso': iso }))
     }.bind(this));
-
   },  
 
   renderSelectors: function() {
-    var selectors = new CompareSelectorsView({ el: '.js--comparison-indicators' });
+    var selectors = new CompareSelectorsView({ countries: this.countryIds || null });
   },
 
   setCountries: function(countries) {

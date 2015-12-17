@@ -1,7 +1,8 @@
 var Backbone = require('backbone'),
     _ = require('lodash'),
     Handlebars = require('handlebars'),
-    $ = require('jquery');
+    $ = require('jquery'),
+    async = require('async');
 
 var CountriesCollection = require('../../collections/countries.js');
 
@@ -18,9 +19,8 @@ var CompareSelectorsView = Backbone.View.extend({
 
   initialize: function(options) {
     options = options || {};
-    this.country = options.country;
 
-    // this.listenTo(this.country, 'sync', this.render);
+    this.countries = options.countries;
 
     this.countriesCollection = new CountriesCollection();
     this.getData();
@@ -45,6 +45,19 @@ var CompareSelectorsView = Backbone.View.extend({
 
     //this is due to the 'el' problem.
      this.setEvents();
+
+     if (this.countries) {
+      this.setRecivedValues();
+     };
+  },
+
+  setRecivedValues: function() {
+    $.each(this.countries, function(i, country) {
+      var currentSelector = $('#country-'+ (i+1))
+      currentSelector.val(country);
+      currentSelector.trigger('change');
+
+    }.bind(this))
   },
 
   setEvents: function() {
