@@ -1,7 +1,8 @@
 var Backbone = require('backbone'),
     async = require('async'),
     Handlebars = require('handlebars'),
-    _ = require('lodash');
+    _ = require('lodash'),
+    $ = require('jquery');
 
 var Countries = require('../../collections/countries.js'),
     Indicators = require('../../collections/indicator_configs.js');
@@ -22,17 +23,21 @@ var compareStatus = new (Backbone.Model.extend({
 
 var CompareView = Backbone.View.extend({
 
-
   initialize: function(options) {
     options = options || {};
-
-    if (options && options.countries != null) {
-      this.countryIds = _.uniq(options.countries);
-    };
 
     this.setListeners();
     this.renderIndicators();
     this.initializeData();
+
+    if (options && options.countries != null) {
+      this.countryIds = _.uniq(options.countries);
+
+      $.each(this.countryIds, function(i, country) {
+        this.countryRecived(country, i+1)
+      }.bind(this))
+    };
+
   },
 
   setListeners: function() {
@@ -57,7 +62,7 @@ var CompareView = Backbone.View.extend({
 
     indicatorsCollection.fetch().done(function(indicators) {
       var indicators = _.sortByOrder(indicators.rows, ['short_name']);
-      console.log(indicators);
+      
       this.$('.js--comparison-indicators').html(indicatorsTemplate({ 'indicators': indicators }))
     }.bind(this))
   },
@@ -66,21 +71,13 @@ var CompareView = Backbone.View.extend({
   renderCountryScores: function(iso, order) {
     this.indicatorScoresCollection.forCountry(iso).done(function(data) {
       var scores = _.sortByOrder(data.rows, ['short_name']);
-      console.log(data);
-      this.$('.js--country-' + order).html(countryScoresTemplate({ 'scores': scores }))
+      this.$('.js--country-' + order).html(countryScoresTemplate({ 'scores': scores, 'iso': iso }))
     }.bind(this));
 
   },  
 
   renderSelectors: function() {
     var selectors = new CompareSelectorsView({ el: '.js--comparison-indicators' });
-  },
-
-  setCountries: function(countries) {
-    if (countries) {
-      this.countryIds = countries;
-      this.initializeData();
-    };
   },
 
   countryRecived: function(iso, order) {
