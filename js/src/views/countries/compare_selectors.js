@@ -11,8 +11,6 @@ var template = Handlebars.compile(
 
 var CompareSelectorsView = Backbone.View.extend({
 
-  // el: '.js--compare-selectors',
-
   events: {
     'change .js--compare-selector': 'getCountry'
   },
@@ -35,33 +33,21 @@ var CompareSelectorsView = Backbone.View.extend({
   },
 
   render: function(countries) {
-    //I have a problem here with el... async?
-    // this.$el.html(template({'countries': countries}));
-    // console.log(this.el);
-    // console.log(this.$el);
-
     var countries = _.sortByOrder(countries, ['name']);
-    $('.js--compare-selectors').html(template({'countries': countries}));
+    this.$el.html(template({'countries': countries}));
 
-    //this is due to the 'el' problem.
-     this.setEvents();
-
-     if (this.countries) {
+    if (this.countries) {
       this.setRecivedValues();
-     };
+    };
   },
 
   setRecivedValues: function() {
     $.each(this.countries, function(i, country) {
-      var currentSelector = $('#country-'+ (i+1))
+      var currentSelector = $('#country-'+ (i+1));
+
       currentSelector.val(country);
       currentSelector.trigger('change');
-
-    }.bind(this))
-  },
-
-  setEvents: function() {
-    $('.js--compare-selector').on('change', this.getCountry);
+    }.bind(this));
   },
 
   getCountry: function(e) {

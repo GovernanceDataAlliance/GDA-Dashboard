@@ -45,6 +45,8 @@ var CompareView = Backbone.View.extend({
 
   render: function() {    
     this.$el.html(template());
+    
+    //TODO -- I need el to be '.js--compare-selectors'. But it doesn´t exist yet when this functions is fired... 
     this.renderSelectors();
     return this;
   },
@@ -71,7 +73,7 @@ var CompareView = Backbone.View.extend({
   },  
 
   renderSelectors: function() {
-    var selectors = new CompareSelectorsView({ countries: this.countryIds || null });
+    var selectors = new CompareSelectorsView({ el: this.$('.js--compare-selectors'), countries: this.countryIds });
   },
 
   setCountries: function(countries) {
