@@ -80,6 +80,11 @@ var CompareView = Backbone.View.extend({
     var selectors = new CompareSelectorsView({ el: '.js--comparison-indicators' });
   },
 
+  setCountries: function(countries) {
+     this.countryIds = countries;
+     this.initializeData();
+   },
+
   countryRecived: function(iso, order) {
     compareStatus.set('country'+order, iso);
     this.renderCountryScores(iso, order);
