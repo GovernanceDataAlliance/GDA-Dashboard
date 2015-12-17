@@ -21,14 +21,29 @@ var compareStatus = new (Backbone.Model.extend({
       defaults: {}
     }));
 
+var defaultScores = [
+  { 'short_name': 'corruption_perceptions_index' }, 
+  { 'short_name': 'doing_business' }, 
+  { 'short_name': 'doing_business_DTF' }, 
+  { 'short_name': 'environmental_democracy_index' }, 
+  { 'short_name': 'freedom_in_the_world' }, 
+  { 'short_name': 'freedom_of_the_press' }, 
+  { 'short_name': 'freedom_on_the_net' }, 
+  { 'short_name': 'global_integrity_report' }, 
+  { 'short_name': 'irm_action_plan_count_star' }, 
+  { 'short_name': 'irm_action_plan_percent_star' }, 
+  { 'short_name': 'nations_in_transit' }, 
+  { 'short_name': 'ogp_regular_consult_forum' }, 
+  { 'short_name': 'resource_governance_index' }, 
+  { 'short_name': 'rti_rating' }
+];
+
 var CompareView = Backbone.View.extend({
 
   initialize: function(options) {
     options = options || {};
 
     this.setListeners();
-    this.renderIndicators();
-    this.initializeData();
 
     if (options && options.countries != null) {
       this.countryIds = _.uniq(options.countries);
@@ -43,10 +58,11 @@ var CompareView = Backbone.View.extend({
     this.indicatorScoresCollection = new IndicatorsScores();
   },
 
-  render: function() {    
+  render: function() {   
+    this.renderIndicators();
+    this.initializeData();
+
     this.$el.html(template());
-    
-    //TODO -- I need el to be '.js--compare-selectors'. But it doesn´t exist yet when this functions is fired... 
     this.renderSelectors();
     return this;
   },
@@ -59,15 +75,30 @@ var CompareView = Backbone.View.extend({
 
     indicatorsCollection.fetch().done(function(indicators) {
       var indicators = _.sortByOrder(indicators.rows, ['short_name']);
-      
+
       this.$('.js--comparison-indicators').html(indicatorsTemplate({ 'indicators': indicators }))
     }.bind(this))
   },
 
-
   renderCountryScores: function(iso, order) {
     this.indicatorScoresCollection.forCountry(iso).done(function(data) {
       var scores = _.sortByOrder(data.rows, ['short_name']);
+
+      console.log(scores);
+
+      $.each(defaultScores, function(i, d) {
+        var current = _.findWhere(scores, {'short_name': d.short_name});
+        console.log(current);
+
+        if (!current) {
+          scores.push(d);
+        }
+
+        console.log(scores);
+        return scores;
+      });
+
+
       this.$('.js--country-' + order).html(countryScoresTemplate({ 'scores': scores, 'iso': iso }))
     }.bind(this));
   },  

@@ -12,9 +12,17 @@ var Indicators = CartoDBCollection.extend({
   forCountry: function(iso) {
     var query = SQL({ table: this.table, iso: iso}),
         url = this._urlForQuery(query);
-    var data =  this.fetch({url: url});
-    return data;
+    var rawData =  this.fetch({url: url});
+
+    // this.parseData(rawData);
+
+    return rawData;
   },
+
+  //TODO - Parse data to have no data when no score for a country for a given country. If this is not possible in queries
+  // parseData: function(rawData) {
+  //   console.log(rawData.rows)
+  // },
 
   downloadForCountry: function(iso) {
     var query = SQL({ table: this.table, iso: iso}),
