@@ -1,4 +1,6 @@
 var Backbone = require('backbone'),
+    $ = require('jquery'),
+     _ = require('lodash'),
     URI = require('urijs');
 
 var ViewManager = require('../lib/view_manager.js'),
@@ -16,6 +18,12 @@ var Router = Backbone.Router.extend({
 
   initialize: function(options) {
     this.views = new ViewManager({ $el: options.$el });
+
+    this.setListeners();
+  },
+
+  setListeners: function() {
+    Backbone.Events.on('country:selected', (this.countrySelected).bind(this));
   },
 
   index: function() {
@@ -39,19 +47,39 @@ var Router = Backbone.Router.extend({
   },
 
   compare: function() {
-    var params = URI("?" + window.location.hash.split("?")[1]).query(true);
-        countries = params['countries[]'];
+    var params =  URI("?" + window.location.hash.split("?")[1]).query(true);
+
+    this.countries = params && params['countries[]'] ? params['countries[]'] : [];
+
+    //When only one value, string instead of array. We need array.
+    if ( _.isString(this.countries)) {
+      this.countries = [ this.countries ];
+    };
 
     if (!this.views.hasView('compare')) {
-      var view = new CompareView({countries: countries});
+      var view = new CompareView({countries: this.countries});
       this.views.addView('compare', view);
     } else {
-      this.views.getView('compare').setCountries(countries);
+      this.views.getView('compare').setCountries(this.countries);
     }
 
     this.views.showView('compare');
-  }
+  },
 
+  countrySelected: function(iso, order) {
+    this.countries[order - 1] = iso;
+
+    var hash = 'compare?';
+
+    $.each(this.countries, function(i, country) {
+      hash = hash + 'countries[]=' + country;
+      if (i + 1 < this.countries.length) {
+        hash = hash + '&';
+      }
+    }.bind(this));
+
+    this.navigate(hash);
+  }
 });
 
 module.exports = Router;

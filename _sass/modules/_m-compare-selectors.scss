@@ -1,0 +1,9 @@
+.m-compare-selectors {
+  display: flex;
+  justify-content: space-between;
+  padding: rem(10px) 0;
+
+  > * {
+    flex-basis: 25%;
+  }
+}

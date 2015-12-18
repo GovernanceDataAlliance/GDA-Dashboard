@@ -1,66 +1,90 @@
 var Backbone = require('backbone'),
     async = require('async'),
     Handlebars = require('handlebars'),
-    _ = require('lodash');
+    _ = require('lodash'),
+    $ = require('jquery');
 
 var Countries = require('../../collections/countries.js'),
-    Indicators = require('../../collections/indicators.js');
+    Indicators = require('../../collections/indicator_configs.js');
+    IndicatorsScores = require('../../collections/indicators.js');
 
 var IndicatorsPresenter = require('../../presenters/indicators.js');
     CountriesPresenter = require('../../presenters/countries.js');
 
 var template = Handlebars.compile(require('../../templates/countries/compare.hbs')),
-    headerTemplate = Handlebars.compile(require('../../templates/countries/compare-table-header.hbs')),
-    indicatorTemplate = Handlebars.compile(require('../../templates/countries/compare-table-body.hbs'));
+    indicatorsTemplate = Handlebars.compile(require('../../templates/countries/compare-indicators.hbs'));
+    countryScoresTemplate = Handlebars.compile(require('../../templates/countries/compare-country-scores.hbs'));
+
+var CompareSelectorsView = require('./compare_selectors.js');
+
+var compareStatus = new (Backbone.Model.extend({
+      defaults: {}
+    }));
 
 var CompareView = Backbone.View.extend({
+
   initialize: function(options) {
     options = options || {};
 
-    this.countryIds = _.uniq(options.countries);
-    this.initializeData();
+    this.setListeners();
+
+    if (options && options.countries != null) {
+      this.countryIds = _.uniq(options.countries);
+    };
+  },
+
+  setListeners: function() {
+    Backbone.Events.on('country:selected', (this.countryRecived).bind(this));
   },
 
   initializeData: function() {
-    this.countries = new Countries();
-    this.listenTo(this.countries, 'sync', this.renderCountries);
-    this.countries.forIds(this.countryIds);
-
-    var createIndicatorCollection = function(id, cb) {
-      var collection = new Indicators();
-      collection.forCountry(id).then(function() { cb(null, collection); });
-    };
-    async.map(this.countryIds, createIndicatorCollection, this.renderIndicators.bind(this));
+    this.indicatorScoresCollection = new IndicatorsScores();
   },
 
-  render: function() {
-    this.$el.html(template());
+  render: function() {   
+    this.renderIndicators();
+    this.initializeData();
 
+    this.$el.html(template());
+    this.renderSelectors();
     return this;
   },
 
-  renderCountries: function() {
-    var formattedCountries = CountriesPresenter.forComparison(
-      this.countries.toJSON(), this.countryIds);
+  /*
+   * Render indicators names
+   */
+  renderIndicators: function() {
+    var indicatorsCollection = new Indicators();
 
-    this.$('.js--comparison-header').html(headerTemplate({
-      countries: formattedCountries
-    }));
+    indicatorsCollection.fetch().done(function(indicators) {
+      var indicators = _.sortByOrder(indicators.rows, ['short_name']);
+
+      this.$('.js--comparison-indicators').html(indicatorsTemplate({ 'indicators': indicators }))
+    }.bind(this))
   },
 
-  renderIndicators: function(err, collections) {
-    if (err) { return; }
+  renderCountryScores: function(iso, order) {
+    this.indicatorScoresCollection.forCountry(iso).done(function(data) {
 
-    var formattedCollections =
-      IndicatorsPresenter.forComparison(collections);
-    this.$('.js--comparison-indicators').html(indicatorTemplate({
-      collections: formattedCollections
-    }));
+      var scores = _.sortByOrder(data.rows, ['short_name']);
+
+      this.$('.js--country-' + order).html(countryScoresTemplate({ 'scores': scores, 'iso': iso }))
+    }.bind(this));
+  },  
+
+  renderSelectors: function() {
+    //TODO -- Add view manager.
+    var selectors = new CompareSelectorsView({ el: this.$('.js--compare-selectors'), countries: this.countryIds });
   },
 
   setCountries: function(countries) {
-    this.countryIds = countries;
-    this.initializeData();
+     this.countryIds = countries;
+     this.initializeData();
+   },
+
+  countryRecived: function(iso, order) {
+    compareStatus.set('country'+order, iso);
+    this.renderCountryScores(iso, order);
   },
 
   show: function() {
