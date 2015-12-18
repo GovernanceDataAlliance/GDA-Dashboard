@@ -73,6 +73,7 @@ var CompareView = Backbone.View.extend({
   },  
 
   renderSelectors: function() {
+    //TODO -- Add view manager.
     var selectors = new CompareSelectorsView({ el: this.$('.js--compare-selectors'), countries: this.countryIds });
   },
 

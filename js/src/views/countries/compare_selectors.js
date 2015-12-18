@@ -21,20 +21,18 @@ var CompareSelectorsView = Backbone.View.extend({
     this.countries = options.countries;
 
     this.countriesCollection = new CountriesCollection();
-    this.getData();
+    this.render();
   },
 
   getData: function() {
-    var self = this;
-
-    this.countriesCollection.fetch().done(function(countries) {
-      self.render(countries.rows);
-    });
+    return this.countriesCollection.fetch();
   },
 
-  render: function(countries) {
-    var countries = _.sortByOrder(countries, ['name']);
-    this.$el.html(template({'countries': countries}));
+  render: function() {
+    this.getData().done(function(countries) {
+      var countries = _.sortByOrder(countries.rows, ['name']);
+      this.$el.html(template({'countries': countries}));
+    }.bind(this));
 
     if (this.countries) {
       this.setRecivedValues();
@@ -44,7 +42,6 @@ var CompareSelectorsView = Backbone.View.extend({
   setRecivedValues: function() {
     $.each(this.countries, function(i, country) {
       var currentSelector = $('#country-'+ (i+1));
-
       currentSelector.val(country);
       currentSelector.trigger('change');
     }.bind(this));
@@ -52,12 +49,17 @@ var CompareSelectorsView = Backbone.View.extend({
 
   getCountry: function(e) {
     e && e.preventDefault();
-
     var selectedCountry = $(e.currentTarget).val();
     var order = $(e.currentTarget).attr('id').split('-')[1];
 
     Backbone.Events.trigger('country:selected', selectedCountry, order);
-  }
+  },
+
+  show: function() {
+    this.render();
+  },
+
+  hide: function() {}
 });
 
 module.exports = CompareSelectorsView;

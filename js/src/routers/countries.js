@@ -49,10 +49,9 @@ var Router = Backbone.Router.extend({
   compare: function() {
     var params =  URI("?" + window.location.hash.split("?")[1]).query(true);
 
-    //TODO -- know why when only one country selected, 
-    // is not an array.
     this.countries = params && params['countries[]'] ? params['countries[]'] : [];
 
+    //When only one value, string instead of array. We need array.
     if ( _.isString(this.countries)) {
       this.countries = [ this.countries ];
     };
