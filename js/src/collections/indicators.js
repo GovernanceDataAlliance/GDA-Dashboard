@@ -6,7 +6,8 @@ var CONFIG = require('../../config.json');
 
 var Handlebars = require('handlebars');
 
-var SQL = Handlebars.compile(require('../templates/queries/indicators.sql.hbs'));
+var SQL = Handlebars.compile(require('../templates/queries/indicators.sql.hbs')),
+    SQL_uniques = Handlebars.compile(require('../templates/queries/indicators_uniqueValues.sql.hbs'));
 
 var defaultScores = [
   { 'short_name': 'corruption_perceptions_index', 'score': 'no data' }, 
@@ -30,7 +31,7 @@ var Indicators = CartoDBCollection.extend({
   table: CONFIG.cartodb.indicator_data_table_name,
 
   forCountry: function(iso) {
-    var query = SQL({ table: this.table, iso: iso}),
+    var query = SQL_uniques({ table: this.table, iso: iso}),
         url = this._urlForQuery(query);
     
     var data = this.fetch({url: url}).done(function (rawData) {
@@ -55,6 +56,8 @@ var Indicators = CartoDBCollection.extend({
   downloadForCountry: function(iso) {
     var query = SQL({ table: this.table, iso: iso}),
         url = this._urlForQuery(query) + '&format=csv';
+
+    console.log(url)
     return url;
   }
 });
