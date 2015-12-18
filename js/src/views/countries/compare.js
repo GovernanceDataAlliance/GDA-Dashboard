@@ -21,23 +21,6 @@ var compareStatus = new (Backbone.Model.extend({
       defaults: {}
     }));
 
-var defaultScores = [
-  { 'short_name': 'corruption_perceptions_index', 'score': 'no data'  }, 
-  { 'short_name': 'doing_business', 'score': 'no data'  }, 
-  { 'short_name': 'doing_business_DTF', 'score': 'no data'  }, 
-  { 'short_name': 'environmental_democracy_index', 'score': 'no data'  }, 
-  { 'short_name': 'freedom_in_the_world', 'score': 'no data'  }, 
-  { 'short_name': 'freedom_of_the_press', 'score': 'no data'  }, 
-  { 'short_name': 'freedom_on_the_net', 'score': 'no data'  }, 
-  { 'short_name': 'global_integrity_report', 'score': 'no data'  }, 
-  { 'short_name': 'irm_action_plan_count_star', 'score': 'no data'  }, 
-  { 'short_name': 'irm_action_plan_percent_star', 'score': 'no data'  }, 
-  { 'short_name': 'nations_in_transit', 'score': 'no data'  }, 
-  { 'short_name': 'ogp_regular_consult_forum', 'score': 'no data'  }, 
-  { 'short_name': 'resource_governance_index', 'score': 'no data'  }, 
-  { 'short_name': 'rti_rating', 'score': 'no data' }
-];
-
 var CompareView = Backbone.View.extend({
 
   initialize: function(options) {
@@ -82,18 +65,6 @@ var CompareView = Backbone.View.extend({
 
   renderCountryScores: function(iso, order) {
     this.indicatorScoresCollection.forCountry(iso).done(function(data) {
-
-      $.each(defaultScores, function(i, d) {
-        var current = _.findWhere(data.rows, {'short_name': d.short_name});
-        console.log(current);
-
-        if (!current) {
-          data.rows.push(d);
-        }
-
-        console.log(data.rows);
-        return data.rows;
-      });
 
       var scores = _.sortByOrder(data.rows, ['short_name']);
 
