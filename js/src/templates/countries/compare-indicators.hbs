@@ -2,7 +2,9 @@
   {{#each indicators}}
     <li class="table-cell {{short_name}}">
       <h3>{{product_name}}</h3>
-      <button data-info="{{product_description}}">i</button>
+      {{#if product_description}}
+        <button class="btn-info" data-info="{{product_description}}">i</button>
+      {{/if}}
     </li>
   {{/each}}
 </ul>

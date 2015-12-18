@@ -15,13 +15,18 @@ var template = Handlebars.compile(require('../../templates/countries/compare.hbs
     indicatorsTemplate = Handlebars.compile(require('../../templates/countries/compare-indicators.hbs'));
     countryScoresTemplate = Handlebars.compile(require('../../templates/countries/compare-country-scores.hbs'));
 
-var CompareSelectorsView = require('./compare_selectors.js');
+var CompareSelectorsView = require('./compare_selectors.js'),
+    ModalWindowView = require('../common/infowindow_view.js')
 
 var compareStatus = new (Backbone.Model.extend({
       defaults: {}
     }));
 
 var CompareView = Backbone.View.extend({
+
+  events: {
+    'click .btn-info': 'showModalWindow'
+  },
 
   initialize: function(options) {
     options = options || {};
@@ -91,7 +96,12 @@ var CompareView = Backbone.View.extend({
     this.render();
   },
 
-  hide: function() {}
+  hide: function() {},
+
+  showModalWindow: function(e) {
+    var data = $(e.currentTarget).data('info');
+    var modalWindowView = new ModalWindowView().render(data)
+  }
 });
 
 module.exports = CompareView;
