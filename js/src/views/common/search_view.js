@@ -126,7 +126,7 @@ var SearchView = Backbone.View.extend({
       });
 
       this.trigger('results', search);
-      this.$(this.elSuggestions).html(templateSuggestions({data: search}));
+      this.$(this.elSuggestions).html(templateSuggestions({'data': search, 'mainUrl': main_url}));
       this.$(this.elContent).addClass('visible');
     }, this), 100);
   },
