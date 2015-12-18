@@ -1,7 +1,8 @@
 var Backbone = require('backbone'),
     _ = require('lodash'),
     Handlebars = require('handlebars'),
-    $ = require('jquery');
+    $ = require('jquery'),
+    async = require('async');
 
 var CountriesCollection = require('../../collections/countries.js');
 
@@ -10,55 +11,55 @@ var template = Handlebars.compile(
 
 var CompareSelectorsView = Backbone.View.extend({
 
-  // el: '.js--compare-selectors',
-
   events: {
     'change .js--compare-selector': 'getCountry'
   },
 
   initialize: function(options) {
     options = options || {};
-    this.country = options.country;
 
-    // this.listenTo(this.country, 'sync', this.render);
+    this.countries = options.countries;
 
     this.countriesCollection = new CountriesCollection();
-    this.getData();
+    this.render();
   },
 
   getData: function() {
-    var self = this;
-
-    this.countriesCollection.fetch().done(function(countries) {
-      self.render(countries.rows);
-    });
+    return this.countriesCollection.fetch();
   },
 
-  render: function(countries) {
-    //I have a problem here with el... async?
-    // this.$el.html(template({'countries': countries}));
-    // console.log(this.el);
-    // console.log(this.$el);
+  render: function() {
+    this.getData().done(function(countries) {
+      var countries = _.sortByOrder(countries.rows, ['name']);
+      this.$el.html(template({'countries': countries}));
+    }.bind(this));
 
-    var countries = _.sortByOrder(countries, ['name']);
-    $('.js--compare-selectors').html(template({'countries': countries}));
-
-    //this is due to the 'el' problem.
-     this.setEvents();
+    if (this.countries) {
+      this.setRecivedValues();
+    };
   },
 
-  setEvents: function() {
-    $('.js--compare-selector').on('change', this.getCountry);
+  setRecivedValues: function() {
+    $.each(this.countries, function(i, country) {
+      var currentSelector = $('#country-'+ (i+1));
+      currentSelector.val(country);
+      currentSelector.trigger('change');
+    }.bind(this));
   },
 
   getCountry: function(e) {
     e && e.preventDefault();
-
     var selectedCountry = $(e.currentTarget).val();
     var order = $(e.currentTarget).attr('id').split('-')[1];
 
     Backbone.Events.trigger('country:selected', selectedCountry, order);
-  }
+  },
+
+  show: function() {
+    this.render();
+  },
+
+  hide: function() {}
 });
 
 module.exports = CompareSelectorsView;

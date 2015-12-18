@@ -1,7 +1,8 @@
 var Backbone = require('backbone'),
     async = require('async'),
     Handlebars = require('handlebars'),
-    _ = require('lodash');
+    _ = require('lodash'),
+    $ = require('jquery');
 
 var Countries = require('../../collections/countries.js'),
     Indicators = require('../../collections/indicator_configs.js');
@@ -30,13 +31,11 @@ var CompareView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
 
+    this.setListeners();
+
     if (options && options.countries != null) {
       this.countryIds = _.uniq(options.countries);
     };
-
-    this.setListeners();
-    this.renderIndicators();
-    this.initializeData();
   },
 
   setListeners: function() {
@@ -47,7 +46,10 @@ var CompareView = Backbone.View.extend({
     this.indicatorScoresCollection = new IndicatorsScores();
   },
 
-  render: function() {    
+  render: function() {   
+    this.renderIndicators();
+    this.initializeData();
+
     this.$el.html(template());
     this.renderSelectors();
     return this;
@@ -61,31 +63,29 @@ var CompareView = Backbone.View.extend({
 
     indicatorsCollection.fetch().done(function(indicators) {
       var indicators = _.sortByOrder(indicators.rows, ['short_name']);
-      console.log(indicators);
+
       this.$('.js--comparison-indicators').html(indicatorsTemplate({ 'indicators': indicators }))
     }.bind(this))
   },
 
-
   renderCountryScores: function(iso, order) {
     this.indicatorScoresCollection.forCountry(iso).done(function(data) {
-      var scores = _.sortByOrder(data.rows, ['short_name']);
-      
-      this.$('.js--country-' + order).html(countryScoresTemplate({ 'scores': scores }))
-    }.bind(this));
 
+      var scores = _.sortByOrder(data.rows, ['short_name']);
+
+      this.$('.js--country-' + order).html(countryScoresTemplate({ 'scores': scores, 'iso': iso }))
+    }.bind(this));
   },  
 
   renderSelectors: function() {
-    var selectors = new CompareSelectorsView({ el: '.js--comparison-indicators' });
+    //TODO -- Add view manager.
+    var selectors = new CompareSelectorsView({ el: this.$('.js--compare-selectors'), countries: this.countryIds });
   },
 
   setCountries: function(countries) {
-    if (countries) {
-      this.countryIds = countries;
-      this.initializeData();
-    };
-  },
+     this.countryIds = countries;
+     this.initializeData();
+   },
 
   countryRecived: function(iso, order) {
     compareStatus.set('country'+order, iso);
