@@ -31,6 +31,7 @@ var ModalWindowView = Backbone.View.extend({
   },
 
   render: function(info) {
+    this.fixed = true;
     this.$el.append(modalWindowtemplate({info}));
     this.toogleState();
   },
@@ -43,14 +44,18 @@ var ModalWindowView = Backbone.View.extend({
     }
   },
 
-  close: function() {
+  close: function(e) {
+    e.stopPropagation();
+    this.fixed = false;
+
     $('.m-modal-window').remove();
     this.toogleState();
+
   },
 
   toogleState: function() {
-    this.$el.toggleClass('has-no-scroll');
-    $('html').toggleClass('has-no-scroll');
+    this.$el.toggleClass('has-no-scroll', this.fixed);
+    $('html').toggleClass('has-no-scroll', this.fixed);
   }
 
 });

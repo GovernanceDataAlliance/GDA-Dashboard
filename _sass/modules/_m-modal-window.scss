@@ -1,6 +1,6 @@
 .m-modal-window {
   display: flex;
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
@@ -8,7 +8,7 @@
 }
 
 .modal-background {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   right: 0;
@@ -26,12 +26,13 @@
   margin: auto;
   z-index: 14;
   //optional, min size.
+  width: 90%;
   min-width: 75%;
   min-height: 75%;
 }
 
 .modal-container {
-  padding-right: 10px; //Margen para el scroll de windows
+  padding: 50px; //Margen para el scroll de windows
   overflow: scroll;
   background-color: #fff;
 }
