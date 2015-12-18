@@ -32,7 +32,7 @@ var ModalWindowView = Backbone.View.extend({
 
   render: function(info) {
     this.fixed = true;
-    this.$el.append(modalWindowtemplate({info}));
+    this.$el.append(modalWindowtemplate({'info': info}));
     this.toogleState();
   },
 
