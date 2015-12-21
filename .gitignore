@@ -2,6 +2,7 @@ _site
 .sass-cache
 
 node_modules
+.grunt
 
 npm-debug.log
 
@@ -10,3 +11,5 @@ js/countries_bundle.js
 js/indicators_bundle.js
 js/welcome_bundle.js
 js/test/bundle.js
+
+_SpecRunner.html

@@ -120,7 +120,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-connect-rewrite");
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('build', ['browserify:main', 'browserify:countries', 'browserify:indicators', 'browserify:welcome', 'jekyll:dist']);
+  grunt.registerTask('build', ['browserify:main', 'browserify:countries', 'browserify:indicators', 'browserify:welcome', 'jekyll:dist', 'jasmine:main:build']);
   grunt.registerTask('dist', ['build', 'uglify:dist']);
   grunt.registerTask('default', ['build', 'configureRewriteRules', 'connect:development', 'watch']);
   grunt.registerTask('test', ['clean:test', 'browserify:test', 'jasmine']);

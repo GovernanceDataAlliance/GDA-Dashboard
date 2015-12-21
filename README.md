@@ -24,6 +24,21 @@ npm start
 
 [Go go go!](http://localhost:4000)
 
+## Testing
+
+Write tests for as much as you can. Generally we're not writing
+integration level tests here, just unit tests for the non-view modules,
+but test to the level that you feel comfortable with.
+
+Run the tests with Grunt:
+
+```
+grunt test
+```
+
+If you want to view tests in the browser, run `grunt build` and open up
+`_SpecRunner.html`.
+
 ## Jekyll
 
 ### Adding new pages
