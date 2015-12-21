@@ -49,7 +49,7 @@ describe("Indicators", function() {
 
         request = requests[0];
         request.respond(200, { "Content-Type": "application/json" },
-                        JSON.stringify(responses.success));
+          JSON.stringify(responses.success));
       });
 
       it('sends a JOIN query to get all attributes', function() {
