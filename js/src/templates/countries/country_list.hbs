@@ -1,12 +1,17 @@
-<div class="wrap">
-  {{#each countriesByRegion}}
+{{#each countriesByRegion}}
+
+<div class="l-content -main">
+  <div class="wrap">
     <div class="m-list"> 
-      <h2>{{@key}}</h2>
+      <h2 class="c-section-title">{{@key}}</h2>
       <ul>
         {{#each this}}
           <li><a href="#{{iso3}}" title="{{name}}">{{name}}</a></li>
         {{/each}}
       </ul>
     </div>
-  {{/each}}
+  </div>
 </div>
+
+{{/each}}
+

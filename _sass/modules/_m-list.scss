@@ -1,69 +1,15 @@
 .m-list {
-  display: flex;
-  width: 100%;
-  padding: 0 rem(10px);
-  flex-direction: column;
-  margin-bottom: rem(20px);
-
-  h2, 
-  h3 {
-    color: $font-color-2;
-  }
-
-  a {
-    display: block;
-  }
-
-  ul {
+  
+  > ul {
     display: flex;
     flex-direction: column;
     align-content: flex-start;
     flex-wrap: wrap;
-    height: 350px;
-
-    li {
-      width: 25%;
-      padding-left: 1%;
-    }
+    height: rem(360px);
   }
 
-  &.-indexes {
-    width: 46%;
-    float: left;
-    margin: 2%;
-    height: 400px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.2);
-  }
-
-  &.-home {
-    > .item {
-      display: flex;
-
-      margin-top: 75px;
-
-      img {
-        margin-right: 50px;
-      }
-
-      div {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      h3 {
-        color: $font-color-2;
-        margin-bottom: 20px;
-      }
-
-      p {
-        color: $font-color-1;
-        font-size: rem(15px);
-        line-height: 1.5rem;
-      }
-    }
+  li {
+    width: 25%;
+    margin-right: 1%;
   }
 }

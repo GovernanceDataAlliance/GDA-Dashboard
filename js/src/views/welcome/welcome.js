@@ -25,7 +25,7 @@ var WelcomeView = Backbone.View.extend({
   },
 
   initViews: function() {
-    var search = new SearchView();
+    var search = new SearchView({ el: this.$('.js--search')});
   }
 
 });

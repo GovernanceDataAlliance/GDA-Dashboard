@@ -7,9 +7,10 @@
     justify-content: space-between;
   }
 
-  .link {
+  .link a {
     font-size: rem(11px);
     font-family: $font-secondary;
+    color: $font-color-1;
     text-transform: uppercase;
   }
 }

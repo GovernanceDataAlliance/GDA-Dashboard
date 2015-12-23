@@ -1,6 +1,9 @@
 .l-content {
   padding: rem(120px) 0 rem(160px);
-  background-color: $bg-color-1;
-
+  border-bottom: 1px solid $border-1;
+  
+  &:nth-child(2n + 1) {
+    background-color: $bg-color-1;
+  }
   
 }
