@@ -55,14 +55,14 @@ var CountryView = Backbone.View.extend({
   },
 
   renderToolbar: function() {
-    var toolbarView = new CountryToolbarView();
+    var toolbarView = new CountryToolbarView({ 'iso': this.iso });
     this.$('.js--country-toolbar').append(toolbarView.render().el);
   },
 
   renderIndicators: function() {
     var listView = new IndicatorListView({
       indicators: this.indicators});
-    this.$('.js--indicators').append(listView.render().el);
+    listView.render();
   },
 
   download: function(event) {

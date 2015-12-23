@@ -13,11 +13,14 @@ var CountryToolbarView = Backbone.View.extend({
     'click .btn-layout-list': 'gridLayoutList'
   },
 
-  initialize: function() {
+  initialize: function(options) {
+    options = options || {};
+
+    this.iso = options.iso;
   },
 
   render: function() {
-    this.$el.html(template({}));
+    this.$el.html(template({ 'iso': this.iso }));
     return this;
   },
 
