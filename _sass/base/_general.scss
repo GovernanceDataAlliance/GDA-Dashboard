@@ -23,6 +23,10 @@ body {
 
 p {
   line-height: 1.8em;
+
+  + .btn {
+    margin-top: rem(60px);
+  }
 }
 
 a, button, input, select, textarea {

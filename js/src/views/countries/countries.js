@@ -28,7 +28,7 @@ var CountriesView = Backbone.View.extend({
 
   renderCountryList: function() {
     var listView = new CountryList({countries: this.countries});
-    this.$('.js--countries').html(listView.render().el);
+    this.$('.js--countries-list').html(listView.render().el);
   },
 
   initViews: function() {
