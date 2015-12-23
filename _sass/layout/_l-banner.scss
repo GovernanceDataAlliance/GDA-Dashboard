@@ -14,4 +14,16 @@
     padding: rem(100px) 0 rem(60px);
     background-color: #ccc; 
   }
+
+  &.-detail {
+    display: flex;
+    height: rem(320px);
+    background-color: $bg-color-1;
+    border-bottom: 1px solid $border-1;
+
+    > .wrap {
+      display: flex;
+      align-items: center;
+    }
+  }
 }

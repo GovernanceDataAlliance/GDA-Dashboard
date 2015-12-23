@@ -1,0 +1,21 @@
+.m-breadcrumbs {
+  position: absolute;
+  top: rem(40px);
+  left: 0;
+
+  li {
+    float: left;
+    text-transform: uppercase;
+    font-size: rem(9px);
+    font-family: $font-secondary;
+  }
+
+  a {
+    font-size: rem(9px);
+    font-family: $font-secondary;
+  }
+
+  span {
+    padding: 0 rem(5px);
+  }
+}

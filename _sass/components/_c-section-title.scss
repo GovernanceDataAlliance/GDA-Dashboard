@@ -1,11 +1,9 @@
 .c-section-title {
   position: relative;
   padding-bottom: rem(50px);
-  margin-bottom: rem(50px);
-  font-size: rem(12px);
+  font-size: rem(50px);
   color: $font-color-1;
-  font-family: $font-secondary;
-  text-transform: uppercase;
+  
 
   &:after {
     content: "";
@@ -15,5 +13,20 @@
     width: rem(60px);
     height: rem(2px);
     background-color: $color-2;
+  }
+
+  &.-small {
+    margin-bottom: rem(50px);
+    font-size: rem(12px);
+    font-family: $font-secondary;
+    text-transform: uppercase;
+  }
+
+  &.-light {
+    color: $font-color-2;
+
+    &:after {
+      background-color: $white;
+    }
   }
 }
