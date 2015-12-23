@@ -6,17 +6,35 @@
   }
 
   .table-cell {
-    height: 100px;
-
+    height: rem(160px);
     display: flex;
     justify-content: center;
     align-items: center;
+
+    padding: rem(35px) rem(25px);
+    border-right: 1px solid $border-1;
+    border-bottom: 1px solid $border-1;
+
+    &.-score {
+      font-size: rem(72px);
+      font-family: $font-secondary;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
   }
 
   .table-header .table-cell {
     justify-content: flex-start;
   }
-  
 
+  h3 {
+    font-size: rem(20px);
+    margin-bottom: rem(25px);
+    font-size: 400;
+  }
+
+  p {
+    font-size: rem(15px);
+  }
 
 }

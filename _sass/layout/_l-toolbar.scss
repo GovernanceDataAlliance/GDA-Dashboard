@@ -14,4 +14,12 @@
   &.-share {
     background-color: $bg-color-3;
   }
+
+  &.-selectors {
+    
+    .wrap {
+      border-left: 1px solid $border-1;
+      border-right: 1px solid $border-1;
+    }
+  }
 }

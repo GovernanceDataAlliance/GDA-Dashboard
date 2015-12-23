@@ -1,5 +1,6 @@
 .l-banner {
-
+  
+  //home
   &.-main {
     padding: rem(100px) 0 rem(140px);
     background-color: #ccc; 
@@ -9,12 +10,24 @@
       margin-bottom: rem(35px);
     }
   }
-
+  
+  //countries
   &.-section-1 {
     padding: rem(100px) 0 rem(60px);
     background-color: #ccc; 
   }
 
+  //compare
+  &.-section-2 {
+    padding: rem(140px) 0 rem(180px);
+    background-color: #ccc; 
+
+    p {
+      color: $white;
+    }
+  }
+  
+  //country
   &.-detail {
     display: flex;
     height: rem(320px);
