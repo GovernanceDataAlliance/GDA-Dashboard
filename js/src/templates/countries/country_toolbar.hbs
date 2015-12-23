@@ -1,8 +1,13 @@
-<div class="config-controls">
-  <button class="js--download">download data</button>
-  <a href="/countries#compare">compare with other countries</a>
-</div>
-<div class="layout-controls">
-  <button class="btn-layout-dashboard">Dashboard</button>
-  <button class="btn-layout-list">List</button>
+<div class="l-toolbar">
+  <div class="wrap">
+    <div class="m-controls">
+      <button class="js--download">download data</button>
+      <span> | </span>
+      <a href="/countries#compare?countries[]={{iso}}">compare with other countries</a>
+    </div>
+    <div class="m-controls">
+      <button class="js--btn btn-layout-dashboard">Dashboard</button>
+      <button class="js--btn btn-layout-list is-active">List</button>
+    </div>
+  </div>
 </div>

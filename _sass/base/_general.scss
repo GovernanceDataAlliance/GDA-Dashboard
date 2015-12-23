@@ -35,7 +35,7 @@ a, button, input, select, textarea {
   }
 }
 
-a {
+a, button {
   text-decoration: none;
   color: $font-color-3;
   font-size: rem(14px);
@@ -43,6 +43,10 @@ a {
 
 ul {
   @extend %list-reset;
+}
+
+button {
+  @extend %clean-button-or-input;
 }
 
 ////////////////////

@@ -18,4 +18,10 @@
   span {
     padding: 0 rem(5px);
   }
+
+  &.-light {
+    li, a {
+      color: $white;
+    }
+  }
 }
