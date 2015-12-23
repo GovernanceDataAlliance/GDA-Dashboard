@@ -28,7 +28,7 @@ var IndicatorListView = Backbone.View.extend({
   renderIndicators: function() {  
     this.indicators.each(function(indicator) {
       var indicatorView = new IndicatorView({
-        indicator: indicator});
+        'indicator': indicator});
       this.$('.js--indicators-list').append(indicatorView.render().el);
     }.bind(this));
   }

@@ -13,13 +13,12 @@
   // transition: all .2s ease-in;
 
   .is-dashboard-layout & {
-    flex-basis: 33%;
+    flex-basis: 33.33%;
     flex-direction: column;
-    border-left: 1px solid $border-1;
-    border-bottom: 1px solid $border-1;
+    border-right: 1px solid $border-1;
 
-    &:nth-child(2n + 3) {
-      border-left: 0;
+    &:nth-child(3n) {
+      border-right: 0;
     }
   }
   
@@ -51,6 +50,10 @@
     .is-dashboard-layout & {
       > .description, 
       > .btn-read-more {
+        display: none;
+      }
+
+      .btn {
         display: none;
       }
     }
@@ -86,6 +89,13 @@
           font-family: $font-secondary;
           font-weight: 700;
           font-size: rem(40px);
+          line-height: .7em;
+        }
+      }
+
+      .is-dashboard-layout & {
+        > .global-score {
+          font-size: rem(72px);
         }
       }
     }
@@ -123,6 +133,10 @@
 
       > .partial-scores,
       > .btn-read-more {
+        display: none;
+      }
+
+      .btn {
         display: none;
       }
     }

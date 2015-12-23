@@ -41,6 +41,15 @@ var Indicators = CartoDBCollection.extend({
     return data;
   },
 
+  allForCountry: function(iso) {
+    var query = SQL({ table: this.table, iso: iso}),
+        url = this._urlForQuery(query);
+    
+    var data = this.fetch({url: url});
+
+    return data;
+  },
+
   /*
    * Adding elements when no score for that index.
    */

@@ -3,6 +3,7 @@ var _ = require('lodash');
 var Indicators = require('../../collections/indicators.js');
 
 var IndicatorService = {
+
   groupById: function(indicators) {
     var groupedIndicators = [];
     var ids = _.uniq(indicators.pluck('short_name'))
