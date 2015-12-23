@@ -5,6 +5,8 @@ var Backbone = require('backbone'),
 var Countries = require('../../collections/countries.js');
 var CountryList = require('./country_list.js');
 
+var SearchView = require('../common/search_view.js');
+
 var template = Handlebars.compile(
   require('../../templates/countries/countries.hbs'));
 
@@ -19,12 +21,18 @@ var CountriesView = Backbone.View.extend({
     this.$el.html(template());
     this.renderCountryList();
 
+    this.initViews();
+
     return this;
   },
 
   renderCountryList: function() {
     var listView = new CountryList({countries: this.countries});
     this.$('.js--countries').html(listView.render().el);
+  },
+
+  initViews: function() {
+    var search = new SearchView({ el: this.$('#searchBox')});
   },
 
   show: function() {

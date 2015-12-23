@@ -2,8 +2,6 @@ var Backbone = require('backbone'),
     _ = require('lodash'),
     Handlebars = require('handlebars');
 
-var SearchView = require('../common/search_view.js');
-
 var template = Handlebars.compile(
   require('../../templates/countries/country_header.hbs'));
 
@@ -23,8 +21,6 @@ var CountryHeaderView = Backbone.View.extend({
       name: this.country.get('name')
     }));
 
-    this.initViews();
-
     return this;
   },
 
@@ -33,10 +29,6 @@ var CountryHeaderView = Backbone.View.extend({
         requiredAttributes = ['name'];
 
     return _.intersection(currentAttributes, requiredAttributes).length > 0;
-  },
-
-  initViews: function() {
-    var search = new SearchView();
   }
 });
 
