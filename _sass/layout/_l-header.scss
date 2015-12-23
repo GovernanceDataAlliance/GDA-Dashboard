@@ -1,13 +1,20 @@
-/* Layout header */
-.l-header {
-  padding: rem(20px) 0;
+$header-height: rem(95px);
 
-  > .wrap {
-    display: flex;
-    align-content: center;
-    justify-content: space-between;
+.l-header {
+  height: $header-height;
+
+  display: flex;
+
+  .brand {
+    flex-basis: 33%;
+    background-color: $bg-color-2;
+    justify-content: flex-end;
   }
 
-  @media screen and (min-width: $screen-m) {
+  .menus {
+    flex-basis: 66%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
 }

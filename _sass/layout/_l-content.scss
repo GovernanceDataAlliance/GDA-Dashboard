@@ -1,18 +1,6 @@
 .l-content {
-  padding-top: rem(50px);
-  padding-bottom: rem(120px);
+  padding: rem(120px) 0 rem(160px);
+  background-color: $bg-color-1;
 
-  > .wrap {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    &.-table {
-      display: block;
-    }
-  }
-
-  &.-main {
-    padding: rem(100px) 0 rem(200px);
-  }
+  
 }

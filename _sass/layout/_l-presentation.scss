@@ -1,0 +1,22 @@
+.l-presentation {
+  display: flex;
+  height: rem(390px);
+
+  > .intro {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: $white;
+
+    &.-dark {
+      background-color: $bg-color-2;
+    }
+  }
+
+  > .picture {
+    flex-basis: 100%;
+    background-color: #ddd;
+  }
+}

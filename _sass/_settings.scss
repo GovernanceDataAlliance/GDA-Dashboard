@@ -14,49 +14,52 @@ $screen-xl: 1200px;
 ////////////////////
 //****  Grid  ****//
 ////////////////////
-$grid-columns: 12;
+$site-max-width: 1280px;
 $grid-max-width: 960px;
-$grid-gutter-width: 1%;
-$grid-padding: 0;
-$wrap-padding: 20px;
+$wrap-padding: 0;
 
 
 ////////////////////
 //**** Fonts ****//
 ////////////////////
-$font-main: 'Karla', sans-serif;
-$font-secondary: 'Arimo';
+$font-main: 'Lora', sans-serif;
+$font-secondary: 'Montserrat';
 
 //Font sizes
-$font-size: 18px;
+$font-size: 20px;
 
 
 ////////////////////
 //**** Colors ****//
 ////////////////////
 $white: #fff;
-$black: #1a1a1a;
-$grey: #69768D;
-$light-grey: #999999;
-$dark-blue: #1F2329;
-$red: #EF5F5F;
-$blue: #ABCEEE;
-$yellow: #FECE08;
-$green: #89D435;
+$beige: #beb7aa;
+$beige-light: #f4f3f2;
+$turquoise: #39a1b2; 
+$brown: #42352b;
+$magenta: #97102c;
+$yellow: #e9b33b;
+$green: #49c29a;
+$celeste: #49c9de;
 
-$soft-grey: #ddd;
+$grey: #b4b6b6;
+$light-grey: #d6d8d9;
 
 //Theme colors
-$color-1: $dark-blue;
-$color-2: $red;
-$color-3: $yellow;
+$color-1: $brown;
+$color-2: $turquoise;
+$color-3: $magenta;
+
+$bg-color-1: $beige-light;
+$bg-color-2: $brown;
+$bg-color-3: $beige;
 
 //Font colors
-$font-color-1: $light-grey;
-$font-color-2: $black;
-$font-color-3: $white;
+$font-color-1: $brown;
+$font-color-2: $white;
+$font-color-3: $turquoise;
 
-//bprdere-colors
+//bprder-colors
 $border-1: $light-grey;
 
 //Rank colors
@@ -65,7 +68,3 @@ $rank-1: $green;
 ////////////////////
 //**** Margins ***//
 ////////////////////
-$margin-extra-large: 40px;
-$margin-large: 30px;
-$margin-medium: 20px;
-$margin-small: 10px;

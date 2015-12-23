@@ -1,11 +1,3 @@
-/*
- * General rules for all hover the proyect
- */
- @include font-face("Raleway", "raleway-medium-webfont", 500);
- @include font-face("Raleway", "raleway-semibold-webfont", 600);
- @include font-face("Raleway", "raleway-bold-webfont", 700);
- @include font-face("Raleway", "raleway-extrabold-webfont", 800);
-
 * {
   box-sizing: border-box;
 }
@@ -25,7 +17,12 @@ body {
   font-family: $font-main, Helvetica, Arial, sans-serif;
   color: $font-color-1;
   font-size: $font-size;
+  background-color: #eee;
   -webkit-font-smoothing: antialiased;
+}
+
+p {
+  line-height: 1.2em;
 }
 
 a, button, input, select, textarea {

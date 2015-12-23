@@ -1,42 +1,19 @@
 .c-section-title {
-  font-size: rem(46px);
-  line-height: 1em;
-  padding-bottom: rem(20px);
+  position: relative;
+  padding-bottom: rem(50px);
+  margin-bottom: rem(50px);
+  font-size: rem(12px);
+  color: $font-color-1;
+  font-family: $font-secondary;
+  text-transform: uppercase;
 
-  &.-light {
-    color: $font-color-3;
-  }
-
-  &.-dark {
-    color: $font-color-2;
-  }
-
-  &.-secondary {
-    font-size: rem(24px);
-    text-align: center;
-  }
-
-  &.-highlighted {
-    position: relative;
-
-    &:after {
-      content: "";
-      @extend %centerx;
-      bottom: 0;
-      width: rem(60px);
-      height: rem(4px);
-      background-color: $color-3;
-    }
-  }
-
-  @media screen and (min-width: $screen-m) {
-    font-size: rem(72px);
-
-    &.-secondary {
-      max-width: 75%;
-      margin: 0 auto;
-      font-size: rem(46px);
-    }
-
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: rem(60px);
+    height: rem(2px);
+    background-color: $color-2;
   }
 }
