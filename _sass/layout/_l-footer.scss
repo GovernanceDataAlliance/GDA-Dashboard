@@ -1,3 +1,34 @@
-.l-footer {
+$footer-height: rem(245px);
 
+.l-footer {
+  height: $footer-height;
+
+  display: flex;
+  align-items: stretch;
+
+  .brand {
+    flex-basis: 33.33%;
+    background-color: $bg-color-2;
+    justify-content: flex-end;
+  }
+
+  .menus {
+    flex-basis: 66.66%;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    padding: rem(75px) 0;
+
+    .menus-wrapper {
+      @include col(8);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-direction: column;
+    }
+
+    p {
+      font-size: rem(14px);
+    }
+  }
 }

@@ -1,20 +1,30 @@
+//TODO unify header and footer
 $header-height: rem(95px);
 
 .l-header {
   height: $header-height;
 
   display: flex;
+  align-items: stretch;
 
   .brand {
-    flex-basis: 33%;
+    flex-basis: 33.33%;
     background-color: $bg-color-2;
     justify-content: flex-end;
   }
 
   .menus {
-    flex-basis: 66%;
+    flex-basis: 66.66%;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: stretch;
+    justify-content: center;
+
+    .menus-wrapper {
+      @include col(8);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      flex-direction: column;
+    }
   }
 }
