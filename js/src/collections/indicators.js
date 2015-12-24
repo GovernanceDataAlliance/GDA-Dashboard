@@ -34,26 +34,20 @@ var Indicators = CartoDBCollection.extend({
     var query = SQL_uniques({ table: this.table, iso: iso}),
         url = this._urlForQuery(query);
     
-    var data = this.fetch({url: url}).done(function (rawData) {
-      this.parseData(rawData)
-    }.bind(this));
-
-    return data;
+    return this.fetch({url: url});
   },
 
   allForCountry: function(iso) {
     var query = SQL({ table: this.table, iso: iso}),
         url = this._urlForQuery(query);
-    
-    var data = this.fetch({url: url});
 
-    return data;
+    return this.fetch({url: url});;
   },
 
   /*
    * Adding elements when no score for that index.
    */
-  parseData: function(rawData) {
+  parse: function(rawData) {
     $.each(defaultScores, function(i, d) {
       var current = _.findWhere(rawData.rows, {'short_name': d.short_name});
       if (!current) {
