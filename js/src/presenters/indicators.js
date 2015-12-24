@@ -2,6 +2,7 @@ var _ = require('lodash');
 
 var IndicatorsPresenter = {
   
+  //We are not ussing this anymore
   forComparison: function(collections) {
     var keys = _.uniq(_.flatten(
       collections.map(function(indicators) {
@@ -30,6 +31,7 @@ var IndicatorsPresenter = {
 
     return scoresForComparison;
   }
+
 };
 
 module.exports = IndicatorsPresenter;

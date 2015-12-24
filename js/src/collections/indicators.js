@@ -10,20 +10,20 @@ var SQL = Handlebars.compile(require('../templates/queries/indicators.sql.hbs'))
     SQL_uniques = Handlebars.compile(require('../templates/queries/indicators_uniqueValues.sql.hbs'));
 
 var defaultScores = [
-  { 'short_name': 'corruption_perceptions_index', 'score': 'no data' }, 
-  { 'short_name': 'doing_business', 'score': 'no data' }, 
-  { 'short_name': 'doing_business_DTF', 'score': 'no data' }, 
-  { 'short_name': 'environmental_democracy_index', 'score': 'no data' }, 
-  { 'short_name': 'freedom_in_the_world', 'score': 'no data' }, 
-  { 'short_name': 'freedom_of_the_press', 'score': 'no data' }, 
-  { 'short_name': 'freedom_on_the_net', 'score': 'no data' }, 
-  { 'short_name': 'global_integrity_report', 'score': 'no data' }, 
-  { 'short_name': 'irm_action_plan_count_star', 'score': 'no data' }, 
-  { 'short_name': 'irm_action_plan_percent_star', 'score': 'no data' }, 
-  { 'short_name': 'nations_in_transit', 'score': 'no data' }, 
-  { 'short_name': 'ogp_regular_consult_forum', 'score': 'no data' }, 
-  { 'short_name': 'resource_governance_index', 'score': 'no data' }, 
-  { 'short_name': 'rti_rating', 'score': 'no data'}
+  { 'short_name': 'corruption_perceptions_index', 'score': null }, 
+  { 'short_name': 'doing_business', 'score': null }, 
+  { 'short_name': 'doing_business_DTF', 'score': null }, 
+  { 'short_name': 'environmental_democracy_index', 'score': null }, 
+  { 'short_name': 'freedom_in_the_world', 'score': null }, 
+  { 'short_name': 'freedom_of_the_press', 'score': null }, 
+  { 'short_name': 'freedom_on_the_net', 'score': null }, 
+  { 'short_name': 'global_integrity_report', 'score': null }, 
+  { 'short_name': 'irm_action_plan_count_star', 'score': null }, 
+  { 'short_name': 'irm_action_plan_percent_star', 'score': null }, 
+  { 'short_name': 'nations_in_transit', 'score': null }, 
+  { 'short_name': 'ogp_regular_consult_forum', 'score': null }, 
+  { 'short_name': 'resource_governance_index', 'score': null }, 
+  { 'short_name': 'rti_rating', 'score': null}
 ];
 
 var Indicators = CartoDBCollection.extend({

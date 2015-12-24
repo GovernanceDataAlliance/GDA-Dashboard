@@ -12,7 +12,7 @@ var IndicatorService = {
       var matchingIndicators = indicators.where({short_name: id});
 
       var data = _.map(matchingIndicators, function(indicator) {
-        return {year: indicator.get('year'), score: indicator.get('score')};
+        return { year: indicator.get('year'), score: indicator.get('score') };
       });
 
       var newIndicator = matchingIndicators[0];
