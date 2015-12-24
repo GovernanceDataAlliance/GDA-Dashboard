@@ -28,7 +28,7 @@
     flex-direction: column;
     justify-content: space-between;
 
-    > .name, 
+    > .name,
     h3 {
       font-size: rem(30px);
       font-weight: 400;
@@ -56,6 +56,12 @@
       .btn {
         display: none;
       }
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+      background-color: #ddd;
     }
   }
 

@@ -6,6 +6,8 @@ var template = Handlebars.compile(
   require('../../templates/indicators/indicator_list.hbs'));
 
 var IndicatorListView = Backbone.View.extend({
+
+  className: 'l-grid',
   
   initialize: function(options) {
     options = options || {};
