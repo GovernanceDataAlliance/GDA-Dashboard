@@ -1,4 +1,4 @@
-m-social-sh.m-modal-window {
+.m-modal-window {
   display: flex;
   position: fixed;
   top: 0;
@@ -32,6 +32,9 @@ m-social-sh.m-modal-window {
 }
 
 .modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 50px; //Margen para el scroll de windows
   overflow: scroll;
   background-color: #fff;
