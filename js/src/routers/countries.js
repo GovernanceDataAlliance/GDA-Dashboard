@@ -51,6 +51,7 @@ var Router = Backbone.Router.extend({
 
     this.countries = params && params['countries[]'] ? params['countries[]'] : [];
 
+
     //When only one value, string instead of array. We need array.
     if ( _.isString(this.countries)) {
       this.countries = [ this.countries ];
