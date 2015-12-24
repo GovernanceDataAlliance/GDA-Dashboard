@@ -1,25 +1,33 @@
 <div class="l-toolbar -selectors">
   <div class="wrap">
     <div class="m-compare-selectors">
-      <div class="title">indexes</div>
-      <select class="js--compare-selector" name="country1" id="country-1">
-        <option value="no_data">Select country</option>
-        {{#each countries}}
-          <option value="{{this.iso3}}">{{this.name}}</option>
-        {{/each}}
-      </select>
-      <select class="js--compare-selector" name="country2" id="country-2">
-        <option value="no_data">Select country</option>
-        {{#each countries}}
-          <option value="{{this.iso3}}">{{this.name}}</option>
-        {{/each}}
-      </select>
-      <select class="js--compare-selector" name="country3" id="country-3">
-        <option value="no_data">Select country</option>
-        {{#each countries}}
-          <option value="{{this.iso3}}">{{this.name}}</option>
-        {{/each}}
-      </select>
+      <div class="selector-wrapper -index">
+        <p>indexes</p>
+      </div>
+      <div class="selector-wrapper -score">
+        <select class="js--compare-selector" name="country1" id="country-1">
+          <option value="no_data">Select country</option>
+          {{#each countries}}
+            <option value="{{this.iso3}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="selector-wrapper -score">
+        <select class="js--compare-selector -score" name="country2" id="country-2">
+          <option value="no_data">Select country</option>
+          {{#each countries}}
+            <option value="{{this.iso3}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="selector-wrapper -score">
+        <select class="js--compare-selector -score" name="country3" id="country-3">
+          <option value="no_data">Select country</option>
+          {{#each countries}}
+            <option value="{{this.iso3}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+      </div>
     </div>
   </div>
 </div>
