@@ -6,6 +6,7 @@ var Indicator = require('../../models/indicator.js'),
     Countries = require('../../collections/countries.js');
 
 var IndicatorHeaderView = require('./indicator_header.js'),
+    IndicatorToolbarView = require('./indicator_toolbar.js'),
     CountryListView = require('./country_list.js');
 
 var template = Handlebars.compile(
@@ -25,11 +26,13 @@ var IndicatorView = Backbone.View.extend({
 
   initializeData: function() {
     this.indicator = new Indicator({id: this.id});
-    this.listenTo(this.indicator, 'sync', this.renderIndicator);
+
+    this.listenTo(this.indicator, 'sync', this.renderHeader);
+    this.listenTo(this.indicator, 'sync', this.renderToolbar);
     this.indicator.fetch();
 
     this.countries = new Countries();
-    this.listenTo(this.countries, 'sync', this.renderCountries);
+    this.listenTo(this.countries, 'sync', this.renderCountriesList);
     this.countries.withRankForIndicator(this.id);
   },
 
@@ -37,22 +40,30 @@ var IndicatorView = Backbone.View.extend({
     this.$el.html(template());
 
     if (rerender === true) {
-      this.renderIndicator();
-      this.renderCountries();
+      this.renderHeader();
+      this.renderToolbar();
+      this.renderCountriesList();
     }
   },
 
-  renderCountries: function() {
+  renderHeader: function() {
+    var headerView = new IndicatorHeaderView({
+      indicator: this.indicator});
+    this.$('.js--indicator-header').append(headerView.render().el);
+  },
+
+  renderToolbar: function() {
+    var toolbarView = new IndicatorToolbarView({
+      indicator: this.indicator});
+    this.$('.js--indicator-toolbar').append(toolbarView.render().el);
+  },
+
+  renderCountriesList: function() {
     var listView = new CountryListView({
       countries: this.countries});
     this.$('.js--countries').append(listView.render().el);
   },
 
-  renderIndicator: function() {
-    var headerView = new IndicatorHeaderView({
-      indicator: this.indicator});
-    this.$('.js--indicator-header').append(headerView.render().el);
-  },
 
   download: function(event) {
     event.preventDefault();

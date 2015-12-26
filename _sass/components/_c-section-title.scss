@@ -4,6 +4,12 @@
   font-size: rem(50px);
   color: $font-color-1;
   
+  span {
+    display: block;
+    margin-bottom: rem(20px);
+    font-size: rem(15px);
+    font-weight: 400;
+  }
 
   &:after {
     content: "";
@@ -29,5 +35,9 @@
     &:after {
       background-color: $white;
     }
+  }
+
+  + p {
+    margin-top: rem(50px);
   }
 }

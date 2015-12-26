@@ -1,9 +1,20 @@
-<div class="l-banner -indicatordetail">
+<div class="l-banner -detail">
   <div class="wrap">
-    <h1 class="c-section-title -light -highlighted">{{name}}</h1>
+    {{!-- <div class="m-breadcrumbs">
+      <ul>
+        <li><a href="/">home </a></li>
+        <li><span> / </span></li>
+        <li><a href="/"> data </a></li>
+        <li><span> / </span></li>
+        <li> {{name}}</li>
+      </ul>
+    </div> --}}
 
-    <p>
-      {{description}}
-    </p>
+    <h1 class="c-section-title">
+      {{name}}
+      <span>by {{orgaization}}</span>
+    </h1>
+    <p class="description">{{description}}</p>
+    <a class="btn" href="{{url}}">Visit website &gt;</a>
   </div>
 </div>

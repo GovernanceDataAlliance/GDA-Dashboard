@@ -27,16 +27,18 @@
     }
   }
   
-  //country
+  //country-show / data-show
   &.-detail {
     display: flex;
-    height: rem(320px);
+    min-height: rem(320px);
+    padding: rem(140px) rem(120px);
     background-color: $bg-color-1;
     border-bottom: 1px solid $border-1;
 
     > .wrap {
       display: flex;
-      align-items: center;
+      justify-content: center;
+      flex-direction: column;
     }
   }
 }

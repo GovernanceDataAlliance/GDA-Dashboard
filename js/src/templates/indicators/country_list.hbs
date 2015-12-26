@@ -1,15 +1,17 @@
-<div class="c-table-metadata -countries">
-  <a href="#" class="js--download">Download</a>
-</div>
-
-<table class="c-table -countries">
-  <tbody>
+<div class="l-content -fullscreen">
+  <div class="m-table -rank">
     {{#each countries}}
-      <tr>
-        <td class="rank">{{rank}}</td>
-        <td class="name">{{name}}</td>
-        <td class="score">{{score}}</td>
-      </tr>
+      <div class="table-row">
+        <div class="wrap">
+          <div class="description">
+            <p class="rank">{{rank}}</p>
+            <p class="name">{{name}}</p>
+          </div> 
+          <div class="score">
+            <p>{{score}}</p>
+          </div>
+        </div>
+      </div>
     {{/each}}
-  </tbody>
-</table>
+  </div>
+</div>
