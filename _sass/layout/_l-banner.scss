@@ -1,9 +1,13 @@
+$backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCountries', 'promoInteriores-Countries', 'promoInteriores-Data';
+
 .l-banner {
+  position: relative;
   
   //home
   &.-main {
     padding: rem(100px) 0 rem(140px);
     background-color: #ccc; 
+    background-position: top left;
 
     p {
       color: $font-color-2;
@@ -39,6 +43,24 @@
       display: flex;
       justify-content: center;
       flex-direction: column;
+    }
+  }
+
+  @for $i from 1 through length($backgrounds) {
+    &.#{nth($backgrounds, $i)}{
+      background-image: url('/img/#{nth($backgrounds, $i)}.jpg');
+      background-size: cover;
+      background-position: center;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(65, 52, 43, 0.35);
+      }
     }
   }
 }
