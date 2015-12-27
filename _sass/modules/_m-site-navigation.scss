@@ -12,5 +12,9 @@
     font-family: $font-secondary;
     color: $font-color-1;
     text-transform: uppercase;
+
+    &:hover {
+      color: $font-color-3;
+    }
   }
 }
