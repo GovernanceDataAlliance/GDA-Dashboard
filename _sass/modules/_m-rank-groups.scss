@@ -1,0 +1,28 @@
+.m-rank-groups {
+  position: absolute;
+  z-index: 1;
+  background-color: $bg-color-4;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: rem(35px) rem(40px);
+  bottom: rem(-10px);
+  transform: translatey(100%);
+
+  .group {
+    margin: 0 rem(10px);
+  }
+
+  h2 {
+    font-size: rem(20px);
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+
+  li {
+    font-size: rem(15px);
+    color: $color-2;
+    padding: rem(3px) 0;
+    cursor: pointer;
+  }
+}
