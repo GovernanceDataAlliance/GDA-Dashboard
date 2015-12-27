@@ -5,11 +5,12 @@
     flex-direction: column;
     align-content: flex-start;
     flex-wrap: wrap;
-    height: rem(360px);
+    height: rem(450px);
   }
 
   li {
     width: 25%;
     margin-right: 1%;
+    padding: rem(3px) 0;
   }
 }

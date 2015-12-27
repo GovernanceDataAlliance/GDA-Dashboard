@@ -32,7 +32,7 @@ var Countries = CartoDBCollection.extend({
   },
 
   groupByRegion: function() {
-    return _.groupBy(this.toJSON(), 'region_name');
+    return _.groupBy(_.sortBy(this.toJSON(), 'region_name'), 'region_name');
   },
 
   withRankForIndicator: function(id) {
