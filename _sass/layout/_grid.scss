@@ -1,4 +1,5 @@
-.wrap {
+.wrap,
+%wrap {
   position: relative;
   width: 100%;
   max-width: rem($grid-max-width);

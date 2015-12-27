@@ -1,7 +1,9 @@
 .m-breadcrumbs {
+  @extend %wrap;
   position: absolute;
   top: rem(40px);
   left: 0;
+  right: 0;
 
   li {
     float: left;
