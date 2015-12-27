@@ -1,10 +1,14 @@
 .m-card {
   display: flex;
   flex-basis: 100%;
-  justify-content: space-between;
   padding: rem(65px) rem(35px);
   border-bottom: 1px solid $border-1;
   min-height: 450px;
+
+  >.wrap {
+    display: flex;
+    justify-content: space-between;
+  }
 
   &:last-child {
     border-bottom: 0;
@@ -14,8 +18,13 @@
 
   .is-dashboard-layout & {
     flex-basis: 33.33%;
-    flex-direction: column;
+    
+    margin: 0;
     border-right: 1px solid $border-1;
+
+    >.wrap {
+      flex-direction: column;
+    }
 
     &:nth-child(3n) {
       border-right: 0;
