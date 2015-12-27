@@ -8,9 +8,10 @@ $header-height: rem(95px);
   align-items: stretch;
 
   .brand {
+    display: flex;
     flex-basis: 33.33%;
-    background-color: $bg-color-2;
     justify-content: flex-end;
+    background-color: $bg-color-2;
   }
 
   .menus {

@@ -7,9 +7,10 @@ $footer-height: rem(245px);
   align-items: stretch;
 
   .brand {
+    display: flex;
     flex-basis: 33.33%;
-    background-color: $bg-color-2;
     justify-content: flex-end;
+    background-color: $bg-color-2;
   }
 
   .menus {
