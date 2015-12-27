@@ -1,5 +1,53 @@
 .m-search {
   width: 100%;
-  padding: rem(100px) rem(190px);
-  background-color: $bg-color-1;
+  padding: rem(100px) rem(140px);
+  background-color: $bg-color-3;
+
+  > input {
+    @extend %clean-button-or-input;
+    width: 100%;
+    height: rem(60px);
+    border-bottom: 1px solid $white;
+    font-style: italic;
+    font-size: rem(27px);
+
+    @include placeholder() {
+      color: $white;
+    }
+
+    // &.focus:after {
+    //   content: "Search country";
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   font-size: rem(12px);
+    //   color: $white;
+    // }
+  }
+
+  > .search-box.visible {
+    position: absolute;
+    bottom: rem(90px);
+    left: rem(50px);
+    right: rem(50px);
+    z-index: 1;
+    background-color: $bg-color-1;
+    border: 1px solid $border-1;
+    transform: translatey(100%);
+  }
+
+  .search-area {
+    width: 100%;
+    padding: rem(20px) rem(90px);
+    border-bottom: 1px solid $border-1;
+    
+    a {
+      color: $font-color-1;
+      font-size: rem(20px);
+    }
+
+    span span {
+      font-weight: 700;
+    }
+  }
 }
