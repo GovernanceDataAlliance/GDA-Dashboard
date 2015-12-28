@@ -42,3 +42,18 @@
   line-height: 15px;
   text-align: center;
 }
+
+.btn-drop-down {
+  position: relative;
+  padding: rem(15px) rem(20px);
+  padding-right: rem(80px);
+  border: 1px solid $color-2;
+
+  &:after {
+    content: "";
+    @extend %centery;
+    @include arrow (5px, $color-2, 2px, 225deg);
+    top: 40%;
+    right: rem(20px);
+  }
+}
