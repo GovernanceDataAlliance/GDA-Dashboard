@@ -3,12 +3,10 @@ var Backbone = require('backbone'),
     Handlebars = require('handlebars'),
     $ = require('jquery');
 
-var RankingCollection = require('../../collections/ranking_groups.js');
-
 var template = Handlebars.compile(
-  require('../../templates/indicators/indicators_toolbar.hbs')),
-    rankingGroupsTemplate = Handlebars.compile(
-  require('../../templates/indicators/ranking_groups_template.hbs'));
+  require('../../templates/indicators/indicators_toolbar.hbs'));
+
+var RankingGroupsViews = require('./ranking_groups.js');
 
 var IndicatorsToolbarView = Backbone.View.extend({
 
@@ -18,41 +16,14 @@ var IndicatorsToolbarView = Backbone.View.extend({
 
   initialize: function(options) {
     options = options || {};
-    
-    this.rankingCollection = new RankingCollection();
   },
 
   render: function() {
     this.$el.html(template());
 
-    //Put this into a new view.
-    this.renderRankingGroups();
+    var rankingGroups = new RankingGroupsViews({ el: this.$('.js--ranking-groups') })
     
     return this;
-  },
-
-  renderRankingGroups: function() {
-    this.rankingCollection.fetch().done(function (rawData) {
-
-      this.groups = this.getGroups(rawData);
-      // console.log(this.groups);
-
-      this.$('.js--ranking-groups').html(rankingGroupsTemplate({ 'rankingGroups': this.groups }));
-    }.bind(this));
-  },
-
-  getGroups: function(rawData) {
-    var categories = ["continent", "region_wb", "subregion", "economy"];
-
-    var data = rawData.rows;
-    //Grouped by categories
-    var rankingGroups = {};
-    categories.forEach(function(category) {
-      var groupByCategory = _.groupBy(data, category);
-      rankingGroups[category] = groupByCategory;
-    });
-
-    return rankingGroups;
   },
 
   showRankingGroups: function() {
