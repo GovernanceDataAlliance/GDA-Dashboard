@@ -38,7 +38,6 @@ var Countries = CartoDBCollection.extend({
   withRankForIndicator: function(id) {
     var query = SQL({ id: id }),
         url = this._urlForQuery(query);
-
     return this.fetch({url: url});
   },
 

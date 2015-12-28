@@ -120,7 +120,14 @@ var IndicatorView = Backbone.View.extend({
 
     mergedCountries = _.sortBy(mergedCountries, 'score').reverse();
     
-    console.log(mergedCountries);
+    var groupedByScore = _.sortBy(_.groupBy(mergedCountries, 'score'), 'score').reverse();
+    
+    $.each(groupedByScore, function(i) {
+      var rankPosition = i + 1;
+      $.each(this, function() {
+        this.rank =  rankPosition;
+      })
+    })
 
     this.renderCountriesList(mergedCountries);
   },
