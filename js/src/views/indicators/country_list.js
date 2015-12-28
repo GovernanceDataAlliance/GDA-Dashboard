@@ -14,7 +14,7 @@ var IndicatorListView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(template({
-      countries: this.countries.toJSON()
+      'countries': this.countries
     }));
 
     return this;

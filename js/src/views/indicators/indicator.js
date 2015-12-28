@@ -1,5 +1,6 @@
 var Backbone = require('backbone'),
     _ = require('lodash'),
+    $ = require('jquery'),
     Handlebars = require('handlebars');
 
 var Indicator = require('../../models/indicator.js'),
@@ -22,6 +23,11 @@ var IndicatorView = Backbone.View.extend({
 
     this.id = options.id;
     this.initializeData();
+    this.setListeners();
+  },
+
+  setListeners: function() {
+    Backbone.Events.on('rankGroup:chosen', _.bind(this.filterCountries, this))
   },
 
   initializeData: function() {
@@ -32,6 +38,7 @@ var IndicatorView = Backbone.View.extend({
     this.indicator.fetch();
 
     this.countries = new Countries();
+
     this.listenTo(this.countries, 'sync', this.renderCountriesList);
     this.countries.withRankForIndicator(this.id);
   },
@@ -58,10 +65,18 @@ var IndicatorView = Backbone.View.extend({
     this.$('.js--indicator-toolbar').append(toolbarView.render().el);
   },
 
-  renderCountriesList: function() {
+  renderCountriesList: function(mergedCountries) {
+    var countries;
+
+    if (_.isArray(mergedCountries)) {
+      countries = mergedCountries;
+    } else {
+      countries = this.countries.toJSON();
+    }
+
     var listView = new CountryListView({
-      countries: this.countries});
-    this.$('.js--countries').append(listView.render().el);
+      'countries': countries});
+    this.$('.js--countries').html(listView.render().el);
   },
 
 
@@ -81,6 +96,33 @@ var IndicatorView = Backbone.View.extend({
 
     this.id = id;
     this.initializeData();
+  },
+
+  filterCountries: function(rankCountries) {
+
+    if (!rankCountries) {
+      this.renderCountriesList();
+      return;
+    }
+
+    var selectedCountries = rankCountries;
+    var allCountries = this.countries.toJSON();
+    var mergedCountries = [];
+
+    $.each(selectedCountries, function(country) {
+      var iso = this.iso3;
+      var rankData = _.find(allCountries, {'iso': iso});
+
+      if (rankData) {
+        mergedCountries.push(rankData);
+      }
+    })
+
+    mergedCountries = _.sortBy(mergedCountries, 'score').reverse();
+    
+    console.log(mergedCountries);
+
+    this.renderCountriesList(mergedCountries);
   },
 
   show: function() {
