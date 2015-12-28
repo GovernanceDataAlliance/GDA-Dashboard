@@ -1,28 +1,56 @@
 .m-rank-groups {
   position: absolute;
-  z-index: 1;
-  background-color: $bg-color-4;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: rem(35px) rem(40px);
   bottom: rem(-10px);
+  z-index: 1;
+  width: 100%;
+  padding: rem(35px) rem(40px);
+  background-color: $bg-color-4;
   transform: translatey(100%);
+
+  &:after {
+    content: "";
+    @include equi-triangle(rem(10px), $bg-color-4, top);
+    position: absolute;
+    top: rem(-10px);
+    left: rem(50px);
+  }
+
+  .groups {
+    display: flex;
+    justify-content: space-between;
+  }
 
   .group {
     margin: 0 rem(10px);
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  h3 {
+    width: 100%;
+    margin-bottom: rem(30px);
+    font-size: rem(12px);
+    font-family: $font-secondary;
+    text-transform: uppercase;
   }
 
   h2 {
     font-size: rem(20px);
     font-weight: 400;
     text-transform: capitalize;
+    margin-bottom: rem(15px);
   }
 
   li {
     font-size: rem(15px);
     color: $color-2;
-    padding: rem(3px) 0;
+    padding: rem(8px) 0;
     cursor: pointer;
   }
 }
