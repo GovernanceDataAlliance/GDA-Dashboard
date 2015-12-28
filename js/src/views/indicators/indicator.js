@@ -99,7 +99,6 @@ var IndicatorView = Backbone.View.extend({
   },
 
   filterCountries: function(rankCountries) {
-
     if (!rankCountries) {
       this.renderCountriesList();
       return;
@@ -110,7 +109,7 @@ var IndicatorView = Backbone.View.extend({
     var mergedCountries = [];
 
     $.each(selectedCountries, function(country) {
-      var iso = this.iso3;
+      var iso = this.iso;
       var rankData = _.find(allCountries, {'iso': iso});
 
       if (rankData) {
@@ -127,7 +126,7 @@ var IndicatorView = Backbone.View.extend({
       $.each(this, function() {
         this.rank =  rankPosition;
       })
-    })
+    });
 
     this.renderCountriesList(mergedCountries);
   },
