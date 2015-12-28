@@ -25,7 +25,7 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-02', 'dist
     
     @for $i from 1 through length($backgrounds-presentation) {
       &.#{nth($backgrounds-presentation, $i)}{
-        background-image: url('/img/#{nth($backgrounds-presentation, $i)}.jpg');
+        background-image: url('img/#{nth($backgrounds-presentation, $i)}.jpg');
         background-size: cover;
         background-position: center;
 
