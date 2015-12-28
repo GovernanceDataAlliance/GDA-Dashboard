@@ -118,9 +118,9 @@ var IndicatorView = Backbone.View.extend({
     })
 
     mergedCountries = _.sortBy(mergedCountries, 'score').reverse();
-    
     var groupedByScore = _.sortBy(_.groupBy(mergedCountries, 'score'), 'score').reverse();
-    
+    //Bug with decimal numbers
+
     $.each(groupedByScore, function(i) {
       var rankPosition = i + 1;
       $.each(this, function() {
