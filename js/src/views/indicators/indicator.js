@@ -71,7 +71,7 @@ var IndicatorView = Backbone.View.extend({
     if (_.isArray(mergedCountries)) {
       countries = mergedCountries;
     } else {
-      countries = this.countries.toJSON();
+      countries = this.rankPosition(this.countries.toJSON());
     }
 
     var listView = new CountryListView({
@@ -118,7 +118,14 @@ var IndicatorView = Backbone.View.extend({
     })
 
     mergedCountries = _.sortBy(mergedCountries, 'score').reverse();
-    var groupedByScore = _.sortBy(_.groupBy(mergedCountries, 'score'), 'score').reverse();
+    
+    var countries = this.rankPosition(mergedCountries);
+
+    this.renderCountriesList(countries);
+  },
+
+  rankPosition: function(countries) {
+    var groupedByScore = _.sortBy(_.groupBy(countries, 'score'), 'score').reverse();
     //Bug with decimal numbers
 
     $.each(groupedByScore, function(i) {
@@ -128,7 +135,7 @@ var IndicatorView = Backbone.View.extend({
       })
     });
 
-    this.renderCountriesList(mergedCountries);
+    return countries;
   },
 
   show: function() {

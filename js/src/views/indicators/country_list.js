@@ -9,7 +9,7 @@ var IndicatorListView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
 
-    this.countries = options.countries;
+    this.countries = _.sortBy(options.countries, 'score').reverse();
   },
 
   render: function() {
