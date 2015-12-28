@@ -1,0 +1,16 @@
+.m-controls {
+
+  a, button {
+    font-family: $font-secondary;
+    text-transform: uppercase;
+    font-size: rem(11px);
+
+    &.is-active {
+      color: $font-color-1;
+    }
+  }
+
+  span {
+    color: $border-1;
+  }
+}

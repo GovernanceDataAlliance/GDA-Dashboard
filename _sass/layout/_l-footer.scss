@@ -1,18 +1,35 @@
-.l-footer {
-  background-color: $color-1;
+$footer-height: rem(245px);
 
-  > .wrap {
+.l-footer {
+  height: $footer-height;
+
+  display: flex;
+  align-items: stretch;
+
+  .brand {
     display: flex;
-    flex-direction: column;
-    padding: rem(20px) 0;
-    align-items: center;
+    flex-basis: 33.33%;
+    justify-content: flex-end;
+    background-color: $bg-color-2;
   }
 
-  @media screen and (min-width: $screen-m) {
+  .menus {
+    flex-basis: 66.66%;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    padding: rem(75px) 0;
 
-    > .wrap {
-      flex-direction: row;
+    .menus-wrapper {
+      @include col(8);
+      display: flex;
+      align-items: flex-end;
       justify-content: space-between;
+      flex-direction: column;
+    }
+
+    p {
+      font-size: rem(14px);
     }
   }
 }

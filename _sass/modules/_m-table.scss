@@ -1,0 +1,40 @@
+.m-table {
+
+  > .table-row {
+    border-bottom: 1px solid $border-1;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    > .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: rem(100px);
+
+      > .description {
+        display: flex;
+        align-items: baseline;
+      }
+
+      > .score {
+
+      }
+    }
+
+    .rank {
+      font-size: rem(30px);
+      margin-right: rem(40px);
+    }
+
+    .name {
+      font-size: rem(15px);
+    }
+
+    .score {
+      font-size: rem(35px);
+      letter-spacing: -2px;
+    }
+  }
+}

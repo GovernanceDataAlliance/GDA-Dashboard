@@ -1,3 +1,29 @@
 .l-toolbar  {
-  background-color: #ddd;
+  display: flex;
+  height: rem(70px);
+  background-color: $bg-color-4;
+  border-bottom: 1px solid $border-1;
+
+  .wrap {
+    display: flex;
+    // flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &.-share {
+    background-color: $bg-color-3;
+  }
+
+  &.-selectors {
+    
+    .wrap {
+      display: flex;
+      align-items: initial;
+      justify-content: initial;
+
+      border-left: 1px solid $border-1;
+      border-right: 1px solid $border-1;
+    }
+  }
 }

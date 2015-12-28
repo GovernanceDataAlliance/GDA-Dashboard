@@ -1,15 +1,32 @@
-<footer class="l-footer is-{{ page.name }}">
-  <div class="wrap">
-    <nav>
-      <ul class="m-site-navigation -vertical">
-        <li class="link"><a href="{{ site.baseurl }}/">Home</a></li>
-        <li class="link"><a href="{{ site.baseurl }}/countries">Countries</a></li>
-        <li class="link"><a href="{{ site.baseurl }}/indicators">Indexes</a></li>
-        <li class="link"><a href="{{ site.baseurl }}/countries#compare?countries[]=GBR&countries[]=USA&countries[]=ESP">Compare</a></li>
-        <li class="link"><a href="#">About the Alliance</a></li>
-      </ul>
-    </nav>
+<footer class="l-footer">
+  <div class="brand">
+    <a href="{{ site.baseurl }}/" class="c-brand -expanded"><img src="{{ site.baseurl }}/img/logo-simple.svg" alt=""></a>
+  </div>
+  
+  <div class="menus">
+    <div class="menus-wrapper">
+      <nav class="m-site-navigation">
+        <ul>
+          <li class="link"><a href="{{ site.baseurl }}/countries">countries</a></li>
+          <li class="link"><a href="{{ site.baseurl }}/indicators">data</a></li>
+          <li class="link"><a href="{{ site.baseurl }}/countries#compare">compare</a></li>
+          <li class="link"><a href="#">about</a></li>
+          <li class="link"><a href="#">blog</a></li>
+          <li class="link"><a href="#">privacy and terms of use</a></li>
+          <li class="link"><a href="#">cookies</a></li>
+        </ul>
+      </nav>
 
-    <a href="#">Privacy & Terms of use</a>
+      <div>
+        <p>copyright 2015, Governance Data Alliance organization.</p>
+        <!-- <div class="m-social-share">
+          <ul>
+            <li class="icon-google"><a href=""></a></li>
+            <li class="icon-facebook"><a href=""></a></li>
+            <li class="icon-twtter"><a href=""></a></li>
+          </ul>
+        </div> -->
+      </div>
+    </div>
   </div>
 </footer>

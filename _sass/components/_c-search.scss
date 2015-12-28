@@ -19,12 +19,6 @@
   display: inline-block;
 
   .search-box {
-    // display: none;
-
-    // &.visible {
-    //   display: block;
-    // }
-
     .search-content {
       width: 100%;
       height: inherit;
@@ -76,7 +70,7 @@
           float: left;
           cursor: pointer;
           color: $font-color-1;
-          @include ellipsis(95%);
+          @include ellipsis-x(95%);
 
           .name {
             float: left;

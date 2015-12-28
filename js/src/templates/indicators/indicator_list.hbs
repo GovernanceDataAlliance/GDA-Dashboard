@@ -1,8 +1,9 @@
 {{#each indicators}}
-  <div class="m-list -indexes">
-    <a href="#{{short_name}}">
-      <h3>{{product_name}}</h3>
-      <p>{{short_name}}</p>
+  <div class="m-card--indexes">
+    <a href="/indicators#{{short_name}}" class="index-description">
+      <img src="{{logo}}" alt="">
+      <h3 class="name">{{product_name}}</h3>
+      <p class="organization">{{organization_name}} organization name</p>
     </a>
   </div>
 {{/each}}

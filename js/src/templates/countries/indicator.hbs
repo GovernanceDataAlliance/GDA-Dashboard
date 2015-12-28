@@ -1,17 +1,20 @@
 {{!-- <a href="/indicators#{{short_name}}"> --}}
+<div class="wrap">
   <div class="index-description">
-    <p class="name">
-      {{short_name}}
-    </p>
+    <h2 class="name">
+      {{product_name}}
+    </h2>
     {{#if organization}}
-      <p class="organization">
+      <h3 class="organization">
         {{organization}}
+      </h3>
+    {{/if}}
+    {{#if product_description}}
+      <p class="description">
+        {{product_description}}
       </p>
     {{/if}}
-    <p class="description">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur aliquam dolor fugiat dignissimos quam libero aliquid ex ut illum! Ipsam optio dolore eaque, ea rerum eos nesciunt, est repudiandae alias.
-    </p>
-    <a class="btn-read-more" href="#">Read more</a>
+    <a class="btn" href="/indicators#{{short_name}}">See the full index &gt; </a>
   </div>
 
   <div class="index-score">
@@ -19,25 +22,31 @@
       <div class="graph"></div>
       <p class="global-score">
         {{score}}
+        {{#if units_tpl}}
+          <span class="units"> 
+           {{units_tpl}}
+          </span>
+        {{/if}}
       </p>
     </div>
 
     <ul class="partial-scores">
       <li>
-        <p id="global">3</p>
-        <p>globally</p>
+        <p id="global" class="partial-score">3</p>
+        <p class="partial-rank">globally</p>
       </li>
       <li>
-        <p id="continent">2</p>
-        <p>In America</p>
+        <p id="continent" class="partial-score">2</p>
+        <p class="partial-rank">In America</p>
       </li>
       <li>
-        <p id="developed">1</p>
-        <p>In Developed countries</p>
+        <p id="developed" class="partial-score">1</p>
+        <p class="partial-rank">In Developed countries</p>
       </li>
     </ul>
 
-    <a class="btn-read-more" href="#">See past data</a>
+    <a class="btn" href="#">See past data &gt; </a>
   </div>
+</div>
 {{!-- </a> --}}
 

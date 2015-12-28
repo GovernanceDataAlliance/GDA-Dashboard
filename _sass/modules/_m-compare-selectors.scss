@@ -1,9 +1,37 @@
 .m-compare-selectors {
   display: flex;
-  justify-content: space-between;
-  padding: rem(10px) 0;
+  width: 100%;
 
-  > * {
-    flex-basis: 25%;
+  .selector-wrapper {
+    display: flex;
+    align-items: center;
   }
+
+  > .-index {
+    width: 30.1%;
+    justify-content: flex-start;
+    border-right: 1px solid $border-1;
+
+    p {
+      text-transform: uppercase;
+      font-size: rem(11px);
+      font-family: $font-secondary;
+      padding-left: rem(25px);
+    }
+  }
+
+  > .-score {
+    width: 23.33%;
+    border-right: 1px solid $border-1;
+    padding: rem(15px) rem(20px)
+;
+    &:last-child {
+      border-right: none;
+    }
+
+    select {
+      max-width: 100%;
+    }
+  }
+
 }

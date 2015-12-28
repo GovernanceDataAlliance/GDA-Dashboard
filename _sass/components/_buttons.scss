@@ -3,3 +3,42 @@
     display: none;
   }
 }
+
+
+.btn {
+  font-size: rem(12px);
+  font-family: $font-secondary;
+  text-transform: uppercase;
+  
+  &.-white {
+    display: inline-block;
+    padding: 20px 60px;
+    border: 1px solid $white;
+    color: $white;
+  }
+
+  &.-primary {
+    display: inline-block;
+    padding: 20px 60px;
+    border: 1px solid $color-1;
+    color: $color-1;
+  }
+
+  &.-secondary {
+    display: inline-block;
+    padding: 20px 60px;
+    border: 1px solid $color-2;
+    color: $color-2;
+  }
+
+}
+
+.btn-info {
+  color: $white;
+  background-color: $color-2;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  text-align: center;
+}

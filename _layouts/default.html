@@ -4,13 +4,15 @@
   {% include head.html %}
 
   <body>
+    {% include icons.html %}
+    
+    <div class="l-main-container"> 
+      {% include header.html %}
 
-    {% include header.html %}
+      {{ content }}
 
-    {{ content }}
-
-    {% include footer.html %}
-
+      {% include footer.html %}
+    </div>
     <script src="js/bundle.js"></script>
   </body>
 

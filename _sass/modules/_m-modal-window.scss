@@ -32,6 +32,9 @@
 }
 
 .modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 50px; //Margen para el scroll de windows
   overflow: scroll;
   background-color: #fff;

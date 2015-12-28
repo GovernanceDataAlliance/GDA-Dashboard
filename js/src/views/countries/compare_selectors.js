@@ -31,17 +31,17 @@ var CompareSelectorsView = Backbone.View.extend({
   render: function() {
     this.getData().done(function(countries) {
       var countries = _.sortByOrder(countries.rows, ['name']);
-      this.$el.html(template({'countries': countries}));
+      this.$el.html(template({ 'countries': countries }));
+      
+      if (this.countries) {
+        this.setRecivedValues();
+      };
     }.bind(this));
-
-    if (this.countries) {
-      this.setRecivedValues();
-    };
   },
 
   setRecivedValues: function() {
     $.each(this.countries, function(i, country) {
-      var currentSelector = $('#country-'+ (i+1));
+      var currentSelector = this.$el.find('#country-'+ (i+1));
       currentSelector.val(country);
       currentSelector.trigger('change');
     }.bind(this));

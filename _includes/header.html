@@ -1,15 +1,29 @@
-<header class="l-header is-{{ page.name }}">
-  <div class="wrap">
-    <a class="c-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
-
-    <button class="btn-mobile-menu"></button>
-    <nav>
-      <ul class="m-site-navigation">
-        <li class="link"><a href="{{ site.baseurl }}/countries">Countries</a></li>
-        <li class="link"><a href="{{ site.baseurl }}/indicators">Data</a></li>
-        <li class="link"><a href="{{ site.baseurl }}/countries#compare">Compare</a></li>
-        <li class="link"><a href="#">About</a></li>
-      </ul>
-    </nav>
+<header class="l-header">
+  
+  <div class="brand">
+    <a class="c-brand" href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/img/logo.svg" alt=""></a>
+  </div>
+  
+  <div class="menus">
+    <div class="menus-wrapper">
+      <!-- <div class="m-social-share">
+        <ul>
+          <li class="icon-google"><a href="">g+</a></li>
+          <li class="icon-facebook">fb<a href=""></a></li>
+          <li class="icon-twtter">tw<a href=""></a></li>
+        </ul>
+      </div> -->
+      
+      <button class="btn-mobile-menu"></button>
+      <nav class="m-site-navigation">
+        <ul>
+          <li class="link"><a href="{{ site.baseurl }}/countries">Countries</a></li>
+          <li class="link"><a href="{{ site.baseurl }}/indicators">Data</a></li>
+          <li class="link"><a href="{{ site.baseurl }}/countries#compare">Compare</a></li>
+          <li class="link"><a href="{{ site.baseurl }}/about">About</a></li>
+          <li class="link"><a href="#">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </header>

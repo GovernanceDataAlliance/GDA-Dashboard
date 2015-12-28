@@ -7,29 +7,38 @@ var template = Handlebars.compile(
   require('../../templates/countries/country_toolbar.hbs'));
 
 var CountryToolbarView = Backbone.View.extend({
-  
-  className: 'wrap',
 
   events: {
     'click .btn-layout-dashboard': 'gridLayoutDashboard',
     'click .btn-layout-list': 'gridLayoutList'
   },
 
-  initialize: function() {
+  initialize: function(options) {
+    options = options || {};
+
+    this.iso = options.iso;
   },
 
   render: function() {
-    this.$el.html(template({}));
-
+    this.$el.html(template({ 'iso': this.iso }));
     return this;
   },
 
   gridLayoutList: function(e) {
     $('#indicatorsContainer').removeClass('is-dashboard-layout');
+    this.activeClass(e);
   },
 
   gridLayoutDashboard: function(e) {
     $('#indicatorsContainer').addClass('is-dashboard-layout');
+    this.activeClass(e);
+  },
+
+  activeClass: function(e) {
+    $('.js--btn').removeClass('is-active');
+
+    var $target = $(e.currentTarget);
+    $target.addClass('is-active');
   }
 });
 

@@ -1,42 +1,44 @@
 .c-section-title {
-  font-size: rem(46px);
-  line-height: 1em;
-  padding-bottom: rem(20px);
+  position: relative;
+  padding-bottom: rem(50px);
+  font-size: rem(50px);
+  font-weight: 400;
+  color: $font-color-1;
+  
+  span {
+    display: block;
+    margin-bottom: rem(20px);
+    font-size: rem(15px);
+    font-weight: 400;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: rem(60px);
+    height: rem(2px);
+    background-color: $color-2;
+  }
+
+  &.-small {
+    margin-bottom: rem(50px);
+    font-size: rem(12px);
+    font-family: $font-secondary;
+    text-transform: uppercase;
+  }
 
   &.-light {
-    color: $font-color-3;
-  }
-
-  &.-dark {
     color: $font-color-2;
-  }
-
-  &.-secondary {
-    font-size: rem(24px);
-    text-align: center;
-  }
-
-  &.-highlighted {
-    position: relative;
+    margin-bottom: rem(60px);
 
     &:after {
-      content: "";
-      @extend %centerx;
-      bottom: 0;
-      width: rem(60px);
-      height: rem(4px);
-      background-color: $color-3;
+      background-color: $white;
     }
   }
 
-  @media screen and (min-width: $screen-m) {
-    font-size: rem(72px);
-
-    &.-secondary {
-      max-width: 75%;
-      margin: 0 auto;
-      font-size: rem(46px);
-    }
-
+  + p {
+    margin-top: rem(50px);
   }
 }

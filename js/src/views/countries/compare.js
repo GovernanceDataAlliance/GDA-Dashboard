@@ -73,6 +73,8 @@ var CompareView = Backbone.View.extend({
 
       var scores = _.sortByOrder(data.rows, ['short_name']);
 
+
+
       this.$('.js--country-' + order).html(countryScoresTemplate({ 'scores': scores, 'iso': iso }))
     }.bind(this));
   },  
@@ -88,7 +90,7 @@ var CompareView = Backbone.View.extend({
    },
 
   countryRecived: function(iso, order) {
-    compareStatus.set('country'+order, iso);
+    compareStatus.set('country'+ order, iso);
     this.renderCountryScores(iso, order);
   },
 

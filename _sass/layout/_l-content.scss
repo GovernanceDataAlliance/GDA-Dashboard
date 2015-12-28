@@ -1,18 +1,13 @@
 .l-content {
-  padding-top: rem(50px);
-  padding-bottom: rem(120px);
-
-  > .wrap {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    &.-table {
-      display: block;
-    }
+  padding: rem(120px) 0 rem(160px);
+  border-bottom: 1px solid $border-1;
+  
+  &:nth-child(2n + 1) {
+    background-color: $bg-color-1;
   }
 
-  &.-main {
-    padding: rem(100px) 0 rem(200px);
+  &.-fullscreen {
+    padding: 0;
+    background-color: transparent;
   }
 }
