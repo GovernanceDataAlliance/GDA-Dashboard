@@ -124,10 +124,11 @@ var IndicatorView = Backbone.View.extend({
     this.renderCountriesList(countries);
   },
 
+  //TODO Move this to collection
   rankPosition: function(countries) {
     var groupedByScore = _.sortBy(_.groupBy(countries, 'score'), 'score').reverse();
     //Bug with decimal numbers
-
+    console.log(groupedByScore);
     $.each(groupedByScore, function(i) {
       var rankPosition = i + 1;
       $.each(this, function() {
