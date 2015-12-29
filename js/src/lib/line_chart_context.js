@@ -61,23 +61,6 @@ LineChartContext.prototype._drawBackground = function(group) {
     .attr("width", this.width);
 };
 
-LineChartContext.prototype._drawBrush = function(group) {
-  var brush = d3.svg.brush().x(x);
-
-  brush.on("brush", function() {
-    var newDomain = brush.empty() ? x.domain() : brush.extent();
-    this.options.onBrush(newDomain);
-  }.bind(this));
-
-  group.append("g")
-      .attr("class", "x brush")
-      .attr("transform", "translate(0," + 6 + ")")
-      .call(brush)
-    .selectAll("rect")
-      .attr("y", -6)
-      .attr("height", this.height + 7);
-};
-
 LineChartContext.prototype.render = function() {
   group = this.options.group;
   group.attr("transform",
@@ -86,7 +69,6 @@ LineChartContext.prototype.render = function() {
   this._drawBackground(group);
   this._drawArea(group);
   this._drawAxes(group);
-  this._drawBrush(group);
 };
 
 module.exports =  LineChartContext;

@@ -1,0 +1,14 @@
+/* Charts */
+
+.graph {
+  fill: transparent;
+  stroke: $color-3;
+
+  text {
+    font-size: rem(10px);
+  }
+
+  .line {
+    shape-rendering: crispEdges;
+  }
+}

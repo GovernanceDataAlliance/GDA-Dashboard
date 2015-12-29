@@ -1,130 +1,94 @@
 var d3 = require('d3'),
     $ = require('jquery');
 
-var LineChartContext = require('./line_chart_context.js');
+var LineChart = function(params) {
+  var elem = params.elem;
+  var $el = $(elem);
+  var contentWidth = 250;
+  var contentHeight = 100;
+  var data = params.data;
+  var dateFormat = params.dateFormat || '%Y';
+  var hover = params.hover;
+  var interpolate = params.interpolate || 'cardinal';
+  var loader = params.loader || null;
+  var infoWindow = params.infoWindowText || '';
+  var decimals = params.decimals || 0;
+  var unit = params.unit || '';
+  var margin = params.margin || {
+    top: 30,
+    right: 0,
+    bottom: 40,
+    left: 0,
+    xaxis: 10,
+    tooltip: 1.8
+  };
 
-var svg, x, y, xKey, yKey, xAxis, yAxis;
+  var width = contentWidth,
+      height = contentHeight;
 
-var line = d3.svg.line()
-  .interpolate('monotone')
-  .x(function(d) { return x(d[xKey]); })
-  .y(function(d) { return y(d[yKey]); });
+  var parseDate = d3.time.format('%Y').parse;
+  var bisectDate = d3.bisector(function(d) { return d.year; }).left;
 
-var LineChart = function(options) {
-  this.options = options;
-  this.data = options.data;
+  var width = width,
+      height = height;
 
-  this.sizing = options.sizing;
-  this.innerPadding = options.innerPadding;
+  var x = d3.time.scale()
+      .range([0, width]);
 
-  this.parentWidth = $(this.options.el).outerWidth();
-  this.parentHeight = $(this.options.el).outerHeight();
-  this.width = this.parentWidth - this.sizing.left - this.sizing.right,
-  this.height = this.parentHeight - this.sizing.top - this.sizing.bottom;
+  var y = d3.scale.linear()
+      .range([height, 0]);
 
-  this._createEl();
-  this._createDefs();
-  this._createScales();
+  var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient('bottom')
+      .tickSize(0)
+      .tickPadding(10)
+      .tickFormat(d3.time.format(dateFormat));
 
-  $(window).resize(_.debounce(this.resize.bind(this), 100));
-};
+  var yAxis = d3.svg.axis()
+      .scale(y)
+      .orient('left')
+      .ticks(7)
+      .innerTickSize(-width)
+      .outerTickSize(0)
+      .tickPadding(4);
 
-LineChart.prototype.offResize = function() {
-  $(window).off('resize');
-};
+  var line = d3.svg.line()
+      .x(function(d) { return x(d.year); })
+      .y(function(d) { return y(d.score); })
+      .interpolate(interpolate);
 
-LineChart.prototype.resize = function() {
-  this.offResize();
-  $(this.options.el).find('svg').remove();
-  new LineChart(this.options).render();
-};
+  var svg = d3.select(elem).append('svg')
+    .attr('width', width + margin.left + margin.right)
+    .attr('height', height + margin.top + margin.bottom)
+    .append('g')
+      .attr('transform', 'translate('+margin.left+',' + margin.top + ')');
 
-LineChart.prototype._createEl = function() {
-  svg = d3.select(this.options.el)
-    .append("svg")
-      .attr('class', 'lineChart')
-      .attr("width", this.parentWidth)
-      .attr("height", this.parentHeight);
-};
 
-LineChart.prototype._createScales = function() {
-  xKey = this.options.keys.x;
-  yKey = this.options.keys.y;
+  data.forEach(function(d) {
+    d.year = parseDate(d.year.toString());
+  });
 
-  x = d3.time.scale().range([this.options.innerPadding.left, this.width - this.options.innerPadding.right]);
-  x.domain(d3.extent(this.data.map(function(d) { return d[xKey]; })));
+  x.domain(d3.extent(data, function(d) { return d.year; })).nice();
+  y.domain(d3.extent(data, function(d) { return d.score ; })).nice();
 
-  y = d3.scale.linear().range([this.height - this.options.innerPadding.bottom, 10 + this.options.innerPadding.top]);
-  y.domain([0, d3.max(this.data.map(function(d) { return d[yKey]; }))]);
-};
+  svg.append('g')
+    .attr('class', 'y axis')
+    .call(yAxis);
 
-LineChart.prototype._createDefs = function() {
-  svg.append("defs").append("clipPath")
-    .attr("id", "clip")
-  .append("rect")
-    .attr("width", this.width)
-    .attr("height", this.height);
-};
-
-LineChart.prototype._drawAxes = function(group) {
-  xAxis = d3.svg.axis().scale(x).orient("bottom");
-  yAxis = d3.svg.axis().scale(y).tickSize(-this.width, 0).orient("left");
-
-  group.append("g")
-    .attr("class", "x axis")
-    .attr("transform", "translate(0," + this.height + ")")
+  svg.append('g')
+    .attr('class', 'x axis')
+    .attr('transform', 'translate(0,' + (height) + ')')
     .call(xAxis);
 
-  group.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .selectAll("text")
-      .attr("y", -10)
-      .attr("x", 5)
-      .style("text-anchor", "start");
-};
+  svg.append('path')
+      .datum(data)
+      .attr('class', 'line')
+      .attr('d', line);
 
-LineChart.prototype._drawLine = function(group) {
-  group.append("path")
-    .datum(this.data)
-    .attr("class", "line")
-    .attr("d", line);
-};
-
-LineChart.prototype._drawContext = function(group) {
-  var contextGroup = svg.append("g").attr("class", "context")
-
-  var context = new LineChartContext({
-    el: this.options.el,
-    data: this.data,
-    group: contextGroup,
-    sizing: {
-      width: this.width,
-      height: this.parentHeight
-    },
-    keys: this.options.keys,
-    domain: {
-      x: x.domain(),
-      y: y.domain()
-    },
-    onBrush: function(newDomain) {
-      x.domain(newDomain);
-      group.select(".line").attr("d", line);
-      group.select(".x.axis").call(xAxis);
-    }
-  });
-  context.render();
-};
-
-LineChart.prototype.render = function() {
-  var group = svg.append("g")
-    .attr("class", "focus")
-    .attr("transform",
-      "translate(" + this.sizing.left + "," + this.sizing.top + ")");
-
-  this._drawAxes(group);
-  this._drawLine(group);
-  this._drawContext(group);
+  if(loader) {
+    $el.removeClass(loader);
+  }
 };
 
 module.exports = LineChart;
