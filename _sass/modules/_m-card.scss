@@ -88,7 +88,20 @@
       > .graph {
         width: 50%;
         height: 100px;
-        background-color: #ddd;
+
+        fill: transparent;
+        stroke: $color-2;
+        stroke-width: 2px;
+
+        text {
+          font-size: rem(10px);
+        }
+
+        .dot {
+          fill: $color-2;
+          stroke-width: 3px;
+          stroke-fill: transparent;
+        }
       }
 
       > .global-score {

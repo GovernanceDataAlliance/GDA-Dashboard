@@ -49,6 +49,9 @@ button {
   @extend %clean-button-or-input;
 }
 
+svg:not(:root) {
+  overflow: visible;
+}
 ////////////////////
 //**** utils  ****//
 ////////////////////

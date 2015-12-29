@@ -18,20 +18,18 @@ var LineChartView = Backbone.View.extend({
 
     var graph = new LineChart({
       elem: this.el,
-      barWidth: 30,
-      barSeparation: 45,
       data: this.data,
       hover: true,
       decimals: 0,
       loader: 'is-loading',
       interpolate: 'cardinal',
       dateFormat: '%Y',
-      unit: 'year',
+      unit: options.indicator.unit,
       margin: {
-        top: 30,
-        right: 40,
-        bottom: 40,
-        left: 55,
+        top: 20,
+        right: 20,
+        bottom: 20,
+        left: 0,
         xaxis: 10,
         tooltip: 2.2
       }
