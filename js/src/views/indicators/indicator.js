@@ -125,15 +125,22 @@ var IndicatorView = Backbone.View.extend({
   },
 
   //TODO Move this to collection
-  rankPosition: function(countries) {
-    var groupedByScore = _.sortBy(_.groupBy(countries, 'score'), 'score').reverse();
-    //Bug with decimal numbers
-    console.log(groupedByScore);
-    $.each(groupedByScore, function(i) {
-      var rankPosition = i + 1;
+  rankPosition: function(countries) {    
+    //TODO Bug with decimal numbers
+    if (this.id === 'environmental_democracy_index' || this.id === "freedom_in_the_world") {
+      var groupedByScore = _.groupBy(_.sortBy(countries, 'score').reverse(), 'score');
+    } else {
+      var groupedByScore = _.sortBy(_.groupBy(countries, 'score'), 'score').reverse();
+    };
+
+    console.log()
+
+    var rank = 1;
+    $.each(groupedByScore, function() {
       $.each(this, function() {
-        this.rank =  rankPosition;
+        this.rank =  rank;
       })
+      return rank ++
     });
 
     return countries;
