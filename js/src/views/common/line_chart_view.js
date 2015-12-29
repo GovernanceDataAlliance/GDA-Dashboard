@@ -14,15 +14,13 @@ var LineChartView = Backbone.View.extend({
     this.indicator = options.indicator;
     this.data = options.indicator.data;
 
-    console.log(this.data);
-
     var graph = new LineChart({
       elem: this.el,
       data: this.data,
       hover: true,
       decimals: 0,
       loader: 'is-loading',
-      interpolate: 'cardinal',
+      interpolate: 'linear',
       dateFormat: '%Y',
       unit: options.indicator.unit,
       margin: {

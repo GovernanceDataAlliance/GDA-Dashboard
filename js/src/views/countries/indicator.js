@@ -17,7 +17,7 @@ var IndicatorView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(template(this.parseData()));
-    this.analizeValue();
+    this.analizeValues();
 
     if (this.indicator['has_historical_info'] === true) {
       this.drawGraph();
@@ -43,7 +43,7 @@ var IndicatorView = Backbone.View.extend({
     } );
   },
 
-  analizeValue: function() {
+  analizeValues: function() {
     //TODO
     var desiredDirection = this.indicator.desired_direction;
   }
