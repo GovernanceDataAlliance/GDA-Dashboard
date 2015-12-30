@@ -1,8 +1,18 @@
 .m-advise {
+  position: absolute;
+  top: 0;
   width: 90%;
   margin: rem(100px) auto;
   padding: rem(50px) rem(60px);
   background-color: $bg-color-4;
   font-style: italic;
   font-size: rem(20px);
+
+  &.-compare {
+    position: absolute;
+    top: 0;
+    left: 35%;
+    width: 60%;
+    margin-top: rem(50px);
+  }
 }
