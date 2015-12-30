@@ -60,21 +60,21 @@ var CompareView = Backbone.View.extend({
 
     indicatorsNames.fetch().done(function(indicators) {
       var indicators = _.sortByOrder(indicators.rows, ['short_name']);
-
       this.$('.js--comparison-indicators').html(indicatorsTemplate({ 'indicators': indicators }))
     }.bind(this))
   },
 
-  renderCountryScores: function(indicators) {
-    this.indicators = IndicatorService.groupById(indicators);
-    var sortIndicators = _.sortByOrder(this.indicators.toJSON(), ['short_name']);
-    this.$('.js--country-' + this.order).html(countryScoresTemplate({ 'scores': sortIndicators, 'iso': this.iso }));
+  getDataForCountry: function(iso, order) {
+    var indicators = new Indicators();
+    indicators.forCountry(iso).done(function() {
+      this.renderCountryScores(indicators, iso, order)
+    }.bind(this));
   },
 
-  getDataForCountry: function() {
-    this.indicators = new Indicators();
-    this.listenTo(this.indicators, 'sync', this.renderCountryScores);
-    this.indicators.forCountry(this.iso);
+  renderCountryScores: function(indicators, iso, order) {
+    groupedIndicators = IndicatorService.groupById(indicators);
+    var sortIndicators = _.sortByOrder(groupedIndicators.toJSON(), ['short_name']);
+    this.$('.js--country-' + order).html(countryScoresTemplate({ 'scores': sortIndicators, 'iso': iso }));
   },
 
   renderSelectors: function() {
@@ -88,13 +88,8 @@ var CompareView = Backbone.View.extend({
    },
 
   countryRecived: function(iso, order) {
-    console.log(iso, order)
     compareStatus.set('country'+ order, iso);
-
-    this.iso = iso;
-    this.order = order;
-
-    this.getDataForCountry();
+    this.getDataForCountry(iso, order);
   },
 
   show: function() {
