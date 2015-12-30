@@ -1,5 +1,6 @@
 var Backbone = require('backbone'),
     _ = require('lodash'),
+    $ = require('jquery'),
     Handlebars = require('handlebars');
 
 var Indicator = require('../../models/indicator.js'),
@@ -22,6 +23,11 @@ var IndicatorView = Backbone.View.extend({
 
     this.id = options.id;
     this.initializeData();
+    this.setListeners();
+  },
+
+  setListeners: function() {
+    Backbone.Events.on('rankGroup:chosen', _.bind(this.filterCountries, this))
   },
 
   initializeData: function() {
@@ -32,6 +38,7 @@ var IndicatorView = Backbone.View.extend({
     this.indicator.fetch();
 
     this.countries = new Countries();
+
     this.listenTo(this.countries, 'sync', this.renderCountriesList);
     this.countries.withRankForIndicator(this.id);
   },
@@ -58,10 +65,18 @@ var IndicatorView = Backbone.View.extend({
     this.$('.js--indicator-toolbar').append(toolbarView.render().el);
   },
 
-  renderCountriesList: function() {
+  renderCountriesList: function(mergedCountries) {
+    var countries;
+
+    if (_.isArray(mergedCountries)) {
+      countries = mergedCountries;
+    } else {
+      countries = this.rankPosition(this.countries.toJSON());
+    }
+
     var listView = new CountryListView({
-      countries: this.countries});
-    this.$('.js--countries').append(listView.render().el);
+      'countries': countries});
+    this.$('.js--countries').html(listView.render().el);
   },
 
 
@@ -81,6 +96,56 @@ var IndicatorView = Backbone.View.extend({
 
     this.id = id;
     this.initializeData();
+  },
+
+  filterCountries: function(rankCountries) {
+    if (!rankCountries) {
+      this.renderCountriesList();
+      return;
+    }
+
+    var selectedCountries = rankCountries;
+    var allCountries = this.countries.toJSON();
+    var mergedCountries = [];
+
+    $.each(selectedCountries, function(country) {
+      var iso = this.iso;
+      var rankData = _.find(allCountries, {'iso': iso});
+
+      if (rankData) {
+        mergedCountries.push(rankData);
+      }
+    })
+
+    mergedCountries = _.sortBy(mergedCountries, 'score').reverse();
+    
+    var countries = this.rankPosition(mergedCountries);
+
+    this.renderCountriesList(countries);
+  },
+
+  //TODO Move this to collection
+  rankPosition: function(countries) {
+    var groupedByScore;
+
+    //TODO Bug with decimal numbers
+    if (this.id === 'environmental_democracy_index') {
+      groupedByScore = _.groupBy(_.sortBy(countries, 'score').reverse(), 'score');
+    } else if ( this.id === "freedom_in_the_world") {
+      groupedByScore = _.sortBy(_.groupBy(countries, 'score'), 'key');
+    } else {
+      groupedByScore = _.sortBy(_.groupBy(countries, 'score'), 'score').reverse();
+    };
+
+    var rank = 1;
+    $.each(groupedByScore, function() {
+      $.each(this, function() {
+        this.rank =  rank;
+      })
+      return rank ++
+    });
+
+    return countries;
   },
 
   show: function() {

@@ -1,4 +1,5 @@
 <div class="l-content -fullscreen">
+  {{#if countries}}
   <div class="m-table -rank">
     {{#each countries}}
       <div class="table-row">
@@ -7,11 +8,18 @@
             <p class="rank">{{rank}}</p>
             <p class="name">{{name}}</p>
           </div> 
-          <div class="score">
+          <div class="score" data-year="{{year}}">
             <p>{{score}}</p>
           </div>
         </div>
       </div>
     {{/each}}
   </div>
+  {{else}}
+  <div class="wrap">
+    <div class="m-advise">
+      <p>no data for countries on this group</p>
+    </div>
+  </div>
+  {{/if}}
 </div>

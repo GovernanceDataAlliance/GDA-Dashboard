@@ -1,0 +1,21 @@
+<div class="m-rank-groups">
+  <h3>Rankings</h3>
+  <div class="groups">
+    <div class="group">
+      <h2>Globally</h2>
+      <ul>
+        <li data-rankGroup="global" class="group-selector">Globally</li>
+      </ul>
+    </div>
+    {{#each rankingGroups}}
+      <div class="group">
+        <h2>{{@key}}</h2>
+        <ul>
+          {{#each this}}
+            <li data-rankCategory="{{@../key}}" data-rankGroup="{{@key}}" class="group-selector">{{@key}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    {{/each}}
+  </div>
+</div>

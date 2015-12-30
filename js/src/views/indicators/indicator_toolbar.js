@@ -6,9 +6,12 @@ var Backbone = require('backbone'),
 var template = Handlebars.compile(
   require('../../templates/indicators/indicators_toolbar.hbs'));
 
+var RankingGroupsViews = require('./ranking_groups.js');
+
 var IndicatorsToolbarView = Backbone.View.extend({
 
   events: {
+    'click .js--btn-ranking': 'showRankingGroups'
   },
 
   initialize: function(options) {
@@ -16,8 +19,15 @@ var IndicatorsToolbarView = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(template({}));
+    this.$el.html(template());
+
+    var rankingGroups = new RankingGroupsViews({ el: this.$('.js--ranking-groups') })
+    
     return this;
+  },
+
+  showRankingGroups: function() {
+    this.$('.js--ranking-groups').toggleClass('is-hidden');
   }
 });
 
