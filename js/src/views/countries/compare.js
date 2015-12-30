@@ -84,7 +84,6 @@ var CompareView = Backbone.View.extend({
 
   setCountries: function(countries) {
      this.countryIds = countries;
-     this.initializeData();
    },
 
   countryRecived: function(iso, order) {
