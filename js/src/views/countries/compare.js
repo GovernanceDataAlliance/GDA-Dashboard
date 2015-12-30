@@ -5,11 +5,13 @@ var Backbone = require('backbone'),
     $ = require('jquery');
 
 var Countries = require('../../collections/countries.js'),
-    Indicators = require('../../collections/indicator_configs.js');
+    IndicatorsNames = require('../../collections/indicator_configs.js');
     IndicatorsScores = require('../../collections/indicators.js');
 
 var IndicatorsPresenter = require('../../presenters/indicators.js');
     CountriesPresenter = require('../../presenters/countries.js');
+
+var IndicatorService = require('../../lib/services/indicator.js');
 
 var template = Handlebars.compile(require('../../templates/countries/compare.hbs')),
     indicatorsTemplate = Handlebars.compile(require('../../templates/countries/compare-indicators.hbs'));
@@ -59,23 +61,29 @@ var CompareView = Backbone.View.extend({
    * Render indicators names
    */
   renderIndicators: function() {
-    var indicatorsCollection = new Indicators();
+    var indicatorsNames = new IndicatorsNames();
 
-    indicatorsCollection.fetch().done(function(indicators) {
+    indicatorsNames.fetch().done(function(indicators) {
       var indicators = _.sortByOrder(indicators.rows, ['short_name']);
 
       this.$('.js--comparison-indicators').html(indicatorsTemplate({ 'indicators': indicators }))
     }.bind(this))
   },
 
-  renderCountryScores: function(iso, order) {
-    this.indicatorScoresCollection.uniquesForCountry(iso).done(function(data) {
 
-      var scores = _.sortByOrder(data.rows, ['short_name']);
+  renderCountryScores: function(iso, order) {
+    this.indicatorScoresCollection.forCountry(iso).done(function(data) {
+
+      // console.log(data)
+      var scores = IndicatorService.groupById(data);
+      return
+      var shortScores = _.sortByOrder(scores, ['short_name']);
+
       this.$('.js--country-' + order).html(countryScoresTemplate({ 'scores': scores, 'iso': iso }));
       
     }.bind(this));
   },  
+
 
   renderSelectors: function() {
     //TODO -- Add view manager.
