@@ -15,7 +15,6 @@ var IndicatorListView = Backbone.View.extend({
   
   initialize: function(options) {
     options = options || {};
-    
     this.indicators = IndicatorService.groupById(options.indicators);
   },
 

@@ -6,7 +6,7 @@ var Backbone = require('backbone'),
 
 var Countries = require('../../collections/countries.js'),
     IndicatorsNames = require('../../collections/indicator_configs.js');
-    IndicatorsScores = require('../../collections/indicators.js');
+    Indicators = require('../../collections/indicators.js');
 
 var IndicatorsPresenter = require('../../presenters/indicators.js');
     CountriesPresenter = require('../../presenters/countries.js');
@@ -44,13 +44,8 @@ var CompareView = Backbone.View.extend({
     Backbone.Events.on('country:selected', (this.countryRecived).bind(this));
   },
 
-  initializeData: function() {
-    this.indicatorScoresCollection = new IndicatorsScores();
-  },
-
   render: function() {   
     this.renderIndicators();
-    this.initializeData();
 
     this.$el.html(template());
     this.renderSelectors();
@@ -70,20 +65,17 @@ var CompareView = Backbone.View.extend({
     }.bind(this))
   },
 
+  renderCountryScores: function(indicators) {
+    this.indicators = IndicatorService.groupById(indicators);
+    var sortIndicators = _.sortByOrder(this.indicators.toJSON(), ['short_name']);
+    this.$('.js--country-' + this.order).html(countryScoresTemplate({ 'scores': sortIndicators, 'iso': this.iso }));
+  },
 
-  renderCountryScores: function(iso, order) {
-    this.indicatorScoresCollection.forCountry(iso).done(function(data) {
-
-      // console.log(data)
-      var scores = IndicatorService.groupById(data);
-      return
-      var shortScores = _.sortByOrder(scores, ['short_name']);
-
-      this.$('.js--country-' + order).html(countryScoresTemplate({ 'scores': scores, 'iso': iso }));
-      
-    }.bind(this));
-  },  
-
+  getDataForCountry: function() {
+    this.indicators = new Indicators();
+    this.listenTo(this.indicators, 'sync', this.renderCountryScores);
+    this.indicators.forCountry(this.iso);
+  },
 
   renderSelectors: function() {
     //TODO -- Add view manager.
@@ -96,8 +88,13 @@ var CompareView = Backbone.View.extend({
    },
 
   countryRecived: function(iso, order) {
+    console.log(iso, order)
     compareStatus.set('country'+ order, iso);
-    this.renderCountryScores(iso, order);
+
+    this.iso = iso;
+    this.order = order;
+
+    this.getDataForCountry();
   },
 
   show: function() {

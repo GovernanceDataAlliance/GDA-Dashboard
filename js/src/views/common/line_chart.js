@@ -7,8 +7,6 @@ var LineChart = Backbone.View.extend({
 
   initialize: function(options) {
     options = options || {};
-    console.log(this.$el);
-
     this.data = options.data;
   },
 

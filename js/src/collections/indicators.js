@@ -33,35 +33,33 @@ var Indicators = CartoDBCollection.extend({
   forCountry: function(iso) {
     var query = SQL({ table: this.table, iso: iso}),
         url = this._urlForQuery(query);
-    //ojo usado el parse() hay un problema de asyn en la linea 36 country.js... 
-    var data = this.fetch({url: url}).done(function (rawData) {
-      this.parseData(rawData)
-    }.bind(this));
 
-    return data;
+    return this.fetch({url: url});
   },
 
-  uniquesForCountry: function(iso) {
-    var query = SQL_uniques({ table: this.table, iso: iso}),
-        url = this._urlForQuery(query);
+  // uniquesForCountry: function(iso) {
+  //   var query = SQL_uniques({ table: this.table, iso: iso}),
+  //       url = this._urlForQuery(query);
 
-    var data = this.fetch({url: url}).done(function (rawData) {
-      this.parseData(rawData)
-    }.bind(this));
+  //   var data = this.fetch({url: url}).done(function (rawData) {
+  //     this.parse(rawData)
+  //   }.bind(this));
 
-    return data;
-  },
+  //   return data;
+  // },
 
   /*
    * Adding elements when no score for that index.
    */
-  parseData: function(rawData) {
+  parse: function(rawData) {
     $.each(defaultScores, function(i, d) {
       var current = _.findWhere(rawData.rows, {'short_name': d.short_name});
       if (!current) {
         rawData.rows.push(d);
       }
     });
+
+    return rawData.rows;
   },
 
   downloadForCountry: function(iso) {

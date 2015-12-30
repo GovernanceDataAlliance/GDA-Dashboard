@@ -5,7 +5,6 @@ var Indicators = require('../../collections/indicators.js');
 var IndicatorService = {
 
   groupById: function(indicators) {
-    console.log(indicators)
     var groupedIndicators = [];
     var ids = _.uniq(indicators.pluck('short_name'))
 
