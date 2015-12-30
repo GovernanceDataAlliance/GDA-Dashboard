@@ -35,7 +35,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
   &.-detail {
     display: flex;
     min-height: rem(320px);
-    padding: rem(140px) rem(120px);
+    padding: rem(140px) 0;
     background-color: $bg-color-1;
     border-bottom: 1px solid $border-1;
 
@@ -48,7 +48,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
   @for $i from 1 through length($backgrounds) {
     &.#{nth($backgrounds, $i)}{
-      background-image: url('/img/#{nth($backgrounds, $i)}.jpg');
+      background-image: url('img/#{nth($backgrounds, $i)}.jpg');
       background-size: cover;
       background-position: center;
 
