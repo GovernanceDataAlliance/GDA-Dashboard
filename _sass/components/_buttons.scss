@@ -37,10 +37,12 @@
   color: $white;
   background-color: $color-2;
   border-radius: 50%;
-  width: 15px;
-  height: 15px;
-  line-height: 15px;
+  width: 17px;
+  height: 17px;
+  padding: 0;
+  line-height: 17px;
   text-align: center;
+  font-weight: 700;
 }
 
 .btn-drop-down {

@@ -38,25 +38,25 @@ describe("Indicators", function() {
     });
   });
 
-  describe('.forCountry', function() {
-    describe('given an ISO code', function() {
-      var ISO = 'ALB';
-      var request;
+  // describe('.forCountry', function() {
+  //   describe('given an ISO code', function() {
+  //     var ISO = 'ALB';
+  //     var request;
 
-      beforeEach(function() {
-        collection = new Indicators({});
-        collection.forCountry(ISO);
+  //     beforeEach(function() {
+  //       collection = new Indicators({});
+  //       collection.forCountry(ISO);
 
-        request = requests[0];
-        request.respond(200, { "Content-Type": "application/json" },
-          JSON.stringify(responses.success));
-      });
+  //       request = requests[0];
+  //       request.respond(200, { "Content-Type": "application/json" },
+  //         JSON.stringify(responses.success));
+  //     });
 
-      it('sends a JOIN query to get all attributes', function() {
-        var paramsRegex = new RegExp("\\?q=SELECT .* FROM indicator_data d INNER JOIN indicator_config AS c ON d.short_name = c.short_name WHERE d.iso = '"+ISO+"'");
-        expect(request.url.replace(/\n/gm," ").replace(/\s+/g,' ').trim()).
-          toMatch(paramsRegex);
-      });
-    });
-  });
+  //     it('sends a JOIN query to get all attributes', function() {
+  //       var paramsRegex = new RegExp("\\?q=SELECT .* FROM indicator_data d INNER JOIN indicator_config AS c ON d.short_name = c.short_name WHERE d.iso = '"+ISO+"'");
+  //       expect(request.url.replace(/\n/gm," ").replace(/\s+/g,' ').trim()).
+  //         toMatch(paramsRegex);
+  //     });
+  //   });
+  // });
 });

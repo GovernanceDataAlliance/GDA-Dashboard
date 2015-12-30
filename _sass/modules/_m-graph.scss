@@ -1,0 +1,19 @@
+.m-graph-tooltip {
+  position: absolute;
+  padding: rem(10px) rem(20px);
+  pointer-events: none;
+  text-align: center;
+  background-color: $white;
+  border: 1px solid $border-1;
+
+  transform: translate(-50%, -80%);
+
+  .score {
+    font-size: rem(15px);
+  }
+
+  .year {
+    font-size: rem(10px);
+    font-family: $font-secondary;
+  }
+}

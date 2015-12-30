@@ -1,52 +1,81 @@
 {{!-- <a href="/indicators#{{short_name}}"> --}}
-<div class="wrap">
-  <div class="index-description">
-    <h2 class="name">
-      {{product_name}}
-    </h2>
-    {{#if organization}}
-      <h3 class="organization">
-        {{organization}}
-      </h3>
-    {{/if}}
-    {{#if product_description}}
-      <p class="description">
-        {{product_description}}
-      </p>
-    {{/if}}
-    <a class="btn" href="/indicators#{{short_name}}">See the full index &gt; </a>
-  </div>
-
-  <div class="index-score">
-    <div class="resume">
-      <div class="graph"></div>
-      <p class="global-score">
-        {{score}}
-        {{#if units_tpl}}
-          <span class="units"> 
-           {{units_tpl}}
-          </span>
-        {{/if}}
-      </p>
+{{#if score}}
+<div class="card-wrap">
+  <div class="wrap">
+    <div class="index-description">
+      <h2 class="name">
+        {{product_name}}
+      </h2>
+      {{#if organization}}
+        <h3 class="organization">
+          {{organization}}
+        </h3>
+      {{/if}}
+      {{#if product_description}}
+      <div class="description-wrapper">
+        <p class="description">
+          {{product_description}}
+        </p>
+      </div>
+      {{/if}}
+      <a class="btn" href="/indicators#{{short_name}}">See the full index &gt; </a>
     </div>
 
-    <ul class="partial-scores">
-      <li>
-        <p id="global" class="partial-score">3</p>
-        <p class="partial-rank">globally</p>
-      </li>
-      <li>
-        <p id="continent" class="partial-score">2</p>
-        <p class="partial-rank">In America</p>
-      </li>
-      <li>
-        <p id="developed" class="partial-score">1</p>
-        <p class="partial-rank">In Developed countries</p>
-      </li>
-    </ul>
-
-    <a class="btn" href="#">See past data &gt; </a>
+    <div class="index-score">
+      <div class="resume">
+        <div class="js--graph graph"></div>
+        <p class="global-score">
+          {{score}}
+          {{#if units_tpl}}
+            <span class="units"> 
+             {{units_tpl}}
+            </span>
+          {{/if}}
+        </p>
+      </div>
+      <ul class="partial-scores">
+        <li>
+          <p id="global" class="partial-score">3</p>
+          <p class="partial-rank">globally</p>
+        </li>
+        <li>
+          <p id="continent" class="partial-score">2</p>
+          <p class="partial-rank">In America</p>
+        </li>
+        <li>
+          <p id="developed" class="partial-score">1</p>
+          <p class="partial-rank">In Developed countries</p>
+        </li>
+      </ul>
+      <div class="info">
+        <span>Updated: {{year}}</span>
+        <span>Score: {{max_score}} - {{min_score}}</span>
+      </div>
+    </div>
   </div>
 </div>
+{{else}}
+<div class="card-wrap -not-covered">
+  <div class="wrap">
+    <div class="index-description">
+      <h2 class="name">
+        {{product_name}}
+      </h2>
+      {{#if organization}}
+        <h3 class="organization">
+          {{organization}}
+        </h3>
+      {{/if}}
+      {{#if product_description}}
+        <p class="description">
+          {{product_description}}
+        </p>
+      {{/if}}
+      <p class="not-covered">not covered</p>
+      <a class="btn" href="/indicators#{{short_name}}">See the full index &gt; </a>
+    </div>
+  </div>
+</div>
+{{/if}}
 {{!-- </a> --}}
 

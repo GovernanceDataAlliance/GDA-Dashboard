@@ -10,20 +10,20 @@ var SQL = Handlebars.compile(require('../templates/queries/indicators.sql.hbs'))
     SQL_uniques = Handlebars.compile(require('../templates/queries/indicators_uniqueValues.sql.hbs'));
 
 var defaultScores = [
-  { 'short_name': 'corruption_perceptions_index', 'score': null }, 
-  { 'short_name': 'doing_business', 'score': null }, 
-  { 'short_name': 'doing_business_DTF', 'score': null }, 
-  { 'short_name': 'environmental_democracy_index', 'score': null }, 
-  { 'short_name': 'freedom_in_the_world', 'score': null }, 
-  { 'short_name': 'freedom_of_the_press', 'score': null }, 
-  { 'short_name': 'freedom_on_the_net', 'score': null }, 
-  { 'short_name': 'global_integrity_report', 'score': null }, 
-  { 'short_name': 'irm_action_plan_count_star', 'score': null }, 
-  { 'short_name': 'irm_action_plan_percent_star', 'score': null }, 
-  { 'short_name': 'nations_in_transit', 'score': null }, 
-  { 'short_name': 'ogp_regular_consult_forum', 'score': null }, 
-  { 'short_name': 'resource_governance_index', 'score': null }, 
-  { 'short_name': 'rti_rating', 'score': null}
+  { 'short_name': 'corruption_perceptions_index', 'score': null, 'product_name': 'Corruption Perceptions Index 2014'}, 
+  { 'short_name': 'doing_business', 'score': null, 'product_name': 'Doing Business Report' }, 
+  { 'short_name': 'doing_business_DTF', 'score': null, 'product_name': 'Doing Business Report' }, 
+  { 'short_name': 'environmental_democracy_index', 'score': null, 'product_name': 'Environmental Democracy Index' }, 
+  { 'short_name': 'freedom_in_the_world', 'score': null, 'product_name': 'Freedom in the World' }, 
+  { 'short_name': 'freedom_of_the_press', 'score': null, 'product_name': 'Freedom of the Press' }, 
+  { 'short_name': 'freedom_on_the_net', 'score': null, 'product_name': 'Freedom of the Net' }, 
+  { 'short_name': 'global_integrity_report', 'score': null, 'product_name': 'Global Integrity Report' }, 
+  { 'short_name': 'irm_action_plan_count_star', 'score': null, 'product_name': 'OGP IRM Number Starred Commitments' }, 
+  { 'short_name': 'irm_action_plan_percent_star', 'score': null, 'product_name': 'OGP IRM Percentage of Starred Commitments' }, 
+  { 'short_name': 'nations_in_transit', 'score': null, 'product_name': 'Nations in Transit' }, 
+  { 'short_name': 'ogp_regular_consult_forum', 'score': null, 'product_name': 'Regular Forum for OGP Stakeholder Consultation' }, 
+  { 'short_name': 'resource_governance_index', 'score': null, 'product_name': 'Resource Governance Index'  }, 
+  { 'short_name': 'rti_rating', 'score': null, 'product_name': 'RTI Rating' }
 ];
 
 var Indicators = CartoDBCollection.extend({
@@ -31,33 +31,35 @@ var Indicators = CartoDBCollection.extend({
   table: CONFIG.cartodb.indicator_data_table_name,
 
   forCountry: function(iso) {
-    var query = SQL_uniques({ table: this.table, iso: iso}),
-        url = this._urlForQuery(query);
-    //ojo usado el parse() hay un problema de asyn en la linea 36 country.js... 
-    var data = this.fetch({url: url}).done(function (rawData) {
-      this.parseData(rawData)
-    }.bind(this));
-
-    return data;
-  },
-
-  allForCountry: function(iso) {
     var query = SQL({ table: this.table, iso: iso}),
         url = this._urlForQuery(query);
 
-    return this.fetch({url: url});;
+    return this.fetch({url: url});
   },
+
+  // uniquesForCountry: function(iso) {
+  //   var query = SQL_uniques({ table: this.table, iso: iso}),
+  //       url = this._urlForQuery(query);
+
+  //   var data = this.fetch({url: url}).done(function (rawData) {
+  //     this.parse(rawData)
+  //   }.bind(this));
+
+  //   return data;
+  // },
 
   /*
    * Adding elements when no score for that index.
    */
-  parseData: function(rawData) {
+  parse: function(rawData) {
     $.each(defaultScores, function(i, d) {
       var current = _.findWhere(rawData.rows, {'short_name': d.short_name});
       if (!current) {
         rawData.rows.push(d);
       }
     });
+
+    return rawData.rows;
   },
 
   downloadForCountry: function(iso) {
