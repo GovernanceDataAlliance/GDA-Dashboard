@@ -5,11 +5,13 @@ var Backbone = require('backbone'),
     $ = require('jquery');
 
 var Countries = require('../../collections/countries.js'),
-    Indicators = require('../../collections/indicator_configs.js');
-    IndicatorsScores = require('../../collections/indicators.js');
+    IndicatorsNames = require('../../collections/indicator_configs.js');
+    Indicators = require('../../collections/indicators.js');
 
 var IndicatorsPresenter = require('../../presenters/indicators.js');
     CountriesPresenter = require('../../presenters/countries.js');
+
+var IndicatorService = require('../../lib/services/indicator.js');
 
 var template = Handlebars.compile(require('../../templates/countries/compare.hbs')),
     indicatorsTemplate = Handlebars.compile(require('../../templates/countries/compare-indicators.hbs'));
@@ -42,13 +44,8 @@ var CompareView = Backbone.View.extend({
     Backbone.Events.on('country:selected', (this.countryRecived).bind(this));
   },
 
-  initializeData: function() {
-    this.indicatorScoresCollection = new IndicatorsScores();
-  },
-
   render: function() {   
     this.renderIndicators();
-    this.initializeData();
 
     this.$el.html(template());
     this.renderSelectors();
@@ -59,23 +56,26 @@ var CompareView = Backbone.View.extend({
    * Render indicators names
    */
   renderIndicators: function() {
-    var indicatorsCollection = new Indicators();
+    var indicatorsNames = new IndicatorsNames();
 
-    indicatorsCollection.fetch().done(function(indicators) {
+    indicatorsNames.fetch().done(function(indicators) {
       var indicators = _.sortByOrder(indicators.rows, ['short_name']);
-
       this.$('.js--comparison-indicators').html(indicatorsTemplate({ 'indicators': indicators }))
     }.bind(this))
   },
 
-  renderCountryScores: function(iso, order) {
-    this.indicatorScoresCollection.uniquesForCountry(iso).done(function(data) {
-
-      var scores = _.sortByOrder(data.rows, ['short_name']);
-      this.$('.js--country-' + order).html(countryScoresTemplate({ 'scores': scores, 'iso': iso }));
-      
+  getDataForCountry: function(iso, order) {
+    var indicators = new Indicators();
+    indicators.forCountry(iso).done(function() {
+      this.renderCountryScores(indicators, iso, order)
     }.bind(this));
-  },  
+  },
+
+  renderCountryScores: function(indicators, iso, order) {
+    groupedIndicators = IndicatorService.groupById(indicators);
+    var sortIndicators = _.sortByOrder(groupedIndicators.toJSON(), ['short_name']);
+    this.$('.js--country-' + order).html(countryScoresTemplate({ 'scores': sortIndicators, 'iso': iso }));
+  },
 
   renderSelectors: function() {
     //TODO -- Add view manager.
@@ -84,12 +84,11 @@ var CompareView = Backbone.View.extend({
 
   setCountries: function(countries) {
      this.countryIds = countries;
-     this.initializeData();
    },
 
   countryRecived: function(iso, order) {
     compareStatus.set('country'+ order, iso);
-    this.renderCountryScores(iso, order);
+    this.getDataForCountry(iso, order);
   },
 
   show: function() {
