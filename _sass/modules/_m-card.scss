@@ -1,29 +1,58 @@
 .m-card {
   display: flex;
   flex-basis: 100%;
-  padding: rem(65px) rem(35px);
+  min-height: rem(390px);
   border-bottom: 1px solid $border-1;
-  min-height: 450px;
-
-  >.wrap {
+  
+  .card-wrap {
     display: flex;
-    justify-content: space-between;
+    width: 100%;
+    padding: rem(65px) 0;
+
+    >.wrap {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
-  &:last-child {
-    border-bottom: 0;
+  .-not-covered {
+    background-color: $bg-color-1;
+
+    >.wrap {
+      justify-content: flex-start;
+    }
+
+    .index-description {
+      h2 {
+        position: relative;
+        padding-bottom: rem(50px);
+
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: rem(60px);
+          height: rem(2px);
+          background-color: #5b5b5b;
+        }
+      }
+    }
   }
 
   // transition: all .2s ease-in;
 
   .is-dashboard-layout & {
     flex-basis: 33.33%;
-    
+
     margin: 0;
     border-right: 1px solid $border-1;
-
-    >.wrap {
-      flex-direction: column;
+    
+    .card-wrap {
+      padding: rem(55px) rem(55px);
+      >.wrap {
+        flex-direction: column;
+      }
     }
 
     &:nth-child(3n) {
@@ -44,10 +73,26 @@
       margin-bottom: rem(40px);
     }
 
-    > .description {
-       font-size: rem(15px);
+    > .description-wrapper {
+      position: relative;
+      font-size: rem(15px);
+      // height: rem(110px);
+      // overflow: hidden;
+
+      // .description {
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      //   background-color: $white;
+      // }
         
        // @include ellipsis-y(107px);
+       // transition: all .2s ease-in;
+
+      // &:hover {
+      //   height: auto;
+      //   overflow: visible;
+      // }
     }
 
     > .organization {
@@ -57,7 +102,7 @@
     }
 
     .is-dashboard-layout & {
-      > .description, 
+      > .description-wrapper, 
       > .btn-read-more {
         display: none;
       }
@@ -65,12 +110,28 @@
       .btn {
         display: none;
       }
+
+      .info {
+        text-align: left;
+
+        span {
+          display: block;
+        }
+      }
     }
 
     img {
       width: 30px;
       height: 30px;
       background-color: #ddd;
+    }
+
+    .not-covered {
+      font-size: rem(17px);
+      font-weight: 700;
+      color: #5b5b5b;
+      text-transform: uppercase;
+      font-family: $font-secondary;
     }
   }
 
@@ -86,8 +147,8 @@
       align-items: flex-start;
 
       > .graph {
-        width: 50%;
-        height: 100px;
+        // width: 50%;
+        // height: 100px;
 
         fill: transparent;
         stroke: $color-2;
@@ -153,6 +214,15 @@
       }
     }
 
+    > .info {
+      font-size: rem(15px);
+      text-align: right;
+
+      span {
+        margin-right: rem(20px); 
+      }
+    }
+
     .is-dashboard-layout & {
       > .resume {
         flex-direction: column;
@@ -166,6 +236,22 @@
 
       .btn {
         display: none;
+      }
+
+      .global-score {
+        margin-bottom: rem(20px);
+      }
+        
+      .info {
+        text-align: left;
+
+        span {
+          display: block;
+
+          &:first-child {
+            margin-bottom: rem(5px);
+          }
+        }
       }
     }
   }
