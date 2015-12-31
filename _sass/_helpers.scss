@@ -125,12 +125,14 @@
   max-width: $max-width;
   overflow: hidden;
   white-space: nowrap;
+  -webkit-text-overflow: ellipsis;
   text-overflow: ellipsis;
 }
 
 @mixin ellipsis-y($max-height) {
   max-height: $max-height;
   overflow: hidden;
+  -webkit-text-overflow: ellipsis;
   text-overflow: ellipsis;
 }
 

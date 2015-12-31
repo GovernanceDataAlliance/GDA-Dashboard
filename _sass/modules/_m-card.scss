@@ -76,23 +76,18 @@
     > .description-wrapper {
       position: relative;
       font-size: rem(15px);
-      // height: rem(110px);
-      // overflow: hidden;
-
-      // .description {
-      //   position: absolute;
-      //   top: 0;
-      //   left: 0;
-      //   background-color: $white;
-      // }
         
-       // @include ellipsis-y(107px);
-       // transition: all .2s ease-in;
-
-      // &:hover {
-      //   height: auto;
-      //   overflow: visible;
-      // }
+      .description {
+        @include ellipsis-y(107px);
+        position: relative;
+ 
+        &:after {
+          content: "...";
+          position: absolute;
+          bottom: 0;
+          right: 0;
+        }
+      }
     }
 
     > .organization {
