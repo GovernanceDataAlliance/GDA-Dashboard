@@ -4,6 +4,7 @@ $backgrounds-highlight: 'distribuidorDestacado-About', 'distribuidorDestacado-Co
   position: relative;
   padding: rem(100px) 0;
   background-color: #ccc;
+  min-height: rem(600px);
 
   @for $i from 1 through length($backgrounds-highlight) {
     &.#{nth($backgrounds-highlight, $i)}{

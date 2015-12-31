@@ -4,4 +4,8 @@
   font-family: $font-main;
   font-weight: 400;
   color: $font-color-2;
+
+  &.-medium {
+    font-size: rem(50px);
+  }
 }

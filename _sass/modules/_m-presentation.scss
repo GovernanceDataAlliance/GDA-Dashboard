@@ -7,7 +7,7 @@
   }
 
   > p {
-    font-size: rem(20px);
+    font-size: rem(15px);
 
     + .btn, + ul {
       margin-top: rem(60px);
@@ -35,6 +35,14 @@
   &.-light {
     h2, p, ul, li {
       color: $font-color-2;
+    }
+  }
+  
+  //Change and give class -highlight
+  .l-highlight &,
+  .l-presentation & {
+    p {
+      font-size: rem(20px);
     }
   }
 }
