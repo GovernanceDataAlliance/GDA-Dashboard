@@ -3,7 +3,6 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-02', 'dist
 .l-presentation {
   position: relative;
   display: flex;
-  height: rem(390px);
 
   > .intro {
     flex-basis: 100%;
@@ -11,6 +10,7 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-02', 'dist
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    padding: rem(110px) 0 rem(70px);
     background-color: $white;
 
     &.-dark {

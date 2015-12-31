@@ -2,6 +2,7 @@
   display: flex;
   flex-basis: 50%;
   justify-content: space-between;
+  padding-left: rem($wrap-padding);
   border-bottom: 1px solid $border-1;
 
   &:last-child, 
@@ -11,7 +12,7 @@
 
   &:nth-child(2n) {
     justify-content: flex-start;
-
+    padding-right: rem($wrap-padding); 
     .index-description {
       padding: rem(65px) 0 rem(65px) rem(80px);
     }

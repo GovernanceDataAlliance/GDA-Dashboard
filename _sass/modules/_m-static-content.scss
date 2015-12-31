@@ -1,0 +1,32 @@
+.m-static-content {
+  max-width: $content-width;
+
+  > .ordered-list {
+    color: $color-2;
+    margin-left: rem(95px);
+    font-size: rem(72px);
+    font-weight: 700;
+    font-family: $font-secondary;
+
+    li {
+      margin-bottom: rem(70px);
+    }
+
+    h3 {
+      font-size: rem(20px);
+      font-weight: 400;
+      font-family: $font-main;
+      margin-bottom: 40px;
+      color: $color-1;
+    }
+
+    p {
+      font-size: rem(15px);
+      font-weight: 400;
+      font-family: $font-main;
+      color: $color-1;
+    }
+
+
+  }
+}
