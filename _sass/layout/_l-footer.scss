@@ -21,7 +21,8 @@ $footer-height: rem(245px);
     padding: rem(75px) 0;
 
     .menus-wrapper {
-      @include col(8);
+      @include col(5);
+      padding-right: rem($wrap-padding);
       display: flex;
       align-items: flex-end;
       justify-content: space-between;

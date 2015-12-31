@@ -1,6 +1,7 @@
 .c-brand {
   @include col(4);
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  padding-left: rem($wrap-padding);
 }

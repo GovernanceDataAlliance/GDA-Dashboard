@@ -8,6 +8,6 @@
 }
 
 @mixin col($columns) {
-  max-width: rem($grid-max-width/12 * $columns);
+  max-width: rem(($grid-max-width)/12 * $columns);
   width: 100%;
 }
