@@ -53,12 +53,6 @@ var ShareView = Backbone.View.extend({
     var parentId = $parent[0].id;
     $url.select();
 
-    if(parentId == 'share-link') {
-      ga('send', 'event', 'Map', 'Share','Copy URL click');
-    } else if(parentId == 'share-embed') {
-      ga('send', 'event', 'Map', 'Share','Embed click');
-    }
-
     try {
       var successful = document.execCommand('copy');
       $btn.html('copied');

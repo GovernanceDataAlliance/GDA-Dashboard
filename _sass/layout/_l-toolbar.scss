@@ -8,11 +8,15 @@
     display: flex;
     // flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
   }
 
   &.-share {
     background-color: $white;
+
+    .wrap {
+      justify-content: center;
+    }
   }
 
   &.-selectors {
