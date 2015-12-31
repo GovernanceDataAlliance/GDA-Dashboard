@@ -4,4 +4,9 @@
   justify-content: flex-start;
   align-items: center;
   padding-left: rem($wrap-padding);
+
+  &.-expanded {
+    justify-content: center;
+    padding-left: 0;
+  }
 }
