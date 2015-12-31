@@ -1,6 +1,8 @@
 .m-compare-selectors {
   display: flex;
   width: 100%;
+  border-left: 1px solid $border-1;
+  border-right: 1px solid $border-1;
 
   .selector-wrapper {
     display: flex;

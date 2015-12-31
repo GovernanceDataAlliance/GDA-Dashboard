@@ -9,6 +9,10 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     background-color: #ccc; 
     background-position: top left;
 
+    h3 {
+      max-width: $content-width;
+    }
+
     p {
       color: $font-color-2;
       margin-bottom: rem(35px);
@@ -35,7 +39,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
   &.-detail {
     display: flex;
     min-height: rem(320px);
-    padding: rem(140px) 0;
+    padding: rem(140px) 0 rem(120px);
     background-color: $bg-color-1;
     border-bottom: 1px solid $border-1;
 
