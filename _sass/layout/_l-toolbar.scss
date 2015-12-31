@@ -12,7 +12,11 @@
   }
 
   &.-share {
-    background-color: $bg-color-3;
+    background-color: $white;
+
+    .wrap {
+      justify-content: center;
+    }
   }
 
   &.-selectors {

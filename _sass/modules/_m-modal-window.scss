@@ -35,6 +35,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   padding: 50px; //Margen para el scroll de windows
   overflow: scroll;
   background-color: #fff;
@@ -48,9 +49,15 @@
 
   cursor: pointer;
   font-weight: bold;
-  color: #000;
-  font-size: 32px;
-  line-height: .5em;
+  color: $color-2;
+  font-size: rem(20px);
+
+  width: rem(24px);
+  height: rem(24px);
+  line-height: 18px;
+  border-radius: 50%;
+  text-align: center;
+  border: 2px solid $color-4;
 }
 
 

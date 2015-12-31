@@ -33,4 +33,12 @@ $footer-height: rem(245px);
       font-size: rem(14px);
     }
   }
+  
+  .footer-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-end;
+  }
 }
+
