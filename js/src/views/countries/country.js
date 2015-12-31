@@ -9,12 +9,15 @@ var CountryHeaderView = require('./country_header.js'),
     IndicatorListView = require('./indicator_list.js'),
     CountryToolbarView = require('./country_toolbar.js');
 
+var ShareView = require('../common/share_view.js');
+
 var template = Handlebars.compile(
   require('../../templates/countries/country.hbs'));
 
 var CountryView = Backbone.View.extend({
   events: {
-    "click .js--download": "download"
+    "click .js--download": "download",
+    "click .js--share": "share"
   },
 
   initialize: function(options) {
@@ -82,6 +85,11 @@ var CountryView = Backbone.View.extend({
 
     this.iso = iso;
     this.initializeData();
+  },
+
+  share: function() {
+    var shareWindow = new ShareView();
+    shareWindow.show();
   },
 
   show: function() {
