@@ -1,4 +1,5 @@
 .m-presentation {
+  max-width: $content-width;
 
   > h2 {
     color: $font-color-3;
@@ -6,12 +7,24 @@
   }
 
   > p {
-    font-size: rem(15px);
+    font-size: rem(20px);
 
-    + .btn {
+    + .btn, + ul {
       margin-top: rem(60px);
     }
   } 
+
+  > ul, li {
+    list-style-type: disc;
+  }
+
+  ul {
+    padding-left: rem(20px);
+  }
+
+  li {
+    font-size: rem(15px);
+  }
 
   &.-left,
   &.-right {
@@ -20,7 +33,7 @@
   }
 
   &.-light {
-    h2, p {
+    h2, p, ul, li {
       color: $font-color-2;
     }
   }
