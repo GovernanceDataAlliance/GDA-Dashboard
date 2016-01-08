@@ -1,4 +1,5 @@
 .m-advise {
+  @extend %clearfix;
   position: absolute;
   top: 0;
   width: 90%;
@@ -14,5 +15,9 @@
     left: 35%;
     width: 60%;
     margin-top: rem(50px);
+  }
+
+  &.-clearfix {
+    position: static;
   }
 }

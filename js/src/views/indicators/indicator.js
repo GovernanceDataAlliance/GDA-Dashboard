@@ -66,14 +66,17 @@ var IndicatorView = Backbone.View.extend({
   },
 
   renderCountriesList: function(mergedCountries) {
-    console.log(mergedCountries)
     var countries;
 
     if (_.isArray(mergedCountries)) {
       countries = mergedCountries;
     } else {
-      countries = this.rankPosition(this.countries.toJSON());
+      countries = _.sortBy(this.countries.toJSON(), 'score').reverse();
+      // No rank on list.
+      // countries = this.rankPosition(this.countries.toJSON());
     }
+
+    countries = _.isEmpty(countries) ? null : countries;
 
     var listView = new CountryListView({
       'countries': countries});
@@ -118,9 +121,10 @@ var IndicatorView = Backbone.View.extend({
       }
     })
 
-    mergedCountries = _.sortBy(mergedCountries, 'score').reverse();
+    var countries = _.sortBy(mergedCountries, 'score').reverse();
     
-    var countries = this.rankPosition(mergedCountries);
+    // No rank in this view.
+    // var countries = this.rankPosition(mergedCountries);
 
     this.renderCountriesList(countries);
   },
