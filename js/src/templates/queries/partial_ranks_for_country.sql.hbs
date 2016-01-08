@@ -7,10 +7,10 @@ SELECT
   w.lending_category,
   w.region,
   w.name,
-  rank() OVER (PARTITION BY short_name ORDER BY score DESC) AS rank
+  rank() OVER (PARTITION BY short_name ORDER BY score DESC) AS rank 
 FROM indicator_data i
   JOIN wb_countries_clasification w
-    ON i.iso = w.iso
-WHERE short_name='rti_rating' 
-AND region='South Asia'
+    ON i.iso = w.iso 
+WHERE short_name='{{index}}'  
+AND {{cohortName}}='{{cohort}}'
 

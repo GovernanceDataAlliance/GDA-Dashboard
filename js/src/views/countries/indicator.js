@@ -25,11 +25,13 @@ var IndicatorView = Backbone.View.extend({
       this.drawGraph();
     }
     
-    var partial_ranks = new PartialRanksView({ 
-      el: this.$('.js--partial-ranks'),
-      iso: this.indicator.iso,
-      index: this.indicator.short_name
-    }) 
+    if (this.indicator.iso != undefined) {    
+      var partial_ranks = new PartialRanksView({ 
+        el: this.$('.js--partial-ranks'),
+        iso: this.indicator.iso,
+        index: this.indicator.short_name
+      }) 
+    }
 
     return this;
   },

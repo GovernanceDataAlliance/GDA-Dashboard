@@ -1,0 +1,7 @@
+SELECT distinct on (i.iso) 
+  w.income_group,
+  w.region 
+FROM indicator_data i 
+  JOIN wb_countries_clasification w 
+    ON i.iso=w.iso 
+WHERE i.iso='{{iso}}'
