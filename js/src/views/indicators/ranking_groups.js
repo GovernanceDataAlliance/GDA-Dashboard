@@ -25,7 +25,13 @@ var RankingGroupsViews = Backbone.View.extend({
     this.rankingCollection.fetch().done(function (rawData) {
       this.groups = this.getGroups(rawData);
       this.$el.html(rankingGroupsTemplate({ 'rankingGroups': this.groups }));
+
+      this.cacheVars();
     }.bind(this));
+  },
+
+  cacheVars: function() {
+    this.groupSelector = $('.js--btn-ranking');
   },
 
   getGroups: function(rawData) {
@@ -54,7 +60,9 @@ var RankingGroupsViews = Backbone.View.extend({
     }
 
     Backbone.Events.trigger('rankGroup:chosen', group);
-    $('.js--btn-ranking').html(groupName);
+    this.groupSelector.html(groupName);
+
+    //Hide panel.
     this.$el.addClass('is-hidden');
   }
 });
