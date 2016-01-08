@@ -20,17 +20,19 @@ var Countries = CartoDBCollection.extend({
     return this._urlForQuery(query);
   },
 
-  forIds: function(ids) {
-    var id = [].
-      concat(ids).
-      map(function(i) { return "'"+i+"'"; }).
-      join(", ");
-    var whereClause = "AND iso3 IN (" + id + ")";
+  //Not been used?
+  // forIds: function(ids) {
+  //   var id = [].
+  //     concat(ids).
+  //     map(function(i) { return "'"+i+"'"; }).
+  //     join(", ");
+  //   var whereClause = "AND iso3 IN (" + id + ")";
 
-    var url = [this.url(), whereClause].join(" ");
-    return this.fetch({url: url});
-  },
+  //   var url = [this.url(), whereClause].join(" ");
+  //   return this.fetch({url: url});
+  // },
 
+  //For general list at /countries.
   groupByRegion: function() {
     return _.groupBy(_.sortBy(this.toJSON(), 'region_name'), 'region_name');
   },

@@ -72,7 +72,7 @@ var CompareView = Backbone.View.extend({
   },
 
   renderCountryScores: function(indicators, iso, order) {
-    groupedIndicators = IndicatorService.groupById(indicators);
+    groupedIndicators = IndicatorService.groupScoresById(indicators);
     var sortIndicators = _.sortByOrder(groupedIndicators.toJSON(), ['short_name']);
     this.$('.js--country-' + order).html(countryScoresTemplate({ 'scores': sortIndicators, 'iso': iso }));
 
