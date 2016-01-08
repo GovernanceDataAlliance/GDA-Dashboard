@@ -25,7 +25,6 @@ var RankingGroupsViews = Backbone.View.extend({
     this.rankingCollection.fetch().done(function (rawData) {
       this.groups = this.getGroups(rawData);
       this.$el.html(rankingGroupsTemplate({ 'rankingGroups': this.groups }));
-
       this.cacheVars();
     }.bind(this));
   },
