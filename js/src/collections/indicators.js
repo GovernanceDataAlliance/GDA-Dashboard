@@ -37,17 +37,6 @@ var Indicators = CartoDBCollection.extend({
     return this.fetch({url: url});
   },
 
-  // uniquesForCountry: function(iso) {
-  //   var query = SQL_uniques({ table: this.table, iso: iso}),
-  //       url = this._urlForQuery(query);
-
-  //   var data = this.fetch({url: url}).done(function (rawData) {
-  //     this.parse(rawData)
-  //   }.bind(this));
-
-  //   return data;
-  // },
-
   /*
    * Adding elements when no score for that index.
    */
