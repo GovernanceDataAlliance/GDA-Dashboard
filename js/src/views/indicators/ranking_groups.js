@@ -29,7 +29,7 @@ var RankingGroupsViews = Backbone.View.extend({
   },
 
   getGroups: function(rawData) {
-    var categories = ["region", "income_group", "lending_category", "other"];
+    var categories = ["region", "income_group", "lending_category"];
 
     var data = rawData.rows;
     //Grouped by categories
