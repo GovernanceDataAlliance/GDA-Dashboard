@@ -5,7 +5,7 @@ var CONFIG = require('../../config.json');
 
 var Handlebars = require('handlebars');
 
-var SQL = Handlebars.compile(require('../templates/queries/countries_rank.sql.hbs'));
+var SQL = Handlebars.compile(require('../templates/queries/countries_for_index.sql.hbs'));
 
 var Countries = CartoDBCollection.extend({
   user_name: CONFIG.cartodb.user_name,
@@ -35,13 +35,13 @@ var Countries = CartoDBCollection.extend({
     return _.groupBy(_.sortBy(this.toJSON(), 'region_name'), 'region_name');
   },
 
-  withRankForIndicator: function(id) {
+  countriesForIndicator: function(id) {
     var query = SQL({ id: id }),
         url = this._urlForQuery(query);
     return this.fetch({url: url});
   },
 
-  downloadRanksForIndicator: function(id) {
+  downloadCountriesForIndicator: function(id) {
     var query = SQL({ id: id }),
         url = this._urlForQuery(query) + '&format=csv';
 

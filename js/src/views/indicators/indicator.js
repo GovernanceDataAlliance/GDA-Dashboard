@@ -40,7 +40,7 @@ var IndicatorView = Backbone.View.extend({
     this.countries = new Countries();
 
     this.listenTo(this.countries, 'sync', this.renderCountriesList);
-    this.countries.withRankForIndicator(this.id);
+    this.countries.countriesForIndicator(this.id);
   },
 
   render: function(rerender) {
@@ -66,6 +66,7 @@ var IndicatorView = Backbone.View.extend({
   },
 
   renderCountriesList: function(mergedCountries) {
+    console.log(mergedCountries)
     var countries;
 
     if (_.isArray(mergedCountries)) {
@@ -84,7 +85,7 @@ var IndicatorView = Backbone.View.extend({
     event.preventDefault();
     event.stopPropagation();
 
-    var url = this.countries.downloadRanksForIndicator(this.id);
+    var url = this.countries.downloadCountriesForIndicator(this.id);
     window.location = url;
   },
 
