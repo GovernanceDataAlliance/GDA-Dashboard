@@ -30,7 +30,7 @@ var IndicatorView = Backbone.View.extend({
         el: this.$('.js--partial-ranks'),
         iso: this.indicator.iso,
         index: this.indicator.short_name
-      }) 
+      });
     }
 
     return this;

@@ -16,8 +16,8 @@ var PartialRanks = CartoDBCollection.extend({
   partialRanksForCountry: function(iso, index, cohortName, cohort) {
     var query = partialRanksSQL({ 
       'index': index, 
-      'cohortName': 'region',
-      'cohort': 'South Asia'
+      'cohortName': cohortName,
+      'cohort': cohort
     }),
     url = this._urlForQuery(query);
     return this.fetch({url: url});

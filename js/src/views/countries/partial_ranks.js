@@ -12,34 +12,65 @@ var PartialRanksView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
 
-    this.iso = options.iso;
-    this.index = options.index;
-
-    // this.render();
+    iso = options.iso;
+    index = options.index;
 
     this.partialRanks = new PartialRanks();
-
-    //Getting cohorts
-    this.partialRanks.cohortsForCountry(this.iso).done(_.bind(function(cohorts) {
-            
-      _.map(cohorts.rows[0], function(n, key, obj) {
-        this.getCountriesForCohort( key, obj[key] )
-      }.bind(this));
-    
-    }, this));
+    this.render(iso, index);
   },
 
-  getCountriesForCohort: function(cohortName, cohort) {
-    console.log(cohortName, cohort);
 
-    this.partialRanks.partialRanksForCountry(this.iso, this.index, cohortName, cohort).done(function(countries) {
-      console.log(countries);
-    }.bind(this));
-  },
-
-  render: function() {
+  render: function(iso, index) {
+    /*
+     * ranks = [
+      { 
+        region: regionName,
+        rank: rankNumber
+      },
+      {
+        income: income,
+        rank: rankNumber
+      }
+     ]
+    */
+    var ranks = this.getData(iso, index);
+    // console.log(ranks);
     this.$el.html(template());
+  },
+
+  getData: function(iso, index) {
+    var ranksForIndex = [];
+    
+    //Getting cohorts for each country.
+    this.partialRanks.cohortsForCountry( iso ).done(_.bind(function(cohorts) {
+
+      //When chorts ready, for each cohort, get countries belonged.
+      var self = this;
+      _.each(cohorts.rows[0], function(n, key, obj) {
+        var cohortName = key;
+        var cohort = obj[key];
+
+        //For each cohort, for each index, I get countries
+        var rank = self.partialRanks.partialRanksForCountry(iso, index, cohortName, cohort).done(function(countries) {
+          
+          var rankForThisIndex = {};
+          
+          var actualCountry = _.findWhere(countries.rows, { 'iso': iso });
+
+          rankForThisIndex.cohortName = cohortName;
+          rankForThisIndex.indexName = index;
+          rankForThisIndex.rank = actualCountry.rank;
+
+          console.log('rankForThisIndex' , rankForThisIndex)
+          return rankForThisIndex;
+        });
+
+      });
+
+    }, this));
+
   }
+
 });
 
 module.exports = PartialRanksView;
