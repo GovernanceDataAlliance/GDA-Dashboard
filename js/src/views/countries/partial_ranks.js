@@ -25,50 +25,43 @@ var PartialRanksView = Backbone.View.extend({
      * ranks = [
       { 
         region: regionName,
-        rank: rankNumber
+        regionRank: rankNumber
       },
       {
         income: income,
-        rank: rankNumber
+        incomeRank: rankNumber
       }
      ]
     */
-    var ranks = this.getData(iso, index);
-    // console.log(ranks);
-    this.$el.html(template());
+    this.getData(iso, index);
   },
 
   getData: function(iso, index) {
-    var ranksForIndex = [];
-    
-    //Getting cohorts for each country.
-    this.partialRanks.cohortsForCountry( iso ).done(_.bind(function(cohorts) {
+    //Get cohorts for that country.
+    this.partialRanks.cohortsForCountry(iso).done(function(cohorts) {
 
-      //When chorts ready, for each cohort, get countries belonged.
-      var self = this;
+      //For each cohort, for each index, I get countries belonging
       _.each(cohorts.rows[0], function(n, key, obj) {
         var cohortName = key;
         var cohort = obj[key];
 
-        //For each cohort, for each index, I get countries
-        var rank = self.partialRanks.partialRanksForCountry(iso, index, cohortName, cohort).done(function(countries) {
-          
-          var rankForThisIndex = {};
-          
+        this.partialRanks.partialRanksForCountry(iso, index, cohortName, cohort).done(function(countries) {
+
+          var rankForThisCohort = {};
           var actualCountry = _.findWhere(countries.rows, { 'iso': iso });
 
-          rankForThisIndex.cohortName = cohortName;
-          rankForThisIndex.indexName = index;
-          rankForThisIndex.rank = actualCountry.rank;
+          rankForThisCohort.cohortName = cohortName;
+          rankForThisCohort.cohort = cohort;
+          rankForThisCohort.indexName = index;
+          rankForThisCohort.rank = actualCountry.rank;
 
-          console.log('rankForThisIndex' , rankForThisIndex)
-          return rankForThisIndex;
-        });
+          this.$('.partial-scores').append(template({'rank': rankForThisCohort}));
 
-      });
+        }.bind(this));
 
-    }, this));
+      }.bind(this));
 
+    }.bind(this))
   }
 
 });

@@ -1,14 +1,4 @@
-<ul class="partial-scores">
-  <li>
-    <p id="global" class="partial-score">x</p>
-    <p class="partial-rank">globally</p>
-  </li>
-  <li>
-    <p id="continent" class="partial-score">x</p>
-    <p class="partial-rank">In America</p>
-  </li>
-  <li>
-    <p id="developed" class="partial-score">x</p>
-    <p class="partial-rank">In Developed countries</p>
-  </li>
-</ul>
+<li class="{{rank.indexName}} {{rank.cohortName}}">
+  <p class="partial-score">{{rank.rank}}</p>
+  <p class="partial-rank">{{rank.cohort}}</p>
+</li>
