@@ -33,10 +33,26 @@ var PartialRanksView = Backbone.View.extend({
       }
      ]
     */
-    this.getData(iso, index);
+    this.getGlobalRank(iso, index);
+    this.getPartialRanks(iso, index);
   },
 
-  getData: function(iso, index) {
+  // TODO get uniques values for index.
+  getGlobalRank: function(iso, index) {
+    this.partialRanks.globalRankForCountry(index).done(function(countries) {
+      var globalRank = {};
+      var actualCountry = _.findWhere(countries.rows, { 'iso': iso });
+
+      globalRank.cohortName = 'global';
+      globalRank.cohort = 'Global';
+      globalRank.indexName = index;
+      globalRank.rank = actualCountry.rank;
+
+      this.$('.partial-scores').append(template({'rank': globalRank}));
+    }.bind(this));
+  },
+
+  getPartialRanks: function(iso, index) {
     //Get cohorts for that country.
     this.partialRanks.cohortsForCountry(iso).done(function(cohorts) {
 
