@@ -54,6 +54,7 @@ var CountryView = Backbone.View.extend({
   renderCountry: function() {
     var headerView = new CountryHeaderView({
       country: this.country});
+    console.log(this.country);
     this.$('.js--country-header').append(headerView.render().el);
   },
 

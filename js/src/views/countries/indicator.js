@@ -20,11 +20,16 @@ var IndicatorView = Backbone.View.extend({
   render: function() {
     this.$el.html(template(this.parseData()));
     this.analizeValues();
+    this.partialRanks();
 
     if (this.indicator['has_historical_info'] === true) {
       this.drawGraph();
     }
-    
+
+    return this;
+  },
+
+  partialRanks: function() {
     if (this.indicator.iso != undefined) {    
       var partial_ranks = new PartialRanksView({ 
         el: this.$('.js--partial-ranks'),
@@ -32,8 +37,6 @@ var IndicatorView = Backbone.View.extend({
         index: this.indicator.short_name
       });
     }
-
-    return this;
   },
 
   parseData: function() {
