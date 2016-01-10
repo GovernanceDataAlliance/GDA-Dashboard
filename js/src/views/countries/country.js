@@ -54,7 +54,6 @@ var CountryView = Backbone.View.extend({
   renderCountry: function() {
     var headerView = new CountryHeaderView({
       country: this.country});
-    console.log(this.country);
     this.$('.js--country-header').append(headerView.render().el);
   },
 
@@ -65,7 +64,11 @@ var CountryView = Backbone.View.extend({
 
   renderIndicators: function() {
     var listView = new IndicatorListView({
-      indicators: this.indicators 
+      'indicators': this.indicators,
+      'cohorts': {
+        'income_group': this.country.get('income_group'),
+        'region': this.country.get('region'),
+      }
     });
     listView.render();
   },

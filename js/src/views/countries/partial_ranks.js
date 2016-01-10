@@ -13,26 +13,60 @@ var PartialRanksView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
 
-    iso = options.iso;
+    this.iso = options.iso;
     index = options.index;
+    cohorts = options.cohorts;
 
     this.partialRanks = new PartialRanks();
-    this.initializeData(iso, index);
+    this.initializeData(index, cohorts);
   },
 
-  initializeData: function(iso, index) {
-    this.listenTo(this.partialRanks, 'sync', this.getCountries);
-    this.partialRanks.cohortsForCountry(iso);
+  initializeData: function(index, cohorts) {
+    //Global rank.
+    this.partialRanks.globalRankForCountry(index).done(function(countries) {
+      this.getGlobalRank(countries);
+
+      //Partial ranks.
+      //Here, to be sure global rank appears first.
+      _.each(cohorts, function(n, key, obj) {
+        var cohortName = key;
+        var cohort = obj[key];
+
+        this.partialRanks.partialRanksForCountry(this.iso, index, cohortName, cohort).done(function(countries) {
+          this.getPartialRank(countries, cohortName, cohort);
+        }.bind(this))
+      }.bind(this));
+
+    }.bind(this));
+
   },
 
-  getCountries: function(cohorts) {
-    console.log(cohorts);
+  getGlobalRank: function(countries) {
+    var globalRank = {};
+    var actualCountry = _.findWhere(countries.rows, { 'iso': this.iso });
 
-    this.cohorts = cohorts;
+    globalRank.cohortName = 'global';
+    globalRank.cohort = 'Global';
+    globalRank.indexName = actualCountry.short_name;
+    globalRank.rank = actualCountry.rank;
+
+    this.render(globalRank);
   },
 
-  render: function(iso, index) {
+  getPartialRank: function(countries, cohortName, cohort) {
+    var actualCountry = _.findWhere(countries.rows, { 'iso': this.iso });
+    var rankForThisCohort = {};
 
+    rankForThisCohort.cohortName = cohortName;
+    rankForThisCohort.cohort = cohort;
+    rankForThisCohort.indexName = actualCountry.short_name;
+    rankForThisCohort.rank = actualCountry.rank;
+
+    this.render(rankForThisCohort);
+  },
+
+  render: function(rankForThisCohort) {
+    this.$('.partial-scores').append(template({'rank': rankForThisCohort}));
   },
 
   

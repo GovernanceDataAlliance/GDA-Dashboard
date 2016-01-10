@@ -7,7 +7,6 @@ var CONFIG = require('../../config.json');
 var Handlebars = require('handlebars');
 
 var partialRanksSQL = Handlebars.compile(require('../templates/queries/partial_ranks_for_country.sql.hbs')),
-    cohortSQL = Handlebars.compile(require('../templates/queries/cohort.sql.hbs')),
     globalRankSQL = Handlebars.compile(require('../templates/queries/global_rank_for_country.sql.hbs'));
 
 
@@ -29,12 +28,6 @@ var PartialRanks = CartoDBCollection.extend({
     var query = globalRankSQL({ 
       'index': index
     }),
-    url = this._urlForQuery(query);
-    return this.fetch({url: url});
-  },
-
-  cohortsForCountry: function(iso) {
-    var query = cohortSQL({ 'iso': iso });
     url = this._urlForQuery(query);
     return this.fetch({url: url});
   },
