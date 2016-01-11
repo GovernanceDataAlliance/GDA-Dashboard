@@ -1,13 +1,55 @@
 <div class="l-toolbar">
   <div class="wrap">
     <div class="m-controls">
-      <button class="js--download">download data</button>
+      <button class="js--download btn">
+        <svg class="icon -regular">
+          <use xlink:href="#icon-download"></use>
+        </svg>
+        download data
+      </button>
       <span> | </span>
-      <a href="/countries#compare?countries[]={{iso}}">compare with other countries</a>
+      <a href="/countries#compare?countries[]={{iso}}" class="btn">
+        <svg class="icon -regular">
+          <use xlink:href="#icon-compare"></use>
+        </svg>
+        compare with other countries
+      </a>
+      <span> | </span>
+      <button class="js--print btn">
+        <svg class="icon -regular">
+          <use xlink:href="#icon-print"></use>
+        </svg>
+        print
+      </button>
+      <span> | </span>
+      <button class="js--print btn">
+        <svg class="icon -regular">
+          <use xlink:href="#icon-share"></use>
+        </svg>
+        share
+      </button>
+      <span> | </span>
+      <button class="js--download btn">
+        <svg class="icon -regular">
+          <use xlink:href="#icon-download"></use>
+        </svg>
+        download data
+      </button>
     </div>
+
     <div class="m-controls">
-      <button class="js--btn btn-layout-dashboard">Dashboard</button>
-      <button class="js--btn btn-layout-list is-active">List</button>
+      <button class="js--btn btn-layout-dashboard is-active btn">
+        <svg class="icon -regular">
+          <use xlink:href="#icon-dashboard"></use>
+        </svg>
+        Dashboard
+      </button>
+      <button class="js--btn btn-layout-list btn">
+        <svg class="icon -regular">
+          <use xlink:href="#icon-list"></use>
+        </svg>
+        List
+      </button>
     </div>
   </div>
 </div>
