@@ -6,8 +6,7 @@ var CONFIG = require('../../config.json');
 
 var Handlebars = require('handlebars');
 
-var SQL = Handlebars.compile(require('../templates/queries/indicators.sql.hbs')),
-    SQL_uniques = Handlebars.compile(require('../templates/queries/indicators_uniqueValues.sql.hbs'));
+var SQL = Handlebars.compile(require('../templates/queries/indicators.sql.hbs'));
 
 var defaultScores = [
   { 'short_name': 'corruption_perceptions_index', 'score': null, 'product_name': 'Corruption Perceptions Index 2014'}, 
@@ -36,17 +35,6 @@ var Indicators = CartoDBCollection.extend({
 
     return this.fetch({url: url});
   },
-
-  // uniquesForCountry: function(iso) {
-  //   var query = SQL_uniques({ table: this.table, iso: iso}),
-  //       url = this._urlForQuery(query);
-
-  //   var data = this.fetch({url: url}).done(function (rawData) {
-  //     this.parse(rawData)
-  //   }.bind(this));
-
-  //   return data;
-  // },
 
   /*
    * Adding elements when no score for that index.

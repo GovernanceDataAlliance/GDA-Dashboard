@@ -4,7 +4,9 @@ var Backbone = require('backbone'),
 
 var template = Handlebars.compile(
   require('../../templates/countries/indicator.hbs'));
+
 var LineChartView = require('../common/line_chart_view.js');
+var PartialRanksView = require('./partial_ranks.js');
 
 var IndicatorView = Backbone.View.extend({
   tagName: 'li',
@@ -18,12 +20,23 @@ var IndicatorView = Backbone.View.extend({
   render: function() {
     this.$el.html(template(this.parseData()));
     this.analizeValues();
+    this.partialRanks();
 
     if (this.indicator['has_historical_info'] === true) {
       this.drawGraph();
     }
 
     return this;
+  },
+
+  partialRanks: function() {
+    if (this.indicator.iso != undefined) {    
+      var partial_ranks = new PartialRanksView({ 
+        'el': this.$('.js--partial-ranks'),
+        'iso': this.indicator.iso,
+        'index': this.indicator.short_name
+      });
+    }
   },
 
   parseData: function() {

@@ -36,8 +36,6 @@ var RankingGroups = CartoDBCollection.extend({
       var groupByCategory = _.groupBy(data, category);
       rankingGroups[category] = groupByCategory;
     })
-
-    console.log(rankingGroups);
   }
 
 });

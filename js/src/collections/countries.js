@@ -5,7 +5,7 @@ var CONFIG = require('../../config.json');
 
 var Handlebars = require('handlebars');
 
-var SQL = Handlebars.compile(require('../templates/queries/countries_rank.sql.hbs'));
+var SQL = Handlebars.compile(require('../templates/queries/countries_for_index.sql.hbs'));
 
 var Countries = CartoDBCollection.extend({
   user_name: CONFIG.cartodb.user_name,
@@ -20,28 +20,30 @@ var Countries = CartoDBCollection.extend({
     return this._urlForQuery(query);
   },
 
-  forIds: function(ids) {
-    var id = [].
-      concat(ids).
-      map(function(i) { return "'"+i+"'"; }).
-      join(", ");
-    var whereClause = "AND iso3 IN (" + id + ")";
+  //Not been used?
+  // forIds: function(ids) {
+  //   var id = [].
+  //     concat(ids).
+  //     map(function(i) { return "'"+i+"'"; }).
+  //     join(", ");
+  //   var whereClause = "AND iso3 IN (" + id + ")";
 
-    var url = [this.url(), whereClause].join(" ");
-    return this.fetch({url: url});
-  },
+  //   var url = [this.url(), whereClause].join(" ");
+  //   return this.fetch({url: url});
+  // },
 
+  //For general list at /countries.
   groupByRegion: function() {
     return _.groupBy(_.sortBy(this.toJSON(), 'region_name'), 'region_name');
   },
 
-  withRankForIndicator: function(id) {
+  countriesForIndicator: function(id) {
     var query = SQL({ id: id }),
         url = this._urlForQuery(query);
     return this.fetch({url: url});
   },
 
-  downloadRanksForIndicator: function(id) {
+  downloadCountriesForIndicator: function(id) {
     var query = SQL({ id: id }),
         url = this._urlForQuery(query) + '&format=csv';
 

@@ -40,7 +40,7 @@ var IndicatorView = Backbone.View.extend({
     this.countries = new Countries();
 
     this.listenTo(this.countries, 'sync', this.renderCountriesList);
-    this.countries.withRankForIndicator(this.id);
+    this.countries.countriesForIndicator(this.id);
   },
 
   render: function(rerender) {
@@ -71,8 +71,12 @@ var IndicatorView = Backbone.View.extend({
     if (_.isArray(mergedCountries)) {
       countries = mergedCountries;
     } else {
-      countries = this.rankPosition(this.countries.toJSON());
+      countries = _.sortBy(this.countries.toJSON(), 'score').reverse();
+      // No rank on list.
+      // countries = this.rankPosition(this.countries.toJSON());
     }
+
+    countries = _.isEmpty(countries) ? null : countries;
 
     var listView = new CountryListView({
       'countries': countries});
@@ -84,7 +88,7 @@ var IndicatorView = Backbone.View.extend({
     event.preventDefault();
     event.stopPropagation();
 
-    var url = this.countries.downloadRanksForIndicator(this.id);
+    var url = this.countries.downloadCountriesForIndicator(this.id);
     window.location = url;
   },
 
@@ -117,9 +121,10 @@ var IndicatorView = Backbone.View.extend({
       }
     })
 
-    mergedCountries = _.sortBy(mergedCountries, 'score').reverse();
+    var countries = _.sortBy(mergedCountries, 'score').reverse();
     
-    var countries = this.rankPosition(mergedCountries);
+    // No rank in this view.
+    // var countries = this.rankPosition(mergedCountries);
 
     this.renderCountriesList(countries);
   },
