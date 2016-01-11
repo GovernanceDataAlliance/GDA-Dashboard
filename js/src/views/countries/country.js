@@ -64,11 +64,7 @@ var CountryView = Backbone.View.extend({
 
   renderIndicators: function() {
     var listView = new IndicatorListView({
-      'indicators': this.indicators,
-      'cohorts': {
-        'income_group': this.country.get('income_group'),
-        'region': this.country.get('region'),
-      }
+      'indicators': this.indicators
     });
     listView.render();
   },

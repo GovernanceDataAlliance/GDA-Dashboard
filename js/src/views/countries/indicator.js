@@ -15,7 +15,6 @@ var IndicatorView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
     this.indicator = options.indicator.toJSON();
-    this.cohorts = options.cohorts;
   },
 
   render: function() {
@@ -35,8 +34,7 @@ var IndicatorView = Backbone.View.extend({
       var partial_ranks = new PartialRanksView({ 
         'el': this.$('.js--partial-ranks'),
         'iso': this.indicator.iso,
-        'index': this.indicator.short_name,
-        'cohorts': this.cohorts
+        'index': this.indicator.short_name
       });
     }
   },

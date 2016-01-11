@@ -14,26 +14,18 @@ var PartialRanks = CartoDBCollection.extend({
   user_name: CONFIG.cartodb.user_name,
   table: CONFIG.cartodb.indicator_data_table_name,
 
-  partialRanksForCountry: function(iso, index, cohortName, cohort) {
+  partialRanksForCountry: function(iso, index, cohort) {
     var query = partialRanksSQL({ 
       'index': index, 
-      'cohortName': cohortName,
-      'cohort': cohort
-    }),
-    url = this._urlForQuery(query);
-    return this.fetch({url: url});
-  },
-
-  globalRankForCountry: function(index) {
-    var query = globalRankSQL({ 
-      'index': index
+      'cohort': cohort === 'global' ? '' : ', '+cohort,
+      'iso': iso
     }),
     url = this._urlForQuery(query);
     return this.fetch({url: url});
   },
 
   parse: function(rawData) {
-    return rawData.rows;
+    return rawData.rows[0];
   }
 
 

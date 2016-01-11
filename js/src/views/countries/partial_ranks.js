@@ -15,58 +15,29 @@ var PartialRanksView = Backbone.View.extend({
 
     this.iso = options.iso;
     index = options.index;
-    cohorts = options.cohorts;
 
     this.partialRanks = new PartialRanks();
-    this.initializeData(index, cohorts);
+    this.initializeData(index);
   },
 
-  initializeData: function(index, cohorts) {
-    //Global rank.
-    this.partialRanks.globalRankForCountry(index).done(function(countries) {
-      this.getGlobalRank(countries);
+  initializeData: function(index) {
 
-      //Partial ranks.
-      //Here, to be sure global rank appears first.
-      _.each(cohorts, function(n, key, obj) {
-        var cohortName = key;
-        var cohort = obj[key];
+    var cohorts = ['global', 'region', 'income_group'];
 
-        this.partialRanks.partialRanksForCountry(this.iso, index, cohortName, cohort).done(function(countries) {
-          this.getPartialRank(countries, cohortName, cohort);
-        }.bind(this))
-      }.bind(this));
-
+    _.each(cohorts, function(cohort) {
+      this.partialRanks.partialRanksForCountry(this.iso, index, cohort).done(function(country) {
+        this.render(country.rows[0], cohort);
+      }.bind(this))
     }.bind(this));
 
   },
 
-  getGlobalRank: function(countries) {
-    var globalRank = {};
-    var actualCountry = _.findWhere(countries.rows, { 'iso': this.iso });
-
-    globalRank.cohortName = 'global';
-    globalRank.cohort = 'Global';
-    globalRank.indexName = actualCountry.short_name;
-    globalRank.rank = actualCountry.rank;
-
-    this.render(globalRank, globalRank.cohortName);
-  },
-
-  getPartialRank: function(countries, cohortName, cohort) {
-    var actualCountry = _.findWhere(countries.rows, { 'iso': this.iso });
-    var rankForThisCohort = {};
-
-    rankForThisCohort.cohortName = cohortName;
-    rankForThisCohort.cohort = cohort;
-    rankForThisCohort.indexName = actualCountry.short_name;
-    rankForThisCohort.rank = actualCountry.rank;
-
-    this.render(rankForThisCohort, cohortName);
-  },
-
-  render: function(rankForThisCohort, cohortName) {
-    this.$('#'+cohortName).append(template({'rank': rankForThisCohort}));
+  render: function(country, cohort) {
+    this.$('#'+cohort).append(template({
+      'rank': country['rank'],
+      'cohort': cohort === 'global' ? 'Global' : country[cohort],
+      'index': country['short_name']
+    }));
   },
 
   
