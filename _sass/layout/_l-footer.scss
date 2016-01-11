@@ -40,5 +40,13 @@ $footer-height: rem(245px);
     justify-content: space-between;
     align-content: flex-end;
   }
+
+  .creative-common-logo {
+    position: relative;
+    top: rem(2px);
+    width: rem(20px);
+    height: rem(20px);
+    margin-right: rem(10px); 
+  }
 }
 
