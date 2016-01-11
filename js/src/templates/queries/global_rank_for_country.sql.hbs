@@ -1,4 +1,4 @@
-SELECT 
+SELECT distinct on (i.iso)
   i.short_name,
   i.iso,
   i.score,
@@ -6,9 +6,9 @@ SELECT
   w.income_group,
   w.region,
   w.name,
-  rank() OVER (PARTITION BY short_name ORDER BY score DESC) AS rank 
+  rank() OVER (PARTITION BY i.short_name ORDER BY score DESC) AS rank 
 FROM indicator_data i
-  JOIN wb_countries_clasification w
+  JOIN wb_countries_clasification w 
     ON i.iso = w.iso 
-WHERE short_name='{{index}}'
-
+WHERE short_name='{{index}}' 
+ORDER BY i.iso, i.year DESC

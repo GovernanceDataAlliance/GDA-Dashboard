@@ -50,7 +50,7 @@ var PartialRanksView = Backbone.View.extend({
     globalRank.indexName = actualCountry.short_name;
     globalRank.rank = actualCountry.rank;
 
-    this.render(globalRank);
+    this.render(globalRank, globalRank.cohortName);
   },
 
   getPartialRank: function(countries, cohortName, cohort) {
@@ -62,11 +62,11 @@ var PartialRanksView = Backbone.View.extend({
     rankForThisCohort.indexName = actualCountry.short_name;
     rankForThisCohort.rank = actualCountry.rank;
 
-    this.render(rankForThisCohort);
+    this.render(rankForThisCohort, cohortName);
   },
 
-  render: function(rankForThisCohort) {
-    this.$('.partial-scores').append(template({'rank': rankForThisCohort}));
+  render: function(rankForThisCohort, cohortName) {
+    this.$('#'+cohortName).append(template({'rank': rankForThisCohort}));
   },
 
   
