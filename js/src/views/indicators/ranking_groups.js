@@ -14,6 +14,10 @@ var RankingGroupsViews = Backbone.View.extend({
     'click .group-selector' : 'groupSelected'
   },
 
+
+  /*
+   * This view draws cohort groups and handles when one of them has been clicked.
+   */
   initialize: function(options) {
     options = options || {};
     this.rankingCollection = new RankingCollection();

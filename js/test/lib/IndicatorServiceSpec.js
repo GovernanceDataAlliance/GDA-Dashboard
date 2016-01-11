@@ -6,13 +6,13 @@ var IndicatorService = require('../../src/lib/services/indicator.js'),
 var rawIndicators = require('../responses/indicators.json').successSmall.rows;
 
 describe('Indicator Service', function() {
-  describe('.groupById', function() {
+  describe('.groupScoresId', function() {
     describe('given a list of indicator values', function() {
       var results;
 
       beforeEach(function() {
         var collection = new Indicators(rawIndicators);
-        results = IndicatorService.groupById(collection).toJSON();
+        results = IndicatorService.groupScoresById(collection).toJSON();
       });
 
       it('groups them by indicator', function() {

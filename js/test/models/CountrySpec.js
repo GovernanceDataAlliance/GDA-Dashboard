@@ -18,7 +18,7 @@ describe("Country", function() {
   });
 
   it('has the correct CartoDB table', function() {
-    var table = CONFIG.cartodb && CONFIG.cartodb.country_table_name;
+    var table = CONFIG.cartodb && CONFIG.cartodb.country_join;
     expect(country.table).toBe(table || "");
   });
 

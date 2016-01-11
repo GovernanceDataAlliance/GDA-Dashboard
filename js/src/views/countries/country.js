@@ -64,7 +64,7 @@ var CountryView = Backbone.View.extend({
 
   renderIndicators: function() {
     var listView = new IndicatorListView({
-      indicators: this.indicators 
+      'indicators': this.indicators
     });
     listView.render();
   },
