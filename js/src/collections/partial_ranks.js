@@ -6,8 +6,7 @@ var CONFIG = require('../../config.json');
 
 var Handlebars = require('handlebars');
 
-var partialRanksSQL = Handlebars.compile(require('../templates/queries/partial_ranks_for_country.sql.hbs')),
-    globalRankSQL = Handlebars.compile(require('../templates/queries/global_rank_for_country.sql.hbs'));
+var partialRanksSQL = Handlebars.compile(require('../templates/queries/partial_ranks_for_country.sql.hbs'));
 
 
 var PartialRanks = CartoDBCollection.extend({

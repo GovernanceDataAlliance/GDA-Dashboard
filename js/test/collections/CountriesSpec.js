@@ -45,10 +45,6 @@ describe("Countries", function() {
         request.respond(200, { "Content-Type": "application/json" }, "[{}]");
       });
 
-      it("appends filters to retrieve only countries with those IDs", function() {
-        var paramsRegex = new RegExp("WHERE .* AND iso3 IN \\('GBR', 'ALB'\\)$");
-        expect(request.url).toMatch(paramsRegex);
-      });
     });
   });
 
