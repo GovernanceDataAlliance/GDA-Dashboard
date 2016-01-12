@@ -5,7 +5,8 @@ var Backbone = require('backbone'),
     $ = require('jquery');
 
 var Countries = require('../../collections/countries.js'),
-    IndicatorsNames = require('../../collections/indicator_configs.js');
+    Years = require('../../collections/years.js'),
+    IndicatorsNames = require('../../collections/indicator_configs.js'),
     Indicators = require('../../collections/indicators.js');
 
 var IndicatorsPresenter = require('../../presenters/indicators.js');
@@ -91,8 +92,8 @@ var CompareView = Backbone.View.extend({
   },
 
   getYears: function() {
-    var indicators = new Indicators();
-    return indicators.totalYears()
+    var years = new Years();
+    return years.totalYears()
   },
 
   setCountries: function(countries) {

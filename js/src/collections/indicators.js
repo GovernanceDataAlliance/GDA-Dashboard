@@ -34,11 +34,7 @@ var Indicators = CartoDBCollection.extend({
     var query = SQL({ table: this.table, iso: iso}),
         url = this._urlForQuery(query);
 
-    var data =  this.fetch({url: url}).done(function(indicators) {
-      return this.parseIndicators(indicators);
-    }.bind(this));
-    
-    return data;
+    return this.fetch({url: url})
   },
 
   totalYears: function() {
@@ -51,7 +47,7 @@ var Indicators = CartoDBCollection.extend({
   /*
    * Adding elements when no score for that index.
    */
-  parseIndicators: function(rawData) {
+  parse: function(rawData) {
     $.each(defaultScores, function(i, d) {
       var current = _.findWhere(rawData.rows, {'short_name': d.short_name});
       if (!current) {
@@ -66,11 +62,7 @@ var Indicators = CartoDBCollection.extend({
     var query = SQL({ table: this.table, iso: iso}),
         url = this._urlForQuery(query) + '&format=csv';
 
-    var data =  this.fetch({url: url}).done(function(indicators) {
-      return this.parseIndicators(indicators);
-    }.bind(this));
-
-    return data;
+    return this.fetch({url: url});
   }
 });
 
