@@ -5,9 +5,9 @@
       <div class="selector-wrapper -year">
         <div class="btn-drop-down">
           <select class="js--year-selector">
-            <option value="2015">2015</option>
-            {{#each year}}
-              <option value="{{this.year}}">{{this.year}}</option>
+            <option value="select year">select year</option>
+            {{#each years}}
+              <option id="year-{{this.year}}" value="{{this.year}}">{{this.year}}</option>
             {{/each}}
           </select>
         </div>

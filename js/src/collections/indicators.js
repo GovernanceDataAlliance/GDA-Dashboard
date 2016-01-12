@@ -6,7 +6,8 @@ var CONFIG = require('../../config.json');
 
 var Handlebars = require('handlebars');
 
-var SQL = Handlebars.compile(require('../templates/queries/indicators.sql.hbs'));
+var SQL = Handlebars.compile(require('../templates/queries/indicators.sql.hbs')),
+    totalYearsSQL = Handlebars.compile(require('../templates/queries/total_years.sql.hbs'));
 
 var defaultScores = [
   { 'short_name': 'corruption_perceptions_index', 'score': null, 'product_name': 'Corruption Perceptions Index 2014'}, 
@@ -33,13 +34,24 @@ var Indicators = CartoDBCollection.extend({
     var query = SQL({ table: this.table, iso: iso}),
         url = this._urlForQuery(query);
 
+    var data =  this.fetch({url: url}).done(function(indicators) {
+      return this.parseIndicators(indicators);
+    }.bind(this));
+    
+    return data;
+  },
+
+  totalYears: function() {
+    var query = totalYearsSQL({ table: this.table }),
+        url = this._urlForQuery(query);
+
     return this.fetch({url: url});
   },
 
   /*
    * Adding elements when no score for that index.
    */
-  parse: function(rawData) {
+  parseIndicators: function(rawData) {
     $.each(defaultScores, function(i, d) {
       var current = _.findWhere(rawData.rows, {'short_name': d.short_name});
       if (!current) {
@@ -54,7 +66,11 @@ var Indicators = CartoDBCollection.extend({
     var query = SQL({ table: this.table, iso: iso}),
         url = this._urlForQuery(query) + '&format=csv';
 
-    return url;
+    var data =  this.fetch({url: url}).done(function(indicators) {
+      return this.parseIndicators(indicators);
+    }.bind(this));
+
+    return data;
   }
 });
 

@@ -82,8 +82,17 @@ var CompareView = Backbone.View.extend({
 
   renderSelectors: function() {
     //TODO -- Add view manager.
-    var yearSelectors = new CompareYearSelectorsView({ el: this.$('.js--year-selector') });
-    var selectors = new CompareSelectorsView({ el: this.$('.js--compare-selectors'), countries: this.countryIds });
+
+    this.getYears().done(function(years) {
+      var yearSelectors = new CompareYearSelectorsView({ el: this.$('.js--year-selector'), 'years': years.rows });
+    }.bind(this));
+
+    var selectors = new CompareSelectorsView({ el: this.$('.js--compare-selectors'), 'countries': this.countryIds });
+  },
+
+  getYears: function() {
+    var indicators = new Indicators();
+    return indicators.totalYears()
   },
 
   setCountries: function(countries) {
