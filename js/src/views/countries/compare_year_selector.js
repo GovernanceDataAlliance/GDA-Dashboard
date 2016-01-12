@@ -20,8 +20,12 @@ var CompareYearSelectors = Backbone.View.extend({
 
   render: function() {
     this.$el.html(template({ 'years': this.years }));
+    $(this.$('option')[0]).attr('selected', true);
+  },
 
-    this.$('#year-2015').attr('selected', true);
+  getYear: function(e) {
+    var year = $(e.currentTarget).val();
+    Backbone.Events.trigger('year:selected', year);
   },
 
   show: function() {

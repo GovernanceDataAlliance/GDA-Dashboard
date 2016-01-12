@@ -7,7 +7,7 @@ var CONFIG = require('../../config.json');
 var Handlebars = require('handlebars');
 
 var SQL = Handlebars.compile(require('../templates/queries/indicators.sql.hbs')),
-    totalYearsSQL = Handlebars.compile(require('../templates/queries/total_years.sql.hbs'));
+    SQLwithYears = Handlebars.compile(require('../templates/queries/indicators_with_years.sql.hbs'));
 
 var defaultScores = [
   { 'short_name': 'corruption_perceptions_index', 'score': null, 'product_name': 'Corruption Perceptions Index 2014'}, 
@@ -37,11 +37,11 @@ var Indicators = CartoDBCollection.extend({
     return this.fetch({url: url})
   },
 
-  totalYears: function() {
-    var query = totalYearsSQL({ table: this.table }),
+  forCountryAndYear: function(iso, year) {
+    var query = SQLwithYears({ 'table': this.table, 'iso': iso, 'year': year }),
         url = this._urlForQuery(query);
 
-    return this.fetch({url: url});
+    return this.fetch({url: url})
   },
 
   /*
