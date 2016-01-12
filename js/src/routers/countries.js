@@ -1,6 +1,6 @@
 var Backbone = require('backbone'),
     $ = require('jquery'),
-     _ = require('lodash'),
+    _ = require('lodash'),
     URI = require('urijs');
 
 var ViewManager = require('../lib/view_manager.js'),
