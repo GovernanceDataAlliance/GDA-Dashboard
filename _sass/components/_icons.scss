@@ -1,4 +1,16 @@
 .icon {
-  // width: 30px;
-  // height: 30px;
+  fill: $color-4;
+
+  &.-regular {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover {
+    fill: $font-color-1;
+  }
+
+  .is-active & {
+    fill: $font-color-1;
+  }
 }

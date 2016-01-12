@@ -1,17 +1,34 @@
 .m-controls {
+  display: flex;
 
   a, button {
-    font-family: $font-secondary;
-    text-transform: uppercase;
-    font-size: rem(11px);
+    padding: 0 rem(20px);
+
+    &:hover {
+      color: $color-1;
+      
+      svg {
+        fill: $color-1;
+      }
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
 
     &.is-active {
       color: $font-color-1;
+      background-color: #dedcda;
     }
   }
 
+  .icon {
+    margin-right: 5px;
+  }
+
   span {
+    align-self: center;
     color: $border-1;
-    padding: 0 rem(30px);
+    padding: 0 rem(10px);
   }
 }

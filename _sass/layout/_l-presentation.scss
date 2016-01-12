@@ -17,9 +17,6 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-02', 'dist
     &.-dark {
       padding-top: rem(160px);
       background-color: $bg-color-2;
-      background-image: url('img/fill.svg');
-      background-position: right top;
-      background-size: cover;
     }
 
     &.-right:after {

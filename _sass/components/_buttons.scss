@@ -9,6 +9,8 @@
   font-size: rem(12px);
   font-family: $font-secondary;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
   
   &.-white {
     display: inline-block;
