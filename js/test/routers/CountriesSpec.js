@@ -37,12 +37,12 @@ describe('Countries Router', function() {
 
     it('parses the countries in the URL params', function() {
       var initSpy = spyOn(CompareView.prototype, 'initialize');
-      var params = "?countries[]=GBR&countries[]=ALB";
+      var params = "?countries[]=GBR&countries[]=ALB&year[]=2015";
 
       router.navigate('#compare'+params, {trigger: true});
 
       expect(initSpy).toHaveBeenCalled();
-      expect(initSpy).toHaveBeenCalledWith({countries: ['GBR', 'ALB']});
+      expect(initSpy).toHaveBeenCalledWith({countries: ['GBR', 'ALB'], year: '2015'});
     });
   });
 

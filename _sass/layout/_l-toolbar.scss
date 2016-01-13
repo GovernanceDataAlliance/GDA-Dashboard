@@ -18,11 +18,14 @@
   }
 
   &.-selectors {
-    
     .wrap {
       display: flex;
       align-items: initial;
       justify-content: initial;
     }
+  }
+
+  &.-year-selector {
+    background-color: $bg-color-1;
   }
 }

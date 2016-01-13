@@ -8,7 +8,6 @@ var Handlebars = require('handlebars');
 
 var partialRanksSQL = Handlebars.compile(require('../templates/queries/partial_ranks_for_country.sql.hbs'));
 
-
 var PartialRanks = CartoDBCollection.extend({
   user_name: CONFIG.cartodb.user_name,
   table: CONFIG.cartodb.indicator_data_table_name,

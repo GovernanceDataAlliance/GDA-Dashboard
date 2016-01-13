@@ -5,7 +5,8 @@ var Backbone = require('backbone'),
     $ = require('jquery');
 
 var Countries = require('../../collections/countries.js'),
-    IndicatorsNames = require('../../collections/indicator_configs.js');
+    Years = require('../../collections/years.js'),
+    IndicatorsNames = require('../../collections/indicator_configs.js'),
     Indicators = require('../../collections/indicators.js');
 
 var IndicatorsPresenter = require('../../presenters/indicators.js');
@@ -18,10 +19,13 @@ var template = Handlebars.compile(require('../../templates/countries/compare.hbs
     countryScoresTemplate = Handlebars.compile(require('../../templates/countries/compare-country-scores.hbs'));
 
 var CompareSelectorsView = require('./compare_selectors.js'),
+    CompareYearSelectorsView = require('./compare_year_selector.js'),
     ModalWindowView = require('../common/infowindow_view.js')
 
 var compareStatus = new (Backbone.Model.extend({
-      defaults: {}
+      defaults: {
+        countries: {}
+      }
     }));
 
 var CompareView = Backbone.View.extend({
@@ -38,10 +42,13 @@ var CompareView = Backbone.View.extend({
     if (options && options.countries != null) {
       this.countryIds = _.uniq(options.countries);
     };
+
+    this.setParams(options.countries, options.year);
   },
 
   setListeners: function() {
     Backbone.Events.on('country:selected', (this.countryRecived).bind(this));
+    Backbone.Events.on('year:selected', (this.yearRecived).bind(this));
   },
 
   render: function() {   
@@ -66,31 +73,51 @@ var CompareView = Backbone.View.extend({
 
   getDataForCountry: function(iso, order) {
     var indicators = new Indicators();
-    indicators.forCountry(iso).done(function() {
+    indicators.forCountryAndYear(iso, this.year).done(function() {
       this.renderCountryScores(indicators, iso, order)
     }.bind(this));
   },
 
   renderCountryScores: function(indicators, iso, order) {
-    groupedIndicators = IndicatorService.groupScoresById(indicators);
-    var sortIndicators = _.sortByOrder(groupedIndicators.toJSON(), ['short_name']);
-    this.$('.js--country-' + order).html(countryScoresTemplate({ 'scores': sortIndicators, 'iso': iso }));
-
+    var sortIndicators = _.sortByOrder(indicators.toJSON(), ['short_name']);
+    this.$('.js--' + order).html(countryScoresTemplate({ 'scores': sortIndicators, 'iso': iso }));
     $('.m-advise').addClass('is-hidden');
   },
 
   renderSelectors: function() {
     //TODO -- Add view manager.
-    var selectors = new CompareSelectorsView({ el: this.$('.js--compare-selectors'), countries: this.countryIds });
+    this.getYears().done(function(years) {
+      var yearSelectors = new CompareYearSelectorsView({ el: this.$('.js--year-selector'), 'years': years.rows, 'actualYear': this.year });
+    }.bind(this));
+
+    var selectors = new CompareSelectorsView({ el: this.$('.js--compare-selectors'), 'countries': this.countryIds });
   },
 
-  setCountries: function(countries) {
-     this.countryIds = countries;
+  getYears: function() {
+    var years = new Years();
+    return years.totalYears()
+  },
+
+  setParams: function(countries, year) {
+     this.countryIds = countries || [];
+     this.year = year || (new Date).getFullYear() - 1;
    },
 
   countryRecived: function(iso, order) {
-    compareStatus.set('country'+ order, iso);
+    var order = 'country-'+ order
+    compareStatus.get('countries')[order] = iso;
     this.getDataForCountry(iso, order);
+  },
+
+  yearRecived: function(year) {
+    compareStatus.set('year', year);
+    this.year = year || '2015';
+
+    var countries = compareStatus.get('countries');
+
+    _.each(countries, function(country, order) {
+      this.getDataForCountry(country, order);
+    }.bind(this))
   },
 
   show: function() {

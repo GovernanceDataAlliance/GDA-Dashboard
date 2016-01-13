@@ -2,6 +2,7 @@ var Backbone = require('backbone'),
     _ = require('lodash'),
     Handlebars = require('handlebars'),
     $ = require('jquery'),
+    chosen = require('chosen-jquery-browserify'),
     async = require('async');
 
 var CountriesCollection = require('../../collections/countries.js');
@@ -32,6 +33,8 @@ var CompareSelectorsView = Backbone.View.extend({
     this.getData().done(function(countries) {
       var countries = _.sortByOrder(countries.rows, ['name']);
       this.$el.html(template({ 'countries': countries }));
+
+      this.$('select').chosen();
       
       if (this.countries) {
         this.setRecivedValues();

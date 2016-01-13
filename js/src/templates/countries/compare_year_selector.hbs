@@ -1,0 +1,17 @@
+<div class="l-toolbar -year-selector">
+  <div class="wrap">
+    <div class="m-compare-selectors -year">
+      <p class="is-small-text">Select date to compare the country data</p>
+      <div class="selector-wrapper -year">
+        <div class="btn-drop-down">
+          <select class="js--year-selector">
+            {{#each years}}
+              <option id="year-{{this.year}}" value="{{this.year}}">{{this.year}}</option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  

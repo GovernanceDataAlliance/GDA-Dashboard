@@ -1,6 +1,6 @@
 var Backbone = require('backbone'),
     $ = require('jquery'),
-     _ = require('lodash'),
+    _ = require('lodash'),
     URI = require('urijs');
 
 var ViewManager = require('../lib/view_manager.js'),
@@ -24,6 +24,7 @@ var Router = Backbone.Router.extend({
 
   setListeners: function() {
     Backbone.Events.on('country:selected', (this.countrySelected).bind(this));
+    Backbone.Events.on('year:selected', (this.yearSelected).bind(this));
   },
 
   index: function() {
@@ -50,7 +51,7 @@ var Router = Backbone.Router.extend({
     var params =  URI("?" + window.location.hash.split("?")[1]).query(true);
 
     this.countries = params && params['countries[]'] ? params['countries[]'] : [];
-
+    this.year = params && params['year[]'] ? params['year[]'] : (new Date).getFullYear() - 1;
 
     //When only one value, string instead of array. We need array.
     if ( _.isString(this.countries)) {
@@ -58,28 +59,42 @@ var Router = Backbone.Router.extend({
     };
 
     if (!this.views.hasView('compare')) {
-      var view = new CompareView({countries: this.countries});
+      var view = new CompareView({ 
+        'countries': this.countries, 
+        'year': this.year
+      });
       this.views.addView('compare', view);
     } else {
-      this.views.getView('compare').setCountries(this.countries);
+      this.views.getView('compare').setParams(this.countries, this.year)
     }
 
     this.views.showView('compare');
   },
 
+  //Update countries params
   countrySelected: function(iso, order) {
     this.countries[order - 1] = iso;
+    this.updateUrl();
+  },
 
-    var hash = 'compare?';
+  //Update year params
+  yearSelected: function(year) {
+    this.year = year;
+    this.updateUrl();
+  },
+
+  //Update URL
+  updateUrl: function() {
+    var hashCountries = 'compare?';
+    var hasYear;
 
     $.each(this.countries, function(i, country) {
-      hash = hash + 'countries[]=' + country;
-      if (i + 1 < this.countries.length) {
-        hash = hash + '&';
-      }
+      hashCountries = hashCountries + 'countries[]=' + country + '&';
     }.bind(this));
 
-    this.navigate(hash);
+    hasYear = 'year[]=' + this.year;
+
+    this.navigate(hashCountries + hasYear);
   }
 });
 
