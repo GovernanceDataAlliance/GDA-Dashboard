@@ -1,7 +1,10 @@
 <ul class="{{iso}}">
   {{#each scores}}
     {{#if score}}
-      <li class="table-cell {{short_name}} {{year}}">{{score}}</li>
+      <li class="table-cell {{short_name}} {{year}}">
+      {{!-- {{#round}}{{score}}{{/round}} --}}
+      {{score}}
+      </li>
     {{else}}
       <li class="table-cell no-data {{short_name}}">no data</li>
     {{/if}}

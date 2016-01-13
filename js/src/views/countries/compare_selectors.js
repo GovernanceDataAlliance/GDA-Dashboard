@@ -2,7 +2,7 @@ var Backbone = require('backbone'),
     _ = require('lodash'),
     Handlebars = require('handlebars'),
     $ = require('jquery'),
-    chosen = require('chosen'),
+    chosen = require('chosen-jquery-browserify'),
     async = require('async');
 
 var CountriesCollection = require('../../collections/countries.js');
