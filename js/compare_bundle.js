@@ -66,7 +66,7 @@ var Countries = CartoDBCollection.extend({
 
 module.exports = Countries;
 
-},{"../../config.json":1,"../lib/cartodb_collection.js":7,"../templates/queries/countries_for_index.sql.hbs":20,"handlebars":62,"lodash":75}],3:[function(require,module,exports){
+},{"../../config.json":1,"../lib/cartodb_collection.js":8,"../templates/queries/countries_for_index.sql.hbs":21,"handlebars":63,"lodash":76}],3:[function(require,module,exports){
 var CartoDBCollection = require('../lib/cartodb_collection.js');
 var CONFIG = require('../../config.json');
 
@@ -77,7 +77,7 @@ var IndicatorConfigs = CartoDBCollection.extend({
 
 module.exports = IndicatorConfigs;
 
-},{"../../config.json":1,"../lib/cartodb_collection.js":7}],4:[function(require,module,exports){
+},{"../../config.json":1,"../lib/cartodb_collection.js":8}],4:[function(require,module,exports){
 var $ = require('jquery'),
     _ = require('lodash');
 
@@ -148,7 +148,7 @@ var Indicators = CartoDBCollection.extend({
 
 module.exports = Indicators;
 
-},{"../../config.json":1,"../lib/cartodb_collection.js":7,"../templates/queries/indicators.sql.hbs":21,"../templates/queries/indicators_with_years.sql.hbs":22,"handlebars":62,"jquery":74,"lodash":75}],5:[function(require,module,exports){
+},{"../../config.json":1,"../lib/cartodb_collection.js":8,"../templates/queries/indicators.sql.hbs":22,"../templates/queries/indicators_with_years.sql.hbs":23,"handlebars":63,"jquery":75,"lodash":76}],5:[function(require,module,exports){
 var $ = require('jquery'),
     _ = require('lodash');
 
@@ -176,10 +176,12 @@ var Years = CartoDBCollection.extend({
 
 module.exports = Years;
 
-},{"../../config.json":1,"../lib/cartodb_collection.js":7,"../templates/queries/total_years.sql.hbs":23,"handlebars":62,"jquery":74,"lodash":75}],6:[function(require,module,exports){
-var $ = require('jquery'),
-		Backbone = require('backbone');
-    
+},{"../../config.json":1,"../lib/cartodb_collection.js":8,"../templates/queries/total_years.sql.hbs":24,"handlebars":63,"jquery":75,"lodash":76}],6:[function(require,module,exports){
+var Backbone = require('backbone'),
+    Handlebars = require('handlebars'),
+    $ = require('jquery');
+
+var helpers = require('./helpers.js');
 
 var Router = require('./routers/compare.js'),
     router = new Router({
@@ -187,8 +189,17 @@ var Router = require('./routers/compare.js'),
     });
 
 Backbone.history.start();
+},{"./helpers.js":7,"./routers/compare.js":14,"backbone":31,"handlebars":63,"jquery":75}],7:[function(require,module,exports){
+var Handlebars = require('handlebars');
 
-},{"./routers/compare.js":13,"backbone":30,"jquery":74}],7:[function(require,module,exports){
+Handlebars.registerHelper('round', function(options) {
+  if (this.score % 1 != 0) {
+    return parseFloat(this.score).toFixed(2);
+  } else {
+    return this.score;
+  }
+});
+},{"handlebars":63}],8:[function(require,module,exports){
 var Backbone = require('backbone'),
     format = require('./format.js');
 
@@ -220,7 +231,7 @@ var CartoDBCollection = Backbone.Collection.extend({
 
 module.exports = CartoDBCollection;
 
-},{"./format.js":8,"backbone":30}],8:[function(require,module,exports){
+},{"./format.js":9,"backbone":31}],9:[function(require,module,exports){
 module.exports = function() {
   var str = arguments[0],
       len = arguments.length+1,
@@ -234,7 +245,7 @@ module.exports = function() {
   return str;
 };
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 var _ = require('lodash');
 
 var Indicators = require('../../collections/indicators.js');
@@ -264,10 +275,10 @@ var IndicatorService = {
 
 module.exports = IndicatorService;
 
-},{"../../collections/indicators.js":4,"lodash":75}],10:[function(require,module,exports){
-var Backbone = require('backbone'),
-    _ = require('lodash');
-
+},{"../../collections/indicators.js":4,"lodash":76}],11:[function(require,module,exports){
+var _ = require('lodash'),
+    Backbone = require('backbone');
+    
 var ViewManager = Backbone.Model.extend({
   defaults: {
     views: {}
@@ -317,7 +328,7 @@ var ViewManager = Backbone.Model.extend({
 
 module.exports = ViewManager;
 
-},{"backbone":30,"lodash":75}],11:[function(require,module,exports){
+},{"backbone":31,"lodash":76}],12:[function(require,module,exports){
 var _ = require('lodash');
 
 var CountriesPresenter = {
@@ -349,7 +360,7 @@ var CountriesPresenter = {
 
 module.exports = CountriesPresenter;
 
-},{"lodash":75}],12:[function(require,module,exports){
+},{"lodash":76}],13:[function(require,module,exports){
 var _ = require('lodash');
 
 var IndicatorsPresenter = {
@@ -388,10 +399,10 @@ var IndicatorsPresenter = {
 
 module.exports = IndicatorsPresenter;
 
-},{"lodash":75}],13:[function(require,module,exports){
-var Backbone = require('backbone'),
-    $ = require('jquery'),
+},{"lodash":76}],14:[function(require,module,exports){
+var $ = require('jquery'),
     _ = require('lodash'),
+    Backbone = require('backbone'),
     URI = require('urijs');
 
 var ViewManager = require('../lib/view_manager.js'),
@@ -467,37 +478,37 @@ var Router = Backbone.Router.extend({
 
 module.exports = Router;
 
-},{"../lib/view_manager.js":10,"../views/compare/compare.js":25,"backbone":30,"jquery":74,"lodash":75,"urijs":81}],14:[function(require,module,exports){
+},{"../lib/view_manager.js":11,"../views/compare/compare.js":26,"backbone":31,"jquery":75,"lodash":76,"urijs":82}],15:[function(require,module,exports){
 module.exports = "<div class=\"m-modal-window\">\n  <div class=\"modal-wrapper\">\n    <div class=\"btn-close-modal close-icon\">×</div>\n    <div class=\"modal-container\">\n      <p>{{{info}}}</p>\n    </div>\n  </div>\n  <div class=\"modal-background\"></div>\n</div>\n";
 
-},{}],15:[function(require,module,exports){
-module.exports = "<ul class=\"{{iso}}\">\n  {{#each scores}}\n    {{#if score}}\n      <li class=\"table-cell {{short_name}} {{year}}\">\n      {{!-- {{#round}}{{score}}{{/round}} --}}\n      {{score}}\n      </li>\n    {{else}}\n      <li class=\"table-cell no-data {{short_name}}\">no data</li>\n    {{/if}}\n  {{/each}}\n</ul>";
-
 },{}],16:[function(require,module,exports){
-module.exports = "<ul class=\"table-header\">\n  {{#each indicators}}\n    <li class=\"table-cell {{short_name}}\">\n      <h3>{{product_name}}</h3>\n      <div class=\"organization\"> \n        <h2>organization</h2>\n        {{#if product_description}}\n          <button class=\"btn-info\" data-info=\"{{product_description}}\">i</button>\n        {{/if}}\n      </div>\n    </li>\n  {{/each}}\n</ul>";
+module.exports = "<ul class=\"{{iso}}\">\n  {{#each scores}}\n    {{#if score}}\n      <li class=\"table-cell {{short_name}} {{year}}\">\n      {{#round}}{{score}}{{/round}}\n      </li>\n    {{else}}\n      <li class=\"table-cell no-data {{short_name}}\">no data</li>\n    {{/if}}\n  {{/each}}\n</ul>";
 
 },{}],17:[function(require,module,exports){
-module.exports = "<div class=\"l-banner -section-2 promoInteriores-CompareCountries\">\n  <div class=\"m-breadcrumbs -light\">\n    <ul>\n      <li><a href=\"/\">home </a></li>\n      <li><span> / </span></li>\n      <li> compare </li>\n    </ul>\n  </div>\n\n  <div class=\"wrap\">\n\n    <h1 class=\"c-section-title -light\">Compare countries</h1>\n    <p>While no single number can capture a country's complex governance landscape, comparing countries to each other across many dimensions of governance can reveal powerful insights.</p>\n  </div>\n</div>\n\n<div class=\"js--year-selector\"></div>\n\n<div class=\"js--compare-selectors\"></div>\n\n<div class=\"l-content -fullscreen\">\n  <div class=\"wrap\">\n    <div class=\"m-comparison-table\">\n      <div class=\"js--comparison-indicators -index\"></div>\n      <div class=\"js--country-1 -score\"></div>\n      <div class=\"js--country-2 -score\"></div>\n      <div class=\"js--country-3 -score\"></div>\n    </div>\n    <div class=\"m-advise -compare\">\n      <p>Please, select the countries that you would like to compare into the selects above this message</p>\n    </div>\n  </div>\n</div>\n\n<div class=\"l-highlight distribuidorDestacado-About02\">\n  <div class=\"wrap\">  \n    <div class=\"m-presentation -light\">\n      <h2 class=\"c-title\">\n        The Governance Data Alliance\n      </h2>\n      <p>\n        We're a group of NGOs, governments, firms, and donors who are serious about improving the quality, availability, breadth, and use of governance data. We identify and spread good practices for data production, we build feedback loops between data users and data producers, and we drive down the time and cost to produce data.\n      </p>\n      <a href=\"about\" class=\"btn -white\">find out more</a>  \n    </div>\n  </div>\n</div>\n\n<div class=\"l-content -main\">\n  <div class=\"wrap\">\n    <h3 class=\"c-section-title -small\">\n      objectives\n    </h3>\n    <p>\n      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\n    </p>\n    <div class=\"m-objectives-list\">\n      <ul>\n        <li>\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-check\"></use>\n          </svg>\n          <span>Availability</span>\n        </li>\n        <li>\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-check\"></use>\n          </svg>\n          <span>Quality</span>\n        </li>\n        <li>\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-check\"></use>\n          </svg>\n          <span>Understanding</span>\n        </li>\n      </ul>\n      <a href=\"about\" class=\"btn -secondary\">know about the alliance</a>\n    </div>\n  </div>\n</div>";
+module.exports = "<ul class=\"table-header\">\n  {{#each indicators}}\n    <li class=\"table-cell {{short_name}}\">\n      <h3>{{product_name}}</h3>\n      <div class=\"organization\"> \n        <h2>organization</h2>\n        {{#if product_description}}\n          <button class=\"btn-info\" data-info=\"{{product_description}}\">i</button>\n        {{/if}}\n      </div>\n    </li>\n  {{/each}}\n</ul>";
 
 },{}],18:[function(require,module,exports){
-module.exports = "<div class=\"l-toolbar -selectors\">\n  <div class=\"wrap\">\n    <div class=\"m-compare-selectors\">\n      <div class=\"selector-wrapper -index\">\n        <p>Data Sets</p>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector\" name=\"country1\" id=\"country-1\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector -score\" name=\"country2\" id=\"country-2\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector -score\" name=\"country3\" id=\"country-3\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
+module.exports = "<div class=\"l-banner -section-2 promoInteriores-CompareCountries\">\n  <div class=\"m-breadcrumbs -light\">\n    <ul>\n      <li><a href=\"/\">home </a></li>\n      <li><span> / </span></li>\n      <li> compare </li>\n    </ul>\n  </div>\n\n  <div class=\"wrap\">\n\n    <h1 class=\"c-section-title -light\">Compare countries</h1>\n    <p>While no single number can capture a country's complex governance landscape, comparing countries to each other across many dimensions of governance can reveal powerful insights.</p>\n  </div>\n</div>\n\n<div class=\"js--year-selector\"></div>\n\n<div class=\"js--compare-selectors\"></div>\n\n<div class=\"l-content -fullscreen\">\n  <div class=\"wrap\">\n    <div class=\"m-comparison-table\">\n      <div class=\"js--comparison-indicators -index\"></div>\n      <div class=\"js--country-1 -score\"></div>\n      <div class=\"js--country-2 -score\"></div>\n      <div class=\"js--country-3 -score\"></div>\n    </div>\n    <div class=\"m-advise -compare\">\n      <p>Please, select the countries that you would like to compare into the selects above this message</p>\n    </div>\n  </div>\n</div>\n\n<div class=\"l-highlight distribuidorDestacado-About02\">\n  <div class=\"wrap\">  \n    <div class=\"m-presentation -light\">\n      <h2 class=\"c-title\">\n        The Governance Data Alliance\n      </h2>\n      <p>\n        We're a group of NGOs, governments, firms, and donors who are serious about improving the quality, availability, breadth, and use of governance data. We identify and spread good practices for data production, we build feedback loops between data users and data producers, and we drive down the time and cost to produce data.\n      </p>\n      <a href=\"about\" class=\"btn -white\">find out more</a>  \n    </div>\n  </div>\n</div>\n\n<div class=\"l-content -main\">\n  <div class=\"wrap\">\n    <h3 class=\"c-section-title -small\">\n      objectives\n    </h3>\n    <p>\n      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\n    </p>\n    <div class=\"m-objectives-list\">\n      <ul>\n        <li>\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-check\"></use>\n          </svg>\n          <span>Availability</span>\n        </li>\n        <li>\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-check\"></use>\n          </svg>\n          <span>Quality</span>\n        </li>\n        <li>\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-check\"></use>\n          </svg>\n          <span>Understanding</span>\n        </li>\n      </ul>\n      <a href=\"about\" class=\"btn -secondary\">know about the alliance</a>\n    </div>\n  </div>\n</div>";
 
 },{}],19:[function(require,module,exports){
-module.exports = "<div class=\"l-toolbar -year-selector\">\n  <div class=\"wrap\">\n    <div class=\"m-compare-selectors -year\">\n      <p class=\"is-small-text\">Select date to compare the country data</p>\n      <div class=\"selector-wrapper -year\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--year-selector\">\n            {{#each years}}\n              <option id=\"year-{{this.year}}\" value=\"{{this.year}}\">{{this.year}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n  ";
+module.exports = "<div class=\"l-toolbar -selectors\">\n  <div class=\"wrap\">\n    <div class=\"m-compare-selectors\">\n      <div class=\"selector-wrapper -index\">\n        <p>Data Sets</p>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector\" name=\"country1\" id=\"country-1\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector -score\" name=\"country2\" id=\"country-2\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector -score\" name=\"country3\" id=\"country-3\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
 
 },{}],20:[function(require,module,exports){
-module.exports = "SELECT distinct on (c.name)\n  c.name,\n  i.iso,\n  i.short_name,\n  i.score,\n  i.year\n FROM indicator_data i\n   JOIN world_borders c\n     ON i.iso=c.iso3\n WHERE i.short_name = '{{id}}'\n order by c.name, year desc\n";
+module.exports = "<div class=\"l-toolbar -year-selector\">\n  <div class=\"wrap\">\n    <div class=\"m-compare-selectors -year\">\n      <p class=\"is-small-text\">Select date to compare the country data</p>\n      <div class=\"selector-wrapper -year\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--year-selector\">\n            {{#each years}}\n              <option id=\"year-{{this.year}}\" value=\"{{this.year}}\">{{this.year}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n  ";
 
 },{}],21:[function(require,module,exports){
-module.exports = "SELECT\n  c.desired_direction, \n  c.has_historical_info, \n  c.max_score,\n  c.methodology_link, \n  c.min_score, \n  c.product_description, \n  c.product_logo,\n  c.product_name, \n  c.short_name, \n  c.units, \n  d.iso,\n  d.notes, \n  d.score,\n  d.score_text,\n  d.year\n FROM {{table}} AS d\n   INNER JOIN indicator_config AS c ON d.short_name = c.short_name\n WHERE d.iso = '{{iso}}'\n";
+module.exports = "SELECT distinct on (c.name)\n  c.name,\n  i.iso,\n  i.short_name,\n  i.score,\n  i.year\n FROM indicator_data i\n   JOIN world_borders c\n     ON i.iso=c.iso3\n WHERE i.short_name = '{{id}}'\n order by c.name, year desc\n";
 
 },{}],22:[function(require,module,exports){
-module.exports = "SELECT\n  c.desired_direction, \n  c.has_historical_info, \n  c.max_score,\n  c.methodology_link, \n  c.min_score, \n  c.product_description, \n  c.product_logo,\n  c.product_name, \n  c.short_name, \n  c.units, \n  d.iso,\n  d.notes, \n  d.score,\n  d.score_text,\n  d.year\n FROM {{table}} AS d\n   INNER JOIN indicator_config AS c ON d.short_name = c.short_name\n WHERE d.iso = '{{iso}}' AND d.year = '{{year}}'\n";
+module.exports = "SELECT\n  c.desired_direction, \n  c.has_historical_info, \n  c.max_score,\n  c.methodology_link, \n  c.min_score, \n  c.product_description, \n  c.product_logo,\n  c.product_name, \n  c.short_name, \n  c.units, \n  d.iso,\n  d.notes, \n  d.score,\n  d.score_text,\n  d.year\n FROM {{table}} AS d\n   INNER JOIN indicator_config AS c ON d.short_name = c.short_name\n WHERE d.iso = '{{iso}}'\n";
 
 },{}],23:[function(require,module,exports){
-module.exports = "SELECT distinct on (year) \n  year \nFROM {{table}} \nWHERE year is not null \nORDER BY year desc";
+module.exports = "SELECT\n  c.desired_direction, \n  c.has_historical_info, \n  c.max_score,\n  c.methodology_link, \n  c.min_score, \n  c.product_description, \n  c.product_logo,\n  c.product_name, \n  c.short_name, \n  c.units, \n  d.iso,\n  d.notes, \n  d.score,\n  d.score_text,\n  d.year\n FROM {{table}} AS d\n   INNER JOIN indicator_config AS c ON d.short_name = c.short_name\n WHERE d.iso = '{{iso}}' AND d.year = '{{year}}'\n";
 
 },{}],24:[function(require,module,exports){
+module.exports = "SELECT distinct on (year) \n  year \nFROM {{table}} \nWHERE year is not null \nORDER BY year desc";
+
+},{}],25:[function(require,module,exports){
 var Backbone = require('backbone'),
     Handlebars = require('handlebars'),
     _ = require('lodash');
@@ -561,7 +572,7 @@ var ModalWindowView = Backbone.View.extend({
 });
 
 module.exports = ModalWindowView;
-},{"../../templates/common/modal_window_tpl.hbs":14,"backbone":30,"handlebars":62,"jquery":74,"lodash":75}],25:[function(require,module,exports){
+},{"../../templates/common/modal_window_tpl.hbs":15,"backbone":31,"handlebars":63,"jquery":75,"lodash":76}],26:[function(require,module,exports){
 var $ = require('jquery'),
     _ = require('lodash'),
     Backbone = require('backbone'),
@@ -698,7 +709,7 @@ var CompareView = Backbone.View.extend({
 
 module.exports = CompareView;
 
-},{"../../collections/countries.js":2,"../../collections/indicator_configs.js":3,"../../collections/indicators.js":4,"../../collections/years.js":5,"../../lib/services/indicator.js":9,"../../presenters/countries.js":11,"../../presenters/indicators.js":12,"../../templates/countries/compare-country-scores.hbs":15,"../../templates/countries/compare-indicators.hbs":16,"../../templates/countries/compare.hbs":17,"../common/infowindow_view.js":24,"./compare_selectors.js":26,"./compare_year_selector.js":27,"async":29,"backbone":30,"handlebars":62,"jquery":74,"lodash":75}],26:[function(require,module,exports){
+},{"../../collections/countries.js":2,"../../collections/indicator_configs.js":3,"../../collections/indicators.js":4,"../../collections/years.js":5,"../../lib/services/indicator.js":10,"../../presenters/countries.js":12,"../../presenters/indicators.js":13,"../../templates/countries/compare-country-scores.hbs":16,"../../templates/countries/compare-indicators.hbs":17,"../../templates/countries/compare.hbs":18,"../common/infowindow_view.js":25,"./compare_selectors.js":27,"./compare_year_selector.js":28,"async":30,"backbone":31,"handlebars":63,"jquery":75,"lodash":76}],27:[function(require,module,exports){
 var $ = require('jquery'),
     _ = require('lodash'),
     Backbone = require('backbone'),
@@ -769,13 +780,12 @@ var CompareSelectorsView = Backbone.View.extend({
 
 module.exports = CompareSelectorsView;
 
-},{"../../collections/countries.js":2,"../../templates/countries/compare_selectors.hbs":18,"async":29,"backbone":30,"chosen-jquery-browserify":31,"handlebars":62,"jquery":74,"lodash":75}],27:[function(require,module,exports){
+},{"../../collections/countries.js":2,"../../templates/countries/compare_selectors.hbs":19,"async":30,"backbone":31,"chosen-jquery-browserify":32,"handlebars":63,"jquery":75,"lodash":76}],28:[function(require,module,exports){
 var $ = require('jquery'),
+    // chosen = require('chosen-jquery-browserify'),
     _ = require('lodash'),
     Backbone = require('backbone'),
     Handlebars = require('handlebars');
-    chosen = require('chosen-jquery-browserify');
-    
 
 var template = Handlebars.compile(
   require('../../templates/countries/compare_year_selector.hbs'));
@@ -817,7 +827,7 @@ var CompareYearSelectors = Backbone.View.extend({
 
 module.exports = CompareYearSelectors;
 
-},{"../../templates/countries/compare_year_selector.hbs":19,"backbone":30,"chosen-jquery-browserify":31,"handlebars":62,"jquery":74,"lodash":75}],28:[function(require,module,exports){
+},{"../../templates/countries/compare_year_selector.hbs":20,"backbone":31,"handlebars":63,"jquery":75,"lodash":76}],29:[function(require,module,exports){
 (function (process,__filename){
 /** vim: et:ts=4:sw=4:sts=4
  * @license amdefine 1.0.0 Copyright (c) 2011-2015, The Dojo Foundation All Rights Reserved.
@@ -1122,7 +1132,7 @@ function amdefine(module, requireFn) {
 module.exports = amdefine;
 
 }).call(this,require('_process'),"/node_modules/amdefine/amdefine.js")
-},{"_process":77,"path":76}],29:[function(require,module,exports){
+},{"_process":78,"path":77}],30:[function(require,module,exports){
 (function (process,global){
 /*!
  * async
@@ -2391,7 +2401,7 @@ module.exports = amdefine;
 }());
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":77}],30:[function(require,module,exports){
+},{"_process":78}],31:[function(require,module,exports){
 (function (global){
 //     Backbone.js 1.2.3
 
@@ -4289,7 +4299,7 @@ module.exports = amdefine;
 }));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"jquery":74,"underscore":78}],31:[function(require,module,exports){
+},{"jquery":75,"underscore":79}],32:[function(require,module,exports){
 (function (global){
 (function() {
   var $, AbstractChosen, Chosen, SelectParser, get_side_border_padding, _ref,
@@ -5369,9 +5379,9 @@ module.exports = amdefine;
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],32:[function(require,module,exports){
-
 },{}],33:[function(require,module,exports){
+
+},{}],34:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -5438,7 +5448,7 @@ exports['default'] = inst;
 module.exports = exports['default'];
 
 
-},{"./handlebars.runtime":34,"./handlebars/compiler/ast":36,"./handlebars/compiler/base":37,"./handlebars/compiler/compiler":39,"./handlebars/compiler/javascript-compiler":41,"./handlebars/compiler/visitor":44,"./handlebars/no-conflict":58}],34:[function(require,module,exports){
+},{"./handlebars.runtime":35,"./handlebars/compiler/ast":37,"./handlebars/compiler/base":38,"./handlebars/compiler/compiler":40,"./handlebars/compiler/javascript-compiler":42,"./handlebars/compiler/visitor":45,"./handlebars/no-conflict":59}],35:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -5506,7 +5516,7 @@ exports['default'] = inst;
 module.exports = exports['default'];
 
 
-},{"./handlebars/base":35,"./handlebars/exception":48,"./handlebars/no-conflict":58,"./handlebars/runtime":59,"./handlebars/safe-string":60,"./handlebars/utils":61}],35:[function(require,module,exports){
+},{"./handlebars/base":36,"./handlebars/exception":49,"./handlebars/no-conflict":59,"./handlebars/runtime":60,"./handlebars/safe-string":61,"./handlebars/utils":62}],36:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -5612,7 +5622,7 @@ exports.createFrame = _utils.createFrame;
 exports.logger = _logger2['default'];
 
 
-},{"./decorators":46,"./exception":48,"./helpers":49,"./logger":57,"./utils":61}],36:[function(require,module,exports){
+},{"./decorators":47,"./exception":49,"./helpers":50,"./logger":58,"./utils":62}],37:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -5645,7 +5655,7 @@ exports['default'] = AST;
 module.exports = exports['default'];
 
 
-},{}],37:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -5695,7 +5705,7 @@ function parse(input, options) {
 }
 
 
-},{"../utils":61,"./helpers":40,"./parser":42,"./whitespace-control":45}],38:[function(require,module,exports){
+},{"../utils":62,"./helpers":41,"./parser":43,"./whitespace-control":46}],39:[function(require,module,exports){
 /* global define */
 'use strict';
 
@@ -5863,7 +5873,7 @@ exports['default'] = CodeGen;
 module.exports = exports['default'];
 
 
-},{"../utils":61,"source-map":63}],39:[function(require,module,exports){
+},{"../utils":62,"source-map":64}],40:[function(require,module,exports){
 /* eslint-disable new-cap */
 
 'use strict';
@@ -6437,7 +6447,7 @@ function transformLiteralToPath(sexpr) {
 }
 
 
-},{"../exception":48,"../utils":61,"./ast":36}],40:[function(require,module,exports){
+},{"../exception":49,"../utils":62,"./ast":37}],41:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -6669,7 +6679,7 @@ function preparePartialBlock(open, program, close, locInfo) {
 }
 
 
-},{"../exception":48}],41:[function(require,module,exports){
+},{"../exception":49}],42:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -7797,7 +7807,7 @@ exports['default'] = JavaScriptCompiler;
 module.exports = exports['default'];
 
 
-},{"../base":35,"../exception":48,"../utils":61,"./code-gen":38}],42:[function(require,module,exports){
+},{"../base":36,"../exception":49,"../utils":62,"./code-gen":39}],43:[function(require,module,exports){
 /* istanbul ignore next */
 /* Jison generated parser */
 "use strict";
@@ -8537,7 +8547,7 @@ var handlebars = (function () {
 exports['default'] = handlebars;
 
 
-},{}],43:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 /* eslint-disable new-cap */
 'use strict';
 
@@ -8725,7 +8735,7 @@ PrintVisitor.prototype.HashPair = function (pair) {
 /* eslint-enable new-cap */
 
 
-},{"./visitor":44}],44:[function(require,module,exports){
+},{"./visitor":45}],45:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -8867,7 +8877,7 @@ exports['default'] = Visitor;
 module.exports = exports['default'];
 
 
-},{"../exception":48}],45:[function(require,module,exports){
+},{"../exception":49}],46:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9090,7 +9100,7 @@ exports['default'] = WhitespaceControl;
 module.exports = exports['default'];
 
 
-},{"./visitor":44}],46:[function(require,module,exports){
+},{"./visitor":45}],47:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9108,7 +9118,7 @@ function registerDefaultDecorators(instance) {
 }
 
 
-},{"./decorators/inline":47}],47:[function(require,module,exports){
+},{"./decorators/inline":48}],48:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9139,7 +9149,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":61}],48:[function(require,module,exports){
+},{"../utils":62}],49:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9181,7 +9191,7 @@ exports['default'] = Exception;
 module.exports = exports['default'];
 
 
-},{}],49:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9229,7 +9239,7 @@ function registerDefaultHelpers(instance) {
 }
 
 
-},{"./helpers/block-helper-missing":50,"./helpers/each":51,"./helpers/helper-missing":52,"./helpers/if":53,"./helpers/log":54,"./helpers/lookup":55,"./helpers/with":56}],50:[function(require,module,exports){
+},{"./helpers/block-helper-missing":51,"./helpers/each":52,"./helpers/helper-missing":53,"./helpers/if":54,"./helpers/log":55,"./helpers/lookup":56,"./helpers/with":57}],51:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9270,7 +9280,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":61}],51:[function(require,module,exports){
+},{"../utils":62}],52:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9366,7 +9376,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../exception":48,"../utils":61}],52:[function(require,module,exports){
+},{"../exception":49,"../utils":62}],53:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9393,7 +9403,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../exception":48}],53:[function(require,module,exports){
+},{"../exception":49}],54:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9424,7 +9434,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":61}],54:[function(require,module,exports){
+},{"../utils":62}],55:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9452,7 +9462,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{}],55:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9466,7 +9476,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{}],56:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9501,7 +9511,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":61}],57:[function(require,module,exports){
+},{"../utils":62}],58:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9550,7 +9560,7 @@ exports['default'] = logger;
 module.exports = exports['default'];
 
 
-},{"./utils":61}],58:[function(require,module,exports){
+},{"./utils":62}],59:[function(require,module,exports){
 (function (global){
 /* global window */
 'use strict';
@@ -9574,7 +9584,7 @@ module.exports = exports['default'];
 
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],59:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9868,7 +9878,7 @@ function executeDecorators(fn, prog, container, depths, data, blockParams) {
 }
 
 
-},{"./base":35,"./exception":48,"./utils":61}],60:[function(require,module,exports){
+},{"./base":36,"./exception":49,"./utils":62}],61:[function(require,module,exports){
 // Build out our basic SafeString type
 'use strict';
 
@@ -9885,7 +9895,7 @@ exports['default'] = SafeString;
 module.exports = exports['default'];
 
 
-},{}],61:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -10011,7 +10021,7 @@ function appendContextPath(contextPath, id) {
 }
 
 
-},{}],62:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 // USAGE:
 // var handlebars = require('handlebars');
 /* eslint-disable no-var */
@@ -10038,7 +10048,7 @@ if (typeof require !== 'undefined' && require.extensions) {
   require.extensions['.hbs'] = extension;
 }
 
-},{"../dist/cjs/handlebars":33,"../dist/cjs/handlebars/compiler/printer":43,"fs":32}],63:[function(require,module,exports){
+},{"../dist/cjs/handlebars":34,"../dist/cjs/handlebars/compiler/printer":44,"fs":33}],64:[function(require,module,exports){
 /*
  * Copyright 2009-2011 Mozilla Foundation and contributors
  * Licensed under the New BSD license. See LICENSE.txt or:
@@ -10048,7 +10058,7 @@ exports.SourceMapGenerator = require('./source-map/source-map-generator').Source
 exports.SourceMapConsumer = require('./source-map/source-map-consumer').SourceMapConsumer;
 exports.SourceNode = require('./source-map/source-node').SourceNode;
 
-},{"./source-map/source-map-consumer":70,"./source-map/source-map-generator":71,"./source-map/source-node":72}],64:[function(require,module,exports){
+},{"./source-map/source-map-consumer":71,"./source-map/source-map-generator":72,"./source-map/source-node":73}],65:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -10157,7 +10167,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./util":73,"amdefine":28}],65:[function(require,module,exports){
+},{"./util":74,"amdefine":29}],66:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -10305,7 +10315,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./base64":66,"amdefine":28}],66:[function(require,module,exports){
+},{"./base64":67,"amdefine":29}],67:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -10380,7 +10390,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":28}],67:[function(require,module,exports){
+},{"amdefine":29}],68:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -10499,7 +10509,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":28}],68:[function(require,module,exports){
+},{"amdefine":29}],69:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2014 Mozilla Foundation and contributors
@@ -10587,7 +10597,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./util":73,"amdefine":28}],69:[function(require,module,exports){
+},{"./util":74,"amdefine":29}],70:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -10709,7 +10719,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":28}],70:[function(require,module,exports){
+},{"amdefine":29}],71:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -11788,7 +11798,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./array-set":64,"./base64-vlq":65,"./binary-search":67,"./quick-sort":69,"./util":73,"amdefine":28}],71:[function(require,module,exports){
+},{"./array-set":65,"./base64-vlq":66,"./binary-search":68,"./quick-sort":70,"./util":74,"amdefine":29}],72:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -12189,7 +12199,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./array-set":64,"./base64-vlq":65,"./mapping-list":68,"./util":73,"amdefine":28}],72:[function(require,module,exports){
+},{"./array-set":65,"./base64-vlq":66,"./mapping-list":69,"./util":74,"amdefine":29}],73:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -12605,7 +12615,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./source-map-generator":71,"./util":73,"amdefine":28}],73:[function(require,module,exports){
+},{"./source-map-generator":72,"./util":74,"amdefine":29}],74:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -12977,7 +12987,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":28}],74:[function(require,module,exports){
+},{"amdefine":29}],75:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.0
  * http://jquery.com/
@@ -22810,7 +22820,7 @@ if ( !noGlobal ) {
 return jQuery;
 }));
 
-},{}],75:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -35165,7 +35175,7 @@ return jQuery;
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],76:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -35393,7 +35403,7 @@ var substr = 'ab'.substr(-1) === 'b'
 ;
 
 }).call(this,require('_process'))
-},{"_process":77}],77:[function(require,module,exports){
+},{"_process":78}],78:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -35486,7 +35496,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],78:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -37036,7 +37046,7 @@ process.umask = function() { return 0; };
   }
 }.call(this));
 
-},{}],79:[function(require,module,exports){
+},{}],80:[function(require,module,exports){
 /*!
  * URI.js - Mutating URLs
  * IPv6 Support
@@ -37226,7 +37236,7 @@ process.umask = function() { return 0; };
   };
 }));
 
-},{}],80:[function(require,module,exports){
+},{}],81:[function(require,module,exports){
 /*!
  * URI.js - Mutating URLs
  * Second Level Domain (SLD) Support
@@ -37469,7 +37479,7 @@ process.umask = function() { return 0; };
   return SLD;
 }));
 
-},{}],81:[function(require,module,exports){
+},{}],82:[function(require,module,exports){
 /*!
  * URI.js - Mutating URLs
  *
@@ -39632,7 +39642,7 @@ process.umask = function() { return 0; };
   return URI;
 }));
 
-},{"./IPv6":79,"./SecondLevelDomains":80,"./punycode":82}],82:[function(require,module,exports){
+},{"./IPv6":80,"./SecondLevelDomains":81,"./punycode":83}],83:[function(require,module,exports){
 (function (global){
 /*! http://mths.be/punycode v1.2.3 by @mathias */
 ;(function(root) {

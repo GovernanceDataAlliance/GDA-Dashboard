@@ -1,9 +1,8 @@
 var $ = require('jquery'),
+    // chosen = require('chosen-jquery-browserify'),
     _ = require('lodash'),
     Backbone = require('backbone'),
     Handlebars = require('handlebars');
-    chosen = require('chosen-jquery-browserify');
-    
 
 var template = Handlebars.compile(
   require('../../templates/countries/compare_year_selector.hbs'));
