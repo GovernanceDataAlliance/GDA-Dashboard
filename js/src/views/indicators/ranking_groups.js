@@ -39,8 +39,8 @@ var RankingGroupsViews = Backbone.View.extend({
 
   getGroups: function(rawData) {
     var categories = ["region", "income_group", "lending_category"];
-
     var data = rawData.rows;
+
     //Grouped by categories
     this.rankingGroups = {};
     categories.forEach(function(category) {
@@ -53,17 +53,19 @@ var RankingGroupsViews = Backbone.View.extend({
 
   groupSelected: function(e) {
     var group;
-    var groupName = $(e.currentTarget).attr('data-rankGroup');
-    var categoryName = $(e.currentTarget).attr('data-rankCategory');
+    var categoryName = $(e.currentTarget).attr('data-rankGroup');
+    var categoryGroup = $(e.currentTarget).attr('data-rankCategory');
 
-    if (groupName === "global") {
+    if (categoryName === "global") {
       group = null;
     } else {
-      group = this.rankingGroups[categoryName][groupName];
+      group = this.rankingGroups[categoryGroup][categoryName];
     }
 
-    Backbone.Events.trigger('rankGroup:chosen', group);
-    this.groupSelector.html(groupName);
+    var year = null;
+
+    Backbone.Events.trigger('rankGroup:chosen', year, categoryGroup, categoryName);
+    this.groupSelector.html(categoryName);
 
     //Hide panel.
     this.$el.addClass('is-hidden');

@@ -30,7 +30,7 @@ var IndicatorView = Backbone.View.extend({
   },
 
   setListeners: function() {
-    Backbone.Events.on('rankGroup:chosen', _.bind(this.filterCountries, this));
+    Backbone.Events.on('rankGroup:chosen', _.bind(this.updateCountries, this));
     Backbone.Events.on('yearForIndicator:selected', _.bind(this.updateCountries, this));
   },
 
@@ -89,8 +89,6 @@ var IndicatorView = Backbone.View.extend({
       countries = mergedCountries;
     } else {
       countries = _.sortBy(this.countries.toJSON(), 'score').reverse();
-      // No rank on list.
-      // countries = this.rankPosition(this.countries.toJSON());
     }
 
     countries = _.isEmpty(countries) ? null : countries;
@@ -119,64 +117,42 @@ var IndicatorView = Backbone.View.extend({
     this.initializeData();
   },
 
-  filterCountries: function(rankCountries) {
-    if (!rankCountries) {
-      this.renderCountriesList();
-      return;
-    }
+  // filterCountries: function(group) {
+  //   // console.log(group);
+  //   if (!group) {
+  //     this.renderCountriesList();
+  //     return;
+  //   }
 
-    console.log(rankCountries);
-    var selectedCountries = rankCountries;
-    var allCountries = this.countries.toJSON();
-    var mergedCountries = [];
+  //   console.log(group);
+  //   var selectedCountries = group;
+  //   var allCountries = this.countries.toJSON();
+  //   var mergedCountries = [];
 
-    $.each(selectedCountries, function(country) {
-      var iso = this.iso;
-      var rankData = _.find(allCountries, {'iso': iso});
+  //   $.each(selectedCountries, function(country) {
+  //     var iso = this.iso;
+  //     var rankData = _.find(allCountries, {'iso': iso});
 
-      if (rankData) {
-        mergedCountries.push(rankData);
-      }
-    })
+  //     if (rankData) {
+  //       mergedCountries.push(rankData);
+  //     }
+  //   })
 
-    var countries = _.sortBy(mergedCountries, 'score').reverse();
-    
-    // No rank in this view.
-    // var countries = this.rankPosition(mergedCountries);
+  //   var countries = _.sortBy(mergedCountries, 'score').reverse();
 
-    this.renderCountriesList(countries);
-  },
+  //   this.renderCountriesList(countries);
+  // },
 
-  //Update countries when year selected.
-  updateCountries: function(year) {
-    this.countries.countriesForIndicator(this.id, year).done(function(countries) {
+  //Update countries when year or category selected.
+  updateCountries: function(year, categoryGroup, categoryName) {
+    this.actualYear = year || this.actualYear;
+    this.categoryName = categoryName ||this.categoryName;
+    this.categoryGroup = categoryGroup || this.categoryGroup;
+
+    this.countries.countriesForIndicator(this.id, this.actualYear, this.categoryGroup, this.categoryName).done(function(countries) {
       this.renderCountriesList(countries);
     }.bind(this))
   },
-
-  //TODO Move this to collection
-  // rankPosition: function(countries) {
-  //   var groupedByScore;
-
-  //   //TODO Bug with decimal numbers
-  //   if (this.id === 'environmental_democracy_index') {
-  //     groupedByScore = _.groupBy(_.sortBy(countries, 'score').reverse(), 'score');
-  //   } else if ( this.id === "freedom_in_the_world") {
-  //     groupedByScore = _.sortBy(_.groupBy(countries, 'score'), 'key');
-  //   } else {
-  //     groupedByScore = _.sortBy(_.groupBy(countries, 'score'), 'score').reverse();
-  //   };
-
-  //   var rank = 1;
-  //   $.each(groupedByScore, function() {
-  //     $.each(this, function() {
-  //       this.rank =  rank;
-  //     })
-  //     return rank ++
-  //   });
-
-  //   return countries;
-  // },
 
   show: function() {
     this.render();

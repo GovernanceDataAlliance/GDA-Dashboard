@@ -1,11 +1,18 @@
 SELECT
- c.name,
- i.iso,
- i.short_name,
- i.score,
- i.year 
+  i.iso,
+  i.short_name,
+  i.score,
+  i.year,
+  w.name,
+  w.region,
+  w.lending_category,
+  w.income_group 
 FROM indicator_data i 
-  JOIN world_borders c 
-    ON i.iso=c.iso3 
-WHERE i.short_name = '{{id}}' AND i.year = '{{year}}' 
-ORDER BY score desc
+  INNER JOIN wb_countries_clasification w 
+  ON i.iso=w.iso 
+WHERE i.short_name = '{{id}}' 
+AND i.year = '{{year}}'
+{{#if categoryGroup}}
+AND w.{{categoryGroup}} = '{{categoryName}}'
+{{/if}}
+order by score desc
