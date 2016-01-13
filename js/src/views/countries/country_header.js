@@ -1,9 +1,13 @@
 var Backbone = require('backbone'),
     _ = require('lodash'),
+    d3 = require('d3'),
     Handlebars = require('handlebars');
+
+var countryHelper = require('../../lib/countryHelper.js');
 
 var template = Handlebars.compile(
   require('../../templates/countries/country_header.hbs'));
+
 
 var CountryHeaderView = Backbone.View.extend({
   initialize: function(options) {
@@ -16,10 +20,23 @@ var CountryHeaderView = Backbone.View.extend({
     }
   },
 
+  drawCountry: function() {
+    var iso = this.country.get('iso3'),
+       sql;
+
+      sql = ["SELECT the_geom FROM world_borders WHERE iso3 = UPPER('" + iso + "')&format=topojson"].join(' ');
+
+      d3.json('https://gda.cartodb.com/api/v2/sql?q=' + sql, _.bind(function(error, topology) {
+        countryHelper.draw(topology, 0, { alerts: true });
+      }, this )); 
+  },
+
   render: function() {
     this.$el.html(template({
       name: this.country.get('name')
     }));
+
+    this.drawCountry();
 
     return this;
   },

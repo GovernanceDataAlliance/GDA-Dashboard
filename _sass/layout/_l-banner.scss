@@ -45,8 +45,16 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
     > .wrap {
       display: flex;
-      justify-content: center;
-      flex-direction: column;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+
+    > .wrap > .js--country-silhouette {
+
+      > svg {
+        fill: $beige;
+        opacity: .3;
+      }
     }
   }
 
