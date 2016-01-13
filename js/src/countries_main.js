@@ -7,9 +7,12 @@ var Router = require('./routers/countries.js'),
       $el: $('.js--country-container')
     });
 
-Handlebars.registerHelper('round', function(number) {
-  console.log(number);
-  return parseFloat(number).toFixed(2);
+Handlebars.registerHelper('round', function(options) {
+  if (this.score % 1 != 0) {
+    return parseFloat(this.score).toFixed(2);
+  } else {
+    return this.score;
+  }
 });
 
 Backbone.history.start();
