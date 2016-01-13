@@ -1,12 +1,26 @@
 <div class="l-toolbar">
   <div class="wrap">
     <div class="m-controls">
-      <button class="btn-drop-down js--btn-ranking">Globally</button>
+      <button class="btn-drop-down btn js--btn-ranking">Globally</button>
       <span> | </span>
-      <button class="js--download">download data</button>
+      <button class="js--download btn">
+        <svg class="icon -regular">
+          <use xlink:href="#icon-download"></use>
+        </svg>
+        download
+      </button>
     </div>
     <div class="m-controls">
-      <span class="date">Updated 2015</span>
+      <p class="is-small-text">Select date</p>
+      <div class="selector-wrapper -year">
+        <div class="btn-drop-down">
+          <select class="js--year-selector">
+            {{#each years}}
+              <option id="year-{{this.year}}" value="{{this.year}}">{{this.year}}</option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
     </div>
   </div>
 </div>

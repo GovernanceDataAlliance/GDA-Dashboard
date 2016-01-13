@@ -6,6 +6,9 @@ var Backbone = require('backbone'),
 var Indicator = require('../../models/indicator.js'),
     Countries = require('../../collections/countries.js');
 
+var Years = require('../../collections/years.js');
+
+
 var IndicatorHeaderView = require('./indicator_header.js'),
     IndicatorToolbarView = require('./indicator_toolbar.js'),
     CountryListView = require('./country_list.js');
@@ -31,16 +34,26 @@ var IndicatorView = Backbone.View.extend({
   },
 
   initializeData: function() {
-    this.indicator = new Indicator({id: this.id});
+    this.getYears().done(function(years) {
+      this.years = years.rows;
+      this.currentYear = years.rows[0].year
+      
+      this.indicator = new Indicator({id: this.id});
+      this.listenTo(this.indicator, 'sync', this.renderHeader);
+      this.listenTo(this.indicator, 'sync', this.renderToolbar);
+      this.indicator.fetch();
 
-    this.listenTo(this.indicator, 'sync', this.renderHeader);
-    this.listenTo(this.indicator, 'sync', this.renderToolbar);
-    this.indicator.fetch();
+      this.countries = new Countries();
+      this.listenTo(this.countries, 'sync', this.renderCountriesList);
+      this.countries.countriesForIndicator(this.id, this.currentYear);
 
-    this.countries = new Countries();
+    }.bind(this));
 
-    this.listenTo(this.countries, 'sync', this.renderCountriesList);
-    this.countries.countriesForIndicator(this.id);
+  },
+
+  getYears: function() {
+    var years = new Years();
+    return years.totalYearsForThisIndex( this.id );
   },
 
   render: function(rerender) {

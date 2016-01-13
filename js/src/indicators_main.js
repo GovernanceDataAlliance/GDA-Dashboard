@@ -1,5 +1,5 @@
-var Backbone = require('backbone'),
-    $ = require('jquery');
+var $ = require('jquery'),
+    Backbone = require('backbone');
 
 var helpers = require('./helpers.js');
 

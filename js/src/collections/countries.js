@@ -37,8 +37,8 @@ var Countries = CartoDBCollection.extend({
     return _.groupBy(_.sortBy(this.toJSON(), 'region_name'), 'region_name');
   },
 
-  countriesForIndicator: function(id) {
-    var query = SQL({ id: id }),
+  countriesForIndicator: function(id, year) {
+    var query = SQL({ 'id': id, 'year': year }),
         url = this._urlForQuery(query);
     return this.fetch({url: url});
   },
@@ -46,7 +46,6 @@ var Countries = CartoDBCollection.extend({
   downloadCountriesForIndicator: function(id) {
     var query = SQL({ id: id }),
         url = this._urlForQuery(query) + '&format=csv';
-
     return url;
   }
 });
