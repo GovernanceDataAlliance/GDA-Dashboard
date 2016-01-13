@@ -1,5 +1,7 @@
-var $ = require('jquery'),
-    // chosen = require('chosen-jquery-browserify'),
+var $ = require('jquery');
+global.$ = $; // for chosen.js
+
+var chosen = require('chosen-jquery-browserify'),
     _ = require('lodash'),
     Backbone = require('backbone'),
     Handlebars = require('handlebars');
