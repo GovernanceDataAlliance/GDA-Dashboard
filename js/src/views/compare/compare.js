@@ -1,8 +1,8 @@
-var Backbone = require('backbone'),
-    async = require('async'),
-    Handlebars = require('handlebars'),
+var $ = require('jquery'),
     _ = require('lodash'),
-    $ = require('jquery');
+    Backbone = require('backbone'),
+    async = require('async'),
+    Handlebars = require('handlebars');
 
 var Countries = require('../../collections/countries.js'),
     Years = require('../../collections/years.js'),
@@ -51,7 +51,7 @@ var CompareView = Backbone.View.extend({
     Backbone.Events.on('year:selected', (this.yearRecived).bind(this));
   },
 
-  render: function() {   
+  render: function() {
     this.renderIndicators();
 
     this.$el.html(template());

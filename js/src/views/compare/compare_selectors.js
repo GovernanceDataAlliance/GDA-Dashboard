@@ -1,7 +1,9 @@
-var Backbone = require('backbone'),
-    _ = require('lodash'),
+var $ = require('jquery');
+global.$ = $; // for chosen.js
+
+var _ = require('lodash'),
+    Backbone = require('backbone'),
     Handlebars = require('handlebars'),
-    $ = require('jquery'),
     chosen = require('chosen-jquery-browserify'),
     async = require('async');
 
