@@ -51,7 +51,7 @@ var CompareView = Backbone.View.extend({
     Backbone.Events.on('year:selected', (this.yearRecived).bind(this));
   },
 
-  render: function() {   
+  render: function() {
     this.renderIndicators();
 
     this.$el.html(template());

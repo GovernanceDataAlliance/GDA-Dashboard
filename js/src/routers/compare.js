@@ -9,7 +9,7 @@ var ViewManager = require('../lib/view_manager.js'),
 var Router = Backbone.Router.extend({
 
   routes: {
-    "compare": "compare"
+    "*path": "compare"
   },
 
   initialize: function(options) {
@@ -24,7 +24,8 @@ var Router = Backbone.Router.extend({
   },
 
   compare: function() {
-    var params =  URI("?" + window.location.hash.split("?")[1]).query(true);
+
+    var params =  URI("?" + window.location.hash.split("#")[1]).query(true);
 
     this.countries = params && params['countries[]'] ? params['countries[]'] : [];
     this.year = params && params['year[]'] ? params['year[]'] : (new Date).getFullYear() - 1;
@@ -61,14 +62,14 @@ var Router = Backbone.Router.extend({
 
   //Update URL
   updateUrl: function() {
-    var hashCountries = 'compare?';
-    var hasYear;
+    var hashCountries = '',
+      hasYear = 'year[]=';
 
     $.each(this.countries, function(i, country) {
-      hashCountries = hashCountries + 'countries[]=' + country + '&';
+      hashCountries += 'countries[]=' + country + '&';
     }.bind(this));
 
-    hasYear = 'year[]=' + this.year;
+    hasYear += this.year;
 
     this.navigate(hashCountries + hasYear);
   }
