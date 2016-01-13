@@ -6,12 +6,12 @@ var Backbone = require('backbone'),
     // chosen = require('chosen-jquery-browserify');
 
 var template = Handlebars.compile(
-  require('../../templates/countries/compare_year_selector.hbs'));
+  require('../../templates/indicators/indicators_year_selector.hbs'));
 
 var IndicatorYearSelector = Backbone.View.extend({
 
   events: {
-    'change .js--year-selector': 'getYear'
+    'change': 'getYear'
   },
 
   initialize: function(options) {

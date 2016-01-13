@@ -30,13 +30,14 @@ var IndicatorView = Backbone.View.extend({
   },
 
   setListeners: function() {
-    Backbone.Events.on('rankGroup:chosen', _.bind(this.filterCountries, this))
+    Backbone.Events.on('rankGroup:chosen', _.bind(this.filterCountries, this));
+    Backbone.Events.on('yearForIndicator:selected', _.bind(this.updateCountries, this));
   },
 
   initializeData: function() {
     this.getYears().done(function(years) {
       this.years = years.rows;
-      this.currentYear = years.rows[0].year
+      this.actualYear = years.rows[0].year
       
       this.indicator = new Indicator({id: this.id});
       this.listenTo(this.indicator, 'sync', this.renderHeader);
@@ -45,7 +46,7 @@ var IndicatorView = Backbone.View.extend({
 
       this.countries = new Countries();
       this.listenTo(this.countries, 'sync', this.renderCountriesList);
-      this.countries.countriesForIndicator(this.id, this.currentYear);
+      this.countries.countriesForIndicator(this.id, this.actualYear);
 
     }.bind(this));
 
@@ -74,7 +75,10 @@ var IndicatorView = Backbone.View.extend({
 
   renderToolbar: function() {
     var toolbarView = new IndicatorToolbarView({
-      indicator: this.indicator});
+      'indicator': this.indicator, 
+      'years': this.years,
+      'actualYear': this.actualYear
+    });
     this.$('.js--indicator-toolbar').append(toolbarView.render().el);
   },
 
@@ -121,6 +125,7 @@ var IndicatorView = Backbone.View.extend({
       return;
     }
 
+    console.log(rankCountries);
     var selectedCountries = rankCountries;
     var allCountries = this.countries.toJSON();
     var mergedCountries = [];
@@ -142,29 +147,36 @@ var IndicatorView = Backbone.View.extend({
     this.renderCountriesList(countries);
   },
 
-  //TODO Move this to collection
-  rankPosition: function(countries) {
-    var groupedByScore;
-
-    //TODO Bug with decimal numbers
-    if (this.id === 'environmental_democracy_index') {
-      groupedByScore = _.groupBy(_.sortBy(countries, 'score').reverse(), 'score');
-    } else if ( this.id === "freedom_in_the_world") {
-      groupedByScore = _.sortBy(_.groupBy(countries, 'score'), 'key');
-    } else {
-      groupedByScore = _.sortBy(_.groupBy(countries, 'score'), 'score').reverse();
-    };
-
-    var rank = 1;
-    $.each(groupedByScore, function() {
-      $.each(this, function() {
-        this.rank =  rank;
-      })
-      return rank ++
-    });
-
-    return countries;
+  //Update countries when year selected.
+  updateCountries: function(year) {
+    this.countries.countriesForIndicator(this.id, year).done(function(countries) {
+      this.renderCountriesList(countries);
+    }.bind(this))
   },
+
+  //TODO Move this to collection
+  // rankPosition: function(countries) {
+  //   var groupedByScore;
+
+  //   //TODO Bug with decimal numbers
+  //   if (this.id === 'environmental_democracy_index') {
+  //     groupedByScore = _.groupBy(_.sortBy(countries, 'score').reverse(), 'score');
+  //   } else if ( this.id === "freedom_in_the_world") {
+  //     groupedByScore = _.sortBy(_.groupBy(countries, 'score'), 'key');
+  //   } else {
+  //     groupedByScore = _.sortBy(_.groupBy(countries, 'score'), 'score').reverse();
+  //   };
+
+  //   var rank = 1;
+  //   $.each(groupedByScore, function() {
+  //     $.each(this, function() {
+  //       this.rank =  rank;
+  //     })
+  //     return rank ++
+  //   });
+
+  //   return countries;
+  // },
 
   show: function() {
     this.render();
