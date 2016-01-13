@@ -3,8 +3,8 @@ var sinon = require('sinon');
 var Backbone = require('backbone');
 var Router = require('../../src/routers/countries.js');
 
-var CountryView = require('../../src/views/countries/country.js'),
-    CompareView = require('../../src/views/countries/compare.js');
+var CountryView = require('../../src/views/countries/country.js');
+    // CompareView = require('../../src/views/countries/compare.js');
 
 describe('Countries Router', function() {
   var router;
@@ -20,31 +20,31 @@ describe('Countries Router', function() {
     Backbone.history.stop();
   });
 
-  describe("/compare", function() {
-    it('triggers the "compare" route', function () {
-      var compare = spyOn(router, 'compare').and.callThrough();
+  // describe("/compare", function() {
+  //   it('triggers the "compare" route', function () {
+  //     var compare = spyOn(router, 'compare').and.callThrough();
 
-      var updateHashSpy = spyOn(Backbone.history, '_updateHash').and.callFake(function (loc, frag) {
-        expect(frag).toEqual('/compare');
-        router.compare();
-      });
+  //     var updateHashSpy = spyOn(Backbone.history, '_updateHash').and.callFake(function (loc, frag) {
+  //       expect(frag).toEqual('/compare');
+  //       router.compare();
+  //     });
 
-      router.navigate('#/compare', {trigger: true});
+  //     router.navigate('#/compare', {trigger: true});
 
-      expect(updateHashSpy).toHaveBeenCalled();
-      expect(compare).toHaveBeenCalled();
-    });
+  //     expect(updateHashSpy).toHaveBeenCalled();
+  //     expect(compare).toHaveBeenCalled();
+  //   });
 
-    it('parses the countries in the URL params', function() {
-      var initSpy = spyOn(CompareView.prototype, 'initialize');
-      var params = "?countries[]=GBR&countries[]=ALB";
+  //   it('parses the countries in the URL params', function() {
+  //     var initSpy = spyOn(CompareView.prototype, 'initialize');
+  //     var params = "?countries[]=GBR&countries[]=ALB";
 
-      router.navigate('#compare'+params, {trigger: true});
+  //     router.navigate('#compare'+params, {trigger: true});
 
-      expect(initSpy).toHaveBeenCalled();
-      expect(initSpy).toHaveBeenCalledWith({countries: ['GBR', 'ALB']});
-    });
-  });
+  //     expect(initSpy).toHaveBeenCalled();
+  //     expect(initSpy).toHaveBeenCalledWith({countries: ['GBR', 'ALB']});
+  //   });
+  // });
 
   describe("/<iso>", function() {
     var ISO = 'GBR';
