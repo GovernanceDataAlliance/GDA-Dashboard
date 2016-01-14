@@ -10,7 +10,7 @@ var Years = require('../../collections/years.js');
 
 
 var IndicatorHeaderView = require('./indicator_header.js'),
-    IndicatorToolbarView = require('./indicator_toolbar.js'),
+    IndicatorSelectorsToolbarView = require('./indicator_selectors_toolbar.js'),
     CountryListView = require('./country_list.js');
 
 var template = Handlebars.compile(
@@ -41,7 +41,7 @@ var IndicatorView = Backbone.View.extend({
       
       this.indicator = new Indicator({id: this.id});
       this.listenTo(this.indicator, 'sync', this.renderHeader);
-      this.listenTo(this.indicator, 'sync', this.renderToolbar);
+      this.listenTo(this.indicator, 'sync', this.renderSelectorsToolbar);
       this.indicator.fetch();
 
       this.countries = new Countries();
@@ -62,7 +62,7 @@ var IndicatorView = Backbone.View.extend({
 
     if (rerender === true) {
       this.renderHeader();
-      this.renderToolbar();
+      this.renderSelectorsToolbar();
       this.renderCountriesList();
     }
   },
@@ -73,8 +73,8 @@ var IndicatorView = Backbone.View.extend({
     this.$('.js--indicator-header').append(headerView.render().el);
   },
 
-  renderToolbar: function() {
-    var toolbarView = new IndicatorToolbarView({
+  renderSelectorsToolbar: function() {
+    var toolbarView = new IndicatorSelectorsToolbarView({
       'indicator': this.indicator, 
       'years': this.years,
       'actualYear': this.actualYear

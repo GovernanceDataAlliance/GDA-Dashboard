@@ -1,12 +1,13 @@
+var $ = require('jquery');
+global.$ = $; // for chosen.js
+
 var Backbone = require('backbone'),
     _ = require('lodash'),
     Handlebars = require('handlebars'),
-    $ = require('jquery');
-
-    // chosen = require('chosen-jquery-browserify');
+    chosen = require('chosen-jquery-browserify');
 
 var template = Handlebars.compile(
-  require('../../templates/indicators/indicators_year_selector.hbs'));
+  require('../../templates/common/year_selector.hbs'));
 
 var IndicatorYearSelector = Backbone.View.extend({
 
@@ -23,12 +24,17 @@ var IndicatorYearSelector = Backbone.View.extend({
 
   render: function() {
     this.$el.html(template({ 'years': this.years }));
-    // this.$('select').chosen();
+    
     this.setCurrentYear();
+    // this.setChosen();
   },
 
   setCurrentYear: function() {
     this.actualYear ? $('#year-'+ this.actualYear ).attr('selected', true) : $(this.$('option')[0]).attr('selected', true);
+  },
+
+  setChosen: function() {
+    this.$el.chosen();
   },
 
   getYear: function(e) {

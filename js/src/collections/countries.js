@@ -33,7 +33,6 @@ var Countries = CartoDBCollection.extend({
       'categoryName': encodeURIComponent(categoryName) || null
       }),
       url = this._urlForQuery(query);
-    console.log(query)
     return this.fetch({url: url});
   },
 

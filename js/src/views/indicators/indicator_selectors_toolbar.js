@@ -4,10 +4,10 @@ var Backbone = require('backbone'),
     $ = require('jquery');
 
 var template = Handlebars.compile(
-  require('../../templates/indicators/indicators_toolbar.hbs'));
+  require('../../templates/indicators/indicators_selectors_toolbar.hbs'));
 
 var RankingGroupsViews = require('./ranking_groups.js'),
-    IndicatorYearSelector = require('./indicator_year_selector.js');
+    YearSelector = require('../common/year_selector.js');
 
 var IndicatorsToolbarView = Backbone.View.extend({
 
@@ -33,7 +33,7 @@ var IndicatorsToolbarView = Backbone.View.extend({
   },
 
   renderSelectors: function() {
-    var yearSelectors = new IndicatorYearSelector({ 
+    var yearSelectors = new YearSelector({ 
       el: this.$('.js--indicators-year-selector'), 
       'years': this.years,
       'actualYear': this.actualYear 
