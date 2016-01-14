@@ -6,7 +6,7 @@ var Backbone = require('backbone'),
 var template = Handlebars.compile(
   require('../../templates/indicators/indicators_selectors_toolbar.hbs'));
 
-var RankingGroupsViews = require('./ranking_groups.js'),
+var CohortGroups = require('./cohort_groups.js'),
     YearSelector = require('../common/year_selector.js');
 
 var IndicatorsToolbarView = Backbone.View.extend({
@@ -25,15 +25,18 @@ var IndicatorsToolbarView = Backbone.View.extend({
   render: function() {
     this.$el.html(template());
 
-    var rankingGroups = new RankingGroupsViews({ el: this.$('.js--ranking-groups') })
-
-    this.renderSelectors();
+    this.renderCohortGroups();
+    this.renderYearSelector();
     
     return this;
   },
 
-  renderSelectors: function() {
-    var yearSelectors = new YearSelector({ 
+  renderCohortGroups: function() {
+    new CohortGroups({ el: this.$('.js--ranking-groups') })
+  },
+
+  renderYearSelector: function() {
+    new YearSelector({ 
       el: this.$('.js--indicators-year-selector'), 
       'years': this.years,
       'actualYear': this.actualYear 

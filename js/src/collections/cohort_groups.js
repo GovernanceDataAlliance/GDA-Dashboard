@@ -6,11 +6,11 @@ var CONFIG = require('../../config.json');
 
 var Handlebars = require('handlebars');
 
-var SQL = Handlebars.compile(require('../templates/queries/ranking_groups.sql.hbs'));
+var SQL = Handlebars.compile(require('../templates/queries/cohort_groups.sql.hbs'));
 
 var categories = ["continent", "region_wb", "subregion", "economy"];
 
-var RankingGroups = CartoDBCollection.extend({
+var CohortGruops = CartoDBCollection.extend({
   user_name: CONFIG.cartodb.user_name,
   table: CONFIG.cartodb.ranking_groups_table_name,
 
@@ -40,4 +40,4 @@ var RankingGroups = CartoDBCollection.extend({
 
 });
 
-module.exports = RankingGroups;
+module.exports = CohortGruops;

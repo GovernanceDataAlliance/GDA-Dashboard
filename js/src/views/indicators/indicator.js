@@ -146,7 +146,7 @@ var IndicatorView = Backbone.View.extend({
   //Update countries when year or category selected.
   updateCountries: function(year, categoryGroup, categoryName) {
     this.actualYear = year || this.actualYear;
-    this.categoryName = categoryName ||this.categoryName;
+    this.categoryName = categoryName || this.categoryName;
     this.categoryGroup = categoryGroup || this.categoryGroup;
 
     this.countries.countriesForIndicator(this.id, this.actualYear, this.categoryGroup, this.categoryName).done(function(countries) {
