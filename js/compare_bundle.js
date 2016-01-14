@@ -479,23 +479,23 @@ var Router = Backbone.Router.extend({
 
 module.exports = Router;
 
-},{"../lib/view_manager.js":11,"../views/compare/compare.js":27,"backbone":32,"jquery":76,"lodash":77,"urijs":83}],15:[function(require,module,exports){
+},{"../lib/view_manager.js":11,"../views/compare/compare.js":28,"backbone":32,"jquery":76,"lodash":77,"urijs":83}],15:[function(require,module,exports){
 module.exports = "<div class=\"m-modal-window\">\n  <div class=\"modal-wrapper\">\n    <div class=\"btn-close-modal close-icon\">×</div>\n    <div class=\"modal-container\">\n      <p>{{{info}}}</p>\n    </div>\n  </div>\n  <div class=\"modal-background\"></div>\n</div>\n";
 
 },{}],16:[function(require,module,exports){
-module.exports = "<ul class=\"{{iso}}\">\n  {{#each scores}}\n    {{#if score}}\n      <li class=\"table-cell {{short_name}} {{year}}\">\n      {{#round}}{{score}}{{/round}}\n      </li>\n    {{else}}\n      <li class=\"table-cell no-data {{short_name}}\">no data</li>\n    {{/if}}\n  {{/each}}\n</ul>";
+module.exports = "<select>\n  {{#each years}}\n    <option id=\"year-{{this.year}}\" value=\"{{this.year}}\">{{this.year}}</option>\n  {{/each}}\n</select>";
 
 },{}],17:[function(require,module,exports){
-module.exports = "<ul class=\"table-header\">\n  {{#each indicators}}\n    <li class=\"table-cell {{short_name}}\">\n      <h3>{{product_name}}</h3>\n      <div class=\"organization\"> \n        <h2>organization</h2>\n        {{#if product_description}}\n          <button class=\"btn-info\" data-info=\"{{product_description}}\">i</button>\n        {{/if}}\n      </div>\n    </li>\n  {{/each}}\n</ul>";
+module.exports = "<ul class=\"{{iso}}\">\n  {{#each scores}}\n    {{#if score}}\n      <li class=\"table-cell {{short_name}} {{year}}\">\n      {{#round}}{{score}}{{/round}}\n      </li>\n    {{else}}\n      <li class=\"table-cell no-data {{short_name}}\">no data</li>\n    {{/if}}\n  {{/each}}\n</ul>";
 
 },{}],18:[function(require,module,exports){
-module.exports = "<div class=\"l-banner -section-2 promoInteriores-CompareCountries\">\n  <div class=\"m-breadcrumbs -light\">\n    <ul>\n      <li><a href=\"/\">home </a></li>\n      <li><span> / </span></li>\n      <li> compare </li>\n    </ul>\n  </div>\n\n  <div class=\"wrap\">\n\n    <h1 class=\"c-section-title -light\">Compare countries</h1>\n    <p>While no single number can capture a country's complex governance landscape, comparing countries to each other across many dimensions of governance can reveal powerful insights.</p>\n  </div>\n</div>\n\n<div class=\"js--year-selector\"></div>\n\n<div class=\"js--compare-selectors\"></div>\n\n<div class=\"l-content -fullscreen\">\n  <div class=\"wrap\">\n    <div class=\"m-comparison-table\">\n      <div class=\"js--comparison-indicators -index\"></div>\n      <div class=\"js--country-1 -score\"></div>\n      <div class=\"js--country-2 -score\"></div>\n      <div class=\"js--country-3 -score\"></div>\n    </div>\n    <div class=\"m-advise -compare\">\n      <p>Please, select the countries that you would like to compare into the selects above this message</p>\n    </div>\n  </div>\n</div>\n\n<div class=\"l-highlight distribuidorDestacado-About02\">\n  <div class=\"wrap\">  \n    <div class=\"m-presentation -light\">\n      <h2 class=\"c-title\">\n        The Governance Data Alliance\n      </h2>\n      <p>\n        We're a group of NGOs, governments, firms, and donors who are serious about improving the quality, availability, breadth, and use of governance data. We identify and spread good practices for data production, we build feedback loops between data users and data producers, and we drive down the time and cost to produce data.\n      </p>\n      <a href=\"about\" class=\"btn -white\">find out more</a>  \n    </div>\n  </div>\n</div>\n\n<div class=\"l-content -main\">\n  <div class=\"wrap\">\n    <h3 class=\"c-section-title -small\">\n      objectives\n    </h3>\n    <p>\n      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\n    </p>\n    <div class=\"m-objectives-list\">\n      <ul>\n        <li>\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-check\"></use>\n          </svg>\n          <span>Availability</span>\n        </li>\n        <li>\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-check\"></use>\n          </svg>\n          <span>Quality</span>\n        </li>\n        <li>\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-check\"></use>\n          </svg>\n          <span>Understanding</span>\n        </li>\n      </ul>\n      <a href=\"about\" class=\"btn -secondary\">know about the alliance</a>\n    </div>\n  </div>\n</div>";
+module.exports = "<ul class=\"table-header\">\n  {{#each indicators}}\n    <li class=\"table-cell {{short_name}}\">\n      <h3>{{product_name}}</h3>\n      <div class=\"organization\"> \n        <h2>organization</h2>\n        {{#if product_description}}\n          <button class=\"btn-info\" data-info=\"{{product_description}}\">i</button>\n        {{/if}}\n      </div>\n    </li>\n  {{/each}}\n</ul>";
 
 },{}],19:[function(require,module,exports){
-module.exports = "<div class=\"l-toolbar -selectors\">\n  <div class=\"wrap\">\n    <div class=\"m-compare-selectors\">\n      <div class=\"selector-wrapper -index\">\n        <p>Data Sets</p>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector\" name=\"country1\" id=\"country-1\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector -score\" name=\"country2\" id=\"country-2\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector -score\" name=\"country3\" id=\"country-3\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
+module.exports = "<div class=\"l-banner -section-2 promoInteriores-CompareCountries\">\n  <div class=\"m-breadcrumbs -light\">\n    <ul>\n      <li><a href=\"/\">home </a></li>\n      <li><span> / </span></li>\n      <li> compare </li>\n    </ul>\n  </div>\n\n  <div class=\"wrap\">\n\n    <h1 class=\"c-section-title -light\">Compare countries</h1>\n    <p>While no single number can capture a country's complex governance landscape, comparing countries to each other across many dimensions of governance can reveal powerful insights.</p>\n  </div>\n</div>\n\n<div class=\"l-toolbar -year-selector\">\n  <div class=\"wrap\">\n    <div class=\"m-compare-selectors -year\">\n      <p class=\"is-small-text\">Select date to compare the country data</p>\n      <div class=\"selector-wrapper -year\">\n        <div class=\"btn-drop-down\">\n          <div class=\"js--year-selector-compare\"></div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"js--compare-selectors\"></div>\n\n<div class=\"l-content -fullscreen\">\n  <div class=\"wrap\">\n    <div class=\"m-comparison-table\">\n      <div class=\"js--comparison-indicators -index\"></div>\n      <div class=\"js--country-1 -score\"></div>\n      <div class=\"js--country-2 -score\"></div>\n      <div class=\"js--country-3 -score\"></div>\n    </div>\n    <div class=\"m-advise -compare\">\n      <p>Please, select the countries that you would like to compare into the selects above this message</p>\n    </div>\n  </div>\n</div>\n\n<div class=\"l-highlight distribuidorDestacado-About02\">\n  <div class=\"wrap\">  \n    <div class=\"m-presentation -light\">\n      <h2 class=\"c-title\">\n        The Governance Data Alliance\n      </h2>\n      <p>\n        We're a group of NGOs, governments, firms, and donors who are serious about improving the quality, availability, breadth, and use of governance data. We identify and spread good practices for data production, we build feedback loops between data users and data producers, and we drive down the time and cost to produce data.\n      </p>\n      <a href=\"about\" class=\"btn -white\">find out more</a>  \n    </div>\n  </div>\n</div>\n\n<div class=\"l-content -main\">\n  <div class=\"wrap\">\n    <h3 class=\"c-section-title -small\">\n      objectives\n    </h3>\n    <p>\n      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\n    </p>\n    <div class=\"m-objectives-list\">\n      <ul>\n        <li>\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-check\"></use>\n          </svg>\n          <span>Availability</span>\n        </li>\n        <li>\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-check\"></use>\n          </svg>\n          <span>Quality</span>\n        </li>\n        <li>\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-check\"></use>\n          </svg>\n          <span>Understanding</span>\n        </li>\n      </ul>\n      <a href=\"about\" class=\"btn -secondary\">know about the alliance</a>\n    </div>\n  </div>\n</div>";
 
 },{}],20:[function(require,module,exports){
-module.exports = "<div class=\"l-toolbar -year-selector\">\n  <div class=\"wrap\">\n    <div class=\"m-compare-selectors -year\">\n      <p class=\"is-small-text\">Select date to compare the country data</p>\n      <div class=\"selector-wrapper -year\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--year-selector\">\n            {{#each years}}\n              <option id=\"year-{{this.year}}\" value=\"{{this.year}}\">{{this.year}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n  ";
+module.exports = "<div class=\"l-toolbar -selectors\">\n  <div class=\"wrap\">\n    <div class=\"m-compare-selectors\">\n      <div class=\"selector-wrapper -index\">\n        <p>Data Sets</p>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector\" name=\"country1\" id=\"country-1\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector -score\" name=\"country2\" id=\"country-2\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector -score\" name=\"country3\" id=\"country-3\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
 
 },{}],21:[function(require,module,exports){
 module.exports = "SELECT\n  i.iso,\n  i.short_name,\n  i.score,\n  i.year,\n  w.name,\n  w.region,\n  w.lending_category,\n  w.income_group \nFROM indicator_data i \n  INNER JOIN wb_countries_clasification w \n  ON i.iso=w.iso \nWHERE i.short_name = '{{id}}' \nAND i.year = '{{year}}'\n{{#if categoryGroup}}\nAND w.{{categoryGroup}} = '{{categoryName}}'\n{{/if}}\norder by i.score desc, w.name asc";
@@ -577,6 +577,58 @@ var ModalWindowView = Backbone.View.extend({
 
 module.exports = ModalWindowView;
 },{"../../templates/common/modal_window_tpl.hbs":15,"backbone":32,"handlebars":64,"jquery":76,"lodash":77}],27:[function(require,module,exports){
+(function (global){
+var $ = require('jquery');
+global.$ = $; // for chosen.js
+
+var chosen = require('chosen-jquery-browserify'),
+    _ = require('lodash'),
+    Backbone = require('backbone'),
+    Handlebars = require('handlebars');
+
+var template = Handlebars.compile(
+  require('../../templates/common/year_selector.hbs'));
+
+var CompareYearSelectors = Backbone.View.extend({
+
+  events: {
+    'change select': 'getYear'
+  },
+
+  initialize: function(options) {
+    console.log('year selector common')
+    options = options || {};
+    this.years = options.years;
+    this.actualYear = options.actualYear;
+    this.render();
+  },
+
+  render: function() {
+    this.$el.html(template({ 'years': this.years }));
+    this.setCurrentYear();
+    this.$('select').chosen();
+  },
+
+  setCurrentYear: function() {
+    this.actualYear ? $('#year-'+ this.actualYear ).attr('selected', true) : $(this.$('option')[0]).attr('selected', true);
+  },
+
+  getYear: function(e) {
+    var year = $(e.currentTarget).val();
+    Backbone.Events.trigger('year:selected', year);
+  },
+
+  show: function() {
+    this.render();
+  },
+
+  hide: function() {}
+});
+
+module.exports = CompareYearSelectors;
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"../../templates/common/year_selector.hbs":16,"backbone":32,"chosen-jquery-browserify":33,"handlebars":64,"jquery":76,"lodash":77}],28:[function(require,module,exports){
 var $ = require('jquery'),
     _ = require('lodash'),
     Backbone = require('backbone'),
@@ -598,7 +650,7 @@ var template = Handlebars.compile(require('../../templates/compare/compare.hbs')
     countryScoresTemplate = Handlebars.compile(require('../../templates/compare/compare-country-scores.hbs'));
 
 var CompareSelectorsView = require('./compare_selectors.js'),
-    CompareYearSelectorsView = require('./compare_year_selector.js'),
+    YearSelectorView = require('../common/year_selector.js'),
     ModalWindowView = require('../common/infowindow_view.js')
 
 var compareStatus = new (Backbone.Model.extend({
@@ -666,7 +718,7 @@ var CompareView = Backbone.View.extend({
   renderSelectors: function() {
     //TODO -- Add view manager.
     this.getYears().done(function(years) {
-      var yearSelectors = new CompareYearSelectorsView({ el: this.$('.js--year-selector'), 'years': years.rows, 'actualYear': this.year });
+      var yearSelectors = new YearSelectorView({ el: this.$('.js--year-selector-compare'), 'years': years.rows, 'actualYear': this.year });
     }.bind(this));
 
     var selectors = new CompareSelectorsView({ el: this.$('.js--compare-selectors'), 'countries': this.countryIds });
@@ -713,7 +765,7 @@ var CompareView = Backbone.View.extend({
 
 module.exports = CompareView;
 
-},{"../../collections/countries.js":2,"../../collections/indicator_configs.js":3,"../../collections/indicators.js":4,"../../collections/years.js":5,"../../lib/services/indicator.js":10,"../../presenters/countries.js":12,"../../presenters/indicators.js":13,"../../templates/compare/compare-country-scores.hbs":16,"../../templates/compare/compare-indicators.hbs":17,"../../templates/compare/compare.hbs":18,"../common/infowindow_view.js":26,"./compare_selectors.js":28,"./compare_year_selector.js":29,"async":31,"backbone":32,"handlebars":64,"jquery":76,"lodash":77}],28:[function(require,module,exports){
+},{"../../collections/countries.js":2,"../../collections/indicator_configs.js":3,"../../collections/indicators.js":4,"../../collections/years.js":5,"../../lib/services/indicator.js":10,"../../presenters/countries.js":12,"../../presenters/indicators.js":13,"../../templates/compare/compare-country-scores.hbs":17,"../../templates/compare/compare-indicators.hbs":18,"../../templates/compare/compare.hbs":19,"../common/infowindow_view.js":26,"../common/year_selector.js":27,"./compare_selectors.js":29,"async":31,"backbone":32,"handlebars":64,"jquery":76,"lodash":77}],29:[function(require,module,exports){
 (function (global){
 var $ = require('jquery');
 global.$ = $; // for chosen.js
@@ -787,58 +839,7 @@ var CompareSelectorsView = Backbone.View.extend({
 module.exports = CompareSelectorsView;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../../collections/countries.js":2,"../../templates/compare/compare_selectors.hbs":19,"async":31,"backbone":32,"chosen-jquery-browserify":33,"handlebars":64,"jquery":76,"lodash":77}],29:[function(require,module,exports){
-(function (global){
-var $ = require('jquery');
-global.$ = $; // for chosen.js
-
-var chosen = require('chosen-jquery-browserify'),
-    _ = require('lodash'),
-    Backbone = require('backbone'),
-    Handlebars = require('handlebars');
-
-var template = Handlebars.compile(
-  require('../../templates/compare/compare_year_selector.hbs'));
-
-var CompareYearSelectors = Backbone.View.extend({
-
-  events: {
-    'change .js--year-selector': 'getYear'
-  },
-
-  initialize: function(options) {
-    options = options || {};
-    this.years = options.years;
-    this.actualYear = options.actualYear;
-    this.render();
-  },
-
-  render: function() {
-    this.$el.html(template({ 'years': this.years }));
-    this.setCurrentYear();
-    this.$('select').chosen();
-  },
-
-  setCurrentYear: function() {
-    this.actualYear ? $('#year-'+ this.actualYear ).attr('selected', true) : $(this.$('option')[0]).attr('selected', true);
-  },
-
-  getYear: function(e) {
-    var year = $(e.currentTarget).val();
-    Backbone.Events.trigger('year:selected', year);
-  },
-
-  show: function() {
-    this.render();
-  },
-
-  hide: function() {}
-});
-
-module.exports = CompareYearSelectors;
-
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../../templates/compare/compare_year_selector.hbs":20,"backbone":32,"chosen-jquery-browserify":33,"handlebars":64,"jquery":76,"lodash":77}],30:[function(require,module,exports){
+},{"../../collections/countries.js":2,"../../templates/compare/compare_selectors.hbs":20,"async":31,"backbone":32,"chosen-jquery-browserify":33,"handlebars":64,"jquery":76,"lodash":77}],30:[function(require,module,exports){
 (function (process,__filename){
 /** vim: et:ts=4:sw=4:sts=4
  * @license amdefine 1.0.0 Copyright (c) 2011-2015, The Dojo Foundation All Rights Reserved.

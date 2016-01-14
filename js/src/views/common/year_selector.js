@@ -1,21 +1,22 @@
 var $ = require('jquery');
 global.$ = $; // for chosen.js
 
-var Backbone = require('backbone'),
+var chosen = require('chosen-jquery-browserify'),
     _ = require('lodash'),
-    Handlebars = require('handlebars'),
-    chosen = require('chosen-jquery-browserify');
+    Backbone = require('backbone'),
+    Handlebars = require('handlebars');
 
 var template = Handlebars.compile(
   require('../../templates/common/year_selector.hbs'));
 
-var IndicatorYearSelector = Backbone.View.extend({
+var CompareYearSelectors = Backbone.View.extend({
 
   events: {
     'change select': 'getYear'
   },
 
   initialize: function(options) {
+    console.log('year selector common')
     options = options || {};
     this.years = options.years;
     this.actualYear = options.actualYear;
@@ -24,23 +25,17 @@ var IndicatorYearSelector = Backbone.View.extend({
 
   render: function() {
     this.$el.html(template({ 'years': this.years }));
-    
     this.setCurrentYear();
-    this.setChosen();
+    this.$('select').chosen();
   },
 
   setCurrentYear: function() {
     this.actualYear ? $('#year-'+ this.actualYear ).attr('selected', true) : $(this.$('option')[0]).attr('selected', true);
   },
 
-  setChosen: function() {
-    debugger
-    this.$el.find('select').chosen();
-  },
-
   getYear: function(e) {
     var year = $(e.currentTarget).val();
-    Backbone.Events.trigger('yearForIndicator:selected', year);
+    Backbone.Events.trigger('year:selected', year);
   },
 
   show: function() {
@@ -50,4 +45,4 @@ var IndicatorYearSelector = Backbone.View.extend({
   hide: function() {}
 });
 
-module.exports = IndicatorYearSelector;
+module.exports = CompareYearSelectors;
