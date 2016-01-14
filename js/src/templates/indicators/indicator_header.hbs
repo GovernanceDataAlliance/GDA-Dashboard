@@ -5,16 +5,19 @@
       <li><span> / </span></li>
       <li><a href="indicators"> data </a></li>
       <li><span> / </span></li>
-      <li> {{name}}</li>
+      <li> {{indicator.product_name}}</li>
     </ul>
   </div>
   
   <div class="wrap">
-    <h1 class="c-section-title">
-      {{name}}
-      <span>by {{orgaization}}</span>
-    </h1>
-    <p class="description">{{description}}</p>
-    <a class="btn" href="{{url}}">Visit website &gt;</a>
+    <div class="m-title">
+      <h1 class="c-section-title">
+        {{indicator.product_name}}
+        <span>by {{indicator.organization}}</span>
+      </h1>
+      <img src="{{indicator.product_logo}}" alt=" {{indicator.product_name}} logo">
+    </div>
+    <p class="description">{{indicator.description}}</p>
+    <a class="btn" href="{{indicator.methodology_link}}">Visit website &gt;</a>
   </div>
 </div>

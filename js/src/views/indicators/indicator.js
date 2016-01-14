@@ -68,8 +68,9 @@ var IndicatorView = Backbone.View.extend({
   },
 
   renderHeader: function() {
+    console.log(this.indicator);
     var headerView = new IndicatorHeaderView({
-      indicator: this.indicator});
+      'indicator': this.indicator});
     this.$('.js--indicator-header').append(headerView.render().el);
   },
 
