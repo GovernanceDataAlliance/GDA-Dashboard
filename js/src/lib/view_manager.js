@@ -1,6 +1,6 @@
-var Backbone = require('backbone'),
-    _ = require('lodash');
-
+var _ = require('lodash'),
+    Backbone = require('backbone');
+    
 var ViewManager = Backbone.Model.extend({
   defaults: {
     views: {}

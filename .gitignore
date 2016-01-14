@@ -8,6 +8,7 @@ npm-debug.log
 
 js/bundle.js
 js/countries_bundle.js
+js/compare_bundle.js
 js/indicators_bundle.js
 js/welcome_bundle.js
 js/test/bundle.js
