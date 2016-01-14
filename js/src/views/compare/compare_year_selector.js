@@ -1,11 +1,13 @@
-var Backbone = require('backbone'),
+var $ = require('jquery');
+global.$ = $; // for chosen.js
+
+var chosen = require('chosen-jquery-browserify'),
     _ = require('lodash'),
-    Handlebars = require('handlebars'),
-    chosen = require('chosen-jquery-browserify'),
-    $ = require('jquery');
+    Backbone = require('backbone'),
+    Handlebars = require('handlebars');
 
 var template = Handlebars.compile(
-  require('../../templates/countries/compare_year_selector.hbs'));
+  require('../../templates/compare/compare_year_selector.hbs'));
 
 var CompareYearSelectors = Backbone.View.extend({
 
@@ -22,8 +24,8 @@ var CompareYearSelectors = Backbone.View.extend({
 
   render: function() {
     this.$el.html(template({ 'years': this.years }));
-    this.$('select').chosen();
     this.setCurrentYear();
+    this.$('select').chosen();
   },
 
   setCurrentYear: function() {

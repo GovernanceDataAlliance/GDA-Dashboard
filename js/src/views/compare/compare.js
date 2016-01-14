@@ -1,8 +1,8 @@
-var Backbone = require('backbone'),
-    async = require('async'),
-    Handlebars = require('handlebars'),
+var $ = require('jquery'),
     _ = require('lodash'),
-    $ = require('jquery');
+    Backbone = require('backbone'),
+    async = require('async'),
+    Handlebars = require('handlebars');
 
 var Countries = require('../../collections/countries.js'),
     Years = require('../../collections/years.js'),
@@ -14,9 +14,9 @@ var IndicatorsPresenter = require('../../presenters/indicators.js');
 
 var IndicatorService = require('../../lib/services/indicator.js');
 
-var template = Handlebars.compile(require('../../templates/countries/compare.hbs')),
-    indicatorsTemplate = Handlebars.compile(require('../../templates/countries/compare-indicators.hbs'));
-    countryScoresTemplate = Handlebars.compile(require('../../templates/countries/compare-country-scores.hbs'));
+var template = Handlebars.compile(require('../../templates/compare/compare.hbs')),
+    indicatorsTemplate = Handlebars.compile(require('../../templates/compare/compare-indicators.hbs'));
+    countryScoresTemplate = Handlebars.compile(require('../../templates/compare/compare-country-scores.hbs'));
 
 var CompareSelectorsView = require('./compare_selectors.js'),
     CompareYearSelectorsView = require('./compare_year_selector.js'),
@@ -51,7 +51,7 @@ var CompareView = Backbone.View.extend({
     Backbone.Events.on('year:selected', (this.yearRecived).bind(this));
   },
 
-  render: function() {   
+  render: function() {
     this.renderIndicators();
 
     this.$el.html(template());
