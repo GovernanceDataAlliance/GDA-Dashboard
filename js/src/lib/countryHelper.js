@@ -17,7 +17,8 @@ var countryHelper = {
 
     var svg = d3.select(el).append("svg:svg")
       .attr("width", width)
-      .attr("height", height);
+      .attr("height", height)
+      .attr("class", 'svg-country-silhouette');
 
     var projection = d3.geo.mercator().scale(1).translate([0, 0]);
     var path = d3.geo.path().projection(projection);
@@ -32,8 +33,7 @@ var countryHelper = {
 
     svg.append("svg:path")
       .data([country])
-      .attr("d", path)
-      .attr("class", 'country-shape');
+      .attr("d", path);
 
     // if (options && options.alerts) {
     //   var forest = [];

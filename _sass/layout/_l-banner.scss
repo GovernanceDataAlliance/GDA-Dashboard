@@ -35,7 +35,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     }
   }
   
-  //country-show / data-show
+  //country-show
   &.-detail {
     display: flex;
     min-height: rem(320px);
@@ -43,17 +43,25 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     background-color: $bg-color-1;
     border-bottom: 1px solid $border-1;
 
-    > .wrap {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row;
+    &.-country {
+      padding: rem(115px) 0 rem(15px);
     }
 
-    > .wrap > .js--country-silhouette {
+    > .wrap {
+      display: flex;
+    }
 
-      > svg {
-        fill: $beige;
-        opacity: .3;
+    &.-row {
+      > .wrap {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    &.-col {
+      > .wrap {
+        flex-direction: column;
+        justify-content: center;
       }
     }
   }
