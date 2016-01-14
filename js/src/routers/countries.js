@@ -47,30 +47,6 @@ var Router = Backbone.Router.extend({
     this.views.showView('show');
   },
 
-  // compare: function() {
-  //   var params =  URI("?" + window.location.hash.split("?")[1]).query(true);
-
-  //   this.countries = params && params['countries[]'] ? params['countries[]'] : [];
-  //   this.year = params && params['year[]'] ? params['year[]'] : (new Date).getFullYear() - 1;
-
-  //   //When only one value, string instead of array. We need array.
-  //   if ( _.isString(this.countries)) {
-  //     this.countries = [ this.countries ];
-  //   };
-
-  //   if (!this.views.hasView('compare')) {
-  //     var view = new CompareView({ 
-  //       'countries': this.countries, 
-  //       'year': this.year
-  //     });
-  //     this.views.addView('compare', view);
-  //   } else {
-  //     this.views.getView('compare').setParams(this.countries, this.year)
-  //   }
-
-  //   this.views.showView('compare');
-  // },
-
   //Update countries params
   countrySelected: function(iso, order) {
     this.countries[order - 1] = iso;

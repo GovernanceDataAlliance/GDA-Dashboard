@@ -14,9 +14,9 @@ var IndicatorsPresenter = require('../../presenters/indicators.js');
 
 var IndicatorService = require('../../lib/services/indicator.js');
 
-var template = Handlebars.compile(require('../../templates/countries/compare.hbs')),
-    indicatorsTemplate = Handlebars.compile(require('../../templates/countries/compare-indicators.hbs'));
-    countryScoresTemplate = Handlebars.compile(require('../../templates/countries/compare-country-scores.hbs'));
+var template = Handlebars.compile(require('../../templates/compare/compare.hbs')),
+    indicatorsTemplate = Handlebars.compile(require('../../templates/compare/compare-indicators.hbs'));
+    countryScoresTemplate = Handlebars.compile(require('../../templates/compare/compare-country-scores.hbs'));
 
 var CompareSelectorsView = require('./compare_selectors.js'),
     CompareYearSelectorsView = require('./compare_year_selector.js'),
