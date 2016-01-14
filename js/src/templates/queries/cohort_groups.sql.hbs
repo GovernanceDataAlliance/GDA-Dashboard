@@ -3,10 +3,10 @@ SELECT distinct on
  FROM {{table}} 
 union 
 SELECT distinct on 
-  (lending_category) lending_category as category,  'lending_category' as type 
+  (lending_category) lending_category as category, 'lending_category' as type 
  FROM {{table}} 
 union 
 SELECT distinct on 
-  (region) region as category, 'region' as type 
+  (region) region as category, 'region' as type
  FROM {{table}} 
 order by type, category

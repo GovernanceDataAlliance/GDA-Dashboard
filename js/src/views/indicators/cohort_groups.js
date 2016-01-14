@@ -27,8 +27,7 @@ var CohortGroupsView = Backbone.View.extend({
 
   render: function() {
     this.cohortCollection.fetch().done(function (rawData) {
-      // this.groups = this.getGroups(rawData);
-      console.log(rawData)
+      this.groups = this.getGroups(rawData);
       this.$el.html(cohortGroupsTemplate({ 'cohortGroups': this.groups }));
       this.cacheVars();
     }.bind(this));
@@ -38,19 +37,9 @@ var CohortGroupsView = Backbone.View.extend({
     this.groupSelector = $('.js--btn-ranking');
   },
 
-  // getGroups: function(rawData) {
-  //   var categories = ["region", "income_group", "lending_category"];
-  //   var data = rawData.rows;
-
-  //   //Grouped by categories
-  //   this.rankingGroups = {};
-  //   categories.forEach(function(category) {
-  //     var groupByCategory = _.groupBy(_.sortBy(data, category), category);
-  //     this.rankingGroups[category] = groupByCategory;
-  //   }.bind(this));
-
-  //   return this.rankingGroups;
-  // },
+  getGroups: function(rawData) {
+    return _.groupBy(rawData.rows, 'type');
+  },
 
   groupSelected: function(e) {
     var categoryName = $(e.currentTarget).attr('data-rankGroup');

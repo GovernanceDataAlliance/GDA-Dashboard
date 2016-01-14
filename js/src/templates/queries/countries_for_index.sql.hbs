@@ -15,4 +15,4 @@ AND i.year = '{{year}}'
 {{#if categoryGroup}}
 AND w.{{categoryGroup}} = '{{categoryName}}'
 {{/if}}
-order by score desc
+order by i.score desc, w.name asc

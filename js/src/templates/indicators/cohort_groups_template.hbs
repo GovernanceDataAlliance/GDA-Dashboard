@@ -12,7 +12,7 @@
         <h2>{{@key}}</h2>
         <ul>
           {{#each this}}
-            <li data-rankCategory="{{@../key}}" data-rankGroup="{{@key}}" class="group-selector">{{@key}}</li>
+            <li data-rankCategory="{{this.type}}" data-rankGroup="{{this.category}}" class="group-selector">{{this.category}}</li>
           {{/each}}
         </ul>
       </div>
