@@ -24,8 +24,8 @@ var CompareYearSelectors = Backbone.View.extend({
 
   render: function() {
     this.$el.html(template({ 'years': this.years }));
-    this.$('select').chosen();
     this.setCurrentYear();
+    this.$('select').chosen();
   },
 
   setCurrentYear: function() {

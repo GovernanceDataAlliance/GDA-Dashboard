@@ -36,19 +36,19 @@ var CompareSelectorsView = Backbone.View.extend({
       var countries = _.sortByOrder(countries.rows, ['name']);
       this.$el.html(template({ 'countries': countries }));
 
-      this.$('select').chosen();
-      
       if (this.countries) {
         this.setRecivedValues();
       };
+
+      this.$('select').chosen();
+      
     }.bind(this));
   },
 
   setRecivedValues: function() {
     $.each(this.countries, function(i, country) {
       var currentSelector = this.$el.find('#country-'+ (i+1));
-      currentSelector.val(country);
-      currentSelector.trigger('change');
+      currentSelector.val(country).trigger('change');
     }.bind(this));
   },
 
