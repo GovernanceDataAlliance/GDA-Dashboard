@@ -6,7 +6,7 @@ var countryHelper = {
   draw: function(topology, c) {
     var country = topojson.feature(topology, topology.objects[c]);
     var width = 300,
-        height = 300,
+        height = 175,
         el = '.js--country-silhouette';
 
     var svg = d3.select(el).append("svg:svg")
