@@ -31,7 +31,7 @@ var IndicatorView = Backbone.View.extend({
 
   setListeners: function() {
     Backbone.Events.on('rankGroup:chosen', _.bind(this.updateCountries, this));
-    Backbone.Events.on('yearForIndicator:selected', _.bind(this.updateCountries, this));
+    Backbone.Events.on('year:selected', _.bind(this.updateCountries, this));
   },
 
   initializeData: function() {
