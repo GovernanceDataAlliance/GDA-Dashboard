@@ -19,7 +19,7 @@ var template = Handlebars.compile(require('../../templates/compare/compare.hbs')
     countryScoresTemplate = Handlebars.compile(require('../../templates/compare/compare-country-scores.hbs'));
 
 var CompareSelectorsView = require('./compare_selectors.js'),
-    CompareYearSelectorsView = require('./compare_year_selector.js'),
+    YearSelectorView = require('../common/year_selector.js'),
     ModalWindowView = require('../common/infowindow_view.js')
 
 var compareStatus = new (Backbone.Model.extend({
@@ -87,7 +87,7 @@ var CompareView = Backbone.View.extend({
   renderSelectors: function() {
     //TODO -- Add view manager.
     this.getYears().done(function(years) {
-      var yearSelectors = new CompareYearSelectorsView({ el: this.$('.js--year-selector'), 'years': years.rows, 'actualYear': this.year });
+      var yearSelectors = new YearSelectorView({ el: this.$('.js--year-selector-compare'), 'years': years.rows, 'actualYear': this.year });
     }.bind(this));
 
     var selectors = new CompareSelectorsView({ el: this.$('.js--compare-selectors'), 'countries': this.countryIds });

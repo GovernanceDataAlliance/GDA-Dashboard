@@ -20,33 +20,25 @@ var Countries = CartoDBCollection.extend({
     return this._urlForQuery(query);
   },
 
-  //Not been used?
-  // forIds: function(ids) {
-  //   var id = [].
-  //     concat(ids).
-  //     map(function(i) { return "'"+i+"'"; }).
-  //     join(", ");
-  //   var whereClause = "AND iso3 IN (" + id + ")";
-
-  //   var url = [this.url(), whereClause].join(" ");
-  //   return this.fetch({url: url});
-  // },
-
   //For general list at /countries.
   groupByRegion: function() {
     return _.groupBy(_.sortBy(this.toJSON(), 'region_name'), 'region_name');
   },
 
-  countriesForIndicator: function(id) {
-    var query = SQL({ id: id }),
-        url = this._urlForQuery(query);
+  countriesForIndicator: function(id, year, categoryGroup, categoryName) {
+    var query = SQL({ 
+      'id': id, 
+      'year': year,
+      'categoryGroup': categoryGroup != undefined && categoryGroup != 'global' ? encodeURIComponent(categoryGroup) : null,
+      'categoryName': encodeURIComponent(categoryName) || null
+      }),
+      url = this._urlForQuery(query);
     return this.fetch({url: url});
   },
 
   downloadCountriesForIndicator: function(id) {
     var query = SQL({ id: id }),
         url = this._urlForQuery(query) + '&format=csv';
-
     return url;
   }
 });

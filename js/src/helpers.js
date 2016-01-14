@@ -7,3 +7,7 @@ Handlebars.registerHelper('round', function(options) {
     return this.score;
   }
 });
+
+Handlebars.registerHelper('beautifullStrign', function(options) {
+  return options.replace('_', ' ');
+});
