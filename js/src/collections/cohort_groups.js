@@ -19,8 +19,8 @@ var CohortGruops = CartoDBCollection.extend({
     return this._urlForQuery(query);
   },
 
-  getGroups: function(data) {
-    return _.groupBy(data.rows, 'type');
+  getGroups: function() {
+    return _.groupBy(this.toJSON(), 'type');
   }
 
 });

@@ -23,7 +23,7 @@ var CohortGroupsView = Backbone.View.extend({
     this.cohortCollection = new CohortCollection();
 
     this.cohortCollection.fetch().done(function (data) {
-      var groups = this.cohortCollection.getGroups(data);
+      var groups = this.cohortCollection.getGroups();
       this.render(groups);
     }.bind(this));
 
