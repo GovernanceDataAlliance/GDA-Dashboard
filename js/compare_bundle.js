@@ -227,6 +227,7 @@ var CartoDBCollection = Backbone.Collection.extend({
   parse: function(data) {
     return data.rows;
   }
+  
 });
 
 module.exports = CartoDBCollection;

@@ -22,23 +22,20 @@ var CohortGroupsView = Backbone.View.extend({
     options = options || {};
     this.cohortCollection = new CohortCollection();
 
-    this.render();
+    this.cohortCollection.fetch().done(function (data) {
+      var groups = this.cohortCollection.getGroups(data);
+      this.render(groups);
+    }.bind(this));
+
   },
 
-  render: function() {
-    this.cohortCollection.fetch().done(function (rawData) {
-      this.groups = this.getGroups(rawData);
-      this.$el.html(cohortGroupsTemplate({ 'cohortGroups': this.groups }));
-      this.cacheVars();
-    }.bind(this));
+  render: function(groups) {
+    this.$el.html(cohortGroupsTemplate({ 'cohortGroups': groups }));
+    this.cacheVars();
   },
 
   cacheVars: function() {
     this.groupSelector = $('.js--btn-ranking');
-  },
-
-  getGroups: function(rawData) {
-    return _.groupBy(rawData.rows, 'type');
   },
 
   groupSelected: function(e) {

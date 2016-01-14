@@ -19,23 +19,8 @@ var CohortGruops = CartoDBCollection.extend({
     return this._urlForQuery(query);
   },
 
-  rankingGroups: function() {
-    var query = SQL({ table: this.table }),
-        url = this._urlForQuery(query);
-
-    this.fetch({url: url}).done(function (rawData) {
-      this.getGroups(rawData);
-    }.bind(this));
-  },
-
-  getGroups: function(rawData) {
-    var data = rawData.rows;
-    //Grouped by categories
-    var rankingGroups = {};
-    categories.forEach(function(category) {
-      var groupByCategory = _.groupBy(data, category);
-      rankingGroups[category] = groupByCategory;
-    })
+  getGroups: function(data) {
+    return _.groupBy(data.rows, 'type');
   }
 
 });
