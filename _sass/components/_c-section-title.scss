@@ -38,6 +38,14 @@
     }
   }
 
+  &.-country-name {
+    padding-bottom: 0;
+    &:after {
+      top: rem(110px);
+      bottom: auto;
+    }
+  }
+
   + p {
     margin-top: rem(50px);
   }

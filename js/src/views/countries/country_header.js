@@ -3,7 +3,8 @@ var Backbone = require('backbone'),
     d3 = require('d3'),
     Handlebars = require('handlebars');
 
-var countryHelper = require('../../lib/countryHelper.js');
+var countryDrawer = require('../../helpers/country_drawer.js');
+
 
 var template = Handlebars.compile(
   require('../../templates/countries/country_header.hbs'));
@@ -27,7 +28,7 @@ var CountryHeaderView = Backbone.View.extend({
       sql = ["SELECT the_geom FROM world_borders WHERE iso3 = UPPER('" + iso + "')&format=topojson"].join(' ');
 
       d3.json('https://gda.cartodb.com/api/v2/sql?q=' + sql, _.bind(function(error, topology) {
-        countryHelper.draw(topology, 0, { alerts: true });
+        countryDrawer.draw(topology, 0, { alerts: true });
       }, this )); 
   },
 

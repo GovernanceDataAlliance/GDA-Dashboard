@@ -7,7 +7,7 @@ var chosen = require('chosen-jquery-browserify'),
     Handlebars = require('handlebars');
 
 var template = Handlebars.compile(
-  require('../../templates/countries/compare_year_selector.hbs'));
+  require('../../templates/compare/compare_year_selector.hbs'));
 
 var CompareYearSelectors = Backbone.View.extend({
 
@@ -24,8 +24,8 @@ var CompareYearSelectors = Backbone.View.extend({
 
   render: function() {
     this.$el.html(template({ 'years': this.years }));
-    this.$('select').chosen();
     this.setCurrentYear();
+    this.$('select').chosen();
   },
 
   setCurrentYear: function() {
