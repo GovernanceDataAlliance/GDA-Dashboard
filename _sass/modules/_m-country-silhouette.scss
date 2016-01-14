@@ -1,0 +1,9 @@
+.js--country-silhouette {
+	position: relative;
+	top:-35px;
+
+	> .svg-country-silhouette {
+		fill: $beige;
+	  opacity: .3;
+	}
+}
