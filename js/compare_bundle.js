@@ -596,7 +596,6 @@ var CompareYearSelectors = Backbone.View.extend({
   },
 
   initialize: function(options) {
-    console.log('year selector common')
     options = options || {};
     this.years = options.years;
     this.actualYear = options.actualYear;
@@ -614,6 +613,7 @@ var CompareYearSelectors = Backbone.View.extend({
   },
 
   getYear: function(e) {
+    console.log(e);
     var year = $(e.currentTarget).val();
     Backbone.Events.trigger('year:selected', year);
   },

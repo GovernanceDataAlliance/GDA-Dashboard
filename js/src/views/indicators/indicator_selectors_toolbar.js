@@ -39,13 +39,17 @@ var IndicatorsToolbarView = Backbone.View.extend({
 
   renderYearSelector: function() {
     this.getYears().done(function(years) {
-      var yearSelectors = new YearSelector({ el: this.$('.js--year-selector-indicators'), 'years': years.rows, 'actualYear': this.actualYear });
+      var yearSelectors = new YearSelector({ 
+        el: this.$('.js--year-selector-indicators'), 
+        'years': years.rows, 
+        'actualYear': this.actualYear 
+      });
     }.bind(this));
   },
 
   getYears: function() {
     var years = new Years();
-    return years.totalYears()
+    return years.totalYearsForThisIndex( this.indicator );
   },
 
   showRankingGroups: function() {
