@@ -10,7 +10,7 @@ var _ = require('lodash'),
 var CountriesCollection = require('../../collections/countries.js');
 
 var template = Handlebars.compile(
-  require('../../templates/countries/compare_selectors.hbs'));
+  require('../../templates/compare/compare_selectors.hbs'));
 
 var CompareSelectorsView = Backbone.View.extend({
 
