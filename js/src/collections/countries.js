@@ -26,7 +26,6 @@ var Countries = CartoDBCollection.extend({
   },
 
   countriesForIndicator: function(id, year, categoryGroup, categoryName) {
-    console.log(id, year, categoryGroup, categoryName);
     var query = SQL({ 
       'id': id, 
       'year': year,
