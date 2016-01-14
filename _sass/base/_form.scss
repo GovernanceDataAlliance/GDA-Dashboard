@@ -14,11 +14,16 @@
 }
 
 .chzn-container-single .chzn-drop {
+  width: 100% !important;
+  border-radius: 0;
   border-color: $color-2;
   background-color: $bg-color-4;  
-  border-radius: 0;
   transform: translatey(12px);
   font-family: $font-secondary;
+}
+
+.chzn-container {
+  width: 100% !important;
 }
 
 .chzn-container-single .chzn-single {
@@ -26,7 +31,7 @@
 }
 
 .chzn-container-single .chzn-search input {
-  width: 100%;
+  width: 100% !important;
   background: none;
   border-color: $bg-color-3;
 }
@@ -44,5 +49,6 @@
 
 .chzn-container-single .chzn-single span {
   text-transform: uppercase;
+  color: $font-color-3;
 }
 

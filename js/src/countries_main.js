@@ -1,6 +1,6 @@
-var Backbone = require('backbone'),
-    Handlebars = require('handlebars'),
-    $ = require('jquery');
+var $ = require('jquery'),
+    Backbone = require('backbone'),
+    Handlebars = require('handlebars');
 
 var helpers = require('./helpers/handlebars.js');
 

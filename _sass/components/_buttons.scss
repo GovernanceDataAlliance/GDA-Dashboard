@@ -6,7 +6,7 @@
 
 
 .btn {
-  font-size: rem(12px);
+  font-size: rem(11px);
   font-family: $font-secondary;
   text-transform: uppercase;
   display: flex;
@@ -50,8 +50,9 @@
 .btn-drop-down {
   position: relative;
   max-width: 88%;
-  margin: rem(20px) 6%;
-  padding: rem(5px) 3%;
+  min-width: rem(210px);
+  margin: rem(12px) 6%;
+  padding: rem(12px) 3%;
   padding-right: 5%;
   border: 1px solid $color-4;
 
