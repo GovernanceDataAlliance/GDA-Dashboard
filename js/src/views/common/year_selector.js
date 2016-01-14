@@ -12,7 +12,7 @@ var template = Handlebars.compile(
 var IndicatorYearSelector = Backbone.View.extend({
 
   events: {
-    'change': 'getYear'
+    'change select': 'getYear'
   },
 
   initialize: function(options) {
@@ -26,7 +26,7 @@ var IndicatorYearSelector = Backbone.View.extend({
     this.$el.html(template({ 'years': this.years }));
     
     this.setCurrentYear();
-    // this.setChosen();
+    this.setChosen();
   },
 
   setCurrentYear: function() {
@@ -34,7 +34,8 @@ var IndicatorYearSelector = Backbone.View.extend({
   },
 
   setChosen: function() {
-    this.$el.chosen();
+    debugger
+    this.$el.find('select').chosen();
   },
 
   getYear: function(e) {
