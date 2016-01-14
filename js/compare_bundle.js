@@ -199,6 +199,11 @@ Handlebars.registerHelper('round', function(options) {
     return this.score;
   }
 });
+
+Handlebars.registerHelper('beautifullStrign', function(options) {
+  return options.replace('_', ' ');
+});
+
 },{"handlebars":64}],8:[function(require,module,exports){
 var Backbone = require('backbone'),
     format = require('./format.js');

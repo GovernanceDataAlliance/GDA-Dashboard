@@ -1,5 +1,4 @@
 <div class="m-cohort-groups">
-  <h3>Rankings</h3>
   <div class="groups">
     <div class="group">
       <h2>Globally</h2>
@@ -9,7 +8,7 @@
     </div>
     {{#each cohortGroups}}
       <div class="group">
-        <h2>{{@key}}</h2>
+        <h2>{{#beautifullStrign @key}}{{/beautifullStrign}}</h2>
         <ul>
           {{#each this}}
             <li data-rankCategory="{{this.type}}" data-rankGroup="{{this.category}}" class="group-selector">{{this.category}}</li>
