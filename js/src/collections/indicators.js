@@ -58,7 +58,7 @@ var Indicators = CartoDBCollection.extend({
         if (!classColor) {
           return;
         }
-        _.extend(current, {classColor: this._setColorsByScore(current)});
+        _.extend(current, {'classColor': this._setColorsByScore(current)});
       } else {
         rawData.rows.push(d)
       }

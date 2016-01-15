@@ -6,13 +6,18 @@ SELECT
   w.name,
   w.region,
   w.lending_category,
-  w.income_group 
+  w.income_group,
+  c.desired_direction, 
+  c.score_range 
 FROM indicator_data i 
-  INNER JOIN wb_countries_clasification w 
-  ON i.iso=w.iso 
+  INNER JOIN wb_countries_clasification w ON i.iso=w.iso 
+  INNER JOIN indicator_config c ON i.short_name=c.short_name 
 WHERE i.short_name = '{{id}}' 
-AND i.year = '{{year}}'
-{{#if categoryGroup}}
-AND w.{{categoryGroup}} = '{{categoryName}}'
+AND i.score is not null 
+{{#if year}}
+AND i.year = '{{year}}' 
 {{/if}}
-order by i.score desc, w.name asc
+{{#if categoryGroup}}
+AND w.{{categoryGroup}} = '{{categoryName}}' 
+{{/if}}
+order by i.score desc, w.name desc

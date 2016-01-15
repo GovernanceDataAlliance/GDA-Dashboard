@@ -1,4 +1,4 @@
-<div class="l-content -fullscreen">
+<div class="l-content -fullscreen {{direction}}">
   {{#if countries}}
   <div class="m-table -rank">
     {{#each countries}}
@@ -7,7 +7,7 @@
           <div class="description">
             <p class="name">{{name}}</p>
           </div> 
-          <div class="score" data-year="{{year}}">
+          <div class="score {{#if classColor}} {{classColor}} {{/if}}" data-year="{{year}}">
             <p>{{#round}}{{score}}{{/round}}</p>
           </div>
         </div>

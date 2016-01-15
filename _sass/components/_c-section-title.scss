@@ -1,13 +1,14 @@
 .c-section-title {
   position: relative;
   padding-bottom: rem(50px);
+  margin-bottom: rem(60px);
   font-size: rem(50px);
   font-weight: 400;
   color: $font-color-1;
   
   span {
     display: block;
-    margin-bottom: rem(20px);
+    margin-top: rem(10px);
     font-size: rem(15px);
     font-weight: 400;
   }

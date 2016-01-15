@@ -35,6 +35,27 @@
     .score {
       font-size: rem(35px);
       letter-spacing: -2px;
+
+      // Scores
+      &.-score-best {
+        color: $green;
+      }
+
+      &.-score-good {
+        color: $blue;
+      }
+
+      &.-score-medium {
+        color: $yellow;
+      }
+
+      &.-score-regular {
+        color: $orange;
+      }
+      
+      &.-score-bad {
+        color: $magenta;
+      }  
     }
   }
 }

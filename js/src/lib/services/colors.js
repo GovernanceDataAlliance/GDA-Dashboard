@@ -33,7 +33,7 @@ var ColorService = {
 			tierBegin = parseFloat(tier[0]);
 			tierEnd = parseFloat(tier[1]);
 
-			if (this.indicator.score >= tierBegin && this.indicator.score < tierEnd) {
+			if (this.indicator.score >= tierBegin && this.indicator.score <= tierEnd) {
 				return this.indicator.colorRange[i];
 			}
 		}
