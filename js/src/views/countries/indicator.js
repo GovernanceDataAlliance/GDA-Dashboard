@@ -19,6 +19,7 @@ var IndicatorView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(template(this.parseData()));
+    this._setColorClass();
     this.analizeValues();
     this.partialRanks();
 
@@ -27,6 +28,12 @@ var IndicatorView = Backbone.View.extend({
     }
 
     return this;
+  },
+
+  _setColorClass: function() {
+    if (!!this.indicator.classColor) {
+      this.$el.addClass(this.indicator.classColor);
+    }
   },
 
   partialRanks: function() {
