@@ -83,22 +83,14 @@ var IndicatorView = Backbone.View.extend({
     this.$('.js--indicator-toolbar').append(toolbarView.render().el);
   },
 
-  renderCountriesList: function(countries) {
-    // var countries;
-
-    // if (_.isArray(mergedCountries)) {
-    //   countries = mergedCountries;
-    // } else {
-    // }
-    // console.log(countries);
-    // console.log(this.countries)
-    // var countries = _.isEmpty(countries) ? null : this.countries.toJSON();
-    
+  renderCountriesList: function() {
+    var direction = this.indicator.get('desired_direction');
     var listView = new CountryListView({
-      'countries': this.countries.toJSON() });
-    this.$('.js--countries').html(listView.render().el);
+      el: this.$('.js--countries'),
+      'countries': this.countries.toJSON(),
+      'direction': direction,
+    });
   },
-
 
   download: function(event) {
     event.preventDefault();
