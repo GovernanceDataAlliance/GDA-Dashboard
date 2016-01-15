@@ -1,9 +1,9 @@
 {{#each indicators}}
   <div class="m-card--indexes">
     <a href="indicators#{{short_name}}" class="index-description">
-      <img src="{{logo}}" alt="">
+      <img class="{{short_name}}" src="{{product_logo}}" alt="{{product_name}} logo">
       <h3 class="name">{{product_name}}</h3>
-      <p class="organization">{{organization_name}} organization name</p>
+      <p class="organization">{{organization}}</p>
     </a>
   </div>
 {{/each}}
