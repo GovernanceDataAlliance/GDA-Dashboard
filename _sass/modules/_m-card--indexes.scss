@@ -2,7 +2,6 @@
   display: flex;
   flex-basis: 50%;
   justify-content: space-between;
-  padding-left: rem($wrap-padding);
   border-bottom: 1px solid $border-1;
 
   &:last-child, 
@@ -12,9 +11,10 @@
 
   &:nth-child(2n) {
     justify-content: flex-start;
-    padding-right: rem($wrap-padding); 
+
     .index-description {
-      padding: rem(65px) 0 rem(65px) rem(80px);
+      padding-left: rem(80px);
+      padding-right: $wrap-padding;
     }
   }
 
@@ -23,7 +23,8 @@
     border-right: 1px solid $border-1;
 
     .index-description {
-      padding: rem(65px) rem(80px) rem(65px) 0;
+      padding-left: $wrap-padding;
+      padding-right: $wrap-padding;
     }
   }
   
@@ -34,11 +35,12 @@
     align-items: stretch;
     flex-direction: column;
     justify-content: space-between;
+    padding: rem(65px) 0;
 
     > .name {
       font-size: rem(30px);
       font-weight: 400;
-      margin-bottom: rem(40px);
+      margin-bottom: rem(7px);
     }
 
     > .description {
@@ -54,10 +56,32 @@
     }
 
     img {
-      width: 30px;
-      height: 30px;
+      display: block;
+      max-width: 100%;
+      width: rem(200px);
       background-color: #ddd;
-      margin-bottom: rem(30px);
+      margin-bottom: rem(20px);
+
+      &.corruption_perceptions_index ,
+      &.doing_business,
+      &.doing_business,
+      &.doing_business_DTF {
+        width: rem(150px);
+      }
+
+      &.ogp_regular_consult_forum,
+      &.irm_action_plan_count_star,
+      &.irm_action_plan_percent_star {
+        width: rem(40px);
+      }
+
+      &.nations_in_transit,
+      &.freedom_of_the_press,
+      &.freedom_in_the_world,
+      &.freedom_on_the_net,
+      &.resource_governance_index {
+        width: rem(70px);
+      }
     }
   }
 }
