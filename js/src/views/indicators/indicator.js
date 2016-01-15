@@ -36,8 +36,9 @@ var IndicatorView = Backbone.View.extend({
 
   initializeData: function() {
     this.getYears().done(function(years) {
-      this.years = years.rows;
-      this.actualYear = years.rows[0].year
+
+      this.years = years ? years.rows : null;
+      this.actualYear = years  && years.rows[0] ? years.rows[0].year : null;
       
       this.indicator = new Indicator({id: this.id});
       this.listenTo(this.indicator, 'sync', this.renderHeader);
@@ -68,7 +69,6 @@ var IndicatorView = Backbone.View.extend({
   },
 
   renderHeader: function() {
-    console.log(this.indicator);
     var headerView = new IndicatorHeaderView({
       'indicator': this.indicator});
     this.$('.js--indicator-header').append(headerView.render().el);
@@ -83,19 +83,19 @@ var IndicatorView = Backbone.View.extend({
     this.$('.js--indicator-toolbar').append(toolbarView.render().el);
   },
 
-  renderCountriesList: function(mergedCountries) {
-    var countries;
+  renderCountriesList: function(countries) {
+    // var countries;
 
-    if (_.isArray(mergedCountries)) {
-      countries = mergedCountries;
-    } else {
-      countries = _.sortBy(this.countries.toJSON(), 'score').reverse();
-    }
-
-    countries = _.isEmpty(countries) ? null : countries;
-
+    // if (_.isArray(mergedCountries)) {
+    //   countries = mergedCountries;
+    // } else {
+    // }
+    // console.log(countries);
+    // console.log(this.countries)
+    // var countries = _.isEmpty(countries) ? null : this.countries.toJSON();
+    
     var listView = new CountryListView({
-      'countries': countries});
+      'countries': this.countries.toJSON() });
     this.$('.js--countries').html(listView.render().el);
   },
 
@@ -118,40 +118,14 @@ var IndicatorView = Backbone.View.extend({
     this.initializeData();
   },
 
-  // filterCountries: function(group) {
-  //   // console.log(group);
-  //   if (!group) {
-  //     this.renderCountriesList();
-  //     return;
-  //   }
-
-  //   console.log(group);
-  //   var selectedCountries = group;
-  //   var allCountries = this.countries.toJSON();
-  //   var mergedCountries = [];
-
-  //   $.each(selectedCountries, function(country) {
-  //     var iso = this.iso;
-  //     var rankData = _.find(allCountries, {'iso': iso});
-
-  //     if (rankData) {
-  //       mergedCountries.push(rankData);
-  //     }
-  //   })
-
-  //   var countries = _.sortBy(mergedCountries, 'score').reverse();
-
-  //   this.renderCountriesList(countries);
-  // },
-
   //Update countries when year or category selected.
   updateCountries: function(year, categoryGroup, categoryName) {
     this.actualYear = year || this.actualYear;
     this.categoryName = categoryName || this.categoryName;
     this.categoryGroup = categoryGroup || this.categoryGroup;
 
-    this.countries.countriesForIndicator(this.id, this.actualYear, this.categoryGroup, this.categoryName).done(function(countries) {
-      this.renderCountriesList(countries);
+    this.countries.countriesForIndicator(this.id, this.actualYear, this.categoryGroup, this.categoryName).done(function() {
+      this.renderCountriesList();
     }.bind(this))
   },
 

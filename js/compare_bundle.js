@@ -41,7 +41,7 @@ var Countries = CartoDBCollection.extend({
   countriesForIndicator: function(id, year, categoryGroup, categoryName) {
     var query = SQL({ 
       'id': id, 
-      'year': year,
+      'year': year ? year : null,
       'categoryGroup': categoryGroup != undefined && categoryGroup != 'global' ? encodeURIComponent(categoryGroup) : null,
       'categoryName': encodeURIComponent(categoryName) || null
       }),
@@ -504,7 +504,7 @@ module.exports = "<div class=\"l-banner -section-2 promoInteriores-CompareCountr
 module.exports = "<div class=\"l-toolbar -selectors\">\n  <div class=\"wrap\">\n    <div class=\"m-compare-selectors\">\n      <div class=\"selector-wrapper -index\">\n        <p>Data Sets</p>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector\" name=\"country1\" id=\"country-1\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector -score\" name=\"country2\" id=\"country-2\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector -score\" name=\"country3\" id=\"country-3\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
 
 },{}],21:[function(require,module,exports){
-module.exports = "SELECT\n  i.iso,\n  i.short_name,\n  i.score,\n  i.year,\n  w.name,\n  w.region,\n  w.lending_category,\n  w.income_group \nFROM indicator_data i \n  INNER JOIN wb_countries_clasification w \n  ON i.iso=w.iso \nWHERE i.short_name = '{{id}}' \nAND i.year = '{{year}}'\n{{#if categoryGroup}}\nAND w.{{categoryGroup}} = '{{categoryName}}'\n{{/if}}\norder by i.score desc, w.name asc";
+module.exports = "SELECT\n  i.iso,\n  i.short_name,\n  i.score,\n  i.year,\n  w.name,\n  w.region,\n  w.lending_category,\n  w.income_group,\n  c.desired_direction \nFROM indicator_data i \n  INNER JOIN wb_countries_clasification w ON i.iso=w.iso \n  INNER JOIN indicator_config c ON i.short_name=c.short_name \nWHERE i.short_name = '{{id}}' \nAND i.score is not null \n{{#if year}}\nAND i.year = '{{year}}' \n{{/if}}\n{{#if categoryGroup}}\nAND w.{{categoryGroup}} = '{{categoryName}}' \n{{/if}}\norder by i.score desc, w.name desc";
 
 },{}],22:[function(require,module,exports){
 module.exports = "SELECT\n  c.desired_direction, \n  c.has_historical_info, \n  c.max_score,\n  c.methodology_link, \n  c.min_score, \n  c.product_description, \n  c.product_logo,\n  c.product_name, \n  c.short_name, \n  c.units, \n  c.organization, \n  d.iso,\n  d.notes, \n  d.score,\n  d.score_text,\n  d.year\n FROM {{table}} AS d\n   INNER JOIN indicator_config AS c ON d.short_name = c.short_name\n WHERE d.iso = '{{iso}}'\n";

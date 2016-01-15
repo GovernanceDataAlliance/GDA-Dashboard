@@ -9,7 +9,7 @@ var IndicatorHeaderView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
     this.indicator = options.indicator;
-    // this.listenTo(this.indicator, 'sync', this.render);
+    this.listenTo(this.indicator, 'sync', this.render);
 
     // if (!this.hasRequiredAttributes()) {
     //   this.indicator.fetch();
