@@ -36,10 +36,6 @@ var Countries = CartoDBCollection.extend({
     return this.fetch({url: url});
   },
 
-  checkDirection: function(direction) {
-    return direction === 'down' ? this.toJSON().reverse() : this.toJSON();
-  },
-
   downloadCountriesForIndicator: function(id) {
     var query = SQL({ id: id }),
         url = this._urlForQuery(query) + '&format=csv';

@@ -17,8 +17,8 @@ var IndicatorListView = Backbone.View.extend({
   },
 
   render: function() {
+    //TODO move this to the collection.
     var countries = this.direction === 'down' ? this.countries.reverse() : this.countries;
-    console.log(this.countries);
     this.$el.html(template({
       'countries': countries,
       'direction': this.direction
