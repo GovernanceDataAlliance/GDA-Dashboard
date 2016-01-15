@@ -256,18 +256,22 @@
     .global-score { color: $green;}
     .graph > svg { stroke: $green;}
   }
+
   &.-score-good {
-    .global-score { color: $orange;}
-    .graph > svg { stroke: $orange;}
+    .global-score { color: $blue;}
+    .graph > svg { stroke: $blue;}
   }
+
   &.-score-medium {
     .global-score { color: $yellow;}
     .graph > svg { stroke: $yellow;}
   }
+
   &.-score-regular {
-    .global-score { color: $blue;}
-    .graph > svg { stroke: $blue;}
+    .global-score { color: $orange}
+    .graph > svg { stroke: $orange}
   }
+
   &.-score-bad {
     color: $white;
     background-color: $magenta;
