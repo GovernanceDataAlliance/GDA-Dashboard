@@ -46,8 +46,7 @@ var IndicatorView = Backbone.View.extend({
       this.indicator.fetch();
 
       this.countries = new Countries();
-      this.listenTo(this.countries, 'sync', this.renderCountriesList);
-      this.countries.countriesForIndicator(this.id, this.actualYear);
+      this.updateCountries(this.actualYear);
 
     }.bind(this));
 
@@ -88,7 +87,7 @@ var IndicatorView = Backbone.View.extend({
     var listView = new CountryListView({
       el: this.$('.js--countries'),
       'countries': this.countries.toJSON(),
-      'direction': direction,
+      'direction': direction
     });
   },
 
