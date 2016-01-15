@@ -1,14 +1,20 @@
 .m-controls {
   display: flex;
+  align-items: center;
 
   a, button {
-    padding: 0 rem(20px);
 
     &:hover {
       color: $color-1;
+      border-color: $color-1;
       
       svg {
         fill: $color-1;
+      }
+
+      &:after {
+        color: $color-1;
+        border-color: $color-1;
       }
     }
 

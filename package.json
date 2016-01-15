@@ -20,6 +20,7 @@
     "serve-static": "^1.10.0",
     "sinon": "^1.17.2",
     "stringify": "^3.1.0",
+    "topojson": "^1.6.19",
     "urijs": "^1.16.1",
     "watchify": "^3.5.0"
   },

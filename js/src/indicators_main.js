@@ -1,7 +1,7 @@
-var Backbone = require('backbone'),
-    $ = require('jquery');
+var $ = require('jquery'),
+    Backbone = require('backbone');
 
-var helpers = require('./helpers.js');
+var helpers = require('./helpers/handlebars.js');
 
 var Router = require('./routers/indicators.js'),
     router = new Router({
