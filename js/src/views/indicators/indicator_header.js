@@ -11,15 +11,14 @@ var IndicatorHeaderView = Backbone.View.extend({
     this.indicator = options.indicator;
     this.listenTo(this.indicator, 'sync', this.render);
 
-    if (!this.hasRequiredAttributes()) {
-      this.indicator.fetch();
-    }
+    // if (!this.hasRequiredAttributes()) {
+    //   this.indicator.fetch();
+    // }
   },
 
   render: function() {
     this.$el.html(template({
-      name: this.indicator.get('product_name'),
-      description: this.indicator.get('product_description')
+      'indicator': this.indicator.toJSON()
     }));
 
     return this;
