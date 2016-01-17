@@ -3,6 +3,7 @@
   flex-basis: 100%;
   min-height: rem(390px);
   border-bottom: 1px solid $border-1;
+  color: $font-color-1;
   
   .card-wrap {
     display: flex;
@@ -164,7 +165,6 @@
         font-family: $font-secondary;
         font-weight: 700;
         font-size: rem(130px);
-        color: $font-color-1;
         line-height: .7em;
         letter-spacing: rem(-7.5px);
        
@@ -250,4 +250,31 @@
       }
     }
   }
+
+  // Scores
+  &.-score-best {
+    .global-score { color: $green;}
+    .graph > svg { stroke: $green;}
+  }
+
+  &.-score-good {
+    .global-score { color: $blue;}
+    .graph > svg { stroke: $blue;}
+  }
+
+  &.-score-medium {
+    .global-score { color: $yellow;}
+    .graph > svg { stroke: $yellow;}
+  }
+
+  &.-score-regular {
+    .global-score { color: $orange}
+    .graph > svg { stroke: $orange}
+  }
+
+  &.-score-bad {
+    color: $white;
+    background-color: $magenta;
+    .graph > svg { stroke: $white;}
+  }  
 }
