@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    {% include icons.html %}
+    
+    <div class="l-main-container"> 
+      {% include header.html %}
+
+      <div class="l-banner -section-1 {{ page.image }} js--index-banner">
+        <div class="m-breadcrumbs -light">
+          <ul>
+            <li><a href="/">home </a></li>
+            <li><span> / </span></li>
+            <li>{{ page.title }}</li>
+          </ul>
+        </div>
+
+        <div class="wrap">
+          <h3 class="c-title -medium">{{ page.title }}</h3>
+          <div class="m-search js--search" id="searchBox">
+          </div>
+        </div>
+      </div>
+
+      {{ content }}
+
+      {% include modules/compare_module.html %}
+      {% include modules/about_module.html %}
+
+      {% include footer.html %}
+    </div>
+    <script src="js/bundle.js"></script>
+  </body>
+
+</html>
+

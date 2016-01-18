@@ -26,6 +26,9 @@ var CountryView = Backbone.View.extend({
       throw new Error('CountryView requires a Country ISO ID');
     }
 
+    //Think of a better solution...
+    $('.js--index-banner').addClass('is-hidden');
+
     this.iso = options.iso;
     this.initializeData();
   },
