@@ -15,12 +15,10 @@ var CountryToolbarView = Backbone.View.extend({
 
   initialize: function(options) {
     options = options || {};
-
-    this.iso = options.iso;
   },
 
   render: function() {
-    this.$el.html(template({ 'iso': this.iso }));
+    this.$el.html(template);
     return this;
   },
 

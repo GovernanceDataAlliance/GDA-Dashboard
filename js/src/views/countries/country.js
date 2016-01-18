@@ -7,7 +7,8 @@ var Country = require('../../models/country.js'),
 
 var CountryHeaderView = require('./country_header.js'),
     IndicatorListView = require('./indicator_list.js'),
-    CountryToolbarView = require('./country_toolbar.js');
+    CountryToolbarView = require('./country_toolbar.js'),
+    ToolbarUtilsView = require('../common/toolbar_utils_view.js');
 
 var ShareView = require('../common/share_view.js');
 
@@ -15,10 +16,6 @@ var template = Handlebars.compile(
   require('../../templates/countries/country.hbs'));
 
 var CountryView = Backbone.View.extend({
-  events: {
-    "click .js--download": "download",
-    "click .js--share": "share"
-  },
 
   initialize: function(options) {
     options = options || {};
@@ -31,6 +28,7 @@ var CountryView = Backbone.View.extend({
 
     this.iso = options.iso;
     this.initializeData();
+
   },
 
   initializeData: function() {
@@ -45,11 +43,11 @@ var CountryView = Backbone.View.extend({
 
   render: function(rerender) {
     this.$el.html(template());
-    this.renderToolbar();
+    this.renderToolbars();
 
     if (rerender === true) {
       this.renderCountry();
-      this.renderToolbar();
+      this.renderToolbars();
       this.renderIndicators();
     }
   },
@@ -60,9 +58,16 @@ var CountryView = Backbone.View.extend({
     this.$('.js--country-header').append(headerView.render().el);
   },
 
-  renderToolbar: function() {
-    var toolbarView = new CountryToolbarView({ 'iso': this.iso });
-    this.$('.js--country-toolbar').append(toolbarView.render().el);
+  renderToolbars: function() {
+    this.$el.find('.js--country-toolbar').find('.wrap').append(new ToolbarUtilsView({
+      el: this.$el.find('.js--toolbar-utils'),
+      isCountry: true,
+      iso: this.iso
+    }).render().el);
+
+    this.$el.find('.js--country-toolbar').find('.wrap').append(new CountryToolbarView({
+      el: this.$el.find('.js--toolbar-display')
+    }).render().el);
   },
 
   renderIndicators: function() {
@@ -72,13 +77,13 @@ var CountryView = Backbone.View.extend({
     listView.render();
   },
 
-  download: function(event) {
-    event.preventDefault();
-    event.stopPropagation();
+  // download: function(event) {
+  //   event.preventDefault();
+  //   event.stopPropagation();
 
-    var url = this.indicators.downloadForCountry(this.iso);
-    window.location = url;
-  },
+  //   var url = this.indicators.downloadForCountry(this.iso);
+  //   window.location = url;
+  // },
 
   setCountry: function(iso) {
     if (this.iso === iso) { this.render(true); }
@@ -90,10 +95,10 @@ var CountryView = Backbone.View.extend({
     this.initializeData();
   },
 
-  share: function() {
-    var shareWindow = new ShareView();
-    shareWindow.show();
-  },
+  // share: function() {
+  //   var shareWindow = new ShareView();
+  //   shareWindow.show();
+  // },
 
   show: function() {
     this.render();

@@ -1,0 +1,25 @@
+.m-download {
+
+  .modal-content {
+    width: 75%;
+
+    h2 {
+      font-weight: 400;
+      margin-bottom: rem(40px);
+    }
+
+    >.content {
+      margin: 60px 0;
+
+      a {
+        font-size: rem(20px)
+      }
+    }
+
+    > .buttons {
+      > .js--cancel-btn {
+        border: 0;
+      }
+    }
+  }
+}

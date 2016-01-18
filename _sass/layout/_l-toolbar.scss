@@ -7,6 +7,10 @@
   .wrap {
     display: flex;
     justify-content: space-between;
+
+    > .js--toolbar-utils, .js--toolbar-display {
+      display: flex;
+    }
   }
 
   &.-share {
@@ -27,5 +31,18 @@
 
   &.-year-selector {
     background-color: $bg-color-1;
+  }
+
+  &.-footer {
+    .js--download, .js--download + span,
+    .compare-link, .compare-link + span{
+      display: none;
+    }
+  }
+
+  &.-blog {
+    .js--print, .js--print + span {
+      display: none;
+    }
   }
 }

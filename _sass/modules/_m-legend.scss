@@ -1,0 +1,45 @@
+.m-legend {
+  display: flex;
+  align-items: center;
+  > ul {
+    display: flex;
+    li {
+      display: flex;
+      align-items: center;
+      &:nth-child(2n) {
+        margin: 0 25px;
+      }
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        margin: 0 10px 0 0;
+      }
+
+      > .legend-title {
+        font-family: "Montserrat";
+        font-size: rem(10px);
+        letter-spacing: rem(0.2px);
+        color: $brown;
+        text-transform: uppercase;
+      }
+
+      &.-best:before {
+        background: $green;
+      }
+      &.-good:before {
+        background: $blue;
+      }
+      &.-medium:before {
+        background: $yellow;
+      }
+      &.-regular:before {
+        background: $orange;
+      }
+      &.-bad:before {
+        background: $magenta;
+      }
+    }
+  }
+}
