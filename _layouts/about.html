@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body class="welcome">
+    {% include icons.html %}
+    <div class="l-main-container"> 
+      {% include header.html %}
+
+      <div class="l-banner -section-2 promoInteriores-About">
+        <div class="m-breadcrumbs  -light">
+          <ul>
+            <li><a href="/">home </a></li>
+            <li><span> / </span></li>
+            <li> about </li>
+          </ul>
+        </div>
+
+        <div class="wrap">
+          <h1 class="c-section-title -light">{{ page.title }}</h1>
+          <p>{{ page.intro-text }}</p>
+        </div>
+      </div>
+
+      <div class="l-content -main">
+        <div class="wrap">
+          <div class="m-static-content">
+            <p>
+              {{ page.content-1-main }}
+            </p>
+            <p class="is-small-text">
+               {{ page.content-1-secondary }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="l-presentation">
+        <div class="intro -center -dark">
+          <div class="wrap">
+            <div class="m-presentation -light">
+              <h2 class="c-subtitle">{{ page.content-2-title }}</h2>
+              <p>{{ page.content-2-text }}</p>
+
+              <ul class="list -simple">
+                <li>
+                  <p>{{ page.content-2-list-item-1 }}</p>
+                </li>
+                <li>
+                  <p>{{ page.content-2-list-item-2 }}</p>
+                </li>
+                <li>
+                  <p>{{ page.content-2-list-item-3 }}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="l-content -main">
+        <div class="wrap">
+          <div class="m-static-content">
+            <h2 class="c-section-title -small">work streams</h2>
+            <ol class="ordered-list">
+              <li>
+                <h3>Coordination and knowledge-sharing among data producers to improve the quality of existing governance data.</h3>
+                <p>Often through the surfacing and sharing of good practice methodological and data gathering techniques. This work stream involves knowledge-sharing and technical assistance for groups within and beyond the Alliance through a basic “help desk” function, bi-monthly technical workshops, and resources addressing topics including research design and use of data; data collection and analysis tools; data storage, publication, and visualization; managing feedback; making data collection more real time; and engaging stakeholders including government.</p>
+              </li>
+              <li>
+                <h3>Meet the needs of those users.</h3>
+                <p>Potentially through the production of new and innovative governance data sets as well as improved presentation and packaging of existing data. AidData plays an essential role in this work stream, collecting and analyzing information about the needs and preferences of actual and potential governance data users. Their work includes an analysis of user data collected through the 2014 Reform Efforts Survey as well as the collection of new user data through innovative “snap polls” that make use of the Reform Efforts Survey sample frame around the world.</p>
+              </li>
+              <li>
+                <h3>Piloting experimental co-production efforts to explore possible economies of scale between data producers.</h3>
+                <p>In an effort to improve the availability of governance data over time.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="l-content -main -dark">
+        <div class="wrap">
+        <div class="m-static-content">
+          <h2 class="c-section-title -small">who we are</h2>
+          <p>The Alliance brings together a number of world-class organizations and individuals committed to the effective production and use of high-quality governance data. Current data producer members include:</p>
+        </div>
+        </div>
+      </div>
+
+      <div class="l-content -fullscreen">
+        <div class="l-grid">
+          <div class="m-card--indexes">
+            <a href="/indicators#{{short_name}}" class="index-description">
+              <img src="{{logo}}" alt="">
+              <h3 class="name">The Centre for Law and Democracy</h3>
+              <p class="organization">The Centre for Law and Democracy is a Company Limited by Guarantee (non-profit corporation) established under the Nova Scotia Companies Act and governed by a Board of Directors</p>
+            </a>
+          </div>
+          <div class="m-card--indexes">
+            <a href="/indicators#{{short_name}}" class="index-description">
+              <img src="{{logo}}" alt="">
+              <h3 class="name">Freedom House</h3>
+              <p class="organization">Freedom House is an independent watchdog organization dedicated to the expansion of freedom and democracy around the world.</p>
+            </a>
+          </div>
+          <div class="m-card--indexes">
+            <a href="/indicators#{{short_name}}" class="index-description">
+              <img src="{{logo}}" alt="">
+              <h3 class="name">Global financial integrity</h3>
+              <p class="organization">Global Financial Integrity works to curtail illicit financial flows by producing groundbreaking research, promoting pragmatic policy solutions, and advising governments.</p>
+            </a>
+          </div>
+          <div class="m-card--indexes">
+            <a href="/indicators#{{short_name}}" class="index-description">
+              <img src="{{logo}}" alt="">
+              <h3 class="name">Global integrity</h3>
+              <p class="organization">We support progress toward open and accountable governance in countries and communities around the world.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% include footer.html %}
+    </div>
+    <script src="js/bundle.js"></script>
+  </body>
+
+</html>
