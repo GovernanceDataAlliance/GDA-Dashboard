@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html>
-
   {% include head.html %}
-
   <body class="welcome">
     {% include icons.html %}
-    
     <div class="l-main-container"> 
       {% include header.html %}
 
@@ -76,23 +73,9 @@
           </div>
         </div>
 
-        <div class="l-highlight distribuidorDestacado-About">
-          <div class="wrap">  
-            <div class="m-presentation -light">
-              <h2 class="c-title">
-                About the Alliance
-              </h2>
-              <p>
-                We're a group of NGOs, governments, firms, and donors who are serious about improving the quality, availability, breadth, and use of governance data. We identify and spread good practices for data production, we build feedback loops between data users and data producers, and we drive down the time and cost to produce data.
-              </p>
-              <a href="about" class="btn -white">Learn more about the Alliance here.</a>  
-            </div>
-          </div>
-        </div>
+        {% include modules/about_module_home.html %}
 
       </div>
-
-
       <script src="js/welcome_bundle.js"></script>
 
       {% include footer.html %}
