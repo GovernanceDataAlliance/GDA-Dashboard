@@ -14,12 +14,9 @@
         <div class="l-banner -main promoHome">
           <div class="wrap">
             <div>
-              <h3 class="c-title">
-                {{ page.title }}
-              </h3>
-              <p>
-                {{ page.search_intro }}:
-              </p>
+              {% for welcomes in site.welcome %}
+                {{ content }}
+              {% endfor %}
             </div>
 
             <div class="m-search js--search" id="searchBox">
@@ -32,7 +29,9 @@
           </div>
           <div class="intro -right -light">
             <div class="m-presentation -right">
-              {{ page-module-1 }}
+              <h2 class="c-subtitle">Country data</h2>
+              <p>The concept of "governance" can't be captured in a single number. But there are a number of high quality data sets assessing key components of a country's governance architecture. Find them here for your favorite country.</p>
+              <a href="countries" class="btn">all the countries &gt;</a>
             </div>
           </div>
         </div>
