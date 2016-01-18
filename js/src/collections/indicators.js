@@ -2,6 +2,7 @@ var $ = require('jquery'),
     _ = require('lodash');
 
 var CartoDBCollection = require('../lib/cartodb_collection.js');
+var ColorService = require('../lib/services/colors.js');
 var CONFIG = require('../../config.json');
 
 var Handlebars = require('handlebars');
@@ -48,14 +49,31 @@ var Indicators = CartoDBCollection.extend({
    * Adding elements when no score for that index.
    */
   parse: function(rawData) {
-    $.each(defaultScores, function(i, d) {
+    var classColor;
+    $.each(defaultScores, _.bind(function(i, d) {
       var current = _.findWhere(rawData.rows, {'short_name': d.short_name});
-      if (!current) {
-        rawData.rows.push(d);
+
+      if (current) {
+        classColor = this._setColorsByScore(current);
+        if (!classColor) {
+          return;
+        }
+        _.extend(current, {'classColor': this._setColorsByScore(current)});
+      } else {
+        rawData.rows.push(d)
       }
-    });
+
+    }, this));
 
     return rawData.rows;
+  },
+
+  _setColorsByScore: function(indicator) {
+    if (!indicator.score_range) {
+      return;
+    }
+
+    return ColorService.getColor(indicator);
   },
 
   downloadForCountry: function(iso) {

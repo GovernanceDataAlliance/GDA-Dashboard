@@ -33,6 +33,25 @@
         font-family: $font-secondary;
         color: #5b5b5b;
       }
+
+      // Scores
+      &.-score-best {
+        color: $green;
+      }
+      &.-score-good {
+        color: $blue;
+      }
+      &.-score-medium {
+        color: $yellow;
+      }
+      &.-score-regular {
+        color: $orange;
+      }
+      &.-score-bad {
+        color: $white;
+        background-color: $magenta;
+      }
+
     }
 
     &:last-child {
