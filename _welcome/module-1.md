@@ -1,7 +1,0 @@
----
-layout: welcome-module-1
-title: Country data
----
-
-The concept of "governance" can't be captured in a single number. But there are a number of high quality data sets assessing key components of a country's governance architecture. Find them here for your favorite country.
-[all the countries &gt;](countries)
