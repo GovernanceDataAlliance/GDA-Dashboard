@@ -32,4 +32,4 @@ In an effort to improve the availability of governance data over time.
 ___
 
 ## Who we are
-he Alliance brings together a number of world-class organizations and individuals committed to the effective production and use of high-quality governance data. Current data producer members include:
+The Alliance brings together a number of world-class organizations and individuals committed to the effective production and use of high-quality governance data. Current data producer members include:

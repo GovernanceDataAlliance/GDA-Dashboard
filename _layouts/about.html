@@ -29,6 +29,20 @@
         </div>
       </div>
 
+      <div class="l-content -fullscreen">
+        <div class="l-grid">
+          {% for organization in site.categories.organizations %}
+            <div class="m-card--indexes">
+              <a href="{{ organization.link }}" target="_blank" class="index-description">
+                <span style="background-image:url('{{ organization.logo }}')" alt=""></span>
+                <h3 class="name">{{ organization.name }}</h3>
+                <p class="organization">{{ organization.description }}</p>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
       {% include footer.html %}
     </div>
     <script src="js/bundle.js"></script>
