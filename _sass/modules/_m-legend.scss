@@ -25,19 +25,19 @@
         text-transform: uppercase;
       }
 
-      &.-green:before {
+      &.-best:before {
         background: $green;
       }
-      &.-blue:before {
+      &.-good:before {
         background: $blue;
       }
-      &.-yellow:before {
+      &.-medium:before {
         background: $yellow;
       }
-      &.-orange:before {
+      &.-regular:before {
         background: $orange;
       }
-      &.-red:before {
+      &.-bad:before {
         background: $magenta;
       }
     }
