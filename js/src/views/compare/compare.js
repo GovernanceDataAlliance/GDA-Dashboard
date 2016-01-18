@@ -20,7 +20,8 @@ var template = Handlebars.compile(require('../../templates/compare/compare.hbs')
 
 var CompareSelectorsView = require('./compare_selectors.js'),
     YearSelectorView = require('../common/year_selector.js'),
-    ModalWindowView = require('../common/infowindow_view.js')
+    ModalWindowView = require('../common/infowindow_view.js'),
+    ToolbarUtilsView = require('../common/toolbar_utils_view.js');
 
 var compareStatus = new (Backbone.Model.extend({
       defaults: {
@@ -56,6 +57,7 @@ var CompareView = Backbone.View.extend({
 
     this.$el.html(template());
     this.renderSelectors();
+    this.renderToolbar();
     return this;
   },
 
@@ -69,6 +71,12 @@ var CompareView = Backbone.View.extend({
       var indicators = _.sortByOrder(indicators.rows, ['short_name']);
       this.$('.js--comparison-indicators').html(indicatorsTemplate({ 'indicators': indicators }))
     }.bind(this))
+  },
+
+  renderToolbar: function() {
+    this.$el.find('.js--compare-toolbar').find('.wrap').append(new ToolbarUtilsView({
+      el: this.$el.find('.js--toolbar-utils')
+    }).render().el);
   },
 
   getDataForCountry: function(iso, order) {

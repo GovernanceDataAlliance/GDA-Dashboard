@@ -7,7 +7,7 @@
     &:hover {
       color: $color-1;
       border-color: $color-1;
-      
+
       svg {
         fill: $color-1;
       }
@@ -36,5 +36,9 @@
     align-self: center;
     color: $border-1;
     padding: 0 rem(10px);
+  }
+
+  &.-country-options {
+    align-items: initial;
   }
 }
