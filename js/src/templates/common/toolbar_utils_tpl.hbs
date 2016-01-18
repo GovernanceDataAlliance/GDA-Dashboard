@@ -1,0 +1,31 @@
+<div class="m-controls">
+  <button class="js--download btn">
+    <svg class="icon -regular">
+      <use xlink:href="#icon-download"></use>
+    </svg>
+    download
+  </button>
+  <span> | </span>
+  {{#if isCountry}}
+    <a href="compare#countries[]={{iso}}" class="btn compare-link">
+      <svg class="icon -regular">
+        <use xlink:href="#icon-compare"></use>
+      </svg>
+      compare countries
+    </a>
+    <span> | </span>
+  {{/if}}
+  <button class="js--print btn">
+    <svg class="icon -regular">
+      <use xlink:href="#icon-print"></use>
+    </svg>
+    print
+  </button>
+  <span> | </span>
+  <button class="js--share btn">
+    <svg class="icon -regular">
+      <use xlink:href="#icon-share"></use>
+    </svg>
+    share
+  </button>
+</div>
