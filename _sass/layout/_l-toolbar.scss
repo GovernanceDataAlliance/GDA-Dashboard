@@ -39,4 +39,10 @@
       display: none;
     }
   }
+
+  &.-blog {
+    .js--print, .js--print + span {
+      display: none;
+    }
+  }
 }
