@@ -1,6 +1,6 @@
 var Backbone = require('backbone'),
     _ = require('lodash'),
-    enquire = require('enquire/lib');
+    enquire = require('enquire');
 
 var MainView = Backbone.View.extend({
 
@@ -12,6 +12,7 @@ var MainView = Backbone.View.extend({
   },
   
   initialize: function() {
+    //TODO add enquire to handle mobile;
     // enquire.register("screen and (max-width:768px)", {
     //   match: _.bind(function(){
     //     this.mobile = true;
