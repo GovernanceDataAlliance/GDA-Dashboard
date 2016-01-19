@@ -16,9 +16,13 @@ body {
   margin: 0;
   font-family: $font-main, Helvetica, Arial, sans-serif;
   color: $font-color-1;
-  font-size: $font-size;
+  font-size: rem(15px);
   background-color: #eee;
   -webkit-font-smoothing: antialiased;
+
+  @media screen and (min-width: $screen-xs) {
+    font-size: $font-size;
+  }
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -68,6 +72,12 @@ svg:not(:root) {
   font-size: rem(15px);
 
   p + & {
-    margin-top: rem(50px);
+    margin-top: rem(20px);
+  }
+
+  @media screen and (min-width: $screen-xs) {
+    p + & {
+      margin-top: rem(50px);
+    }
   }
 }

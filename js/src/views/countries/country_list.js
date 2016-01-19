@@ -26,7 +26,6 @@ var CountryListView = Backbone.View.extend({
     enquire.register("screen and (max-width:768px)", {
       match: _.bind(function(){
         this.tablet = true;
-        console.log('is tablet')
         this.render();
       },this)
     });
@@ -34,7 +33,6 @@ var CountryListView = Backbone.View.extend({
     enquire.register("screen and (min-width:768px)", {
       match: _.bind(function(){
         this.tablet = false;
-        console.log('aint tablet');
         this.render();
       },this)
     });
