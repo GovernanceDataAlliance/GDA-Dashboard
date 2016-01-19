@@ -1,12 +1,5 @@
 .m-social-share {
-  width: rem(50px);
-  margin: 0 rem(60px);
-
-  ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+  width: rem(60px);
 
   .icon {
     width: rem(20px);
@@ -14,11 +7,22 @@
     fill: $color-4;
   }
 
-  &.-footer {
-    margin-right: 0;
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
-  &.-share-window {
-    margin: 0 auto;
+  @media screen and (min-width: $screen-m) {
+    width: rem(50px);
+    margin: 0 rem(60px);
+
+    &.-footer {
+      margin-right: 0;
+    }
+
+    &.-share-window {
+      margin: 0 auto;
+    }
   }
 }

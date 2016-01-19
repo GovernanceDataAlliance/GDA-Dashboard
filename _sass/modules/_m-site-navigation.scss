@@ -1,20 +1,40 @@
 .m-site-navigation {
-  @include col(8);
+  margin-bottom: rem(40px);
 
-  ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  .link {
+    border-bottom: 1px solid  $bg-color-3;
+
+    a {
+      display:block;
+      padding: rem(40px) 0 rem(20px) 0;
+      font-size: rem(17px);
+      font-weight: 700;
+      font-family: $font-secondary;
+      color: $font-color-1;
+      text-transform: uppercase;
+    }
   }
 
-  .link a {
-    font-size: rem(11px);
-    font-family: $font-secondary;
-    color: $font-color-1;
-    text-transform: uppercase;
+  @media screen and (min-width: $screen-m) {
+    @include col(8);
 
-    &:hover {
-      color: $font-color-3;
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .link {
+      padding: 0;
+      border-bottom: 0;
+
+      a {
+        font-size: rem(11px);
+  
+        &:hover {
+          color: $font-color-3;
+        }
+      }
     }
   }
 }
