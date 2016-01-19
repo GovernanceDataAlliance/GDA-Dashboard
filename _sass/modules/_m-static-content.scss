@@ -1,15 +1,67 @@
 .m-static-content {
   max-width: $content-width;
 
-  > .ordered-list {
-    color: $color-2;
+  h5 {
+    font-size: rem(20px);
+    font-weight: 400;
+    margin-bottom: rem(40px);
+  }
+
+  h6 {
+    font-size: rem(15px);
+    font-weight: 400;
+  }
+
+  hr {
+    color: transparent;
+    margin: rem(100px) 0;
+  }
+
+  h2 {
+    position: relative;
+    padding-bottom: rem(50px);
+    margin-bottom: rem(50px);
+    font-size: rem(12px);
+    font-weight: 400;
+    color: $font-color-1;
+    font-family: $font-secondary;
+    text-transform: uppercase;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: rem(60px);
+      height: rem(3px);
+      background-color: $color-4;
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: rem(20px);
+    font-size: rem(15px);
+    margin-top: rem(50px);
+
+    > li {
+      margin-bottom: rem(30px);
+    }
+
+    p {
+      font-size: rem(15px);
+    }
+  }
+
+  ol {
+    color: $color-4;
     margin-left: rem(95px);
     font-size: rem(72px);
     font-weight: 700;
     font-family: $font-secondary;
 
     li {
-      margin-bottom: rem(70px);
+      margin-bottom: rem(50px);
     }
 
     h3 {

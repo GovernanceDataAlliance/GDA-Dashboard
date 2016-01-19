@@ -54,6 +54,14 @@
       color: $font-color-1;
       margin-bottom: 0;
     }
+    
+    span {
+      height: rem(40px);
+      width: 100%;
+      background-position: top left;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
 
     img {
       display: block;

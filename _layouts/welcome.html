@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body class="welcome">
+    {% include icons.html %}
+    <div class="l-main-container"> 
+      {% include header.html %}
+
+      <div class="js-welcome">
+
+        <div class="l-banner -main promoHome">
+          <div class="wrap">
+            <div>
+              <h3 class="c-title">
+                {{ page.title }}
+              </h3>
+              <p>
+                {{ page.search_intro }}:
+              </p>
+            </div>
+            <div class="m-search js--search" id="searchBox">
+            </div>
+          </div>
+        </div>
+
+        <div class="l-presentation">
+          <div class="picture {{ page.module-1-image }}">
+          </div>
+          <div class="intro -right -light">
+            <div class="wrap">
+              <div class="m-presentation">
+                <h2 class="c-subtitle">{{ page.module-1-title }}</h2>
+                <p>{{ page.module-1-content }}</p>
+                <a href="{{ page.module-1-link-url }}" class="btn">{{ page.module-1-link-text }} &gt;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="l-presentation">
+          <div class="intro -center -dark">  
+            <div class="wrap">
+              <div class="m-presentation -light">
+                  <h2 class="c-subtitle">{{ page.module-2-title }}</h2>
+                  <p>{{ page.module-2-content }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="l-presentation">
+          <div class="picture {{ page.module-3-image }}">
+          </div>
+          <div class="intro -right -light">
+            <div class="m-presentation -right">
+              <h2 class="c-subtitle">{{ page.module-3-title }}</h2>
+              <p>{{ page.module-3-content }}</p>
+              <a href="{{ page.module-3-link-url }}" class="btn">{{ page.module-3-link-text }} &gt;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="l-presentation">
+          <div class="intro -left -light">
+            <div class="m-presentation -right">
+              <h2 class="c-subtitle">{{ page.module-4-title }}</h2>
+              <p>{{ page.module-4-content }}</p>
+              <a href="{{ page.module-4-link-url }}" class="btn">{{ page.module-4-link-text }} &gt;</a>
+            </div>
+          </div>
+          <div class="picture {{ page.module-4-image }}">
+          </div>
+        </div>
+
+        {% include modules/about_module_home.html %}
+
+      </div>
+      <script src="js/welcome_bundle.js"></script>
+
+      {% include footer.html %}
+    </div>
+    <script src="js/bundle.js"></script>
+  </body>
+
+</html>

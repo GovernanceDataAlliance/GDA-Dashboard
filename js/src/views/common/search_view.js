@@ -3,7 +3,8 @@ var Backbone = require('backbone'),
     _ = require('lodash');
     $ = require('jquery');
 
-var templateSuggestions = Handlebars.compile(require('../../templates/common/search_suggestions_tpl.hbs'));
+var template = Handlebars.compile(require('../../templates/common/search_tpl.hbs')),
+    templateSuggestions = Handlebars.compile(require('../../templates/common/search_suggestions_tpl.hbs'));
 
 var SearchCollection = require('../../collections/countries.js');
 
@@ -37,7 +38,12 @@ var SearchView = Backbone.View.extend({
     this.elSuggestions = this.options.elSuggestions;
 
     this.closeOnClick = this.options.closeOnClick;
+    this.render();
     this.getData();
+  },
+
+  render: function() {
+    this.$el.html(template);
   },
 
   setListeners: function() {

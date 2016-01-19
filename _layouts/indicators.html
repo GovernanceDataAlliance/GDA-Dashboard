@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    {% include icons.html %}
+    
+    <div class="l-main-container"> 
+      {% include header.html %}
+
+      <div class="l-banner -section-2 promoInteriores-Data js--index-banner">
+        <div class="m-breadcrumbs -light">
+          <ul>
+            <li><a href="/">home </a></li>
+            <li><span> / </span></li>
+            <li> {{ page.page-name }} </li>
+          </ul>
+        </div>
+
+        <div class="wrap">
+
+          <h1 class="c-section-title -light">{{ page.page-name }}</h1>
+          <p>{{ page.intro-text }}</p>
+        </div>
+      </div>
+      
+      <div class="js--indicators-container"></div>
+
+      {% include modules/about_module.html %}
+      {% include footer.html %}
+    </div>
+    <script src="js/indicators_bundle.js"></script>
+    <script src="js/bundle.js"></script>
+  </body>
+
+</html>
+
