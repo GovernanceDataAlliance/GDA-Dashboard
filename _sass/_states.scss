@@ -6,6 +6,10 @@
   @extend %hidden;
 }
 
+.is-inmobile {
+  overflow: hidden !important;
+}
+
 .is-mobile-hidden {
   @extend %hidden;
   
