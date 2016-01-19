@@ -1,7 +1,7 @@
 .l-content {
   padding: rem(110px) 0 rem(70px);
   border-bottom: 1px solid $border-1;
-  
+
   &:nth-child(2n + 1) {
     background-color: $bg-color-1;
   }
@@ -13,5 +13,9 @@
   &.-fullscreen {
     padding: 0;
     background-color: transparent;
+  }
+
+  &.-fixed {
+    margin-top: rem(70px);
   }
 }
