@@ -22,10 +22,24 @@
   }
 
   &.-selectors {
+    transition: all .3s;
+    transform: translate(0,0);
     .wrap {
       display: flex;
       align-items: initial;
       justify-content: initial;
+    }
+
+    &.-fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+    }
+
+    &.-hide-transition {
+      transform: translate(0, -100%);
     }
   }
 

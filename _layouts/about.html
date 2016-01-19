@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body class="welcome">
+    {% include icons.html %}
+    <div class="l-main-container"> 
+      {% include header.html %}
+
+      <div class="l-banner -section-2 promoInteriores-About">
+        <div class="m-breadcrumbs  -light">
+          <ul>
+            <li><a href="/">home </a></li>
+            <li><span> / </span></li>
+            <li> about </li>
+          </ul>
+        </div>
+
+        <div class="wrap">
+          <h1 class="c-section-title -light">{{ page.title }}</h1>
+          <p>{{ page.intro-text }}</p>
+        </div>
+      </div>
+
+      <div class="l-content -main">
+        <div class="wrap">
+          <div class="m-static-content">
+            {{ content }}
+          </div>
+        </div>
+      </div>
+
+      <div class="l-content -fullscreen">
+        <div class="l-grid">
+          {% for organization in site.categories.organizations %}
+            <div class="m-card--indexes">
+              <a href="{{ organization.link }}" target="_blank" class="index-description">
+                <span style="background-image:url('{{ organization.logo }}')" alt=""></span>
+                <h3 class="name">{{ organization.name }}</h3>
+                <p class="organization">{{ organization.description }}</p>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      {% include footer.html %}
+    </div>
+    <script src="js/bundle.js"></script>
+  </body>
+
+</html>

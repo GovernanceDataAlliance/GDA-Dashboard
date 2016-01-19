@@ -26,6 +26,9 @@ var IndicatorView = Backbone.View.extend({
     options = options || {};
 
     this.id = options.id;
+
+    $('.js--index-banner').addClass('is-hidden');
+    
     this.initializeData();
     this.setListeners();
   },

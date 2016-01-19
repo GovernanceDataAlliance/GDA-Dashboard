@@ -32,7 +32,7 @@ var CountriesView = Backbone.View.extend({
   },
 
   initViews: function() {
-    var search = new SearchView({ el: this.$('.js--search') });
+    var search = new SearchView({ el: $('.js--search') });
   },
 
   show: function() {
