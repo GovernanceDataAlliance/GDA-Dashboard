@@ -1,5 +1,5 @@
 $footer-desktop-height: rem(245px);
-$footer-height: rem(400px);
+$footer-height: rem(375px);
 
 .l-footer {
   position: relative;
@@ -10,6 +10,7 @@ $footer-height: rem(400px);
   align-items: stretch;
 
   @media screen and (min-width: $screen-m) {
+    height: $footer-desktop-height;
     flex-direction: row;
   }
 
@@ -20,6 +21,11 @@ $footer-height: rem(400px);
     flex-basis: 33.33%;
     justify-content: flex-end;
     background-color: $bg-color-2;
+
+    @media screen and (min-width: $screen-m) {
+      order: 1;
+      height: $footer-desktop-height;
+    }
   }
 
   .l-menus {
@@ -27,35 +33,40 @@ $footer-height: rem(400px);
     display: flex;
     align-items: stretch;
     justify-content: center;
-    padding: rem(75px) 0;
+    padding: rem(60px) 0;
+    height: rem(250px);
 
     .menus-wrapper {
       @include col(5);
-      padding-right: rem($wrap-padding);
       display: flex;
-      align-items: flex-end;
       justify-content: space-between;
+      align-items: center;
       flex-direction: column;
     }
 
     p {
       font-size: rem(14px);
     }
+
+    @media screen and (min-width: $screen-m) {
+      padding: rem(75px) 0;
+      order: 2;
+
+      .menus-wrapper {
+        align-items: flex-end;
+        padding-right: rem($wrap-padding);
+      }
+    }
   }
   
   .footer-info {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: flex-end;
-  }
+    flex-direction: column;
+    align-items: center;
 
-  .creative-common-logo {
-    position: relative;
-    top: rem(2px);
-    width: rem(20px);
-    height: rem(20px);
-    margin-right: rem(10px); 
+    @media screen and (min-width: $screen-m) {
+      flex-direction: row;
+    }
   }
 }
 

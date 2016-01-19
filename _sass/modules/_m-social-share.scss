@@ -15,6 +15,17 @@
     width: rem(60px);
   }
 
+  &.-footer {
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: rem(170px);
+      margin-top: rem(30px);
+    }
+  }
+
   @media screen and (min-width: $screen-m) {
     &.-header {
       position: absolute;
@@ -30,11 +41,22 @@
       ul {
         width: 100%;
       }
+    }
 
-      @media screen and (min-width: $screen-l) {
-        width: rem(160px);
-        padding: 0 rem(40px);
+    &.-footer {
+      margin-top: 0;
+      margin-left: rem(20px);
+
+      ul {
+        margin-top: 0;
       }
+    }
+  }
+
+  @media screen and (min-width: $screen-l) {
+    &.-header {
+      width: rem(160px);
+      padding: 0 rem(40px);
     }
   }
 }
