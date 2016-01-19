@@ -1,29 +1,14 @@
 <header class="l-header">
   
-  <div class="brand">
-    <a class="c-brand" href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/css/img/logo.svg" alt=""></a>
+  <div class="l-brand">
+    <a class="c-brand" href="{{ site.baseurl }}/">
+      <img class="is-tablet-hidden" src="{{ site.baseurl }}/css/img/logo-simple.svg" alt="">
+      <img class="is-mobile-hidden" src="{{ site.baseurl }}/css/img/logo.svg" alt="">
+    </a>
   </div>
   
-  <div class="menus">
+  <div class="l-menus">
     <div class="menus-wrapper">
-      <div class="m-social-share">
-        <ul>
-<!--           <li class="icon -facebook">
-            <a href="https://www.facebook.com">
-              <svg class="icon">
-                <use xlink:href="#icon-facebook"></use>
-              </svg>
-            </a>
-          </li> -->
-          <li class="icon -twitter">
-            <a href="https://twitter.com/@GovDataAlliance">
-              <svg class="icon">
-                <use xlink:href="#icon-twitter"></use>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </div>
       
       <button class="btn-mobile-menu"></button>
       <nav class="m-site-navigation">
@@ -35,6 +20,26 @@
           <li class="link"><a href="#">Blog</a></li>
         </ul>
       </nav>
+
+      <div class="m-social-share">
+        <ul>
+          <li class="icon -twitter">
+            <a href="https://twitter.com/@GovDataAlliance">
+              <svg class="icon">
+                <use xlink:href="#icon-twitter"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="icon -facebook">
+            <a href="https://www.facebook.com">
+              <svg class="icon">
+                <use xlink:href="#icon-facebook"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
     </div>
   </div>
 </header>

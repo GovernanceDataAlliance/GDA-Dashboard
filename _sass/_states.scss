@@ -6,6 +6,29 @@
   @extend %hidden;
 }
 
+.is-mobile-hidden {
+  @extend %hidden;
+  
+  @media screen and (min-width: $screen-m) {
+    display: block !important;
+    visibility: visible !important; 
+  }
+}
+
+.is-tablet-hidden {  
+  @media screen and (min-width: $screen-m) {
+    display: none !important;
+    visibility: hidden !important; 
+  }
+}
+
+.is-desktop-hidden {
+  @media screen and (min-width: $screen-m) {
+    display: none !important;
+    visibility: hidden !important; 
+  }
+}
+
 .is-loading {
   @include spinner(40px, 5px);
 }
@@ -14,17 +37,27 @@
   overflow: hidden;
 }
 
-// Mobile devices
-@media screen and (max-width: $screen-s) {
+// From 320px
+@media screen and (min-width: $screen-xs) {
+  
+}
+
+// From 640px
+@media screen and (min-width: $screen-s) {
 
 }
 
-// Small devices (tablets, 768px)
+// From 768px
 @media screen and (min-width: $screen-m) {
 
 }
 
-// Large devices (desktop)
+// From 960px
 @media screen and (min-width: $screen-l) {
+
+}
+
+// From 1280px
+@media screen and (min-width: $screen-xl) {
 
 }
