@@ -68,5 +68,13 @@ $footer-height: rem(375px);
       flex-direction: row;
     }
   }
+
+  .creative-common-logo {
+    height: rem(20px);
+
+    img {
+      height: rem(20px);
+    }
+  }
 }
 
