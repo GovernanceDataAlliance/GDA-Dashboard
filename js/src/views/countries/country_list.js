@@ -9,6 +9,10 @@ var templateMb = Handlebars.compile(
 
 var CountryListView = Backbone.View.extend({
 
+  events: {
+    'click .js--list-handler' : '_openList'
+  },
+
   initialize: function(options) {
     options = options || {};
     this.countries = options.countries;
@@ -56,6 +60,10 @@ var CountryListView = Backbone.View.extend({
     });
 
     return sortedRegions;
+  },
+
+  _openList: function(e) {
+    $(e.currentTarget).toggleClass('list-open');
   }
 });
 
