@@ -1,32 +1,96 @@
-//TODO unify header and footer
-$header-height: rem(95px);
+$header-height-desktop: rem(95px);
+$header-height: rem(70px);
 
 .l-header {
+  position: relative;
   height: $header-height;
 
   display: flex;
   align-items: stretch;
 
-  .brand {
-    display: flex;
-    flex-basis: 33.33%;
-    justify-content: flex-end;
-    background-color: $bg-color-2;
+  @media screen and (min-width: $screen-m) {
+    height: $header-height-desktop;
   }
 
-  .menus {
-    flex-basis: 66.66%;
+  .l-brand {
+    display: flex;
+    width: rem(95px);
+    background-color: $bg-color-2;
+
+    @media screen and (min-width: $screen-m) {
+      height: $header-height-desktop;
+      flex-basis: 37%;
+      justify-content: flex-end;
+      width: auto;
+    }
+  }
+
+  .l-menus {
     display: flex;
     align-items: stretch;
     justify-content: flex-end;
+    width: 100%;
 
     .menus-wrapper {
-      @include col(7);
-      padding-right: rem($wrap-padding);
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 1;
+      width: 90%;
+      background-color: $bg-color-4;
+      transition: all .2s ease-in;
+      transform: translatex(100%);
+
+      &.is-open {
+        transform: translatex(0);
+      }
+    }
+
+    .scroll-wrapper {
+      position: absolute;
+      top: rem(60px);
+      bottom: rem(60px);
+      left: 0;
+      right: 0;
+      padding: 0 rem(40px);
+      overflow-y: scroll; 
+    }
+
+    .btn-mobile-menu {
+      width: $header-height;
+      height: $header-height;
+
+      svg {
+        width: rem(20px);
+        height: rem(20px);
+        fill: $color-1;
+      }
+
+      @media screen and (min-width: $screen-m) {
+        display: none;
+      }
+    }
+
+    @media screen and (min-width: $screen-m) {
       display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
+
+      .menus-wrapper {
+        width: 100%;
+        position: static;
+        display: flex;
+        background-color: transparent;
+        transform: translatex(0);
+      }
+
+      .scroll-wrapper {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        overflow-y: hidden;
+        padding: 0;
+      }
     }
   }
 }

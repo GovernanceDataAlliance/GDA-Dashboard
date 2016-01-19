@@ -1,20 +1,89 @@
 .m-site-navigation {
-  @include col(8);
 
-  ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .link a {
-    font-size: rem(11px);
+  a {
+    font-weight: 700;
     font-family: $font-secondary;
     color: $font-color-1;
     text-transform: uppercase;
+  }
 
-    &:hover {
-      color: $font-color-3;
+  &.-header {
+    margin-bottom: rem(40px);
+
+    .link {
+      border-bottom: 1px solid  $bg-color-3;
+
+      a {
+        display:block;
+        font-size: rem(17px);
+        padding: rem(40px) 0 rem(20px) 0;
+      }
+    }
+  }
+
+  &.-footer {
+    width: 100%;
+    max-width: 430px;
+    
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      max-width: rem(450px);
+      width: 100%;
+      padding: 0 rem(10px);
+    }
+
+    a {
+      font-size: rem(11px);
+    }
+  }
+
+  @media screen and (min-width: $screen-m) {
+
+    &.-header {
+      margin-bottom: 0;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: rem(95px);
+      left: 0;
+      display: flex;
+      justify-content: center;
+
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: rem(450px);
+        width: 100%;
+        padding: 0 rem(10px);
+      }
+
+      .link {
+        padding: 0;
+        border-bottom: 0;
+
+        a {
+          font-size: rem(11px);
+          font-weight: 400;
+    
+          &:hover {
+            color: $font-color-3;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $screen-l) {
+
+    &.-header {
+      right: rem(160px);
+
+      ul {
+        max-width: rem(550px);
+      }
     }
   }
 }

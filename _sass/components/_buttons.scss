@@ -1,10 +1,3 @@
-.btn-mobile-menu {
-  @media screen and (min-width: $screen-m) {
-    display: none;
-  }
-}
-
-
 .btn {
   font-size: rem(11px);
   font-family: $font-secondary;
@@ -68,4 +61,24 @@
     right: rem(20px);
     pointer-events: none;
   }
+}
+
+.btn-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+
+  cursor: pointer;
+  font-family: $font-main;
+  font-weight: bold;
+  color: $color-1;
+  font-size: rem(20px);
+
+  width: rem(24px);
+  height: rem(24px);
+  line-height: 18px;
+  border-radius: 50%;
+  text-align: center;
+  border: 2px solid $color-1;
 }

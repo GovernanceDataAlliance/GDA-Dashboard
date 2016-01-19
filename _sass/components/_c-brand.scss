@@ -1,12 +1,29 @@
 .c-brand {
-  @include col(4);
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  padding-left: rem($wrap-padding);
+  justify-content: center;
+  width: 100%;
 
-  &.-expanded {
-    justify-content: center;
-    padding-left: 0;
+  img {
+    width: rem(40px);
+    height: rem(40px);
+  } 
+
+  @media screen and (min-width: $screen-m) {
+    @include col(3);
+    justify-content: flex-start;
+    padding-left: rem($wrap-padding);
+
+    &.-expanded {
+      justify-content: center;
+      padding-left: 0;
+      max-width: 100%;
+    }
+
+    img {
+      width: auto;
+      height: auto;
+      padding-right: rem(10px);
+    }
   }
 }
