@@ -1,11 +1,16 @@
-//TODO unify header and footer
-$header-height: rem(95px);
+$header-height-desktop: rem(95px);
+$header-height: rem(70px);
 
 .l-header {
+  position: relative;
   height: $header-height;
 
   display: flex;
   align-items: stretch;
+
+  @media screen and (min-width: $screen-m) {
+    height: $header-height-desktop;
+  }
 
   .l-brand {
     display: flex;
@@ -13,7 +18,8 @@ $header-height: rem(95px);
     background-color: $bg-color-2;
 
     @media screen and (min-width: $screen-m) {
-      flex-basis: 33.33%;
+      height: $header-height-desktop;
+      flex-basis: 37%;
       justify-content: flex-end;
       width: auto;
     }
@@ -26,19 +32,20 @@ $header-height: rem(95px);
     width: 100%;
 
     .menus-wrapper {
-      // display: none;
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      z-index: 1;
-      width: 90%;
-      background-color: $bg-color-4;
-      transition: all .2s ease-in;
-      transform: translatex(100%);
+      &.-header {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+        width: 90%;
+        background-color: $bg-color-4;
+        transition: all .2s ease-in;
+        transform: translatex(100%);
 
-      &.is-open {
-        transform: translatex(0);
+        &.is-open {
+          transform: translatex(0);
+        }
       }
     }
 
@@ -52,18 +59,42 @@ $header-height: rem(95px);
       overflow-y: scroll; 
     }
 
+    .btn-mobile-menu {
+      width: $header-height;
+      height: $header-height;
+
+      svg {
+        width: rem(30px);
+        height: rem(30px);
+        fill: $color-1;
+      }
+
+      @media screen and (min-width: $screen-m) {
+        display: none;
+      }
+    }
+
     @media screen and (min-width: $screen-m) {
       display: flex;
-      align-items: flex-end;
-      padding-right: rem($wrap-padding);
-      flex-basis: 66.66%;
 
       .menus-wrapper {
-        @include col(7);
+
+        &.-header {
+          width: 100%;
+          position: static;
+          display: flex;
+          background-color: transparent;
+          transform: translatex(0);
+        }
+      }
+
+      .scroll-wrapper {
+        position: static;
         display: flex;
         flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+        width: 100%;
+        overflow-y: hidden;
+        padding: 0;
       }
     }
   }

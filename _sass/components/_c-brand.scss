@@ -5,12 +5,12 @@
   width: 100%;
 
   img {
-    width: rem(50px);
-    height: rem(50px);
+    width: rem(40px);
+    height: rem(40px);
   } 
 
   @media screen and (min-width: $screen-m) {
-    @include col(4);
+    @include col(3);
     justify-content: flex-start;
     padding-left: rem($wrap-padding);
 
@@ -21,6 +21,8 @@
 
     img {
       width: auto;
+      height: auto;
+      padding-right: rem(10px);
     }
   }
 }

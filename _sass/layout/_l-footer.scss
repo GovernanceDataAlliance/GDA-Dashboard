@@ -1,13 +1,22 @@
-$footer-height: rem(245px);
+$footer-desktop-height: rem(245px);
+$footer-height: rem(400px);
 
 .l-footer {
+  position: relative;
   height: $footer-height;
 
   display: flex;
+  flex-direction: column;
   align-items: stretch;
+
+  @media screen and (min-width: $screen-m) {
+    flex-direction: row;
+  }
 
   .l-brand {
     display: flex;
+    order: 2;
+    height: rem(130px);
     flex-basis: 33.33%;
     justify-content: flex-end;
     background-color: $bg-color-2;
