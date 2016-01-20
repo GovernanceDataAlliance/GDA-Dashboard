@@ -8,8 +8,13 @@
     display: flex;
     justify-content: space-between;
 
-    > .js--toolbar-utils, .js--toolbar-display {
+    > .js--toolbar-utils {
       display: flex;
+      width: 100%;
+    }
+
+    > .js--toolbar-display {
+      display: none;
     }
   }
 
@@ -57,6 +62,19 @@
   &.-blog {
     .js--print, .js--print + span {
       display: none;
+    }
+  }
+  
+  @media screen and (min-width: $screen-m) {
+    .wrap {
+
+      > .js--toolbar-utils {
+        width: auto;
+      }
+
+      > .js--toolbar-display {
+        display: flex;
+      }
     }
   }
 }

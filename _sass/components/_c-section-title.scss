@@ -2,9 +2,10 @@
   position: relative;
   padding-bottom: rem(20px);
   margin-bottom: rem(40px);
-  font-size: rem(50px);
+  font-size: rem(40px);
   font-weight: 400;
   color: $font-color-1;
+  line-height: 1em;
   
   span {
     display: block;
@@ -40,21 +41,25 @@
   }
 
   &.-country-name {
-    padding-bottom: 0;
-    &:after {
-      top: rem(110px);
-      bottom: auto;
-    }
+    padding-bottom: rem(20px);
+    margin-bottom: 0;
   }
 
   + p {
     margin-top: rem(20px);
   }
+  
+  @media screen and (min-width: $screen-m) {
+    &.-country-name {
+      padding-bottom: rem(40px);
+    }
+  }
 
-  // From 320px
-  @media screen and (min-width: $screen-xs) {
+  @media screen and (min-width: $screen-l) {
+    font-size: rem(50px);
     padding-bottom: rem(50px);
     margin-bottom: rem(60px);
+    line-height: 1.2em;
 
     &.-small {
       margin-bottom: rem(50px);
