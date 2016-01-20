@@ -4,7 +4,7 @@
   min-height: rem(390px);
   border-bottom: 1px solid $border-1;
   color: $font-color-1;
-  
+
   .card-wrap {
     display: flex;
     width: 100%;
@@ -48,7 +48,7 @@
 
     margin: 0;
     border-right: 1px solid $border-1;
-    
+
     .card-wrap {
       padding: rem(55px) rem(55px);
       >.wrap {
@@ -60,7 +60,7 @@
       border-right: 0;
     }
   }
-  
+
   .index-description {
     display: flex;
     flex-basis: 48%;
@@ -77,17 +77,44 @@
     > .description-wrapper {
       position: relative;
       font-size: rem(15px);
-        
+
       .description {
-        @include ellipsis-y(107px);
-        position: relative;
- 
-        &:after {
-          content: "...";
-          position: absolute;
-          bottom: 0;
-          right: 0;
+        &.-expand {
+          max-height: none;
         }
+
+        .read-more,
+        .read-less {
+          position: relative;
+          margin-left: 10px;
+          font-family: "Montserrat";
+          font-size: rem(11px);
+          text-transform: uppercase;
+          color: $font-color-3;
+          cursor: pointer;
+        }
+
+        .read-more:after,
+        .read-less:after {
+          content: '';
+          position: absolute;
+
+        }
+
+        .read-more:after {
+          top: 0;
+          right: -15px;
+          @include arrow (5px, $color-2, 2px, 225deg);
+          transform: rotate(225deg) translate(0, -50%);
+        }
+
+        .read-less:after {
+          top: 50%;
+          right: -10px;
+          @include arrow (5px, $color-2, 2px, 45deg);
+          transform: rotate(45deg) translate(0, -50%);
+        }
+
       }
     }
 
@@ -97,8 +124,8 @@
       margin-bottom: rem(20px);
     }
 
-    .is-dashboard-layout & {
-      > .description-wrapper, 
+    .is-dashboard-layout & {x
+      > .description-wrapper,
       > .btn-read-more {
         display: none;
       }
@@ -167,7 +194,7 @@
         font-size: rem(130px);
         line-height: .7em;
         letter-spacing: rem(-7.5px);
-       
+
         .units {
           align-self: flex-end;
           font-family: $font-secondary;
@@ -214,7 +241,7 @@
       text-align: right;
 
       span {
-        margin-right: rem(20px); 
+        margin-right: rem(20px);
       }
     }
 
@@ -236,7 +263,7 @@
       .global-score {
         margin-bottom: rem(20px);
       }
-        
+
       .info {
         text-align: left;
 
@@ -276,5 +303,5 @@
     color: $white;
     background-color: $magenta;
     .graph > svg { stroke: $white;}
-  }  
+  }
 }
