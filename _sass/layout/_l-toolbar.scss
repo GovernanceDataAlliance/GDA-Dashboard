@@ -52,6 +52,14 @@
     background-color: $bg-color-1;
   }
 
+  &.-data {
+    .js--print, .js--print + span,
+    .js--share, .js--share + span,
+    .js--download + span {
+      display: none;
+    }
+  }
+
   &.-footer {
     height: auto;
 

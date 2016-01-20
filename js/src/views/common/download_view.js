@@ -3,7 +3,8 @@ var _ = require('lodash'),
   Backbone = require('backbone'),
   Handlebars = require('handlebars');
 
-var indicators = require('../../collections/indicators');
+var indicators = require('../../collections/indicators'),
+  countries = require('../../collections/countries');
 
 var tpl = Handlebars.compile(require('../../templates/common/download_tpl.hbs'));
 
@@ -27,6 +28,7 @@ var DownloadView = Backbone.View.extend({
     this.options = _.extend(this.defaults, options);
 
     this.indicatorsCollection = new indicators();
+    this.countriesCollection  = new countries();
   },
 
   render: function() {
@@ -39,7 +41,16 @@ var DownloadView = Backbone.View.extend({
   },
 
   _getCSV: function() {
-    return this.indicatorsCollection.downloadForCountry(this.options.iso);
+
+    console.log(this.options);
+
+    if (this.options.id) {
+      return this.countriesCollection.downloadCountriesForIndicator(
+        this.options.id, this.options.year, this.options.categoryGroup, this.options.categoryName);
+    } else {
+      return this.indicatorsCollection.downloadForCountry(this.options.iso);
+    }
+
   },
 
   _cancel: function(e) {
