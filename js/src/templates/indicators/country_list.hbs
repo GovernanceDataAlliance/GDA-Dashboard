@@ -1,18 +1,45 @@
 <div class="l-content -fullscreen {{direction}}">
-  {{#if countries}}
+  {{#if countries.top}}
   <div class="m-table -rank">
-    {{#each countries}}
-      <div class="table-row">
-        <div class="wrap">
-          <div class="description">
-            <p class="name">{{name}}</p>
-          </div> 
-          <div class="score {{#if classColor}} {{classColor}} {{/if}}" data-year="{{year}}">
-            <p>{{#round}}{{score}}{{/round}}</p>
+
+    <div class="top-tier">
+
+      {{#each countries.top}}
+        <div class="table-row">
+          <div class="wrap">
+            <div class="description">
+              <p class="name">{{name}}</p>
+            </div>
+            <div class="score {{#if classColor}} {{classColor}} {{/if}}" data-year="{{year}}">
+              <p>{{#round}}{{score}}{{/round}}</p>
+            </div>
           </div>
         </div>
+      {{/each}}
+    </div>
+
+    <div class="table-row -load-more">
+        <div class="wrap">
+          <svg class="icon -regular icon-load"><use xlink:href="#icon-load"></use></svg>
+          <p>Load all the data</p>
+        </div>
+    </div>
+    {{#if countries.rest}}
+      <div class="rest-tier is-hidden">
+      {{#each countries.rest}}
+        <div class="table-row">
+          <div class="wrap">
+            <div class="description">
+              <p class="name">{{name}}</p>
+            </div>
+            <div class="score {{#if classColor}} {{classColor}} {{/if}}" data-year="{{year}}">
+              <p>{{#round}}{{score}}{{/round}}</p>
+            </div>
+          </div>
+        </div>
+      {{/each}}
       </div>
-    {{/each}}
+    {{/if}}
   </div>
   {{else}}
   <div class="wrap">
