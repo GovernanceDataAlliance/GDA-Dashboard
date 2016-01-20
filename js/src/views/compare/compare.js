@@ -70,7 +70,7 @@ var CompareView = Backbone.View.extend({
    */
   renderIndicators: function() {
     var indicatorsNames = new IndicatorsNames();
-
+    console.log(indicatorsNames);
     indicatorsNames.fetch().done(function(indicators) {
       var indicators = _.sortByOrder(indicators.rows, ['short_name']);
       this.$('.js--comparison-indicators').html(indicatorsTemplate({ 'indicators': indicators }))
