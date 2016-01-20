@@ -6,13 +6,15 @@
     margin-bottom: rem(50px);
   }
 
+
+
   > p {
     font-size: rem(15px);
 
     + .btn, + ul {
       margin-top: rem(60px);
     }
-  } 
+  }
 
   > ul, li {
     list-style-type: disc;
@@ -37,12 +39,30 @@
       color: $font-color-2;
     }
   }
-  
+
   //Change and give class -highlight
   .l-highlight &,
   .l-presentation & {
     p {
       font-size: rem(20px);
+    }
+  }
+
+  @media screen and (min-width: $screen-xs) {
+
+    > h2 {
+      font-size: rem(24px);
+      color: $font-color-1;
+    }
+
+    > p {
+      font-size: rem(14px);
+      line-height: rem(29px);
+      letter-spacing: rem(0.4px);
+
+      + .btn, + ul {
+        margin-top: rem(10px);
+      }
     }
   }
 }

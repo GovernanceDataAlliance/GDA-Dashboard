@@ -2,15 +2,22 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
 .l-banner {
   position: relative;
-  
+
   //home
   &.-main {
     padding: rem(100px) 0 rem(140px);
-    background-color: #ccc; 
+    background-color: #ccc;
     background-position: top left;
+
 
     h3 {
       max-width: $content-width;
+    }
+
+    @media screen and (min-width: $screen-xs) {
+      h3 {
+        max-width: 100%;
+      }
     }
 
     p {
@@ -18,23 +25,23 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
       margin-bottom: rem(35px);
     }
   }
-  
+
   //countries
   &.-section-1 {
     padding: rem(100px) 0 rem(60px);
-    background-color: #ccc; 
+    background-color: #ccc;
   }
 
   //compare
   &.-section-2 {
     padding: rem(140px) 0 rem(180px);
-    background-color: #ccc; 
+    background-color: #ccc;
 
     p {
       color: $white;
     }
   }
-  
+
   //country-show
   &.-detail {
     display: flex;

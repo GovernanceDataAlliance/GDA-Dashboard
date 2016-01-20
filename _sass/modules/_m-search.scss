@@ -1,6 +1,8 @@
 .m-search {
-  width: 100%;
+
+
   padding: rem(100px) rem(140px);
+  width: 100%;
   background-color: $bg-color-3;
 
   > input {
@@ -40,7 +42,7 @@
     width: 100%;
     padding: rem(20px) rem(90px);
     border-bottom: 1px solid $border-1;
-    
+
     a {
       color: $font-color-1;
       font-size: rem(20px);
@@ -48,6 +50,21 @@
 
     span span {
       font-weight: 700;
+    }
+  }
+
+  @media screen and (min-width: $screen-xs) {
+    padding: rem(25px) 0;
+
+    > input {
+      height: 100%;
+      font-family: "Montserrat";
+      font-size: rem(12px);
+      font-style: normal;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: rem(0.3px);
+      border-bottom: 0;
     }
   }
 }

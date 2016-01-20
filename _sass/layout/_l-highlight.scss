@@ -6,6 +6,20 @@ $backgrounds-highlight: 'distribuidorDestacado-About', 'distribuidorDestacado-Co
   background-color: #ccc;
   min-height: rem(600px);
 
+  @media screen and (min-width: $screen-xs) {
+
+    .m-presentation {
+      max-width: 100%;
+      > .c-title {
+        font-size: rem(35px);
+      }
+      > p + .btn {
+        margin-top: rem(35px);
+      }
+    }
+  }
+
+
   @for $i from 1 through length($backgrounds-highlight) {
     &.#{nth($backgrounds-highlight, $i)}{
       background-image: url('img/#{nth($backgrounds-highlight, $i)}.jpg');

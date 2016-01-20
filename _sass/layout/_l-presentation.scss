@@ -41,7 +41,7 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
     position: relative;
     flex-basis: 100%;
     background-color: #ddd;
-    
+
     @for $i from 1 through length($backgrounds-presentation) {
       &.#{nth($backgrounds-presentation, $i)}{
         background-image: url('img/#{nth($backgrounds-presentation, $i)}.jpg');
@@ -61,4 +61,31 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
     }
   }
 
+  @media screen and (min-width: $screen-xs) {
+    flex-direction: column;
+
+    .distribuidoresMul-01 {
+      display: none;
+    }
+
+    > .intro {
+      &.-right:after,
+      &.-left:after {
+        top: rem(-30px);
+        left: rem(17px);
+        @include equi-triangle(rem(15px), $white, top);
+      }
+    }
+
+    > .picture {
+      height: 195px;
+    }
+
+    &.-mobile-reverse {
+      flex-direction: column-reverse;
+      // > .-left:after {
+
+      // }
+    }
+  }
 }
