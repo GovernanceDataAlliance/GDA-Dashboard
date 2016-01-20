@@ -1,4 +1,6 @@
 .l-toolbar  {
+  position: relative;
+  z-index: 10;
   display: flex;
   height: rem(70px);
   background-color: $bg-color-4;
