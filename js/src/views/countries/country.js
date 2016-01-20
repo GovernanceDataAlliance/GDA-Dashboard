@@ -28,7 +28,6 @@ var CountryView = Backbone.View.extend({
 
     this.iso = options.iso;
     this.initializeData();
-
   },
 
   initializeData: function() {

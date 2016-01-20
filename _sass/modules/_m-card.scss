@@ -44,20 +44,55 @@
   // transition: all .2s ease-in;
 
   .is-dashboard-layout & {
-    flex-basis: 33.33%;
+    flex-basis: 100%;
 
     margin: 0;
-    border-right: 1px solid $border-1;
 
     .card-wrap {
-      padding: rem(55px) rem(55px);
-      >.wrap {
+      padding: rem(40px) rem($wrap-padding-mobile);
+
+      > .wrap {
+        padding: 0;
         flex-direction: column;
       }
     }
 
-    &:nth-child(3n) {
-      border-right: 0;
+    .description {
+      display: none;
+    }
+
+    @media screen and (min-width: $screen-s) {
+      flex-basis: 50%;
+      border-right: 1px solid $border-1;
+
+      &:nth-child(2n) {
+        border-right: 0;
+      }
+
+      .card-wrap {
+        padding: rem(60px) rem($wrap-padding-mobile);
+
+        >.wrap {
+          flex-direction: column;
+        }
+      }
+      
+    }
+
+    @media screen and (min-width: $screen-l) {
+      flex-basis: 33%;
+
+      &:nth-child(2n) {
+        border-right: 1px solid $border-1;
+      }
+
+      &:nth-child(3n) {
+        border-right: 0;
+      }
+
+      .card-wrap {
+        padding: rem(60px) rem($wrap-padding-desktop);
+      }
     }
   }
 
@@ -67,11 +102,14 @@
     flex-direction: column;
     justify-content: space-between;
 
-    > .name,
-    h3 {
-      font-size: rem(30px);
+    .name {
+      font-size: rem(24px);
       font-weight: 400;
-      margin-bottom: rem(40px);
+      margin-bottom: rem(15px);
+
+      @media screen and (min-width: $screen-s) {
+        font-size: rem(27px);
+      }
     }
 
     > .description-wrapper {
@@ -118,8 +156,9 @@
       }
     }
 
-    > .organization {
+    .organization {
       font-size: rem(15px);
+      font-weight: 400;
       color: $font-color-1;
       margin-bottom: rem(20px);
     }
@@ -191,9 +230,17 @@
       > .global-score {
         font-family: $font-secondary;
         font-weight: 700;
-        font-size: rem(130px);
+        font-size: rem(72px);
         line-height: .7em;
         letter-spacing: rem(-7.5px);
+
+        @media screen and (min-width: $screen-m) {
+          font-size: rem(90px);
+        }
+
+        @media screen and (min-width: $screen-l) {
+          font-size: rem(100px);
+        }
 
         .units {
           align-self: flex-end;
