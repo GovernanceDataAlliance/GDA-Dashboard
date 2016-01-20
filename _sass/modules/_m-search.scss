@@ -1,28 +1,21 @@
 .m-search {
+  padding: rem(25px) 0;
   width: 100%;
-  padding: rem(100px) rem(140px);
   background-color: $bg-color-3;
 
   > input {
     @extend %clean-button-or-input;
     width: 100%;
-    height: rem(60px);
-    border-bottom: 1px solid $white;
-    font-style: italic;
-    font-size: rem(27px);
-
+    height: 100%;
+    font-family: $font-secondary;
+    font-size: rem(12px);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: rem(0.3px);    
+    
     @include placeholder() {
       color: $white;
     }
-
-    // &.focus:after {
-    //   content: "Search country";
-    //   position: absolute;
-    //   top: 0;
-    //   left: 0;
-    //   font-size: rem(12px);
-    //   color: $white;
-    // }
   }
 
   > .search-box.visible {
@@ -40,7 +33,7 @@
     width: 100%;
     padding: rem(20px) rem(90px);
     border-bottom: 1px solid $border-1;
-    
+
     a {
       color: $font-color-1;
       font-size: rem(20px);
@@ -49,5 +42,23 @@
     span span {
       font-weight: 700;
     }
+  }
+
+  @media screen and (min-width: $screen-s) {
+     padding: rem(60px);
+
+    > input {
+      height: rem(60px);
+      border-bottom: 1px solid $white;
+      font-style: italic;
+      text-transform: none;
+      font-size: rem(24px);
+      font-family: $font-main;
+      text-align: left;
+    }
+  }
+
+  @media screen and (min-width: $screen-m) {
+     padding: rem(60px);
   }
 }
