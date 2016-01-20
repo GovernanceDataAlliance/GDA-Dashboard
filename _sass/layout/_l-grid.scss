@@ -1,4 +1,11 @@
 .l-grid {
   display: flex;
   flex-wrap: wrap;
+  max-width: $grid-max-width;
+  margin: 0 auto;
+
+  @media screen and (min-width: $screen-xl) {
+    border-right: 1px solid $border-1;
+    border-left: 1px solid $border-1;
+  }
 }

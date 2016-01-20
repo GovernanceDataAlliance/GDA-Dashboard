@@ -1,7 +1,7 @@
 .m-breadcrumbs {
   @extend %wrap;
   position: absolute;
-  top: rem(40px);
+  top: rem(30px);
   left: 0;
   right: 0;
 
@@ -26,5 +26,9 @@
     li, a {
       color: $white;
     }
+  }
+
+  @media screen and (min-width: $screen-m) {
+    top: rem(40px);
   }
 }

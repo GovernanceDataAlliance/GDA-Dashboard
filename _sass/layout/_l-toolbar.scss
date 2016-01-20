@@ -8,8 +8,13 @@
     display: flex;
     justify-content: space-between;
 
-    > .js--toolbar-utils, .js--toolbar-display {
+    > .js--toolbar-utils {
       display: flex;
+      width: 100%;
+    }
+
+    > .js--toolbar-display {
+      display: none;
     }
   }
 
@@ -48,15 +53,48 @@
   }
 
   &.-footer {
-    .js--download, .js--download + span,
-    .compare-link, .compare-link + span{
+    height: auto;
+
+    .js--download, 
+    .js--download + span,
+    .compare-link, 
+    .compare-link + span{
       display: none;
+    }
+
+    .wrap {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
   }
 
   &.-blog {
     .js--print, .js--print + span {
       display: none;
+    }
+  }
+  
+  @media screen and (min-width: $screen-m) {
+    .wrap {
+
+      > .js--toolbar-utils {
+        width: auto;
+      }
+
+      > .js--toolbar-display {
+        display: flex;
+      }
+    }
+
+    &.-footer {
+       height: rem(70px);
+
+      .wrap {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
     }
   }
 }

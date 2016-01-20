@@ -1,9 +1,12 @@
-.js--country-silhouette {
-	position: relative;
-	top:-35px;
+.m-country-silhouette {
+  display: none;
 
 	> .svg-country-silhouette {
 		fill: $beige;
 	  opacity: .3;
 	}
+
+  @media screen and (min-width: $screen-m) {
+    display: block;
+  }
 }

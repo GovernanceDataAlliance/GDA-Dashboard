@@ -19,3 +19,4 @@ SELECT
  FROM {{table}} AS d
    INNER JOIN indicator_config AS c ON d.short_name = c.short_name
  WHERE d.iso = '{{iso}}'
+ ORDER BY c.short_name, d.year desc

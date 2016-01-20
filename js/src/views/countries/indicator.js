@@ -48,7 +48,6 @@ var IndicatorView = Backbone.View.extend({
 
   parseData: function() {
     var data = this.indicator;
-
     if (data.units == 'percent' ) {
       data.units_tpl = '%';
     };
