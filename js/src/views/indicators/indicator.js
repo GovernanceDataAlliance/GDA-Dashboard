@@ -75,7 +75,7 @@ var IndicatorView = Backbone.View.extend({
   },
 
   renderToolbar: function() {
-    this.$el.find('.l-toolbar').first().find('.m-control').first().after(new ToolbarUtilsView({
+    this.$el.find('.l-toolbar').first().find('.m-control').first().append(new ToolbarUtilsView({
       el: this.$el.find('.js--toolbar-utils')
     }).render().el);
   },
