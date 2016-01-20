@@ -18,9 +18,6 @@ var template = Handlebars.compile(
   require('../../templates/indicators/indicator.hbs'));
 
 var IndicatorView = Backbone.View.extend({
-  events: {
-    "click .js--download": "download"
-  },
 
   initialize: function(options) {
     options = options || {};
@@ -28,7 +25,7 @@ var IndicatorView = Backbone.View.extend({
     this.id = options.id;
 
     $('.js--index-banner').addClass('is-hidden');
-    
+
     this.initializeData();
     this.setListeners();
   },
@@ -64,8 +61,6 @@ var IndicatorView = Backbone.View.extend({
   render: function(rerender) {
     this.$el.html(template());
 
-    this.renderToolbar();
-
     if (rerender === true) {
       this.renderHeader();
       this.renderSelectorsToolbar();
@@ -80,7 +75,7 @@ var IndicatorView = Backbone.View.extend({
   },
 
   renderToolbar: function() {
-    this.$el.find('.js--compare-toolbar').find('.wrap').append(new ToolbarUtilsView({
+    this.$el.find('.l-toolbar').first().find('.m-control').first().after(new ToolbarUtilsView({
       el: this.$el.find('.js--toolbar-utils')
     }).render().el);
   },
@@ -92,6 +87,11 @@ var IndicatorView = Backbone.View.extend({
       'actualYear': this.actualYear
     });
     this.$('.js--indicator-toolbar').append(toolbarView.render().el);
+
+    this.renderToolbar();
+
+    $('.js--download').attr('data-indicator-id', this.id);
+    $('.js--download').attr('data-year', this.actualYear);
   },
 
   renderCountriesList: function() {
@@ -121,6 +121,14 @@ var IndicatorView = Backbone.View.extend({
     this.initializeData();
   },
 
+  _updateDownload: function() {
+    var $downloadBtn = $('.js--download');
+
+    $downloadBtn.attr('data-year', this.actualYear);
+    $downloadBtn.attr('data-category-name', this.categoryName);
+    $downloadBtn.attr('data-category-group', this.categoryGroup);
+  },
+
   //Update countries when year or category selected.
   updateCountries: function(year, categoryGroup, categoryName) {
     this.actualYear = year || this.actualYear;
@@ -130,6 +138,8 @@ var IndicatorView = Backbone.View.extend({
     this.countries.countriesForIndicator(this.id, this.actualYear, this.categoryGroup, this.categoryName).done(function() {
       this.renderCountriesList();
     }.bind(this))
+
+    this._updateDownload();
   },
 
   show: function() {

@@ -28,8 +28,8 @@ var Countries = CartoDBCollection.extend({
   },
 
   countriesForIndicator: function(id, year, categoryGroup, categoryName) {
-    var query = SQL({ 
-      'id': id, 
+    var query = SQL({
+      'id': id,
       'year': year ? year : null,
       'categoryGroup': categoryGroup != undefined && categoryGroup != 'global' ? encodeURIComponent(categoryGroup) : null,
       'categoryName': encodeURIComponent(categoryName) || null
@@ -46,7 +46,7 @@ var Countries = CartoDBCollection.extend({
 
     $.each(rawData.rows, _.bind(function(i, d) {
       var current = d;
-      
+
       if (current) {
         classColor = this._setColorsByScore(current);
         if (!classColor) {
@@ -68,9 +68,16 @@ var Countries = CartoDBCollection.extend({
     return ColorService.getColor(indicator);
   },
 
-  downloadCountriesForIndicator: function(id) {
-    var query = SQL({ id: id }),
-        url = this._urlForQuery(query) + '&format=csv';
+  downloadCountriesForIndicator: function(id, year, categoryGroup, categoryName) {
+
+    console.log(id, year, categoryGroup, categoryName);
+    var query = SQL({
+      id: id,
+      year: year,
+      categoryGroup: categoryGroup,
+      categoryName, categoryName
+    }),
+     url = this._urlForQuery(query) + '&format=csv';
     return url;
   }
 });

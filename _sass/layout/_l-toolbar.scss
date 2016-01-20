@@ -47,6 +47,23 @@
     background-color: $bg-color-1;
   }
 
+  &.-data {
+    .js--print, .js--print + span,
+    .js--share, .js--share + span,
+    .js--download + span {
+      display: none;
+    }
+
+    // .js--download {
+    //   margin-left: 23px;
+    // }
+
+    // .-left, .-right {
+    //   display: flex;
+    //   align-items: center;
+    // }
+  }
+
   &.-footer {
     .js--download, .js--download + span,
     .compare-link, .compare-link + span{
