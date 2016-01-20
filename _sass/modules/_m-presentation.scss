@@ -1,18 +1,15 @@
 .m-presentation {
-  max-width: $content-width;
 
   > h2 {
-    color: $font-color-3;
-    margin-bottom: rem(50px);
+    color: $font-color-1;
+    margin-bottom: rem(20px);
   }
-
-
 
   > p {
     font-size: rem(15px);
 
     + .btn, + ul {
-      margin-top: rem(60px);
+      margin-top: rem(20px);
     }
   }
 
@@ -30,8 +27,7 @@
 
   &.-left,
   &.-right {
-    max-width: $grid-max-width/2;
-    padding: 0 rem(60px);
+    padding: 0 rem($wrap-padding-mobile);
   }
 
   &.-light {
@@ -40,29 +36,38 @@
     }
   }
 
-  //Change and give class -highlight
-  .l-highlight &,
-  .l-presentation & {
-    p {
-      font-size: rem(20px);
+  @media screen and (min-width: $screen-m) {
+    max-width: $content-width;
+
+    > h2 {
+      font-size: rem(30px);
+    }
+
+    &.-left,
+    &.-right {
+      max-width: $grid-max-width/2;
+      padding: 0 rem($wrap-padding-tablet);
     }
   }
 
-  @media screen and (min-width: $screen-xs) {
-
+  @media screen and (min-width: $screen-l) {
     > h2 {
-      font-size: rem(24px);
-      color: $font-color-1;
+      margin-bottom: rem(25px);
     }
 
     > p {
-      font-size: rem(14px);
-      line-height: rem(29px);
-      letter-spacing: rem(0.4px);
-
       + .btn, + ul {
-        margin-top: rem(10px);
+        margin-top: rem(30px);
       }
+    }
+
+    .-highlighted {
+      font-size: rem(20px);
+    }
+
+    &.-left,
+    &.-right {
+      padding: 0 rem($wrap-padding-desktop);
     }
   }
 }

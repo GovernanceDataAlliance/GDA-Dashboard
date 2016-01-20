@@ -11,12 +11,12 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
 
     h3 {
-      max-width: $content-width;
+      max-width: 100%;
     }
 
-    @media screen and (min-width: $screen-xs) {
+    @media screen and (min-width: $screen-s) {
       h3 {
-        max-width: 100%;
+        max-width: $content-width;
       }
     }
 

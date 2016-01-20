@@ -5,17 +5,17 @@
   font-weight: 400;
   color: $font-color-2;
 
-  @media screen and (min-width: $screen-xs) {
-    font-size: rem(35px);
+  @media screen and (min-width: $screen-s) {
+    font-size: rem(38px) !important;
     margin-bottom: rem(30px);
   }
 
   @media screen and (min-width: $screen-s) {
-    font-size: rem(50px);
+    font-size: rem(50px) !important;
   }
 
   @media screen and (min-width: $screen-m) {
-    font-size: rem(60px);
+    font-size: rem(60px) !important;
     margin-bottom: rem(35px);
   }
 

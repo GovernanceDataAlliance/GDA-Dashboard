@@ -20,16 +20,44 @@ body {
   background-color: #eee;
   -webkit-font-smoothing: antialiased;
 
-  @media screen and (min-width: $screen-xs) {
+  @media screen and (min-width: $screen-s) {
     font-size: $font-size;
   }
 }
 
-h1, h2, h3, h4, h5, h6, p {
-  line-height: 1.8em;
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2em;
 
   + .btn {
-    margin-top: rem(40px);
+    margin-top: rem(20px);
+  }
+
+  @media screen and (min-width: $screen-xs) {
+    line-height: 1.5em;
+
+    + .btn {
+      margin-top: rem(40px);
+    }
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    line-height: 1.8em;
+  }
+}
+
+p {
+  line-height: 1.5em;
+
+  + .btn {
+    margin-top: rem(20px);
+  }
+
+  @media screen and (min-width: $screen-xs) {
+    line-height: 1.8em;
+
+    + .btn {
+      margin-top: rem(40px);
+    }
   }
 }
 

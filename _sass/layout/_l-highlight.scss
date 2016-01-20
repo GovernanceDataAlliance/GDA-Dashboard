@@ -2,22 +2,9 @@ $backgrounds-highlight: 'distribuidorDestacado-About', 'distribuidorDestacado-Co
 
 .l-highlight {
   position: relative;
-  padding: rem(100px) 0;
+  padding: rem(60px) 0;
   background-color: #ccc;
-  min-height: rem(600px);
-
-  @media screen and (min-width: $screen-xs) {
-
-    .m-presentation {
-      max-width: 100%;
-      > .c-title {
-        font-size: rem(35px);
-      }
-      > p + .btn {
-        margin-top: rem(35px);
-      }
-    }
-  }
+  // min-height: rem(600px);
 
 
   @for $i from 1 through length($backgrounds-highlight) {
@@ -36,5 +23,13 @@ $backgrounds-highlight: 'distribuidorDestacado-About', 'distribuidorDestacado-Co
         background-color: rgba(65, 52, 43, 0.5);
       }
     }
+  }
+
+  @media screen and (min-width: $screen-m) {
+    padding: rem(120px) 0;
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    padding: rem(200px) 0;
   }
 }

@@ -4,7 +4,15 @@
   width: 100%;
   max-width: rem($grid-max-width);
   margin: 0 auto;
-  padding: 0 $wrap-padding;
+  padding: 0 $wrap-padding-mobile;
+
+  @media screen and (min-width: $screen-m) {
+    padding: 0 $wrap-padding-tablet;
+  }
+
+  @media screen and (min-width: $screen-l) {
+    padding: 0 $wrap-padding-desktop;
+  }
 }
 
 @mixin col($columns) {

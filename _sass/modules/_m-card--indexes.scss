@@ -14,7 +14,7 @@
 
     .index-description {
       padding-left: rem(80px);
-      padding-right: $wrap-padding;
+      padding-right: $wrap-padding-desktop;
     }
   }
 
@@ -23,8 +23,8 @@
     border-right: 1px solid $border-1;
 
     .index-description {
-      padding-left: $wrap-padding;
-      padding-right: $wrap-padding;
+      padding-left: $wrap-padding-desktop;
+      padding-right: $wrap-padding-desktop;
     }
   }
   
