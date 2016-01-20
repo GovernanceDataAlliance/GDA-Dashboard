@@ -1,5 +1,6 @@
 .l-content {
-  padding: rem(110px) 0 rem(70px);
+  //Countries list
+  padding: rem(70px) 0;
   border-bottom: 1px solid $border-1;
 
   &:nth-child(2n + 1) {
@@ -17,5 +18,9 @@
 
   &.-fixed {
     margin-top: rem(70px);
+  }
+
+  @media screen and (min-width: $screen-s) {
+    padding: rem(100px) 0 rem(120px);
   }
 }
