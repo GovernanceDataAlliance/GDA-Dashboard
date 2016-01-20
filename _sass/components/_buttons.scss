@@ -4,6 +4,7 @@
   text-transform: uppercase;
   display: flex;
   align-items: center;
+  text-align: center;
 
   &.-white {
     display: inline-block;
@@ -25,7 +26,6 @@
     border: 1px solid $color-4;
     color: $color-2;
   }
-
 }
 
 .btn-info {
