@@ -1,4 +1,5 @@
-.js--country-silhouette {
+.m-country-silhouette {
+  display: none;
 	position: relative;
 	top:-35px;
 
@@ -6,4 +7,8 @@
 		fill: $beige;
 	  opacity: .3;
 	}
+
+  @media screen and (min-width: $screen-m) {
+    display: block;
+  }
 }

@@ -1,6 +1,7 @@
 var Backbone = require('backbone'),
     _ = require('lodash'),
     d3 = require('d3'),
+    enquire = require('enquire.js'),
     Handlebars = require('handlebars');
 
 var countryDrawer = require('../../helpers/country_drawer.js');
@@ -11,10 +12,23 @@ var template = Handlebars.compile(
 
 
 var CountryHeaderView = Backbone.View.extend({
+
   initialize: function(options) {
     options = options || {};
     this.country = options.country;
     this.listenTo(this.country, 'sync', this.render);
+
+    enquire.register("screen and (max-width:768px)", {
+      match: _.bind(function(){
+        this.tablet = true;
+      },this)
+    });
+
+    enquire.register("screen and (min-width:768px)", {
+      match: _.bind(function(){
+        this.tablet = false;
+      },this)
+    });
 
     if (!this.hasRequiredAttributes()) {
       this.country.fetch();
@@ -37,7 +51,9 @@ var CountryHeaderView = Backbone.View.extend({
       name: this.country.get('name')
     }));
 
-    this.drawCountry();
+    if (!this.tablet) {
+      this.drawCountry();
+    }
 
     return this;
   },
