@@ -1,7 +1,7 @@
 .c-section-title {
   position: relative;
-  padding-bottom: rem(50px);
-  margin-bottom: rem(60px);
+  padding-bottom: rem(20px);
+  margin-bottom: rem(40px);
   font-size: rem(50px);
   font-weight: 400;
   color: $font-color-1;
@@ -24,7 +24,7 @@
   }
 
   &.-small {
-    margin-bottom: rem(50px);
+    margin-bottom: rem(20px);
     font-size: rem(12px);
     font-family: $font-secondary;
     text-transform: uppercase;
@@ -48,6 +48,20 @@
   }
 
   + p {
-    margin-top: rem(50px);
+    margin-top: rem(20px);
+  }
+
+  // From 320px
+  @media screen and (min-width: $screen-xs) {
+    padding-bottom: rem(50px);
+    margin-bottom: rem(60px);
+
+    &.-small {
+      margin-bottom: rem(50px);
+    }
+
+    + p {
+      margin-top: rem(50px);
+    }
   }
 }

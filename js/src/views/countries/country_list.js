@@ -9,22 +9,11 @@ var templateMb = Handlebars.compile(
 
 var CountryListView = Backbone.View.extend({
 
+  events: {
+    'click .js--list-handler' : '_openList'
+  },
+
   initialize: function(options) {
-
-    enquire.register("screen and (max-width:768px)", {
-      match: _.bind(function(){
-        this.mobile = true;
-        console.log('is tablet')
-      },this)
-    });
-
-    enquire.register("screen and (min-width:768px)", {
-      match: _.bind(function(){
-        this.mobile = false;
-        console.log('aint tablet')
-      },this)
-    });
-
     options = options || {};
     this.countries = options.countries;
     
@@ -33,13 +22,32 @@ var CountryListView = Backbone.View.extend({
     if (this.countries.length === 0) {
       this.countries.fetch();
     }
+
+    enquire.register("screen and (max-width:768px)", {
+      match: _.bind(function(){
+        this.tablet = true;
+        this.render();
+      },this)
+    });
+
+    enquire.register("screen and (min-width:768px)", {
+      match: _.bind(function(){
+        this.tablet = false;
+        this.render();
+      },this)
+    });
   },
 
   render: function() {
-    this.$el.html(template({
-      countriesByRegion: this._getRegions()
-    }));
-
+    if (!this.tablet) {
+      this.$el.html(template({
+        countriesByRegion: this._getRegions()
+      }));
+    } else {
+      this.$el.html(templateMb({
+        countriesByRegion: this._getRegions()
+      }));
+    }
     return this;
   },
 
@@ -50,6 +58,10 @@ var CountryListView = Backbone.View.extend({
     });
 
     return sortedRegions;
+  },
+
+  _openList: function(e) {
+    $(e.currentTarget).toggleClass('list-open');
   }
 });
 
