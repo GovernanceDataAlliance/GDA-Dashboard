@@ -1,20 +1,27 @@
 .m-legend {
   display: flex;
   align-items: center;
+  padding: rem(20px) 0;
+
   > ul {
     display: flex;
+
     li {
       display: flex;
       align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
       &:nth-child(2n) {
         margin: 0 25px;
       }
+
       &:before {
         content: '';
         display: inline-block;
         width: 14px;
         height: 14px;
-        margin: 0 10px 0 0;
+        margin-bottom: 10px;
       }
 
       > .legend-title {
@@ -28,17 +35,29 @@
       &.-best:before {
         background: $green;
       }
+
       &.-good:before {
         background: $blue;
       }
+
       &.-medium:before {
         background: $yellow;
       }
+
       &.-regular:before {
         background: $orange;
       }
+
       &.-bad:before {
         background: $magenta;
+      }
+
+      @media screen and (min-width: $screen-s) {
+        flex-direction: row;
+
+        &:before {
+          margin: 0 10px 0 0;
+        }
       }
     }
   }

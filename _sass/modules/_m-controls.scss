@@ -52,13 +52,23 @@
     align-items: initial;
   }
 
-  @media screen and (min-width: $screen-s) {
+  .-footer & {
+    justify-content: center;
+    margin-bottom: rem(20px);
+  }
+
+  @media screen and (min-width: $screen-m) {
     .icon {
       display: block;
     }
 
     &.-country-options {
       display: flex;
+    }
+
+    .-footer & {
+      justify-content: space-between;
+      margin-bottom: 0;
     }
   }
 }
