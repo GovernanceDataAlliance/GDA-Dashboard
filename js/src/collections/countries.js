@@ -70,12 +70,11 @@ var Countries = CartoDBCollection.extend({
 
   downloadCountriesForIndicator: function(id, year, categoryGroup, categoryName) {
 
-    console.log(id, year, categoryGroup, categoryName);
     var query = SQL({
-      id: id,
-      year: year,
-      categoryGroup: categoryGroup,
-      categoryName, categoryName
+      'id': id,
+      'year': year,
+      'categoryGroup': categoryGroup,
+      'categoryName': categoryName
     }),
      url = this._urlForQuery(query) + '&format=csv';
     return url;
