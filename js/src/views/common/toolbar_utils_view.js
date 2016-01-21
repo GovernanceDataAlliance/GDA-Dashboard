@@ -25,10 +25,19 @@ var ToolbarUtilsView = Backbone.View.extend({
     }
   },
 
-  // TO-DO
-  _download: function() {
+  _download: function(e) {
+    var $downloadbtn = $(e.currentTarget);
+    var id = $downloadbtn.data('indicator-id'),
+      year = $downloadbtn.data('year') || 2015,
+      categoryName = $downloadbtn.data('category-name') ? $downloadbtn.data('category-name') : 'global',
+      categoryGroup = $downloadbtn.data('category-group');
+
     new DownloadView({
-      iso: this.viewOptions.iso
+      iso: this.viewOptions.iso,
+      id: id,
+      year: year,
+      categoryName: categoryName,
+      categoryGroup: categoryGroup
     }).show();
   },
 

@@ -1,6 +1,6 @@
 ---
 name: World Resources Institute
-logo: ""
+logo: "css/img/wri_logo_horiz_4c.png"
 link: "http://www.wri.org/"
 description:
 ---

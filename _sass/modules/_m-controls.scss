@@ -1,6 +1,8 @@
 .m-controls {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
 
   a, button {
 
@@ -29,6 +31,7 @@
   }
 
   .icon {
+    display: none;
     margin-right: 5px;
   }
 
@@ -38,7 +41,38 @@
     padding: 0 rem(10px);
   }
 
+  .btn-layout-dashboard, 
+  .btn-layout-list {
+    padding-left: rem(10px) ;
+    padding-right: rem(10px) ; 
+  }
+
   &.-country-options {
+    display: none;
     align-items: initial;
+  }
+
+  .-footer & {
+    justify-content: center;
+    margin-bottom: rem(20px);
+  }
+
+  .-data & {
+    width: auto;
+  }
+
+  @media screen and (min-width: $screen-m) {
+    .icon {
+      display: block;
+    }
+
+    &.-country-options {
+      display: flex;
+    }
+
+    .-footer & {
+      justify-content: space-between;
+      margin-bottom: 0;
+    }
   }
 }
