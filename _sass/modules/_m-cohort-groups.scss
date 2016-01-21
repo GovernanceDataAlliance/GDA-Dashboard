@@ -16,7 +16,7 @@
   }
 
   .groups {
-    display: flex;
+    display: flex; display: -ms-box;
     justify-content: space-between;
   }
 

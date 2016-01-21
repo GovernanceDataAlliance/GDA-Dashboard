@@ -1,17 +1,17 @@
 .l-toolbar  {
   position: relative;
   z-index: 10;
-  display: flex;
+  display: flex; display: -ms-box;
   height: rem(70px);
   background-color: $bg-color-4;
   border-bottom: 1px solid $border-1;
 
   .wrap {
-    display: flex;
+    display: flex; display: -ms-box;
     justify-content: space-between;
 
     > .js--toolbar-utils {
-      display: flex;
+      display: flex; display: -ms-box;
       width: 100%;
     }
 
@@ -32,7 +32,7 @@
     transition: all .3s;
     transform: translate(0,0);
     .wrap {
-      display: flex;
+      display: flex; display: -ms-box;
       align-items: initial;
       justify-content: initial;
     }
@@ -93,7 +93,7 @@
       }
 
       > .js--toolbar-display {
-        display: flex;
+        display: flex; display: -ms-box;
       }
     }
 

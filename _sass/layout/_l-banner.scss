@@ -5,7 +5,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
   //home
   &.-main {
-    padding: rem(100px) 0 rem(140px);
+    padding: rem(30px) 0 rem(60px);
     background-color: #ccc;
     background-position: top left;
 
@@ -44,7 +44,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
   //country-show
   &.-detail {
-    display: flex;
+    display: flex; display: -ms-box;
     // min-height: rem(320px);
     padding: rem(140px) 0 rem(75px);
     background-color: $bg-color-1;
@@ -55,7 +55,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     }
 
     > .wrap {
-      display: flex;
+      display: flex; display: -ms-box;
     }
 
     &.-row {

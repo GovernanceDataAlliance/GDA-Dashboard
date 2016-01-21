@@ -5,7 +5,7 @@ $footer-height: rem(375px);
   position: relative;
   height: $footer-height;
 
-  display: flex;
+  display: flex; display: -ms-box;
   flex-direction: column;
   align-items: stretch;
 
@@ -15,7 +15,7 @@ $footer-height: rem(375px);
   }
 
   .l-brand {
-    display: flex;
+    display: flex; display: -ms-box;
     order: 2;
     height: rem(130px);
     flex-basis: 33.33%;
@@ -30,7 +30,7 @@ $footer-height: rem(375px);
 
   .l-menus {
     flex-basis: 66.66%;
-    display: flex;
+    display: flex; display: -ms-box;
     align-items: stretch;
     justify-content: center;
     padding: rem(60px) 0;
@@ -38,7 +38,7 @@ $footer-height: rem(375px);
 
     .menus-wrapper {
       @include col(5);
-      display: flex;
+      display: flex; display: -ms-box;
       justify-content: space-between;
       align-items: center;
       flex-direction: column;
@@ -60,7 +60,7 @@ $footer-height: rem(375px);
   }
   
   .footer-info {
-    display: flex;
+    display: flex; display: -ms-box;
     flex-direction: column;
     align-items: center;
 

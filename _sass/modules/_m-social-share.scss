@@ -1,5 +1,5 @@
 .m-social-share {
-  display: flex;
+  display: flex; display: -ms-box;
   justify-content: center;
 
   .icon {
@@ -9,7 +9,7 @@
   }
 
   ul {
-    display: flex;
+    display: flex; display: -ms-box;
     flex-direction: row;
     justify-content: center;
     margin-top: rem(50px);
@@ -25,7 +25,7 @@
 
   &.-footer {
     ul {
-      display: flex;
+      display: flex; display: -ms-box;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
@@ -41,7 +41,7 @@
       bottom: 0;
       right: 0;
       width: rem(95px);
-      display: flex;
+      display: flex; display: -ms-box;
       align-items: center;
       padding: 0 rem(20px);
       border-left: 1px solid $border-1;

@@ -2,7 +2,7 @@
   font-size: rem(11px);
   font-family: $font-secondary;
   text-transform: uppercase;
-  display: flex;
+  display: flex; display: -ms-box;
   align-items: center;
   text-align: center;
 

@@ -1,5 +1,5 @@
 .m-modal-window {
-  display: flex;
+  display: flex; display: -ms-box;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -23,7 +23,7 @@
 .modal-wrapper {
   box-sizing: border-box;
   position: relative;
-  display: flex;
+  display: flex; display: -ms-box;
   margin: auto;
   z-index: 14;
   //optional, min size.
@@ -33,7 +33,7 @@
 }
 
 .modal-container {
-  display: flex;
+  display: flex; display: -ms-box;
   width: 100%;
   padding: 50px; //Margen para el scroll de windows
   overflow: scroll;

@@ -88,7 +88,7 @@ svg:not(:root) {
 //**** utils  ****//
 ////////////////////
 .is-flex {
-  display: flex;
+  display: flex; display: -ms-box;
   display: -ms-box;
 }
 

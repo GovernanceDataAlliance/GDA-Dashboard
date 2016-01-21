@@ -1,7 +1,7 @@
 .c-search {
   width: 650px;
 
-  display: flex;
+  display: flex; display: -ms-box;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;

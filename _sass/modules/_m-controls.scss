@@ -1,5 +1,5 @@
 .m-controls {
-  display: flex;
+  display: flex; display: -ms-box;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -67,7 +67,7 @@
     }
 
     &.-country-options {
-      display: flex;
+      display: flex; display: -ms-box;
     }
 
     .-footer & {
