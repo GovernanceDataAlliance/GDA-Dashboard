@@ -1,6 +1,7 @@
 var $ = require('jquery'),
     Backbone = require('backbone'),
     Handlebars = require('handlebars'),
+    enquire = require('enquire.js'),
     _ = require('lodash');
 
 var template = Handlebars.compile(require('../../templates/common/search_tpl.hbs')),
@@ -23,8 +24,7 @@ var SearchView = Backbone.View.extend({
   events: {
     'keyup #searchMap' : 'onSearch',
     'focus #searchMap' : 'highlight',
-    'keydown #searchMap': 'highlightResultsBox',
-    'click .btn-close-modal' : 'closeSearch'
+    'keydown #searchMap': 'highlightResultsBox'
   },
 
   initialize: function(settings) {
@@ -32,26 +32,25 @@ var SearchView = Backbone.View.extend({
     var options = settings && settings.options ? settings.options : settings;
     this.options = _.extend(this.defaults, options);
 
-    // enquire.register("screen and (max-width:640px)", {
-    //   match: _.bind(function(){
-    //     this.mobile = true;
+    this.count = 0;
 
-    //     this.events =  {
-    //       'keyup #searchMap' : 'onSearch',
-    //       'focus #searchMap' : 'highlight',
-    //       'keydown #searchMap': 'highlightResultsBox',
-    //       'click .btn-close-modal' : 'closeSearch',
-    //       'click' : 'openSearch'
-    //     }
+    enquire.register("screen and (max-width:768px)", {
+      match: _.bind(function(){
+        this.mobile = true;
 
-    //   },this)
-    // });
+        return _.extend( this.events, {
+          'click .btn-close-modal' : 'closeSearch',
+          'click .search-box-open' : 'openSearch',
+        });
 
-    // enquire.register("screen and (min-width:640px)", {
-    //   match: _.bind(function(){
-    //     this.mobile = false;
-    //   },this)
-    // });
+      },this)
+    });
+
+    enquire.register("screen and (min-width:768px)", {
+      match: _.bind(function(){
+        this.mobile = false;
+      },this)
+    });
 
     this.searchCollection = new SearchCollection();
     this.elContent = this.options.elContent;
@@ -97,6 +96,35 @@ var SearchView = Backbone.View.extend({
         $searchBox.removeClass('searching');
         this.clearSuggestions();
       }
+    } 
+
+    // if ( key == 40 || key == 38 ) {
+    //   $('.search-suggestions').focus()
+    //   this.navigateResults(key);
+    // }
+  },
+
+  navigateResults: function(key) {
+   var $results = $('.search-area');
+   var maxCount = $results.length -1;
+   
+   console.log(key);
+
+   if (key === 38 ) {
+     // up
+
+     // $results.removeClass('highlight');
+     console.log(this.count);
+     $($results[this.count]).addClass('highlight');
+     this.count = this.count > 0 ? this.count - 1 : this.count;
+     return this.count;
+   } else if (key === 40 ) {
+      //down
+
+      // $results.removeClass('highlight');
+      $($results[this.count]).addClass('highlight');
+      this.count = this.count < maxCount ? this.count + 1 : this.count;
+      return this.count;
     }
   },
 
@@ -164,6 +192,7 @@ var SearchView = Backbone.View.extend({
     $searchSuggestions.html('');
     this.$(this.elContent).removeClass('visible');
     this.trigger('results', []);
+    this.closeSearch();
   },
 
   clearSearch: function() {
@@ -181,7 +210,6 @@ var SearchView = Backbone.View.extend({
   },
 
   openSearch: function() {
-    console.log('is mobile');
     this.$el.addClass('is-active');
   },
 
