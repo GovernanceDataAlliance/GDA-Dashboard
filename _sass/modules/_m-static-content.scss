@@ -24,7 +24,6 @@
 
   h2 {
     position: relative;
-    // padding-bottom: rem(50px);
     padding-bottom: rem(20px);
     margin-bottom: rem(50px);
     font-size: rem(12px);
@@ -60,10 +59,6 @@
       line-height: rem(29px);
       letter-spacing: rem(0.3px);
     }
-
-    // p {
-    //   font-size: rem(15px);
-    // }
   }
 
   ol {
@@ -99,9 +94,7 @@
     }
   }
 
-  // From 640px
   @media screen and (min-width: $screen-m) {
-    // max-width: $content-width;
 
     h2 {
       padding-bottom: rem(50px);
@@ -143,16 +136,16 @@
     font-size: rem(15px);
     margin-top: rem(50px);
 
-    > li {
-      margin-bottom: rem(30px);
-    }
+      > li {
+        margin-bottom: rem(30px);
+      }
 
-    p {
-      font-size: rem(15px);
+      p {
+        font-size: rem(15px);
+      }
     }
   }
-  }
-  // From 960px
+
   @media screen and (min-width: $screen-l) {
     max-width: $content-width;
   }
