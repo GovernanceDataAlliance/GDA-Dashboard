@@ -13,24 +13,24 @@
 
 .is-mobile-hidden {
   @extend %hidden;
-  
+
   @media screen and (min-width: $screen-m) {
     display: block !important;
-    visibility: visible !important; 
+    visibility: visible !important;
   }
 }
 
-.is-tablet-hidden {  
+.is-tablet-hidden {
   @media screen and (min-width: $screen-m) {
     display: none !important;
-    visibility: hidden !important; 
+    visibility: hidden !important;
   }
 }
 
 .is-desktop-hidden {
   @media screen and (min-width: $screen-m) {
     display: none !important;
-    visibility: hidden !important; 
+    visibility: hidden !important;
   }
 }
 
@@ -44,7 +44,7 @@
 
 // From 320px
 @media screen and (min-width: $screen-xs) {
-  
+
 }
 
 // From 640px

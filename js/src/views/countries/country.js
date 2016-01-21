@@ -32,8 +32,10 @@ var CountryView = Backbone.View.extend({
 
   initializeData: function() {
     this.country = new Country({id: this.iso});
-    this.listenTo(this.country, 'sync', this.renderCountry);
-    this.country.fetch();
+    // this.listenTo(this.country, 'sync', this.renderCountry);
+    this.country.fetch().done(function() {
+      this.renderCountry();
+    }.bind(this));
 
     this.indicators = new Indicators();
     this.listenTo(this.indicators, 'sync', this.renderIndicators);
