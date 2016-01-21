@@ -23,6 +23,7 @@ var MainView = Backbone.View.extend({
 
   handleMenu: function() {
     this.$menuWrap.toggleClass('is-open');
+    
     this.$body.toggleClass('is-inmobile');
     this.$html.toggleClass('is-inmobile');
   }
