@@ -8,9 +8,15 @@ var template = Handlebars.compile(
 var LineChartView = require('../common/line_chart_view.js');
 var PartialRanksView = require('./partial_ranks.js');
 
+var ModalWindowView = require('../common/infowindow_view.js');
+
 var IndicatorView = Backbone.View.extend({
   tagName: 'li',
   className : 'm-card',
+
+  events: {
+    'click .btn-info': 'showModalWindow'
+  },
 
   initialize: function(options) {
     options = options || {};
@@ -37,8 +43,8 @@ var IndicatorView = Backbone.View.extend({
   },
 
   partialRanks: function() {
-    if (this.indicator.iso != undefined) {    
-      var partial_ranks = new PartialRanksView({ 
+    if (this.indicator.iso != undefined) {
+      var partial_ranks = new PartialRanksView({
         'el': this.$('.js--partial-ranks'),
         'iso': this.indicator.iso,
         'index': this.indicator.short_name
@@ -55,9 +61,14 @@ var IndicatorView = Backbone.View.extend({
     return data;
   },
 
+  showModalWindow: function(e) {
+    var data = $(e.currentTarget).data('info');
+    var modalWindowView = new ModalWindowView().render(data)
+  },
+
   drawGraph: function() {
-    var graph = new LineChartView( { 
-      el: this.$('.js--graph'), 
+    var graph = new LineChartView( {
+      el: this.$('.js--graph'),
       'indicator': this.indicator
     } );
   },

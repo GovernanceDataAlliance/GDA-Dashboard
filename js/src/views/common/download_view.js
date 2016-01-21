@@ -42,8 +42,6 @@ var DownloadView = Backbone.View.extend({
 
   _getCSV: function() {
 
-    console.log(this.options);
-
     if (this.options.id) {
       return this.countriesCollection.downloadCountriesForIndicator(
         this.options.id, this.options.year, this.options.categoryGroup, this.options.categoryName);
