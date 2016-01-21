@@ -6,6 +6,8 @@
 
   a, button {
 
+    font-size: rem(10px);
+
     &:hover {
       color: $color-1;
       border-color: $color-1;
@@ -62,6 +64,11 @@
   }
 
   @media screen and (min-width: $screen-m) {
+
+    a, button {
+      font-size: rem(11px);
+    }
+
     .icon {
       display: block;
     }

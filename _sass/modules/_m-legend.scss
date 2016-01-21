@@ -30,6 +30,7 @@
         letter-spacing: rem(0.2px);
         color: $brown;
         text-transform: uppercase;
+        white-space: nowrap;
       }
 
       &.-best:before {
