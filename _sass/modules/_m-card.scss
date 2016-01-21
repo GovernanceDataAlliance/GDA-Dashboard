@@ -76,7 +76,7 @@
           flex-direction: column;
         }
       }
-      
+
     }
 
     @media screen and (min-width: $screen-l) {
@@ -100,7 +100,7 @@
     display: flex;
     flex-basis: 48%;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 
     .name {
       font-size: rem(24px);
@@ -121,15 +121,19 @@
           max-height: none;
         }
 
+        .read-more {
+          margin-left: 10px;
+        }
+
         .read-more,
         .read-less {
           position: relative;
-          margin-left: 10px;
           font-family: "Montserrat";
           font-size: rem(11px);
           text-transform: uppercase;
           color: $font-color-3;
           cursor: pointer;
+          white-space: nowrap;
         }
 
         .read-more:after,
@@ -195,12 +199,16 @@
       text-transform: uppercase;
       font-family: $font-secondary;
     }
+
+    .btn:last-child {
+      margin-top: 25px;
+    }
   }
 
   .index-score {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-basis: 48%;
 
     > .resume {
@@ -264,6 +272,7 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
+      margin: rem(30px) 0;
       padding: rem(20px);
       background-color: $bg-color-1;
 
