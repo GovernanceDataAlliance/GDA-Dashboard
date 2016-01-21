@@ -3,7 +3,7 @@
   {% include head.html %}
   <body class="welcome">
     {% include icons.html %}
-    <div class="l-main-container"> 
+    <div class="l-main-container">
       {% include header.html %}
 
       <div class="l-banner -section-2 promoInteriores-About">
@@ -21,7 +21,7 @@
         </div>
       </div>
 
-      <div class="l-content -main">
+      <div class="l-content -main -about">
         <div class="wrap">
           <div class="m-static-content">
             {{ content }}
@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <div class="l-content -fullscreen">
+      <div class="l-content -fullscreen -about">
         <div class="l-grid">
           {% for organization in site.categories.organizations %}
             <div class="m-card--indexes">
