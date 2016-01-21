@@ -15,12 +15,7 @@ var Router = Backbone.Router.extend({
   },
 
   welcome: function() {
-    if (!this.views.hasView('welcome')) {
-      var view = new WelcomeView({});
-      this.views.addView('welcome', view);
-    }
-
-    this.views.showView('welcome');
+    var view = new WelcomeView({});
   }
 
 });

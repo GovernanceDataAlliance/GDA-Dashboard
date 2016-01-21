@@ -1,7 +1,8 @@
-var Backbone = require('backbone'),
+var $ = require('jquery'),
+    Backbone = require('backbone'),
     Handlebars = require('handlebars'),
+    enquire = require('enquire.js'),
     _ = require('lodash');
-    $ = require('jquery');
 
 var template = Handlebars.compile(require('../../templates/common/search_tpl.hbs')),
     templateSuggestions = Handlebars.compile(require('../../templates/common/search_suggestions_tpl.hbs'));
@@ -24,12 +25,34 @@ var SearchView = Backbone.View.extend({
     'keyup #searchMap' : 'onSearch',
     'focus #searchMap' : 'highlight',
     'keydown #searchMap': 'highlightResultsBox',
+    'click .search-box-open' : 'openSearch',
+    'click .btn-close-modal' : 'closeSearch'
   },
 
   initialize: function(settings) {
     var self = this;
     var options = settings && settings.options ? settings.options : settings;
     this.options = _.extend(this.defaults, options);
+
+    this.count = 0;
+
+    enquire.register("screen and (max-width:640px)", {
+      match: _.bind(function(){
+
+        this.mobile = true;
+        // return _.extend( this.events, {  
+        //   'click .search-box-open' : 'openSearch',
+        //   'click .btn-close-modal' : 'closeSearch'
+        // });
+
+      },this)
+    });
+
+    enquire.register("screen and (min-width:641px)", {
+      match: _.bind(function(){
+        this.mobile = false;
+      },this)
+    });
 
     this.searchCollection = new SearchCollection();
     this.elContent = this.options.elContent;
@@ -75,6 +98,35 @@ var SearchView = Backbone.View.extend({
         $searchBox.removeClass('searching');
         this.clearSuggestions();
       }
+    } 
+
+    // if ( key == 40 || key == 38 ) {
+    //   $('.search-suggestions').focus()
+    //   this.navigateResults(key);
+    // }
+  },
+
+  navigateResults: function(key) {
+   var $results = $('.search-area');
+   var maxCount = $results.length -1;
+   
+   console.log(key);
+
+   if (key === 38 ) {
+     // up
+
+     // $results.removeClass('highlight');
+     console.log(this.count);
+     $($results[this.count]).addClass('highlight');
+     this.count = this.count > 0 ? this.count - 1 : this.count;
+     return this.count;
+   } else if (key === 40 ) {
+      //down
+
+      // $results.removeClass('highlight');
+      $($results[this.count]).addClass('highlight');
+      this.count = this.count < maxCount ? this.count + 1 : this.count;
+      return this.count;
     }
   },
 
@@ -142,6 +194,7 @@ var SearchView = Backbone.View.extend({
     $searchSuggestions.html('');
     this.$(this.elContent).removeClass('visible');
     this.trigger('results', []);
+    this.closeSearch();
   },
 
   clearSearch: function() {
@@ -156,6 +209,18 @@ var SearchView = Backbone.View.extend({
     if(key === 27) {
       this.unHighlight();
     }
+  },
+
+  openSearch: function() {
+    this.$el.addClass('is-active');
+    this.$('body').addClass('is-inmobile');
+    this.$('html').addClass('is-inmobile');
+  },
+
+  closeSearch: function() {
+    this.$el.removeClass('is-active');
+    this.$('body').removeClass('is-inmobile');
+    this.$('html').removeClass('is-inmobile');
   }
 
 });

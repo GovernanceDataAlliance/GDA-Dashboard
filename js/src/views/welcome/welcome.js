@@ -1,5 +1,5 @@
-var Backbone = require('backbone'),
-    Handlebars = require('handlebars');
+var $ = require('jquery'),
+    Backbone = require('backbone');
 
 var SearchView = require('../common/search_view.js');
 

@@ -1,4 +1,4 @@
-var _ = require('lodash');
+var $ = require('jquery'), _ = require('lodash');
 
 var CartoDBCollection = require('../lib/cartodb_collection.js');
 var ColorService = require('../lib/services/colors.js');
