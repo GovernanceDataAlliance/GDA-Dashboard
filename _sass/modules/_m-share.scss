@@ -2,17 +2,17 @@
 
   h2 {
     font-weight: 400;
-    margin-bottom: rem(40px);
+    margin-bottom: rem(20px);
   }
 
   p {
     font-size: rem(15px);
-    margin-bottom: rem(65px);
+    margin-bottom: rem(35px);
   }
 
   input {
     text-style: italic;
-    margin-bottom: rem(65px);
+    margin-bottom: rem(10px);
   }
 
   .modal-wrapper {
@@ -20,7 +20,7 @@
     .modal-container {
 
       .modal-content {
-        width: 50%;
+        width: 100%;
 
         .link-box {
           width: 100%;
@@ -30,7 +30,7 @@
         }
 
         .url {
-          width: 80%;
+          width: 100%;
           padding: rem(16px) rem(10px);
           font-family: "Montserrat";
           font-size: 12px;
@@ -41,10 +41,7 @@
         }
 
         .btn-copy {
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 21%;
+          width: 100%;
           height: rem(51px);
           border: 1px solid $color-4;
           color: $color-2;
@@ -56,6 +53,19 @@
           text-transform: uppercase;
           text-align: center;
           cursor: pointer;
+        }
+
+        @media screen and (min-width: $screen-s) {
+          .url {
+            width: 80%;
+          }
+
+          .btn-copy {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 21%;
+          }
         }
       }
     }

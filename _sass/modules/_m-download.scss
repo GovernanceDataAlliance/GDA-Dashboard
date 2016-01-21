@@ -1,7 +1,7 @@
 .m-download {
 
   .modal-content {
-    width: 75%;
+    width: 100%;
 
     h2 {
       font-weight: 400;
@@ -9,16 +9,40 @@
     }
 
     >.content {
-      margin: 60px 0;
+      margin: rem(30px) 0;
+    }
 
-      a {
-        font-size: rem(20px)
-      }
+    p, a {
+      font-size: rem(14px);
+      line-height: rem(29px);
     }
 
     > .buttons {
+      > a {
+        width: 100%;
+      }
+
       > .js--cancel-btn {
         border: 0;
+      }
+    }
+
+    // From 640px
+    @media screen and (min-width: $screen-s) {
+      width: 80%;
+
+      h2 {
+        margin-bottom: 0;
+      }
+
+      > .content {
+        margin: rem(60px) 0;
+      }
+
+      > .buttons {
+        > a {
+          width: auto;
+        }
       }
     }
   }
