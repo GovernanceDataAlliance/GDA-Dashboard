@@ -11,9 +11,12 @@
   ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: rem(125px);
-    margin-top: rem(50px)
+    justify-content: center;
+    margin-top: rem(50px);
+
+    .btn-social > a {
+      padding: 0 10px;
+    }
   }
 
   &.-header {
