@@ -10,6 +10,9 @@
         {{#if organization}}
           <h3 class="organization">
             {{organization}}
+            {{#if product_description}}
+              <button class="btn-info" data-info="{{product_description}}">i</button>
+            {{/if}}
           </h3>
         {{/if}}
       </div>
@@ -29,13 +32,13 @@
         <p class="global-score">
           {{#round}}{{score}}{{/round}}
           {{#if units_tpl}}
-            <span class="units"> 
+            <span class="units">
              {{units_tpl}}
             </span>
           {{/if}}
         </p>
       </div>
-      
+
       <div class="js--partial-ranks">
         <ul class="partial-scores">
           <li id="global">
@@ -46,7 +49,7 @@
           </li>
         </ul>
       </div>
-  
+
       <div class="info">
         <span>Last Updated: {{year}}</span>
         <span>Score Range: {{max_score}} - {{min_score}}</span>
