@@ -21,6 +21,10 @@
 
   &.-header {
     width: rem(60px);
+
+    ul {
+      margin-top: 0;
+    }
   }
 
   &.-footer {

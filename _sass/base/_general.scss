@@ -12,6 +12,10 @@ dl, dd, ol, ul, figure {
     padding: 0;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   font-family: $font-main, Helvetica, Arial, sans-serif;
