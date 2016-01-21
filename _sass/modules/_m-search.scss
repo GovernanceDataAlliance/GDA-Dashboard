@@ -3,6 +3,62 @@
   width: 100%;
   background-color: $bg-color-3;
 
+  .icon {
+    display: none;
+    @extend %centery;
+    right: 10%;
+    width: rem(20px);
+    height: rem(20px);
+    fill: $white;
+  }
+
+  &.is-active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+
+    .icon {
+      display: block;
+      width: rem(30px);
+      height: rem(30px);
+      fill: $white;
+    }
+
+    > input {
+      @extend %center;
+      width: 80%;
+      height: rem(50px);
+      border-bottom: 1px solid $white;
+
+      @include placeholder() {
+        color: $font-color-1;
+        font-size: rem(18px);
+        text-transform: none;
+        text-align: left; 
+        text-style: italic;
+      }
+    }
+
+    .btn-close-modal {
+      display: block;
+      color: $white;
+      border-color: $white;
+    }
+
+    > .search-box.visible {
+      position: absolute;
+      top: 55%;
+      left: rem(20px);
+      right: rem(20px);
+      bottom: auto;
+      max-height: 40%;
+      overflow-y: scroll;
+      transform: translatey(0);
+    }
+  }
+
   > input {
     @extend %clean-button-or-input;
     width: 100%;
@@ -18,9 +74,13 @@
     }
   }
 
+  .btn-close-modal {
+    display: none;
+  }
+
   > .search-box.visible {
     position: absolute;
-    bottom: rem(90px);
+    bottom: rem(40px);
     left: rem(100px);
     right: rem(100px);
     z-index: 1;
@@ -59,6 +119,10 @@
   }
 
   @media screen and (min-width: $screen-m) {
-     padding: rem(60px);
+    padding: rem(60px);
+
+    > .search-box.visible {
+      bottom: rem(10px);
+    }
   }
 }

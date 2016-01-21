@@ -1,7 +1,7 @@
-var Backbone = require('backbone'),
+var $ = require('jquery'),
+    Backbone = require('backbone'),
     Handlebars = require('handlebars'),
     _ = require('lodash');
-    $ = require('jquery');
 
 var template = Handlebars.compile(require('../../templates/common/search_tpl.hbs')),
     templateSuggestions = Handlebars.compile(require('../../templates/common/search_suggestions_tpl.hbs'));
@@ -24,12 +24,34 @@ var SearchView = Backbone.View.extend({
     'keyup #searchMap' : 'onSearch',
     'focus #searchMap' : 'highlight',
     'keydown #searchMap': 'highlightResultsBox',
+    'click .btn-close-modal' : 'closeSearch'
   },
 
   initialize: function(settings) {
     var self = this;
     var options = settings && settings.options ? settings.options : settings;
     this.options = _.extend(this.defaults, options);
+
+    // enquire.register("screen and (max-width:640px)", {
+    //   match: _.bind(function(){
+    //     this.mobile = true;
+
+    //     this.events =  {
+    //       'keyup #searchMap' : 'onSearch',
+    //       'focus #searchMap' : 'highlight',
+    //       'keydown #searchMap': 'highlightResultsBox',
+    //       'click .btn-close-modal' : 'closeSearch',
+    //       'click' : 'openSearch'
+    //     }
+
+    //   },this)
+    // });
+
+    // enquire.register("screen and (min-width:640px)", {
+    //   match: _.bind(function(){
+    //     this.mobile = false;
+    //   },this)
+    // });
 
     this.searchCollection = new SearchCollection();
     this.elContent = this.options.elContent;
@@ -156,6 +178,15 @@ var SearchView = Backbone.View.extend({
     if(key === 27) {
       this.unHighlight();
     }
+  },
+
+  openSearch: function() {
+    console.log('is mobile');
+    this.$el.addClass('is-active');
+  },
+
+  closeSearch: function() {
+    this.$el.removeClass('is-active');
   }
 
 });

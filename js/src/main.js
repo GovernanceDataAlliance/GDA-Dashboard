@@ -1,4 +1,5 @@
-var Backbone = require('backbone'),
+var $ = require('jquery'),
+    Backbone = require('backbone'),
     _ = require('lodash');
 
 var MainView = Backbone.View.extend({

@@ -1,4 +1,5 @@
-var Backbone = require('backbone'),
+var  $ = require('jquery'),
+    Backbone = require('backbone'),
     format = require('./format.js');
 
 var BASE_URL = "http://{0}.cartodb.com/api/v2/sql";
