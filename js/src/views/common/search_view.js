@@ -24,7 +24,9 @@ var SearchView = Backbone.View.extend({
   events: {
     'keyup #searchMap' : 'onSearch',
     'focus #searchMap' : 'highlight',
-    'keydown #searchMap': 'highlightResultsBox'
+    'keydown #searchMap': 'highlightResultsBox',
+    'click .search-box-open' : 'openSearch',
+    'click .btn-close-modal' : 'closeSearch'
   },
 
   initialize: function(settings) {
@@ -34,19 +36,19 @@ var SearchView = Backbone.View.extend({
 
     this.count = 0;
 
-    enquire.register("screen and (max-width:768px)", {
+    enquire.register("screen and (max-width:640px)", {
       match: _.bind(function(){
-        this.mobile = true;
 
-        return _.extend( this.events, {
-          'click .btn-close-modal' : 'closeSearch',
-          'click .search-box-open' : 'openSearch',
-        });
+        this.mobile = true;
+        // return _.extend( this.events, {  
+        //   'click .search-box-open' : 'openSearch',
+        //   'click .btn-close-modal' : 'closeSearch'
+        // });
 
       },this)
     });
 
-    enquire.register("screen and (min-width:768px)", {
+    enquire.register("screen and (min-width:641px)", {
       match: _.bind(function(){
         this.mobile = false;
       },this)
@@ -211,10 +213,14 @@ var SearchView = Backbone.View.extend({
 
   openSearch: function() {
     this.$el.addClass('is-active');
+    this.$('body').addClass('is-inmobile');
+    this.$('html').addClass('is-inmobile');
   },
 
   closeSearch: function() {
     this.$el.removeClass('is-active');
+    this.$('body').removeClass('is-inmobile');
+    this.$('html').removeClass('is-inmobile');
   }
 
 });
