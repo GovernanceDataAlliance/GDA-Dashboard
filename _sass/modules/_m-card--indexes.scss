@@ -1,31 +1,14 @@
 .m-card--indexes {
-  display: flex;
-  flex-basis: 50%;
-  justify-content: space-between;
+  // display: flex;
+  // flex-basis: 50%;
+  // justify-content: space-between;
+  width: 100%;
+  padding: 0 rem($wrap-padding-mobile);
   border-bottom: 1px solid $border-1;
 
   &:last-child,
   &:nth-last-child(2) {
     border-bottom: 0;
-  }
-
-  &:nth-child(2n) {
-    justify-content: flex-start;
-
-    .index-description {
-      padding-left: rem(80px);
-      padding-right: $wrap-padding-desktop;
-    }
-  }
-
-  &:nth-child(2n + 1) {
-    justify-content: flex-end;
-    border-right: 1px solid $border-1;
-
-    .index-description {
-      padding-left: $wrap-padding-desktop;
-      padding-right: $wrap-padding-desktop;
-    }
   }
 
   .index-description {
@@ -89,6 +72,36 @@
       &.freedom_on_the_net,
       &.resource_governance_index {
         width: rem(70px);
+      }
+    }
+  }
+
+  // @media screen and (min-width: $screen-s) {
+  //   width: 50%;
+  //   float: left;
+  // }
+
+  @media screen and (min-width: $screen-m) {
+    display: flex;
+    flex-basis: 50%;
+    justify-content: space-between;
+
+    &:nth-child(2n) {
+      justify-content: flex-start;
+
+      .index-description {
+        padding-left: rem(80px);
+        padding-right: $wrap-padding-desktop;
+      }
+    }
+
+    &:nth-child(2n + 1) {
+      justify-content: flex-end;
+      border-right: 1px solid $border-1;
+
+      .index-description {
+        padding-left: $wrap-padding-desktop;
+        padding-right: $wrap-padding-desktop;
       }
     }
   }
