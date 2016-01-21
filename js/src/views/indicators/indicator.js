@@ -19,6 +19,11 @@ var template = Handlebars.compile(
 
 var IndicatorView = Backbone.View.extend({
 
+  events: {
+    "click .js--ranking-groups": "_stopEvent",
+    'click .js--btn-ranking': "_stopEvent"
+  },
+
   initialize: function(options) {
     options = options || {};
 
@@ -33,6 +38,8 @@ var IndicatorView = Backbone.View.extend({
   setListeners: function() {
     Backbone.Events.on('rankGroup:chosen', _.bind(this.updateCountries, this));
     Backbone.Events.on('year:selected', _.bind(this.updateCountries, this));
+
+    $('html').click(this._hideRanking);
   },
 
   initializeData: function() {
@@ -51,6 +58,14 @@ var IndicatorView = Backbone.View.extend({
 
     }.bind(this));
 
+  },
+
+  _stopEvent: function(e) {
+    e.stopPropagation();
+  },
+
+  _hideRanking: function() {
+    $('.js--ranking-groups').addClass('is-hidden');
   },
 
   getYears: function() {
