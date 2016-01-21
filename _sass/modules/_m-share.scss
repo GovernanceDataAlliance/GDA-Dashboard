@@ -32,7 +32,10 @@
         .url {
           width: 80%;
           padding: rem(16px) rem(10px);
+          font-family: "Montserrat";
           font-size: 12px;
+          font-style: italic;
+          color: #5b5b5b;
 
           @include ellipsis-x(100%);
         }
@@ -42,7 +45,7 @@
           top: 0;
           right: 0;
           width: 21%;
-          height: rem(50px);
+          height: rem(51px);
           border: 1px solid $color-4;
           color: $color-2;
           padding: rem(17px);

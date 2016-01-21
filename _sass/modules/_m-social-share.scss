@@ -1,4 +1,7 @@
 .m-social-share {
+  display: flex;
+  justify-content: center;
+
   .icon {
     width: rem(20px);
     height: rem(20px);
@@ -9,8 +12,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: rem(125px);
   }
-  
+
   &.-header {
     width: rem(60px);
   }
