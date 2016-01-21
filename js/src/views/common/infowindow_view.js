@@ -54,8 +54,8 @@ var ModalWindowView = Backbone.View.extend({
   },
 
   toogleState: function() {
-    this.$el.toggleClass('has-no-scroll', this.fixed);
-    $('html').toggleClass('has-no-scroll', this.fixed);
+    this.$el.toggleClass('is-inmobile', this.fixed);
+    $('html').toggleClass('is-inmobile', this.fixed);
   }
 
 });
