@@ -1,4 +1,7 @@
 .m-social-share {
+  display: flex;
+  justify-content: center;
+
   .icon {
     width: rem(20px);
     height: rem(20px);
@@ -8,9 +11,14 @@
   ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    margin-top: rem(50px);
+
+    .btn-social > a {
+      padding: 0 10px;
+    }
   }
-  
+
   &.-header {
     width: rem(60px);
   }

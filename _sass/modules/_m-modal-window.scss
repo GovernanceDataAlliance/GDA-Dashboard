@@ -28,18 +28,29 @@
   z-index: 14;
   //optional, min size.
   width: 90%;
-  min-width: 75%;
-  min-height: 75%;
+  max-width: rem(755px);
+  min-height: 40%;
 }
 
 .modal-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   padding: 50px; //Margen para el scroll de windows
   overflow: scroll;
   background-color: #fff;
+
+  padding: 75px $wrap-padding-mobile;
+  align-items: flex-start;
+
+  // From 640px
+  @media screen and (min-width: $screen-s) {
+    padding: 75px $wrap-padding-tablet;
+  }
+
+  // From 768px
+  @media screen and (min-width: $screen-m) {
+    padding: 75px $wrap-padding-desktop;
+  }
 }
 
 .btn-close-modal {
