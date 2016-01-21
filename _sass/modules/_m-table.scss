@@ -38,23 +38,23 @@
 
       // Scores
       &.-score-best {
-        color: $green;
+        color: $best;
       }
 
       &.-score-good {
-        color: $blue;
+        color: $good;
       }
 
       &.-score-medium {
-        color: $yellow;
+        color: $medium;
       }
 
       &.-score-regular {
-        color: $orange;
+        color: $regular;
       }
 
       &.-score-bad {
-        color: $magenta;
+        color: $bad;
       }
     }
 

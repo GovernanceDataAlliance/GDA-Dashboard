@@ -33,23 +33,23 @@
       }
 
       &.-best:before {
-        background: $green;
+        background: $best;
       }
 
       &.-good:before {
-        background: $blue;
+        background: $good;
       }
 
       &.-medium:before {
-        background: $yellow;
+        background: $medium;
       }
 
       &.-regular:before {
-        background: $orange;
+        background: $regular;
       }
 
       &.-bad:before {
-        background: $magenta;
+        background: $bad;
       }
 
       @media screen and (min-width: $screen-s) {

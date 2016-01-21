@@ -327,28 +327,28 @@
 
   // Scores
   &.-score-best {
-    .global-score { color: $green;}
-    .graph > svg { stroke: $green;}
+    .global-score { color: $best;}
+    .graph > svg { stroke: $best;}
   }
 
   &.-score-good {
-    .global-score { color: $blue;}
-    .graph > svg { stroke: $blue;}
+    .global-score { color: $good;}
+    .graph > svg { stroke: $good;}
   }
 
   &.-score-medium {
-    .global-score { color: $yellow;}
-    .graph > svg { stroke: $yellow;}
+    .global-score { color: $medium;}
+    .graph > svg { stroke: $medium;}
   }
 
   &.-score-regular {
-    .global-score { color: $orange}
-    .graph > svg { stroke: $orange}
+    .global-score { color: $regular;}
+    .graph > svg { stroke: $regular;}
   }
 
   &.-score-bad {
     color: $white;
-    background-color: $magenta;
+    background-color: $bad;
     .graph > svg { stroke: $white;}
   }
 }
