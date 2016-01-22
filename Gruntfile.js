@@ -25,9 +25,25 @@ module.exports = function(grunt) {
         options: {
           sourcemap: 'none'
         },
-        files :{
+        files: {
           'css/main.css' : '_sass/main.scss'
         }
+      }
+    },
+
+    postcss: {
+      options: {
+        processors: [
+          require('autoprefixer')({browsers: 'last 2 versions'}) // add vendor prefixes
+        ]
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'css/',
+          src:['main.css'],
+          dest:'css/'
+        }]
       }
     },
 
@@ -93,7 +109,7 @@ module.exports = function(grunt) {
       all: {
         files: ['js/src/**/*', '**/*.html', 'css/**/*', '_sass/**/*'],
         tasks: ['browserify:main', 'browserify:countries', 'browserify:compare',
-          'browserify:indicators', 'browserify:welcome', 'sass:dist', 'jekyll:dist']
+          'browserify:indicators', 'browserify:welcome', 'sass:dist', 'postcss:dist', 'jekyll:dist']
       }
     },
 
@@ -135,7 +151,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-jekyll');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-browserify');
-  grunt.loadNpmTasks('grunt-contrib-sass')
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-connect');
