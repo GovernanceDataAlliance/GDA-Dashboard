@@ -57,7 +57,7 @@ describe('Country View', function() {
       });
 
       it("fetches the new country", function() {
-        expect(countryFetchSpy.callCount).toBe(3);
+        expect(countryFetchSpy.callCount).toBe(4);
       });
 
       it("re-fetches the indicators", function() {
@@ -65,7 +65,7 @@ describe('Country View', function() {
       });
 
       it("re-renders the country view", function() {
-        expect(renderCountrySpy.callCount).toBe(1);
+        expect(renderCountrySpy.callCount).toBe(2);
       });
 
       it("re-renders the indicators view", function() {
