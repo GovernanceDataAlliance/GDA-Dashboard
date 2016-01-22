@@ -10,13 +10,13 @@
     border-bottom: 1px solid $border-1;
 
     > .wrap {
-      display: flex;
+      display: flex; display: -ms-box;
       justify-content: space-between;
       align-items: center;
       height: rem(100px);
 
       > .description {
-        display: flex;
+        display: flex; display: -ms-box;
         align-items: baseline;
       }
 

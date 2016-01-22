@@ -26,7 +26,9 @@ var SearchView = Backbone.View.extend({
     'focus #searchMap' : 'highlight',
     'keydown #searchMap': 'highlightResultsBox',
     'click .search-box-open' : 'openSearch',
-    'click .btn-close-modal' : 'closeSearch'
+    'click .btn-close-modal' : 'closeSearch',
+    'touchstart .search-box-open' : 'openSearch',
+    'touchstart .btn-close-modal' : 'closeSearch'
   },
 
   initialize: function(settings) {
@@ -99,35 +101,6 @@ var SearchView = Backbone.View.extend({
         this.clearSuggestions();
       }
     } 
-
-    // if ( key == 40 || key == 38 ) {
-    //   $('.search-suggestions').focus()
-    //   this.navigateResults(key);
-    // }
-  },
-
-  navigateResults: function(key) {
-   var $results = $('.search-area');
-   var maxCount = $results.length -1;
-   
-   console.log(key);
-
-   if (key === 38 ) {
-     // up
-
-     // $results.removeClass('highlight');
-     console.log(this.count);
-     $($results[this.count]).addClass('highlight');
-     this.count = this.count > 0 ? this.count - 1 : this.count;
-     return this.count;
-   } else if (key === 40 ) {
-      //down
-
-      // $results.removeClass('highlight');
-      $($results[this.count]).addClass('highlight');
-      this.count = this.count < maxCount ? this.count + 1 : this.count;
-      return this.count;
-    }
   },
 
   highlight: function(ev) {

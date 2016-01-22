@@ -1,13 +1,13 @@
 .m-legend {
-  display: flex;
+  display: flex; display: -ms-box;
   align-items: center;
   padding: rem(20px) 0;
 
   > ul {
-    display: flex;
+    display: flex; display: -ms-box;
 
     li {
-      display: flex;
+      display: flex; display: -ms-box;
       align-items: center;
       justify-content: center;
       flex-direction: column;
@@ -30,6 +30,7 @@
         letter-spacing: rem(0.2px);
         color: $brown;
         text-transform: uppercase;
+        white-space: nowrap;
       }
 
       &.-best:before {

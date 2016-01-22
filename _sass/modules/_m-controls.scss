@@ -1,10 +1,12 @@
 .m-controls {
-  display: flex;
+  display: flex; display: -ms-box;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 
   a, button {
+
+    font-size: rem(10px);
 
     &:hover {
       color: $color-1;
@@ -62,12 +64,17 @@
   }
 
   @media screen and (min-width: $screen-m) {
+
+    a, button {
+      font-size: rem(11px);
+    }
+
     .icon {
       display: block;
     }
 
     &.-country-options {
-      display: flex;
+      display: flex; display: -ms-box;
     }
 
     .-footer & {

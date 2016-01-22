@@ -2,7 +2,7 @@
   font-size: rem(11px);
   font-family: $font-secondary;
   text-transform: uppercase;
-  display: flex;
+  display: flex; display: -ms-box;
   align-items: center;
   text-align: center;
 
@@ -65,20 +65,35 @@
 
 .btn-close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 0;
+  right: 0;
   z-index: 1;
+  
+  margin-right: rem(20px);
+  margin-top: rem(20px);
 
   cursor: pointer;
   font-family: $font-main;
   font-weight: bold;
   color: $color-4;
-  font-size: rem(20px);
+  font-size: rem(30px);
 
-  width: rem(24px);
-  height: rem(24px);
-  line-height: 18px;
+  width: rem(35px);
+  height: rem(35px);
+  line-height: 28px;
   border-radius: 50%;
   text-align: center;
   border: 2px solid $color-4;
+
+  &.-color-1 {
+    color: $color-1;
+    border-color: $color-1;
+  }
+
+  @media screen and (min-width: $screen-s) {
+    font-size: rem(20px);
+    width: rem(24px);
+    height: rem(24px);
+    line-height: 18px;
+  }
 }

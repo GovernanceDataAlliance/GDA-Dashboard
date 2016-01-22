@@ -2,8 +2,6 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
 
 .l-presentation {
   position: relative;
-  display: flex;
-  flex-direction: column;
 
   > .picture {
     height: rem(195px);
@@ -16,7 +14,7 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
   > .intro {
     position: relative;
     flex-basis: 100%;
-    display: flex;
+    display: flex; display: -ms-box;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
@@ -24,7 +22,6 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
     background-color: $white;
 
     &.-dark {
-      padding: rem(90px) 0;
       background-color: $bg-color-2;
     }
 
@@ -74,6 +71,8 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
   }
 
   @media screen and (min-width: $screen-m) {
+    display: flex; 
+    display: -ms-box;
     flex-direction: row;
 
     > .picture {
@@ -99,8 +98,8 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
       }
     }
 
-    &.-mobile-reverse {
-      flex-direction: row;
+    &.-reverse {
+      flex-direction: row-reverse;
     }
   }
 

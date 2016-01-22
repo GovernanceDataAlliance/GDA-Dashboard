@@ -26,7 +26,7 @@
     max-width: 430px;
     
     ul {
-      display: flex;
+      display: flex; display: -ms-box;
       flex-direction: row;
       justify-content: space-between;
       max-width: rem(450px);
@@ -48,11 +48,11 @@
       bottom: 0;
       right: rem(95px);
       left: 0;
-      display: flex;
+      display: flex; display: -ms-box;
       justify-content: center;
 
       ul {
-        display: flex;
+        display: flex; display: -ms-box;
         flex-direction: row;
         justify-content: space-between;
         max-width: rem(450px);

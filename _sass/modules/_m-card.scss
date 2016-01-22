@@ -1,17 +1,17 @@
 .m-card {
-  display: flex;
+  display: flex; display: -ms-box;
   flex-basis: 100%;
   min-height: rem(390px);
   border-bottom: 1px solid $border-1;
   color: $font-color-1;
 
   .card-wrap {
-    display: flex;
+    display: flex; display: -ms-box;
     width: 100%;
     padding: rem(65px) 0;
 
     >.wrap {
-      display: flex;
+      display: flex; display: -ms-box;
       justify-content: space-between;
     }
   }
@@ -97,7 +97,7 @@
   }
 
   .index-description {
-    display: flex;
+    display: flex; display: -ms-box;
     flex-basis: 48%;
     flex-direction: column;
     justify-content: center;
@@ -206,13 +206,13 @@
   }
 
   .index-score {
-    display: flex;
+    display: flex; display: -ms-box;
     flex-direction: column;
     justify-content: flex-start;
     flex-basis: 48%;
 
     > .resume {
-      display: flex;
+      display: flex; display: -ms-box;
       justify-content: space-between;
       align-items: flex-start;
 
@@ -267,7 +267,7 @@
     }
 
     .partial-scores {
-      display: flex;
+      display: flex; display: -ms-box;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
@@ -277,7 +277,7 @@
       background-color: $bg-color-1;
 
       > li {
-        display: flex;
+        display: flex; display: -ms-box;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
@@ -358,6 +358,16 @@
   &.-score-bad {
     color: $white;
     background-color: $bad;
+
+    .index-description .organization { 
+      color: $white;
+    }
+
+    .index-score .partial-scores {
+      border-color: $white;
+      background-color: transparent;
+    }
+
     .graph > svg { stroke: $white;}
   }
 }

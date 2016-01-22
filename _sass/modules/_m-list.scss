@@ -1,7 +1,7 @@
 .m-list {
   
   ul {
-    display: flex;
+    display: flex; display: -ms-box;
     height: 0;
     flex-direction: column;
     align-content: flex-start;

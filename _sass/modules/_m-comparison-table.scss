@@ -1,5 +1,5 @@
 .m-comparison-table {
-  display: flex;
+  display: flex; display: -ms-box;
   border-left: 1px solid $border-1;
   border-right: 1px solid $border-1;
 
@@ -63,7 +63,7 @@
 
   .table-cell {
     height: rem(160px);
-    display: flex;
+    display: flex; display: -ms-box;
     padding: rem(35px) rem(25px);
 
     &:last-child {
