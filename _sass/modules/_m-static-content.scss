@@ -127,7 +127,6 @@
           top: -26px;
           left: -5px;
         }
-
       }
 
       h3 {
@@ -139,7 +138,7 @@
       }
 
       p {
-        font-size: rem(15px);
+        font-size: rem(14px);
         font-weight: 400;
         font-family: $font-main;
         color: $color-1;
@@ -158,11 +157,20 @@
 
       p {
         font-size: rem(15px);
+        line-height: rem(27px);
       }
+    }
+
+    p {
+      font-size: rem(18px);
     }
   }
 
   @media screen and (min-width: $screen-l) {
     max-width: $content-width;
+
+    p {
+      font-size: rem(20px);
+    }
   }
 }
