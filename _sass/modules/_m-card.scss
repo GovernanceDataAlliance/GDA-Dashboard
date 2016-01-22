@@ -26,10 +26,11 @@
 
     .index-description {
       flex-basis: 100%;
-      
-      .organiztion {
-        color: $color-1; 
+
+      .organization {
+        color: $color-1 !important; 
       }
+
       h2 {
         position: relative;
         padding-bottom: rem(50px);
@@ -82,6 +83,10 @@
         padding: rem(60px) rem($wrap-padding-mobile);
 
         >.wrap {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: column;
+          -ms-flex-direction: column;
           flex-direction: column;
         }
       }
