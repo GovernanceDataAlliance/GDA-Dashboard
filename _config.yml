@@ -8,12 +8,4 @@ baseurl: '/GDA-Dashboard'
 # Build settings
 markdown: kramdown
 
-
-sass:
-  sass_dir: _sass
-
 exclude: ['scripts', 'node_modules', 'vendor']
-
-
-gems:
-  - octopress-autoprefixer

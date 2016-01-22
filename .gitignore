@@ -5,6 +5,7 @@ node_modules
 .grunt
 
 npm-debug.log
+css/main.css
 
 js/bundle.js
 js/countries_bundle.js
