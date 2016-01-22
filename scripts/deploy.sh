@@ -11,6 +11,9 @@ git checkout -b gh-pages
 
 git rebase develop
 
+ORIGINAL_NAME="$(git config user.name)"
+ORIGINAL_EMAIL="$(git config user.email)"
+
 git config user.name "Travis CI"
 git config user.email "adam.mulligan@vizzuality.com"
 
@@ -24,5 +27,9 @@ git add -f js/welcome_bundle.js
 git commit -m 'Automatic Travis Build'
 
 git push --force --quiet origin gh-pages:gh-pages
+
+git config user.name $ORIGINAL_NAME
+git config user.email $ORIGINAL_EMAIL
+
 
 git checkout -
