@@ -13,6 +13,7 @@ var SQL = Handlebars.compile(require('../templates/queries/indicators.sql.hbs'))
 //Do NOT forget to add here all new indexes added on CARTO.
 //TODO make it automatic. No avoid issues when they will add items
 var defaultScores = [
+  { 'short_name': 'africa_integrity_indicators', 'score': null, 'product_name': 'Africa Integrity Indicators' },
   { 'short_name': 'cer', 'score': null, 'product_name': 'Citizen Engagement in Rulemaking' },
   { 'short_name': 'corruption_perceptions_index', 'score': null, 'product_name': 'Corruption Perceptions Index 2014'},
   { 'short_name': 'doing_business', 'score': null, 'product_name': 'Doing Business Report' },
@@ -25,6 +26,7 @@ var defaultScores = [
   { 'short_name': 'illicit_financial_flows', 'score': null, 'product_name': 'Illicit Financial Flows' },
   { 'short_name': 'irm_action_plan_count_star', 'score': null, 'product_name': 'OGP IRM Number Starred Commitments' },
   { 'short_name': 'irm_action_plan_percent_star', 'score': null, 'product_name': 'OGP IRM Percentage of Starred Commitments' },
+  { 'short_name': 'money_politics_transparency', 'score': null, 'product_name': 'Money, Politics and Transparency' },
   { 'short_name': 'nations_in_transit', 'score': null, 'product_name': 'Nations in Transit' },
   { 'short_name': 'ogp_regular_consult_forum', 'score': null, 'product_name': 'Regular Forum for OGP Stakeholder Consultation' },
   { 'short_name': 'resource_governance_index', 'score': null, 'product_name': 'Resource Governance Index'  },
