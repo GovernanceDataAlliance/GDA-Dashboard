@@ -271,8 +271,9 @@
         .units {
           align-self: flex-end;
           font-family: $font-secondary;
-          font-weight: 700;
-          font-size: rem(40px);
+          font-weight: 400;
+          font-size: 25px;
+          letter-spacing: .1px;
           line-height: .7em;
         }
       }

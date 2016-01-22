@@ -24,7 +24,7 @@ var IndicatorView = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(template(this.parseData()));
+    this.$el.html(template(this.indicator));
     this._setColorClass();
     this.analizeValues();
     this.partialRanks();
@@ -52,14 +52,14 @@ var IndicatorView = Backbone.View.extend({
     }
   },
 
-  parseData: function() {
-    var data = this.indicator;
-    if (data.units == 'percent' ) {
-      data.units_tpl = '%';
-    };
+  // parseData: function() {
+  //   var data = this.indicator;
+  //   if (data.units == 'percent' ) {
+  //     data.units_tpl = '%';
+  //   };
 
-    return data;
-  },
+  //   return data;
+  // },
 
   showModalWindow: function(e) {
     var data = $(e.currentTarget).data('info');

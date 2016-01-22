@@ -140,6 +140,7 @@ var CompareView = Backbone.View.extend({
 
   renderCountryScores: function(indicators, iso, order) {
     var sortIndicators = _.sortByOrder(indicators.toJSON(), ['short_name']);
+    console.log(sortIndicators);
     this.$('.js--' + order).html(countryScoresTemplate({ 'scores': sortIndicators, 'iso': iso }));
     $('.m-advise').addClass('is-hidden');
   },

@@ -36,6 +36,19 @@
       font-size: rem(35px);
       letter-spacing: -2px;
 
+      p {
+        display: inline-block;
+      }
+
+      .units {
+        align-self: flex-end;
+        font-family: $font-secondary;
+        font-weight: 400;
+        font-size: rem(20px);
+        letter-spacing: .1px;
+        line-height: .7em;
+      }
+
       // Scores
       &.-score-best {
         color: $best;
