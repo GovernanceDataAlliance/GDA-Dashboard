@@ -1,6 +1,6 @@
 .l-toolbar  {
   position: relative;
-  z-index: 10;
+  z-index: 1;
   display: flex; display: -ms-box;
   height: rem(70px);
   background-color: $bg-color-4;
@@ -31,6 +31,7 @@
   &.-selectors {
     transition: all .3s;
     transform: translate(0,0);
+
     .wrap {
       display: flex; display: -ms-box;
       align-items: initial;
@@ -51,6 +52,7 @@
   }
 
   &.-year-selector {
+    z-index: 10;
     background-color: $bg-color-1;
   }
 
