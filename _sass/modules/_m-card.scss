@@ -18,12 +18,18 @@
 
   .-not-covered {
     background-color: $bg-color-1;
+    color: $color-1 !important;
 
     >.wrap {
       justify-content: flex-start;
     }
 
     .index-description {
+      flex-basis: 100%;
+      
+      .organiztion {
+        color: $color-1; 
+      }
       h2 {
         position: relative;
         padding-bottom: rem(50px);

@@ -10,7 +10,8 @@ var Handlebars = require('handlebars');
 var SQL = Handlebars.compile(require('../templates/queries/indicators.sql.hbs')),
     SQLwithYears = Handlebars.compile(require('../templates/queries/indicators_with_years.sql.hbs'));
 
-//Do NOT forget to add here all new indexes added on CARTO
+//Do NOT forget to add here all new indexes added on CARTO.
+//TODO make it automatic. No avoid issues when they will add items
 var defaultScores = [
   { 'short_name': 'cer', 'score': null, 'product_name': 'Citizen Engagement in Rulemaking' },
   { 'short_name': 'corruption_perceptions_index', 'score': null, 'product_name': 'Corruption Perceptions Index 2014'},
