@@ -18,7 +18,9 @@ var ColorService = {
 	},
 
 	_reverseRange: function() {
-		return this.indicator['colorRange'].reverse();
+		if (this.indicator && this.indicator['colorRange']) {
+			return this.indicator['colorRange'].reverse();
+		}
 	},
 
 	_setScoreColor: function() {
