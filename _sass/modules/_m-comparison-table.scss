@@ -61,6 +61,15 @@
     }
   }
 
+  .units {
+    align-self: flex-end;
+    font-family: $font-secondary;
+    font-weight: 400;
+    font-size: rem(25px);
+    letter-spacing: .1px;
+    line-height: .7em;
+  }
+
   .table-cell {
     height: rem(160px);
     display: flex; display: -ms-box;

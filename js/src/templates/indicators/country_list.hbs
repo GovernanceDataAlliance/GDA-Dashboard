@@ -12,6 +12,9 @@
             </div>
             <div class="score {{#if classColor}} {{classColor}} {{/if}}" data-year="{{year}}">
               <p>{{#round}}{{score}}{{/round}}</p>
+              {{#if units_abbr}}
+                <span class="units">{{units_abbr}}</span>
+              {{/if}}
             </div>
           </div>
         </div>
@@ -34,6 +37,9 @@
             </div>
             <div class="score {{#if classColor}} {{classColor}} {{/if}}" data-year="{{year}}">
               <p>{{#round}}{{score}}{{/round}}</p>
+              {{#if units_abbr}}
+                <span class="units">{{units_abbr}}</span>
+              {{/if}}
             </div>
           </div>
         </div>
