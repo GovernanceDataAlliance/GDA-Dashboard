@@ -25,7 +25,14 @@ var ToolbarUtilsView = Backbone.View.extend({
     }
   },
 
+  _avoidScroll: function() {
+    $('html').addClass('is-inmobile');
+    $('body').addClass('is-inmobile');
+  },
+
   _download: function(e) {
+    this._avoidScroll();
+
     var $downloadbtn = $(e.currentTarget);
     var id = $downloadbtn.data('indicator-id'),
       year = $downloadbtn.data('year') || 2015,
@@ -46,6 +53,7 @@ var ToolbarUtilsView = Backbone.View.extend({
   },
 
   _share: function() {
+    this._avoidScroll();
     new ShareView().show();
   },
 

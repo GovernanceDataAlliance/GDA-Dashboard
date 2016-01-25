@@ -25,6 +25,8 @@ var ShareView = Backbone.View.extend({
   setListeners: function() {
     Backbone.Events.on('share:show', this.show, this);
     Backbone.Events.on('share:hide', this.hide, this);
+
+    $('.modal-background').on('click', _.bind(this.hide));
   },
 
   render: function() {
@@ -42,7 +44,13 @@ var ShareView = Backbone.View.extend({
     this.render();
   },
 
+  _enableScroll: function() {
+    $('html').removeClass('is-inmobile');
+    $('body').removeClass('is-inmobile');
+  },
+
   hide: function() {
+    this._enableScroll();
     this.$el.find('.m-modal-window').remove();
   },
 

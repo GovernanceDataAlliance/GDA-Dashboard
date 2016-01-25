@@ -35,12 +35,22 @@ $header-height: rem(70px);
     justify-content: flex-end;
     width: 100%;
 
+
     .cover {
-      display: flex;
+      display: flex !important;
       width: auto;
       position: static;
       @media screen and (min-width: $screen-m) {
         width: 100%;
+      }
+
+      &.-open {
+        z-index: 99;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
       }
     }
 
@@ -62,15 +72,6 @@ $header-height: rem(70px);
           a {
             padding: rem(10px) rem(40px) rem(20px) 0;
           }
-        }
-
-        .cover & {
-          z-index: 99;
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
         }
       }
     }
