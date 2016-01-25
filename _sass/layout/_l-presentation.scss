@@ -14,7 +14,7 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
   > .intro {
     position: relative;
     flex-basis: 100%;
-    display: flex; display: -ms-box;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
@@ -30,7 +30,7 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
       content: "";
       position: absolute;
       top: rem(-15px);
-      left: rem(17px);
+      left: rem(30px);
       z-index: 1;
       @include equi-triangle(rem(15px), $white, top);
     }
@@ -66,19 +66,19 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
     }
 
     > .intro {
-      padding: rem(70px) rem($wrap-padding-tablet);
+      padding: rem(55px) rem($wrap-padding-tablet) rem(90px) rem($wrap-padding-tablet);
     }
   }
 
-  @media screen and (min-width: $screen-m) {
-    display: flex; 
+  @media screen and (min-width: $screen-l) {
+    display: flex;
     display: -ms-box;
     flex-direction: row;
 
     > .picture {
       height: auto;
     }
-    
+
     > .intro {
        padding: rem(70px) 0;
 
@@ -106,11 +106,7 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
   @media screen and (min-width: $screen-l) {
 
     > .intro {
-      padding: rem(70px) 0 rem(90px);
-      
-      &.-right {
-       
-      }
+      padding: rem(45px) 0 rem(60px);
 
       &.-left {
         align-items: flex-end;
