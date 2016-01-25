@@ -1,6 +1,7 @@
 var _ = require('lodash'),
   $ = require('jquery'),
-  Backbone = require('backbone');
+  Backbone = require('backbone'),
+  enquire = require('enquire.js');
 
 var WrapperHeaderView = Backbone.View.extend({
 
@@ -8,14 +9,19 @@ var WrapperHeaderView = Backbone.View.extend({
 
   initialize: function() {
     this._setListeners();
+
+    enquire.register("screen and (min-width:768px)", {
+      match: _.bind(function(){
+        $('.cover').removeClass('is-hidden');
+        $('.menus-wrapper').removeClass('is-open');
+      },this)
+    });
   },
 
   _setListeners: function() {
     $('html').on('click', _.bind(this._hide, this));
-    // $('html').on('touchstart', _.bind(this._hide, this))
 
     $('.btn-mobile-menu').on('click', _.bind(this._stopPropagation, this));
-    // $('.btn-mobile-menu').on('touchstart', _.bind(this._stopPropagation, this));
   },
 
   _hide: function() {

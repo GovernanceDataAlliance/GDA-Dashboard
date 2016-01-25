@@ -1,6 +1,6 @@
 .m-social-share {
   display: flex; display: -ms-box;
-  justify-content: center;
+  justify-content: flex-start;
 
   .icon {
     width: rem(20px);
@@ -33,9 +33,13 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      width: rem(170px);
+      width: rem(100px);
       margin-top: rem(30px);
     }
+  }
+
+  @media screen and (min-width: $screen-s) {
+    justify-content: center;
   }
 
   @media screen and (min-width: $screen-m) {

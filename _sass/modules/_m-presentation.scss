@@ -73,4 +73,12 @@
       padding: 0 rem($wrap-padding-desktop);
     }
   }
+
+  @media screen and (min-width: $screen-xl) {
+
+    &.-left,
+    &.-right {
+      padding: rem(35px) rem(80px);
+    }
+  }
 }

@@ -6,12 +6,16 @@
   margin: 0 auto;
   padding: 0 rem($wrap-padding-mobile);
 
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: $screen-s) {
     padding: 0 rem($wrap-padding-tablet);
   }
 
-  @media screen and (min-width: $screen-l) {
+  @media screen and (min-width: $screen-m) {
     padding: 0 rem($wrap-padding-desktop);
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    padding: 0 rem(80px);
   }
 }
 
