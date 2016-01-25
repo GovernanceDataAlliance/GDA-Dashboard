@@ -10,7 +10,6 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     background-color: #ccc;
     background-position: top left;
 
-
     h3 {
       max-width: 100%;
     }
@@ -36,8 +35,6 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
       }
     }
 
-
-
     @media screen and (min-width: $screen-xl) {
       max-height: rem(1000px);
       p {
@@ -58,6 +55,13 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
   &.-section-2 {
     padding: rem(140px) 0 rem(180px);
     background-color: #ccc;
+
+    @media screen and (min-width: $screen-xl) {
+      > .wrap {
+        max-width: 80%;
+        margin: 0;
+      }
+    }
 
     p {
       color: $white;
