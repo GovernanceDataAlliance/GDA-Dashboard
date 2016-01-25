@@ -10,6 +10,10 @@
   &.-header {
     margin-bottom: rem(40px);
 
+    .is-open & {
+      margin-bottom: rem(30px);
+    }
+
     .link {
       border-bottom: 1px solid  $bg-color-3;
 
@@ -80,7 +84,6 @@
 
     &.-header {
       width: calc(100% - 100px);
-      // right: rem(160px);
 
       ul {
         max-width: rem(550px);
