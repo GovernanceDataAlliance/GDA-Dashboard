@@ -60,6 +60,11 @@
       margin-left: rem(20px);
 
       ul {
+        width: rem(50px);
+        height: rem(60px);
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        justify-content: space-between;
         margin-top: 0;
       }
     }
@@ -70,5 +75,19 @@
       width: rem(160px);
       padding: 0 rem(40px);
     }
+
+    &.-footer {
+      ul {
+        flex-direction: row;
+        width: rem(120px);
+        height: auto;
+        padding: 0 rem(10px);
+        align-items: baseline;
+      }
+    }
+  }
+
+  @media screen and (min-width: $screen-xl) {
+
   }
 }
