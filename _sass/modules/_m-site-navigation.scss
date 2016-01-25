@@ -24,7 +24,7 @@
   &.-footer {
     width: 100%;
     max-width: 430px;
-    
+
     ul {
       display: flex; display: -ms-box;
       flex-direction: row;
@@ -67,7 +67,7 @@
         a {
           font-size: rem(11px);
           font-weight: 400;
-    
+
           &:hover {
             color: $font-color-3;
           }
@@ -79,7 +79,8 @@
   @media screen and (min-width: $screen-l) {
 
     &.-header {
-      right: rem(160px);
+      width: calc(100% - 100px);
+      // right: rem(160px);
 
       ul {
         max-width: rem(550px);
