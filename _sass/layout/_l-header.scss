@@ -37,7 +37,7 @@ $header-height: rem(70px);
 
 
     .cover {
-      display: flex !important;
+      display: flex;
       width: auto;
       position: static;
       @media screen and (min-width: $screen-m) {
