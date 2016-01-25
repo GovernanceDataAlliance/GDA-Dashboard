@@ -20,6 +20,33 @@ module.exports = function(grunt) {
       }
     },
 
+    sass: {
+      dist: {
+        options: {
+          sourcemap: 'none'
+        },
+        files: {
+          'css/main.css' : '_sass/main.scss'
+        }
+      }
+    },
+
+    postcss: {
+      options: {
+        processors: [
+          require('autoprefixer')({browsers: 'last 2 versions'}) // add vendor prefixes
+        ]
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'css/',
+          src:['main.css'],
+          dest:'css/'
+        }]
+      }
+    },
+
     jasmine: {
       main: {
         options: {
@@ -81,7 +108,8 @@ module.exports = function(grunt) {
     watch: {
       all: {
         files: ['js/src/**/*', '**/*.html', 'css/**/*', '_sass/**/*'],
-        tasks: ['browserify:main', 'browserify:countries', 'browserify:compare', 'browserify:indicators', 'browserify:welcome',  'jekyll:dist']
+        tasks: ['browserify:main', 'browserify:countries', 'browserify:compare',
+          'browserify:indicators', 'browserify:welcome', 'sass:dist', 'postcss:dist', 'jekyll:dist']
       }
     },
 
@@ -123,13 +151,17 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-jekyll');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks("grunt-connect-rewrite");
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('build', ['browserify:main', 'browserify:countries', 'browserify:compare', 'browserify:indicators', 'browserify:welcome', 'jekyll:dist', 'jasmine:main:build']);
+
+  grunt.registerTask('styles', ['sass:dist', 'postcss:dist']);
+  grunt.registerTask('build', ['browserify:main', 'browserify:countries', 'browserify:compare', 'browserify:indicators', 'browserify:welcome', 'styles', 'jekyll:dist', 'jasmine:main:build']);
   grunt.registerTask('dist', ['build', 'uglify:dist']);
   grunt.registerTask('default', ['build', 'configureRewriteRules', 'connect:development', 'watch']);
   grunt.registerTask('test', ['clean:test', 'browserify:test', 'jasmine']);
