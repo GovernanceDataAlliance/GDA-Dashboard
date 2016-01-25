@@ -29,6 +29,8 @@ var DownloadView = Backbone.View.extend({
 
     this.indicatorsCollection = new indicators();
     this.countriesCollection  = new countries();
+
+    $('.modal-background').on('click', _.bind(this.hide));
   },
 
   render: function() {
@@ -61,7 +63,13 @@ var DownloadView = Backbone.View.extend({
   },
 
   hide: function() {
+    this._enableScroll();
     this.$el.find('.m-modal-window').remove();
+  },
+
+  _enableScroll: function() {
+    $('html').removeClass('is-inmobile');
+    $('body').removeClass('is-inmobile');
   }
 
 });

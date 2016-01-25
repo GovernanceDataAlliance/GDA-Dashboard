@@ -19,7 +19,7 @@ var WrapperHeaderView = Backbone.View.extend({
   },
 
   _setListeners: function() {
-    $('html').on('click', _.bind(this._hide, this));
+    $('.cover').on('click', _.bind(this._hide, this));
 
     $('.btn-mobile-menu').on('click', _.bind(this._stopPropagation, this));
   },
@@ -38,13 +38,15 @@ var WrapperHeaderView = Backbone.View.extend({
   _avoidScroll: function() {
     $('html').addClass('is-inmobile');
     $('body').addClass('is-inmobile');
-    $('.cover').removeClass('is-hidden');
+    $('.cover').removeClass('is-hidden').addClass('-open');
   },
 
   _resetScroll: function() {
     $('html').removeClass('is-inmobile');
     $('body').removeClass('is-inmobile');
-    $('.cover').addClass('is-hidden');
+    if ($('.menus-wrapper').hasClass('is-open')) {
+      $('.cover').addClass('is-hidden').removeClass('-open');
+    };
   }
 
 });
