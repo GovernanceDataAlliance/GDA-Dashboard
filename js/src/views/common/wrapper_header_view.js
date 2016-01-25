@@ -44,7 +44,9 @@ var WrapperHeaderView = Backbone.View.extend({
   _resetScroll: function() {
     $('html').removeClass('is-inmobile');
     $('body').removeClass('is-inmobile');
-    $('.cover').addClass('is-hidden');
+    if ($('.menus-wrapper').hasClass('is-open')) {
+      $('.cover').addClass('is-hidden');
+    };
   }
 
 });
