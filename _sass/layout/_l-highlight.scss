@@ -30,6 +30,7 @@ $backgrounds-highlight: 'distribuidorDestacado-About', 'distribuidorDestacado-Co
   }
 
   @media screen and (min-width: $screen-xl) {
+    height: rem(900px);
     padding: rem(200px) 0;
   }
 }

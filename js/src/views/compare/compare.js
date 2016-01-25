@@ -23,7 +23,8 @@ var template = Handlebars.compile(require('../../templates/compare/compare.hbs')
 var CompareSelectorsView = require('./compare_selectors.js'),
     YearSelectorView = require('../common/year_selector.js'),
     ModalWindowView = require('../common/infowindow_view.js'),
-    ToolbarUtilsView = require('../common/toolbar_utils_view.js');
+    ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
+    WrapperHeaderView = require('../common/wrapper_header_view.js');
 
 var compareStatus = new (Backbone.Model.extend({
       defaults: {
@@ -41,6 +42,8 @@ var CompareView = Backbone.View.extend({
     options = options || {};
 
     this.setListeners();
+
+    new WrapperHeaderView();
 
     if (options && options.countries != null) {
       this.countryIds = _.uniq(options.countries);

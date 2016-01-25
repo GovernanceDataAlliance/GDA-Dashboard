@@ -5,4 +5,10 @@
   @media screen and (min-width: $screen-s) {
     font-size: rem(30px);
   }
+
+  .m-presentation & {
+    @media screen and (min-width: $screen-l) {
+      font-size: rem(27px);
+    }
+  }
 }

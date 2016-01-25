@@ -1,6 +1,6 @@
 .m-social-share {
   display: flex; display: -ms-box;
-  justify-content: center;
+  justify-content: flex-start;
 
   .icon {
     width: rem(20px);
@@ -33,9 +33,13 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      width: rem(170px);
+      width: rem(100px);
       margin-top: rem(30px);
     }
+  }
+
+  @media screen and (min-width: $screen-s) {
+    justify-content: center;
   }
 
   @media screen and (min-width: $screen-m) {
@@ -60,6 +64,11 @@
       margin-left: rem(20px);
 
       ul {
+        width: rem(50px);
+        height: rem(60px);
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        justify-content: space-between;
         margin-top: 0;
       }
     }
@@ -67,8 +76,22 @@
 
   @media screen and (min-width: $screen-l) {
     &.-header {
-      width: rem(160px);
-      padding: 0 rem(40px);
+      width: rem(100px);
+      padding: 0 rem(20px);
     }
+
+    &.-footer {
+      ul {
+        flex-direction: row;
+        width: rem(120px);
+        height: auto;
+        padding: 0 rem(10px);
+        align-items: baseline;
+      }
+    }
+  }
+
+  @media screen and (min-width: $screen-xl) {
+
   }
 }

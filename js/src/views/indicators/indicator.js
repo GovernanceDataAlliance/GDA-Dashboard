@@ -12,7 +12,8 @@ var Years = require('../../collections/years.js');
 var IndicatorHeaderView = require('./indicator_header.js'),
     IndicatorSelectorsToolbarView = require('./indicator_selectors_toolbar.js'),
     CountryListView = require('./country_list.js'),
-    ToolbarUtilsView = require('../common/toolbar_utils_view.js');
+    ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
+    WrapperHeaderView = require('../common/wrapper_header_view.js');
 
 var template = Handlebars.compile(
   require('../../templates/indicators/indicator.hbs'));
@@ -31,6 +32,7 @@ var IndicatorView = Backbone.View.extend({
 
     $('.js--index-banner').addClass('is-hidden');
 
+    new WrapperHeaderView();
     this.initializeData();
     this.setListeners();
   },

@@ -7,6 +7,7 @@
 
   > p {
     font-size: rem(15px);
+    line-height: rem(29px);
 
     + .btn, + ul {
       margin-top: rem(20px);
@@ -62,12 +63,22 @@
     }
 
     .-highlighted {
-      font-size: rem(20px);
+      font-size: rem(19px);
+      line-height: rem(33px);
+      letter-spacing: rem(0.4px);
     }
 
     &.-left,
     &.-right {
       padding: 0 rem($wrap-padding-desktop);
+    }
+  }
+
+  @media screen and (min-width: $screen-xl) {
+
+    &.-left,
+    &.-right {
+      padding: rem(35px) rem(80px);
     }
   }
 }

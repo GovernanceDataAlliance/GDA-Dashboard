@@ -5,7 +5,7 @@ $header-height: rem(70px);
   position: relative;
   height: $header-height;
 
-  display: flex; display: -ms-box;
+  display: flex;
   align-items: stretch;
 
   @media screen and (min-width: $screen-m) {
@@ -13,7 +13,7 @@ $header-height: rem(70px);
   }
 
   .l-brand {
-    display: flex; display: -ms-box;
+    display: flex;
     width: rem(95px);
     background-color: $bg-color-2;
 
@@ -23,13 +23,26 @@ $header-height: rem(70px);
       justify-content: flex-end;
       width: auto;
     }
+
+    @media screen and (min-width: $screen-l) {
+      justify-content: center;
+    }
   }
 
   .l-menus {
-    display: flex; display: -ms-box;
+    display: flex;
     align-items: stretch;
     justify-content: flex-end;
     width: 100%;
+
+    .cover {
+      display: flex;
+      width: auto;
+      position: static;
+      @media screen and (min-width: $screen-m) {
+        width: 100%;
+      }
+    }
 
     .menus-wrapper {
       position: fixed;
@@ -44,6 +57,21 @@ $header-height: rem(70px);
 
       &.is-open {
         transform: translatex(0);
+
+        .link:first-child {
+          a {
+            padding: rem(10px) rem(40px) rem(20px) 0;
+          }
+        }
+
+        .cover & {
+          z-index: 99;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
       }
     }
 
@@ -54,7 +82,7 @@ $header-height: rem(70px);
       left: 0;
       right: 0;
       padding: 0 rem(40px);
-      overflow-y: scroll; 
+      overflow-y: scroll;
     }
 
     .btn-mobile-menu {
@@ -73,19 +101,19 @@ $header-height: rem(70px);
     }
 
     @media screen and (min-width: $screen-m) {
-      display: flex; display: -ms-box;
+      display: flex;
 
       .menus-wrapper {
         width: 100%;
         position: static;
-        display: flex; display: -ms-box;
+        display: flex;
         background-color: transparent;
         transform: translatex(0);
       }
 
       .scroll-wrapper {
         position: static;
-        display: flex; display: -ms-box;
+        display: flex;
         flex-direction: row;
         width: 100%;
         overflow-y: hidden;

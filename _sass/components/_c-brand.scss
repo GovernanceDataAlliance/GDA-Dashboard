@@ -7,7 +7,7 @@
   img {
     width: rem(40px);
     height: rem(40px);
-  } 
+  }
 
   @media screen and (min-width: $screen-m) {
     @include col(3);
@@ -24,6 +24,15 @@
       width: auto;
       height: auto;
       padding-right: rem(20px);
+    }
+  }
+
+  @media screen and (min-width: $screen-l) {
+    justify-content: center;
+    padding: 0 rem($wrap-padding-desktop);
+
+    img {
+      padding: 0;
     }
   }
 }

@@ -15,8 +15,14 @@
   }
 
   @media screen and (min-width: $screen-m) {
-    font-size: rem(60px) !important;
+    font-size: rem(55px) !important;
+    line-height: rem(62px);
     margin-bottom: rem(35px);
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    font-size: rem(75px) !important;
+    line-height: rem(91px);
   }
 
   &.-medium {

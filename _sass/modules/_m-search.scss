@@ -32,15 +32,16 @@
       line-height: 1.8em;
       font-style: italic;
       text-transform: none;
-      text-align: left; 
+      text-align: left;
       font-family: $font-main;
       border-bottom: 1px solid $white;
+      border-radius: 0;
 
       @include placeholder() {
         color: $font-color-1;
         font-size: rem(18px);
         text-transform: none;
-        text-align: left; 
+        text-align: left;
         text-style: italic;
       }
     }
@@ -76,8 +77,8 @@
     font-size: rem(24px);
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: rem(0.3px);    
-    
+    letter-spacing: rem(0.3px);
+
     @include placeholder() {
       color: $white;
     }
@@ -119,7 +120,7 @@
     }
 
     &.highlight {
-      background-color: $bg-color-3; 
+      background-color: $bg-color-3;
     }
 
     span span {
@@ -130,7 +131,7 @@
   @media screen and (min-width: $screen-m) {
     position: relative;
     display: block;
-    padding: rem(60px);
+    padding: rem(60px) rem(140px);
 
     .search-box-open {
       display: none;
@@ -149,7 +150,7 @@
 
     .icon {
       display: block;
-      right: rem(60px);
+      right: rem(140px);
     }
 
     > .search-box.visible {
@@ -157,8 +158,11 @@
     }
   }
 
-  @media screen and (min-width: $screen-s) {
+  @media screen and (min-width: $screen-xl) {
+    // padding: rem(60px) rem(140px);
 
+    .icon {
 
+    }
   }
 }

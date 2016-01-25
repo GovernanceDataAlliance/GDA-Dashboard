@@ -8,7 +8,8 @@ var Country = require('../../models/country.js'),
 var CountryHeaderView = require('./country_header.js'),
     IndicatorListView = require('./indicator_list.js'),
     CountryToolbarView = require('./country_toolbar.js'),
-    ToolbarUtilsView = require('../common/toolbar_utils_view.js');
+    ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
+    WrapperHeaderView = require('../common/wrapper_header_view.js');
 
 var ShareView = require('../common/share_view.js');
 
@@ -27,6 +28,7 @@ var CountryView = Backbone.View.extend({
     $('.js--index-banner').addClass('is-hidden');
 
     this.iso = options.iso;
+    new WrapperHeaderView();
     this.initializeData();
   },
 

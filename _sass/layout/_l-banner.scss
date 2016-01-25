@@ -5,6 +5,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
   //home
   &.-main {
+    height: calc(100vh - 70px);
     padding: rem(30px) 0 rem(60px);
     background-color: #ccc;
     background-position: top left;
@@ -12,6 +13,11 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
     h3 {
       max-width: 100%;
+    }
+
+    p {
+      color: $font-color-2;
+      margin-bottom: rem(35px);
     }
 
     @media screen and (min-width: $screen-s) {
@@ -22,9 +28,23 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
       }
     }
 
-    p {
-      color: $font-color-2;
-      margin-bottom: rem(35px);
+    @media screen and (min-width: $screen-m) {
+      height: calc(100vh - 95px);
+
+      p {
+        margin-bottom: rem(80px);
+      }
+    }
+
+
+
+    @media screen and (min-width: $screen-xl) {
+      max-height: rem(1000px);
+      p {
+        line-height: rem(34px);
+        letter-spacing: rem(0.5px);
+        margin-bottom: rem(80px);
+      }
     }
   }
 

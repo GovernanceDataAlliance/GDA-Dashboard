@@ -1,4 +1,4 @@
-$footer-desktop-height: rem(245px);
+$footer-desktop-height: rem(210px);
 $footer-height: rem(375px);
 
 .l-footer {
@@ -14,6 +14,10 @@ $footer-height: rem(375px);
     flex-direction: row;
   }
 
+  @media screen and (min-width: $screen-l) {
+    height: rem(245px);
+  }
+
   .l-brand {
     display: flex; display: -ms-box;
     order: 2;
@@ -26,6 +30,10 @@ $footer-height: rem(375px);
       order: 1;
       height: $footer-desktop-height;
     }
+
+    @media screen and (min-width: $screen-l) {
+      height: rem(245px);
+    }
   }
 
   .l-menus {
@@ -34,7 +42,7 @@ $footer-height: rem(375px);
     align-items: stretch;
     justify-content: center;
     padding: rem(60px) 0;
-    height: rem(250px);
+    height: $footer-desktop-height;
 
     .menus-wrapper {
       @include col(5);
@@ -42,6 +50,10 @@ $footer-height: rem(375px);
       justify-content: space-between;
       align-items: center;
       flex-direction: column;
+
+      @media screen and (min-width: $screen-l) {
+        padding: 0;
+      }
     }
 
     p {
@@ -49,7 +61,7 @@ $footer-height: rem(375px);
     }
 
     @media screen and (min-width: $screen-m) {
-      padding: rem(75px) 0;
+      padding: rem(45px) 0 rem(35px) 0;
       order: 2;
 
       .menus-wrapper {
@@ -57,8 +69,21 @@ $footer-height: rem(375px);
         padding-right: rem($wrap-padding-desktop);
       }
     }
+
+    @media screen and (min-width: $screen-l) {
+      height: rem(245px);
+      padding: rem(60px) 0;
+
+      &.-footer {
+        justify-content: flex-end;
+      }
+    }
+
+    @media screen and (min-width: $screen-xl) {
+
+    }
   }
-  
+
   .footer-info {
     display: flex; display: -ms-box;
     flex-direction: column;
@@ -66,6 +91,11 @@ $footer-height: rem(375px);
 
     @media screen and (min-width: $screen-m) {
       flex-direction: row;
+      align-items: flex-end
+    }
+
+    @media screen and (min-width: $screen-xl) {
+
     }
   }
 

@@ -8,6 +8,7 @@
 
 .is-inmobile {
   overflow: hidden !important;
+  position: fixed;
 }
 
 .is-mobile-hidden {
@@ -56,7 +57,7 @@
 
 }
 
-// From 960px
+// From 1024px
 @media screen and (min-width: $screen-l) {
 
 }
