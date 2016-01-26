@@ -67,9 +67,9 @@
   &.-footer {
     height: auto;
 
-    .js--download, 
+    .js--download,
     .js--download + span,
-    .compare-link, 
+    .compare-link,
     .compare-link + span{
       display: none;
     }
@@ -86,16 +86,16 @@
       display: none;
     }
   }
-  
+
   @media screen and (min-width: $screen-m) {
     .wrap {
 
       > .js--toolbar-utils {
-        width: auto;
+        width: 60%;
       }
 
       > .js--toolbar-display {
-        display: flex; display: -ms-box;
+        display: flex;
       }
     }
 
