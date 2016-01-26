@@ -29,19 +29,21 @@
 
     // From 640px
     @media screen and (min-width: $screen-s) {
-      width: 80%;
+      width: 100%;
 
       h2 {
         margin-bottom: 0;
       }
 
       > .content {
-        margin: rem(60px) 0;
+        margin: rem(20px) 0 rem(35px) 0;
       }
 
       > .buttons {
         > a {
           width: auto;
+          font-size: rem(11px);
+          letter-spacing: rem(0.3px);
         }
       }
     }
