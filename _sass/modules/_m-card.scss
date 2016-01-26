@@ -145,9 +145,12 @@
 
   .index-description {
     display: flex; display: -ms-box;
-    flex-basis: 48%;
     flex-direction: column;
     justify-content: center;
+
+    @media screen and (min-width: $screen-l) {
+      flex-basis: 48%;
+    }
 
     .name {
       font-size: rem(24px);
@@ -256,7 +259,7 @@
     display: flex; display: -ms-box;
     flex-direction: column;
     justify-content: flex-start;
-    flex-basis: 48%;
+
     @media screen and (min-width: $screen-m) {
       flex-direction: row;
       justify-content: space-between;
@@ -267,6 +270,7 @@
     @media screen and (min-width: $screen-l) {
       flex-direction: column;
       align-items: flex-end;
+      flex-basis: 48%;
 
       > .js--partial-ranks {
         width: 100%;
@@ -279,8 +283,6 @@
       align-items: center;
 
       > .graph {
-        // width: 50%;
-        // height: 100px;
 
         fill: transparent;
         stroke: $color-2;
@@ -388,6 +390,7 @@
 
       @media screen and (min-width: $screen-l) {
         flex-direction: row;
+        margin-top: rem(25px);
 
         > li {
           flex-direction: column;
