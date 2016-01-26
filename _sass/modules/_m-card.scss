@@ -406,10 +406,7 @@
     > .info {
       font-size: rem(15px);
       text-align: right;
-
-      @media screen and (min-width: $screen-m) {
-        display: none;
-      }
+      display: none;
 
       span {
         margin-right: rem(20px);
