@@ -1,11 +1,15 @@
 .m-download {
 
+  .modal-container {
+    padding: 60px 20px 10px;
+  }
+
   .modal-content {
     width: 100%;
 
     h2 {
       font-weight: 400;
-      margin-bottom: rem(40px);
+      margin-bottom: rem(30px);
     }
 
     >.content {
@@ -20,6 +24,8 @@
     > .buttons {
       > a {
         width: 100%;
+        font-size: rem(11px);
+        letter-spacing: rem(0.6px);
       }
 
       > .js--cancel-btn {
