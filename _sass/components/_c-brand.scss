@@ -4,6 +4,10 @@
   justify-content: center;
   width: 100%;
 
+  &.-inactive {
+    cursor: default;
+  }
+
   img {
     width: rem(40px);
     height: rem(40px);
