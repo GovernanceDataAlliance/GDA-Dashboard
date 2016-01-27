@@ -37,13 +37,13 @@ var CountryListView = Backbone.View.extend({
       },this)
     });
 
-    enquire.register("screen and (min-width:1024px) and (max-width:1280px)", {
+    enquire.register("screen and (min-width:1024px) and (max-width:1400px)", {
       match: _.bind(function(){
         this.render();
       },this)
     });
 
-    enquire.register("screen and (min-width:1280px)", {
+    enquire.register("screen and (min-width:1400px)", {
       match: _.bind(function(){
         this.render();
       },this)
@@ -52,7 +52,7 @@ var CountryListView = Backbone.View.extend({
 
   _divideCols: function() {
     var regions = this._getRegions(),
-      cols = window.innerWidth > 1280 ? 4 : 3,
+      cols = window.innerWidth > 1400 ? 4 : 3,
       list = {};
 
     if (!Object.keys(regions).length > 0) {

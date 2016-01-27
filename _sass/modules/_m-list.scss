@@ -27,7 +27,7 @@
     height: rem(1750px);
 
     li {
-      padding: rem(3px) 20px;
+      padding: rem(5px) 20px;
     }
   }
 
@@ -76,6 +76,7 @@
 
     li {
       width: 31.33%;
+      line-height: rem(16px);
     }
   }
 
@@ -86,13 +87,22 @@
       height: auto;
       border-bottom: none;
       flex-basis: 33%;
+      margin: 0 10px;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+
 
       > li {
         width: 100%;
+        padding: 5px 0;
       }
     }
   }
-  @media screen and (min-width: $screen-l) {
+  @media screen and (min-width: 1400px) {
     ul {
       flex-basis: 20%;
     }
