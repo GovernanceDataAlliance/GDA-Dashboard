@@ -9,6 +9,7 @@ var CountryHeaderView = require('./country_header.js'),
     IndicatorListView = require('./indicator_list.js'),
     CountryToolbarView = require('./country_toolbar.js'),
     ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
+    LegendView = require('../common/legend_view.js'),
     WrapperHeaderView = require('../common/wrapper_header_view.js');
 
 var ShareView = require('../common/share_view.js');
@@ -71,6 +72,11 @@ var CountryView = Backbone.View.extend({
     this.$el.find('.js--country-toolbar').find('.wrap').append(new CountryToolbarView({
       el: this.$el.find('.js--toolbar-display')
     }).render().el);
+
+    setTimeout(function() {
+      new LegendView({el: '.m-legend'});
+    }, 10);
+
   },
 
   renderIndicators: function() {
@@ -79,14 +85,6 @@ var CountryView = Backbone.View.extend({
     });
     listView.render();
   },
-
-  // download: function(event) {
-  //   event.preventDefault();
-  //   event.stopPropagation();
-
-  //   var url = this.indicators.downloadForCountry(this.iso);
-  //   window.location = url;
-  // },
 
   setCountry: function(iso) {
     if (this.iso === iso) { this.render(true); }
@@ -97,11 +95,6 @@ var CountryView = Backbone.View.extend({
     this.iso = iso;
     this.initializeData();
   },
-
-  // share: function() {
-  //   var shareWindow = new ShareView();
-  //   shareWindow.show();
-  // },
 
   show: function() {
     this.render();
