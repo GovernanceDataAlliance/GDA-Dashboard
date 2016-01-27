@@ -1,5 +1,11 @@
 .m-list {
-  
+
+  .lists-container {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
   ul {
     display: flex; display: -ms-box;
     height: 0;
@@ -77,13 +83,18 @@
 
     ul {
       margin: 0;
-      height: rem(450px);
+      height: auto;
       border-bottom: none;
-    }
+      flex-basis: 33%;
 
-    li {
-      width: 23%;
-      padding: rem(3px) 0;
+      > li {
+        width: 100%;
+      }
+    }
+  }
+  @media screen and (min-width: $screen-l) {
+    ul {
+      flex-basis: 20%;
     }
   }
 }
