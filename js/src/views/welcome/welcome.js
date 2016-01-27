@@ -11,10 +11,23 @@ var WelcomeView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
     this.initViews();
+    this._setListeners();
+
+    $('.c-brand').addClass('-inactive');
   },
 
   show: function() {
     this.initViews();
+  },
+
+  _setListeners: function() {
+    $('.c-brand').on('click', this._preventLink);
+  },
+
+  _preventLink: function(e) {
+    if (e) {
+      e.preventDefault();
+    }
   },
 
   initViews: function() {
