@@ -16,7 +16,7 @@ var CountryListView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
     this.countries = options.countries;
-    
+
     this.listenTo(this.countries, 'sync', this.render);
 
     if (this.countries.length === 0) {
@@ -36,12 +36,59 @@ var CountryListView = Backbone.View.extend({
         this.render();
       },this)
     });
+
+    enquire.register("screen and (min-width:1024px) and (max-width:1400px)", {
+      match: _.bind(function(){
+        this.render();
+      },this)
+    });
+
+    enquire.register("screen and (min-width:1400px)", {
+      match: _.bind(function(){
+        this.render();
+      },this)
+    });
   },
 
+  _divideCols: function() {
+    var regions = this._getRegions(),
+      cols = window.innerWidth > 1400 ? 4 : 3,
+      list = {};
+
+    if (!Object.keys(regions).length > 0) {
+      return;
+    };
+
+    _.each(regions, function(region, regionName) {
+      if (region.length > 0) {
+
+        list[regionName] = [];
+
+        var divisor = Math.round(region.length / cols);
+        var x = 0;
+        for (var i = 0; i < cols; i++) {
+
+          if (i < 1 && region.length % cols > 0) {
+            divisor += 1;
+          }
+
+          list[regionName].push(region.slice(x, divisor));
+          x = divisor;
+          divisor += Math.round(region.length / cols);
+        }
+      }
+    });
+
+    return list;
+  },
+
+
   render: function() {
+    var list = this._divideCols();
+
     if (!this.tablet) {
       this.$el.html(template({
-        countriesByRegion: this._getRegions()
+        countriesByRegion: list
       }));
     } else {
       this.$el.html(templateMb({

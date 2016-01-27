@@ -1,18 +1,30 @@
 .m-card {
 
-  min-height: rem(390px);
+  width: 100%;
   border-bottom: 1px solid $border-1;
   color: $font-color-1;
 
+  @media screen and (min-width: $screen-s) {
+    min-height: rem(390px);
+  }
+
   .card-wrap {
-    display: flex; display: -ms-box;
+    display: flex;
     width: 100%;
     padding: rem(65px) 0;
 
     >.wrap {
       display: flex;
-      display: -ms-box;
       justify-content: space-between;
+
+      @media screen and (min-width: $screen-m) {
+        flex-direction: column;
+      }
+
+      @media screen and (min-width: $screen-l) {
+        flex-direction: row;
+        align-items: flex-start;
+      }
     }
   }
 
@@ -95,6 +107,10 @@
     @media screen and (min-width: $screen-m) {
       display: flex;
       flex-basis: 50%;
+
+      > .card-wrap {
+        padding: rem(40px) rem($wrap-padding-tablet);
+      }
     }
 
     @media screen and (min-width: $screen-l) {
@@ -111,14 +127,27 @@
       .card-wrap {
         padding: rem(60px) rem($wrap-padding-desktop);
       }
+
+      .info {
+        display: flex !important;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        span:first-child {
+          margin-bottom: rem(25px);
+        }
+      }
     }
   }
 
   .index-description {
     display: flex; display: -ms-box;
-    flex-basis: 48%;
     flex-direction: column;
     justify-content: center;
+
+    @media screen and (min-width: $screen-l) {
+      flex-basis: 48%;
+    }
 
     .name {
       font-size: rem(24px);
@@ -227,16 +256,35 @@
     display: flex; display: -ms-box;
     flex-direction: column;
     justify-content: flex-start;
-    flex-basis: 48%;
+
+    @media screen and (min-width: $screen-m) {
+      flex-direction: column;
+      justify-content: space-between;
+      // align-items: center;
+      margin-top: rem(10px);
+    }
+
+    @media screen and (min-width: $screen-l) {
+      flex-direction: column;
+      align-items: flex-end;
+      flex-basis: 48%;
+
+      > .js--partial-ranks {
+        width: 100%;
+      }
+    }
 
     > .resume {
-      display: flex; display: -ms-box;
+      display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
+
+      &.-usd {
+        flex-wrap: wrap-reverse;
+        justify-content: flex-end;
+      }
 
       > .graph {
-        // width: 50%;
-        // height: 100px;
 
         fill: transparent;
         stroke: $color-2;
@@ -256,32 +304,45 @@
       > .global-score {
         font-family: $font-secondary;
         font-weight: 700;
-        font-size: rem(72px);
-        line-height: .7em;
-        letter-spacing: rem(-7.5px);
+        font-size: rem(62px);
+        letter-spacing: rem(-3.6px);
 
         @media screen and (min-width: $screen-m) {
-          font-size: rem(90px);
-        }
-
-        @media screen and (min-width: $screen-l) {
-          font-size: rem(100px);
+          font-size: rem(80px);
+          white-space: nowrap;
+          line-height: rem(80px);
+          letter-spacing: rem(-6px);
         }
 
         .units {
           align-self: flex-end;
           font-family: $font-secondary;
           font-weight: 400;
-          font-size: 25px;
+          font-size: rem(25px);
           letter-spacing: .1px;
           line-height: .7em;
+          @media screen and (min-width: $screen-m) {
+            font-size: rem(25px);
+          }
         }
       }
 
       .is-dashboard-layout & {
         > .global-score {
-          font-size: rem(72px);
+          @media screen and (min-width: $screen-m) {
+            margin: 0;
+            font-size: rem(62px);
+          }
+          .units {
+            font-size: rem(25px);
+          }
         }
+      }
+
+      @media screen and (min-width: $screen-l) {
+        width: 100%;
+        align-items: flex-start;
+        justify-content: space-between;
       }
     }
 
@@ -296,7 +357,7 @@
       background-color: $bg-color-1;
 
       > li {
-        display: flex; display: -ms-box;
+        display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
@@ -309,14 +370,49 @@
       .partial-score {
         font-size: rem(30px);
       }
+
+      @media screen and (min-width: $screen-m) {
+        flex-direction: row;
+        padding: rem(30px);
+        align-items: center;
+        justify-content: space-around;
+        margin: 0;
+
+        > li {
+          flex-direction: column;
+        }
+      }
+
+      @media screen and (min-width: $screen-l) {
+        flex-direction: row;
+        margin-top: rem(25px);
+
+        > li {
+          flex-direction: column;
+          align-items: center;
+
+          > .partial-score {
+            min-width: auto;
+          }
+        }
+      }
     }
 
     > .info {
-      font-size: rem(15px);
+      margin-top: rem(20px);
+      font-size: rem(14px);
       text-align: right;
 
-      span {
+      span:first-child {
         margin-right: rem(20px);
+      }
+
+      @media screen and (min-width: $screen-l) {
+        display: flex;
+        margin-top: rem(25px);
+        > span:last-child {
+          margin: 0;
+        }
       }
     }
 
@@ -340,6 +436,7 @@
       }
 
       .info {
+        margin-top: rem(75px);
         text-align: left;
 
         span {
@@ -375,16 +472,29 @@
   }
 
   &.-score-bad {
-    color: $white;
+    color: $font-color-2;
     background-color: $bad;
 
     .index-description .organization {
-      color: $white;
+      color: $font-color-2;
+
+      .btn-info {
+        color: $font-color-3;
+        background-color: $white;
+      }
+    }
+
+    .btn, .read-more,
+    .read-less {
+      color: $font-color-2 !important;
+      &:after {
+        border-top: 2px solid $white !important;
+        border-left: 2px solid $white !important;
+      }
     }
 
     .index-score .partial-scores {
-      border-color: $white;
-      background-color: transparent;
+      background-color: #850e27;
     }
 
     .graph > svg { stroke: $white;}
