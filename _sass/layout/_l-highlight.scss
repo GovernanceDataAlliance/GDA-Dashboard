@@ -2,6 +2,8 @@ $backgrounds-highlight: 'distribuidorDestacado-About', 'distribuidorDestacado-Co
 
 .l-highlight {
   position: relative;
+  display: flex;
+  align-items: center;
   padding: rem(60px) 0;
   background-color: #ccc;
   // min-height: rem(600px);
