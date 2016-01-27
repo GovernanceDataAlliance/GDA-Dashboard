@@ -21,10 +21,6 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
     @media screen and (min-width: $screen-s) {
       padding: rem(100px) 0 rem(140px);
-
-      h3 {
-        max-width: $content-width;
-      }
     }
 
     @media screen and (min-width: $screen-m) {
@@ -32,6 +28,12 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
       p {
         margin-bottom: rem(80px);
+      }
+    }
+
+    @media screen and (min-width: $screen-l) {
+      h3 {
+        max-width: $content-width;
       }
     }
 
