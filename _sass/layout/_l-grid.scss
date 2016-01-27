@@ -2,4 +2,8 @@
   display: flex; display: -ms-box;
   flex-wrap: wrap;
   margin: 0 auto;
+
+  &.is-dashboard-layout {
+    background-color: $beige-light;
+  }
 }
