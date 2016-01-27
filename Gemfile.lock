@@ -127,6 +127,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages (= 39)
+  sass
 
 BUNDLED WITH
    1.10.6
