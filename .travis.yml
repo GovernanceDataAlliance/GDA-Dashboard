@@ -4,6 +4,7 @@ rvm:
 before_script:
 - npm install
 - npm install -g grunt-cli
+- gem install sass
 script: npm test
 after_success: bash ./scripts/cibuild
 branches:
