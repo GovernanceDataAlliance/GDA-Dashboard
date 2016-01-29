@@ -111,13 +111,18 @@
 
   .search-area {
     width: 100%;
-    padding: rem(20px) rem(90px);
+    background-color: #eeedea;
     border-bottom: 1px solid $border-1;
 
-    a {
+    a, &.no-results > span {
+      display: inline-block;
+      width: 100%;
+      padding: rem(20px) rem(90px);
       color: $font-color-1;
       font-size: rem(20px);
     }
+
+
 
     &.highlight {
       background-color: $bg-color-3;
