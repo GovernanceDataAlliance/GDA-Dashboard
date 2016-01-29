@@ -72,11 +72,19 @@ var IndicatorListView = Backbone.View.extend({
     $description.find('.read-more').removeClass('is-hidden');
   },
 
+  _scoreToString: function(indicator) {
+    if (indicator.get('score') != undefined) {
+      indicator.set('score', indicator.get('score').toString());
+    }
+  },
+
   renderIndicators: function() {
     this.indicators.each(function(indicator) {
+      this._scoreToString(indicator);
       var indicatorView = new IndicatorView({
         'indicator': indicator
       });
+
       this.$('.js--indicators-list').append(indicatorView.render().el);
     }.bind(this));
   }
