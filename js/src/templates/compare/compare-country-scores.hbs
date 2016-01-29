@@ -2,10 +2,10 @@
   <ul class="{{iso}}">
     {{#each scores}}
       {{#if score}}
-        <li class="table-cell {{#if classColor}} {{classColor}} {{/if}}" data-index="{{short_name}}" data-year="{{year}}">
+        <li class="table-cell {{#if classColor}} {{classColor}} {{/if}} {{#ifCond units_abbr 'M USD'}} -usd {{/ifCond}}" data-index="{{short_name}}" data-year="{{year}}">
         {{#round}}{{score}}{{/round}}
         {{#if units_abbr}}
-          <span class="units">{{units_abbr}}</span>
+          <span class="units">{{units_abbr}} </span>
         {{/if}}
         </li>
       {{else}}
