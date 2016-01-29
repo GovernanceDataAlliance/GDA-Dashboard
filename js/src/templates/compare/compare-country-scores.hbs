@@ -1,14 +1,22 @@
-<ul class="{{iso}}">
-  {{#each scores}}
-    {{#if score}}
-      <li class="table-cell {{#if classColor}} {{classColor}} {{/if}}" data-index="{{short_name}}" data-year="{{year}}">
-      {{#round}}{{score}}{{/round}}
-      {{#if units_abbr}}
-        <span class="units">{{units_abbr}}</span>
+{{#if iso}}
+  <ul class="{{iso}}">
+    {{#each scores}}
+      {{#if score}}
+        <li class="table-cell {{#if classColor}} {{classColor}} {{/if}} {{#ifCond units_abbr 'M USD'}} -usd {{/ifCond}}" data-index="{{short_name}}" data-year="{{year}}">
+        {{#round}}{{score}}{{/round}}
+        {{#if units_abbr}}
+          <span class="units">{{units_abbr}} </span>
+        {{/if}}
+        </li>
+      {{else}}
+        <li class="table-cell no-data" data-index="{{short_name}}">no data</li>
       {{/if}}
-      </li>
-    {{else}}
-      <li class="table-cell no-data" data-index="{{short_name}}">no data</li>
-    {{/if}}
-  {{/each}}
-</ul>
+    {{/each}}
+  </ul>
+{{else}}
+  <ul>
+    {{#each scores}}
+        <li class="table-cell no-data" data-index="{{short_name}}"></li>
+    {{/each}}
+  </ul>
+{{/if}}

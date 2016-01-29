@@ -1,5 +1,5 @@
 .m-compare-selectors {
-  display: flex; display: -ms-box;
+  display: flex;
   width: 100%;
   border-left: 1px solid $border-1;
   border-right: 1px solid $border-1;
@@ -18,8 +18,9 @@
   }
 
   .selector-wrapper {
-    display: flex; display: -ms-box;
+    display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   > .-index {

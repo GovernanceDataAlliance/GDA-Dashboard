@@ -148,9 +148,26 @@ var CompareView = Backbone.View.extend({
 
   renderCountryScores: function(indicators, iso, order) {
     var sortIndicators = _.sortByOrder(indicators.toJSON(), ['short_name']);
-    console.log(sortIndicators);
-    this.$('.js--' + order).html(countryScoresTemplate({ 'scores': sortIndicators, 'iso': iso }));
-    $('.m-advise').addClass('is-hidden');
+
+    for (var i = 1 ; i <= 3; i++) {
+
+      if ('country-' + i == order) {
+        iso = iso == 'no_data' ? null: iso;
+        this.$('.js--' + order).html(countryScoresTemplate({ 'scores': sortIndicators, 'iso': iso }));
+      } else {
+
+        if (!$.trim(this.$('.js--country-' + i).html())) {
+          this.$('.js--country-' + i).html(countryScoresTemplate({ 'scores': sortIndicators}));
+        }
+
+      }
+
+    }
+
+    if (!$('.m-advise').hasClass('is-hidden')) {
+      $('.m-advise').addClass('is-hidden');
+    }
+
   },
 
   renderSelectors: function() {
