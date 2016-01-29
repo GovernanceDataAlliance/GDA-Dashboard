@@ -12,7 +12,7 @@
     @include col(6);
     display: block;
     flex-basis: 100%;
-    align-items: stretch;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
     padding: rem(65px) 0;
@@ -20,11 +20,12 @@
     > .name {
       font-size: rem(30px);
       font-weight: 400;
+      line-height: 32px;
       margin-bottom: rem(7px);
     }
 
     > .description {
-       font-size: rem(15px);
+      font-size: rem(15px);
     }
 
     > .organization {
@@ -34,8 +35,10 @@
     }
 
     span {
+      display: flex;
       height: rem(40px);
       width: 50%;
+      margin-bottom: rem(15px);
       background-position: top left;
       background-size: contain;
       background-repeat: no-repeat;
