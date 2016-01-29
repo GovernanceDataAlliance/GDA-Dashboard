@@ -763,7 +763,7 @@ module.exports = "<div class=\"m-modal-window m-download\">\n  <div class=\"moda
 module.exports = "<div class=\"m-modal-window\">\n  <div class=\"modal-wrapper\">\n    <div class=\"btn-close-modal close-icon\">×</div>\n    <div class=\"modal-container\">\n      <p>{{{info}}}</p>\n    </div>\n  </div>\n  <div class=\"modal-background\"></div>\n</div>\n";
 
 },{}],19:[function(require,module,exports){
-module.exports = "{{#if data}}\n  <ul>\n    {{#each data}}\n      <li class=\"search-area{{#if selected}} selected{{/if}}\" title=\"{{title}}\" data-iso=\"{{iso3}}\"><a href=\"countries#{{iso3}}\"><span class=\"name\">{{{name}}}</span></a></li>\n    {{/each}}\n  </ul>\n{{else}}\n  <div class=\"no-results\">No results</div>\n{{/if}}\n\n\n";
+module.exports = "{{#if data}}\n  <ul>\n    {{#each data}}\n      <li class=\"search-area{{#if selected}} selected{{/if}}\" title=\"{{title}}\" data-iso=\"{{iso3}}\"><a href=\"countries#{{iso3}}\"><span class=\"name\">{{{name}}}</span></a></li>\n    {{/each}}\n  </ul>\n{{else}}\n  <div class=\"no-results search-area\"><span>No results</span></div>\n{{/if}}\n\n\n";
 
 },{}],20:[function(require,module,exports){
 module.exports = "<div class=\"search-box-open is-tablet-hidden\">Search country</div>\n<div class=\"btn-close-modal close-icon\">×</div>\n<input id=\"searchMap\" placeholder=\"Search country\" type=\"search\">\n<svg class=\"icon\">\n  <use xlink:href=\"#icon-search\"></use>\n</svg>\n<div class=\"search-box\" id=\"searchContent\">\n  <div id=\"search-tpl\">\n    <div class=\"search-content\">\n      <div class=\"search-result\"></div>\n      <div class=\"search-suggestions\"></div>\n    </div>\n  </div>\n</div>\n";
@@ -970,11 +970,28 @@ var LegendView = Backbone.View.extend({
     'click .btn-info' : '_stopEvent'
   },
 
+  initialize: function() {
+    this._setListeners();
+  },
+
+  _setListeners: function() {
+    $('html').on('click', _.bind(function() {
+      this._hide();
+    }, this));
+  },
+
   _stopEvent: function(e) {
     e.stopPropagation();
   },
 
-  _toggleLegend: function() {
+  _hide: function() {
+    if (!this.$el.find('.pop-up-legend').hasClass('is-hidden')) {
+      this.$el.find('.pop-up-legend').addClass('is-hidden');
+    }
+  },
+
+  _toggleLegend: function(e) {
+    this._stopEvent(e);
     this.$el.find('.pop-up-legend').toggleClass('is-hidden');
   }
 

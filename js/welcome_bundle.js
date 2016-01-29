@@ -311,7 +311,7 @@ var Router = Backbone.Router.extend({
 module.exports = Router;
 
 },{"../lib/view_manager.js":7,"../views/welcome/welcome.js":14,"backbone":17,"urijs":68}],9:[function(require,module,exports){
-module.exports = "{{#if data}}\n  <ul>\n    {{#each data}}\n      <li class=\"search-area{{#if selected}} selected{{/if}}\" title=\"{{title}}\" data-iso=\"{{iso3}}\"><a href=\"countries#{{iso3}}\"><span class=\"name\">{{{name}}}</span></a></li>\n    {{/each}}\n  </ul>\n{{else}}\n  <div class=\"no-results\">No results</div>\n{{/if}}\n\n\n";
+module.exports = "{{#if data}}\n  <ul>\n    {{#each data}}\n      <li class=\"search-area{{#if selected}} selected{{/if}}\" title=\"{{title}}\" data-iso=\"{{iso3}}\"><a href=\"countries#{{iso3}}\"><span class=\"name\">{{{name}}}</span></a></li>\n    {{/each}}\n  </ul>\n{{else}}\n  <div class=\"no-results search-area\"><span>No results</span></div>\n{{/if}}\n\n\n";
 
 },{}],10:[function(require,module,exports){
 module.exports = "<div class=\"search-box-open is-tablet-hidden\">Search country</div>\n<div class=\"btn-close-modal close-icon\">×</div>\n<input id=\"searchMap\" placeholder=\"Search country\" type=\"search\">\n<svg class=\"icon\">\n  <use xlink:href=\"#icon-search\"></use>\n</svg>\n<div class=\"search-box\" id=\"searchContent\">\n  <div id=\"search-tpl\">\n    <div class=\"search-content\">\n      <div class=\"search-result\"></div>\n      <div class=\"search-suggestions\"></div>\n    </div>\n  </div>\n</div>\n";

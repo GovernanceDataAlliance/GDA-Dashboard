@@ -2755,9 +2755,12 @@ svg:not(:root) {
             transform: translatey(100%); }
   .m-search .search-area {
     width: 100%;
-    padding: 1.25rem 5.625rem;
+    background-color: #eeedea;
     border-bottom: 1px solid #d6d8d9; }
-    .m-search .search-area a {
+    .m-search .search-area a, .m-search .search-area.no-results > span {
+      display: inline-block;
+      width: 100%;
+      padding: 1.25rem 5.625rem;
       color: #42352b;
       font-size: 1.25rem; }
     .m-search .search-area.highlight {
