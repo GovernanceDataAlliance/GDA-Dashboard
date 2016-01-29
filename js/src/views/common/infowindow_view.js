@@ -27,7 +27,7 @@ var ModalWindowView = Backbone.View.extend({
       this.render(data);
     }
 
-    $(document).keyup(_.bind(this.close, this));
+    $(document).keyup(_.bind(this.onKeyUp, this));
   },
 
   render: function(info) {
