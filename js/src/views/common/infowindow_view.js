@@ -27,7 +27,7 @@ var ModalWindowView = Backbone.View.extend({
       this.render(data);
     }
 
-    $(document).keyup(_.bind(this.onKeyUp, this));
+    $(document).keyup(_.bind(this.close, this));
   },
 
   render: function(info) {
@@ -37,10 +37,9 @@ var ModalWindowView = Backbone.View.extend({
   },
 
   onKeyUp: function(e) {
-    e.stopPropagation();
     // press esc
     if (e.keyCode === 27) {
-      this.close();
+      this.close(e);
     }
   },
 
