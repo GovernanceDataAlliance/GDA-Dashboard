@@ -10,7 +10,7 @@
 
   .index-description {
     @include col(6);
-    display: flex;
+    display: block;
     flex-basis: 100%;
     align-items: stretch;
     flex-direction: column;
