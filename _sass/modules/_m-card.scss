@@ -29,6 +29,7 @@
   }
 
   .-not-covered {
+    min-height: rem(390px);
     background-color: $bg-color-1;
     color: $color-1 !important;
 
