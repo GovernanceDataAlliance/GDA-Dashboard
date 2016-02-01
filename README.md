@@ -15,6 +15,7 @@ Once you've installed the Jekyll gem and other deps, you can use npm to
 build and run the application:
 
 ```
+gem install bundler
 bundle install
 npm install
 npm install -g grunt-cli
