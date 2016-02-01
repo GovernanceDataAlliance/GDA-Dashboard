@@ -1,10 +1,13 @@
 .m-site-navigation {
 
-  a {
-    font-weight: 700;
-    font-family: $font-secondary;
-    color: $font-color-1;
-    text-transform: uppercase;
+  .link {
+    > a {
+      position: relative;
+      font-weight: 700;
+      font-family: $font-secondary;
+      color: $font-color-1;
+      text-transform: uppercase;
+    }
   }
 
   &.-header {
@@ -14,15 +17,22 @@
       margin-bottom: rem(30px);
     }
 
-    .link {
-      border-bottom: 1px solid  $bg-color-3;
+    ul {
+      height: 100%;
 
-      a {
-        display:block;
-        font-size: rem(17px);
-        padding: rem(40px) 0 rem(20px) 0;
+      > .link {
+        height: 100%;
+        border-bottom: 1px solid  $bg-color-3;
+
+        > a {
+          display:block;
+          height: 100%;
+          font-size: rem(17px);
+          padding: rem(40px) 0 rem(20px) 0;
+        }
       }
     }
+
   }
 
   &.-footer {
@@ -30,16 +40,30 @@
     max-width: 430px;
 
     ul {
-      display: flex; display: -ms-box;
+      display: flex;
       flex-direction: row;
       justify-content: space-between;
       max-width: rem(450px);
       width: 100%;
       padding: 0 rem(10px);
-    }
 
-    a {
-      font-size: rem(11px);
+      li {
+        &.-current > a {
+          &:before {
+            content: '';
+            position: absolute;
+            top: auto;
+            left: 0;
+            bottom: -15px;
+            width: 100%;
+            height: 5px;
+            background-color: $celeste
+          }
+        }
+        > a {
+          font-size: rem(11px);
+        }
+      }
     }
   }
 
@@ -62,18 +86,33 @@
         max-width: rem(450px);
         width: 100%;
         padding: 0 rem(10px);
-      }
 
-      .link {
-        padding: 0;
-        border-bottom: 0;
+        > .link {
+          padding: 0;
+          border-bottom: 0;
 
-        a {
-          font-size: rem(11px);
-          font-weight: 400;
+          &.-current {
 
-          &:hover {
-            color: $font-color-3;
+            > a {
+              &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 5px;
+                background-color: $celeste
+              }
+            }
+          }
+
+          > a {
+            font-size: rem(11px);
+            font-weight: 400;
+
+            &:hover {
+              color: $font-color-3;
+            }
           }
         }
       }
