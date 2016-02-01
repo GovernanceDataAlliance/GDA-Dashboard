@@ -7,11 +7,11 @@
     <div class="menus-wrapper">
       <nav class="m-site-navigation -footer">
         <ul>
-          <li class="link"><a href="{{ site.baseurl }}/countries">countries</a></li>
-          <li class="link"><a href="{{ site.baseurl }}/indicators">data</a></li>
-          <li class="link"><a href="{{ site.baseurl }}/compare">compare</a></li>
-          <li class="link"><a href="#">about</a></li>
-          <li class="link"><a href="#">blog</a></li>
+          <li class='link {% if page.url == "/countries.html" %} -current {% endif %}'><a href="{{ site.baseurl }}/countries">countries</a></li>
+          <li class='link {% if page.url == "/indicators.html" %} -current {% endif %}'><a href="{{ site.baseurl }}/indicators">data</a></li>
+          <li class='link {% if page.url == "/compare.html" %} -current {% endif %}'><a href="{{ site.baseurl }}/compare">compare</a></li>
+          <li class='link {% if page.url == "/about.html" %} -current {% endif %}'><a href="{{ site.baseurl }}/about">about</a></li>
+          <li class='link {% if page.url == "/blog.html" %} -current {% endif %}'><a href="#">blog</a></li>
         </ul>
       </nav>
 

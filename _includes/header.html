@@ -19,11 +19,11 @@
       <div class="scroll-wrapper">
         <nav class="m-site-navigation -header">
           <ul>
-            <li class="link"><a href="{{ site.baseurl }}/countries">Countries</a></li>
-            <li class="link"><a href="{{ site.baseurl }}/indicators">Data</a></li>
-            <li class="link"><a href="{{ site.baseurl }}/compare">Compare</a></li>
-            <li class="link"><a href="{{ site.baseurl }}/about">About</a></li>
-            <li class="link"><a href="#">Blog</a></li>
+            <li class='link {% if page.url == "/countries.html" %} -current {% endif %}'><a href="{{ site.baseurl }}/countries">Countries</a></li>
+            <li class='link {% if page.url == "/indicators.html" %} -current {% endif %}'><a href="{{ site.baseurl }}/indicators">Data</a></li>
+            <li class='link {% if page.url == "/compare.html" %} -current {% endif %}'><a href="{{ site.baseurl }}/compare">Compare</a></li>
+            <li class='link {% if page.url == "/about.html" %} -current {% endif %}'><a href="{{ site.baseurl }}/about">About</a></li>
+            <li class='link {% if page.url == "/blog.html" %} -current {% endif %}'><a href="#">Blog</a></li>
           </ul>
         </nav>
 
