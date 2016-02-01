@@ -17,7 +17,7 @@
   width: 100% !important;
   border-radius: 0;
   border-color: $color-2;
-  background-color: $bg-color-4;  
+  background-color: $bg-color-4;
   transform: translatey(12px);
   font-family: $font-secondary;
 }
@@ -28,6 +28,14 @@
 
 .chzn-container-single .chzn-single {
   line-height: 28px;
+
+  @media screen and (max-width: $screen-m) {
+    padding: 0;
+
+    span {
+      padding: 0;
+    }
+  }
 }
 
 .chzn-container-single .chzn-search input {
@@ -51,4 +59,3 @@
   text-transform: uppercase;
   color: $font-color-3;
 }
-

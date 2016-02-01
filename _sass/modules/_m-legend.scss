@@ -84,7 +84,10 @@
         position: absolute;
       }
 
-
+      @media screen and (min-width: $screen-s) {
+        left: 0;
+        right: 0;
+      }
 
       > p {
         font-size: rem(12px);

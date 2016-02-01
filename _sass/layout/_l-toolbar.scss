@@ -6,6 +6,11 @@
   background-color: $bg-color-4;
   border-bottom: 1px solid $border-1;
 
+  @media screen and (max-width: $screen-m) {
+    height: auto;
+    padding-bottom: .5rem;
+  }
+
   .wrap {
     display: flex; display: -ms-box;
     justify-content: space-between;
@@ -62,6 +67,19 @@
     .js--download + span {
       display: none;
     }
+
+    @media screen and (max-width: $screen-m) {
+      .wrap {
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .js--toolbar-utils {
+        order: 3;
+        margin-left: 5%;
+      }
+    }
+
   }
 
   &.-footer {
@@ -94,6 +112,7 @@
 
       > .js--toolbar-utils {
         width: 60%;
+        margin-left: 2%;
       }
 
       > .js--toolbar-display {
