@@ -4,6 +4,10 @@
   border-left: 1px solid $border-1;
   border-right: 1px solid $border-1;
 
+  @media screen and (max-width: $screen-m) {
+    border: none;
+  }
+
   &.-year {
     justify-content: flex-end;
     align-items: center;
@@ -34,11 +38,25 @@
       font-family: $font-secondary;
       padding-left: rem(25px);
     }
+
+    @media screen and (max-width: $screen-m) {
+      display: none;
+    }
   }
 
   > .-score {
     width: 23.33%;
     border-right: 1px solid $border-1;
+
+    @media screen and (max-width: $screen-m) {
+      width: 100%;
+      
+      .btn-drop-down {
+        width: 100%;
+        max-width: 100%;
+        margin: 0.75rem 0;
+      }
+    }
 
     &:last-child {
       border-right: none;
@@ -47,6 +65,9 @@
 
   > .-year {
     width: 23.33%;
+    @media screen and (max-width: $screen-m) {
+      width: auto;
+    }
   }
 
 }

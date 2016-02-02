@@ -1,0 +1,31 @@
+<ul class="table-header">
+  {{#each indicators}}
+    <li class="table-cell {{short_name}}">
+      <h3>{{product_name}}</h3>
+      <div class="organization">
+        <h2>{{organization}}</h2>
+        {{#if product_description}}
+          <button class="btn-info" data-info="{{product_description}}">i</button>
+        {{/if}}
+        {{#if iso}}
+          <div class="{{iso}}">
+            {{#if score}}
+              <div class="table-cell {{#if classColor}} {{classColor}} {{/if}} {{#ifCond units_abbr 'M USD'}} -usd {{/ifCond}}" data-index="{{short_name}}" data-year="{{year}}">
+              {{#round}}{{score}}{{/round}}
+              {{#if units_abbr}}
+                <span class="units">{{units_abbr}} </span>
+              {{/if}}
+            </div>
+            {{else}}
+              <li class="table-cell no-data" data-index="{{short_name}}">no data</li>
+            {{/if}}
+          </div>
+        {{else}}
+          <div>
+              <div class="table-cell no-data" data-index="{{short_name}}"></div>
+          </div>
+        {{/if}}
+      </div>
+    </li>
+  {{/each}}
+</ul>
