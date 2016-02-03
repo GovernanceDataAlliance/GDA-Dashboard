@@ -605,8 +605,8 @@ var Router = Backbone.Router.extend({
     };
 
     if (!this.views.hasView('compare')) {
-      var view = new CompareView({ 
-        'countries': this.countries, 
+      var view = new CompareView({
+        'countries': this.countries,
         'year': this.year
       });
       this.views.addView('compare', view);
@@ -674,16 +674,16 @@ module.exports = "<div class=\"l-toolbar -year-selector\">\n  <div class=\"wrap\
 module.exports = "<div class=\"l-toolbar -selectors\">\n  <div class=\"wrap\">\n    <div class=\"m-compare-selectors\">\n      <div class=\"selector-wrapper -index\">\n        <p>Data Sets</p>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector\" name=\"country1\" id=\"country-1\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector -score\" name=\"country2\" id=\"country-2\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector -score\" name=\"country3\" id=\"country-3\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
 
 },{}],26:[function(require,module,exports){
-module.exports = "<ul class=\"table\">\n  {{#each indicators}}\n    <li class=\"table-cell {{short_name}}\">\n      <h3>{{product_name}}</h3>\n      <div class=\"organization\">\n        <h2>{{organization}}</h2>\n        {{#if product_description}}\n          <button class=\"btn-info\" data-info=\"{{product_description}}\">i</button>\n        {{/if}}\n      </div>\n      {{#if iso}}\n        {{#if score}}\n          <div class=\"score {{#if classColor}} {{classColor}} {{/if}} {{#ifCond units_abbr 'M USD'}} -usd {{/ifCond}}\" data-index=\"{{short_name}}\" data-year=\"{{year}}\">\n            {{#round}}{{score}}{{/round}}\n            {{#if units_abbr}}\n              <span class=\"units\">{{units_abbr}} </span>\n            {{/if}}\n          </div>\n        {{else}}\n          <div class=\"score no-data\" data-index=\"{{short_name}}\">no data</div>\n        {{/if}}\n      {{else}}\n        <div class=\"score no-data\" data-index=\"{{short_name}}\"></div>\n      {{/if}}\n    </li>\n  {{/each}}\n</ul>\n";
+module.exports = "<ul class=\"table\">\n  {{#each indicators}}\n    <li class=\"table-cell {{short_name}}\">\n      <h3>{{product_name}}</h3>\n      <div class=\"organization\">\n        <h2>{{organization}}</h2>\n        {{#if product_description}}\n          <button class=\"btn-info\" data-info=\"{{product_description}}\">i</button>\n        {{/if}}\n      </div>\n      {{#if ../content}}\n        {{#if score}}\n          <div class=\"score {{#if classColor}} {{classColor}} {{/if}} {{#ifCond units_abbr 'M USD'}} -usd {{/ifCond}}\" data-index=\"{{short_name}}\" data-year=\"{{year}}\">\n            {{#round}}{{score}}{{/round}}\n            {{#if units_abbr}}\n              <span class=\"units\">{{units_abbr}} </span>\n            {{/if}}\n          </div>\n        {{else}}\n          <div class=\"score no-data\" data-index=\"{{short_name}}\">no data</div>\n        {{/if}}\n      {{else}}\n        <div class=\"score no-data\" data-index=\"{{short_name}}\"></div>\n      {{/if}}\n    </li>\n  {{/each}}\n</ul>\n";
 
 },{}],27:[function(require,module,exports){
-module.exports = "<div id=\"country-{{index}}\" class=\"slider\">\n\n  <div class=\"js--compare-selectors\"> </div>\n\n  <div class=\"l-content -fullscreen\">\n    <div class=\"m-advise -mobile\">\n      <p>Please, select the countries that you would like to compare into the selects above this message</p>\n    </div>\n    <div class=\"m-comparison-table -mobile\">\n      <div class=\"country\">\n      </div>\n    </div>\n  </div>\n</div>\n";
+module.exports = "<div id=\"country-{{index}}\" class=\"slider -mobile\">\n\n  <div class=\"js--compare-selectors\"> </div>\n\n    <div class=\"m-advise -mobile\">\n      <p>Please, select the countries that you would like to compare into the selects above this message</p>\n    </div>\n    <div class=\"m-comparison-table -mobile\">\n      <div class=\"country\">\n      </div>\n    </div>\n\n</div>\n";
 
 },{}],28:[function(require,module,exports){
-module.exports = "<div class=\"l-toolbar -year-selector\">\n  <div class=\"wrap\">\n    <div class=\"m-compare-selectors -year\">\n      <p class=\"is-small-text\">Select date to compare the country data</p>\n      <div class=\"selector-wrapper -year\">\n        <div class=\"btn-drop-down\">\n          <div class=\"js--year-selector-compare\"></div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div id=\"compareSlider\"> </div>\n\n<div class=\"js--compare-toolbar\">\n  <div class=\"l-toolbar -footer\">\n    <div class=\"wrap\">\n      <div class=\"m-legend\">\n        <ul>\n          <li class=\"-best\"><span class=\"legend-title\">The best</span></li>\n          <li class=\"-good\"><span class=\"legend-title\">Good</span></li>\n          <li class=\"-medium\"><span class=\"legend-title\">Medium</span></li>\n          <li class=\"-regular\"><span class=\"legend-title\">Regular</span></li>\n          <li class=\"-bad\"><span class=\"legend-title\">Bad</span></li>\n        </ul>\n        <div class=\"pop-up-legend-container\">\n        <button class=\"btn-info\" id=\"legendPopup\">i</button>\n          <div class=\"pop-up-legend is-hidden\">\n            <p>The color coding scheme employed by the Governance Data Alliance on this website is an attempt to provide users with a way to compare whether a particular score for a particular country is, relative to other scores from other data sets, encouraging or cause for concern. Data points provided by Governance Data Alliance producer organizations to Alliance dashboards derive from very different research methodologies and scoring scales. Our use of this unified color scheme is an attempt to provide a snapshot overview of the relative strengths and weaknesses associated with country performance across these disparate indicators.</p>\n\n            <p>Alliance data producer organizations have selected specific scoring bands for each of their data sets that correspond to the color codes used here. These Alliance scoring/color bands may or may not correspond to how each data producer currently publishes their results independently; again, this inconsistency in certain cases is an unavoidable result of our attempt to provider a snapshot, unified overview of all results for a country. If you are confused by a certain color assignation on these dashboards, please consult the specific data producer organization's website for in-depth details on their respective scoring methodology.</p>\n          </div>\n        </div>\n      </div>\n      <div class=\"js--toolbar-utils\"></div>\n    </div>\n  </div>\n</div>\n";
+module.exports = "<div class=\"l-toolbar -year-selector\">\n  <div class=\"wrap\">\n    <div class=\"m-compare-selectors -year -mobile\">\n      <p class=\"is-small-text\">Select date to compare the country data</p>\n      <div class=\"selector-wrapper -year\">\n        <div class=\"btn-drop-down\">\n          <div class=\"js--year-selector-compare\"></div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"l-content -fullscreen\">\n  <div id=\"compareSlider\"> </div>\n</div>\n\n<div class=\"js--compare-toolbar\">\n  <div class=\"l-toolbar -footer\">\n    <div class=\"wrap\">\n      <div class=\"m-legend\">\n        <ul>\n          <li class=\"-best\"><span class=\"legend-title\">The best</span></li>\n          <li class=\"-good\"><span class=\"legend-title\">Good</span></li>\n          <li class=\"-medium\"><span class=\"legend-title\">Medium</span></li>\n          <li class=\"-regular\"><span class=\"legend-title\">Regular</span></li>\n          <li class=\"-bad\"><span class=\"legend-title\">Bad</span></li>\n        </ul>\n        <div class=\"pop-up-legend-container\">\n        <button class=\"btn-info\" id=\"legendPopup\">i</button>\n          <div class=\"pop-up-legend is-hidden\">\n            <p>The color coding scheme employed by the Governance Data Alliance on this website is an attempt to provide users with a way to compare whether a particular score for a particular country is, relative to other scores from other data sets, encouraging or cause for concern. Data points provided by Governance Data Alliance producer organizations to Alliance dashboards derive from very different research methodologies and scoring scales. Our use of this unified color scheme is an attempt to provide a snapshot overview of the relative strengths and weaknesses associated with country performance across these disparate indicators.</p>\n\n            <p>Alliance data producer organizations have selected specific scoring bands for each of their data sets that correspond to the color codes used here. These Alliance scoring/color bands may or may not correspond to how each data producer currently publishes their results independently; again, this inconsistency in certain cases is an unavoidable result of our attempt to provider a snapshot, unified overview of all results for a country. If you are confused by a certain color assignation on these dashboards, please consult the specific data producer organization's website for in-depth details on their respective scoring methodology.</p>\n          </div>\n        </div>\n      </div>\n      <div class=\"js--toolbar-utils\"></div>\n    </div>\n  </div>\n</div>\n";
 
 },{}],29:[function(require,module,exports){
-module.exports = "<div class=\"l-toolbar -selectors\">\n  <div class=\"wrap\">\n    <div class=\"m-compare-selectors\">\n      \n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector\" name=\"country1\" id=\"country-1\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n            <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>\n";
+module.exports = "<div class=\"l-toolbar -selectors\">\n  <div class=\"wrap\">\n    <div class=\"m-compare-selectors\">\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector\" name=\"selectcountry-{{index}}\" id=\"selectcountry-{{index}}\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n            <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>\n";
 
 },{}],30:[function(require,module,exports){
 module.exports = "SELECT\n  i.iso,\n  i.short_name,\n  i.score,\n  i.year,\n  w.name,\n  w.region,\n  w.lending_category,\n  w.income_group,\n  c.desired_direction, \n  c.score_range,\n  c.units_abbr  \nFROM indicator_data i \n  INNER JOIN wb_countries_clasification w ON i.iso=w.iso \n  INNER JOIN indicator_config c ON i.short_name=c.short_name \nWHERE i.short_name = '{{id}}' \nAND i.score is not null \n{{#if year}}\nAND i.year = '{{year}}' \n{{/if}}\n{{#if categoryGroup}}\nAND w.{{categoryGroup}} = '{{categoryName}}' \n{{/if}}\norder by i.score desc, w.name desc\n";
@@ -1205,13 +1205,12 @@ var CompareView = Backbone.View.extend({
   },
 
   render: function() {
-    // this.mobile = (window.innerWidth || document.body.clientWidth) < 768 ? true:false;
-    this.mobile = true;
-    debugger;
+    this.mobile = (window.innerWidth || document.body.clientWidth) < 768 ? true:false;
     if (this.mobile) {
       this.renderYearSelector();
       this.$el.html(templateMobile());
       this.renderSlides();
+      this.calculateLimitPoint();
     } else {
       this.renderIndicators();
       this.$el.html(template());
@@ -1235,16 +1234,25 @@ var CompareView = Backbone.View.extend({
 
         this.$('#country-'+ i + ' .country').append(templateMobileScores({ 'indicators': this.indicatorsOrdered, 'index':i }));
 
-        this.renderCountrySelector(this.$('#country-'+ i + ' .js--compare-selectors'));
+        this.renderCountrySelector(this.$('#country-'+ i + ' .js--compare-selectors'), i);
       }
+      this.calculateEndScrollPoint();
       this.initSlide();
 
     }.bind(this));
   },
 
   initSlide: function(){
-    $('#compareSlider').slick({
-      dots: true
+    var self = this;
+    this.slide = $('#compareSlider').slick({
+      dots: true,
+      useTransform: false,
+      adaptiveHeight: true
+    });
+    this.currentSlide = 0;
+    this.slide.on('afterChange', function(ev, slick, current){
+      self.currentSlide = current;
+      self._onScroll();
     });
   },
 
@@ -1261,6 +1269,7 @@ var CompareView = Backbone.View.extend({
   },
 
   calculateEndScrollPoint: function() {
+    this.breakPoints = this.breakPoints || {};
     this.$el.find('.js--compare-toolbar').ready(function() {
       this.breakPoints['endPoint'] = this.$el.find('.js--compare-toolbar').offset().top;
       Backbone.Events.trigger('breakpoints:loaded');
@@ -1271,7 +1280,11 @@ var CompareView = Backbone.View.extend({
     this.breakPoints = {};
 
     this.$el.find('.js--compare-selectors').ready(function() {
-      this.breakPoints['startPoint'] = this.$el.find('.js--compare-selectors').offset().top;
+      if (this.mobile) {
+        this.breakPoints['startPoint'] = this.$el.find('#compareSlider').offset().top
+      } else {
+        this.breakPoints['startPoint'] = this.$el.find('.js--compare-selectors').offset().top;
+      }
     }.bind(this));
 
     this._setScroll();
@@ -1284,11 +1297,16 @@ var CompareView = Backbone.View.extend({
 
   _onScroll: function() {
     var $bar = $('.-selectors'),
-      $content = $('.l-content'),
-      h= $bar.height(),
-      posY = window.pageYOffset;
+        $content = $('.l-content'),
+        barHeight = $bar.height(),
+        contentHeight = $content.height(),
+        posY = window.pageYOffset;
 
-    if(posY >= this.breakPoints['startPoint'] && !$bar.hasClass('-fixed')) {
+    if (posY >= this.breakPoints['startPoint']) {
+      if (this.mobile) {
+        $bar.removeClass('-fixed');
+        $bar = this.$('#country-'+(this.currentSlide+1)+' .-selectors');
+      }
       $bar.addClass('-fixed');
       $content.addClass('-fixed');
     }
@@ -1301,8 +1319,9 @@ var CompareView = Backbone.View.extend({
       $bar.removeClass('-hide-transition');
     }
 
-    if (posY > this.breakPoints['startPoint'] + h && posY < this.breakPoints['startPoint'] + h && $bar.hasClass('-fixed') ||
-      posY < this.breakPoints['startPoint'] && $bar.hasClass('-fixed')) {
+    if (posY > this.breakPoints['startPoint'] + barHeight && posY < this.breakPoints['startPoint'] + barHeight && $content.hasClass('-fixed') ||
+      posY < this.breakPoints['startPoint'] && $content.hasClass('-fixed') ||
+      posY > this.breakPoints['startPoint'] + contentHeight && $content.hasClass('-fixed')) {
       $bar.removeClass('-fixed');
       $content.removeClass('-fixed');
     }
@@ -1326,11 +1345,9 @@ var CompareView = Backbone.View.extend({
   },
 
   renderCountryScores: function(indicators, iso, order) {
-    debugger;
     this.indicatorsOrdered = _.sortByOrder(indicators.toJSON(), ['short_name']);
-
     if (this.mobile) {
-      this.$('#'+order+ ' .country').html(templateMobileScores({ 'indicators': this.indicatorsOrdered}));
+      this.$('#'+order+ ' .country').html(templateMobileScores({ 'indicators': this.indicatorsOrdered, 'content': true }));
     } else {
       for (var i = 1 ; i <= 3; i++) {
         if ('country-' + i == order) {
@@ -1368,9 +1385,9 @@ var CompareView = Backbone.View.extend({
     var selectors = new CompareSelectorsView({ el: this.$('.js--compare-selectors'), 'countries': this.countryIds });
   },
 
-  renderCountrySelector: function(el) {
+  renderCountrySelector: function(el, index) {
     el = el || '.js--compare-selectors';
-    var selectors = new CountrySelectorView({ el: this.$(el), 'countries': this.countryIds });
+    var selectors = new CountrySelectorView({ el: this.$(el), 'countries': this.countryIds, index: index });
   },
 
   getYears: function() {
@@ -1440,6 +1457,7 @@ var CountrySelectorView = Backbone.View.extend({
     options = options || {};
 
     this.countries = options.countries;
+    this.index = options.index;
 
     this.countriesCollection = new CountriesCollection();
     this.render();
@@ -1452,8 +1470,7 @@ var CountrySelectorView = Backbone.View.extend({
   render: function() {
     this.getData().done(function(countries) {
       var countries = _.sortByOrder(countries.rows, ['name']);
-      this.$el.html(template({ 'countries': countries }));
-
+      this.$el.html(template({ 'countries': countries , 'index': this.index}));
       if (this.countries) {
         this.setRecivedValues();
       };
@@ -1511,7 +1528,6 @@ var CompareSelectorsView = Backbone.View.extend({
   },
 
   initialize: function(options) {
-    debugger;
     options = options || {};
 
     this.countries = options.countries;

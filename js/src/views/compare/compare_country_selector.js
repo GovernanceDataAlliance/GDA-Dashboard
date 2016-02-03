@@ -22,6 +22,7 @@ var CountrySelectorView = Backbone.View.extend({
     options = options || {};
 
     this.countries = options.countries;
+    this.index = options.index;
 
     this.countriesCollection = new CountriesCollection();
     this.render();
@@ -34,8 +35,7 @@ var CountrySelectorView = Backbone.View.extend({
   render: function() {
     this.getData().done(function(countries) {
       var countries = _.sortByOrder(countries.rows, ['name']);
-      this.$el.html(template({ 'countries': countries }));
-
+      this.$el.html(template({ 'countries': countries , 'index': this.index}));
       if (this.countries) {
         this.setRecivedValues();
       };

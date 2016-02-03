@@ -15,9 +15,21 @@
     .btn-drop-down {
       width: 94%;
 
+      @media screen and (max-width: $screen-m) {
+        width: 100%;
+      }
+
       select {
         width: 95%;
       }
+    }
+  }
+
+  &.-mobile {
+    justify-content: flex-start;
+
+    .selector-wrapper {
+      width: 100%;
     }
   }
 
@@ -50,13 +62,8 @@
 
     @media screen and (max-width: $screen-m) {
       width: 100%;
-      
-      .btn-drop-down {
-        width: 100%;
-        max-width: 100%;
-        margin: 0.75rem 0;
-      }
     }
+
 
     &:last-child {
       border-right: none;
@@ -70,4 +77,13 @@
     }
   }
 
+  @media screen and (max-width: $screen-m) {
+    width: 100%;
+
+    .btn-drop-down {
+      width: 100%;
+      max-width: 100%;
+      margin: 0.75rem 0;
+    }
+  }
 }

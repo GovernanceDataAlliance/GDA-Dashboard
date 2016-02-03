@@ -1,10 +1,9 @@
 <div class="l-toolbar -selectors">
   <div class="wrap">
     <div class="m-compare-selectors">
-      
       <div class="selector-wrapper -score">
         <div class="btn-drop-down">
-          <select class="js--compare-selector" name="country1" id="country-1">
+          <select class="js--compare-selector" name="selectcountry-{{index}}" id="selectcountry-{{index}}">
             <option value="no_data">Select country</option>
             {{#each countries}}
             <option value="{{this.iso3}}">{{this.name}}</option>

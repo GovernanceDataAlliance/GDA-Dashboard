@@ -56,6 +56,11 @@
     }
   }
 
+  .-mobile & {
+    &.-selectors.-fixed {
+      padding-top: 2rem;
+    }
+  }
   &.-year-selector {
     z-index: 10;
     background-color: $bg-color-1;

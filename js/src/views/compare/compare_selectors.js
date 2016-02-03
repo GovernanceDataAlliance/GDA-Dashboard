@@ -19,7 +19,6 @@ var CompareSelectorsView = Backbone.View.extend({
   },
 
   initialize: function(options) {
-    debugger;
     options = options || {};
 
     this.countries = options.countries;

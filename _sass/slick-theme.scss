@@ -13,6 +13,10 @@ $slick-dot-opacity-not-active: 0.8 !default;
   padding-top: 3rem;
   background-color: $bg-color-4;
 
+  .slick-list, .slick-track {
+    transform: none;
+  }
+
   .slick-slide {
     background-color: #fff;
   }
@@ -27,14 +31,19 @@ $slick-dot-opacity-not-active: 0.8 !default;
   width: 40px;
   top: 250px;
   padding: 0;
+
   line-height: 0;
   font-size: 0;
   border: none;
   color: transparent;
   background: transparent;
+
   cursor: pointer;
   outline: none;
   z-index: 2;
+
+  transition: all .3s;
+
   &:hover,
   &:focus {
     outline: none;
@@ -61,8 +70,10 @@ $slick-dot-opacity-not-active: 0.8 !default;
     z-index: -1;
     background-color: rgba($slick-arrow-bg-color, .1);
   }
-  &.-fixed {
+  .-fixed & {
     position: fixed;
+    top: 50%;
+
     transform: translateY(-50%);
   }
 }
@@ -107,6 +118,12 @@ $slick-dot-opacity-not-active: 0.8 !default;
 
   list-style: none;
   text-align: center;
+
+  .-fixed & {
+    position: fixed;
+    top:1rem;
+    z-index: 2;
+  }
 
   li {
     position: relative;
