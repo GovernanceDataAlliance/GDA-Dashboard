@@ -2707,8 +2707,8 @@ svg:not(:root) {
     -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
             justify-content: flex-start; }
-    .m-compare-selectors.-mobile .selector-wrapper {
-      width: 100%; }
+    .m-compare-selectors.-mobile p, .m-compare-selectors.-mobile .selector-wrapper {
+      width: 50%; }
   .m-compare-selectors .selector-wrapper {
     display: -webkit-flex;
     display: -ms-flexbox;

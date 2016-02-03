@@ -79,6 +79,7 @@ var CompareView = Backbone.View.extend({
       this.renderSelectors();
     }
     this.renderToolbar();
+    this._setResize();
     return this;
   },
 
@@ -149,6 +150,19 @@ var CompareView = Backbone.View.extend({
     }.bind(this));
 
     this._setScroll();
+  },
+
+  _setResize: function() {
+    var debouncedResize = FunctionHelper.debounce(this._onResize, 250, true);
+    window.addEventListener('resize', _.bind(debouncedResize, this));
+  },
+
+  _onResize: function() {
+    console.log('resized');
+    var isMobile = (window.innerWidth || document.body.clientWidth) < 768 ? true:false;
+    if (this.mobile != isMobile) {
+      this.render();
+    }
   },
 
   _setScroll: function() {
