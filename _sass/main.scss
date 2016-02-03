@@ -3,7 +3,6 @@
 @import 'normalize.scss';
 @import 'chosen.min.scss';
 @import 'slick.scss';
-@import 'slick-theme.scss';
 
 @import
   "settings",
@@ -57,4 +56,6 @@
   "components/c-search",
   "components/c-brand",
 
-  "states";
+  "states",
+
+  "slick-theme";

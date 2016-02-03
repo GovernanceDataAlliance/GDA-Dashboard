@@ -68,6 +68,7 @@ var CompareView = Backbone.View.extend({
   render: function() {
     // this.mobile = (window.innerWidth || document.body.clientWidth) < 768 ? true:false;
     this.mobile = true;
+    debugger;
     if (this.mobile) {
       this.renderYearSelector();
       this.$el.html(templateMobile());
@@ -195,11 +196,11 @@ var CompareView = Backbone.View.extend({
       for (var i = 1 ; i <= 3; i++) {
         if ('country-' + i == order) {
           iso = iso == 'no_data' ? null: iso;
-          this.$('.js--' + order).html(countryScoresTemplate({ 'scores': sortIndicators, 'iso': iso }));
+          this.$('.js--' + order).html(countryScoresTemplate({ 'scores': this.indicatorsOrdered, 'iso': iso }));
         } else {
 
           if (!$.trim(this.$('.js--country-' + i).html())) {
-            this.$('.js--country-' + i).html(countryScoresTemplate({ 'scores': sortIndicators}));
+            this.$('.js--country-' + i).html(countryScoresTemplate({ 'scores': this.indicatorsOrdered}));
           }
 
         }

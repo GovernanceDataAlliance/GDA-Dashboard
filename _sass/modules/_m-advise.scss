@@ -20,4 +20,11 @@
   &.-clearfix {
     position: static;
   }
+
+  &.-mobile {
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 100%;
+  }
 }
