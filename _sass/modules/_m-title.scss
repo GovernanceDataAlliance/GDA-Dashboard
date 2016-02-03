@@ -14,6 +14,10 @@
     width: rem(200px);
     margin-top: rem(10px);
 
+    @media screen and (max-width: $screen-m) {
+      display: none;
+    } 
+
     &.freedom_on_the_net,
     &.freedom_in_the_world,
     &.freedom_of_the_press,

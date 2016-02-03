@@ -10,9 +10,9 @@ var _ = require('lodash'),
 var CountriesCollection = require('../../collections/countries.js');
 
 var template = Handlebars.compile(
-  require('../../templates/compare/compare_selectors.hbs'));
+  require('../../templates/compare/selectors/compare_country_selector.hbs'));
 
-var CompareSelectorsView = Backbone.View.extend({
+var CountrySelectorView = Backbone.View.extend({
 
   events: {
     'change .js--compare-selector': 'getCountry'
@@ -22,6 +22,7 @@ var CompareSelectorsView = Backbone.View.extend({
     options = options || {};
 
     this.countries = options.countries;
+    this.index = options.index;
 
     this.countriesCollection = new CountriesCollection();
     this.render();
@@ -34,8 +35,7 @@ var CompareSelectorsView = Backbone.View.extend({
   render: function() {
     this.getData().done(function(countries) {
       var countries = _.sortByOrder(countries.rows, ['name']);
-      this.$el.html(template({ 'countries': countries }));
-
+      this.$el.html(template({ 'countries': countries , 'index': this.index}));
       if (this.countries) {
         this.setRecivedValues();
       };
@@ -67,4 +67,4 @@ var CompareSelectorsView = Backbone.View.extend({
   hide: function() {}
 });
 
-module.exports = CompareSelectorsView;
+module.exports = CountrySelectorView;

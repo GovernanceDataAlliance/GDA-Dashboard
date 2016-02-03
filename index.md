@@ -24,9 +24,8 @@ module-3-image: distribuidoresMul-03
 
 
 module-4-title: Data Sets
-module-4-content: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+module-4-content: Interested in getting your hands on all of the data from key governance data producers? We've done the heavy lifting for you
 module-4-link-text: Visit the data page
 module-4-link-url: indicators
 module-4-image: distribuidoresMul-04
 ---
-

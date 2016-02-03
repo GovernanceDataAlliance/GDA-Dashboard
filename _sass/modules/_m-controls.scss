@@ -4,7 +4,7 @@
   justify-content: space-between;
   width: 100%;
 
-  a, button {
+  a, button, .btn-drop-down {
 
     font-size: rem(10px);
 
@@ -22,18 +22,15 @@
       }
     }
 
-    &:first-child {
-      margin-left: 0;
-    }
-
     &.is-active {
       color: $font-color-1;
       background-color: #dedcda;
     }
   }
 
+
   .icon {
-    display: none;
+    display: block;
     margin-right: 5px;
   }
 
@@ -43,10 +40,10 @@
     padding: 0 rem(10px);
   }
 
-  .btn-layout-dashboard, 
+  .btn-layout-dashboard,
   .btn-layout-list {
     padding-left: rem(10px) ;
-    padding-right: rem(10px) ; 
+    padding-right: rem(10px) ;
   }
 
   &.-country-options {
@@ -61,16 +58,45 @@
 
   .-data & {
     width: auto;
+    
+    @media screen and (max-width: $screen-m) {
+      .icon {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: $screen-m) {
+
+    a, button {
+      line-height: rem(28px);
+
+      &.btn-drop-down {
+        width: 100%;
+      }
+    }
+
+    .selector-wrapper {
+      width: 100%;
+    }
+
+    .separator {
+      display: none;
+    }
+
+    .is-small-text {
+      display: none;
+    }
   }
 
   @media screen and (min-width: $screen-m) {
 
     a, button {
       font-size: rem(11px);
-    }
 
-    .icon {
-      display: block;
+      &:first-child {
+        margin-left: 0;
+      }
     }
 
     &.-country-options {
