@@ -2706,7 +2706,11 @@ svg:not(:root) {
   .m-compare-selectors.-mobile {
     -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
-            justify-content: flex-start; }
+            justify-content: flex-start;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-top: 0.625rem; }
     .m-compare-selectors.-mobile .selector-wrapper {
       width: 100%; }
   .m-compare-selectors .selector-wrapper {

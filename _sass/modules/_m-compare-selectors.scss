@@ -27,6 +27,8 @@
 
   &.-mobile {
     justify-content: flex-start;
+    flex-direction: column;
+    padding-top: rem(10px);
 
     .selector-wrapper {
       width: 100%;
