@@ -1,0 +1,192 @@
+$sections-padding: .5rem 0;
+
+%properties-font {
+  font-family: $font-secondary;
+  font-size: rem(12px);
+  color: $font-color-1;
+  letter-spacing: 0.3px;
+}
+%title-font {
+  font-family: $font-main;
+  font-size: rem(50px);
+  line-height: 1.4;
+  color: $font-color-1;
+  font-weight: 500;
+}
+%content-font {
+  font-family: $font-main;
+  font-size: rem(15px);
+  line-height: 1.9;
+  color: $font-color-1;
+  letter-spacing: 0.4px;
+}
+
+.m-post {
+  padding: 0 5rem 2rem;
+
+  > .properties {
+    padding: $sections-padding;
+    display: flex; display: -ms-box;
+    flex-direction: row;
+    align-items: center;
+
+    > .category {
+      margin: 0 .5rem;
+      span {
+        @extend %properties-font;
+        text-transform: uppercase;
+      }
+    }
+
+    > .tags {
+      padding: $sections-padding;
+
+      .tag {
+        padding: 0.25rem 0.75rem;
+        margin-right: rem(10px);
+
+        @extend %properties-font;
+        color: $font-color-2;
+
+        background-color: $color-4;
+      }
+    }
+
+    div:first-child {
+      margin-left: 0;
+    }
+  }
+
+  > .details {
+    padding: $sections-padding;
+
+    > .author {
+      font-family: $font-main;
+      font-size: rem(15px);
+      line-height: 1.8;
+      color: $font-color-1;
+    }
+    > .date {
+      padding-left: .8rem;
+      margin-left: .8rem;
+
+      font-family: $font-secondary;
+      font-size: rem(12px);
+      line-height: 1;
+      color: $font-color-4;
+      text-transform: uppercase;
+
+      border-left: 1px solid;
+    }
+  }
+
+  > .title {
+    padding: $sections-padding;
+    margin-bottom: 1rem;
+
+    h3 {
+      @extend %title-font;
+    }
+
+    &.-underlined {
+      padding-bottom: 1.5rem;
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left:0;
+        bottom: 0;
+        width: 3rem;
+        height: 3px;
+
+        background-color: $color-4;
+      }
+    }
+  }
+
+  > .content {
+    padding: 1rem 0;
+    p {
+      padding: .5rem 0;
+      @extend %content-font;
+    }
+
+    &.-empashis {
+      p:first-child {
+        margin-top: 1rem;
+        font-size: rem(20px);
+        line-height: 1.7;
+      }
+    }
+  }
+
+  &.-list {
+    padding: 3rem 15rem 3rem 5rem;
+    border-bottom: 1px solid $border-1;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    > .title {
+      margin-bottom: 0;
+
+      h3 {
+        line-height: inherit;
+        font-size: inherit;
+
+        a {
+          @extend %title-font;
+          color: $font-color-3;
+          font-size: rem(30px);
+          line-height: 1.25;
+
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  &.-img {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    background-size: cover;
+    background-position: center;
+
+    z-index: 0;
+
+    @include veil(rgba($bg-color-2, 0.45));
+
+    > .properties > .category span,
+    > .details > .author,
+    > .details > .date,
+    > .title h3 a,
+    > .content p {
+      color: $font-color-2;
+    }
+
+    > .properties,
+    > .details,
+    > .details,
+    > .title,
+    > .content{
+      z-index: 1;
+    }
+
+  }
+
+  @media screen and (max-width: $screen-m) {
+    > .properties {
+      flex-direction: column;
+    }
+
+    &.-list {
+      padding: 1rem;
+
+      background-size: cover;
+    }
+  }
+}

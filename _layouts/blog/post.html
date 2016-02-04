@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    {% include icons.html %}
+
+    <div class="l-main-container js-blog">
+      {% include header.html %}
+
+      <div class="l-banner -section-1">
+        <div class="m-breadcrumbs -light">
+          <ul>
+            <li><a href="/"> home </a></li>
+            <li><span> / </span></li>
+            <li><a href="/blog"> blog </a></li>
+            <li><span> / </span></li>
+            <li><a href="/blog/{{page.category}}"> {{page.category}} </a></li>
+            <li><span> / </span></li>
+            <li> {{ page.title }} </li>
+          </ul>
+        </div>
+
+        <div class="wrap">
+          {% include modules/post_module.html %}
+        </div>
+
+      </div>
+
+      <div class="l-toolbar">
+        <div class="wrap">
+
+          <!-- TODO paginator
+          <a href="{{page.previous.url}}">Newer post</a>
+          <a href="{{page.next.url}}">Older post</a> -->
+
+          <div class="m-controls">
+            <button class="js--share btn">
+              <svg class="icon -regular">
+                <use xlink:href="#icon-share"></use>
+              </svg>
+              share
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      {% include footer.html %}
+    </div>
+    <script src="/js/blog_bundle.js"></script>
+    <script src="/js/bundle.js"></script>
+  </body>
+
+</html>

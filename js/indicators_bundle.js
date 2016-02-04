@@ -787,6 +787,11 @@ var ShareView = Backbone.View.extend({
     this.render();
   },
 
+  _avoidScroll: function() {
+    $('html').addClass('is-inmobile');
+    $('body').addClass('is-inmobile');
+  },
+
   _enableScroll: function() {
     $('html').removeClass('is-inmobile');
     $('body').removeClass('is-inmobile');

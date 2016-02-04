@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    {% include icons.html %}
+
+    <div class="l-main-container js-blog">
+      {% include header.html %}
+
+      <div class="l-banner -section-2 promoInteriores-Blog">
+        <div class="m-breadcrumbs -light">
+          <ul>
+            <li><a href="/"> home </a></li>
+            <li><span> / </span></li>
+            <li> {{ page.page-name }} </li>
+          </ul>
+        </div>
+
+        <div class="wrap">
+
+          <h1 class="c-section-title -light">{{ page.page-name }}</h1>
+          <p>{{ page.intro-text }}</p>
+        </div>
+      </div>
+
+      <div class="l-toolbar">
+        <div class="wrap">
+          <div class="m-controls">
+
+            <div class="btn-drop-down -sm" id="categorySelector">
+              <select>
+                <option value="">All categories</option>
+                {% for category in site.categories.blog %}
+                  <option value="{{category.category}}">{{category.category}}</option>
+                {% endfor %}
+              </select>
+            </div>
+
+            <button class="js--share btn">
+              <svg class="icon -regular">
+                <use xlink:href="#icon-share"></use>
+              </svg>
+              share
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="l-main-container">
+        {% for post in site.categories.blog %}
+
+            {% include modules/post_list_module.html type="list" %}
+
+        {% endfor %}
+
+      </div>
+
+
+      <div class="l-toolbar">
+        <div class="wrap">
+          <div class="m-controls">
+
+            <!-- TODO: paginator -->
+
+            <button class="js--share btn">
+              <svg class="icon -regular">
+                <use xlink:href="#icon-share"></use>
+              </svg>
+              share
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {% include footer.html %}
+    </div>
+    <script src="js/blog_bundle.js"></script>
+    <script src="js/bundle.js"></script>
+  </body>
+
+</html>
