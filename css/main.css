@@ -2186,16 +2186,17 @@ select {
     font-weight: 400;
     color: #42352b;
     margin-bottom: 1.25rem; }
-  .is-dashboard-layout .m-card .index-description x
-  > .description-wrapper,
-  .is-dashboard-layout .m-card .index-description > .btn-read-more {
-    display: none; }
-  .is-dashboard-layout .m-card .index-description .btn {
-    display: none; }
-  .is-dashboard-layout .m-card .index-description .info {
-    text-align: left; }
-    .is-dashboard-layout .m-card .index-description .info span {
-      display: block; }
+  .is-dashboard-layout .m-card .index-description {
+    width: 100%; }
+    .is-dashboard-layout .m-card .index-description > .description-wrapper,
+    .is-dashboard-layout .m-card .index-description > .btn-read-more {
+      display: none; }
+    .is-dashboard-layout .m-card .index-description .btn {
+      display: none; }
+    .is-dashboard-layout .m-card .index-description .info {
+      text-align: left; }
+      .is-dashboard-layout .m-card .index-description .info span {
+        display: block; }
   .m-card .index-description img {
     width: 30px;
     height: 30px;

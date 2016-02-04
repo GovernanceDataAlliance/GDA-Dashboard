@@ -212,7 +212,9 @@
       margin-bottom: rem(20px);
     }
 
-    .is-dashboard-layout & {x
+    .is-dashboard-layout & {
+      width: 100%;
+      
       > .description-wrapper,
       > .btn-read-more {
         display: none;
