@@ -25,6 +25,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
     @media screen and (min-width: $screen-m) {
       height: calc(100vh - 95px);
+      min-height: rem(700px);
 
       p {
         margin-bottom: rem(80px);

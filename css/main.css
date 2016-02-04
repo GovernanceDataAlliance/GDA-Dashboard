@@ -1037,7 +1037,8 @@ select {
         padding: 6.25rem 0 8.75rem; } }
     @media screen and (min-width: 768px) {
       .l-banner.-main {
-        height: calc(100vh - 95px); }
+        height: calc(100vh - 95px);
+        min-height: 43.75rem; }
         .l-banner.-main p {
           margin-bottom: 5rem; } }
     @media screen and (min-width: 1024px) {
