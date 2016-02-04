@@ -145,7 +145,6 @@ var SearchView = Backbone.View.extend({
     $searchSuggestions.html('');
     this.$(this.elContent).removeClass('visible');
     this.trigger('results', []);
-    this.closeSearch();
   },
 
   clearSearch: function() {
