@@ -168,18 +168,14 @@ var Indicators = CartoDBCollection.extend({
    */
   parse: function(rawData) {
     var classColor;
-    $.each(defaultScores, _.bind(function(i, d) {
-      var current = _.findWhere(rawData.rows, { 'short_name': d.short_name });
+    $.each(rawData.rows, _.bind(function(i, d) {
 
-      if (current) {
-        classColor = this._setColorsByScore(current);
-        if (!classColor) {
-          return;
-        }
-        _.extend(current, {'classColor': this._setColorsByScore(current)});
-      } else {
-        rawData.rows.push(d);
+      classColor = this._setColorsByScore(d);
+      
+      if (!classColor) {
+        return;
       }
+      _.extend(d, {'classColor': this._setColorsByScore(d)});
 
     }, this));
 
@@ -689,10 +685,10 @@ module.exports = "<div class=\"l-toolbar -selectors\">\n  <div class=\"wrap\">\n
 module.exports = "SELECT\n  i.iso,\n  i.short_name,\n  i.score,\n  i.year,\n  w.name,\n  w.region,\n  w.lending_category,\n  w.income_group,\n  c.desired_direction, \n  c.score_range,\n  c.units_abbr  \nFROM indicator_data i \n  INNER JOIN wb_countries_clasification w ON i.iso=w.iso \n  INNER JOIN indicator_config c ON i.short_name=c.short_name \nWHERE i.short_name = '{{id}}' \nAND i.score is not null \n{{#if year}}\nAND i.year = '{{year}}' \n{{/if}}\n{{#if categoryGroup}}\nAND w.{{categoryGroup}} = '{{categoryName}}' \n{{/if}}\norder by i.score desc, w.name desc\n";
 
 },{}],31:[function(require,module,exports){
-module.exports = "SELECT\n  c.score_range,\n  c.desired_direction, \n  c.has_historical_info, \n  c.max_score,\n  c.methodology_link, \n  c.min_score, \n  c.product_description, \n  c.product_logo,\n  c.product_name, \n  c.short_name, \n  c.units, \n  c.units_abbr,\n  c.organization, \n  d.iso,\n  d.notes, \n  d.score,\n  d.score_text,\n  d.year\n FROM {{table}} AS d\n   INNER JOIN indicator_config AS c ON d.short_name = c.short_name\n WHERE d.iso = '{{iso}}'\n ORDER BY c.short_name, d.year desc\n";
+module.exports = " with d as (\n select * from indicator_data where iso= '{{iso}}'\n )\n SELECT\n   c.score_range,\n   c.desired_direction, \n   c.has_historical_info, \n   c.max_score,\n   c.methodology_link, \n   c.min_score, \n   c.product_description, \n   c.product_logo,\n   c.product_name, \n   c.short_name, \n   c.units, \n   c.units_abbr,\n   c.organization, \n   '{{iso}}' as iso,\n   d.notes, \n   d.score,\n   d.score_text,\n   d.year\n  FROM indicator_config AS c\n    left JOIN  d ON c.short_name = d.short_name\n  ORDER BY d.iso desc\n";
 
 },{}],32:[function(require,module,exports){
-module.exports = "SELECT\n  c.desired_direction,\n  c.has_historical_info,\n  c.max_score,\n  c.methodology_link,\n  c.min_score,\n  c.organization,\n  c.product_description,\n  c.product_logo,\n  c.product_name,\n  c.score_range,\n  c.short_name,\n  c.units,\n  c.units_abbr,\n  d.iso,\n  d.notes,\n  d.score,\n  d.score_text,\n  d.year\n FROM {{table}} AS d\n   INNER JOIN indicator_config AS c ON d.short_name = c.short_name\n WHERE d.iso = '{{iso}}' AND d.year = '{{year}}'\n";
+module.exports = " with d as (\n select * from indicator_data where iso= '{{iso}}' and year={{year}}\n )\n SELECT\n   c.score_range,\n   c.desired_direction, \n   c.has_historical_info, \n   c.max_score,\n   c.methodology_link, \n   c.min_score, \n   c.product_description, \n   c.product_logo,\n   c.product_name, \n   c.short_name, \n   c.units, \n   c.units_abbr,\n   c.organization, \n   '{{iso}}' as iso,\n   d.notes, \n   d.score,\n   d.score_text,\n   d.year\n  FROM indicator_config AS c\n    left JOIN  d ON c.short_name = d.short_name\n  ORDER BY d.iso desc\n";
 
 },{}],33:[function(require,module,exports){
 module.exports = "SELECT distinct on (year) \n  year \nFROM {{table}} \nWHERE year is not null \nORDER BY year desc";

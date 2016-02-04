@@ -157,18 +157,14 @@ var Indicators = CartoDBCollection.extend({
    */
   parse: function(rawData) {
     var classColor;
-    $.each(defaultScores, _.bind(function(i, d) {
-      var current = _.findWhere(rawData.rows, { 'short_name': d.short_name });
+    $.each(rawData.rows, _.bind(function(i, d) {
 
-      if (current) {
-        classColor = this._setColorsByScore(current);
-        if (!classColor) {
-          return;
-        }
-        _.extend(current, {'classColor': this._setColorsByScore(current)});
-      } else {
-        rawData.rows.push(d);
+      classColor = this._setColorsByScore(d);
+      
+      if (!classColor) {
+        return;
       }
+      _.extend(d, {'classColor': this._setColorsByScore(d)});
 
     }, this));
 
@@ -449,7 +445,6 @@ var LineChart = function(params) {
     .attr('height', height + margin.top + margin.bottom)
     .append('g')
       .attr('transform', 'translate('+margin.left+',' + margin.top + ')');
-
 
   data.forEach(function(d) {
     d.year = parseDate(d.year.toString());
@@ -805,10 +800,10 @@ module.exports = "<p class=\"{{index}} partial-score\">{{rank}}</p>\n<p class=\"
 module.exports = "SELECT\n  i.iso,\n  i.short_name,\n  i.score,\n  i.year,\n  w.name,\n  w.region,\n  w.lending_category,\n  w.income_group,\n  c.desired_direction, \n  c.score_range,\n  c.units_abbr  \nFROM indicator_data i \n  INNER JOIN wb_countries_clasification w ON i.iso=w.iso \n  INNER JOIN indicator_config c ON i.short_name=c.short_name \nWHERE i.short_name = '{{id}}' \nAND i.score is not null \n{{#if year}}\nAND i.year = '{{year}}' \n{{/if}}\n{{#if categoryGroup}}\nAND w.{{categoryGroup}} = '{{categoryName}}' \n{{/if}}\norder by i.score desc, w.name desc\n";
 
 },{}],33:[function(require,module,exports){
-module.exports = "SELECT\n  c.score_range,\n  c.desired_direction, \n  c.has_historical_info, \n  c.max_score,\n  c.methodology_link, \n  c.min_score, \n  c.product_description, \n  c.product_logo,\n  c.product_name, \n  c.short_name, \n  c.units, \n  c.units_abbr,\n  c.organization, \n  d.iso,\n  d.notes, \n  d.score,\n  d.score_text,\n  d.year\n FROM {{table}} AS d\n   INNER JOIN indicator_config AS c ON d.short_name = c.short_name\n WHERE d.iso = '{{iso}}'\n ORDER BY c.short_name, d.year desc\n";
+module.exports = " with d as (\n select * from indicator_data where iso= '{{iso}}'\n )\n SELECT\n   c.score_range,\n   c.desired_direction, \n   c.has_historical_info, \n   c.max_score,\n   c.methodology_link, \n   c.min_score, \n   c.product_description, \n   c.product_logo,\n   c.product_name, \n   c.short_name, \n   c.units, \n   c.units_abbr,\n   c.organization, \n   '{{iso}}' as iso,\n   d.notes, \n   d.score,\n   d.score_text,\n   d.year\n  FROM indicator_config AS c\n    left JOIN  d ON c.short_name = d.short_name\n  ORDER BY d.iso desc\n";
 
 },{}],34:[function(require,module,exports){
-module.exports = "SELECT\n  c.desired_direction,\n  c.has_historical_info,\n  c.max_score,\n  c.methodology_link,\n  c.min_score,\n  c.organization,\n  c.product_description,\n  c.product_logo,\n  c.product_name,\n  c.score_range,\n  c.short_name,\n  c.units,\n  c.units_abbr,\n  d.iso,\n  d.notes,\n  d.score,\n  d.score_text,\n  d.year\n FROM {{table}} AS d\n   INNER JOIN indicator_config AS c ON d.short_name = c.short_name\n WHERE d.iso = '{{iso}}' AND d.year = '{{year}}'\n";
+module.exports = " with d as (\n select * from indicator_data where iso= '{{iso}}' and year={{year}}\n )\n SELECT\n   c.score_range,\n   c.desired_direction, \n   c.has_historical_info, \n   c.max_score,\n   c.methodology_link, \n   c.min_score, \n   c.product_description, \n   c.product_logo,\n   c.product_name, \n   c.short_name, \n   c.units, \n   c.units_abbr,\n   c.organization, \n   '{{iso}}' as iso,\n   d.notes, \n   d.score,\n   d.score_text,\n   d.year\n  FROM indicator_config AS c\n    left JOIN  d ON c.short_name = d.short_name\n  ORDER BY d.iso desc\n";
 
 },{}],35:[function(require,module,exports){
 module.exports = "with r as (select short_name, iso, max(year) as year from  indicator_data group by short_name, iso),\n  \nd as (select indicator_data.short_name, indicator_data.iso, indicator_data.year, indicator_data.score, desired_direction, income_group, region from indicator_data inner join indicator_config on indicator_data.short_name=indicator_config.short_name inner join wb_countries_clasification on indicator_data.iso=wb_countries_clasification.iso), \n\ns as (select short_name, iso, year, score, income_group, region, dense_rank() OVER (PARTITION BY short_name, year{{cohort}} ORDER BY score DESC) rank from d where score is not null and desired_direction='up' \nunion  \nselect short_name, iso, year, score, income_group, region, dense_rank() OVER (PARTITION BY short_name, year{{cohort}} ORDER BY score asc) rank from d where score is not null and desired_direction='down')\n\nselect r.short_name, r.iso, r.year, s.score,  rank, s.region, s.income_group from r inner join s on r.short_name= s.short_name and r.iso= s.iso and r.year=s.year where r.iso='{{iso}}' AND r.short_name='{{index}}'\norder by r.short_name{{cohort}}, rank, year asc";
@@ -1860,8 +1855,8 @@ var IndicatorView = Backbone.View.extend({
     this._setColorClass();
     this.analizeValues();
     this.partialRanks();
-
-    if (this.indicator['has_historical_info'] === true) {
+    
+    if ( this.indicator['has_historical_info'] === true && this.indicator.data[0].score ) {
       this.drawGraph();
     }
 
@@ -1875,7 +1870,7 @@ var IndicatorView = Backbone.View.extend({
   },
 
   partialRanks: function() {
-    if (this.indicator.iso != undefined) {
+    if ( this.indicator.iso != undefined && this.indicator.score ) {
       var partial_ranks = new PartialRanksView({
         'el': this.$('.js--partial-ranks'),
         'iso': this.indicator.iso,

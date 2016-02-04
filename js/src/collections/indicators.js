@@ -58,18 +58,14 @@ var Indicators = CartoDBCollection.extend({
    */
   parse: function(rawData) {
     var classColor;
-    $.each(defaultScores, _.bind(function(i, d) {
-      var current = _.findWhere(rawData.rows, { 'short_name': d.short_name });
+    $.each(rawData.rows, _.bind(function(i, d) {
 
-      if (current) {
-        classColor = this._setColorsByScore(current);
-        if (!classColor) {
-          return;
-        }
-        _.extend(current, {'classColor': this._setColorsByScore(current)});
-      } else {
-        rawData.rows.push(d);
+      classColor = this._setColorsByScore(d);
+      
+      if (!classColor) {
+        return;
       }
+      _.extend(d, {'classColor': this._setColorsByScore(d)});
 
     }, this));
 

@@ -28,8 +28,8 @@ var IndicatorView = Backbone.View.extend({
     this._setColorClass();
     this.analizeValues();
     this.partialRanks();
-
-    if (this.indicator['has_historical_info'] === true) {
+    
+    if ( this.indicator['has_historical_info'] === true && this.indicator.data[0].score ) {
       this.drawGraph();
     }
 
@@ -43,7 +43,7 @@ var IndicatorView = Backbone.View.extend({
   },
 
   partialRanks: function() {
-    if (this.indicator.iso != undefined) {
+    if ( this.indicator.iso != undefined && this.indicator.score ) {
       var partial_ranks = new PartialRanksView({
         'el': this.$('.js--partial-ranks'),
         'iso': this.indicator.iso,
