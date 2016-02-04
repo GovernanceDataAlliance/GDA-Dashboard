@@ -1054,8 +1054,9 @@ select {
   .l-banner.-section-1 {
     padding: 6.25rem 0 3.75rem;
     background-color: #ccc; }
-    .l-banner.-section-1 .m-search {
-      padding: 3.125rem 8.75rem; }
+    @media screen and (min-width: 768px) {
+      .l-banner.-section-1 .m-search {
+        padding: 3.125rem 8.75rem; } }
   .l-banner.-section-2 {
     padding: 8.75rem 0 11.25rem;
     background-color: #ccc; }

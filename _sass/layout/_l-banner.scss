@@ -51,9 +51,11 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
   &.-section-1 {
     padding: rem(100px) 0 rem(60px);
     background-color: #ccc;
-
-    .m-search {
-      padding: rem(50px) rem(140px);
+    
+    @media screen and (min-width: $screen-m) {
+      .m-search {
+        padding: rem(50px) rem(140px);
+      }
     }
   }
 

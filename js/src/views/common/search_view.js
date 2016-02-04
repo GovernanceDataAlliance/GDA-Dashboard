@@ -11,7 +11,7 @@ var SearchCollection = require('../../collections/countries.js');
 
 var SearchView = Backbone.View.extend({
 
-  el: "#searchBox",
+  // el: "#searchBox",
 
   defaults: {
     elContent: '#searchContent',
@@ -68,7 +68,7 @@ var SearchView = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(template);
+    this.$('#searchBox').html(template);
   },
 
   setListeners: function() {
