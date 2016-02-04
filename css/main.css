@@ -820,7 +820,7 @@ th {
 .m-advise:after {
   clear: both; }
 
-button, .m-search > input,
+button, select, .m-search > input,
 .m-search .search-box-open {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -830,14 +830,14 @@ button, .m-search > input,
   border: 0;
   text-decoration: none;
   outline: none; }
-  button:hover, .m-search > input:hover,
+  button:hover, select:hover, .m-search > input:hover,
   .m-search .search-box-open:hover {
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none;
     -webkit-user-select: none; }
-  button::-webkit-outer-spin-button, .m-search > input::-webkit-outer-spin-button,
-  .m-search .search-box-open::-webkit-outer-spin-button, button::-webkit-inner-spin-button, .m-search > input::-webkit-inner-spin-button,
+  button::-webkit-outer-spin-button, select::-webkit-outer-spin-button, .m-search > input::-webkit-outer-spin-button,
+  .m-search .search-box-open::-webkit-outer-spin-button, button::-webkit-inner-spin-button, select::-webkit-inner-spin-button, .m-search > input::-webkit-inner-spin-button,
   .m-search .search-box-open::-webkit-inner-spin-button {
     -webkit-appearance: none; }
 
@@ -954,6 +954,11 @@ svg:not(:root) {
   @media screen and (min-width: 320px) {
     p + .is-small-text {
       margin-top: 3.125rem; } }
+
+select {
+  color: #39a1b2;
+  font-family: "Montserrat";
+  font-size: 16px; }
 
 /*
  * Reset chosen. Just in case you are using
@@ -1216,7 +1221,6 @@ svg:not(:root) {
           -ms-flex-pack: center;
               justify-content: center; }
   .l-toolbar.-selectors {
-    transition: all .3s;
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0); }
     .l-toolbar.-selectors .wrap {
@@ -1234,12 +1238,12 @@ svg:not(:root) {
       position: fixed;
       top: 0;
       left: 0;
-      right: 0;
+      width: 100%;
       z-index: 2; }
     .l-toolbar.-selectors.-hide-transition {
       -webkit-transform: translate(0, -100%);
               transform: translate(0, -100%); }
-  .-mobile .l-toolbar.-selectors.-fixed {
+  .-mobile .l-toolbar.-selectors {
     padding-top: 2rem; }
   .l-toolbar.-year-selector {
     z-index: 10;
@@ -1321,6 +1325,9 @@ svg:not(:root) {
   @media screen and (min-width: 640px) {
     .l-content {
       padding: 6.25rem 0 7.5rem; } }
+
+#compareSlider {
+  overflow-x: hidden; }
 
 .l-highlight {
   position: relative;
@@ -3696,8 +3703,12 @@ svg:not(:root) {
           .m-legend > ul li:before {
             margin: 0 10px 0 0; } }
   .m-legend .pop-up-legend-container {
+    display: none;
     position: relative;
     margin-left: 20px; }
+    @media screen and (min-width: 640px) {
+      .m-legend .pop-up-legend-container {
+        display: block; } }
     .m-legend .pop-up-legend-container > .pop-up-legend {
       position: absolute;
       top: 37px;
@@ -4205,6 +4216,7 @@ svg:not(:root) {
   width: 100%;
   padding: 0;
   margin: 0;
+  z-index: 2;
   display: block;
   list-style: none;
   text-align: center; }

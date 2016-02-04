@@ -199,7 +199,7 @@ var Indicators = CartoDBCollection.extend({
   parse: function(rawData) {
     var classColor;
     $.each(defaultScores, _.bind(function(i, d) {
-      var current = _.findWhere(rawData.rows, {'short_name': d.short_name});
+      var current = _.findWhere(rawData.rows, { 'short_name': d.short_name });
 
       if (current) {
         classColor = this._setColorsByScore(current);
@@ -947,6 +947,7 @@ global.$ = $; // for chosen.js
 var chosen = require('chosen-jquery-browserify'),
     _ = require('lodash'),
     Backbone = require('backbone'),
+    enquire = require('enquire.js'),
     Handlebars = require('handlebars');
 
 var template = Handlebars.compile(
@@ -968,7 +969,23 @@ var CompareYearSelectors = Backbone.View.extend({
   render: function() {
     this.$el.html(template({ 'years': this.years }));
     this.setCurrentYear();
-    this.$('select').chosen();
+
+    enquire.register("screen and (max-width:640px)", {
+      match: _.bind(function(){
+        this.mobile = true;
+      },this)
+    });
+
+    enquire.register("screen and (min-width:641px)", {
+      match: _.bind(function(){
+        this.mobile = false;
+      },this)
+    });
+
+    if (!this.mobile) {
+      this.$('select').chosen();
+    }
+
   },
 
   setCurrentYear: function() {
@@ -990,7 +1007,7 @@ var CompareYearSelectors = Backbone.View.extend({
 module.exports = CompareYearSelectors;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../../templates/common/year_selector.hbs":19,"backbone":47,"chosen-jquery-browserify":48,"handlebars":80,"jquery":92,"lodash":93}],39:[function(require,module,exports){
+},{"../../templates/common/year_selector.hbs":19,"backbone":47,"chosen-jquery-browserify":48,"enquire.js":49,"handlebars":80,"jquery":92,"lodash":93}],39:[function(require,module,exports){
 var Backbone = require('backbone'),
     $ = require('jquery'),
     _ = require('lodash'),
