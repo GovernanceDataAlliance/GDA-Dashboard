@@ -1,8 +1,11 @@
 var $ = require('jquery'),
+    enquire = require('enquire.js'),
+    _ = require('lodash'),
     Backbone = require('backbone');
 
 var SearchView = require('../common/search_view.js'),
-  WrapperHeaderView = require('../common/wrapper_header_view.js');
+    SearchMobileView = require('../common/search_mobile_view.js'),
+    WrapperHeaderView = require('../common/wrapper_header_view.js');
 
 var WelcomeView = Backbone.View.extend({
 
@@ -10,9 +13,21 @@ var WelcomeView = Backbone.View.extend({
 
   initialize: function(options) {
     options = options || {};
+
+    enquire.register("screen and (max-width:640px)", {
+      match: _.bind(function(){
+        this.mobile = true;
+      },this)
+    });
+
+    enquire.register("screen and (min-width:641px)", {
+      match: _.bind(function(){
+        this.mobile = false;
+      },this)
+    });
+
     this.initViews();
     this._setListeners();
-
     $('.c-brand').addClass('-inactive');
   },
 
@@ -31,7 +46,12 @@ var WelcomeView = Backbone.View.extend({
   },
 
   initViews: function() {
-    var search = new SearchView({ el: this.$('.js--search')});
+    if (!this.mobile) {
+      var search = new SearchView({ el: $('.js--search') });
+    } else {
+      var searchMobile = new SearchMobileView({ el: $('.js--search') });
+    }
+
     new WrapperHeaderView();
   }
 
