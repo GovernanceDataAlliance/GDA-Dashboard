@@ -142,12 +142,9 @@
   }
 
   .index-description {
-    display: flex; display: -ms-box;
-    flex-direction: column;
-    justify-content: center;
 
     @media screen and (min-width: $screen-l) {
-      flex-basis: 48%;
+      width: 48%;
     }
 
     .name {
@@ -254,7 +251,8 @@
   }
 
   .index-score {
-    display: flex; display: -ms-box;
+    display: flex; 
+    display: -ms-box;
     flex-direction: column;
     justify-content: flex-start;
 
@@ -268,7 +266,7 @@
     @media screen and (min-width: $screen-l) {
       flex-direction: column;
       align-items: flex-end;
-      flex-basis: 48%;
+      width: 48%;
 
       > .js--partial-ranks {
         width: 100%;

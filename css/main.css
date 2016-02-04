@@ -2127,100 +2127,87 @@ select {
           width: 100%; }
           .is-dashboard-layout .m-card .info span:first-child {
             margin-bottom: 1.5625rem; } }
-  .m-card .index-description {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    display: -ms-box;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center; }
-    @media screen and (min-width: 1024px) {
-      .m-card .index-description {
-        -webkit-flex-basis: 48%;
-            -ms-flex-preferred-size: 48%;
-                flex-basis: 48%; } }
-    .m-card .index-description .name {
-      font-size: 1.5rem;
-      font-weight: 400;
-      margin-bottom: 0.9375rem; }
-      @media screen and (min-width: 640px) {
-        .m-card .index-description .name {
-          font-size: 1.6875rem; } }
-    .m-card .index-description > .description-wrapper {
+  @media screen and (min-width: 1024px) {
+    .m-card .index-description {
+      width: 48%; } }
+  .m-card .index-description .name {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0.9375rem; }
+    @media screen and (min-width: 640px) {
+      .m-card .index-description .name {
+        font-size: 1.6875rem; } }
+  .m-card .index-description > .description-wrapper {
+    position: relative;
+    font-size: 0.9375rem; }
+    .m-card .index-description > .description-wrapper .description.-expand {
+      max-height: none; }
+    .m-card .index-description > .description-wrapper .description .read-more {
+      margin-left: 10px; }
+    .m-card .index-description > .description-wrapper .description .read-more,
+    .m-card .index-description > .description-wrapper .description .read-less {
       position: relative;
-      font-size: 0.9375rem; }
-      .m-card .index-description > .description-wrapper .description.-expand {
-        max-height: none; }
-      .m-card .index-description > .description-wrapper .description .read-more {
-        margin-left: 10px; }
-      .m-card .index-description > .description-wrapper .description .read-more,
-      .m-card .index-description > .description-wrapper .description .read-less {
-        position: relative;
-        font-family: "Montserrat";
-        font-size: 0.6875rem;
-        text-transform: uppercase;
-        color: #39a1b2;
-        cursor: pointer;
-        white-space: nowrap; }
-      .m-card .index-description > .description-wrapper .description .read-more:after,
-      .m-card .index-description > .description-wrapper .description .read-less:after {
-        content: '';
-        position: absolute; }
-      .m-card .index-description > .description-wrapper .description .read-more:after {
-        top: 0;
-        right: -15px;
-        width: 5px;
-        height: 5px;
-        border-top: 2px solid #39a1b2;
-        border-left: 2px solid #39a1b2;
-        -webkit-transform: rotate(225deg);
-                transform: rotate(225deg);
-        pointer-events: none;
-        -webkit-transform: rotate(225deg) translate(0, -50%);
-                transform: rotate(225deg) translate(0, -50%); }
-      .m-card .index-description > .description-wrapper .description .read-less:after {
-        top: 50%;
-        right: -10px;
-        width: 5px;
-        height: 5px;
-        border-top: 2px solid #39a1b2;
-        border-left: 2px solid #39a1b2;
-        -webkit-transform: rotate(45deg);
-                transform: rotate(45deg);
-        pointer-events: none;
-        -webkit-transform: rotate(45deg) translate(0, -50%);
-                transform: rotate(45deg) translate(0, -50%); }
-    .m-card .index-description .organization {
-      font-size: 0.9375rem;
-      font-weight: 400;
-      color: #42352b;
-      margin-bottom: 1.25rem; }
-    .is-dashboard-layout .m-card .index-description x
-    > .description-wrapper,
-    .is-dashboard-layout .m-card .index-description > .btn-read-more {
-      display: none; }
-    .is-dashboard-layout .m-card .index-description .btn {
-      display: none; }
-    .is-dashboard-layout .m-card .index-description .info {
-      text-align: left; }
-      .is-dashboard-layout .m-card .index-description .info span {
-        display: block; }
-    .m-card .index-description img {
-      width: 30px;
-      height: 30px;
-      background-color: #ddd; }
-    .m-card .index-description .not-covered {
-      font-size: 1.0625rem;
-      font-weight: 700;
-      color: #5b5b5b;
+      font-family: "Montserrat";
+      font-size: 0.6875rem;
       text-transform: uppercase;
-      font-family: "Montserrat"; }
-    .m-card .index-description .btn:last-child {
-      margin-top: 25px; }
+      color: #39a1b2;
+      cursor: pointer;
+      white-space: nowrap; }
+    .m-card .index-description > .description-wrapper .description .read-more:after,
+    .m-card .index-description > .description-wrapper .description .read-less:after {
+      content: '';
+      position: absolute; }
+    .m-card .index-description > .description-wrapper .description .read-more:after {
+      top: 0;
+      right: -15px;
+      width: 5px;
+      height: 5px;
+      border-top: 2px solid #39a1b2;
+      border-left: 2px solid #39a1b2;
+      -webkit-transform: rotate(225deg);
+              transform: rotate(225deg);
+      pointer-events: none;
+      -webkit-transform: rotate(225deg) translate(0, -50%);
+              transform: rotate(225deg) translate(0, -50%); }
+    .m-card .index-description > .description-wrapper .description .read-less:after {
+      top: 50%;
+      right: -10px;
+      width: 5px;
+      height: 5px;
+      border-top: 2px solid #39a1b2;
+      border-left: 2px solid #39a1b2;
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+      pointer-events: none;
+      -webkit-transform: rotate(45deg) translate(0, -50%);
+              transform: rotate(45deg) translate(0, -50%); }
+  .m-card .index-description .organization {
+    font-size: 0.9375rem;
+    font-weight: 400;
+    color: #42352b;
+    margin-bottom: 1.25rem; }
+  .is-dashboard-layout .m-card .index-description x
+  > .description-wrapper,
+  .is-dashboard-layout .m-card .index-description > .btn-read-more {
+    display: none; }
+  .is-dashboard-layout .m-card .index-description .btn {
+    display: none; }
+  .is-dashboard-layout .m-card .index-description .info {
+    text-align: left; }
+    .is-dashboard-layout .m-card .index-description .info span {
+      display: block; }
+  .m-card .index-description img {
+    width: 30px;
+    height: 30px;
+    background-color: #ddd; }
+  .m-card .index-description .not-covered {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: #5b5b5b;
+    text-transform: uppercase;
+    font-family: "Montserrat"; }
+  .m-card .index-description .btn:last-child {
+    margin-top: 25px; }
   .m-card .index-score {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -2250,9 +2237,7 @@ select {
             -ms-flex-align: end;
                     -ms-grid-row-align: flex-end;
                 align-items: flex-end;
-        -webkit-flex-basis: 48%;
-            -ms-flex-preferred-size: 48%;
-                flex-basis: 48%; }
+        width: 48%; }
         .m-card .index-score > .js--partial-ranks {
           width: 100%; } }
     .m-card .index-score > .resume {
