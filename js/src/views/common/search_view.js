@@ -24,11 +24,7 @@ var SearchView = Backbone.View.extend({
   events: {
     'keyup #searchMap' : 'onSearch',
     'focus #searchMap' : 'highlight',
-    'keydown #searchMap': 'highlightResultsBox',
-    'click .search-box-open' : 'openSearch',
-    'click .btn-close-modal' : 'closeSearch',
-    'touchstart .search-box-open' : 'openSearch',
-    'touchstart .btn-close-modal' : 'closeSearch'
+    'keydown #searchMap': 'highlightResultsBox'
   },
 
   initialize: function(settings) {
@@ -37,24 +33,6 @@ var SearchView = Backbone.View.extend({
     this.options = _.extend(this.defaults, options);
 
     this.count = 0;
-
-    enquire.register("screen and (max-width:640px)", {
-      match: _.bind(function(){
-
-        this.mobile = true;
-        // return _.extend( this.events, {  
-        //   'click .search-box-open' : 'openSearch',
-        //   'click .btn-close-modal' : 'closeSearch'
-        // });
-
-      },this)
-    });
-
-    enquire.register("screen and (min-width:641px)", {
-      match: _.bind(function(){
-        this.mobile = false;
-      },this)
-    });
 
     this.searchCollection = new SearchCollection();
     this.elContent = this.options.elContent;
@@ -182,18 +160,6 @@ var SearchView = Backbone.View.extend({
     if(key === 27) {
       this.unHighlight();
     }
-  },
-
-  openSearch: function() {
-    this.$el.addClass('is-active');
-    this.$('body').addClass('is-inmobile');
-    this.$('html').addClass('is-inmobile');
-  },
-
-  closeSearch: function() {
-    this.$el.removeClass('is-active');
-    this.$('body').removeClass('is-inmobile');
-    this.$('html').removeClass('is-inmobile');
   }
 
 });

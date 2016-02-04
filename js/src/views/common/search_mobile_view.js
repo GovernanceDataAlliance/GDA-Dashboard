@@ -9,19 +9,46 @@ var SearchCollection = require('../../collections/countries.js');
 
 var SearchMobileView = Backbone.View.extend({
 
-  el: "#searchBox",
+  events: {
+    'click .js--open-search-mb': 'openSearchBox',
+    'click .btn-close-modal' : 'closeSearch',
+    'change select': 'goToCountry',
+    'touchstart .js--open-search-mb' : 'openSearchBox',
+    'touchstart .btn-close-modal' : 'closeSearch'
+  },
 
   initialize: function(settings) {
     this.searchCollection = new SearchCollection();
 
-    this.searchCollection.fetch().done(function(){
-      this.render();
-    }.bind(this));
+    this.body = $('body');
+    this.html = $('html');
+  },
+
+  openSearchBox: function() {
+    this.render();
+    this.body.addClass('is-inmobile');
+    this.html.addClass('is-inmobile');
   },
 
   render: function() {
-    this.$el.html(template({ 'countries': this.searchCollection.toJSON() }));
+    this.searchCollection.fetch().done(function(countries) {
+      var orderedCollection = _.sortByOrder(countries.rows, ['name']);
+      this.$('.js--search-mobile').html(template({ 'countries': orderedCollection }));
+    }.bind(this));
+  },
+
+  closeSearch: function() {
+    this.$('.js--mobile-search').remove();
+    this.body.removeClass('is-inmobile');
+    this.html.removeClass('is-inmobile');
+  },
+
+  goToCountry: function(e) {
+    var country = $(e.currentTarget).val();
+    window.location.href = '/countries#' + country;
+    this.closeSearch();
   }
+
 });
 
 module.exports = SearchMobileView;

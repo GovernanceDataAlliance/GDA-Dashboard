@@ -21,7 +21,6 @@ var CountriesView = Backbone.View.extend({
     enquire.register("screen and (max-width:640px)", {
       match: _.bind(function(){
         this.mobile = true;
-
       },this)
     });
 
@@ -42,7 +41,7 @@ var CountriesView = Backbone.View.extend({
   },
 
   renderCountryList: function() {
-    var listView = new CountryList({countries: this.countries});
+    var listView = new CountryList({ countries: this.countries });
     this.$('.js--countries-list').html(listView.render().el);
   },
 
