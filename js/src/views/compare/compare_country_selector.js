@@ -4,6 +4,7 @@ global.$ = $; // for chosen.js
 var _ = require('lodash'),
     Backbone = require('backbone'),
     Handlebars = require('handlebars'),
+    enquire = require('enquire.js'),
     chosen = require('chosen-jquery-browserify'),
     async = require('async');
 
@@ -20,6 +21,18 @@ var CountrySelectorView = Backbone.View.extend({
 
   initialize: function(options) {
     options = options || {};
+
+    enquire.register("screen and (max-width:640px)", {
+      match: _.bind(function(){
+        this.mobile = true;
+      },this)
+    });
+
+    enquire.register("screen and (min-width:641px)", {
+      match: _.bind(function(){
+        this.mobile = false;
+      },this)
+    });
 
     this.countries = options.countries;
     this.index = options.index;
@@ -40,7 +53,10 @@ var CountrySelectorView = Backbone.View.extend({
         this.setRecivedValues();
       };
 
-      this.$('select').chosen();
+      if (!this.mobile) { 
+        this.$('select')
+          .chosen({ "disable_search": true });
+      }
 
     }.bind(this));
   },

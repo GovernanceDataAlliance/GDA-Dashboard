@@ -1,11 +1,13 @@
 .m-compare-selectors {
   display: flex;
   width: 100%;
+  min-height: rem(75px);
   border-left: 1px solid $border-1;
   border-right: 1px solid $border-1;
 
   @media screen and (max-width: $screen-m) {
     border: none;
+    min-height: 0;
   }
 
   &.-year {
@@ -27,6 +29,8 @@
 
   &.-mobile {
     justify-content: flex-start;
+    flex-direction: column;
+    padding-top: rem(10px);
 
     .selector-wrapper {
       width: 100%;

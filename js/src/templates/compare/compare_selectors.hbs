@@ -6,7 +6,7 @@
       </div>
       <div class="selector-wrapper -score">
         <div class="btn-drop-down">
-          <select class="js--compare-selector" name="country1" id="country-1">
+          <select class="js--compare-selector" name="country1" id="country-1" readonly="true" >
             <option value="no_data">Select country</option>
             {{#each countries}}
               <option value="{{this.iso3}}">{{this.name}}</option>
@@ -16,7 +16,7 @@
       </div>
       <div class="selector-wrapper -score">
         <div class="btn-drop-down">
-          <select class="js--compare-selector -score" name="country2" id="country-2">
+          <select class="js--compare-selector -score" name="country2" id="country-2" readonly="true" >
             <option value="no_data">Select country</option>
             {{#each countries}}
               <option value="{{this.iso3}}">{{this.name}}</option>
@@ -26,7 +26,7 @@
       </div>
       <div class="selector-wrapper -score">
         <div class="btn-drop-down">
-          <select class="js--compare-selector -score" name="country3" id="country-3">
+          <select class="js--compare-selector -score" name="country3" id="country-3" readonly="true" >
             <option value="no_data">Select country</option>
             {{#each countries}}
               <option value="{{this.iso3}}">{{this.name}}</option>

@@ -64,8 +64,14 @@
   }
 
   .pop-up-legend-container {
+    display: none;
     position: relative;
     margin-left: 20px;
+
+    @media screen and (min-width: $screen-s) {
+      display: block;
+    } 
+
     > .pop-up-legend {
       position: absolute;
       top: 37px;
