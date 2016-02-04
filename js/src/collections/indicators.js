@@ -59,7 +59,7 @@ var Indicators = CartoDBCollection.extend({
   parse: function(rawData) {
     var classColor;
     $.each(defaultScores, _.bind(function(i, d) {
-      var current = _.findWhere(rawData.rows, {'short_name': d.short_name});
+      var current = _.findWhere(rawData.rows, { 'short_name': d.short_name });
 
       if (current) {
         classColor = this._setColorsByScore(current);
