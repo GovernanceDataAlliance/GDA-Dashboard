@@ -2683,11 +2683,13 @@ svg:not(:root) {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  min-height: 4.6875rem;
   border-left: 1px solid #d6d8d9;
   border-right: 1px solid #d6d8d9; }
   @media screen and (max-width: 768px) {
     .m-compare-selectors {
-      border: none; } }
+      border: none;
+      min-height: 0; } }
   .m-compare-selectors.-year {
     -webkit-justify-content: flex-end;
         -ms-flex-pack: end;
