@@ -3,6 +3,7 @@
   // display: -ms-box;
   // -ms-flex: 1 1 auto;
   // flex-wrap: wrap;
+  @extend %clearfix;
   margin: 0 auto;
 
   &.is-dashboard-layout {
