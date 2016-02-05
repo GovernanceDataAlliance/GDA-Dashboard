@@ -51,7 +51,7 @@
       <div class="l-main-container">
         {% for blogpost in site.categories.blogposts %}
 
-            <div class="l-post {%if post.image%} -img {%endif%}" {%if post.image%} style="background-image:url(/{{post.image}})" {%endif%} >
+            <div class="l-post {%if blogpost.image%} -img {%endif%}" {%if blogpost.image%} style="background-image:url({{ site.baseurl }}/{{blogpost.image}})" {%endif%} >
               <div class="wrap">
 
                 <div class="m-post -list">
