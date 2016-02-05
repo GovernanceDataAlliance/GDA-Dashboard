@@ -106,8 +106,9 @@
     }
 
     @media screen and (min-width: $screen-m) {
-      display: flex;
-      flex-basis: 50%;
+      width: 50%;
+      height: rem(500px);
+      float: left;
 
       > .card-wrap {
         padding: rem(40px) rem($wrap-padding-tablet);
@@ -115,7 +116,7 @@
     }
 
     @media screen and (min-width: $screen-l) {
-      flex-basis: 33.33%;
+      width: 33.33%;
 
       &:nth-child(2n) {
         border-right: 1px solid $border-1;

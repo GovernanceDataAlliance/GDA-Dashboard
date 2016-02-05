@@ -2,7 +2,7 @@
  select * from indicator_data where iso='{{iso}}'
  )
  SELECT
-   distinct on(c.short_name) c.short_name,
+   c.short_name,
    c.score_range,
    c.desired_direction, 
    c.has_historical_info, 
