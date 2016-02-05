@@ -3,7 +3,16 @@
   font-family: $font-secondary;
   font-weight: 700;
   text-transform: uppercase;
+
+  @media screen and (min-width: $screen-m) {
+    font-size: rem(50px);
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    font-size: rem(60px);
+  }
 }
+
 %no-data-font {
   font-size: rem(17px);
   font-family: $font-secondary;
@@ -35,7 +44,10 @@
     width: 23.33%;
 
     .table-cell {
-      display: block;
+      // display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
       // justify-content: center;
       // align-items: center;
@@ -110,7 +122,7 @@
   }
 
   .table-cell {
-    height: rem(160px);
+    height: rem(180px);
     display: flex; display: -ms-box;
     padding: rem(35px) rem(25px);
 
