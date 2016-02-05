@@ -10,7 +10,7 @@ $slick-dot-opacity-not-active: 0.8 !default;
 
 /* Slider */
 .slick-slider {
-  padding-top: 3rem;
+  padding-top: 2rem;
   background-color: $bg-color-4;
 
   .slick-list, .slick-track {
@@ -122,7 +122,7 @@ $slick-dot-opacity-not-active: 0.8 !default;
 
   .-fixed & {
     position: fixed;
-    top: 1rem;
+    top: .5rem;
     z-index: 2;
   }
 

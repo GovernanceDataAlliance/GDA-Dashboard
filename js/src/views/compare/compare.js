@@ -68,7 +68,7 @@ var CompareView = Backbone.View.extend({
   },
 
   render: function() {
- 
+
     if (this.mobile) {
       this.renderYearSelector();
       this.$el.html(templateMobile());

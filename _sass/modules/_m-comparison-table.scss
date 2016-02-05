@@ -148,12 +148,14 @@
         border-bottom: 1px solid $border-1;
 
         height: auto;
+        text-align: center;
 
         > .score {
           @extend %score-font;
 
           &.no-data {
             padding: 2rem;
+            line-height: 0;
 
             @extend %no-data-font;
           }

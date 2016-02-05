@@ -8,6 +8,7 @@ _site
 *.log
 /node_modules
 /js/bundle.js
+/js/blog_bundle.js
 /js/countries_bundle.js
 /js/compare_bundle.js
 /js/indicators_bundle.js
