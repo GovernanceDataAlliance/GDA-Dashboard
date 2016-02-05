@@ -23,13 +23,13 @@ $sections-padding: .5rem .5rem .5rem 0;
 }
 
 .m-post {
-  padding: 0 5rem 2rem;
+  padding: 0;
 
   > .properties {
     padding: $sections-padding;
     display: flex; display: -ms-box;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
 
     > .category {
       padding: $sections-padding;
@@ -130,12 +130,7 @@ $sections-padding: .5rem .5rem .5rem 0;
   }
 
   &.-list {
-    padding: 3rem 15rem 3rem 5rem;
-    border-bottom: 1px solid $border-1;
-
-    &:last-child {
-      border-bottom: none;
-    }
+    padding: 1rem 0;
 
     > .title {
       margin-bottom: 0;
@@ -156,17 +151,7 @@ $sections-padding: .5rem .5rem .5rem 0;
     }
   }
 
-  &.-img {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-
-    background-size: cover;
-    background-position: center;
-
-    z-index: 0;
-
-    @include veil(rgba($bg-color-2, 0.45));
+  .l-post.-img & {
 
     > .properties > .category span,
     > .details > .author,
@@ -176,27 +161,18 @@ $sections-padding: .5rem .5rem .5rem 0;
       color: $font-color-2;
     }
 
-    > .properties,
-    > .details,
-    > .details,
-    > .title,
-    > .content{
-      z-index: 1;
-    }
-
   }
 
-  @media screen and (max-width: $screen-m) {
-    padding: 0;
+  @media screen and (min-width: $screen-m) {
+    padding: 0 5rem 2rem;
 
     > .properties {
-      flex-direction: column;
-      align-items: flex-start;
+      flex-direction: row;
+      align-items: center;
     }
 
     &.-list {
-      padding: 1rem;
-      background-size: cover;
+      padding: 3rem 10rem 3rem 0rem;
     }
   }
 }
