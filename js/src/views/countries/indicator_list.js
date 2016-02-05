@@ -39,10 +39,10 @@ var IndicatorListView = Backbone.View.extend({
     readLess = '<span class="read-less">read less</span>';
 
     _.each($descriptions, function(d) {
-      if (d.innerText.length > charLimit) {
+      if ($(d).text().length > charLimit) {
 
-        textShow = d.innerText.substr(0, charLimit) + '<span class="ellipsis">...</span>';
-        textHide = d.innerText.substr(charLimit, d.innerText.length);
+        textShow = $(d).text().substr(0, charLimit) + '<span class="ellipsis">...</span>';
+        textHide = $(d).text().substr(charLimit, $(d).text().length);
 
         var hiddenText = $(document.createElement('span')).html(textHide);
         $(hiddenText).addClass('is-hidden').append(readLess);
