@@ -1,7 +1,8 @@
  with d as (
- select * from indicator_data where iso='{{iso}}' and year={{year}}
+ select * from indicator_data where iso='{{iso}}' and year={{year}} 
  )
  SELECT
+   distinct on(c.short_name) c.short_name,
    c.score_range,
    c.desired_direction, 
    c.has_historical_info, 
