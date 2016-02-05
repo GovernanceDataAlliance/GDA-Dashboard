@@ -23,6 +23,7 @@ grunt dist
 
 git add -f js/bundle.js
 git add -f js/countries_bundle.js
+git add -f js/blog_bundle.js
 git add -f js/compare_bundle.js
 git add -f js/indicators_bundle.js
 git add -f js/welcome_bundle.js
