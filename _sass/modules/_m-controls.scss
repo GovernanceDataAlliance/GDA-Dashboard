@@ -4,6 +4,10 @@
   justify-content: space-between;
   width: 100%;
 
+  .is-small-text {
+    margin-right: rem(10px);
+  }
+
   a, button, .btn-drop-down {
 
     font-size: rem(10px);
@@ -28,6 +32,45 @@
     }
   }
 
+  &.-s-column {
+    flex-direction: column;
+    align-items: flex-start;
+
+    + .m-controls {
+      align-items: flex-start;
+    }
+
+    @media screen and (min-width: $screen-m) {
+      flex-direction: row;
+      align-items: center;
+
+      + .m-controls {
+        align-items: center;
+      }
+    }
+
+  }
+
+  .l-toolbar.-data & {
+    width: 48%;
+
+    &:first-child {
+      margin-right: 4%;
+    }
+
+    .icon {
+      display: none;
+    }
+    
+    @media screen and (min-width: $screen-m) {
+      width: auto;
+
+      .icon {
+        display: block;
+      }
+    }
+
+  }
 
   .icon {
     display: block;
@@ -56,15 +99,6 @@
     margin-bottom: rem(20px);
   }
 
-  .-data & {
-    width: auto;
-    
-    @media screen and (max-width: $screen-m) {
-      .icon {
-        display: none;
-      }
-    }
-  }
 
   @media screen and (max-width: $screen-m) {
 
