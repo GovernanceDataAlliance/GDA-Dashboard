@@ -6,7 +6,7 @@ git fetch
 exists=`git show-ref refs/heads/gh-pages`
 if [ -n "$exists" ]; then
   git branch -D gh-pages
-fi
+if
 git checkout -b gh-pages
 
 git rebase develop

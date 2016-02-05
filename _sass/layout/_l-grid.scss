@@ -1,5 +1,7 @@
 .l-grid {
-  display: flex; display: -ms-box;
+  display: flex; 
+  display: -ms-box;
+  -ms-flex: 1 1 auto;
   flex-wrap: wrap;
   margin: 0 auto;
 
