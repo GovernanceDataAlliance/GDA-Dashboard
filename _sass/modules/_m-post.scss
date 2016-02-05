@@ -1,0 +1,178 @@
+$sections-padding: .5rem .5rem .5rem 0;
+
+%properties-font {
+  font-family: $font-secondary;
+  font-size: rem(12px);
+  color: $font-color-1;
+  letter-spacing: 0.3px;
+  line-height: 1;
+}
+%title-font {
+  font-family: $font-main;
+  font-size: rem(50px);
+  line-height: 1.4;
+  color: $font-color-1;
+  font-weight: 500;
+}
+%content-font {
+  font-family: $font-main;
+  font-size: rem(15px);
+  line-height: 1.9;
+  color: $font-color-1;
+  letter-spacing: 0.4px;
+}
+
+.m-post {
+  padding: 0;
+
+  > .properties {
+    padding: $sections-padding;
+    display: flex; display: -ms-box;
+    flex-direction: column;
+    align-items: flex-start;
+
+    > .category {
+      padding: $sections-padding;
+
+      span {
+        @extend %properties-font;
+        text-transform: uppercase;
+      }
+    }
+
+    > .tags {
+      padding: $sections-padding;
+
+      .tag {
+        padding: 0.25rem 0.75rem;
+        margin-right: rem(10px);
+
+        @extend %properties-font;
+        color: $font-color-2;
+
+        background-color: $color-4;
+      }
+    }
+  }
+
+  > .details {
+    padding: $sections-padding;
+
+    > .author {
+      font-family: $font-main;
+      font-size: rem(15px);
+      line-height: 1.8;
+      color: $font-color-1;
+    }
+    > .date {
+      padding-left: .8rem;
+      margin-left: .8rem;
+
+      font-family: $font-secondary;
+      font-size: rem(12px);
+      line-height: 1;
+      color: $font-color-4;
+      text-transform: uppercase;
+
+      border-left: 1px solid;
+    }
+  }
+
+  > .title {
+    padding: $sections-padding;
+    margin-bottom: 1rem;
+
+    h3 {
+      @extend %title-font;
+    }
+
+    &.-underlined {
+      padding-bottom: 1.5rem;
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left:0;
+        bottom: 0;
+        width: 3rem;
+        height: 3px;
+
+        background-color: $color-4;
+      }
+    }
+  }
+
+  > .image {
+    height: 24rem;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    margin: 2rem 0 1rem;
+
+    @include veil(rgba($bg-color-2, 0.45));
+  }
+
+  > .content {
+    padding: 1rem 0;
+    p {
+      padding: .5rem 0;
+      @extend %content-font;
+    }
+
+    &.-empashis {
+      p:first-child {
+        margin-top: 1rem;
+        font-size: rem(20px);
+        line-height: 1.7;
+      }
+    }
+  }
+
+  &.-list {
+    padding: 1rem 0;
+
+    > .title {
+      margin-bottom: 0;
+
+      h3 {
+        line-height: inherit;
+        font-size: inherit;
+
+        a {
+          @extend %title-font;
+          color: $font-color-3;
+          font-size: rem(30px);
+          line-height: 1.25;
+
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .l-post.-img & {
+
+    > .properties > .category span,
+    > .details > .author,
+    > .details > .date,
+    > .title h3 a,
+    > .content p {
+      color: $font-color-2;
+    }
+
+  }
+
+  @media screen and (min-width: $screen-m) {
+    padding: 0 5rem 2rem;
+
+    > .properties {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &.-list {
+      padding: 3rem 10rem 3rem 0rem;
+    }
+  }
+}
