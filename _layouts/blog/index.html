@@ -49,9 +49,48 @@
       </div>
 
       <div class="l-main-container">
-        {% for post in site.categories.blog %}
+        {% for blogpost in site.categories.blogposts %}
 
-            {% include modules/post_list_module.html type="list" %}
+            <div class="l-post {%if post.image%} -img {%endif%}" {%if post.image%} style="background-image:url(/{{post.image}})" {%endif%} >
+              <div class="wrap">
+
+                <div class="m-post -list">
+
+                  <div class="properties">
+                    <div class="category">
+                      <span> {{blogpost.category}}</span>
+                    </div>
+                    <div class="tags">
+                      {% for tag in blogpost.tags %}
+                      <span class="tag"> #{{tag}} </span>
+                      {% endfor %}
+                    </div>
+                  </div>
+
+                  <div class="details">
+                    <span class="author">
+                      Author: {{ blogpost.author }}
+                    </span>
+                    <span class="date">
+                      <time>{{ blogpost.date | date: '%B %d, %Y'}}</time>
+                    </span>
+                  </div>
+
+                  <div class="title">
+                    <h3>
+                      <a href="{{ blogpost.url }}">{{ blogpost.title }}</a>
+                    </h3>
+                  </div>
+
+                  <div class="content">
+                    {{blogpost.excerpt}}
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
 
         {% endfor %}
 
