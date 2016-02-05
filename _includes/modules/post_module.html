@@ -1,0 +1,37 @@
+<div class="m-post">
+
+  <div class="title -underlined">
+    <h3>
+      {{ page.title }}
+    </h3>
+  </div>
+
+  {% if page.image %}
+  <div class="image" style="background-image:url(/{{page.image}})"></div>
+  {%endif%}
+
+  <div class="properties">
+    <div class="category">
+      <span> {{page.category}}</span>
+    </div>
+    <div class="tags">
+      {% for tag in page.tags %}
+        <span class="tag"> #{{tag}} </span>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="details">
+    <span class="author">
+      Author: {{ page.author }}
+    </span>
+    <span class="date">
+      <time>{{ page.date | date: '%B %d, %Y'}}</time>
+    </span>
+  </div>
+
+  <div class="content -empashis">
+    {{page.content | markdownify}}
+  </div>
+
+</div>

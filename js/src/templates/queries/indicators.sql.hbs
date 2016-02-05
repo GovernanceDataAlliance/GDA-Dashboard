@@ -2,6 +2,7 @@
  select * from indicator_data where iso='{{iso}}'
  )
  SELECT
+   c.short_name,
    c.score_range,
    c.desired_direction, 
    c.has_historical_info, 
@@ -11,7 +12,6 @@
    c.product_description, 
    c.product_logo,
    c.product_name, 
-   c.short_name, 
    c.units, 
    c.units_abbr,
    c.organization, 

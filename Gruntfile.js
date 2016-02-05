@@ -96,6 +96,14 @@ module.exports = function(grunt) {
         }
       },
 
+      blog: {
+        src: ['js/src/blog_main.js'],
+        dest: 'js/blog_bundle.js',
+        options: {
+          transform: [stringify(['.hbs', '.txt', '.sql', '.md'])]
+        }
+      },
+
       test: {
         src: ['js/test/**/*.js'],
         dest: 'js/test/bundle.js',
@@ -109,7 +117,7 @@ module.exports = function(grunt) {
       all: {
         files: ['js/src/**/*', '**/*.html', 'css/**/*', '_sass/**/*'],
         tasks: ['browserify:main', 'browserify:countries', 'browserify:compare',
-          'browserify:indicators', 'browserify:welcome', 'sass:dist', 'postcss:dist', 'jekyll:dist']
+          'browserify:indicators', 'browserify:welcome', 'browserify:blog', 'sass:dist', 'postcss:dist', 'jekyll:dist']
       }
     },
 
@@ -124,7 +132,8 @@ module.exports = function(grunt) {
           'js/countries_bundle.js': 'js/countries_bundle.js',
           'js/compare_bundle.js': 'js/compare_bundle.js',
           'js/indicators_bundle.js': 'js/indicators_bundle.js',
-          'js/welcome_bundle.js': 'js/welcome_bundle.js'
+          'js/welcome_bundle.js': 'js/welcome_bundle.js',
+          'js/blog_bundle.js': 'js/blog_bundle.js'
         }
       }
     },

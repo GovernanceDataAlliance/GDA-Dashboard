@@ -3,6 +3,8 @@ set -e
 
 git fetch
 
+git checkout develop
+
 exists=`git show-ref refs/heads/gh-pages`
 if [ -n "$exists" ]; then
   git branch -D gh-pages
@@ -33,5 +35,4 @@ git push --force --quiet origin gh-pages:gh-pages
 git config user.name $ORIGINAL_NAME
 git config user.email $ORIGINAL_EMAIL
 
-
-git checkout -
+git checkout develop
