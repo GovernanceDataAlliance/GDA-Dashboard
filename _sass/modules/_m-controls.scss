@@ -1,6 +1,7 @@
 .m-controls {
-  display: flex; display: -ms-box;
-  flex: 1 1 auto;
+  display: flex; 
+  display: -ms-box;
+  // flex: 1 1 auto;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -47,6 +48,11 @@
       flex-direction: row;
       align-items: center;
 
+      .js--download {
+        min-width: rem(115px);
+        padding-left: 0;
+      }
+
       + .m-controls {
         align-items: center;
       }
@@ -56,6 +62,10 @@
 
   .l-toolbar.-data & {
     width: 48%;
+
+    .js--toolbar-utils .m-controls {
+      width: 100%;
+    }
 
     &:first-child {
       margin-right: 4%;
@@ -69,7 +79,7 @@
       width: auto;
 
       .icon {
-        display: block;
+        display: inline-block;
       }
     }
 
