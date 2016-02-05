@@ -114,6 +114,7 @@ $slick-dot-opacity-not-active: 0.8 !default;
   width: 100%;
   padding: 0;
   margin: 0;
+  z-index: 2;
   display: block;
 
   list-style: none;
@@ -121,7 +122,7 @@ $slick-dot-opacity-not-active: 0.8 !default;
 
   .-fixed & {
     position: fixed;
-    top:1rem;
+    top: 1rem;
     z-index: 2;
   }
 

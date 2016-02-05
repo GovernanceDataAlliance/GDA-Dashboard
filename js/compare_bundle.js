@@ -168,18 +168,14 @@ var Indicators = CartoDBCollection.extend({
    */
   parse: function(rawData) {
     var classColor;
-    $.each(defaultScores, _.bind(function(i, d) {
-      var current = _.findWhere(rawData.rows, {'short_name': d.short_name});
+    $.each(rawData.rows, _.bind(function(i, d) {
 
-      if (current) {
-        classColor = this._setColorsByScore(current);
-        if (!classColor) {
-          return;
-        }
-        _.extend(current, {'classColor': this._setColorsByScore(current)});
-      } else {
-        rawData.rows.push(d);
+      classColor = this._setColorsByScore(d);
+      
+      if (!classColor) {
+        return;
       }
+      _.extend(d, {'classColor': this._setColorsByScore(d)});
 
     }, this));
 
@@ -668,10 +664,10 @@ module.exports = "{{#if iso}}\n  <ul class=\"{{iso}}\">\n    {{#each scores}}\n 
 module.exports = "<ul class=\"table-header\">\n  {{#each indicators}}\n    <li class=\"table-cell {{short_name}}\">\n      <h3>{{product_name}}</h3>\n      <div class=\"organization\"> \n        <h2>{{organization}}</h2>\n        {{#if product_description}}\n          <button class=\"btn-info\" data-info=\"{{product_description}}\">i</button>\n        {{/if}}\n      </div>\n    </li>\n  {{/each}}\n</ul>";
 
 },{}],24:[function(require,module,exports){
-module.exports = "<div class=\"l-toolbar -year-selector\">\n  <div class=\"wrap\">\n    <div class=\"m-compare-selectors -year\">\n      <p class=\"is-small-text\">Select date to compare the country data</p>\n      <div class=\"selector-wrapper -year\">\n        <div class=\"btn-drop-down\">\n          <div class=\"js--year-selector-compare\"></div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"js--compare-selectors\"></div>\n\n<div class=\"l-content -fullscreen\">\n  <div class=\"wrap\">\n    <div class=\"m-comparison-table\">\n      <div class=\"js--comparison-indicators -index\"></div>\n      <div class=\"js--country-1 -score\"></div>\n      <div class=\"js--country-2 -score\"></div>\n      <div class=\"js--country-3 -score\"></div>\n    </div>\n    <div class=\"m-advise -compare\">\n      <p>Please, select the countries that you would like to compare into the selects above this message</p>\n    </div>\n  </div>\n</div>\n\n<div class=\"js--compare-toolbar\">\n  <div class=\"l-toolbar -footer\">\n    <div class=\"wrap\">\n      <div class=\"m-legend\">\n        <ul>\n          <li class=\"-best\"><span class=\"legend-title\">The best</span></li>\n          <li class=\"-good\"><span class=\"legend-title\">Good</span></li>\n          <li class=\"-medium\"><span class=\"legend-title\">Medium</span></li>\n          <li class=\"-regular\"><span class=\"legend-title\">Regular</span></li>\n          <li class=\"-bad\"><span class=\"legend-title\">Bad</span></li>\n        </ul>\n        <div class=\"pop-up-legend-container\">\n        <button class=\"btn-info\" id=\"legendPopup\">i</button>\n          <div class=\"pop-up-legend is-hidden\">\n            <p>The color coding scheme employed by the Governance Data Alliance on this website is an attempt to provide users with a way to compare whether a particular score for a particular country is, relative to other scores from other data sets, encouraging or cause for concern. Data points provided by Governance Data Alliance producer organizations to Alliance dashboards derive from very different research methodologies and scoring scales. Our use of this unified color scheme is an attempt to provide a snapshot overview of the relative strengths and weaknesses associated with country performance across these disparate indicators.</p>\n\n            <p>Alliance data producer organizations have selected specific scoring bands for each of their data sets that correspond to the color codes used here. These Alliance scoring/color bands may or may not correspond to how each data producer currently publishes their results independently; again, this inconsistency in certain cases is an unavoidable result of our attempt to provider a snapshot, unified overview of all results for a country. If you are confused by a certain color assignation on these dashboards, please consult the specific data producer organization's website for in-depth details on their respective scoring methodology.</p>\n          </div>\n        </div>\n      </div>\n      <div class=\"js--toolbar-utils\"></div>\n    </div>\n  </div>\n</div>\n\n{{!-- <div class=\"l-content -main\">\n  <div class=\"wrap\">\n    <h3 class=\"c-section-title -small\">\n      objectives\n    </h3>\n    <p>\n      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\n    </p>\n    <div class=\"m-objectives-list\">\n      <ul>\n        <li>\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-check\"></use>\n          </svg>\n          <span>Availability</span>\n        </li>\n        <li>\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-check\"></use>\n          </svg>\n          <span>Quality</span>\n        </li>\n        <li>\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-check\"></use>\n          </svg>\n          <span>Understanding</span>\n        </li>\n      </ul>\n      <a href=\"about\" class=\"btn -secondary\">know about the alliance</a>\n    </div>\n  </div>\n</div> --}}\n";
+module.exports = "<div class=\"l-toolbar -year-selector\">\n  <div class=\"wrap\">\n    <div class=\"m-compare-selectors -year\">\n      <p class=\"is-small-text\">Select date to compare the country data</p>\n      <div class=\"selector-wrapper -year\">\n        <div class=\"btn-drop-down\">\n          <div class=\"js--year-selector-compare\"></div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"js--compare-selectors is-mobile-hidden\"></div>\n\n<div class=\"l-content -fullscreen\">\n  <div class=\"wrap\">\n    <div class=\"m-comparison-table\">\n      <div class=\"js--comparison-indicators -index\"></div>\n      <div class=\"js--country-1 -score\"></div>\n      <div class=\"js--country-2 -score\"></div>\n      <div class=\"js--country-3 -score\"></div>\n    </div>\n    <div class=\"m-advise -compare\">\n      <p>Please, select the countries that you would like to compare into the selects above this message</p>\n    </div>\n  </div>\n</div>\n\n<div class=\"js--compare-toolbar\">\n  <div class=\"l-toolbar -footer\">\n    <div class=\"wrap\">\n      <div class=\"m-legend\">\n        <ul>\n          <li class=\"-best\"><span class=\"legend-title\">The best</span></li>\n          <li class=\"-good\"><span class=\"legend-title\">Good</span></li>\n          <li class=\"-medium\"><span class=\"legend-title\">Medium</span></li>\n          <li class=\"-regular\"><span class=\"legend-title\">Regular</span></li>\n          <li class=\"-bad\"><span class=\"legend-title\">Bad</span></li>\n        </ul>\n        <div class=\"pop-up-legend-container\">\n        <button class=\"btn-info\" id=\"legendPopup\">i</button>\n          <div class=\"pop-up-legend is-hidden\">\n            <p>The color coding scheme employed by the Governance Data Alliance on this website is an attempt to provide users with a way to compare whether a particular score for a particular country is, relative to other scores from other data sets, encouraging or cause for concern. Data points provided by Governance Data Alliance producer organizations to Alliance dashboards derive from very different research methodologies and scoring scales. Our use of this unified color scheme is an attempt to provide a snapshot overview of the relative strengths and weaknesses associated with country performance across these disparate indicators.</p>\n\n            <p>Alliance data producer organizations have selected specific scoring bands for each of their data sets that correspond to the color codes used here. These Alliance scoring/color bands may or may not correspond to how each data producer currently publishes their results independently; again, this inconsistency in certain cases is an unavoidable result of our attempt to provider a snapshot, unified overview of all results for a country. If you are confused by a certain color assignation on these dashboards, please consult the specific data producer organization's website for in-depth details on their respective scoring methodology.</p>\n          </div>\n        </div>\n      </div>\n      <div class=\"js--toolbar-utils\"></div>\n    </div>\n  </div>\n</div>\n\n{{!-- <div class=\"l-content -main\">\n  <div class=\"wrap\">\n    <h3 class=\"c-section-title -small\">\n      objectives\n    </h3>\n    <p>\n      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\n    </p>\n    <div class=\"m-objectives-list\">\n      <ul>\n        <li>\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-check\"></use>\n          </svg>\n          <span>Availability</span>\n        </li>\n        <li>\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-check\"></use>\n          </svg>\n          <span>Quality</span>\n        </li>\n        <li>\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-check\"></use>\n          </svg>\n          <span>Understanding</span>\n        </li>\n      </ul>\n      <a href=\"about\" class=\"btn -secondary\">know about the alliance</a>\n    </div>\n  </div>\n</div> --}}\n";
 
 },{}],25:[function(require,module,exports){
-module.exports = "<div class=\"l-toolbar -selectors\">\n  <div class=\"wrap\">\n    <div class=\"m-compare-selectors\">\n      <div class=\"selector-wrapper -index\">\n        <p>Data Sets</p>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector\" name=\"country1\" id=\"country-1\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector -score\" name=\"country2\" id=\"country-2\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector -score\" name=\"country3\" id=\"country-3\">\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
+module.exports = "<div class=\"l-toolbar -selectors\">\n  <div class=\"wrap\">\n    <div class=\"m-compare-selectors\">\n      <div class=\"selector-wrapper -index\">\n        <p>Data Sets</p>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector\" name=\"country1\" id=\"country-1\" readonly=\"true\" >\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector -score\" name=\"country2\" id=\"country-2\" readonly=\"true\" >\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n      <div class=\"selector-wrapper -score\">\n        <div class=\"btn-drop-down\">\n          <select class=\"js--compare-selector -score\" name=\"country3\" id=\"country-3\" readonly=\"true\" >\n            <option value=\"no_data\">Select country</option>\n            {{#each countries}}\n              <option value=\"{{this.iso3}}\">{{this.name}}</option>\n            {{/each}}\n          </select>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
 
 },{}],26:[function(require,module,exports){
 module.exports = "<ul class=\"table\">\n  {{#each indicators}}\n    <li class=\"table-cell {{short_name}}\">\n      <h3>{{product_name}}</h3>\n      <div class=\"organization\">\n        <h2>{{organization}}</h2>\n        {{#if product_description}}\n          <button class=\"btn-info\" data-info=\"{{product_description}}\">i</button>\n        {{/if}}\n      </div>\n      {{#if ../content}}\n        {{#if score}}\n          <div class=\"score {{#if classColor}} {{classColor}} {{/if}} {{#ifCond units_abbr 'M USD'}} -usd {{/ifCond}}\" data-index=\"{{short_name}}\" data-year=\"{{year}}\">\n            {{#round}}{{score}}{{/round}}\n            {{#if units_abbr}}\n              <span class=\"units\">{{units_abbr}} </span>\n            {{/if}}\n          </div>\n        {{else}}\n          <div class=\"score no-data\" data-index=\"{{short_name}}\">no data</div>\n        {{/if}}\n      {{else}}\n        <div class=\"score no-data\" data-index=\"{{short_name}}\"></div>\n      {{/if}}\n    </li>\n  {{/each}}\n</ul>\n";
@@ -689,10 +685,10 @@ module.exports = "<div class=\"l-toolbar -selectors\">\n  <div class=\"wrap\">\n
 module.exports = "SELECT\n  i.iso,\n  i.short_name,\n  i.score,\n  i.year,\n  w.name,\n  w.region,\n  w.lending_category,\n  w.income_group,\n  c.desired_direction, \n  c.score_range,\n  c.units_abbr  \nFROM indicator_data i \n  INNER JOIN wb_countries_clasification w ON i.iso=w.iso \n  INNER JOIN indicator_config c ON i.short_name=c.short_name \nWHERE i.short_name = '{{id}}' \nAND i.score is not null \n{{#if year}}\nAND i.year = '{{year}}' \n{{/if}}\n{{#if categoryGroup}}\nAND w.{{categoryGroup}} = '{{categoryName}}' \n{{/if}}\norder by i.score desc, w.name desc\n";
 
 },{}],31:[function(require,module,exports){
-module.exports = "SELECT\n  c.score_range,\n  c.desired_direction, \n  c.has_historical_info, \n  c.max_score,\n  c.methodology_link, \n  c.min_score, \n  c.product_description, \n  c.product_logo,\n  c.product_name, \n  c.short_name, \n  c.units, \n  c.units_abbr,\n  c.organization, \n  d.iso,\n  d.notes, \n  d.score,\n  d.score_text,\n  d.year\n FROM {{table}} AS d\n   INNER JOIN indicator_config AS c ON d.short_name = c.short_name\n WHERE d.iso = '{{iso}}'\n ORDER BY c.short_name, d.year desc\n";
+module.exports = " with d as (\n select * from indicator_data where iso='{{iso}}'\n )\n SELECT\n   c.score_range,\n   c.desired_direction, \n   c.has_historical_info, \n   c.max_score,\n   c.methodology_link, \n   c.min_score, \n   c.product_description, \n   c.product_logo,\n   c.product_name, \n   c.short_name, \n   c.units, \n   c.units_abbr,\n   c.organization, \n   '{{iso}}' as iso,\n   d.notes, \n   d.score,\n   d.score_text,\n   d.year\n  FROM indicator_config AS c\n    left JOIN  d ON c.short_name = d.short_name\n  ORDER BY c.short_name asc, d.year asc\n";
 
 },{}],32:[function(require,module,exports){
-module.exports = "SELECT\n  c.desired_direction,\n  c.has_historical_info,\n  c.max_score,\n  c.methodology_link,\n  c.min_score,\n  c.organization,\n  c.product_description,\n  c.product_logo,\n  c.product_name,\n  c.score_range,\n  c.short_name,\n  c.units,\n  c.units_abbr,\n  d.iso,\n  d.notes,\n  d.score,\n  d.score_text,\n  d.year\n FROM {{table}} AS d\n   INNER JOIN indicator_config AS c ON d.short_name = c.short_name\n WHERE d.iso = '{{iso}}' AND d.year = '{{year}}'\n";
+module.exports = " with d as (\n select * from indicator_data where iso='{{iso}}' and year={{year}}\n )\n SELECT\n   c.score_range,\n   c.desired_direction, \n   c.has_historical_info, \n   c.max_score,\n   c.methodology_link, \n   c.min_score, \n   c.product_description, \n   c.product_logo,\n   c.product_name, \n   c.short_name, \n   c.units, \n   c.units_abbr,\n   c.organization, \n   '{{iso}}' as iso,\n   d.notes, \n   d.score,\n   d.score_text,\n   d.year\n  FROM indicator_config AS c\n    left JOIN  d ON c.short_name = d.short_name\n  ORDER BY c.short_name asc, d.year asc\n";
 
 },{}],33:[function(require,module,exports){
 module.exports = "SELECT distinct on (year) \n  year \nFROM {{table}} \nWHERE year is not null \nORDER BY year desc";
@@ -1098,6 +1094,7 @@ global.$ = $; // for chosen.js
 var chosen = require('chosen-jquery-browserify'),
     _ = require('lodash'),
     Backbone = require('backbone'),
+    enquire = require('enquire.js'),
     Handlebars = require('handlebars');
 
 var template = Handlebars.compile(
@@ -1119,7 +1116,23 @@ var CompareYearSelectors = Backbone.View.extend({
   render: function() {
     this.$el.html(template({ 'years': this.years }));
     this.setCurrentYear();
-    this.$('select').chosen();
+
+    enquire.register("screen and (max-width:640px)", {
+      match: _.bind(function(){
+        this.mobile = true;
+      },this)
+    });
+
+    enquire.register("screen and (min-width:641px)", {
+      match: _.bind(function(){
+        this.mobile = false;
+      },this)
+    });
+
+    if (!this.mobile) {
+      this.$('select').chosen();
+    }
+
   },
 
   setCurrentYear: function() {
@@ -1141,7 +1154,7 @@ var CompareYearSelectors = Backbone.View.extend({
 module.exports = CompareYearSelectors;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../../templates/common/year_selector.hbs":21,"backbone":47,"chosen-jquery-browserify":48,"handlebars":80,"jquery":92,"lodash":93}],42:[function(require,module,exports){
+},{"../../templates/common/year_selector.hbs":21,"backbone":47,"chosen-jquery-browserify":48,"enquire.js":49,"handlebars":80,"jquery":92,"lodash":93}],42:[function(require,module,exports){
 var $ = require('jquery'),
     _ = require('lodash'),
     Backbone = require('backbone'),
@@ -1192,6 +1205,8 @@ var CompareView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
 
+    this.mobile = (window.innerWidth || document.body.clientWidth) < 768 ? true : false;
+
     this.setListeners();
 
     new WrapperHeaderView();
@@ -1210,7 +1225,7 @@ var CompareView = Backbone.View.extend({
   },
 
   render: function() {
-    this.mobile = (window.innerWidth || document.body.clientWidth) < 768 ? true:false;
+ 
     if (this.mobile) {
       this.renderYearSelector();
       this.$el.html(templateMobile());
@@ -1222,6 +1237,7 @@ var CompareView = Backbone.View.extend({
       this.calculateLimitPoint();
       this.renderSelectors();
     }
+
     this.renderToolbar();
     return this;
   },
@@ -1249,11 +1265,15 @@ var CompareView = Backbone.View.extend({
 
   initSlide: function(){
     var self = this;
+
+    //swipe false to avoid strange behaviour on iOS.
     this.slide = $('#compareSlider').slick({
       dots: true,
       useTransform: false,
-      adaptiveHeight: true
+      adaptiveHeight: true,
+      swipe: false
     });
+
     this.currentSlide = 0;
     this.slide.on('afterChange', function(ev, slick, current){
       self.currentSlide = current;
@@ -1286,7 +1306,8 @@ var CompareView = Backbone.View.extend({
 
     this.$el.find('.js--compare-selectors').ready(function() {
       if (this.mobile) {
-        this.breakPoints['startPoint'] = this.$el.find('#compareSlider').offset().top
+        var selectorsHeight = this.$('.l-toolbar').height();
+        this.breakPoints['startPoint'] = this.$el.find('#compareSlider').offset().top + selectorsHeight;
       } else {
         this.breakPoints['startPoint'] = this.$el.find('.js--compare-selectors').offset().top;
       }
@@ -1444,6 +1465,7 @@ global.$ = $; // for chosen.js
 var _ = require('lodash'),
     Backbone = require('backbone'),
     Handlebars = require('handlebars'),
+    enquire = require('enquire.js'),
     chosen = require('chosen-jquery-browserify'),
     async = require('async');
 
@@ -1460,6 +1482,18 @@ var CountrySelectorView = Backbone.View.extend({
 
   initialize: function(options) {
     options = options || {};
+
+    enquire.register("screen and (max-width:640px)", {
+      match: _.bind(function(){
+        this.mobile = true;
+      },this)
+    });
+
+    enquire.register("screen and (min-width:641px)", {
+      match: _.bind(function(){
+        this.mobile = false;
+      },this)
+    });
 
     this.countries = options.countries;
     this.index = options.index;
@@ -1480,7 +1514,10 @@ var CountrySelectorView = Backbone.View.extend({
         this.setRecivedValues();
       };
 
-      this.$('select').chosen();
+      if (!this.mobile) { 
+        this.$('select')
+          .chosen({ "disable_search": true });
+      }
 
     }.bind(this));
   },
@@ -1510,7 +1547,7 @@ var CountrySelectorView = Backbone.View.extend({
 module.exports = CountrySelectorView;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../../collections/countries.js":2,"../../templates/compare/selectors/compare_country_selector.hbs":29,"async":46,"backbone":47,"chosen-jquery-browserify":48,"handlebars":80,"jquery":92,"lodash":93}],44:[function(require,module,exports){
+},{"../../collections/countries.js":2,"../../templates/compare/selectors/compare_country_selector.hbs":29,"async":46,"backbone":47,"chosen-jquery-browserify":48,"enquire.js":49,"handlebars":80,"jquery":92,"lodash":93}],44:[function(require,module,exports){
 (function (global){
 var $ = require('jquery');
 global.$ = $; // for chosen.js
