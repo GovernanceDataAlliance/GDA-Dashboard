@@ -46,6 +46,10 @@
     padding-right: rem(10px) ;
   }
 
+  &.-right {
+    justify-content: flex-end;
+  }
+
   &.-country-options {
     display: none;
     align-items: initial;
