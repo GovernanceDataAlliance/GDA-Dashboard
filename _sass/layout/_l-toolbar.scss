@@ -50,6 +50,12 @@
       left: 0;
       width: 100%;
       z-index: 2;
+      padding-top: 1.5rem;
+      padding-bottom: 0;
+
+      @media screen and (min-width: $screen-m) {
+        padding-top: 0;
+      }
     }
 
     &.-hide-transition {
@@ -57,11 +63,6 @@
     }
   }
 
-  .-mobile & {
-    &.-selectors {
-      padding-top: 2rem;
-    }
-  }
   &.-year-selector {
     z-index: 10;
     background-color: $bg-color-1;

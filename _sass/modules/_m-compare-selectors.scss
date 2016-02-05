@@ -16,6 +16,7 @@
 
     .btn-drop-down {
       width: 94%;
+      min-width: 10rem;
 
       @media screen and (max-width: $screen-m) {
         width: 100%;
@@ -32,8 +33,9 @@
     flex-direction: column;
     padding-top: rem(10px);
 
-    .selector-wrapper {
-      width: 100%;
+    &.-year {
+      flex-direction: row;
+      justify-content: space-between;
     }
   }
 
