@@ -187,7 +187,7 @@ $sections-padding: .5rem .5rem .5rem 0;
   }
 
   @media screen and (max-width: $screen-m) {
-    padding: 1rem;
+    padding: 0;
 
     > .properties {
       flex-direction: column;
