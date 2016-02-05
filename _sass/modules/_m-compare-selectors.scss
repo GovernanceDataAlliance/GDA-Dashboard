@@ -46,7 +46,8 @@
   }
 
   > .-index {
-    width: 30.1%;
+    display: none;
+    width: 100%;
     justify-content: flex-start;
     border-right: 1px solid $border-1;
 
@@ -57,17 +58,18 @@
       padding-left: rem(25px);
     }
 
-    @media screen and (max-width: $screen-m) {
-      display: none;
+    @media screen and (min-width: $screen-m) {
+      width: 30.1%;
+      display: flex;
     }
   }
 
   > .-score {
-    width: 23.33%;
+    width: 100%;
     border-right: 1px solid $border-1;
 
-    @media screen and (max-width: $screen-m) {
-      width: 100%;
+    @media screen and (min-width: $screen-m) {
+      width: 23.33%;
     }
 
 
@@ -78,18 +80,19 @@
 
   > .-year {
     width: 23.33%;
+
     @media screen and (max-width: $screen-m) {
       width: auto;
     }
   }
 
-  @media screen and (max-width: $screen-m) {
-    width: 100%;
+  // @media screen and (min-width: $screen-m) {
+  //   width: 100%;
 
-    .btn-drop-down {
-      width: 100%;
-      max-width: 100%;
-      margin: 0.75rem 0;
-    }
-  }
+  //   .btn-drop-down {
+  //     width: 100%;
+  //     max-width: 100%;
+  //     margin: 0.75rem 0;
+  //   }
+  // }
 }

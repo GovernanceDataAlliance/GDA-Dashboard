@@ -2,14 +2,17 @@
   position: relative;
   z-index: 1;
   display: flex; display: -ms-box;
-  height: rem(70px);
   background-color: $bg-color-4;
   border-bottom: 1px solid $border-1;
 
-  @media screen and (max-width: $screen-m) {
-    height: auto;
-    padding-bottom: .5rem;
-    padding-top: .5rem;
+  height: auto;
+  padding-bottom: .5rem;
+  padding-top: .5rem;
+
+  @media screen and (min-width: $screen-m) {
+    height: rem(70px);
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .wrap {
