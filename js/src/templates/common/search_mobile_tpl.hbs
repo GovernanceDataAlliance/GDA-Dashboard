@@ -1,0 +1,14 @@
+<div class="js--mobile-search search-wrapper">
+  <div class="btn-close-modal close-icon">×</div>
+  <svg class="icon">
+    <use xlink:href="#icon-search"></use>
+  </svg>
+  <div class="search-box" id="searchContent">
+    <select name="countries" id="countries">
+      <option value="">Search country</option>
+      {{#each countries}}
+        <option value="{{iso3}}">{{name}}</option>
+      {{/each}}
+    </select>
+  </div>
+</div>

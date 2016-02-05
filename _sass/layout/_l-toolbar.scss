@@ -34,7 +34,7 @@
   }
 
   &.-selectors {
-    transition: all .3s;
+    // transition: all .3s;
     transform: translate(0,0);
 
     .wrap {
@@ -47,7 +47,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      right: 0;
+      width: 100%;
       z-index: 2;
     }
 
@@ -57,7 +57,7 @@
   }
 
   .-mobile & {
-    &.-selectors.-fixed {
+    &.-selectors {
       padding-top: 2rem;
     }
   }
@@ -73,10 +73,15 @@
       display: none;
     }
 
-    @media screen and (max-width: $screen-m) {
+    .js--toolbar-utils {
+      order: 1;
+      margin-left: 0;
+    }
+
+    @media screen and (min-width: $screen-m) {
       .wrap {
-        flex-direction: column;
-        justify-content: center;
+        // flex-direction: column;
+        // justify-content: center;
       }
 
       .js--toolbar-utils {
