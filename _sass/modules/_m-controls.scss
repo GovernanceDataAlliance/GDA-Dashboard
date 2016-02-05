@@ -1,5 +1,6 @@
 .m-controls {
   display: flex; display: -ms-box;
+  flex: 1 1 auto;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -11,6 +12,8 @@
   a, button, .btn-drop-down {
 
     font-size: rem(10px);
+
+    display: inline-block;
 
     &:hover {
       color: $color-1;
@@ -73,7 +76,8 @@
   }
 
   .icon {
-    display: block;
+    display: inline-block;
+    vertical-align: middle;
     margin-right: 5px;
   }
 
@@ -87,6 +91,10 @@
   .btn-layout-list {
     padding-left: rem(10px) ;
     padding-right: rem(10px) ;
+  }
+
+  &.-right {
+    justify-content: flex-end;
   }
 
   &.-country-options {

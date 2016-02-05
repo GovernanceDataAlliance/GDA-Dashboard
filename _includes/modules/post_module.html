@@ -6,6 +6,10 @@
     </h3>
   </div>
 
+  {% if page.image %}
+  <div class="image" style="background-image:url(/{{page.image}})"></div>
+  {%endif%}
+
   <div class="properties">
     <div class="category">
       <span> {{page.category}}</span>

@@ -1,10 +1,11 @@
-$sections-padding: .5rem 0;
+$sections-padding: .5rem .5rem .5rem 0;
 
 %properties-font {
   font-family: $font-secondary;
   font-size: rem(12px);
   color: $font-color-1;
   letter-spacing: 0.3px;
+  line-height: 1;
 }
 %title-font {
   font-family: $font-main;
@@ -31,7 +32,8 @@ $sections-padding: .5rem 0;
     align-items: center;
 
     > .category {
-      margin: 0 .5rem;
+      padding: $sections-padding;
+
       span {
         @extend %properties-font;
         text-transform: uppercase;
@@ -50,10 +52,6 @@ $sections-padding: .5rem 0;
 
         background-color: $color-4;
       }
-    }
-
-    div:first-child {
-      margin-left: 0;
     }
   }
 
@@ -103,6 +101,16 @@ $sections-padding: .5rem 0;
         background-color: $color-4;
       }
     }
+  }
+
+  > .image {
+    height: 24rem;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    margin: 2rem 0 1rem;
+
+    @include veil(rgba($bg-color-2, 0.45));
   }
 
   > .content {
@@ -179,13 +187,15 @@ $sections-padding: .5rem 0;
   }
 
   @media screen and (max-width: $screen-m) {
+    padding: 0;
+
     > .properties {
       flex-direction: column;
+      align-items: flex-start;
     }
 
     &.-list {
       padding: 1rem;
-
       background-size: cover;
     }
   }
