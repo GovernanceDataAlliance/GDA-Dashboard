@@ -961,6 +961,7 @@ select {
   border: none;
   box-shadow: none;
   font-size: 12px;
+  height: auto;
   font-family: "Montserrat"; }
 
 .chzn-container-single .chzn-drop {
@@ -968,9 +969,12 @@ select {
   border-radius: 0;
   border-color: #39a1b2;
   background-color: #eceae8;
-  -webkit-transform: translatey(12px);
-          transform: translatey(12px);
+  -webkit-transform: translatey(2px);
+          transform: translatey(2px);
   font-family: "Montserrat"; }
+
+.chzn-container-single .chzn-single span {
+  white-space: normal; }
 
 .chzn-container {
   width: 100% !important; }
@@ -2772,7 +2776,8 @@ select {
   z-index: 14;
   width: 90%;
   max-width: 47.1875rem;
-  min-height: 40%; }
+  min-height: 40%;
+  background-color: #fff; }
 
 .modal-container {
   display: -webkit-flex;
@@ -2783,7 +2788,6 @@ select {
   height: 500px;
   padding: 50px;
   overflow: scroll;
-  background-color: #fff;
   padding: 75px 20px;
   -webkit-align-items: flex-start;
       -ms-flex-align: start;
@@ -3726,14 +3730,18 @@ select {
 
 .btn-drop-down {
   position: relative;
-  max-width: 88%;
-  min-width: 13.125rem;
+  width: 100%;
+  height: 2.8125rem;
   margin: 0.75rem 6%;
-  padding: 0.75rem 3%;
-  padding-right: 5%;
   border: 1px solid #49c9de; }
   .btn-drop-down select {
-    max-width: 95%; }
+    padding: 0.75rem 3%;
+    padding-right: 5%;
+    width: 100%; }
+  .btn-drop-down .chzn-container,
+  .btn-drop-down .chzn-container-single .chzn-single {
+    height: 2.6875rem;
+    line-height: 2.6875rem; }
   .btn-drop-down:after {
     content: "";
     width: 5px;

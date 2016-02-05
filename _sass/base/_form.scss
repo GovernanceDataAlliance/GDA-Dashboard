@@ -17,6 +17,7 @@ select {
   border: none;
   box-shadow: none;
   font-size: 12px;
+  height: auto;
   font-family: $font-secondary;
 }
 
@@ -25,8 +26,12 @@ select {
   border-radius: 0;
   border-color: $color-2;
   background-color: $bg-color-4;
-  transform: translatey(12px);
+  transform: translatey(2px);
   font-family: $font-secondary;
+}
+
+.chzn-container-single .chzn-single span {
+  white-space: normal;
 }
 
 .chzn-container {
