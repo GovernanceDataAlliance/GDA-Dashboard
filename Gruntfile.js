@@ -114,11 +114,19 @@ module.exports = function(grunt) {
     },
 
     watch: {
-      all: {
-        files: ['js/src/**/*', '**/*.html', 'css/**/*', '_sass/**/*'],
+      js: {
+        files: ['js/src/**/*'],
         tasks: ['browserify:main', 'browserify:countries', 'browserify:compare',
-          'browserify:indicators', 'browserify:welcome', 'browserify:blog', 'sass:dist', 'postcss:dist', 'jekyll:dist']
-      }
+          'browserify:indicators', 'browserify:welcome', 'browserify:blog']
+      },
+      sass: {
+          files: ['css/**/*', '_sass/**/*'],
+          tasks: ['sass:dist', 'postcss:dist']
+      },
+      jekyll: {
+          files: ['**/*.{html,yml,md,mkd,markdown}'],
+          tasks: ['jekyll:dist']
+      },
     },
 
     clean: {
