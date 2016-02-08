@@ -49,19 +49,20 @@
       </div>
 
       <div class="l-main-container">
-        {% for blogpost in site.categories.blogposts %}
 
-            <div class="l-post {%if blogpost.image%} -img {%endif%}" {%if blogpost.image%} style="background-image:url({{ site.baseurl }}/{{blogpost.image}})" {%endif%} >
+        {% for post in paginator.posts %}
+
+            <div class="l-post {%if post.image%} -img {%endif%}" {%if post.image%} style="background-image:url({{ site.baseurl }}/{{post.image}})" {%endif%} >
               <div class="wrap">
 
                 <div class="m-post -list">
 
                   <div class="properties">
                     <div class="category">
-                      <span> {{blogpost.category}}</span>
+                      <span> {{post.category}}</span>
                     </div>
                     <div class="tags">
-                      {% for tag in blogpost.tags %}
+                      {% for tag in post.tags %}
                       <span class="tag"> #{{tag}} </span>
                       {% endfor %}
                     </div>
@@ -69,21 +70,21 @@
 
                   <div class="details">
                     <span class="author">
-                      Author: {{ blogpost.author }}
+                      Author: {{ post.author }}
                     </span>
                     <span class="date">
-                      <time>{{ blogpost.date | date: '%B %d, %Y'}}</time>
+                      <time>{{ post.date | date: '%B %d, %Y'}}</time>
                     </span>
                   </div>
 
                   <div class="title">
                     <h3>
-                      <a href="{{ site.baseurl }}{{ blogpost.url }}">{{ blogpost.title }}</a>
+                      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
                     </h3>
                   </div>
 
                   <div class="content">
-                    {{blogpost.excerpt}}
+                    {{post.excerpt}}
                   </div>
 
                 </div>
@@ -98,9 +99,21 @@
 
       <div class="l-toolbar">
         <div class="wrap">
-          <div class="m-controls -right">
+          <div class="m-controls">
 
-            <!-- TODO: paginator -->
+            <div class="m-pagination">
+              {% if paginator.previous_page %}
+                <a href="{{ paginator.previous_page_path }}" class="page-link"> < Newer Post</a>
+              {% else %}
+                <span class="page-link -disabled">< Newer Post</span>
+              {% endif %}
+              <span class="page-number ">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+              {% if paginator.next_page %}
+                <a href="{{ paginator.next_page_path }}/" class="page-link"> Older post > </a>
+              {% else %}
+                <span class="page-link -disabled">Older post ></span>
+              {% endif %}
+            </div>
 
             <button class="js--share btn">
               <svg class="icon -regular">
@@ -114,8 +127,8 @@
 
       {% include footer.html %}
     </div>
-    <script src="js/blog_bundle.js"></script>
-    <script src="js/bundle.js"></script>
+    <script src="/js/blog_bundle.js"></script>
+    <script src="/js/bundle.js"></script>
   </body>
 
 </html>

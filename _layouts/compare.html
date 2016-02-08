@@ -5,8 +5,8 @@
 
   <body>
     {% include icons.html %}
-    
-    <div class="l-main-container"> 
+
+    <div class="l-main-container">
       {% include header.html %}
 
       <div class="l-banner -section-2 promoInteriores-CompareCountries">
@@ -24,16 +24,15 @@
           <p>{{ page.intro-text }}</p>
         </div>
       </div>
-      
+
       {{ content }}
       <div class="js--compare-container"></div>
 
       {% include modules/about_module.html %}
       {% include footer.html %}
     </div>
-    <script src="js/compare_bundle.js"></script>
-    <script src="js/bundle.js"></script>
+    <script src="/js/compare_bundle.js"></script>
+    <script src="/js/bundle.js"></script>
   </body>
 
 </html>
-

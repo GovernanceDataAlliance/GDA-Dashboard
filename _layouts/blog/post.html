@@ -16,8 +16,8 @@
             <li><span> / </span></li>
             <li><a href="{{ site.baseurl }}/blog"> blog </a></li>
             <li><span> / </span></li>
-            <li><a href="{{ site.baseurl }}/blog/{{page.category}}"> {{page.category}} </a></li>
-            <li><span> / </span></li>
+            <!-- <li><a href="{{ site.baseurl }}/blog/{{page.category}}"> {{page.category}} </a></li>
+            <li><span> / </span></li> -->
             <li> {{ page.title }} </li>
           </ul>
         </div>
@@ -31,9 +31,18 @@
       <div class="l-toolbar">
         <div class="wrap">
 
-          <!-- TODO paginator
-          <a href="{{page.previous.url}}">Newer post</a>
-          <a href="{{page.next.url}}">Older post</a> -->
+          <div class="m-pagination">
+            {% if page.previous.url%}
+              <a href="{{ page.previous.url }}" class="page-link"> < Newer Post</a>
+            {% else %}
+              <span class="page-link -disabled">< Newer Post</span>
+            {% endif %}
+            {% if page.next.url %}
+              <a href="{{ page.next.url }}" class="page-link"> Older post > </a>
+            {% else %}
+              <span class="page-link -disabled">Older post ></span>
+            {% endif %}
+          </div>
 
           <div class="m-controls -right">
             <button class="js--share btn">
@@ -49,8 +58,8 @@
 
       {% include footer.html %}
     </div>
-    <script src="{{ site.baseurl }}/js/blog_bundle.js"></script>
-    <script src="{{ site.baseurl }}/js/bundle.js"></script>
+    <script src="/js/blog_bundle.js"></script>
+    <script src="/js/bundle.js"></script>
   </body>
 
 </html>
