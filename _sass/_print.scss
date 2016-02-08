@@ -1,0 +1,62 @@
+@media print {
+  
+  .l-header, 
+  .l-footer,
+  .l-highlight,
+  .l-toolbar, 
+  .no-printable,
+  .m-breadcrumbs,
+  .btn-info {
+    display: none !important;
+  }
+
+  .m-card {
+
+    .index-description {
+      display: inline-block;
+      width: 48% !important;
+    }
+
+    .index-score {
+      display: inline-block;
+      flex-direction: column;
+      align-items: flex-end;
+      width: 48% !important;
+
+      > .js--partial-ranks {
+        width: 100%;
+      }
+    }
+
+    .index-description > .description-wrapper .description {
+      max-height: none !important;
+    }
+
+    .index-description > .description-wrapper .description .read-more, 
+    .index-description > .description-wrapper .description .read-less {
+      display: none !important;
+    }
+
+    .index-score .partial-scores > li {
+      width: 31%;
+      display: inline-block !important;
+    }
+
+    .index-score .partial-scores .partial-score,
+    .index-score .partial-scores .partial-rank {
+      text-align: center;
+    }
+
+
+
+
+    .description,
+    .index-description > .description-wrapper,
+    .index-score .partial-scores {
+      display: block !important;
+    }
+
+
+  }
+
+}
