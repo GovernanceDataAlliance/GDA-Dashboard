@@ -1,9 +1,13 @@
 # Site settings
+
 title: GDA Dashboard
 description: Governance Data Alliance Dashboard
 
 url: "http://vizzuality.github.io/GDA-Dashboard"
 baseurl: '/GDA-Dashboard'
+
+paginate: 2
+paginate_path: "blog/page:num"
 
 # Build settings
 markdown: kramdown

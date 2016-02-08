@@ -114,11 +114,19 @@ module.exports = function(grunt) {
     },
 
     watch: {
-      all: {
-        files: ['js/src/**/*', '**/*.html', 'css/**/*', '_sass/**/*'],
+      js: {
+        files: ['js/src/**/*'],
         tasks: ['browserify:main', 'browserify:countries', 'browserify:compare',
-          'browserify:indicators', 'browserify:welcome', 'browserify:blog', 'sass:dist', 'postcss:dist', 'jekyll:dist']
-      }
+          'browserify:indicators', 'browserify:welcome', 'browserify:blog', 'jekyll:dist']
+      },
+      sass: {
+          files: ['css/**/*', '_sass/**/*'],
+          tasks: ['sass:dist', 'postcss:dist', 'jekyll:dist']
+      },
+      jekyll: {
+          files: ['**/*.{html,yml,md,mkd,markdown}'],
+          tasks: ['jekyll:dist']
+      },
     },
 
     clean: {
@@ -170,7 +178,7 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask('styles', ['sass:dist', 'postcss:dist']);
-  grunt.registerTask('build', ['browserify:main', 'browserify:countries', 'browserify:compare', 'browserify:indicators', 'browserify:welcome', 'styles', 'jekyll:dist', 'jasmine:main:build']);
+  grunt.registerTask('build', ['browserify:main', 'browserify:countries', 'browserify:compare', 'browserify:indicators', 'browserify:welcome', 'browserify:blog', 'styles', 'jekyll:dist', 'jasmine:main:build']);
   grunt.registerTask('dist', ['build', 'uglify:dist']);
   grunt.registerTask('default', ['build', 'configureRewriteRules', 'connect:development', 'watch']);
   grunt.registerTask('test', ['clean:test', 'browserify:test', 'jasmine']);
