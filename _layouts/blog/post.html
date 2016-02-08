@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    {% include icons.html %}
+
+    <div class="l-main-container js-blog">
+      {% include header.html %}
+
+      <div class="l-banner -section-1 -about">
+        <div class="m-breadcrumbs">
+          <ul>
+            <li><a href="{{ site.baseurl }}"> home </a></li>
+            <li><span> / </span></li>
+            <li><a href="{{ site.baseurl }}/blog"> blog </a></li>
+            <li><span> / </span></li>
+            <li><a href="{{ site.baseurl }}/blog/{{page.category}}"> {{page.category}} </a></li>
+            <li><span> / </span></li>
+            <li> {{ page.title }} </li>
+          </ul>
+        </div>
+
+        <div class="wrap">
+          {% include modules/post_module.html %}
+        </div>
+
+      </div>
+
+      <div class="l-toolbar">
+        <div class="wrap">
+
+          <!-- TODO paginator
+          <a href="{{page.previous.url}}">Newer post</a>
+          <a href="{{page.next.url}}">Older post</a> -->
+
+          <div class="m-controls -right">
+            <button class="js--share btn">
+              <svg class="icon -regular">
+                <use xlink:href="#icon-share"></use>
+              </svg>
+              share
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      {% include footer.html %}
+    </div>
+    <script src="{{ site.baseurl }}/js/blog_bundle.js"></script>
+    <script src="{{ site.baseurl }}/js/bundle.js"></script>
+  </body>
+
+</html>

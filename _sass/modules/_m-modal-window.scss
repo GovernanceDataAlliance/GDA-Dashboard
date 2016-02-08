@@ -30,16 +30,16 @@
   width: 90%;
   max-width: rem(755px);
   min-height: 40%;
+  background-color: #fff;
 }
 
 .modal-container {
-  display: flex; display: -ms-box;
+  display: flex; 
+  display: -ms-box;
   width: 100%;
   height: 500px;
   padding: 50px; //Margen para el scroll de windows
   overflow: scroll;
-  background-color: #fff;
-
   padding: 75px $wrap-padding-mobile;
   align-items: flex-start;
 

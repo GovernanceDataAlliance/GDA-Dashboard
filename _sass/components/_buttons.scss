@@ -42,15 +42,37 @@
 
 .btn-drop-down {
   position: relative;
-  max-width: 88%;
-  min-width: rem(210px);
+  width: 88%;
+  height: rem(45px);
+  // min-width: rem(210px);
   margin: rem(12px) 6%;
-  padding: rem(12px) 3%;
-  padding-right: 5%;
   border: 1px solid $color-4;
 
+  &.btn {
+    text-align: left;
+  }
+
+  &.-min-width {
+    min-width: rem(120px);
+    margin-left: 0;
+    
+
+    @media screen and (min-width: $screen-m) {
+      min-width: rem(210px);
+      width: auto;
+    }
+  }
+
   select {
-    max-width: 95%;
+    padding: rem(12px) 3%;
+    padding-right: 5%;
+    width: 100%;
+  }
+
+  .chzn-container,
+  .chzn-container-single .chzn-single {
+    height: rem(43px);
+    line-height: rem(43px);
   }
 
   &:after {
@@ -61,6 +83,14 @@
     right: rem(20px);
     pointer-events: none;
   }
+
+  &.-sm {
+    margin: 0;
+    @media screen and (min-width: $screen-m) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
 }
 
 .btn-close {
@@ -68,7 +98,7 @@
   top: 0;
   right: 0;
   z-index: 1;
-  
+
   margin-right: rem(20px);
   margin-top: rem(20px);
 

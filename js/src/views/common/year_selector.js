@@ -4,6 +4,7 @@ global.$ = $; // for chosen.js
 var chosen = require('chosen-jquery-browserify'),
     _ = require('lodash'),
     Backbone = require('backbone'),
+    enquire = require('enquire.js'),
     Handlebars = require('handlebars');
 
 var template = Handlebars.compile(
@@ -25,7 +26,23 @@ var CompareYearSelectors = Backbone.View.extend({
   render: function() {
     this.$el.html(template({ 'years': this.years }));
     this.setCurrentYear();
-    this.$('select').chosen();
+
+    enquire.register("screen and (max-width:640px)", {
+      match: _.bind(function(){
+        this.mobile = true;
+      },this)
+    });
+
+    enquire.register("screen and (min-width:641px)", {
+      match: _.bind(function(){
+        this.mobile = false;
+      },this)
+    });
+
+    if (!this.mobile) {
+      this.$('select').chosen();
+    }
+
   },
 
   setCurrentYear: function() {

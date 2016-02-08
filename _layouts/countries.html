@@ -12,7 +12,7 @@
       <div class="l-banner -section-1 {{ page.image }} js--index-banner">
         <div class="m-breadcrumbs -light">
           <ul>
-            <li><a href="/">home </a></li>
+            <li><a href="{{ site.baseurl }}">home </a></li>
             <li><span> / </span></li>
             <li>{{ page.page-name }}</li>
           </ul>
@@ -20,8 +20,13 @@
 
         <div class="wrap">
           <h3 class="c-title -medium">{{ page.page-name }}</h3>
-          <div class="m-search js--search" id="searchBox">
+
+          <div class="m-search js--search">
+            <button class="btn-open-search is-tablet-hidden js--open-search-mb">Search country</button>
+            <div class="js--search-mobile"></div>
+            <div class="js--search-desktop" id="searchBox"></div>
           </div>
+
         </div>
       </div>
       

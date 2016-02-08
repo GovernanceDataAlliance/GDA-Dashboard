@@ -3,6 +3,8 @@ set -e
 
 git fetch
 
+git checkout develop
+
 exists=`git show-ref refs/heads/gh-pages`
 if [ -n "$exists" ]; then
   git branch -D gh-pages
@@ -21,6 +23,7 @@ grunt dist
 
 git add -f js/bundle.js
 git add -f js/countries_bundle.js
+git add -f js/blog_bundle.js
 git add -f js/compare_bundle.js
 git add -f js/indicators_bundle.js
 git add -f js/welcome_bundle.js
@@ -33,5 +36,4 @@ git push --force --quiet origin gh-pages:gh-pages
 git config user.name $ORIGINAL_NAME
 git config user.email $ORIGINAL_EMAIL
 
-
-git checkout -
+git checkout develop

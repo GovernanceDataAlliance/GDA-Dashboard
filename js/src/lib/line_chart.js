@@ -59,7 +59,6 @@ var LineChart = function(params) {
     .append('g')
       .attr('transform', 'translate('+margin.left+',' + margin.top + ')');
 
-
   data.forEach(function(d) {
     d.year = parseDate(d.year.toString());
   });

@@ -79,9 +79,15 @@
   }
 
   @media screen and (min-width: $screen-l) {
-    display: flex;
-    flex-basis: 50%;
+    // display: flex;
+    // display: -ms-box;
+    // flex: 1 1 50%;
+    // -ms-flex: 1 1 50%;
+    // flex-basis: 50%;
     justify-content: space-between;
+    width: 50%;
+    float: left;
+    height: rem(285px);
     padding: 0 rem($wrap-padding-tablet);
 
     &:nth-child(2n) {

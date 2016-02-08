@@ -28,7 +28,7 @@
 }
 
 .is-desktop-hidden {
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: $screen-l) {
     display: none !important;
     visibility: hidden !important;
   }

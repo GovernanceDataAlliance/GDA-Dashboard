@@ -48,6 +48,8 @@ var CompareView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
 
+    this.mobile = (window.innerWidth || document.body.clientWidth) < 768 ? true : false;
+
     this.setListeners();
 
     new WrapperHeaderView();
@@ -66,7 +68,7 @@ var CompareView = Backbone.View.extend({
   },
 
   render: function() {
-    this.mobile = (window.innerWidth || document.body.clientWidth) < 768 ? true:false;
+
     if (this.mobile) {
       this.renderYearSelector();
       this.$el.html(templateMobile());
@@ -78,6 +80,7 @@ var CompareView = Backbone.View.extend({
       this.calculateLimitPoint();
       this.renderSelectors();
     }
+
     this.renderToolbar();
     this._setResize();
     return this;
@@ -106,11 +109,15 @@ var CompareView = Backbone.View.extend({
 
   initSlide: function(){
     var self = this;
+
+    //swipe false to avoid strange behaviour on iOS.
     this.slide = $('#compareSlider').slick({
       dots: true,
       useTransform: false,
-      adaptiveHeight: true
+      adaptiveHeight: true,
+      swipe: false
     });
+
     this.currentSlide = 0;
     this.slide.on('afterChange', function(ev, slick, current){
       self.currentSlide = current;
@@ -143,7 +150,8 @@ var CompareView = Backbone.View.extend({
 
     this.$el.find('.js--compare-selectors').ready(function() {
       if (this.mobile) {
-        this.breakPoints['startPoint'] = this.$el.find('#compareSlider').offset().top
+        var selectorsHeight = this.$('.l-toolbar').height();
+        this.breakPoints['startPoint'] = this.$el.find('#compareSlider').offset().top + selectorsHeight;
       } else {
         this.breakPoints['startPoint'] = this.$el.find('.js--compare-selectors').offset().top;
       }

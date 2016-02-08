@@ -106,8 +106,9 @@
     }
 
     @media screen and (min-width: $screen-m) {
-      display: flex;
-      flex-basis: 50%;
+      width: 50%;
+      height: rem(500px);
+      float: left;
 
       > .card-wrap {
         padding: rem(40px) rem($wrap-padding-tablet);
@@ -115,7 +116,7 @@
     }
 
     @media screen and (min-width: $screen-l) {
-      flex-basis: 33.33%;
+      width: 33.33%;
 
       &:nth-child(2n) {
         border-right: 1px solid $border-1;
@@ -142,12 +143,9 @@
   }
 
   .index-description {
-    display: flex; display: -ms-box;
-    flex-direction: column;
-    justify-content: center;
 
     @media screen and (min-width: $screen-l) {
-      flex-basis: 48%;
+      width: 48%;
     }
 
     .name {
@@ -215,7 +213,9 @@
       margin-bottom: rem(20px);
     }
 
-    .is-dashboard-layout & {x
+    .is-dashboard-layout & {
+      width: 100%;
+      
       > .description-wrapper,
       > .btn-read-more {
         display: none;
@@ -254,7 +254,8 @@
   }
 
   .index-score {
-    display: flex; display: -ms-box;
+    display: flex; 
+    display: -ms-box;
     flex-direction: column;
     justify-content: flex-start;
 
@@ -268,7 +269,11 @@
     @media screen and (min-width: $screen-l) {
       flex-direction: column;
       align-items: flex-end;
-      flex-basis: 48%;
+      width: 48%;
+
+      .is-dashboard-layout & {
+        width: 100%;
+      }
 
       > .js--partial-ranks {
         width: 100%;
@@ -277,12 +282,13 @@
 
     > .resume {
       display: flex;
+      // flex: 1 1 auto;
       justify-content: space-between;
       align-items: center;
 
       &.-usd {
-        flex-wrap: wrap-reverse;
-        justify-content: flex-end;
+        // flex-wrap: wrap-reverse;
+        // justify-content: flex-end;
       }
 
       > .graph {
@@ -307,11 +313,12 @@
         font-weight: 700;
         font-size: rem(62px);
         letter-spacing: rem(-3.6px);
+        line-height: 1em;
 
         @media screen and (min-width: $screen-m) {
           font-size: rem(80px);
-          white-space: nowrap;
-          line-height: rem(80px);
+          // white-space: nowrap;
+          // line-height: rem(80px);
           letter-spacing: rem(-6px);
         }
 
@@ -319,11 +326,12 @@
           align-self: flex-end;
           font-family: $font-secondary;
           font-weight: 400;
-          font-size: rem(25px);
+          font-size: rem(15px);
           letter-spacing: .1px;
           line-height: .7em;
+
           @media screen and (min-width: $screen-m) {
-            font-size: rem(25px);
+            font-size: rem(20px);
           }
         }
       }
@@ -333,9 +341,6 @@
           @media screen and (min-width: $screen-m) {
             margin: 0;
             font-size: rem(62px);
-          }
-          .units {
-            font-size: rem(25px);
           }
         }
       }
