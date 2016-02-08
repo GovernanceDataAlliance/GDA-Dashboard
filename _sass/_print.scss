@@ -1,0 +1,111 @@
+@media print {
+  
+  .l-header, 
+  .l-footer,
+  .l-highlight,
+  .l-toolbar, 
+  .no-printable,
+  .m-breadcrumbs,
+  .btn-info, 
+  .btn {
+    display: none !important;
+  }
+
+  .js--compare-selectors {
+    .l-toolbar {
+      display: flex !important;
+    }
+  }
+
+
+  .l-banner.-detail.-country {
+    padding-top: 2.5em;
+  }
+
+  .l-banner.-detail {
+    padding-top: 2.5em;
+    padding-bottom: 2.5em;
+  }
+
+  .m-card {
+
+    &:nth-child(2n) {
+      page-break-after: always !important;
+    }
+
+    .index-description {
+      // display: inline-block;
+      // width: 48% !important;
+    }
+
+    .index-score {
+      // display: inline-block;
+      flex-direction: column;
+      align-items: flex-end;
+      // width: 48% !important;
+
+      > .js--partial-ranks {
+        width: 100%;
+      }
+    }
+
+    .card-wrap > .wrap {
+      // flex-direction: row !important;
+    }
+
+    .index-description > .description-wrapper .description {
+      max-height: none !important;
+    }
+
+    .index-score > .resume {
+      width: 100% !important;
+      flex-direction: row !important;
+    }
+
+    .index-score > .resume > .graph {
+      max-width: 50%!important;
+    }
+
+    .index-description > .description-wrapper .description .read-more, 
+    .index-description > .description-wrapper .description .read-less {
+      display: none !important;
+    }
+
+    .index-score .partial-scores {
+      display: flex !important;
+      align-items: flex-start !important;
+    }
+
+    .index-score .partial-scores > li {
+      width: 31%;
+    }
+
+    .index-score .info {
+      margin-top: 0!important;
+    }
+
+    .index-score .partial-scores .partial-score,
+    .index-score .partial-scores .partial-rank {
+      text-align: center;
+    }
+
+    .index-score .info span {
+      display: inline-block !important;
+    }
+
+  
+    // .description,
+    .index-description > .description-wrapper {
+      display: block !important;
+    }
+
+    .-not-covered {
+      display: none !important;
+    }
+  }
+
+  .m-comparison-table > .-score .table-cell {
+    font-size: 25px;
+  }
+
+}
