@@ -10,26 +10,47 @@
     display: none !important;
   }
 
+  .l-banner.-detail.-country {
+    padding-top: 2.5em;
+  }
+
   .m-card {
 
+    &:nth-child(2n) {
+      page-break-after: always !important;
+    }
+
     .index-description {
-      display: inline-block;
-      width: 48% !important;
+      // display: inline-block;
+      // width: 48% !important;
     }
 
     .index-score {
-      display: inline-block;
+      // display: inline-block;
       flex-direction: column;
       align-items: flex-end;
-      width: 48% !important;
+      // width: 48% !important;
 
       > .js--partial-ranks {
         width: 100%;
       }
     }
 
+    .card-wrap > .wrap {
+      // flex-direction: row !important;
+    }
+
     .index-description > .description-wrapper .description {
       max-height: none !important;
+    }
+
+    .index-score > .resume {
+      width: 100% !important;
+      flex-direction: row !important;
+    }
+
+    .index-score > .resume > .graph {
+      max-width: 50%!important;
     }
 
     .index-description > .description-wrapper .description .read-more, 
@@ -37,9 +58,17 @@
       display: none !important;
     }
 
+    .index-score .partial-scores {
+      display: flex !important;
+      align-items: flex-start !important;
+    }
+
     .index-score .partial-scores > li {
       width: 31%;
-      display: inline-block !important;
+    }
+
+    .index-score .info {
+      margin-top: 0!important;
     }
 
     .index-score .partial-scores .partial-score,
@@ -47,16 +76,19 @@
       text-align: center;
     }
 
+    .index-score .info span {
+      display: inline-block !important;
+    }
 
-
-
-    .description,
-    .index-description > .description-wrapper,
-    .index-score .partial-scores {
+  
+    // .description,
+    .index-description > .description-wrapper {
       display: block !important;
     }
 
-
+    .m-card .-not-covered {
+      display: none !important;
+    }
   }
 
 }
