@@ -11,6 +11,12 @@
     display: none !important;
   }
 
+  .js--compare-selectors {
+    .l-toolbar {
+      display: flex !important;
+    }
+  }
+
 
   .l-banner.-detail.-country {
     padding-top: 2.5em;
@@ -96,6 +102,10 @@
     .-not-covered {
       display: none !important;
     }
+  }
+
+  .m-comparison-table > .-score .table-cell {
+    font-size: 25px;
   }
 
 }
