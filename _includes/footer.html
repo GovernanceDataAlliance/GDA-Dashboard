@@ -11,7 +11,7 @@
           <li class='link {% if page.url == "/indicators.html" %} -current {% endif %}'><a href="{{ site.baseurl }}/indicators">data</a></li>
           <li class='link {% if page.url == "/compare.html" %} -current {% endif %}'><a href="{{ site.baseurl }}/compare">compare</a></li>
           <li class='link {% if page.url == "/about.html" %} -current {% endif %}'><a href="{{ site.baseurl }}/about">about</a></li>
-          <li class='link {% if page.url == "/blog/" %} -current {% endif %}'><a href="{{ site.baseurl }}/blog/">blog</a></li>
+          <li class='link {% if page.isBlog or page.layout == "blog/post" %} -current {% endif %}'><a href="{{ site.baseurl }}/blog/">Blog</a></li>
         </ul>
       </nav>
 
