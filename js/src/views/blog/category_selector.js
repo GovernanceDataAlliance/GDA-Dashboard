@@ -2,6 +2,8 @@ var $ = require('jquery');
 global.$ = $; // for chosen.js
 
 var chosen = require('chosen-jquery-browserify'),
+    _ = require('lodash'),
+    enquire = require('enquire.js'),
     Backbone = require('backbone');
 
 var CategorySelector = Backbone.View.extend({
@@ -17,6 +19,18 @@ var CategorySelector = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
 
+    enquire.register("screen and (max-width:768px)", {
+      match: _.bind(function(){
+        this.mobile = true;
+      },this)
+    });
+
+    enquire.register("screen and (min-width:769px)", {
+      match: _.bind(function(){
+        this.mobile = false;
+      },this)
+    });
+
     this.title = document.getElementById('categoryTitle');
     this.categories = $('.blog-category');
     this.render();
@@ -24,12 +38,17 @@ var CategorySelector = Backbone.View.extend({
 
   render: function() {
     this.hash = window.location.hash;
+
     if (this.hash) {
       this.setTitle(this.hash.substring(1));
       this.setActive(this.hash.substring(1));
       this.$('select').val(this.hash);
     }
-    this.$('select').chosen();
+
+    if (!this.mobile) {
+      this.$('select').chosen();
+    }
+
   },
 
   setTitle: function(title) {
