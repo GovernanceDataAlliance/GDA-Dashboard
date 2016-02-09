@@ -16,3 +16,14 @@ collections:
 markdown: kramdown
 
 exclude: ['scripts', 'node_modules', 'vendor']
+
+# prose.io
+prose:
+  rooturl: 'blog/_posts'
+  siteurl: 'http://vizzuality.github.io/GDA-Dashboard/'
+  media: 'css/img'
+  ignore:
+    - _config.yml
+    - /_layouts
+    - /_includes
+  # metadata:
