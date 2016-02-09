@@ -1,9 +1,9 @@
 
-var red  = '-score-bad',
-	orange = '-score-regular',
-	yellow = '-score-medium',
+var red  = '-score-poor',
+	orange = '-score-fair',
+	yellow = '-score-moderate',
 	blue   = '-score-good',
-	green  = '-score-best';
+	green  = '-score-excellent';
 
 var colorRange = {
 	'range-3': [green, yellow, red],
