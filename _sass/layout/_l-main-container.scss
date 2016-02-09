@@ -1,8 +1,11 @@
-.l-main-container {
+%l-main-container {
   max-width: $grid-max-width;
   width: 100%;
   margin: 0 auto;
   border-left: 1px solid $light-grey;
   border-right: 1px solid $light-grey;
   background-color: $white;
+}
+.l-main-container {
+  @extend %l-main-container;
 }

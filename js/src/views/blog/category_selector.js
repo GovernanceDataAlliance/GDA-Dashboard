@@ -9,7 +9,7 @@ var chosen = require('chosen-jquery-browserify'),
 var CategorySelector = Backbone.View.extend({
 
   defaults: {
-    title: 'Blog posts from '
+    title: 'Blog posts from'
   },
 
   events: {
@@ -32,7 +32,7 @@ var CategorySelector = Backbone.View.extend({
     });
 
     this.title = document.getElementById('categoryTitle');
-    this.categories = $('.blog-category');
+    this.post = $('.blog-filter');
     this.render();
   },
 
@@ -51,18 +51,18 @@ var CategorySelector = Backbone.View.extend({
   },
 
   setTitle: function(title) {
-    if (title === 'all'){
-      this.title.innerHTML = this.defaults.title + title + ' categories';
+    if (title === 'all') {
+      this.title.innerHTML = this.defaults.title + ' ' + title + ' ' + this.title.getAttribute('data-type');
     } else {
-      this.title.innerHTML = this.defaults.title + title;
+      this.title.innerHTML = this.defaults.title + ' ' + title;
     }
   },
 
   setActive: function(id) {
     if (id === 'all' ) {
-      this.categories.addClass('-active');
+      this.post.addClass('-active');
     } else {
-      this.categories.each(function(index, category) {
+      this.post.each(function(index, category) {
         if (category.id === id){
           category.classList.add('-active');
         } else {

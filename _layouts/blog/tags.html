@@ -22,27 +22,26 @@
 
         <div class="wrap">
 
-          <h1 id="categoryTitle" class="c-section-title" data-type="categories"> Blog posts from all categories </h1>
-
-          <div class="selector-wrapper -category">
+          <h1 id="categoryTitle" class="c-section-title" data-type="tags"> Blog posts from all tags </h1>
+          <!-- TODO list all tags -->
+          <!-- <div class="selector-wrapper -category">
             <div class="btn-drop-down -sm" id="categorySelector">
               <select>
-                <option value="#all">All categories</option>
-                {% for category in site.categories %}
+                {% for category in site.tags %}
                   <option value="#{{ category | first | remove:' ' | downcase}}">{{ category | first }}</option> {% if forloop.last %}.{% else %}, {% endif %}
                 {% endfor %}
               </select>
             </div>
 
-          </div>
+          </div> -->
         </div>
       </div>
 
       <div class="l-blog">
 
-        {% for category in site.categories %}
-            <div class="blog-filter -active" id="{{ category | first | remove:' ' | downcase}}">
-               {% for posts in category %}
+        {% for tag in site.tags %}
+            <div class="blog-filter -active" id="{{ tag | first | remove:' ' | downcase}}">
+               {% for posts in tag %}
                  {% for post in posts %}
                    {% if post.url %}
 
