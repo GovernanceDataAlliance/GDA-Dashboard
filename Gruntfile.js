@@ -115,7 +115,7 @@ module.exports = function(grunt) {
 
     watch: {
       js: {
-        files: ['js/src/**/*'],
+        files: ['js/src/**/*.js'],
         tasks: ['browserify:main', 'browserify:countries', 'browserify:compare',
           'browserify:indicators', 'browserify:welcome', 'browserify:blog', 'jekyll:dist']
       },

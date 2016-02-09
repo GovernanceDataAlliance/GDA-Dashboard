@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    {% include icons.html %}
+
+    <div class="l-main-container js-blog">
+      {% include header.html %}
+
+      <div class="l-banner -detail -blog">
+        <div class="m-breadcrumbs">
+          <ul>
+            <li><a href="{{ site.baseurl }}"> home </a></li>
+            <li><span> / </span></li>
+            <li><a href="{{ site.baseurl }}/blog">blog </a></li>
+            <li><span> / </span></li>
+            <li> {{ page.page-name }} </li>
+          </ul>
+        </div>
+
+        <div class="wrap">
+
+          <h1 id="categoryTitle" class="c-section-title"> Blog posts from all categories </h1>
+
+          <div class="selector-wrapper -category">
+            <div class="btn-drop-down -sm" id="categorySelector">
+              <select>
+                <option value="#all">All categories</option>
+                {% for category in site.categories %}
+                  <option value="#{{ category | first | remove:' ' }}">{{ category | first }}</option> {% if forloop.last %}.{% else %}, {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="l-main-container">
+
+        {% for category in site.categories %}
+            <div class="blog-category -active" id="{{ category | first | remove:' ' }}">
+               {% for posts in category %}
+                 {% for post in posts %}
+                   {% if post.url %}
+
+                     {% include modules/post_list_module.html %}
+
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
+           </div>
+         {% endfor %}
+
+
+      <div class="l-toolbar">
+        <div class="wrap">
+          <div class="m-controls -right">
+
+            <button class="js--share btn">
+              <svg class="icon -regular">
+                <use xlink:href="#icon-share"></use>
+              </svg>
+              share
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {% include footer.html %}
+    </div>
+    <script src="{{site.baseurl}}/js/blog_bundle.js"></script>
+    <script src="{{site.baseurl}}/js/bundle.js"></script>
+  </body>
+
+</html>

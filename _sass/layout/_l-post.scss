@@ -14,3 +14,21 @@
   }
 
 }
+
+.blog-category {
+  display: none;
+  
+  &.-active {
+    display: block;
+  }
+}
+
+
+.selector-wrapper.-category {
+  min-width: rem(250px);
+  align-self: flex-start;
+
+  .l-toolbar & {
+    align-self: center;
+  }
+}

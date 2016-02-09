@@ -7,8 +7,7 @@ var ViewManager = require('../lib/view_manager.js'),
 var Router = Backbone.Router.extend({
 
   routes: {
-    "": "blog",
-    "blog": "blog"
+    "*actions": "blog"
   },
 
   initialize: function(options) {

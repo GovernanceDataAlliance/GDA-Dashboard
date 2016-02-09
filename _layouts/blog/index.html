@@ -27,16 +27,18 @@
 
       <div class="l-toolbar">
         <div class="wrap">
-          <div class="m-controls -right">
+          <div class="m-controls">
 
-            <!-- <div class="btn-drop-down -sm" id="categorySelector">
-              <select>
-                <option value="">All categories</option>
-                {% for category in site.categories.blog %}
-                  <option value="{{category.category}}">{{category.category}}</option>
-                {% endfor %}
-              </select>
-            </div> -->
+            <div class="selector-wrapper -category">
+              <div class="btn-drop-down -sm" id="categorySelector" data-url="{{ site.baseurl }}">
+                <select>
+                  <option value="">All categories</option>
+                  {% for category in site.categories %}
+                    <option value="{{base.siteurl}}/blog/categories#{{ category | first | remove:' ' }}">{{ category | first }}</option> {% if forloop.last %}.{% else %}, {% endif %}
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
 
             <button class="js--share btn">
               <svg class="icon -regular">
@@ -52,46 +54,7 @@
 
         {% for post in paginator.posts %}
 
-            <div class="l-post {%if post.image%} -img {%endif%}" {%if post.image%} style="background-image:url({{ site.baseurl }}/{{post.image}})" {%endif%} >
-              <div class="wrap">
-
-                <div class="m-post -list">
-
-                  <div class="properties">
-                    <div class="category">
-                      <span> {{post.category}}</span>
-                    </div>
-                    <div class="tags">
-                      {% for tag in post.tags %}
-                      <span class="tag"> #{{tag}} </span>
-                      {% endfor %}
-                    </div>
-                  </div>
-
-                  <div class="details">
-                    <span class="author">
-                      Author: {{ post.author }}
-                    </span>
-                    <span class="date">
-                      <time>{{ post.date | date: '%B %d, %Y'}}</time>
-                    </span>
-                  </div>
-
-                  <div class="title">
-                    <h3>
-                      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-                    </h3>
-                  </div>
-
-                  <div class="content">
-                    {{post.excerpt}}
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
+            {% include modules/post_list_module.html %}
 
         {% endfor %}
       </div>
@@ -103,13 +66,13 @@
 
             <div class="m-pagination">
               {% if paginator.previous_page %}
-                <a href="{{ paginator.previous_page_path }}" class="page-link"> < Newer Post</a>
+                <a href="{{site.baseurl}}{{ paginator.previous_page_path }}" class="page-link"> < Newer Post</a>
               {% else %}
                 <span class="page-link -disabled">< Newer Post</span>
               {% endif %}
               <span class="page-number ">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
               {% if paginator.next_page %}
-                <a href="{{ paginator.next_page_path }}/" class="page-link"> Older post > </a>
+                <a href="{{site.baseurl}}{{ paginator.next_page_path }}/" class="page-link"> Older post > </a>
               {% else %}
                 <span class="page-link -disabled">Older post ></span>
               {% endif %}
@@ -127,8 +90,8 @@
 
       {% include footer.html %}
     </div>
-    <script src="js/blog_bundle.js"></script>
-    <script src="js/bundle.js"></script>
+    <script src="{{site.baseurl}}/js/blog_bundle.js"></script>
+    <script src="{{site.baseurl}}/js/bundle.js"></script>
   </body>
 
 </html>
