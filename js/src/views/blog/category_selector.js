@@ -48,7 +48,6 @@ var CategorySelector = Backbone.View.extend({
     if (!this.mobile) {
       this.$('select').chosen();
     }
-
   },
 
   setTitle: function(title) {
