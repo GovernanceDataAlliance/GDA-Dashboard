@@ -1,6 +1,6 @@
 ---
 name: The Freedom House
-logo: "css/img/Freedom_House_logo.png"
+logo: "freedom_house.png"
 link: "https://freedomhouse.org/"
 description: ''
 ---
