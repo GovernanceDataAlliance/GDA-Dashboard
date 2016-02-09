@@ -31,70 +31,15 @@
 
       <div class="l-content -fullscreen">
         <div class="l-grid">
-
+          {% for organization in site.organizations %}
             <div class="m-card--indexes">
-              <a href="http://www.wri.org/" target="_blank" class="index-description">
-                <span style="background-image:url('css/img/wri_logo_horiz_4c.png')" alt=""></span>
-                <h3 class="name">World Resources Institute</h3>
-                <!-- <p class="organization"></p> -->
+              <a href="{{ organization.link }}" target="_blank" class="index-description">
+                <span style="background-image:url('{{ organization.logo }}')" alt=""></span>
+                <h3 class="name">{{ organization.name }}</h3>
+                <!-- <p class="organization">{{ organization.description }}</p> -->
               </a>
             </div>
-
-            <div class="m-card--indexes">
-              <a href="http://www.worldbank.org/" target="_blank" class="index-description">
-                <span style="background-image:url('css/img/World_bank__logo.jpg')" alt=""></span>
-                <h3 class="name">World Bank Group</h3>
-                <!-- <p class="organization"></p> -->
-              </a>
-            </div>
-
-            <div class="m-card--indexes">
-              <a href="http://www.transparency.org/" target="_blank" class="index-description">
-                <span style="background-image:url('css/img/transparency_international_logo.jpg')" alt=""></span>
-                <h3 class="name">Transparency Internacional</h3>
-                <!-- <p class="organization"></p> -->
-              </a>
-            </div>
-
-            <div class="m-card--indexes">
-              <a href="http://www.resourcegovernance.org/rgi" target="_blank" class="index-description">
-                <span style="background-image:url('css/img/NRGI_Logo.jpg')" alt=""></span>
-                <h3 class="name">The Resource Governance Index</h3>
-                <!-- <p class="organization"></p> -->
-              </a>
-            </div>
-
-            <div class="m-card--indexes">
-              <a href="https://www.globalintegrity.org/" target="_blank" class="index-description">
-                <span style="background-image:url('css/img/Global_integrity_logo.png')" alt=""></span>
-                <h3 class="name">Global Integrity</h3>
-                <!-- <p class="organization"></p> -->
-              </a>
-            </div>
-
-            <div class="m-card--indexes">
-              <a href="https://freedomhouse.org/" target="_blank" class="index-description">
-                <span style="background-image:url('css/img/Freedom_House_logo.png')" alt=""></span>
-                <h3 class="name">The Freedom House</h3>
-                <!-- <p class="organization"></p> -->
-              </a>
-            </div>
-
-            <div class="m-card--indexes">
-              <a href="http://www.law-democracy.org/" target="_blank" class="index-description">
-                <span style="background-image:url('css/img/law_and_democracy_logo.jpg')" alt=""></span>
-                <h3 class="name">The Centre for Law and Democracy</h3>
-                <!-- <p class="organization">The Centre for Law and Democracy is a Company Limited by Guarantee (non-profit corporation) established under the Nova Scotia Companies Act and governed by a Board of Directors</p> -->
-              </a>
-            </div>
-
-            <div class="m-card--indexes">
-              <a href="http://www.opengovpartnership.org/" target="_blank" class="index-description">
-                <span style="background-image:url('css/img/OGP_logo.jpg')" alt=""></span>
-                <h3 class="name">The Open Government Partnership's</h3>
-                <!-- <p class="organization"></p> -->
-              </a>
-            </div>
+          {% endfor %}
         </div>
       </div>
 
