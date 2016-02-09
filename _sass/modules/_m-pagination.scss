@@ -1,0 +1,26 @@
+.m-pagination {
+  display: flex;
+  align-items: center;
+
+  > .page-link {
+    font-family: $font-secondary;
+    font-size: rem(11px);
+    color: $font-color-3;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    cursor: pointer;
+    min-width: rem(100px);
+
+    &.-disabled {
+      opacity: 0.3;
+      cursor: inherit;
+    }
+  }
+  > .page-number {
+    padding: 0 1rem;
+    font-family: $font-main;
+    font-size: rem(15px);
+    color: $font-color-1;
+    letter-spacing: .4px;
+  }
+}
