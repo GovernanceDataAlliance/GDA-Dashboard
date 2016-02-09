@@ -21,6 +21,15 @@
     font-size: rem(12px);
     text-transform: uppercase;
     color: $white;
+
+
+    @media screen and (min-device-width: $screen-l) {
+      display: none;
+    }
+    
+    @media screen and (min-device-width: $screen-l) and (orientation: landscape) {
+      display: none;
+    }
   }
 
   .btn-close-modal {
