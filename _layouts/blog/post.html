@@ -33,12 +33,12 @@
 
           <div class="m-pagination">
             {% if page.previous.url%}
-              <a href="{{ page.previous.url }}" class="page-link"> < Newer Post</a>
+              <a href="{{base.siteurl}}{{ page.previous.url }}" class="page-link"> < Newer Post</a>
             {% else %}
               <span class="page-link -disabled">< Newer Post</span>
             {% endif %}
             {% if page.next.url %}
-              <a href="{{ page.next.url }}" class="page-link"> Older post > </a>
+              <a href="{{base.siteurl}}{{ page.next.url }}" class="page-link"> Older post > </a>
             {% else %}
               <span class="page-link -disabled">Older post ></span>
             {% endif %}
@@ -58,8 +58,8 @@
 
       {% include footer.html %}
     </div>
-    <script src="js/blog_bundle.js"></script>
-    <script src="js/bundle.js"></script>
+    <script src="{{site.baseurl}}/js/blog_bundle.js"></script>
+    <script src="{{site.baseurl}}/js/bundle.js"></script>
   </body>
 
 </html>
