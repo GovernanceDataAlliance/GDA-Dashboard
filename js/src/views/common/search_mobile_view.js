@@ -44,8 +44,7 @@ var SearchMobileView = Backbone.View.extend({
   },
 
   goToCountry: function(e) {
-    var country = $(e.currentTarget).val();
-    window.location.href = '/countries#' + country;
+    window.location.href = SITEURL || '' + $(e.currentTarget).val();
     this.closeSearch();
   }
 

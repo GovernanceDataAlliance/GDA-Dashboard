@@ -7,7 +7,7 @@
     <select name="countries" id="countries">
       <option value="">Search country</option>
       {{#each countries}}
-        <option value="{{iso3}}">{{name}}</option>
+        <option value="/countries#{{iso3}}">{{name}}</option>
       {{/each}}
     </select>
   </div>
