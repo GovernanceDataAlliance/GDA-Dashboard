@@ -58,9 +58,9 @@
 
   .m-card {
 
-    &:nth-child(2n) {
-      page-break-after: always !important;
-    }
+    // &:nth-child(2n) {
+    //   page-break-after: always !important;
+    // }
 
     .index-description {
       // display: inline-block;
@@ -135,14 +135,33 @@
 
 
   //COMPARE PAGE
-
   .l-banner.-section-2 {
     background-image: none;
     background-color: $bg-color-4;
     border-bottom: 1px solid $border-1;
   }
 
+  .l-toolbar.-selectors.-fixed {
+    position: static;
+    width: auto;
+  }
+
+  .l-content.-fixed {
+    margin-top: 0;
+  }
+
+  .m-comparison-table h3 {
+    font-size: rem(16px);
+    font-weight: 600;
+  }
+
+  .m-comparison-table .table-cell {
+    height: rem(150px) !important;
+    font-size: 25px;
+  }
+
   .m-comparison-table > .-score .table-cell {
+    height: rem(150px);
     font-size: 25px;
   }
 
@@ -159,6 +178,20 @@
     > .-score {
       width: 23.33%;
     }
+  }
+
+  //DATA PAGE
+  .m-table .table-row > .wrap {
+    height: auto !important;
+  }
+
+  .rest-tier.is-hidden {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .m-table .table-row.-load-more {
+    display: none !important;
   }
 
 }
