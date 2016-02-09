@@ -17,8 +17,6 @@ var IndicatorListView = Backbone.View.extend({
     this.direction = options.direction;
     this.countries = options.countries;
 
-    // Backbone.Events.on('print:start', _.bind(this._loadMore, this));
-
     this.render();
   },
 
