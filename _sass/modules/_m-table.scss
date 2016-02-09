@@ -50,24 +50,24 @@
       }
 
       // Scores
-      &.-score-best {
-        color: $best;
+      &.-score-excellent {
+        color: $excellent;
       }
 
       &.-score-good {
         color: $good;
       }
 
-      &.-score-medium {
-        color: $medium;
+      &.-score-moderate {
+        color: $moderate;
       }
 
       &.-score-regular {
-        color: $regular;
+        color: $fair;
       }
 
-      &.-score-bad {
-        color: $bad;
+      &.-score-poor {
+        color: $poor;
       }
     }
 

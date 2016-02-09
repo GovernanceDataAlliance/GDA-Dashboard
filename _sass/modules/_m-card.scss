@@ -215,7 +215,7 @@
 
     .is-dashboard-layout & {
       width: 100%;
-      
+
       > .description-wrapper,
       > .btn-read-more {
         display: none;
@@ -254,7 +254,7 @@
   }
 
   .index-score {
-    display: flex; 
+    display: flex;
     display: -ms-box;
     flex-direction: column;
     justify-content: flex-start;
@@ -457,9 +457,9 @@
   }
 
   // Scores
-  &.-score-best {
-    .global-score { color: $best;}
-    .graph > svg { stroke: $best;}
+  &.-score-excellent {
+    .global-score { color: $excellent;}
+    .graph > svg { stroke: $excellent;}
   }
 
   &.-score-good {
@@ -467,19 +467,19 @@
     .graph > svg { stroke: $good;}
   }
 
-  &.-score-medium {
-    .global-score { color: $medium;}
-    .graph > svg { stroke: $medium;}
+  &.-score-moderate {
+    .global-score { color: $moderate;}
+    .graph > svg { stroke: $moderate;}
   }
 
-  &.-score-regular {
-    .global-score { color: $regular;}
-    .graph > svg { stroke: $regular;}
+  &.-score-fair {
+    .global-score { color: $fair;}
+    .graph > svg { stroke: $fair;}
   }
 
-  &.-score-bad {
+  &.-score-poor {
     color: $font-color-2;
-    background-color: $bad;
+    background-color: $poor;
 
     .index-description .organization {
       color: $font-color-2;

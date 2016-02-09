@@ -33,24 +33,24 @@
         white-space: nowrap;
       }
 
-      &.-best:before {
-        background: $best;
+      &.-excellent:before {
+        background: $excellent;
       }
 
       &.-good:before {
         background: $good;
       }
 
-      &.-medium:before {
-        background: $medium;
+      &.-moderate:before {
+        background: $moderate;
       }
 
-      &.-regular:before {
-        background: $regular;
+      &.-fair:before {
+        background: $fair;
       }
 
-      &.-bad:before {
-        background: $bad;
+      &.-poor:before {
+        background: $poor;
       }
 
       @media screen and (min-width: $screen-s) {
@@ -70,7 +70,7 @@
 
     @media screen and (min-width: $screen-s) {
       display: block;
-    } 
+    }
 
     > .pop-up-legend {
       position: absolute;
