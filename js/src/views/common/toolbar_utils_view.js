@@ -49,6 +49,8 @@ var ToolbarUtilsView = Backbone.View.extend({
   },
 
   _print: function() {
+    // console.log('print')
+    // Backbone.Events.trigger('print:start');
     window.print();
   },
 

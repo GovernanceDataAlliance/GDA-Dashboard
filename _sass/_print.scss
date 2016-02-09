@@ -7,13 +7,42 @@
   .no-printable,
   .m-breadcrumbs,
   .btn-info, 
-  .btn {
+  .btn,
+  .btn-drop-down:after {
     display: none !important;
   }
 
-  .js--compare-selectors {
+  .c-section-title.-light {
+    color: $color-1;
+
+    &:after {
+      background-color: $color-1
+    }
+  }
+
+  .l-banner.-section-2 p {
+    color: $color-1;
+  }
+
+  .l-banner:before {
+    display: none !important;
+
+  }
+
+
+  //COUNTRY PAGE
+
+  .js--compare-container .js--compare-selectors {
+
+    &.is-mobile-hidden {
+      display: block !important;
+      visibility: visible !important;
+    }
+
     .l-toolbar {
       display: flex !important;
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
 
@@ -29,9 +58,9 @@
 
   .m-card {
 
-    &:nth-child(2n) {
-      page-break-after: always !important;
-    }
+    // &:nth-child(2n) {
+    //   page-break-after: always !important;
+    // }
 
     .index-description {
       // display: inline-block;
@@ -104,8 +133,65 @@
     }
   }
 
-  .m-comparison-table > .-score .table-cell {
+
+  //COMPARE PAGE
+  .l-banner.-section-2 {
+    background-image: none;
+    background-color: $bg-color-4;
+    border-bottom: 1px solid $border-1;
+  }
+
+  .l-toolbar.-selectors.-fixed {
+    position: static;
+    width: auto;
+  }
+
+  .l-content.-fixed {
+    margin-top: 0;
+  }
+
+  .m-comparison-table h3 {
+    font-size: rem(16px);
+    font-weight: 600;
+  }
+
+  .m-comparison-table .table-cell {
+    height: rem(150px) !important;
     font-size: 25px;
+  }
+
+  .m-comparison-table > .-score .table-cell {
+    height: rem(150px);
+    font-size: 25px;
+  }
+
+  .m-compare-selectors > .-index {
+    display: flex !important;
+  }
+
+  .m-compare-selectors { 
+    > .-index {
+      display: flex;
+      width: 30.1%;
+    }
+
+    > .-score {
+      width: 23.33%;
+    }
+  }
+
+  //DATA PAGE
+  .m-table .table-row > .wrap {
+    height: auto !important;
+  }
+
+  .rest-tier.is-hidden {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .m-table .table-row.-load-more {
+    display: none !important;
   }
 
 }
