@@ -1,6 +1,6 @@
 ---
 name:  The Open Government Partnership's
-logo: "css/img/OGP_logo.jpg"
+logo: "ogp.jpg"
 link: "http://www.opengovpartnership.org/"
 description: ''
 ---

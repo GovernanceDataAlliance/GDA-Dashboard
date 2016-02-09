@@ -1,6 +1,6 @@
 ---
 name: World Bank Group
-logo: "css/img/World_bank__logo.jpg"
+logo: "world_bank.jpg"
 link: "http://www.worldbank.org/"
 description:
 ---

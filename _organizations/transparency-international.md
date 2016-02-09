@@ -1,6 +1,6 @@
 ---
 name: Transparency Internacional
-logo: "css/img/transparency_international_logo.jpg"
+logo: "transparency_international.jpg"
 link: "http://www.transparency.org/"
 description:
 ---
