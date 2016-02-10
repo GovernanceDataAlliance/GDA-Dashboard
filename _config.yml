@@ -19,7 +19,7 @@ exclude: ['scripts', 'node_modules', 'vendor']
 
 # prose.io
 prose:
-  rooturl: 'blog/_posts'
+  rooturl: ''
   siteurl: 'http://vizzuality.github.io/GDA-Dashboard/'
   media: 'css/img'
   ignore:
@@ -48,6 +48,10 @@ prose:
     - README.md
   metadata:
     blog/_post: 
+      - name: layout
+        field:
+          element: "hidden"
+          label: "title"
       - name: title
         field:
           element: "text"
@@ -72,3 +76,8 @@ prose:
         field: 
           element: text
           label: tags
+    _organizations: 
+      - name: title
+        field:
+          element: "text"
+          label: "title"
