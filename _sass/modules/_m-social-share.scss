@@ -1,15 +1,21 @@
 .m-social-share {
-  display: flex; display: -ms-box;
+  display: flex;
   justify-content: flex-start;
 
   .icon {
     width: rem(20px);
     height: rem(20px);
     fill: $color-4;
+    transition: all .2s ease-in-out;
+
+    &.-twitter svg:hover {
+      transform: scale(1.2);
+      fill: $color-4;
+    }
   }
 
   ul {
-    display: flex; display: -ms-box;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     margin-top: rem(50px);
@@ -29,7 +35,7 @@
 
   &.-footer {
     ul {
-      display: flex; display: -ms-box;
+      display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
@@ -89,9 +95,5 @@
         align-items: baseline;
       }
     }
-  }
-
-  @media screen and (min-width: $screen-xl) {
-
   }
 }
