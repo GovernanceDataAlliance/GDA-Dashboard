@@ -32,6 +32,8 @@ prose:
     - /.sass-cache
     - /_sass
     - /_site
+    - /blog/categories.html
+    - /blog/tags.html
     - /node-modules
     - /scripts
     - .editorconfig
@@ -58,7 +60,7 @@ prose:
           label: "title"
       - name: date
         field:
-          element: "text"
+          element: "CURRENT_DATETIME"
           label: "date"
       - name: author
         field:
