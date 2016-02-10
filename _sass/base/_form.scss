@@ -13,7 +13,6 @@ select {
   color: $font-color-3;
   background-image: none;
   background-color: transparent;
-  border-radius: 0;
   border: none;
   box-shadow: none;
   font-size: 12px;
@@ -23,10 +22,11 @@ select {
 
 .chzn-container-single .chzn-drop {
   width: 100% !important;
+  padding: 0 5px 10px 5px;
+  border: none;
   border-radius: 0;
-  border-color: $color-2;
-  background-color: $bg-color-4;
-  transform: translatey(2px);
+  background-color: $light-grey-two;
+  transform: translatey(15px);
   font-family: $font-secondary;
 }
 
@@ -52,18 +52,31 @@ select {
 
 .chzn-container-single .chzn-search input {
   width: 100% !important;
-  background: none;
+  padding: 10px 30px 10px 5px;
   border-color: $bg-color-3;
+  background: url('/css/img/search.svg') no-repeat  95% 50%;
+  background-size: 15px 15px;
+}
+
+.chzn-container .chzn-results {
+  margin: 0;
+  padding: 0;
 }
 
 .chzn-container .chzn-results .active-result {
-  color: $font-color-1;
-  font-family: $font-secondary;
+  font-family: $font-main;
+  color: $font-color-3;
+
+  &.result-selected {
+    color: $font-color-3;
+    background: none;
+    background-color: rgba(190, 183, 170, .2);
+  }
 
   &.highlighted {
-    color: $font-color-1;
+    font-weight: 700;
+    text-decoration: underline;
     background: none;
-    background-color: $bg-color-3;
   }
 }
 
