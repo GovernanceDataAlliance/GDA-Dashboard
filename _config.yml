@@ -24,7 +24,7 @@ prose:
   media: 'css/img'
   ignore:
     - _config.yml
-    - _config.dev.yml
+    - _config_dev.yml
     - /_layouts
     - /_includes
     - /js
@@ -38,7 +38,7 @@ prose:
     - .gitignore
     - .jekyll-metadata
     - .ruby-version
-    - .travis-yml
+    - .travis.yml
     - _SpecRunner.html
     - Gemfile
     - Gemfile.lock
@@ -51,7 +51,7 @@ prose:
       - name: layout
         field:
           element: "hidden"
-          label: "title"
+          label: "layout"
       - name: title
         field:
           element: "text"
@@ -77,7 +77,23 @@ prose:
           element: text
           label: tags
     _organizations: 
-      - name: title
+      - name: layout
+        field:
+          element: "hidden"
+          label: "layout"
+      - name: name
         field:
           element: "text"
-          label: "title"
+          label: "name"
+      - name: logo
+        field:
+          element: "text"
+          label: "logo"
+      - name: link
+        field:
+          element: "text"
+          label: "link"
+      - name: description
+        field:
+          element: "text"
+          label: "description"
