@@ -60,7 +60,7 @@ prose:
           label: "title"
       - name: date
         field:
-          element: "CURRENT_DATETIME"
+          element: "text"
           label: "date"
       - name: author
         field:
