@@ -16,3 +16,59 @@ collections:
 markdown: kramdown
 
 exclude: ['scripts', 'node_modules', 'vendor']
+
+# prose.io
+prose:
+  rooturl: 'blog/_posts'
+  siteurl: 'http://vizzuality.github.io/GDA-Dashboard/'
+  media: 'css/img'
+  ignore:
+    - _config.yml
+    - _config.dev.yml
+    - /_layouts
+    - /_includes
+    - /js
+    - /.grunt
+    - /.sass-cache
+    - /_sass
+    - /_site
+    - /node-modules
+    - /scripts
+    - .editorconfig
+    - .gitignore
+    - .jekyll-metadata
+    - .ruby-version
+    - .travis-yml
+    - _SpecRunner.html
+    - Gemfile
+    - Gemfile.lock
+    - favicon.ico
+    - Gruntfile.js
+    - package.json
+    - README.md
+  metadata:
+    blog/_post: 
+      - name: title
+        field:
+          element: "text"
+          label: "title"
+      - name: date
+        field:
+          element: "text"
+          label: "date"
+      - name: author
+        field:
+          element: "text"
+          label: "author"
+      - image: 
+        field: 
+          element: "text"
+          label: image
+      - category: 
+        field: 
+          element: "text"
+          label: category
+      - tags: 
+        field: 
+          element: text
+          label: tags
