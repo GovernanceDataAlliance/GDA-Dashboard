@@ -106,8 +106,14 @@
     }
 
     h5 {
-      font-size: rem(20px);
       margin-bottom: rem(40px);
+      font-size: rem(20px);
+      line-height: rem(31px);
+    }
+
+    h6 {
+      font-size: rem(14px);
+      line-height: rem(27px);
     }
 
     hr {
@@ -131,18 +137,14 @@
       }
 
       h3 {
-        font-size: rem(20px);
-        font-weight: 400;
-        font-family: $font-main;
         margin-bottom: rem(20px);
-        color: $color-1;
+        font-size: rem(18px);
+        letter-spacing: rem(.3px);
       }
 
       p {
-        font-size: rem(14px);
-        font-weight: 400;
-        font-family: $font-main;
-        color: $color-1;
+        line-height: rem(27px);
+        letter-spacing: rem(.4px);
       }
     }
 
@@ -154,6 +156,7 @@
 
       > li {
         margin-bottom: rem(30px);
+        font-size: rem(15px);
       }
 
       p {
