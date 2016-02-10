@@ -66,18 +66,21 @@ prose:
         field:
           element: "text"
           label: "author"
-      - image: 
+      - name: image
         field: 
           element: "text"
           label: image
-      - category: 
+          placeholder: "example.jpg"
+      - name: category
         field: 
           element: "text"
           label: category
-      - tags: 
+          placeholder: "add one category"
+      - name: tags 
         field: 
-          element: text
+          element: "text"
           label: tags
+          placeholder: "[tag1, tag2, tag3]"
     _organizations:
       - name: name
         field:
