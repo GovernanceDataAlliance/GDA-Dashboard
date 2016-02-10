@@ -47,7 +47,7 @@ prose:
     - package.json
     - README.md
   metadata:
-    blog/_post: 
+    _post: 
       - name: layout
         field:
           element: "hidden"
