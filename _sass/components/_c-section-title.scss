@@ -54,9 +54,9 @@
     margin-bottom: rem(50px);
     padding-bottom: rem(50px);
 
-    // &.-country-name {
-    //   padding-bottom: rem(40px);
-    // }
+    &.-country-name {
+      padding-bottom: rem(40px);
+    }
   }
 
   @media screen and (min-width: $screen-l) {
