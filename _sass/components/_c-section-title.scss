@@ -60,10 +60,10 @@
   }
 
   @media screen and (min-width: $screen-l) {
+    padding-bottom: rem(30px);
+    margin-bottom: rem(55px);
     font-size: rem(50px);
-    padding-bottom: rem(50px);
-    margin-bottom: rem(60px);
-    line-height: 1.2em;
+    line-height: rem(85px);
 
     &.-small {
       margin-bottom: rem(50px);
