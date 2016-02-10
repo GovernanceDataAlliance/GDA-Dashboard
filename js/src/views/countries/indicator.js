@@ -6,17 +6,15 @@ var template = Handlebars.compile(
   require('../../templates/countries/indicator.hbs'));
 
 var LineChartView = require('../common/line_chart_view.js');
-var PartialRanksView = require('./partial_ranks.js');
+var PartialRanksView = require('./partial_ranks.js'),
+    LegendView = require('../common/legend_view.js');
 
 var ModalWindowView = require('../common/infowindow_view.js');
 
 var IndicatorView = Backbone.View.extend({
-  tagName: 'li',
-  className : 'm-card',
 
-  events: {
-    'click .btn-info': 'showModalWindow'
-  },
+  tagName   : 'li',
+  className : 'm-card',
 
   initialize: function(options) {
     options = options || {};
@@ -25,10 +23,12 @@ var IndicatorView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(template(this.indicator));
+
     this._setColorClass();
+    this._setTooltips();
     this.analizeValues();
     this.partialRanks();
-    
+
     if ( this.indicator['has_historical_info'] === true && this.indicator.data[0].score ) {
       this.drawGraph();
     }
@@ -61,9 +61,12 @@ var IndicatorView = Backbone.View.extend({
   //   return data;
   // },
 
-  showModalWindow: function(e) {
-    var data = $(e.currentTarget).data('info');
-    var modalWindowView = new ModalWindowView().render(data)
+  _setTooltips: function() {
+    var elem = this.$el.find('.c-tooltip');
+
+    if (elem) {
+      new LegendView({el: elem});
+    }
   },
 
   drawGraph: function() {

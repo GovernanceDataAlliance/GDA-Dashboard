@@ -7,18 +7,35 @@ var _ = require('lodash'),
 var LegendView = Backbone.View.extend({
 
   events: {
-    'click #legendPopup' : '_toggleLegend',
-    'click .btn-info' : '_stopEvent'
+    'click .btn-info' : '_toggleStatus'
   },
 
   initialize: function() {
+    this.model = new (Backbone.Model.extend({
+      defaults: {
+        isHidden: true
+      }
+    }));
+
     this._setListeners();
   },
 
   _setListeners: function() {
-    $('html').on('click', _.bind(function() {
+    this.model.on('change:isHidden', this._toggleLegend, this);
+  },
+
+  _setEvents: function() {
+
+    var listener = _.bind(function() {
       this._hide();
-    }, this));
+    }, this);
+
+    if (!this.model.get('isHidden')) {
+      document.addEventListener('click', listener);
+      $('.pop-up-legend').on('click', _.bind(this._stopEvent, this));
+    } else {
+      document.removeEventListener('click', listener);
+    }
   },
 
   _stopEvent: function(e) {
@@ -31,9 +48,31 @@ var LegendView = Backbone.View.extend({
     }
   },
 
-  _toggleLegend: function(e) {
+  _toggleStatus: function(e) {
     this._stopEvent(e);
+
+    this.model.set({
+      isHidden: !this.model.get('isHidden')
+    });
+  },
+
+  _removeOthersTooltips: function() {
+    var othersTooltips = $('.pop-up-legend');
+
+    if (othersTooltips.length > 0) {
+      for (var i = 0; i < othersTooltips.length; i++) {
+        if (!othersTooltips[i].isEqualNode(this.$el.find('.pop-up-legend')[0])) {
+          $(othersTooltips[i]).addClass('is-hidden');
+        }
+      }
+    }
+  },
+
+  _toggleLegend: function() {
+    this._removeOthersTooltips();
+
     this.$el.find('.pop-up-legend').toggleClass('is-hidden');
+    this._setEvents();
   }
 
 });
