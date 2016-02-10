@@ -32,6 +32,8 @@ prose:
     - /.sass-cache
     - /_sass
     - /_site
+    - /blog/categories.html
+    - /blog/tags.html
     - /node-modules
     - /scripts
     - .editorconfig
