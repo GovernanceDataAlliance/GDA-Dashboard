@@ -7,7 +7,7 @@ var template = Handlebars.compile(
 
 var LineChartView = require('../common/line_chart_view.js');
 var PartialRanksView = require('./partial_ranks.js'),
-    LegendView = require('../common/legend_view.js');
+    TooltipView = require('../common/tooltip_view.js');
 
 var ModalWindowView = require('../common/infowindow_view.js');
 
@@ -65,7 +65,7 @@ var IndicatorView = Backbone.View.extend({
     var elem = this.$el.find('.c-tooltip');
 
     if (elem) {
-      new LegendView({el: elem});
+      new TooltipView({el: elem});
     }
   },
 

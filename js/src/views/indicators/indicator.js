@@ -13,7 +13,7 @@ var IndicatorHeaderView = require('./indicator_header.js'),
     IndicatorSelectorsToolbarView = require('./indicator_selectors_toolbar.js'),
     CountryListView = require('./country_list.js'),
     ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
-    LegendView = require('../common/legend_view.js'),
+    TooltipView = require('../common/tooltip_view.js'),
     WrapperHeaderView = require('../common/wrapper_header_view.js');
 
 var template = Handlebars.compile(
@@ -98,7 +98,7 @@ var IndicatorView = Backbone.View.extend({
     }).render().el);
 
     setTimeout(function() {
-      new LegendView({el: '.m-legend'});
+      new TooltipView({el: '.m-legend'});
     }, 10);
   },
 
