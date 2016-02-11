@@ -43,7 +43,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     @media screen and (min-width: $screen-xl) {
       min-height: rem(900px);
       max-height: rem(1000px);
-      
+
       p {
         line-height: rem(34px);
         letter-spacing: rem(0.5px);
@@ -181,5 +181,9 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
         background-color: rgba(65, 52, 43, 0.5);
       }
     }
+  }
+
+  a:hover {
+    color: $color-4;
   }
 }
