@@ -69,6 +69,7 @@ prose:
           element: "text"
           label: image
           placeholder: "example.jpg"
+          value: 
       - name: category
         field: 
           element: "text"
@@ -78,7 +79,7 @@ prose:
         field: 
           element: "text"
           label: tags
-          placeholder: "[tag1, tag2, tag3]"
+          placeholder: "tag1, tag2, tag3"
     _organizations:
       - name: name
         field:
@@ -88,6 +89,8 @@ prose:
         field:
           element: "text"
           label: "logo"
+          placeholder: "example.jpg"
+          value: 
       - name: link
         field:
           element: "text"
