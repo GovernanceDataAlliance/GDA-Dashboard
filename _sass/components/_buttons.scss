@@ -25,6 +25,9 @@
     padding: 20px 60px;
     border: 1px solid $color-4;
     color: $color-2;
+    &:hover {
+      color: $color-4;
+    }
   }
 }
 
@@ -55,7 +58,7 @@
   &.-min-width {
     min-width: rem(120px);
     margin-left: 0;
-    
+
 
     @media screen and (min-width: $screen-m) {
       min-width: rem(210px);
