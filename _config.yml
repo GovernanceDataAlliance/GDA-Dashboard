@@ -51,6 +51,10 @@ prose:
           element: "hidden"
           label: "layout"
           value: blog/post
+      - name: "published"
+        field:
+          element: 'hidden'
+          value: true
       - name: title
         field:
           element: "text"
@@ -85,6 +89,10 @@ prose:
         field:
           element: "text"
           label: "name"
+      - name: "published"
+        field:
+          element: 'hidden'
+          value: true
       - name: logo
         field:
           element: "text"
