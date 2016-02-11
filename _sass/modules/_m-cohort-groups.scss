@@ -82,5 +82,9 @@
     color: $color-2;
     padding: rem(8px) 0;
     cursor: pointer;
+
+    &:hover {
+      color: $color-4;
+    }
   }
 }

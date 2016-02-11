@@ -18,15 +18,15 @@
 
     &:hover {
       color: $color-4;
-      border-color: $color-1;
+      border-color: $color-4;
 
       svg {
         fill: $dark-sky-blue;
       }
 
       &:after {
-        color: $color-1;
-        border-color: $color-1;
+        color: $color-4;
+        border-color: $color-4;
       }
     }
 
