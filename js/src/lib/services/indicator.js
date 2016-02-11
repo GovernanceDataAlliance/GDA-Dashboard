@@ -15,7 +15,7 @@ var IndicatorService = {
         return { year: indicator.get('year'), score: indicator.get('score') };
       });
 
-      var newIndicator = matchingIndicators[0];
+      var newIndicator = matchingIndicators[ matchingIndicators.length  - 1 ];
       newIndicator.set('data', data);
 
       groupedIndicators.push(newIndicator);

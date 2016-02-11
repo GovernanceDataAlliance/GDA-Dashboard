@@ -1,6 +1,6 @@
 .c-section-title {
   position: relative;
-  padding-bottom: rem(20px);
+  padding: rem(30px) 0 rem(20px) 0;
   margin-bottom: rem(40px);
   font-size: rem(40px);
   font-weight: 400;
@@ -50,8 +50,9 @@
   }
 
   @media screen and (min-width: $screen-m) {
-
     font-size: rem(45px);
+    margin-bottom: rem(50px);
+    padding: 0 0 rem(50px) 0;
 
     &.-country-name {
       padding-bottom: rem(40px);
@@ -59,10 +60,10 @@
   }
 
   @media screen and (min-width: $screen-l) {
+    padding-bottom: rem(30px);
+    margin-bottom: rem(55px);
     font-size: rem(50px);
-    padding-bottom: rem(50px);
-    margin-bottom: rem(60px);
-    line-height: 1.2em;
+    line-height: rem(85px);
 
     &.-small {
       margin-bottom: rem(50px);

@@ -28,18 +28,16 @@ prose:
     - /_layouts
     - /_includes
     - /js
-    - /.grunt
-    - /.sass-cache
     - /_sass
     - /_site
-    - /node-modules
+    - /blog/categories.html
+    - /blog/tags.html
     - /scripts
     - .editorconfig
     - .gitignore
     - .jekyll-metadata
     - .ruby-version
     - .travis.yml
-    - _SpecRunner.html
     - Gemfile
     - Gemfile.lock
     - favicon.ico
@@ -47,11 +45,12 @@ prose:
     - package.json
     - README.md
   metadata:
-    blog/_post: 
+    blog: 
       - name: layout
         field:
           element: "hidden"
           label: "layout"
+          value: blog/post
       - name: title
         field:
           element: "text"
@@ -60,27 +59,28 @@ prose:
         field:
           element: "text"
           label: "date"
+          placeholder: YYYY-MM-DD HH:MM:SS
       - name: author
         field:
           element: "text"
           label: "author"
-      - image: 
+      - name: image
         field: 
           element: "text"
           label: image
-      - category: 
+          placeholder: "example.jpg"
+          value: 
+      - name: category
         field: 
           element: "text"
           label: category
-      - tags: 
+          placeholder: "add one category"
+      - name: tags 
         field: 
-          element: text
+          element: "text"
           label: tags
-    _organizations: 
-      - name: layout
-        field:
-          element: "hidden"
-          label: "layout"
+          placeholder: "tag1, tag2, tag3"
+    _organizations:
       - name: name
         field:
           element: "text"
@@ -89,6 +89,8 @@ prose:
         field:
           element: "text"
           label: "logo"
+          placeholder: "example.jpg"
+          value: 
       - name: link
         field:
           element: "text"
