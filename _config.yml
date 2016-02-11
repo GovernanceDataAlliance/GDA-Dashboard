@@ -28,20 +28,16 @@ prose:
     - /_layouts
     - /_includes
     - /js
-    - /.grunt
-    - /.sass-cache
     - /_sass
     - /_site
     - /blog/categories.html
     - /blog/tags.html
-    - /node-modules
     - /scripts
     - .editorconfig
     - .gitignore
     - .jekyll-metadata
     - .ruby-version
     - .travis.yml
-    - _SpecRunner.html
     - Gemfile
     - Gemfile.lock
     - favicon.ico
@@ -63,6 +59,7 @@ prose:
         field:
           element: "text"
           label: "date"
+          placeholder: YYYY-MM-DD HH:MM:SS
       - name: author
         field:
           element: "text"
