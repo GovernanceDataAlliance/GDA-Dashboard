@@ -1,8 +1,10 @@
 ---
 layout: about
-title: About the Alliance
-intro-text: The Governance Data Alliance is a community of governance data producers, users, and funders committed to the effective production and use of high-quality data to advance democratic governance reforms in countries.
+title: "About the Alliance - CMS test"
+"intro-text": "The Governance Data Alliance is a community of governance data producers, users, and funders committed to the effective production and use of high-quality data to advance democratic governance reforms in countries."
+published: true
 ---
+
 
 ##### The Alliance came together in 2014 because we were collectively worried about the persistence of inadequate data assessing a range of governance dimensions in countries around the world, and the twin challenge of data producers often lacking insight into who the actual users of their data were. We strongly believed that no single organization could solve those problems alone, and that we needed a collective action response to strengthen the future production and use of governance data.
 
