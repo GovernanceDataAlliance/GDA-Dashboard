@@ -66,6 +66,11 @@
     }
   }
 
+  &.-pagination {
+    border-top: 1px solid $border-1;
+    background-color: transparent;
+  }
+
   &.-year-selector {
     z-index: 10;
     background-color: $bg-color-1;

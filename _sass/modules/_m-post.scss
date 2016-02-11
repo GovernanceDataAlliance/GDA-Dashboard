@@ -7,6 +7,7 @@ $sections-padding: .5rem .5rem .5rem 0;
   letter-spacing: 0.3px;
   line-height: 1;
 }
+
 %title-font {
   font-family: $font-main;
   font-size: rem(50px);
@@ -14,6 +15,7 @@ $sections-padding: .5rem .5rem .5rem 0;
   color: $font-color-1;
   font-weight: 500;
 }
+
 %content-font {
   font-family: $font-main;
   font-size: rem(15px);
@@ -33,6 +35,7 @@ $sections-padding: .5rem .5rem .5rem 0;
 
     > .category {
       padding: $sections-padding;
+      padding-right: rem(20px);
 
       span {
         @extend %properties-font;
@@ -46,6 +49,7 @@ $sections-padding: .5rem .5rem .5rem 0;
       .tag {
         padding: 0.25rem 0.75rem;
         margin-right: rem(10px);
+        float: left;
 
         @extend %properties-font;
         color: $font-color-2;
@@ -129,8 +133,7 @@ $sections-padding: .5rem .5rem .5rem 0;
     }
   }
 
-  &.-list {
-    padding: 1rem 0;
+  .-list & {
 
     > .title {
       margin-bottom: 0;
@@ -151,7 +154,7 @@ $sections-padding: .5rem .5rem .5rem 0;
     }
   }
 
-  .l-post.-img & {
+  &.-light {
 
     > .properties > .category span,
     > .details > .author,
@@ -164,15 +167,10 @@ $sections-padding: .5rem .5rem .5rem 0;
   }
 
   @media screen and (min-width: $screen-m) {
-    padding: 0 5rem 2rem;
 
     > .properties {
       flex-direction: row;
       align-items: center;
-    }
-
-    &.-list {
-      padding: 3rem 10rem 3rem 0rem;
     }
   }
 }
