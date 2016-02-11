@@ -1,0 +1,10 @@
+---
+name: test
+logo: clara_linos.png
+link: "www.dummy-test.com"
+description: ""
+published: false
+---
+
+![clara_linos.png]({{site.baseurl}}/css/img/logos/clara_linos.png)
+
