@@ -224,7 +224,7 @@ var CompareView = Backbone.View.extend({
     }).render().el);
 
     setTimeout(function() {
-      new LegendView({el: '.m-legend'});
+      new TooltipView({el: '.m-legend'});
     }, 10);
   },
 
