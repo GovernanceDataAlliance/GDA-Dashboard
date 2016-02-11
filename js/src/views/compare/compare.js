@@ -30,7 +30,7 @@ var CompareSelectorsView = require('./compare_selectors.js'),
     YearSelectorView = require('../common/year_selector.js'),
     ModalWindowView = require('../common/infowindow_view.js'),
     ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
-    LegendView = require('../common/legend_view.js'),
+    TooltipView = require('../common/tooltip_view.js'),
     WrapperHeaderView = require('../common/wrapper_header_view.js');
 
 var compareStatus = new (Backbone.Model.extend({
@@ -41,9 +41,9 @@ var compareStatus = new (Backbone.Model.extend({
 
 var CompareView = Backbone.View.extend({
 
-  events: {
-    'click .btn-info': 'showModalWindow'
-  },
+  // events: {
+  //   'click .btn-info': 'showModalWindow'
+  // },
 
   initialize: function(options) {
     options = options || {};
@@ -84,6 +84,14 @@ var CompareView = Backbone.View.extend({
     this.renderToolbar();
     this._setResize();
     return this;
+  },
+
+  _setTooltips: function() {
+    var tooltips = this.$el.find('.c-tooltip');
+
+    for (var i = 0; i < tooltips.length; i++) {
+      new TooltipView({el: tooltips[i]});
+    }
   },
 
   /*
@@ -134,6 +142,7 @@ var CompareView = Backbone.View.extend({
       var indicators = _.sortByOrder(indicators.rows, ['short_name']);
       this.$('.js--comparison-indicators').html(indicatorsTemplate({ 'indicators': indicators }))
       this.calculateEndScrollPoint();
+      this._setTooltips();
     }.bind(this))
   },
 
@@ -166,7 +175,6 @@ var CompareView = Backbone.View.extend({
   },
 
   _onResize: function() {
-    console.log('resized');
     var isMobile = (window.innerWidth || document.body.clientWidth) < 768 ? true:false;
     if (this.mobile != isMobile) {
       this.render();

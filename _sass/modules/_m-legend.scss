@@ -5,6 +5,7 @@
 
   > ul {
     display: flex; display: -ms-box;
+    margin-right: rem(20px);
 
     li {
       display: flex; display: -ms-box;
@@ -58,54 +59,6 @@
 
         &:before {
           margin: 0 10px 0 0;
-        }
-      }
-    }
-  }
-
-  .pop-up-legend-container {
-    display: none;
-    position: relative;
-    margin-left: 20px;
-
-    @media screen and (min-width: $screen-s) {
-      display: block;
-    }
-
-    > .pop-up-legend {
-      position: absolute;
-      top: 37px;
-      left: 0;
-      transform: translate(-50%, 0);
-      width: 450px;
-      padding: 40px 30px;
-      background-color: #eeedea;
-      box-shadow: 0 0 4px rgba(91, 91, 91, 0.3);
-      &:before {
-        content: '';
-        top: -12px;
-        left: calc(50% + 7px);
-        transform: translate(-50%, 0);
-        @include equi-triangle(rem(12px), #eeedea, top);
-        position: absolute;
-      }
-
-      @media screen and (min-width: $screen-s) {
-        left: 0;
-        right: 0;
-      }
-
-      > p {
-        font-size: rem(12px);
-        line-height: rem(18px);
-        letter-spacing: rem(0.4px);
-        color: #5b5b5b;
-        margin: 7px 0;
-        &:first-child {
-          margin-top: 0;
-        }
-        &:last-child {
-          margin-bottom: 0;
         }
       }
     }

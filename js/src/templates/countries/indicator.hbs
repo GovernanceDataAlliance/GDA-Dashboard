@@ -11,7 +11,14 @@
           <h3 class="organization">
             {{organization}}
             {{#if product_description}}
-              <button class="btn-info" data-info="{{product_description}}">i</button>
+              <div class="c-tooltip">
+                <div class="pop-up-legend-container">
+                  <button class="btn-info">i</button>
+                  <div class="pop-up-legend is-hidden">
+                    <p>{{product_description}}</p>
+                  </div>
+                </div>
+              </div>
             {{/if}}
           </h3>
         {{/if}}
@@ -83,4 +90,3 @@
 </div>
 {{/if}}
 {{!-- </a> --}}
-

@@ -9,7 +9,7 @@ var CountryHeaderView = require('./country_header.js'),
     IndicatorListView = require('./indicator_list.js'),
     CountryToolbarView = require('./country_toolbar.js'),
     ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
-    LegendView = require('../common/legend_view.js'),
+    TooltipView = require('../common/tooltip_view.js'),
     WrapperHeaderView = require('../common/wrapper_header_view.js');
 
 var ShareView = require('../common/share_view.js');
@@ -74,7 +74,7 @@ var CountryView = Backbone.View.extend({
     }).render().el);
 
     setTimeout(function() {
-      new LegendView({el: '.m-legend'});
+      new TooltipView({el: '.m-legend'});
     }, 10);
 
   },
