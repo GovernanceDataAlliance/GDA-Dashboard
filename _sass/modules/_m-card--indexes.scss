@@ -72,6 +72,12 @@
         width: rem(70px);
       }
     }
+
+    &:hover {
+      .name {
+        color: $color-4;
+      }
+    }
   }
 
   @media screen and (min-width: $screen-m) {

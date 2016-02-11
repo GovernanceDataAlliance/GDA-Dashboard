@@ -34,6 +34,10 @@
     }
   }
 
+  a:hover {
+    color: $dark-sky-blue;
+  }
+
   .-not-covered {
     min-height: rem(390px);
     background-color: $bg-color-1;
@@ -502,6 +506,10 @@
         border-top: 2px solid $white !important;
         border-left: 2px solid $white !important;
       }
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     .index-score .partial-scores {

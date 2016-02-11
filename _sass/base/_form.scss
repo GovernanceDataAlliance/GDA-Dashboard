@@ -74,7 +74,7 @@ select {
   }
 
   &.highlighted {
-    font-weight: 700;
+    color: $color-4;
     text-decoration: underline;
     background: none;
   }

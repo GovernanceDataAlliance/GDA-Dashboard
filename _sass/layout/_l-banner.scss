@@ -181,4 +181,8 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
       }
     }
   }
+
+  a:hover {
+    color: $color-4;
+  }
 }

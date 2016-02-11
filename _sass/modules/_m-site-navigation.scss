@@ -3,7 +3,6 @@
   .link {
     > a {
       position: relative;
-      font-weight: 700;
       font-family: $font-secondary;
       color: $font-color-1;
       text-transform: uppercase;
@@ -62,6 +61,9 @@
         }
         > a {
           font-size: rem(11px);
+          &:hover {
+            color: $font-color-3;
+          }
         }
       }
     }
