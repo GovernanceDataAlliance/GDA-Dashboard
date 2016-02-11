@@ -166,44 +166,43 @@
         &.-expand {
           max-height: none;
         }
-
-        .read-more {
-          margin-left: 10px;
-        }
-
-        .read-more,
-        .read-less {
-          position: relative;
-          font-family: "Montserrat";
-          font-size: rem(11px);
-          text-transform: uppercase;
-          color: $font-color-3;
-          cursor: pointer;
-          white-space: nowrap;
-        }
-
-        .read-more:after,
-        .read-less:after {
-          content: '';
-          position: absolute;
-
-        }
-
-        .read-more:after {
-          top: 0;
-          right: -15px;
-          @include arrow (5px, $color-2, 2px, 225deg);
-          transform: rotate(225deg) translate(0, -50%);
-        }
-
-        .read-less:after {
-          top: 50%;
-          right: -10px;
-          @include arrow (5px, $color-2, 2px, 45deg);
-          transform: rotate(45deg) translate(0, -50%);
-        }
-
       }
+    }
+
+    .read-more {
+      margin-left: 10px;
+    }
+
+    .read-more,
+    .read-less {
+      position: relative;
+      font-family: "Montserrat";
+      font-size: rem(11px);
+      text-transform: uppercase;
+      color: $font-color-3;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .read-more:after,
+    .read-less:after {
+      content: '';
+      position: absolute;
+
+    }
+
+    .read-more:after {
+      top: 0;
+      right: -15px;
+      @include arrow (5px, $color-2, 2px, 225deg);
+      transform: rotate(225deg) translate(0, -50%);
+    }
+
+    .read-less:after {
+      top: 50%;
+      right: -10px;
+      @include arrow (5px, $color-2, 2px, 45deg);
+      transform: rotate(45deg) translate(0, -50%);
     }
 
     .organization {
@@ -504,5 +503,13 @@
     }
 
     .graph > svg { stroke: $white;}
+    
+    .-not-covered {
+      .btn, .read-more,
+      .read-less {
+        color: $font-color-3 !important;
+      }
+    }
   }
+
 }

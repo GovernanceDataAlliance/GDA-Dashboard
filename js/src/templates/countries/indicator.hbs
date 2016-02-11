@@ -61,21 +61,23 @@
 <div class="card-wrap -not-covered">
   <div class="wrap">
     <div class="index-description">
-      <h2 class="name">
-        {{product_name}}
-      </h2>
-      {{#if organization}}
-        <h3 class="organization">
-          {{organization}}
-        </h3>
-      {{/if}}
-      {{#if product_description}}
-        <p class="description">
-          {{product_description}}
-        </p>
-      {{/if}}
-      <p class="not-covered">not covered</p>
-      <a class="btn" href="/indicators#{{short_name}}">See the full index &gt; </a>
+        <h2 class="name">
+          {{product_name}}
+        </h2>
+        {{#if organization}}
+          <h3 class="organization">
+            {{organization}}
+          </h3>
+        {{/if}}
+        {{#if product_description}}
+          <div class="description-wrapper">
+            <p class="description">
+              {{product_description}}
+            </p>
+          </div>
+        {{/if}}
+        <p class="not-covered">not covered</p>
+        <a class="btn" href="/indicators#{{short_name}}">See the full index &gt; </a>
     </div>
   </div>
 </div>
