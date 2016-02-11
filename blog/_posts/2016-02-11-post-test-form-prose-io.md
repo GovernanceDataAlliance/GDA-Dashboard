@@ -1,6 +1,6 @@
 ---
 layout: blog/post
-date: "2016-02-011 11:00:00"
+date: "2016-02-11 11:00:00"
 author: Jhon Sample
 image: ""
 category: test
