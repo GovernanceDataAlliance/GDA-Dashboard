@@ -5,9 +5,10 @@ author: Jhon Sample
 image: ""
 category: test
 tags: "[test1, test2]"
-published: false
+published: true
 title: post test form prose.io
 ---
+
 
 
 New post from CMS prose.io
