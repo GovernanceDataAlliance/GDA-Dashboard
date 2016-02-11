@@ -1,8 +1,9 @@
 ---
 name: test
-logo: "clara_linos@gmail.com"
+logo: clara_linos.png
 link: ""
 description: ""
-published: true
+published: false
 ---
+
 
