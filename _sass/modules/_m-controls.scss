@@ -1,5 +1,5 @@
 .m-controls {
-  display: flex; 
+  display: flex;
   display: -ms-box;
   // flex: 1 1 auto;
   align-items: center;
@@ -17,11 +17,11 @@
     display: inline-block;
 
     &:hover {
-      color: $color-1;
+      color: $color-4;
       border-color: $color-1;
 
       svg {
-        fill: $color-1;
+        fill: $dark-sky-blue;
       }
 
       &:after {
@@ -34,6 +34,10 @@
       color: $font-color-1;
       background-color: #dedcda;
       min-height: 100%;
+
+      svg {
+        fill: $color-1;
+      }
     }
   }
 
@@ -75,7 +79,7 @@
     .icon {
       display: none;
     }
-    
+
     @media screen and (min-width: $screen-m) {
       width: auto;
 
