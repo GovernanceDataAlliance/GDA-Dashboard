@@ -54,6 +54,7 @@ prose:
         field:
           element: "hidden"
           label: "layout"
+          value: blog/post
       - name: title
         field:
           element: "text"
