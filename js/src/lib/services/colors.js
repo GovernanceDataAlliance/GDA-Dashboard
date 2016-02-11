@@ -46,6 +46,10 @@ var ColorService = {
 	getColor: function(ind) {
 		var rank = ind.score_range.split(',');
 
+    if (!ind.score) {
+      return;
+    }
+
 		this.indicator = {
 			rankSize: rank.length,
 			direction: ind.desired_direction,
