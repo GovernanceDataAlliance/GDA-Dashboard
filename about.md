@@ -1,6 +1,6 @@
 ---
 layout: about
-title: "About the Alliance - CMS test"
+title: "About the Alliance"
 "intro-text": "The Governance Data Alliance is a community of governance data producers, users, and funders committed to the effective production and use of high-quality data to advance democratic governance reforms in countries."
 published: true
 ---
