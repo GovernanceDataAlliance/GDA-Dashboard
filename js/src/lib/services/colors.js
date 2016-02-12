@@ -6,6 +6,7 @@ var red  = '-score-poor',
 	green  = '-score-excellent';
 
 var colorRange = {
+  'range-2': [green, red],
 	'range-3': [green, yellow, red],
 	'range-4': [green, blue, orange, red],
 	'range-5': [green, blue, yellow, orange, red]
@@ -30,23 +31,36 @@ var ColorService = {
 			this.indicator.colorRange = this._reverseRange();
 		}
 
-		for (var i = 0; i < this.indicator.rankSize; i++) {
-			tier = this.indicator.rank[i].split('-');
-			tierBegin = parseFloat(tier[0]);
-			tierEnd = parseFloat(tier[1]);
+    // Range-2
+    if (this.indicator.rankSize < 3) {
 
-			if (this.indicator.score >= tierBegin && this.indicator.score <= tierEnd) {
-				if (this.indicator && this.indicator.colorRange) {
-					return this.indicator.colorRange[i];
-				}
-			}
-		}
+      for (var i = 0; i < this.indicator.rankSize; i++) {
+        if (this.indicator.score == this.indicator.rank[i]) {
+          return this.indicator.colorRange[i];
+        }
+      }
+
+    } else {
+      // Range 3 and highers
+      for (var i = 0; i < this.indicator.rankSize; i++) {
+        tier = this.indicator.rank[i].split('-');
+        tierBegin = parseFloat(tier[0]);
+        tierEnd = parseFloat(tier[1]);
+
+        if (this.indicator.score >= tierBegin && this.indicator.score <= tierEnd) {
+          if (this.indicator && this.indicator.colorRange) {
+            return this.indicator.colorRange[i];
+          }
+        }
+      }
+    }
+
 	},
 
 	getColor: function(ind) {
 		var rank = ind.score_range.split(',');
 
-    if (!ind.score) {
+    if (ind.score.toString().length === 0) {
       return;
     }
 
