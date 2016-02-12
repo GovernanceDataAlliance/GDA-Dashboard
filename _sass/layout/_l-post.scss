@@ -1,6 +1,6 @@
 .l-post {
-
-  border-bottom: 1px solid $border-1;
+  background-color: $bg-color-1;
+  padding-bottom: rem(40px);
 
   &:last-child {
     border-bottom: none;
@@ -13,8 +13,20 @@
     @include veil(rgba($bg-color-2, 0.45));
   }
 
-  &.list {
-    
+  @media screen and (min-width: $screen-m) {
+    padding-top: rem(20px);
+    padding-bottom: rem(120px);
+  }
+
+  &.-list {
+    background-color: transparent;
+    padding: rem(30px) 0 rem(75px) 0;
+    border-bottom: 1px solid $border-1;
+
+    @media screen and (min-width: $screen-m) {
+      padding-top: rem(95px);
+      padding-bottom: rem(105px);
+    }
   }
 
 }
