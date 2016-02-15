@@ -91,6 +91,15 @@
     top: 40%;
     right: rem(20px);
     pointer-events: none;
+
+    @media screen and (min-width: $screen-m) {
+      right: rem(10px);
+    }
+    
+    @media screen and (min-width: $screen-l) {
+      right: rem(20px);
+    }
+
   }
 
   &.-sm {
