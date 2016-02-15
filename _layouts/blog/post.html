@@ -33,18 +33,19 @@
 
       <div class="l-toolbar -pagination">
         <div class="wrap">
-
-          <div class="m-pagination">
-            {% if page.previous.url%}
-              <a href="{{base.siteurl}}{{ page.previous.url }}" class="page-link"> < Newer Post</a>
-            {% else %}
-              <span class="page-link -disabled">< Newer Post</span>
-            {% endif %}
-            {% if page.next.url %}
-              <a href="{{base.siteurl}}{{ page.next.url }}" class="page-link"> Older post > </a>
-            {% else %}
-              <span class="page-link -disabled">Older post ></span>
-            {% endif %}
+          <div class="m-controls -full -centered">
+            <div class="m-pagination">
+              {% if page.previous.url%}
+                <a href="{{base.siteurl}}{{ page.previous.url }}" class="page-link"> < Newer Post</a>
+              {% else %}
+                <span class="page-link -disabled">< Newer Post</span>
+              {% endif %}
+              {% if page.next.url %}
+                <a href="{{base.siteurl}}{{ page.next.url }}" class="page-link"> Older post > </a>
+              {% else %}
+                <span class="page-link -disabled">Older post ></span>
+              {% endif %}
+            </div>
           </div>
 
           <div class="m-controls -right">

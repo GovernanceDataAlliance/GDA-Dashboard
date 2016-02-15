@@ -78,12 +78,12 @@ prose:
         field: 
           element: "text"
           label: category
-          placeholder: "add one category"
+          placeholder: "add only one category"
       - name: tags 
         field: 
           element: "text"
           label: tags
-          placeholder: "tag1, tag2, tag3"
+          placeholder: tag1 tag_2 tag-3
     _organizations:
       - name: name
         field:

@@ -29,6 +29,11 @@
       color: $color-4;
     }
   }
+
+  &.-centered {
+    display: flex;
+    align-self: center;
+  }
 }
 
 .btn-info {
@@ -45,7 +50,8 @@
 
 .btn-drop-down {
   position: relative;
-  width: 88%;
+  // width: 88%;
+  width: 100%;
   height: rem(45px);
   // min-width: rem(210px);
   margin: rem(12px) 6%;

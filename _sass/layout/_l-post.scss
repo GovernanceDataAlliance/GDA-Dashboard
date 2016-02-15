@@ -16,6 +16,10 @@
   @media screen and (min-width: $screen-m) {
     padding-top: rem(20px);
     padding-bottom: rem(120px);
+
+    .wrap {
+      max-width: 80%;
+    }
   }
 
   &.-list {
@@ -26,7 +30,12 @@
     @media screen and (min-width: $screen-m) {
       padding-top: rem(95px);
       padding-bottom: rem(105px);
+      
+      .wrap {
+        margin: 0;
+      }
     }
+
   }
 
 }
@@ -41,10 +50,23 @@
 
 
 .selector-wrapper.-category {
-  min-width: rem(250px);
-  align-self: flex-start;
+  // min-width: rem(250px);
+  // align-self: flex-start;
+
+  @media screen and (min-width: $screen-m) {
+    margin-top: rem(15px);
+
+    .chzn-container-single .chzn-drop {
+      transform: translatey(1px);
+    }
+  }
 
   .l-toolbar & {
     align-self: center;
+    margin-top: 0;
+
+    .chzn-container-single .chzn-drop {
+      transform: translatey(15px);
+    }
   }
 }

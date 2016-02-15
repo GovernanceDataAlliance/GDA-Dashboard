@@ -5,8 +5,8 @@ title: images test
 date: "2016-02-06 19:00:00 +0200"
 author: Nathaniel Heller
 image: little_plant.jpg
-category: Category1
-tags: "tag1, tag3, tagged2"
+category: category1
+tags: tag1 tag3 tagged2
 ---
 
 
