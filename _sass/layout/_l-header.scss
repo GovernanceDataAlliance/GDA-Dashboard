@@ -44,6 +44,10 @@ $header-height: rem(70px);
         width: 100%;
       }
 
+      .modal-background {
+        display: none;
+      }
+
       &.-open {
         z-index: 99;
         position: fixed;
@@ -51,6 +55,10 @@ $header-height: rem(70px);
         left: 0;
         right: 0;
         bottom: 0;
+
+        .modal-background {
+          display: block;
+        }
       }
     }
 

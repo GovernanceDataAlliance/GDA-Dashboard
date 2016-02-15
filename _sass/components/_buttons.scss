@@ -115,11 +115,11 @@
   font-family: $font-main;
   font-weight: bold;
   color: $color-4;
-  font-size: rem(30px);
+  font-size: rem(20px);
 
-  width: rem(35px);
-  height: rem(35px);
-  line-height: 28px;
+  width: rem(24px);
+  height: rem(24px);
+  line-height: 18px;
   border-radius: 50%;
   text-align: center;
   border: 2px solid $color-4;
@@ -127,12 +127,5 @@
   &.-color-1 {
     color: $color-1;
     border-color: $color-1;
-  }
-
-  @media screen and (min-width: $screen-s) {
-    font-size: rem(20px);
-    width: rem(24px);
-    height: rem(24px);
-    line-height: 18px;
   }
 }

@@ -47,6 +47,7 @@ $footer-height: rem(375px);
     .menus-wrapper {
       @include col(5);
       display: flex; display: -ms-box;
+      padding: 0 rem($wrap-padding-mobile);
       justify-content: space-between;
       align-items: center;
       flex-direction: column;
