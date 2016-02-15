@@ -21,12 +21,16 @@
   > .page-number {
     padding: 0 1rem;
     font-family: $font-secondary;
-    font-size: rem(15px);
+    font-size: rem(12px);
     color: $font-color-1;
     letter-spacing: .4px;
   }
 
   @media screen and (min-width: $screen-m) {
     min-width: rem(250px);
+
+    > .page-number {
+      font-size: rem(15px);
+    }
   }
 }

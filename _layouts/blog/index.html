@@ -28,21 +28,19 @@
       <div class="l-toolbar">
         <div class="wrap">
           
-          <div class="m-controls">
-            <div class="selector-wrapper -category">
-              <div class="btn-drop-down -sm" id="categorySelector" data-url="{{ site.baseurl }}">
-                <select>
-                  <option value="">All categories</option>
-                  {% for category in site.categories %}
-                    {% unless category[0] == "blog" %}
-                      <option value="{{site.baseurl}}/blog/categories#{{ category | first | remove:' ' | downcase}}">
-                        {{ category | first }}
-                      </option>
-                      {% if forloop.last %}.{% else %}, {% endif %}
-                    {% endunless %}
-                  {% endfor %}
-                </select>
-              </div>
+          <div class="m-controls  -selector">
+            <div class="btn-drop-down -sm" id="categorySelector" data-url="{{ site.baseurl }}">
+              <select>
+                <option value="">All categories</option>
+                {% for category in site.categories %}
+                  {% unless category[0] == "blog" %}
+                    <option value="{{site.baseurl}}/blog/categories#{{ category | first | remove:' ' | downcase}}">
+                      {{ category | first }}
+                    </option>
+                    {% if forloop.last %}.{% else %}, {% endif %}
+                  {% endunless %}
+                {% endfor %}
+              </select>
             </div>
           </div>
 
@@ -70,7 +68,7 @@
 
       <div class="l-toolbar">
         <div class="wrap">
-          <div class="m-controls">
+          <div class="m-controls -full -centered">
             <div class="m-pagination">
               {% if paginator.previous_page %}
                 <a href="{{site.baseurl}}{{ paginator.previous_page_path }}" class="page-link"> < Newer Post</a>
@@ -86,7 +84,7 @@
             </div>
           </div>
 
-          <div class="m-controls">
+          <div class="m-controls -full -centered">
             <button class="js--share btn">
               <svg class="icon -regular">
                 <use xlink:href="#icon-share"></use>

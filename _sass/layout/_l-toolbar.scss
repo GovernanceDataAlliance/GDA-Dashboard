@@ -18,10 +18,11 @@
   .wrap {
     display: flex; display: -ms-box;
     justify-content: space-between;
+    flex-wrap: wrap;
 
     > .js--toolbar-utils {
-      display: flex; display: -ms-box;
-      width: 100%;
+      display: flex;
+      // width: 100%;
     }
 
     > .js--toolbar-display {
@@ -84,8 +85,9 @@
     }
 
     .js--toolbar-utils {
+      display: flex;
       order: 1;
-      margin-left: 0;
+      // margin-left: 0;
     }
 
     @media screen and (min-width: $screen-m) {
@@ -96,7 +98,7 @@
 
       .js--toolbar-utils {
         order: 3;
-        margin-left: 5%;
+        // margin-left: 5%;
       }
     }
 
@@ -131,8 +133,8 @@
     .wrap {
 
       > .js--toolbar-utils {
-        width: 60%;
-        margin-left: 2%;
+        // width: 60%;
+        // margin-left: 2%;
       }
 
       > .js--toolbar-display {
@@ -149,7 +151,7 @@
         justify-content: space-between;
 
         > .js--toolbar-utils {
-          width: auto;
+          // width: auto;
         }
       }
     }

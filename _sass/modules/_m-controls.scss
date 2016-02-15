@@ -4,13 +4,14 @@
   // flex: 1 1 auto;
   align-items: center;
   justify-content: space-between;
-  width: 50%;
 
   .is-small-text {
     margin-right: rem(10px);
   }
 
-  a, button, .btn-drop-down {
+  a, 
+  button, 
+  .btn-drop-down {
 
     font-size: rem(10px);
 
@@ -39,6 +40,32 @@
         fill: $color-1;
       }
     }
+  }
+
+  .icon {
+    display: none;
+
+    @media screen and (min-width: $screen-s) {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+  }
+
+  &.-selector {
+    min-width: rem(180px);
+  }
+
+  &.-full {
+    width: 100%;
+
+    @media screen and (min-width: $screen-s) {
+      width: auto;
+    }
+  }
+
+  &.-centered {
+    justify-content: center;
   }
 
   &.-s-column {
@@ -76,10 +103,6 @@
       margin-right: 4%;
     }
 
-    .icon {
-      display: none;
-    }
-
     @media screen and (min-width: $screen-m) {
       width: auto;
 
@@ -87,13 +110,6 @@
         display: inline-block;
       }
     }
-
-  }
-
-  .icon {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 5px;
   }
 
   span {
