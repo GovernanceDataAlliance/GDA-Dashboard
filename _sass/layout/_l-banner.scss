@@ -20,6 +20,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     }
 
     .scroll-down {
+      display: none;
       position: absolute;
       top: auto;
       left: 50%;
@@ -34,6 +35,10 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
         &:hover {
           fill: $white;
         }
+      }
+
+      @media screen and (min-width: $screen-s) {
+        display: block;
       }
     }
 
@@ -110,7 +115,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
       }
     }
   }
-  
+
   //Blog
   &.-section-3 {
     min-height: rem(70px);
