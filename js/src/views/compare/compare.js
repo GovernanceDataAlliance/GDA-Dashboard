@@ -47,8 +47,6 @@ var CompareView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
 
-    // this.mobile = (window.innerWidth || document.body.clientWidth) < 768 ? true : false;
-
     enquire.register("screen and (max-width:768px)", {
       match: _.bind(function(){
         this.mobile = true;
@@ -56,7 +54,7 @@ var CompareView = Backbone.View.extend({
         _.extend(this.events, {
           'click .btn-info': 'showModalWindow'
         });
-        
+
       },this)
     });
 
