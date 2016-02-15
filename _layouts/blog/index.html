@@ -27,8 +27,8 @@
 
       <div class="l-toolbar">
         <div class="wrap">
+          
           <div class="m-controls">
-
             <div class="selector-wrapper -category">
               <div class="btn-drop-down -sm" id="categorySelector" data-url="{{ site.baseurl }}">
                 <select>
@@ -44,13 +44,16 @@
                 </select>
               </div>
             </div>
+          </div>
 
+          <div class="m-controls">
             <button class="js--share btn">
               <svg class="icon -regular">
                 <use xlink:href="#icon-share"></use>
               </svg>
               share
             </button>
+          </div>
           </div>
         </div>
       </div>
@@ -68,7 +71,6 @@
       <div class="l-toolbar">
         <div class="wrap">
           <div class="m-controls">
-
             <div class="m-pagination">
               {% if paginator.previous_page %}
                 <a href="{{site.baseurl}}{{ paginator.previous_page_path }}" class="page-link"> < Newer Post</a>
@@ -82,13 +84,16 @@
                 <span class="page-link -disabled">Older post ></span>
               {% endif %}
             </div>
+          </div>
 
+          <div class="m-controls">
             <button class="js--share btn">
               <svg class="icon -regular">
                 <use xlink:href="#icon-share"></use>
               </svg>
               share
             </button>
+          </div>
           </div>
         </div>
       </div>

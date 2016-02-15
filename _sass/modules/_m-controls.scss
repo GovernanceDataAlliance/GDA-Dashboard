@@ -4,7 +4,7 @@
   // flex: 1 1 auto;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: 50%;
 
   .is-small-text {
     margin-right: rem(10px);
@@ -21,7 +21,7 @@
       border-color: $color-4;
 
       svg {
-        fill: $dark-sky-blue;
+        fill: $font-color-hover;
       }
 
       &:after {

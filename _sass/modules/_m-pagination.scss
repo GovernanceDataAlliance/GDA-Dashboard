@@ -17,9 +17,10 @@
       cursor: inherit;
     }
   }
+  
   > .page-number {
     padding: 0 1rem;
-    font-family: $font-main;
+    font-family: $font-secondary;
     font-size: rem(15px);
     color: $font-color-1;
     letter-spacing: .4px;
