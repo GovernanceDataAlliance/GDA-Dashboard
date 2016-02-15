@@ -60,7 +60,7 @@ var ColorService = {
 	getColor: function(ind) {
 		var rank = ind.score_range.split(',');
 
-    if (ind.score.toString().length === 0) {
+    if (ind.score == null || ind.score.toString().length === 0) {
       return;
     }
 
