@@ -35,30 +35,19 @@ $header-height: rem(70px);
     justify-content: flex-end;
     width: 100%;
 
+    .modal-background {
+      display: none;
+    }
 
-    .cover {
-      display: flex;
-      width: auto;
-      position: static;
-      @media screen and (min-width: $screen-m) {
-        width: 100%;
-      }
-
+    &.is-open {
       .modal-background {
-        display: none;
+        display: block;
+        transition-delay: .5s;
       }
 
-      &.-open {
-        z-index: 99;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-
-        .modal-background {
-          display: block;
-        }
+      .menus-wrapper  {
+        transform: translatex(0);
+        transition: all .3s ease-in .1s;
       }
     }
 
@@ -70,16 +59,12 @@ $header-height: rem(70px);
       z-index: 100;
       width: 90%;
       background-color: $bg-color-4;
-      transition: all .2s ease-in;
+      transition: all .3s ease-in .1s;
       transform: translatex(100%);
 
-      &.is-open {
-        transform: translatex(0);
-
-        .link:first-child {
-          a {
-            padding: rem(10px) rem(40px) rem(20px) 0;
-          }
+      .link:first-child {
+        a {
+          padding: rem(10px) rem(40px) rem(20px) 0;
         }
       }
     }
