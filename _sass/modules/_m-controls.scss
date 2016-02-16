@@ -45,7 +45,7 @@
   .icon {
     display: none;
 
-    @media screen and (min-width: $screen-s) {
+    @media screen and (min-width: $screen-m) {
       display: inline-block;
       vertical-align: middle;
       margin-right: 5px;
