@@ -10,11 +10,10 @@
   font-size: rem(20px);
 
   &.-compare {
-    position: absolute;
+    position: relative;
     top: 0;
-    left: 33.3%;
-    width: 60%;
-    margin-top: rem(50px);
+    margin: rem(50px) auto 0;
+    width: 90%;
   }
 
   &.-clearfix {
