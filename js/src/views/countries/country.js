@@ -9,6 +9,7 @@ var CountryHeaderView = require('./country_header.js'),
     IndicatorListView = require('./indicator_list.js'),
     CountryToolbarView = require('./country_toolbar.js'),
     ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
+    ModalWindowView = require('../common/infowindow_view.js'),
     TooltipView = require('../common/tooltip_view.js'),
     WrapperHeaderView = require('../common/wrapper_header_view.js');
 
@@ -18,6 +19,11 @@ var template = Handlebars.compile(
   require('../../templates/countries/country.hbs'));
 
 var CountryView = Backbone.View.extend({
+
+  events: {
+    'click #legendPopup': '_toggleTooltip',
+    'click .btn-info': 'showModalWindow'
+  },
 
   initialize: function(options) {
     options = options || {};
@@ -56,6 +62,10 @@ var CountryView = Backbone.View.extend({
     }
   },
 
+  _toggleTooltip: function(e) {
+    new TooltipView().toggleStatus(e);
+  },
+
   renderCountry: function() {
     var headerView = new CountryHeaderView({
       country: this.country});
@@ -72,11 +82,14 @@ var CountryView = Backbone.View.extend({
     this.$el.find('.js--country-toolbar').find('.wrap').append(new CountryToolbarView({
       el: this.$el.find('.js--toolbar-display')
     }).render().el);
+  },
 
-    setTimeout(function() {
-      new TooltipView({el: '.m-legend'});
-    }, 10);
-
+  showModalWindow: function(e) {
+    var data = $(e.currentTarget).data('info');
+    if (!data) {
+      return;
+    }
+    new ModalWindowView().render(data);
   },
 
   renderIndicators: function() {

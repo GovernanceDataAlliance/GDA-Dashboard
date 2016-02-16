@@ -21,6 +21,7 @@
 }
 
 .modal-wrapper {
+  overflow: auto;
   box-sizing: border-box;
   position: relative;
   display: flex; display: -ms-box;
@@ -34,28 +35,21 @@
 }
 
 .modal-container {
-  display: flex; 
+  display: flex;
   display: -ms-box;
   width: 100%;
   height: 500px;
-  padding: 50px; //Margen para el scroll de windows
+  // padding: 50px; //Margen para el scroll de windows
   overflow: scroll;
-  padding: 75px $wrap-padding-mobile;
+  padding: rem(75px) rem(50px);
+  font-size: rem(15px);
   align-items: flex-start;
 
-  // From 640px
-  @media screen and (min-width: $screen-s) {
-    padding: 75px $wrap-padding-tablet;
-  }
-
-  // From 768px
-  @media screen and (min-width: $screen-m) {
-    padding: 75px $wrap-padding-desktop;
+  @media screen and (min-width: $screen-xl) {
+    padding: rem(75px) rem(100px);
   }
 }
 
 .btn-close-modal {
   @extend .btn-close;
 }
-
-

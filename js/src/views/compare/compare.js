@@ -31,6 +31,7 @@ var CompareSelectorsView = require('./compare_selectors.js'),
     YearSelectorView = require('../common/year_selector.js'),
     ModalWindowView = require('../common/infowindow_view.js'),
     ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
+    ModalWindowView = require('../common/infowindow_view.js'),
     TooltipView = require('../common/tooltip_view.js'),
     WrapperHeaderView = require('../common/wrapper_header_view.js');
 
@@ -42,7 +43,10 @@ var compareStatus = new (Backbone.Model.extend({
 
 var CompareView = Backbone.View.extend({
 
-  events: {},
+  events: {
+    'click .btn-info'    : 'showModalWindow',
+    'click #legendPopup' : '_toggleTooltip'
+  },
 
   initialize: function(options) {
     options = options || {};
@@ -81,6 +85,10 @@ var CompareView = Backbone.View.extend({
     Backbone.Events.on('breakpoints:loaded', this._onScroll.bind(this));
   },
 
+  _toggleTooltip: function(e) {
+    new TooltipView().toggleStatus(e);
+  },
+
   render: function() {
 
     if (this.mobile) {
@@ -100,13 +108,6 @@ var CompareView = Backbone.View.extend({
     return this;
   },
 
-  _setTooltips: function() {
-    var tooltips = this.$el.find('.c-tooltip');
-
-    for (var i = 0; i < tooltips.length; i++) {
-      new TooltipView({el: tooltips[i]});
-    }
-  },
 
   /*
    * Render indicators names
@@ -156,7 +157,6 @@ var CompareView = Backbone.View.extend({
       var indicators = _.sortByOrder(indicators.rows, ['short_name']);
       this.$('.js--comparison-indicators').html(indicatorsTemplate({ 'indicators': indicators }))
       this.calculateEndScrollPoint();
-      this._setTooltips();
     }.bind(this))
   },
 
@@ -236,10 +236,6 @@ var CompareView = Backbone.View.extend({
     this.$el.find('.js--compare-toolbar').find('.wrap').append(new ToolbarUtilsView({
       el: this.$el.find('.js--toolbar-utils')
     }).render().el);
-
-    setTimeout(function() {
-      new TooltipView({el: '.m-legend'});
-    }, 10);
   },
 
   getDataForCountry: function(iso, order) {
@@ -330,8 +326,12 @@ var CompareView = Backbone.View.extend({
 
   showModalWindow: function(e) {
     var data = $(e.currentTarget).data('info');
-    var modalWindowView = new ModalWindowView().render(data)
+    if (!data) {
+      return;
+    }
+    new ModalWindowView().render(data);
   }
+
 });
 
 module.exports = CompareView;
