@@ -1,31 +1,18 @@
 .c-title {
-  font-size: rem(35px);
+  font-size: rem(40px);
   margin-bottom: rem(25px);
   font-family: $font-main;
   font-weight: 400;
   color: $font-color-2;
 
-  @media screen and (min-width: $screen-s) {
-    font-size: rem(38px) !important;
-    margin-bottom: rem(30px);
-  }
-
-  @media screen and (min-width: $screen-s) {
-    font-size: rem(50px) !important;
-  }
-
   @media screen and (min-width: $screen-m) {
-    font-size: rem(55px) !important;
+    font-size: rem(45px) !important;
     line-height: rem(62px);
     margin-bottom: rem(35px);
   }
 
-  @media screen and (min-width: $screen-xl) {
-    font-size: rem(75px) !important;
-    line-height: rem(91px);
-  }
-
-  &.-medium {
-    font-size: rem(50px);
+  @media screen and (min-width: $screen-l) {
+    font-size: rem(50px) !important;
+     line-height: 1.2em;
   }
 }
