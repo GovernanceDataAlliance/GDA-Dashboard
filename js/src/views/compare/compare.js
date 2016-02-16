@@ -47,7 +47,7 @@ var CompareView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
 
-    enquire.register("screen and (max-width:768px)", {
+    enquire.register("screen and (max-width:767px)", {
       match: _.bind(function(){
         this.mobile = true;
 
