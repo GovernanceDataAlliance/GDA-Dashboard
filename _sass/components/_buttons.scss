@@ -89,6 +89,14 @@
     }
   }
 
+  .-data & {
+    margin-top: 0;
+
+    @media screen and (min-width: $screen-m) {
+      margin-top: rem(12px);
+    }
+  }
+
   select {
     padding: rem(12px) 3%;
     padding-right: 5%;
