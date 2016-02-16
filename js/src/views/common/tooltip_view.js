@@ -6,9 +6,7 @@ var _ = require('lodash'),
 
 var LegendView = Backbone.View.extend({
 
-  events: {
-    'click .btn-info' : '_toggleStatus'
-  },
+  el: '.c-tooltip',
 
   initialize: function() {
     this.model = new (Backbone.Model.extend({
@@ -48,7 +46,7 @@ var LegendView = Backbone.View.extend({
     }
   },
 
-  _toggleStatus: function(e) {
+  toggleStatus: function(e) {
     this._stopEvent(e);
 
     this.model.set({
@@ -56,21 +54,7 @@ var LegendView = Backbone.View.extend({
     });
   },
 
-  _removeOthersTooltips: function() {
-    var othersTooltips = $('.pop-up-legend');
-
-    if (othersTooltips.length > 0) {
-      for (var i = 0; i < othersTooltips.length; i++) {
-        if (!othersTooltips[i].isEqualNode(this.$el.find('.pop-up-legend')[0])) {
-          $(othersTooltips[i]).addClass('is-hidden');
-        }
-      }
-    }
-  },
-
   _toggleLegend: function() {
-    this._removeOthersTooltips();
-
     this.$el.find('.pop-up-legend').toggleClass('is-hidden');
     this._setEvents();
   }

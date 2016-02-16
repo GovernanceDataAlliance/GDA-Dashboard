@@ -23,7 +23,8 @@ var IndicatorView = Backbone.View.extend({
 
   events: {
     "click .js--ranking-groups": "_stopEvent",
-    'click .js--btn-ranking': "_stopEvent"
+    'click .js--btn-ranking': "_stopEvent",
+    'click #legendPopup': '_toggleTooltip'
   },
 
   initialize: function(options) {
@@ -74,6 +75,10 @@ var IndicatorView = Backbone.View.extend({
   getYears: function() {
     var years = new Years();
     return years.totalYearsForThisIndex( this.id );
+  },
+
+  _toggleTooltip: function(e) {
+    new TooltipView().toggleStatus(e);
   },
 
   render: function(rerender) {

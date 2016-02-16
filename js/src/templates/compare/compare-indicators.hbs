@@ -5,14 +5,7 @@
       <div class="organization">
         <h2>{{organization}}</h2>
         {{#if product_description}}
-          <div class="c-tooltip">
-            <div class="pop-up-legend-container">
-              <button class="btn-info">i</button>
-              <div class="pop-up-legend is-hidden">
-                <p>{{product_description}}</p>
-              </div>
-            </div>
-          </div>
+          <button class="btn-info" data-info="{{product_description}}">i</button>
         {{/if}}
       </div>
     </li>
