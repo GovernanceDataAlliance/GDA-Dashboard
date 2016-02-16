@@ -18,7 +18,6 @@
   &.-mobile {
     justify-content: flex-start;
     flex-direction: column;
-    // padding-top: rem(10px);
 
     &.-year {
       flex-direction: row;
@@ -49,7 +48,7 @@
       padding-left: rem(25px);
     }
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: 768px) {
       width: 30.1%;
       display: flex;
     }
@@ -59,7 +58,7 @@
     width: 100%;
     border-right: 1px solid $border-1;
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: 768px) {
       width: 23.33%;
     }
 
@@ -70,9 +69,9 @@
   }
 
   > .-year {
-    width: 50%;
+    width: 65%;
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: 768px) {
       width: 23.33%;
     }
   }

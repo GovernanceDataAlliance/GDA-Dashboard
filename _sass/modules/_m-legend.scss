@@ -63,4 +63,13 @@
       }
     }
   }
+
+  .pop-up-legend-container {
+    display: none;
+    
+    @media screen and (min-width: $screen-s) {
+      display: block;
+    }
+
+  }
 }

@@ -39,7 +39,6 @@
   }
 
   &.-selectors {
-    // transition: all .3s;
     transform: translate(0,0);
 
     .wrap {
@@ -56,13 +55,19 @@
       z-index: 2;
       padding-top: 1.5rem;
 
-      @media screen and (min-width: $screen-m) {
-        padding-top: 0;
-      }
     }
 
     &.-hide-transition {
       transform: translate(0, -100%);
+    }
+
+    @media screen and (min-width: 768px) {
+      padding-top: 0;
+      padding-bottom: 0;
+
+      &.-fixed {
+        padding-top: 0;
+      }
     }
   }
 
@@ -74,6 +79,11 @@
   &.-year-selector {
     z-index: 10;
     background-color: $bg-color-1;
+
+    @media screen and (min-width: 768px) {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }
 
   &.-data {
