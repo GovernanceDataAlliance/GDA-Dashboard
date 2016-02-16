@@ -124,7 +124,7 @@
   .table-cell {
     height: rem(200px);
     display: flex; display: -ms-box;
-    padding: rem(35px) rem(25px);
+    padding: rem(20px) rem(25px);
 
     &:last-child {
       border-bottom: 0;
@@ -133,7 +133,7 @@
 
   h3 {
     font-size: rem(20px);
-    margin-bottom: rem(25px);
+    margin-bottom: rem(10px);
     font-weight: 400;
   }
 
