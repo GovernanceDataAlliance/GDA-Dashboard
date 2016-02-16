@@ -21,12 +21,12 @@ select {
 }
 
 .chzn-container-single .chzn-drop {
-  width: 100% !important;
-  padding: 0 5px 10px 5px;
+  width: 110% !important;
+  padding: 0 0 10px 0;
   border: none;
   border-radius: 0;
   background-color: $light-grey-two;
-  transform: translatey(15px);
+  transform: translate(-5%, 15px);
   font-family: $font-secondary;
 }
 
@@ -40,20 +40,17 @@ select {
 
 .chzn-container-single .chzn-single {
   line-height: 28px;
+}
 
-  @media screen and (max-width: $screen-m) {
-    padding: 0;
-
-    span {
-      padding: 0;
-    }
-  }
+.chzn-container-single .chzn-search {
+  padding: 10px 5%;
 }
 
 .chzn-container-single .chzn-search input {
   width: 100% !important;
-  padding: 10px 30px 10px 5px;
+  padding: 8px 30px 8px 5px;
   border-color: $bg-color-3;
+  color: $font-color-3;
   background: url('/css/img/search.svg') no-repeat  95% 50%;
   background-size: 15px 15px;
 }
@@ -66,6 +63,8 @@ select {
 .chzn-container .chzn-results .active-result {
   font-family: $font-main;
   color: $font-color-3;
+  padding: rem(5px) 5%;
+  font-size: rem(14px);
 
   &.result-selected {
     color: $font-color-3;
@@ -74,9 +73,23 @@ select {
   }
 
   &.highlighted {
-    color: $color-4;
+    color: $font-color-hover;
+    font-weight: 700;
     text-decoration: underline;
     background: none;
+  }
+}
+
+.chzn-container .chzn-results .no-results {
+  background: transparent;
+  color: $font-color-3;
+
+  &:hover {
+    color: $font-color-3; 
+  }
+
+  span {
+    color: $font-color-3;
   }
 }
 

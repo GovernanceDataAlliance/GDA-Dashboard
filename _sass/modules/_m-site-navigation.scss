@@ -69,7 +69,7 @@
     }
   }
 
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: $screen-m) and (orientation: landscape) {
 
     &.-header {
       margin-bottom: 0;

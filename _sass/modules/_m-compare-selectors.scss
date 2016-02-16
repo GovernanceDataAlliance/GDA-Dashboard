@@ -13,19 +13,6 @@
   &.-year {
     justify-content: flex-end;
     align-items: center;
-
-    .btn-drop-down {
-      width: 94%;
-      min-width: 10rem;
-
-      @media screen and (max-width: $screen-m) {
-        width: 100%;
-      }
-
-      select {
-        width: 95%;
-      }
-    }
   }
 
   &.-mobile {
@@ -37,6 +24,10 @@
       flex-direction: row;
       justify-content: space-between;
     }
+  }
+
+  p {
+    margin-right: rem(10px);
   }
 
   .selector-wrapper {
@@ -79,20 +70,10 @@
   }
 
   > .-year {
-    width: 23.33%;
+    width: 50%;
 
-    @media screen and (max-width: $screen-m) {
-      width: auto;
+    @media screen and (min-width: $screen-m) {
+      width: 23.33%;
     }
   }
-
-  // @media screen and (min-width: $screen-m) {
-  //   width: 100%;
-
-  //   .btn-drop-down {
-  //     width: 100%;
-  //     max-width: 100%;
-  //     margin: 0.75rem 0;
-  //   }
-  // }
 }
