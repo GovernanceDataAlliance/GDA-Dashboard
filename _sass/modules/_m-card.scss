@@ -28,8 +28,15 @@
       }
 
       @media screen and (min-width: $screen-l) {
+        padding: rem(55px) rem(50px);
         flex-direction: row;
         align-items: flex-start;
+      }
+    }
+    @media screen and (min-width: $screen-xl) {
+      padding: rem(65px) 0 rem(85px);
+      > .wrap {
+        padding: 0 rem(85px);
       }
     }
   }
@@ -70,8 +77,6 @@
       }
     }
   }
-
-  // transition: all .2s ease-in;
 
   .is-dashboard-layout & {
     flex-basis: 100%;
@@ -137,7 +142,7 @@
       }
 
       .card-wrap {
-        padding: rem(60px) rem($wrap-padding-desktop);
+        padding: rem(65px);
       }
 
       .info {
@@ -517,7 +522,7 @@
     }
 
     .graph > svg { stroke: $white;}
-    
+
     .-not-covered {
       .btn, .read-more,
       .read-less {
