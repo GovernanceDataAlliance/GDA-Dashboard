@@ -46,6 +46,18 @@
 
   @media screen and (min-width: $screen-s) {
     justify-content: center;
+
+    &.-footer {
+      margin-left: rem(20px);
+
+      ul {
+        width: rem(60px);
+      }
+
+      li:first-child {
+        margin-right: rem(10px);
+      }
+    }
   }
 
   @media screen and (min-width: $screen-m) {

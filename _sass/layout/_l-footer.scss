@@ -9,7 +9,7 @@ $footer-height: rem(375px);
   flex-direction: column;
   align-items: stretch;
 
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: $screen-s) {
     height: $footer-desktop-height;
     flex-direction: row;
   }
@@ -26,7 +26,7 @@ $footer-height: rem(375px);
     justify-content: flex-end;
     background-color: $bg-color-2;
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: $screen-s) {
       order: 1;
       height: $footer-desktop-height;
     }
@@ -61,7 +61,7 @@ $footer-height: rem(375px);
       font-size: rem(14px);
     }
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: $screen-s) {
       padding: rem(45px) 0 rem(35px) 0;
       order: 2;
 
@@ -90,7 +90,7 @@ $footer-height: rem(375px);
     flex-direction: column;
     align-items: center;
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: $screen-s) {
       flex-direction: row;
       align-items: flex-end
     }
