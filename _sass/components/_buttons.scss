@@ -54,8 +54,12 @@
   width: 100%;
   height: rem(45px);
   // min-width: rem(210px);
-  margin: rem(12px) 6%;
+  margin: 0 6%;
   border: 1px solid $color-4;
+
+  @media screen and (min-width: $screen-m) {
+    margin: rem(12px) 6%;
+  }
 
   &.btn {
     text-align: left;

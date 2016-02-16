@@ -52,10 +52,9 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
+      right: 0;
       z-index: 2;
       padding-top: 1.5rem;
-      padding-bottom: 0;
 
       @media screen and (min-width: $screen-m) {
         padding-top: 0;
