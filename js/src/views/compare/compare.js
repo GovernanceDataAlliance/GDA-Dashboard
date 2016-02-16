@@ -2,6 +2,7 @@ var $ = require('jquery'),
     _ = require('lodash'),
     Backbone = require('backbone'),
     async = require('async'),
+    enquire = require('enquire.js'),
     Handlebars = require('handlebars'),
     slick = require('slick-carousel-browserify');
 
@@ -41,14 +42,27 @@ var compareStatus = new (Backbone.Model.extend({
 
 var CompareView = Backbone.View.extend({
 
-  // events: {
-  //   'click .btn-info': 'showModalWindow'
-  // },
+  events: {},
 
   initialize: function(options) {
     options = options || {};
 
-    this.mobile = (window.innerWidth || document.body.clientWidth) < 768 ? true : false;
+    enquire.register("screen and (max-width:767px)", {
+      match: _.bind(function(){
+        this.mobile = true;
+
+        _.extend(this.events, {
+          'click .btn-info': 'showModalWindow'
+        });
+
+      },this)
+    });
+
+    enquire.register("screen and (min-width:768px)", {
+      match: _.bind(function(){
+        this.mobile = false;
+      },this)
+    });
 
     this.setListeners();
 

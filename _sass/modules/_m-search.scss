@@ -23,11 +23,7 @@
     color: $white;
 
 
-    @media screen and (min-device-width: $screen-l) {
-      display: none;
-    }
-    
-    @media screen and (min-device-width: $screen-l) and (orientation: landscape) {
+    @media screen and (min-width: $screen-m) {
       display: none;
     }
   }
@@ -132,6 +128,19 @@
       span span {
         font-weight: 700;
       }
+    }
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    padding: rem(70px) rem(140px);
+
+    .search-box.visible {
+      left: rem(180px);
+      right: rem(180px);  
+    }
+
+    .icon {
+      right: rem(140px);
     }
   }
 }

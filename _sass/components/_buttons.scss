@@ -29,6 +29,11 @@
       color: $color-4;
     }
   }
+
+  &.-centered {
+    display: flex;
+    align-self: center;
+  }
 }
 
 .btn-info {
@@ -45,11 +50,14 @@
 
 .btn-drop-down {
   position: relative;
-  width: 88%;
+  width: 100%;
   height: rem(45px);
-  // min-width: rem(210px);
-  margin: rem(12px) 6%;
+  margin: 0 6%;
   border: 1px solid $color-4;
+
+  @media screen and (min-width: $screen-m) {
+    margin: rem(12px) 6%;
+  }
 
   &.btn {
     text-align: left;
@@ -63,6 +71,21 @@
     @media screen and (min-width: $screen-m) {
       min-width: rem(210px);
       width: auto;
+    }
+  }
+
+  .-selectors & {
+    //This is for compare page. Do not change unless you know what are you doing. 
+    @media screen and (min-width: 768px) {
+      margin: rem(12px) 6%;
+    }
+  }
+
+  .-year & {
+    margin-right: 9%;
+
+    @media screen and (min-width: 768px) {
+      margin: rem(12px) 6%;
     }
   }
 
@@ -85,6 +108,15 @@
     top: 40%;
     right: rem(20px);
     pointer-events: none;
+
+    @media screen and (min-width: $screen-m) {
+      right: rem(10px);
+    }
+    
+    @media screen and (min-width: $screen-l) {
+      right: rem(20px);
+    }
+
   }
 
   &.-sm {
@@ -109,11 +141,11 @@
   font-family: $font-main;
   font-weight: bold;
   color: $color-4;
-  font-size: rem(30px);
+  font-size: rem(20px);
 
-  width: rem(35px);
-  height: rem(35px);
-  line-height: 28px;
+  width: rem(24px);
+  height: rem(24px);
+  line-height: 18px;
   border-radius: 50%;
   text-align: center;
   border: 2px solid $color-4;
@@ -121,12 +153,5 @@
   &.-color-1 {
     color: $color-1;
     border-color: $color-1;
-  }
-
-  @media screen and (min-width: $screen-s) {
-    font-size: rem(20px);
-    width: rem(24px);
-    height: rem(24px);
-    line-height: 18px;
   }
 }

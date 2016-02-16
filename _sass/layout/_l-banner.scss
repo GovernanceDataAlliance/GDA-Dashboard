@@ -5,6 +5,9 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
   //home
   &.-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: calc(100vh - 70px);
     padding: rem(30px) 0 rem(60px);
     background-color: #ccc;
@@ -17,6 +20,29 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     p {
       color: $font-color-2;
       margin-bottom: rem(35px);
+    }
+
+    .scroll-down {
+      display: none;
+      position: absolute;
+      top: auto;
+      left: 50%;
+      bottom: rem(47px);
+      transform: translate(-50%, 0);
+      padding: 0;
+      font-size: rem(15px);
+      color: $font-color-2;
+
+      .icon-mouse {
+        margin: rem(5px) auto 0;
+        &:hover {
+          fill: $white;
+        }
+      }
+
+      @media screen and (min-width: $screen-s) {
+        display: block;
+      }
     }
 
     @media screen and (min-width: $screen-s) {
@@ -56,12 +82,6 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
   &.-section-1 {
     padding: rem(100px) 0 rem(60px);
     background-color: $bg-color-1;
-
-    @media screen and (min-width: $screen-m) {
-      .m-search {
-        padding: rem(50px) rem(140px);
-      }
-    }
   }
 
   //compare
@@ -93,6 +113,16 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     }
   }
 
+  //Blog
+  &.-section-3 {
+    min-height: rem(70px);
+    background-color: $bg-color-1;
+
+    @media screen and (min-width: $screen-m) {
+      min-height: rem(90px);
+    }
+  }
+
   //country-show
   &.-detail {
     display: flex; display: -ms-box;
@@ -110,6 +140,9 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     }
 
     &.-blog {
+      padding-top: rem(120px);
+      padding-bottom: rem(20px);
+
       > .wrap {
         flex-direction: column;
       }

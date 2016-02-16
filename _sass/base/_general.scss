@@ -37,11 +37,14 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   @media screen and (min-width: $screen-xs) {
-    line-height: 1.5em;
 
     + .btn {
       margin-top: rem(40px);
     }
+  }
+
+  @media screen and (min-width: $screen-m) {
+    line-height: 1.5em;
   }
 
   @media screen and (min-width: $screen-xl) {

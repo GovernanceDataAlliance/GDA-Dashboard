@@ -7,6 +7,7 @@ $sections-padding: .5rem .5rem .5rem 0;
   letter-spacing: 0.3px;
   line-height: 1;
 }
+
 %title-font {
   font-family: $font-main;
   font-size: rem(50px);
@@ -14,49 +15,59 @@ $sections-padding: .5rem .5rem .5rem 0;
   color: $font-color-1;
   font-weight: 500;
 }
-%content-font {
-  font-family: $font-main;
-  font-size: rem(15px);
-  line-height: 1.9;
-  color: $font-color-1;
-  letter-spacing: 0.4px;
-}
+
 
 .m-post {
   padding: 0;
 
   > .properties {
-    padding: $sections-padding;
     display: flex; display: -ms-box;
     flex-direction: column;
     align-items: flex-start;
+    padding-bottom: rem(15px);
 
     > .category {
-      padding: $sections-padding;
+      margin-bottom: rem(25px); 
+      margin-right: rem(20px);
+      text-transform: uppercase;
+      font-family: $font-secondary;
+      font-size: rem(12px);
+      color: $font-color-1;
 
-      span {
-        @extend %properties-font;
-        text-transform: uppercase;
+      &:hover {
+        color: $font-color-hover;
+      }
+
+      @media screen and (min-width: $screen-m) {
+        margin-bottom: 0; 
       }
     }
 
     > .tags {
-      padding: $sections-padding;
 
       .tag {
         padding: 0.25rem 0.75rem;
         margin-right: rem(10px);
+        float: left;
 
         @extend %properties-font;
         color: $font-color-2;
 
         background-color: $color-4;
+
+        @media screen and (min-width: $screen-m) {
+          
+        }
       }
     }
   }
 
   > .details {
-    padding: $sections-padding;
+    margin-bottom: rem(25px);
+
+    @media screen and (min-width: $screen-m) {
+      margin-bottom: rem(10px); 
+    }
 
     > .author {
       font-family: $font-main;
@@ -64,6 +75,7 @@ $sections-padding: .5rem .5rem .5rem 0;
       line-height: 1.8;
       color: $font-color-1;
     }
+
     > .date {
       padding-left: .8rem;
       margin-left: .8rem;
@@ -79,11 +91,12 @@ $sections-padding: .5rem .5rem .5rem 0;
   }
 
   > .title {
-    padding: $sections-padding;
-    margin-bottom: 1rem;
+    margin-bottom: rem(25px);
+
 
     h3 {
       @extend %title-font;
+      font-size: rem(24px);
     }
 
     &.-underlined {
@@ -101,6 +114,14 @@ $sections-padding: .5rem .5rem .5rem 0;
         background-color: $color-4;
       }
     }
+
+    @media screen and (min-width: $screen-m) {
+      margin-bottom: rem(30px); 
+    }
+
+    h3 {
+      font-size: rem(30px);
+    }
   }
 
   > .image {
@@ -108,32 +129,57 @@ $sections-padding: .5rem .5rem .5rem 0;
     position: relative;
     background-size: cover;
     background-position: center;
-    margin: 2rem 0 1rem;
+    margin: rem(20px) 0;
 
     @include veil(rgba($bg-color-2, 0.45));
+    
+    @media screen and (min-width: $screen-m) {
+      margin: rem(50px) 0 rem(30px);
+    }
+
   }
 
   > .content {
-    padding: 1rem 0;
+    
     p {
-      padding: .5rem 0;
-      @extend %content-font;
+      font-size: rem(15px);
     }
 
     &.-empashis {
+      margin-top: rem(20px);
+
       p:first-child {
-        margin-top: 1rem;
-        font-size: rem(20px);
-        line-height: 1.7;
+        margin-bottom: rem(40px);
+        font-size: rem(18px);
+      }
+
+      p {
+        margin-bottom: rem(10px);
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: $screen-m) {
+        margin-top: rem(50px);
+
+        p:first-child {
+          margin-bottom: rem(50px);
+          font-size: rem(20px);
+        }
+
+        p {
+          margin-bottom: rem(40px);
+        }
       }
     }
+
   }
 
-  &.-list {
-    padding: 1rem 0;
+  .-list & {
 
     > .title {
-      margin-bottom: 0;
 
       h3 {
         line-height: inherit;
@@ -151,9 +197,9 @@ $sections-padding: .5rem .5rem .5rem 0;
     }
   }
 
-  .l-post.-img & {
+  &.-light {
 
-    > .properties > .category span,
+    > .properties > .category,
     > .details > .author,
     > .details > .date,
     > .title h3 a,
@@ -161,18 +207,17 @@ $sections-padding: .5rem .5rem .5rem 0;
       color: $font-color-2;
     }
 
+    .category:hover {
+      color: $font-color-hover;
+    }
+
   }
 
   @media screen and (min-width: $screen-m) {
-    padding: 0 5rem 2rem;
 
     > .properties {
       flex-direction: row;
       align-items: center;
-    }
-
-    &.-list {
-      padding: 3rem 10rem 3rem 0rem;
     }
   }
 }

@@ -35,22 +35,25 @@ $header-height: rem(70px);
     justify-content: flex-end;
     width: 100%;
 
+    .modal-background {
+      display: none;
+    }
 
-    .cover {
-      display: flex;
-      width: auto;
-      position: static;
-      @media screen and (min-width: $screen-m) {
-        width: 100%;
+    &.is-open {
+      .modal-background {
+        display: block;
+        transition-delay: .5s;
       }
 
-      &.-open {
-        z-index: 99;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+      .menus-wrapper  {
+        transform: translatex(0);
+        transition: all .3s ease-in .1s;
+
+        .link:first-child {
+          a {
+            padding: rem(10px) rem(40px) rem(20px) 0;
+          }
+        }
       }
     }
 
@@ -62,18 +65,8 @@ $header-height: rem(70px);
       z-index: 100;
       width: 90%;
       background-color: $bg-color-4;
-      transition: all .2s ease-in;
+      transition: all .3s ease-in .1s;
       transform: translatex(100%);
-
-      &.is-open {
-        transform: translatex(0);
-
-        .link:first-child {
-          a {
-            padding: rem(10px) rem(40px) rem(20px) 0;
-          }
-        }
-      }
     }
 
     .scroll-wrapper {
@@ -97,11 +90,11 @@ $header-height: rem(70px);
       }
 
       @media screen and (min-width: $screen-m) {
-        display: none;
+        height: $header-height-desktop;
       }
     }
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: $screen-m) and (orientation: landscape) {
       display: flex;
 
       .menus-wrapper {
@@ -119,6 +112,14 @@ $header-height: rem(70px);
         width: 100%;
         overflow-y: hidden;
         padding: 0;
+      }
+
+      .btn-mobile-menu {
+        display: none;
+      }
+
+      .btn-close {
+        display: none;
       }
     }
   }

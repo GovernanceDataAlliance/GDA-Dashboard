@@ -1,19 +1,15 @@
 <div class="m-post">
 
-  <div class="title -underlined">
-    <h3>
-      {{ page.title }}
-    </h3>
-  </div>
+  <h1 class="c-section-title">
+    {{ page.title }}
+  </h1>
 
   {% if page.image %}
   <div class="image" style="background-image:url({{site.baseurl}}/css/img/blog/{{page.image}})"></div>
   {%endif%}
 
   <div class="properties">
-    <div class="category">
-      <span> {{page.category}}</span>
-    </div>
+    <a class="category" href="{{ site.baseulr }}/blog/categories#{{ page.category }}"> {{page.category}} </a>
     <div class="tags">
       {% for tag in page.tags %}
       <a class="tag" href="{{site.baseurl}}/blog/tags#{{tag}}">#{{tag}}</a>

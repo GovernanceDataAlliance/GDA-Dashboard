@@ -18,10 +18,11 @@
   .wrap {
     display: flex; display: -ms-box;
     justify-content: space-between;
+    flex-wrap: wrap;
 
     > .js--toolbar-utils {
-      display: flex; display: -ms-box;
-      width: 100%;
+      display: flex;
+      // width: 100%;
     }
 
     > .js--toolbar-display {
@@ -38,7 +39,6 @@
   }
 
   &.-selectors {
-    // transition: all .3s;
     transform: translate(0,0);
 
     .wrap {
@@ -51,24 +51,39 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
+      right: 0;
       z-index: 2;
       padding-top: 1.5rem;
-      padding-bottom: 0;
 
-      @media screen and (min-width: $screen-m) {
-        padding-top: 0;
-      }
     }
 
     &.-hide-transition {
       transform: translate(0, -100%);
     }
+
+    @media screen and (min-width: 768px) {
+      padding-top: 0;
+      padding-bottom: 0;
+
+      &.-fixed {
+        padding-top: 0;
+      }
+    }
+  }
+
+  &.-pagination {
+    border-top: 1px solid $border-1;
+    background-color: transparent;
   }
 
   &.-year-selector {
     z-index: 10;
     background-color: $bg-color-1;
+
+    @media screen and (min-width: 768px) {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }
 
   &.-data {
@@ -79,8 +94,9 @@
     }
 
     .js--toolbar-utils {
+      display: flex;
       order: 1;
-      margin-left: 0;
+      // margin-left: 0;
     }
 
     @media screen and (min-width: $screen-m) {
@@ -91,7 +107,7 @@
 
       .js--toolbar-utils {
         order: 3;
-        margin-left: 5%;
+        // margin-left: 5%;
       }
     }
 
@@ -126,8 +142,8 @@
     .wrap {
 
       > .js--toolbar-utils {
-        width: 60%;
-        margin-left: 2%;
+        // width: 60%;
+        // margin-left: 2%;
       }
 
       > .js--toolbar-display {
@@ -144,7 +160,7 @@
         justify-content: space-between;
 
         > .js--toolbar-utils {
-          width: auto;
+          // width: auto;
         }
       }
     }
