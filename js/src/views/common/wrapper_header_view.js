@@ -9,7 +9,7 @@ var WrapperHeaderView = Backbone.View.extend({
 
   initialize: function() {
 
-    enquire.register("screen and (min-width:768px)", {
+    enquire.register("screen and (min-width: 768px)", {
       match: _.bind(function(){
         this.$el.removeClass('is-open');
       },this)
