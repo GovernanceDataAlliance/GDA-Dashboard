@@ -43,6 +43,9 @@ var CategorySelector = Backbone.View.extend({
       this.setTitle(this.hash.substring(1));
       this.setActive(this.hash.substring(1));
       this.$('select').val(this.hash);
+    } else {
+      this.post.removeClass('-active');
+      $('#blog').addClass('-active');
     }
 
     if (!this.mobile) {
@@ -60,7 +63,8 @@ var CategorySelector = Backbone.View.extend({
 
   setActive: function(id) {
     if (id === 'all' ) {
-      this.post.addClass('-active');
+      this.post.removeClass('-active');
+      $('#blog').addClass('-active');
     } else {
       this.post.each(function(index, category) {
         if (category.id === id){
@@ -71,7 +75,7 @@ var CategorySelector = Backbone.View.extend({
       });
     }
 
-    this.$('select').val(id);
+     this.$('select').val(id);
   },
 
   onChangeSelect: function(e) {
