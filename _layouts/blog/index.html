@@ -34,7 +34,7 @@
                 <option value="">All categories</option>
                 {% for category in site.categories %}
                   {% unless category[0] == "blog" %}
-                    <option value="{{site.baseurl}}/blog/categories#{{ category | first | remove:' ' | downcase}}">
+                    <option value="{{ site.baseurl }}/blog/categories#{{ category | first | remove:' ' | downcase}}">
                       {{ category | first }}
                     </option>
                     {% if forloop.last %}.{% else %}, {% endif %}
@@ -57,7 +57,6 @@
       </div>
 
       <div class="l-blog">
-
         {% for post in paginator.posts %}
 
             {% include modules/post_list_module.html %}
@@ -71,13 +70,13 @@
           <div class="m-controls -full -centered">
             <div class="m-pagination">
               {% if paginator.previous_page %}
-                <a href="{{site.baseurl}}{{ paginator.previous_page_path }}" class="page-link"> < Newer Post</a>
+                <a href="{{ site.baseurl }}/{{ paginator.previous_page_path }}" class="page-link"> < Newer Post</a>
               {% else %}
                 <span class="page-link -disabled">< Newer Post</span>
               {% endif %}
               <span class="page-number ">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
               {% if paginator.next_page %}
-                <a href="{{site.baseurl}}{{ paginator.next_page_path }}/" class="page-link"> Older post > </a>
+                <a href="{{ site.baseurl }}/{{ paginator.next_page_path }}/" class="page-link"> Older post > </a>
               {% else %}
                 <span class="page-link -disabled">Older post ></span>
               {% endif %}
