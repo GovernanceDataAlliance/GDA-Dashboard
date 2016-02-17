@@ -33,7 +33,7 @@
 
   &.-light {
     color: $font-color-2;
-    margin-bottom: rem(60px);
+    // margin-bottom: rem(60px);
 
     &:after {
       background-color: $white;
@@ -65,6 +65,19 @@
     font-size: rem(50px);
     // line-height: rem(85px);
     line-height: 1.2em;
+
+    &.-small {
+      margin-bottom: rem(50px);
+    }
+
+    + p {
+      margin-top: rem(50px);
+    }
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    padding-bottom: rem(55px);
+    margin-bottom: rem(45px);
 
     &.-small {
       margin-bottom: rem(50px);

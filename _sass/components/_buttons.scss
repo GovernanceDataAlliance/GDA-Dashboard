@@ -129,9 +129,16 @@
 
   &.-sm {
     margin: 0;
+
     @media screen and (min-width: $screen-m) {
+      min-width: rem(200px);
       padding-left: 0;
       padding-right: 0;
+
+      .chzn-container-single .chzn-drop {
+        width: 100% !important;
+        transform: translatey(2px);
+      }
     }
   }
 }
