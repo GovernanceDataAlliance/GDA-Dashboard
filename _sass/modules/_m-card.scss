@@ -5,9 +5,6 @@
   background-color: $white;
   &:hover {
     cursor: pointer;
-    .name {
-      color: #470614;
-    }
   }
 
   @media screen and (min-width: $screen-s) {
@@ -43,6 +40,9 @@
 
   a:hover {
     color: $font-color-hover;
+  }
+  .name:hover {
+    color: $color-4;
   }
 
   .-not-covered {
@@ -495,9 +495,13 @@
     color: $font-color-2;
     background-color: $poor;
 
+    .index-description .name:hover {
+      color: #470614;
+    }
+
     .index-description .organization {
       color: $font-color-2;
-
+      
       .btn-info {
         color: $font-color-3;
         background-color: $white;
@@ -530,5 +534,4 @@
       }
     }
   }
-
 }
