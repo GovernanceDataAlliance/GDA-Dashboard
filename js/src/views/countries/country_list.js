@@ -23,14 +23,14 @@ var CountryListView = Backbone.View.extend({
       this.countries.fetch();
     }
 
-    enquire.register("screen and (max-width:768px)", {
+    enquire.register("screen and (max-width:769px)", {
       match: _.bind(function(){
         this.tablet = true;
         this.render();
       },this)
     });
 
-    enquire.register("screen and (min-width:768px)", {
+    enquire.register("screen and (min-width:770px)", {
       match: _.bind(function(){
         this.tablet = false;
         this.render();
