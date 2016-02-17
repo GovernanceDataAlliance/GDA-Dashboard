@@ -3,12 +3,18 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+
   &:hover {
     background-color: lighten($bg-color-2, 5);
   }
 
-  &.-inactive {
+  .welcome & {
+    pointer-events: none;
     cursor: default;
+
+    &:hover {
+      background-color: $bg-color-2;
+    }
   }
 
   img {

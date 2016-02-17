@@ -9,7 +9,7 @@ var SearchView = require('../common/search_view.js'),
 
 var WelcomeView = Backbone.View.extend({
 
-  el: '.js-welcome',
+  el: '.welcome',
 
   initialize: function(options) {
     options = options || {};
@@ -27,16 +27,10 @@ var WelcomeView = Backbone.View.extend({
     });
 
     this.initViews();
-    this._setListeners();
-    $('.c-brand').addClass('-inactive');
   },
 
   show: function() {
     this.initViews();
-  },
-
-  _setListeners: function() {
-    $('.c-brand').on('click', this._preventLink);
   },
 
   _preventLink: function(e) {
