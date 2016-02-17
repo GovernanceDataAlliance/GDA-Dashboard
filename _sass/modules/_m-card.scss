@@ -17,6 +17,10 @@
       display: flex;
       justify-content: space-between;
 
+      .index-description .organization {
+        margin-bottom: 2.75rem;
+      }
+
       @media screen and (min-width: $screen-m) {
         flex-direction: column;
       }
@@ -27,6 +31,7 @@
         align-items: flex-start;
       }
     }
+    
     @media screen and (min-width: $screen-xl) {
       padding: rem(65px) 0 rem(85px);
       > .wrap {
@@ -38,7 +43,7 @@
   a:hover {
     color: $font-color-hover;
   }
-  
+
   .name:hover {
     color: $color-4;
     cursor: pointer;
@@ -79,7 +84,6 @@
 
   .is-dashboard-layout & {
     flex-basis: 100%;
-
     margin: 0;
 
     .card-wrap {
@@ -89,6 +93,10 @@
         display: flex;
         flex-direction: column;
         padding: 0;
+
+        .index-description .organization {
+          margin-bottom: rem(20px);
+        }
       }
     }
 
@@ -112,8 +120,6 @@
         >.wrap {
           -webkit-box-orient: vertical;
           -webkit-box-direction: normal;
-          -webkit-flex-direction: column;
-          -ms-flex-direction: column;
           flex-direction: column;
         }
       }
@@ -223,7 +229,6 @@
       font-size: rem(15px);
       font-weight: 400;
       color: $font-color-1;
-      margin-bottom: rem(20px);
     }
 
     .is-dashboard-layout & {
@@ -275,7 +280,6 @@
     @media screen and (min-width: $screen-m) {
       flex-direction: column;
       justify-content: space-between;
-      // align-items: center;
       margin-top: rem(10px);
     }
 
@@ -295,14 +299,8 @@
 
     > .resume {
       display: flex;
-      // flex: 1 1 auto;
       justify-content: space-between;
       align-items: center;
-
-      &.-usd {
-        // flex-wrap: wrap-reverse;
-        // justify-content: flex-end;
-      }
 
       > .graph {
 
@@ -330,17 +328,16 @@
 
         @media screen and (min-width: $screen-m) {
           font-size: rem(80px);
-          // white-space: nowrap;
-          // line-height: rem(80px);
           letter-spacing: rem(-6px);
         }
 
         .units {
+          margin-left: rem(-8px);
           align-self: flex-end;
           font-family: $font-secondary;
           font-weight: 400;
           font-size: rem(15px);
-          letter-spacing: .1px;
+          letter-spacing: rem(.1px);
           line-height: .7em;
 
           @media screen and (min-width: $screen-m) {
@@ -366,7 +363,8 @@
     }
 
     .partial-scores {
-      display: flex; display: -ms-box;
+      display: flex;
+      display: -ms-box;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
@@ -452,6 +450,10 @@
 
       .global-score {
         margin-bottom: rem(20px);
+
+        > .units {
+          margin-left: rem(-6px);
+        }
       }
 
       .info {
