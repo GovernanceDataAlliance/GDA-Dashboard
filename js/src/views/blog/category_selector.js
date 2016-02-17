@@ -70,6 +70,8 @@ var CategorySelector = Backbone.View.extend({
         }
       });
     }
+
+    this.$('select').val(id);
   },
 
   onChangeSelect: function(e) {
