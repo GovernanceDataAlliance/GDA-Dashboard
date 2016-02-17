@@ -9,8 +9,8 @@
     margin-right: rem(10px);
   }
 
-  a, 
-  button, 
+  a,
+  button,
   .btn-drop-down {
 
     font-size: rem(10px);
@@ -20,15 +20,6 @@
     &:hover {
       color: $color-4;
       border-color: $color-4;
-
-      svg {
-        fill: $font-color-hover;
-      }
-
-      &:after {
-        color: $color-4;
-        border-color: $color-4;
-      }
     }
 
     &.is-active {
@@ -39,6 +30,13 @@
       svg {
         fill: $color-1;
       }
+    }
+  }
+
+  a:hover,
+  button:hover {
+    svg {
+      fill: $font-color-hover;
     }
   }
 

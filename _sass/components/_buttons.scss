@@ -11,6 +11,10 @@
     padding: 20px 60px;
     border: 1px solid $white;
     color: $white;
+    &:hover {
+      color: $font-color-3;
+      border-color: $color-4;
+    }
   }
 
   &.-primary {
@@ -26,7 +30,8 @@
     border: 1px solid $color-4;
     color: $color-2;
     &:hover {
-      color: $color-4;
+      color: $font-color-2;
+      background-color: $color-4;
     }
   }
 
@@ -75,7 +80,7 @@
   }
 
   .-selectors & {
-    //This is for compare page. Do not change unless you know what are you doing. 
+    //This is for compare page. Do not change unless you know what are you doing.
     @media screen and (min-width: 768px) {
       margin: rem(12px) 6%;
     }
@@ -101,12 +106,18 @@
     padding: rem(12px) 3%;
     padding-right: 5%;
     width: 100%;
+    &:hover {
+      color: $color-4;
+    }
   }
 
   .chzn-container,
   .chzn-container-single .chzn-single {
     height: rem(43px);
     line-height: rem(43px);
+    span:hover {
+      color: $color-4;
+    }
   }
 
   &:after {
@@ -120,7 +131,7 @@
     @media screen and (min-width: $screen-m) {
       right: rem(10px);
     }
-    
+
     @media screen and (min-width: $screen-l) {
       right: rem(20px);
     }
