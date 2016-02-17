@@ -3,8 +3,7 @@
   padding: 0 rem($wrap-padding-mobile);
   border-bottom: 1px solid $border-1;
 
-  &:last-child,
-  &:nth-last-child(2) {
+  &:last-child {
     border-bottom: 0;
   }
 
@@ -15,7 +14,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    padding: rem(65px) 0;
+    padding: rem(40px) 0;
 
     > .name {
       font-size: rem(30px);
@@ -44,32 +43,14 @@
       background-repeat: no-repeat;
     }
 
-    img {
+    .img {
       display: block;
-      max-width: 100%;
       width: rem(200px);
+      height: rem(30px);
       margin-bottom: rem(20px);
-
-      &.corruption_perceptions_index ,
-      &.doing_business,
-      &.doing_business,
-      &.doing_business_DTF {
-        width: rem(150px);
-      }
-
-      &.ogp_regular_consult_forum,
-      &.irm_action_plan_count_star,
-      &.irm_action_plan_percent_star {
-        width: rem(40px);
-      }
-
-      &.nations_in_transit,
-      &.freedom_of_the_press,
-      &.freedom_in_the_world,
-      &.freedom_on_the_net,
-      &.resource_governance_index {
-        width: rem(70px);
-      }
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: top left;
     }
 
     &:hover {
@@ -79,11 +60,15 @@
     }
   }
 
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: $screen-s) {
     padding: 0 rem($wrap-padding-desktop);
+
+    .index-description {
+      padding: rem(60px) 0;
+    }
   }
 
-  @media screen and (min-width: $screen-l) {
+  @media screen and (min-width: $screen-m) {
     // display: flex;
     // display: -ms-box;
     // flex: 1 1 50%;
@@ -94,6 +79,14 @@
     float: left;
     height: rem(285px);
     padding: 0 rem($wrap-padding-tablet);
+
+    // &:nth-last-child(2) {
+    //   border-bottom: 0;
+    // }
+
+    .img {
+      height: rem(40px);
+    }
 
     &:nth-child(2n) {
       justify-content: flex-start;
