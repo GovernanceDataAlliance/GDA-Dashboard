@@ -1,6 +1,5 @@
 var Backbone = require('backbone'),
     _ = require('lodash'),
-    enquire = require('enquire.js'),
     Handlebars = require('handlebars');
 
 var IndicatorView = require('./indicator.js');
@@ -22,20 +21,6 @@ var IndicatorListView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
     this.indicators = IndicatorService.groupScoresById(options.indicators);
-
-    this.indicatorsPerRow = 1;
-
-    enquire.register("screen and (min-width:768px)", {
-      match: _.bind(function(){
-        this.indicatorsPerRow = 2;
-      },this)
-    });
-
-    enquire.register("screen and (min-width:1024px)", {
-      match: _.bind(function(){
-        this.indicatorsPerRow = 3;
-      },this)
-    });
   },
 
   render: function() {
@@ -94,13 +79,6 @@ var IndicatorListView = Backbone.View.extend({
   },
 
   renderIndicators: function() {
-    var totalIndicators = this.indicators.length,
-      totalGrid;
-
-    if (this.indicatorsPerRow > 1) {
-      totalGrid = Math.round(totalIndicators / this.indicatorsPerRow) * this.indicatorsPerRow;
-    }
-
     this.indicators.each(function(indicator) {
       this._scoreToString(indicator);
       var indicatorView = new IndicatorView({
@@ -109,15 +87,6 @@ var IndicatorListView = Backbone.View.extend({
 
       this.$('.js--indicators-list').append(indicatorView.render().el);
     }.bind(this));
-
-    var rest = totalGrid - totalIndicators;
-
-    for (var i = 0; i < rest; i++) {
-      var indicatorView = new IndicatorView({
-        'indicator': null
-      });
-      this.$('.js--indicators-list').append(indicatorView.render().el);
-    }
   }
 });
 
