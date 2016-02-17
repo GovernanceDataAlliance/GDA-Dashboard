@@ -4,7 +4,7 @@
     <div class="m-post {%if post.image%} -light {%endif%}">
 
       <div class="properties">
-        <a class="category" href="{{ site.baseurl }}/blog/categories#{{ post.category }}"> {{post.category}} </a>
+        <a class="category" href="{{site.baseurl}}/blog/categories#{{ post.category }}"> {{post.category}} </a>
         <div class="tags">
           {% for tag in post.tags %}
           <a class="tag" href="{{site.baseurl}}/blog/tags#{{tag}}">#{{tag}}</a>
