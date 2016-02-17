@@ -49,6 +49,12 @@
       max-width: $grid-max-width/2;
       padding: 0 rem($wrap-padding-tablet);
     }
+
+    .-highlighted {
+      font-size: rem(20px);
+      line-height: rem(34px);
+      letter-spacing: rem(0.4px);
+    }
   }
 
   @media screen and (min-width: $screen-l) {
@@ -60,12 +66,6 @@
       + .btn, + ul {
         margin-top: rem(30px);
       }
-    }
-
-    .-highlighted {
-      font-size: rem(19px);
-      line-height: rem(33px);
-      letter-spacing: rem(0.4px);
     }
 
     &.-left,
