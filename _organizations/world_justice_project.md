@@ -1,6 +1,6 @@
 ---
 name:  World Justice Project
-logo: "wjp.jpg"
+logo: "wjp.png"
 link: "http://worldjusticeproject.org/"
 description: ''
 ---
