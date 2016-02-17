@@ -4,6 +4,10 @@
   color: $font-color-1;
   background-color: $white;
 
+  &:last-child {
+    border-bottom: 0;
+  }
+
   @media screen and (min-width: $screen-s) {
     min-height: rem(390px);
   }
