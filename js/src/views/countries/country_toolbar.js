@@ -1,20 +1,15 @@
-var Backbone = require('backbone'),
-    _ = require('lodash'),
-    Handlebars = require('handlebars'),
-    $ = require('jquery');
+var _ = require('lodash'),
+  Backbone = require('backbone'),
+  $ = require('jquery'),
+  Handlebars = require('handlebars');
 
-var template = Handlebars.compile(
-  require('../../templates/countries/country_toolbar.hbs'));
+var template = Handlebars.compile(require('../../templates/countries/country_toolbar.hbs'));
 
 var CountryToolbarView = Backbone.View.extend({
 
   events: {
     'click .btn-layout-dashboard': 'gridLayoutDashboard',
     'click .btn-layout-list': 'gridLayoutList'
-  },
-
-  initialize: function(options) {
-    options = options || {};
   },
 
   render: function() {
@@ -34,9 +29,7 @@ var CountryToolbarView = Backbone.View.extend({
 
   activeClass: function(e) {
     $('.js--btn').removeClass('is-active');
-
-    var $target = $(e.currentTarget);
-    $target.addClass('is-active');
+    $(e.currentTarget).addClass('is-active');
   }
 });
 
