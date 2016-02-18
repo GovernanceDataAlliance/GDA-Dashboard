@@ -1,6 +1,6 @@
 var _ = require('lodash'),
     Backbone = require('backbone');
-    
+
 var ViewManager = Backbone.Model.extend({
   defaults: {
     views: {}
@@ -25,10 +25,10 @@ var ViewManager = Backbone.Model.extend({
     var view = this.get('views')[viewName];
     if (view !== undefined) {
       this.set('currentView', view);
-      
+
       view.show();
       this.$el.html(view.el);
-      this._hideViewsExcept(viewName);
+      // this._hideViewsExcept(viewName);
       view.delegateEvents();
     }
   },
@@ -37,14 +37,14 @@ var ViewManager = Backbone.Model.extend({
     return (this.get('views')[viewName] !== undefined);
   },
 
-  _hideViewsExcept: function(viewName) {
-    var views = this.get('views');
-    _.each(views, function(view, key) {
-      if (key !== viewName) {
-        view.hide();
-      }
-    });
-  }
+  // _hideViewsExcept: function(viewName) {
+  //   var views = this.get('views');
+  //   _.each(views, function(view, key) {
+  //     if (key !== viewName) {
+  //       view.hide();
+  //     }
+  //   });
+  // }
 });
 
 
