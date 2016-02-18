@@ -4,8 +4,7 @@ var $ = require('jquery'),
   Backbone = require('backbone');
 
 var SearchView = require('../common/search_view.js'),
-  SearchMobileView = require('../common/search_mobile_view.js'),
-  WrapperHeaderView = require('../common/wrapper_header_view.js');
+  SearchMobileView = require('../common/search_mobile_view.js');
 
 var WelcomeView = Backbone.View.extend({
 
@@ -44,8 +43,6 @@ var WelcomeView = Backbone.View.extend({
     } else {
       var searchMobile = new SearchMobileView({ el: $('.js--search') });
     }
-
-    new WrapperHeaderView();
   }
 
 });
