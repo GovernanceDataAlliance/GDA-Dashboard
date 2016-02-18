@@ -106,6 +106,10 @@
     @media screen and (min-width: $screen-m) {
       width: auto;
 
+      .js--toolbar-utils .m-controls {
+        margin-top: rem(10px);
+      }
+
       .icon {
         display: inline-block;
       }
