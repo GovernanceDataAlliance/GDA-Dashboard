@@ -128,7 +128,7 @@
     right: rem(20px);
     pointer-events: none;
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: $screen-s) {
       right: rem(10px);
     }
 
