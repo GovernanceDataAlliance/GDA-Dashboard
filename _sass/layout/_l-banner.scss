@@ -136,7 +136,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
   &.-detail {
     display: flex; display: -ms-box;
     // min-height: rem(320px);
-    padding: rem(140px) 0 rem(75px);
+    padding: rem(80px) 0 rem(75px);
     background-color: $bg-color-1;
     border-bottom: 1px solid $border-1;
 
@@ -172,13 +172,15 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
       }
     }
 
-    @media screen and (min-width: $screen-s) {
-      &.-country {
-        padding: rem(100px) 0 rem(60px);
-      }
-    }
+    // @media screen and (min-width: $screen-s) {
+    //   &.-country {
+    //     padding: rem(100px) 0 rem(60px);
+    //   }
+    // }
 
     @media screen and (min-width: $screen-m) {
+      padding: rem(120px) 0 rem(75px);
+
       &.-country {
         padding: rem(60px) 0;
       }
