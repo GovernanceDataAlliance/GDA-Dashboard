@@ -38,8 +38,12 @@ var SearchMobileView = Backbone.View.extend({
     }.bind(this));
   },
 
-  closeSearch: function() {
+  closeSearch: function(e) {
+    e && e.preventDefault() && e.stopPropagation();
+
     this.$('.js--mobile-search').remove();
+
+
     this.body.removeClass('is-inmobile');
     this.html.removeClass('is-inmobile');
   },
