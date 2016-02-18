@@ -136,7 +136,6 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         files: {
-          'js/bundle.js': 'js/bundle.js',
           'js/countries_bundle.js': 'js/countries_bundle.js',
           'js/compare_bundle.js': 'js/compare_bundle.js',
           'js/about_bundle.js': 'js/about_bundle.js',
