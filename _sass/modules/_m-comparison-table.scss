@@ -23,7 +23,7 @@
   position: relative;
   display: flex; display: -ms-box;
 
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: $screen-s) {
     border-left: 1px solid $border-1;
   }
 
@@ -62,7 +62,7 @@
       @extend %score-font;
 
       &.-usd {
-        @media screen and (min-width: $screen-m) {
+        @media screen and (min-width: $screen-s) {
           font-size: rem(35px);
         }
 
