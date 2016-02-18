@@ -1,7 +1,6 @@
 .m-controls {
   display: flex;
   display: -ms-box;
-  // flex: 1 1 auto;
   align-items: center;
   justify-content: space-between;
 
@@ -26,10 +25,12 @@
       color: $font-color-1;
       background-color: #dedcda;
       min-height: 100%;
-
-      svg {
-        fill: $color-1;
+      &:hover {
+        svg {
+          fill: $color-1;
+        }
       }
+
     }
   }
 
@@ -118,8 +119,13 @@
 
   .btn-layout-dashboard,
   .btn-layout-list {
-    padding-left: rem(10px) ;
-    padding-right: rem(10px) ;
+    padding-left: rem(10px);
+    padding-right: rem(10px);
+
+    @media screen and (min-width: $screen-l) {
+      padding-left: rem(18px);
+      padding-right: rem(18px);
+    }
   }
 
   &.-right {
