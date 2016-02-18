@@ -1,6 +1,6 @@
-var Backbone = require('backbone'),
-    _ = require('lodash'),
+var _ = require('lodash'),
     $ = require('jquery'),
+    Backbone = require('backbone'),
     Handlebars = require('handlebars');
 
 var Indicator = require('../../models/indicator.js'),
@@ -8,13 +8,12 @@ var Indicator = require('../../models/indicator.js'),
 
 var Years = require('../../collections/years.js');
 
-
 var IndicatorHeaderView = require('./indicator_header.js'),
-    IndicatorSelectorsToolbarView = require('./indicator_selectors_toolbar.js'),
-    CountryListView = require('./country_list.js'),
-    ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
-    TooltipView = require('../common/tooltip_view.js'),
-    WrapperHeaderView = require('../common/wrapper_header_view.js');
+  IndicatorSelectorsToolbarView = require('./indicator_selectors_toolbar.js'),
+  CountryListView = require('./country_list.js'),
+  ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
+  TooltipView = require('../common/tooltip_view.js'),
+  WrapperHeaderView = require('../common/wrapper_header_view.js');
 
 var template = Handlebars.compile(
   require('../../templates/indicators/indicator.hbs'));
@@ -123,7 +122,7 @@ var IndicatorView = Backbone.View.extend({
 
   renderCountriesList: function() {
     var direction = this.indicator.get('desired_direction');
-    var listView = new CountryListView({
+    new CountryListView({
       el: this.$('.js--countries'),
       'countries': this.countries.toJSON(),
       'direction': direction

@@ -1,8 +1,7 @@
-var Backbone = require('backbone'),
-    URI = require('urijs');
+var Backbone = require('backbone');
 
 var ViewManager = require('../lib/view_manager.js'),
-    WelcomeView = require('../views/welcome/welcome.js');
+  WelcomeView = require('../views/welcome/welcome.js');
 
 var Router = Backbone.Router.extend({
 
@@ -15,7 +14,7 @@ var Router = Backbone.Router.extend({
   },
 
   welcome: function() {
-    var view = new WelcomeView({});
+    new WelcomeView({});
   }
 
 });

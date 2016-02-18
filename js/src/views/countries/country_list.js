@@ -1,11 +1,10 @@
-var Backbone = require('backbone'),
-    _ = require('lodash'),
+var _ = require('lodash'),
+    Backbone = require('backbone'),
     enquire = require('enquire.js'),
     Handlebars = require('handlebars');
 
-var template = Handlebars.compile(require('../../templates/countries/country_list.hbs'));
-var templateMb = Handlebars.compile(
-  require('../../templates/countries/country_list_mb.hbs'));
+var template = Handlebars.compile(require('../../templates/countries/country_list.hbs')),
+  templateMb = Handlebars.compile(require('../../templates/countries/country_list_mb.hbs'));
 
 var CountryListView = Backbone.View.extend({
 

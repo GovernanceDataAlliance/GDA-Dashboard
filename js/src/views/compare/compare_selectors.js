@@ -2,11 +2,11 @@ var $ = require('jquery');
 global.$ = $; // for chosen.js
 
 var _ = require('lodash'),
-    Backbone = require('backbone'),
-    Handlebars = require('handlebars'),
-    chosen = require('chosen-jquery-browserify'),
-    enquire = require('enquire.js'),
-    async = require('async');
+  Backbone = require('backbone'),
+  Handlebars = require('handlebars'),
+  enquire = require('enquire.js'),
+  chosen = require('chosen-jquery-browserify'),
+  async = require('async');
 
 var CountriesCollection = require('../../collections/countries.js');
 

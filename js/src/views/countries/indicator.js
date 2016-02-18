@@ -5,9 +5,9 @@ var Backbone = require('backbone'),
 var template = Handlebars.compile(
   require('../../templates/countries/indicator.hbs'));
 
-var LineChartView = require('../common/line_chart_view.js');
-var PartialRanksView = require('./partial_ranks.js'),
-    TooltipView = require('../common/tooltip_view.js');
+var LineChartView = require('../common/line_chart_view.js'),
+  PartialRanksView = require('./partial_ranks.js'),
+  TooltipView = require('../common/tooltip_view.js');
 
 var ModalWindowView = require('../common/infowindow_view.js');
 
@@ -26,7 +26,6 @@ var IndicatorView = Backbone.View.extend({
 
     this._setColorClass();
     this._setTooltips();
-    this.analizeValues();
     this.partialRanks();
 
     if ( this.indicator['has_historical_info'] === true && this.indicator.data[0].score ) {
@@ -44,22 +43,13 @@ var IndicatorView = Backbone.View.extend({
 
   partialRanks: function() {
     if ( this.indicator.iso != undefined && this.indicator.score ) {
-      var partial_ranks = new PartialRanksView({
+      new PartialRanksView({
         'el': this.$('.js--partial-ranks'),
         'iso': this.indicator.iso,
         'index': this.indicator.short_name
       });
     }
   },
-
-  // parseData: function() {
-  //   var data = this.indicator;
-  //   if (data.units == 'percent' ) {
-  //     data.units_tpl = '%';
-  //   };
-
-  //   return data;
-  // },
 
   _setTooltips: function() {
     var elem = this.$el.find('.c-tooltip');
@@ -74,11 +64,6 @@ var IndicatorView = Backbone.View.extend({
       el: this.$('.js--graph'),
       'indicator': this.indicator
     } );
-  },
-
-  analizeValues: function() {
-    //TODO
-    var desiredDirection = this.indicator.desired_direction;
   }
 });
 
