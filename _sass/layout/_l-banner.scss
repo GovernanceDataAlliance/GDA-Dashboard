@@ -172,11 +172,11 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
       }
     }
 
-    @media screen and (min-width: $screen-s) {
-      &.-country {
-        padding: rem(100px) 0 rem(60px);
-      }
-    }
+    // @media screen and (min-width: $screen-s) {
+    //   &.-country {
+    //     padding: rem(100px) 0 rem(60px);
+    //   }
+    // }
 
     @media screen and (min-width: $screen-m) {
       padding: rem(120px) 0 rem(75px);
