@@ -82,9 +82,9 @@ describe('View Manager', function() {
       expect(delegateSpy.called).toBe(true);
     });
 
-    it('calls .hide on all other views', function() {
-      expect(hideSpy.called).toBe(true);
-    });
+    // it('calls .hide on all other views', function() {
+    //   expect(hideSpy.called).toBe(true);
+    // });
   });
 
   describe('.hasView', function() {
