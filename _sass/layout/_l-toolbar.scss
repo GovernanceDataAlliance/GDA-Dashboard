@@ -96,18 +96,12 @@
     .js--toolbar-utils {
       display: flex;
       order: 1;
-      // margin-left: 0;
     }
 
     @media screen and (min-width: $screen-m) {
-      .wrap {
-        // flex-direction: column;
-        // justify-content: center;
-      }
 
       .js--toolbar-utils {
         order: 3;
-        // margin-left: 5%;
       }
     }
 
@@ -116,6 +110,10 @@
   &.-footer {
     height: auto;
     background-color: $white;
+
+    &.-country {
+      border-top: 1px solid $border-1;
+    }
 
     .js--download,
     .js--download + span,
@@ -141,11 +139,6 @@
 
     .wrap {
 
-      > .js--toolbar-utils {
-        // width: 60%;
-        // margin-left: 2%;
-      }
-
       > .js--toolbar-display {
         display: flex;
       }
@@ -158,10 +151,6 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-
-        > .js--toolbar-utils {
-          // width: auto;
-        }
       }
     }
   }
