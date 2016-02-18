@@ -31,8 +31,7 @@ var CompareSelectorsView = require('./compare_selectors.js'),
   ModalWindowView = require('../common/infowindow_view.js'),
   ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
   ModalWindowView = require('../common/infowindow_view.js'),
-  TooltipView = require('../common/tooltip_view.js'),
-  WrapperHeaderView = require('../common/wrapper_header_view.js');
+  TooltipView = require('../common/tooltip_view.js');
 
 var compareStatus = new (Backbone.Model.extend({
     defaults: {
@@ -68,8 +67,6 @@ var CompareView = Backbone.View.extend({
     });
 
     this.setListeners();
-
-    new WrapperHeaderView();
 
     if (options && options.countries != null) {
       this.countryIds = _.uniq(options.countries);
