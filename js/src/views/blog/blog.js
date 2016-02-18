@@ -1,8 +1,7 @@
 var $ = require('jquery'),
   Backbone = require('backbone');
 
-var ShareView = require('../common/share_view.js'),
-  WrapperHeaderView = require('../common/wrapper_header_view.js');
+var ShareView = require('../common/share_view.js');
 
 var CategorySelector = require('./category_selector.js');
 
@@ -15,7 +14,6 @@ var BlogView = Backbone.View.extend({
   },
 
   initialize: function() {
-    new WrapperHeaderView();
     this.share = new ShareView();
     this._category();
   },
