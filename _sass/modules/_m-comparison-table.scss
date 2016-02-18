@@ -6,31 +6,10 @@
 
   @media screen and (min-width: $screen-m) {
     font-size: rem(50px);
-
-    &[data-index="trade_misinvoicing"],
-    &[data-index="illicit_financial_flows"],
-    &[data-index="hot_money_narrow"] {
-      font-size: rem(30px);
-    }
-  }
-
-  @media screen and (min-width: $screen-l) {
-    
-    &[data-index="trade_misinvoicing"],
-    &[data-index="illicit_financial_flows"],
-    &[data-index="hot_money_narrow"] {
-      font-size: rem(50px);
-    }
   }
 
   @media screen and (min-width: $screen-xl) {
     font-size: rem(60px);
-
-    &[data-index="trade_misinvoicing"],
-    &[data-index="illicit_financial_flows"],
-    &[data-index="hot_money_narrow"] {
-      font-size: rem(60px);
-    }
   }
 }
 
@@ -79,6 +58,20 @@
       }
 
       @extend %score-font;
+
+      &.-usd {
+        @media screen and (min-width: $screen-m) {
+          font-size: rem(45px);
+        }
+
+        @media screen and (min-width: $screen-l) {
+          font-size: rem(50px);
+        }
+
+        @media screen and (min-width: $screen-xl) {
+          font-size: rem(60px);
+        }
+      }
 
       // &.-usd {
       //   display: flex;
@@ -143,7 +136,7 @@
     letter-spacing: .1px;
     line-height: .7em;
 
-    &.-count {
+    &.-usd {
       font-size: rem(14px);
 
       @media screen and (min-width: $screen-l) {
