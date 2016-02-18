@@ -23,7 +23,7 @@ var DownloadView = Backbone.View.extend({
 
   initialize: function(settings) {
     var options = settings && settings.options ? settings.options : settings;
-    this.options = _.extend(this.defaults, options);
+    this.options = _.extend({}, options);
 
     this.indicatorsCollection = new indicators();
     this.countriesCollection  = new countries();
