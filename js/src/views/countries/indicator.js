@@ -26,7 +26,6 @@ var IndicatorView = Backbone.View.extend({
 
     this._setColorClass();
     this._setTooltips();
-    this.analizeValues();
     this.partialRanks();
 
     if ( this.indicator['has_historical_info'] === true && this.indicator.data[0].score ) {
@@ -65,11 +64,6 @@ var IndicatorView = Backbone.View.extend({
       el: this.$('.js--graph'),
       'indicator': this.indicator
     } );
-  },
-
-  analizeValues: function() {
-    //TODO
-    var desiredDirection = this.indicator.desired_direction;
   }
 });
 
