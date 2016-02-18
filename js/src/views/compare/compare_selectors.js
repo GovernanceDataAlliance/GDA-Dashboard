@@ -5,6 +5,7 @@ var _ = require('lodash'),
     Backbone = require('backbone'),
     Handlebars = require('handlebars'),
     chosen = require('chosen-jquery-browserify'),
+    enquire = require('enquire.js'),
     async = require('async');
 
 var CountriesCollection = require('../../collections/countries.js');
@@ -20,6 +21,18 @@ var CompareSelectorsView = Backbone.View.extend({
 
   initialize: function(options) {
     options = options || {};
+
+    enquire.register("screen and (max-width:769px)", {
+      match: _.bind(function(){
+        this.tablet = true;
+      },this)
+    });
+
+    enquire.register("screen and (min-width:770px)", {
+      match: _.bind(function(){
+        this.tablet = false;
+      },this)
+    });
 
     this.countries = options.countries;
 
@@ -40,7 +53,9 @@ var CompareSelectorsView = Backbone.View.extend({
         this.setRecivedValues();
       };
 
-      this.$('select').chosen();
+      if (!this.tablet) {
+        this.$('select').chosen();
+      }
 
     }.bind(this));
   },
