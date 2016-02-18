@@ -23,6 +23,10 @@
 
       .index-description .organization {
         margin-bottom: 2.75rem;
+
+        > .btn-info {
+          margin-left: rem(5px);
+        }
       }
 
       @media screen and (min-width: $screen-m) {
