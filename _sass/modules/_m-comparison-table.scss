@@ -22,8 +22,10 @@
 .m-comparison-table {
   position: relative;
   display: flex; display: -ms-box;
-  border-left: 1px solid $border-1;
-  border-right: 1px solid $border-1;
+
+  @media screen and (min-width: $screen-m) {
+    border-left: 1px solid $border-1;
+  }
 
   > .-index {
     width: 30.1%;
