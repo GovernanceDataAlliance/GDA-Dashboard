@@ -12,8 +12,6 @@ var DownloadView = Backbone.View.extend({
 
   template: tpl,
 
-  defaults: {},
-
   events: {
     'click .btn-close-modal': 'hide',
     'click .modal-background': 'hide',
