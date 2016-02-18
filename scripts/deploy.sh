@@ -21,7 +21,6 @@ git config user.email "adam.mulligan@vizzuality.com"
 
 grunt dist
 
-git add -f js/bundle.js
 git add -f js/countries_bundle.js
 git add -f js/blog_bundle.js
 git add -f js/compare_bundle.js
