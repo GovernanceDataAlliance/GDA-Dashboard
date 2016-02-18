@@ -2,6 +2,10 @@
   width: 100%;
   padding: 0 rem($wrap-padding-mobile);
   border-bottom: 1px solid $border-1;
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
 
   &:last-child {
     border-bottom: 0;
@@ -69,11 +73,6 @@
   }
 
   @media screen and (min-width: $screen-m) {
-    // display: flex;
-    // display: -ms-box;
-    // flex: 1 1 50%;
-    // -ms-flex: 1 1 50%;
-    // flex-basis: 50%;
     justify-content: space-between;
     width: 50%;
     float: left;
