@@ -1,14 +1,13 @@
-var Backbone = require('backbone'),
-    _ = require('lodash'),
-    Handlebars = require('handlebars');
+var _ = require('lodash'),
+  Backbone = require('backbone'),
+  Handlebars = require('handlebars');
 
-var template = Handlebars.compile(
-  require('../../templates/indicators/indicator_list.hbs'));
+var template = Handlebars.compile(require('../../templates/indicators/indicator_list.hbs'));
 
 var IndicatorListView = Backbone.View.extend({
 
   className: 'l-grid',
-  
+
   initialize: function(options) {
     options = options || {};
     this.indicators = options.indicators;
