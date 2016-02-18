@@ -4,6 +4,7 @@ global.$ = $; // for chosen.js
 var _ = require('lodash'),
   Backbone = require('backbone'),
   Handlebars = require('handlebars'),
+  enquire = require('enquire.js'),
   chosen = require('chosen-jquery-browserify'),
   async = require('async');
 
