@@ -53,7 +53,7 @@
   }
 
   a:hover {
-    color: $font-color-hover;
+    color: $color-4;
   }
 
   .name:hover {
@@ -222,6 +222,12 @@
       color: $font-color-3;
       cursor: pointer;
       white-space: nowrap;
+      &:hover {
+        color: $color-4;
+        &:after {
+          border-color: $color-4;
+        }
+      }
     }
 
     .read-more:after,
