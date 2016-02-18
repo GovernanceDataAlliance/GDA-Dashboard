@@ -1,11 +1,10 @@
-var Backbone = require('backbone'),
-    _ = require('lodash'),
+var _ = require('lodash'),
+    Backbone = require('backbone'),
     d3 = require('d3'),
     enquire = require('enquire.js'),
     Handlebars = require('handlebars');
 
 var countryDrawer = require('../../helpers/country_drawer.js');
-
 
 var template = Handlebars.compile(
   require('../../templates/countries/country_header.hbs'));
@@ -43,7 +42,7 @@ var CountryHeaderView = Backbone.View.extend({
 
       d3.json('https://gda.cartodb.com/api/v2/sql?q=' + sql, _.bind(function(error, topology) {
         countryDrawer.draw(topology, 0, { alerts: true });
-      }, this )); 
+      }, this ));
   },
 
   render: function() {

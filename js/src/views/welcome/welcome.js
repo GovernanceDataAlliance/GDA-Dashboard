@@ -1,18 +1,17 @@
 var $ = require('jquery'),
-    enquire = require('enquire.js'),
-    _ = require('lodash'),
-    Backbone = require('backbone');
+  _ = require('lodash'),
+  enquire = require('enquire.js'),
+  Backbone = require('backbone');
 
 var SearchView = require('../common/search_view.js'),
-    SearchMobileView = require('../common/search_mobile_view.js'),
-    WrapperHeaderView = require('../common/wrapper_header_view.js');
+  SearchMobileView = require('../common/search_mobile_view.js'),
+  WrapperHeaderView = require('../common/wrapper_header_view.js');
 
 var WelcomeView = Backbone.View.extend({
 
   el: '.welcome',
 
-  initialize: function(options) {
-    options = options || {};
+  initialize: function() {
 
     enquire.register("screen and (max-width:769px)", {
       match: _.bind(function(){

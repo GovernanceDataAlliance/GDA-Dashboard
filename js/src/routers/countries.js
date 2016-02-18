@@ -1,17 +1,16 @@
-var Backbone = require('backbone'),
-    $ = require('jquery'),
-    _ = require('lodash'),
-    URI = require('urijs');
+var $ = require('jquery'),
+  _ = require('lodash'),
+  Backbone = require('backbone'),
+  URI = require('urijs');
 
 var ViewManager = require('../lib/view_manager.js'),
-    CountryView = require('../views/countries/country.js'),
-    CountriesView = require('../views/countries/countries.js');
-    // CompareView = require('../views/countries/compare.js');
+  CountryView = require('../views/countries/country.js'),
+  CountriesView = require('../views/countries/countries.js'),
+  WrapperHeaderView = require('../views/common/wrapper_header_view.js');
 
 var Router = Backbone.Router.extend({
 
   routes: {
-    // "compare": "compare",
     ":iso": "show",
     "*path": "index"
   },
@@ -20,6 +19,8 @@ var Router = Backbone.Router.extend({
     this.views = new ViewManager({ $el: options.$el });
 
     this.setListeners();
+
+    new WrapperHeaderView();
   },
 
   setListeners: function() {

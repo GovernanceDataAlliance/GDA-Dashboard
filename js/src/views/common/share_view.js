@@ -1,7 +1,7 @@
-var Backbone = require('backbone'),
-    Handlebars = require('handlebars'),
-    _ = require('lodash');
-    $ = require('jquery');
+var _ = require('lodash');
+  $ = require('jquery'),
+  Backbone = require('backbone'),
+  Handlebars = require('handlebars');
 
 var sharetemplate = Handlebars.compile(require('../../templates/common/share_tpl.hbs'));
 

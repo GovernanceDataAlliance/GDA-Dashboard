@@ -1,7 +1,8 @@
 var $ = require('jquery'),
-    Backbone = require('backbone'),
-    Handlebars = require('handlebars'),
-    _ = require('lodash');
+  _ = require('lodash'),
+  Backbone = require('backbone'),
+  Handlebars = require('handlebars');
+
 
 var template = Handlebars.compile(require('../../templates/common/search_mobile_tpl.hbs'));
 

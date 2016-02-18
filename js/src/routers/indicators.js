@@ -1,8 +1,8 @@
 var Backbone = require('backbone');
 
 var ViewManager = require('../lib/view_manager.js'),
-    IndicatorsView = require('../views/indicators/indicators.js'),
-    IndicatorView = require('../views/indicators/indicator.js');
+  IndicatorsView = require('../views/indicators/indicators.js'),
+  IndicatorView = require('../views/indicators/indicator.js');
 
 var Router = Backbone.Router.extend({
 

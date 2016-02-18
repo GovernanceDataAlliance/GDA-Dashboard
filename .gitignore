@@ -5,6 +5,7 @@
 _site
 .sass-cache
 .grunt
+useful-info.txt
 *.log
 /node_modules
 /js/bundle.js

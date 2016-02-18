@@ -1,8 +1,8 @@
 var $ = require('jquery'),
-    Backbone = require('backbone'),
-    Handlebars = require('handlebars'),
-    enquire = require('enquire.js'),
-    _ = require('lodash');
+  _ = require('lodash');
+  Backbone = require('backbone'),
+  Handlebars = require('handlebars'),
+  enquire = require('enquire.js');
 
 var template = Handlebars.compile(require('../../templates/common/search_tpl.hbs')),
     templateSuggestions = Handlebars.compile(require('../../templates/common/search_suggestions_tpl.hbs'));
@@ -10,8 +10,6 @@ var template = Handlebars.compile(require('../../templates/common/search_tpl.hbs
 var SearchCollection = require('../../collections/countries.js');
 
 var SearchView = Backbone.View.extend({
-
-  // el: "#searchBox",
 
   defaults: {
     elContent: '#searchContent',
@@ -78,7 +76,7 @@ var SearchView = Backbone.View.extend({
         $searchBox.removeClass('searching');
         this.clearSuggestions();
       }
-    } 
+    }
   },
 
   highlight: function(ev) {

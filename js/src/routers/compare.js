@@ -1,10 +1,10 @@
 var $ = require('jquery'),
-    _ = require('lodash'),
-    Backbone = require('backbone'),
-    URI = require('urijs');
+  _ = require('lodash'),
+  Backbone = require('backbone'),
+  URI = require('urijs');
 
 var ViewManager = require('../lib/view_manager.js'),
-    CompareView = require('../views/compare/compare.js');
+  CompareView = require('../views/compare/compare.js');
 
 var Router = Backbone.Router.extend({
 

@@ -1,11 +1,12 @@
-var Backbone = require('backbone'),
-    _ = require('lodash'),
-    Handlebars = require('handlebars');
+var _ = require('lodash'),
+  Backbone = require('backbone'),
+  Handlebars = require('handlebars');
 
-var IndicatorView = require('./indicator.js');
 
 var Indicators = require('../../collections/indicators.js'),
-    IndicatorService = require('../../lib/services/indicator.js');
+  IndicatorService = require('../../lib/services/indicator.js');
+
+var IndicatorView = require('./indicator.js');
 
 var template = Handlebars.compile(require('../../templates/countries/indicators-list.hbs'));
 

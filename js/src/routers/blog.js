@@ -1,8 +1,7 @@
-var Backbone = require('backbone'),
-    URI = require('urijs');
+var Backbone = require('backbone');
 
 var ViewManager = require('../lib/view_manager.js'),
-    BlogView = require('../views/blog/blog.js');
+  BlogView = require('../views/blog/blog.js');
 
 var Router = Backbone.Router.extend({
 
@@ -15,7 +14,7 @@ var Router = Backbone.Router.extend({
   },
 
   blog: function() {
-    var view = new BlogView({});
+    new BlogView();
   }
 
 });

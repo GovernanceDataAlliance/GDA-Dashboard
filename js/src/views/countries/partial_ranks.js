@@ -14,14 +14,13 @@ var PartialRanksView = Backbone.View.extend({
     options = options || {};
 
     this.iso = options.iso;
-    index = options.index;
+    var index = options.index;
 
     this.partialRanks = new PartialRanks();
     this.initializeData(index);
   },
 
   initializeData: function(index) {
-
     var cohorts = ['global', 'region', 'income_group'];
 
     _.each(cohorts, function(cohort) {
@@ -29,7 +28,6 @@ var PartialRanksView = Backbone.View.extend({
         this.render(country.rows[0], cohort);
       }.bind(this))
     }.bind(this));
-
   },
 
   render: function(country, cohort) {
@@ -38,9 +36,7 @@ var PartialRanksView = Backbone.View.extend({
       'cohort': cohort === 'global' ? 'Global' : country[cohort],
       'index': country['short_name']
     }));
-  },
-
-  
+  }
 });
 
 module.exports = PartialRanksView;

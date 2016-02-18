@@ -1,12 +1,12 @@
 var $ = require('jquery');
-global.$ = $; // for chosen.js
+  global.$ = $; // for chosen.js
 
 var _ = require('lodash'),
-    Backbone = require('backbone'),
-    Handlebars = require('handlebars'),
-    enquire = require('enquire.js'),
-    chosen = require('chosen-jquery-browserify'),
-    async = require('async');
+  Backbone = require('backbone'),
+  enquire = require('enquire.js'),
+  Handlebars = require('handlebars'),
+  chosen = require('chosen-jquery-browserify'),
+  async = require('async');
 
 var CountriesCollection = require('../../collections/countries.js');
 
@@ -53,7 +53,7 @@ var CountrySelectorView = Backbone.View.extend({
         this.setRecivedValues();
       };
 
-      if (!this.mobile) { 
+      if (!this.mobile) {
         this.$('select')
           .chosen({ "disable_search": true });
       }

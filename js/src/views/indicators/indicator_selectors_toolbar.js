@@ -1,15 +1,14 @@
-var Backbone = require('backbone'),
-    _ = require('lodash'),
-    Handlebars = require('handlebars'),
-    $ = require('jquery');
+var _ = require('lodash'),
+    $ = require('jquery'),
+    Backbone = require('backbone'),
+    Handlebars = require('handlebars');
 
-var template = Handlebars.compile(
-  require('../../templates/indicators/indicators_selectors_toolbar.hbs'));
+var template = Handlebars.compile(require('../../templates/indicators/indicators_selectors_toolbar.hbs'));
 
 var Years = require('../../collections/years.js');
 
 var CohortGroups = require('./cohort_groups.js'),
-    YearSelector = require('../common/year_selector.js');
+  YearSelector = require('../common/year_selector.js');
 
 var IndicatorsToolbarView = Backbone.View.extend({
 
@@ -19,6 +18,7 @@ var IndicatorsToolbarView = Backbone.View.extend({
 
   initialize: function(options) {
     options = options || {};
+
     this.indicator = options.indicator.id;
     this.years = options.years;
     this.actualYear = options.actualYear;
@@ -29,7 +29,7 @@ var IndicatorsToolbarView = Backbone.View.extend({
 
     this.renderCohortGroups();
     this.renderYearSelector();
-    
+
     return this;
   },
 
@@ -39,17 +39,16 @@ var IndicatorsToolbarView = Backbone.View.extend({
 
   renderYearSelector: function() {
     this.getYears().done(function(years) {
-      var yearSelectors = new YearSelector({ 
-        el: this.$('.js--year-selector-indicators'), 
-        'years': years.rows, 
-        'actualYear': this.actualYear 
+      var yearSelectors = new YearSelector({
+        el: this.$('.js--year-selector-indicators'),
+        'years': years.rows,
+        'actualYear': this.actualYear
       });
     }.bind(this));
   },
 
   getYears: function() {
-    var years = new Years();
-    return years.totalYearsForThisIndex( this.indicator );
+    return new Years().totalYearsForThisIndex(this.indicator);
   },
 
   showRankingGroups: function() {
