@@ -14,7 +14,6 @@ The data available for download on the Governance Data Alliance website includes
 The following is a full description of the metadata and data fields used by Alliance data producers to share their data in a consistent and comparable manner on the Governance Data Alliance website and via associated data downloads (.csv files) and API access.
 
 
-**Field**						
 
 **desired_direction:** "Up" if the scoring scale is one where higher scores are positive, "down" if the scale is one where lower scores are positive
 
@@ -38,28 +37,27 @@ The following is a full description of the metadata and data fields used by Alli
 
 **organization:** Name of the organization that produces the data set
 
-product_description
-A short description of what the product assesses, in plain English terms
-product_logo
-Full URL to a jpg or png version of the product logo.  
-product_name
-The alphanumeric name of the dataset in question (e.g. Global Integrity Report)
-region
-Country’s regional classification, according to the World Bank. There are East Asia and Pacific, Europe and Central Asia, Latin America and the Caribbean, Middle East and North Africa, North America, South Asia, and Sub-Saharan Africa.
-score
-Country’s rating in the particular assessment for a given year
-score_range
-Ranges by which scores are broken down, from best to worst
-score_text
-Provides richer context for “score” values that also might contain additional, companion information.
-short_name
-A machine readable version of the product name with no spaces or caps (e.g. global_integrity_report).
-units
-Unit in which the score is measured (example: no unit, percentage, United States Dollars, Millions of United States Dollars, etc…)
-units_abbr
-Abbreviation for the unit in which the score is measured (example: %, USD, M USD, etc…)
-year
-This refers to the year assessed, the year the data was gathered, the year it was published, and/or the year it was updated; see the notes field and each producer's website for details.
+**product_description:** A short description of what the product assesses, in plain English terms
+
+**product_logo:** Full URL to a jpg or png version of the product logo.  
+
+**product_name:** The alphanumeric name of the dataset in question (e.g. Global Integrity Report)
+
+**region:** Country’s regional classification, according to the World Bank. There are East Asia and Pacific, Europe and Central Asia, Latin America and the Caribbean, Middle East and North Africa, North America, South Asia, and Sub-Saharan Africa.
+
+**score:** Country’s rating in the particular assessment for a given year
+
+**score_range:** Ranges by which scores are broken down, from best to worst
+
+**score_text:** Provides richer context for “score” values that also might contain additional, companion information.
+
+**short_name:** A machine readable version of the product name with no spaces or caps (e.g. global_integrity_report).
+
+**units:** Unit in which the score is measured (example: no unit, percentage, United States Dollars, Millions of United States Dollars, etc…)
+
+**units_abbr:** Abbreviation for the unit in which the score is measured (example: %, USD, M USD, etc…)
+
+**year:** This refers to the year assessed, the year the data was gathered, the year it was published, and/or the year it was updated; see the notes field and each producer's website for details.
 
 
 
