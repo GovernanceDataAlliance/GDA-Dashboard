@@ -10,7 +10,7 @@ search_intro: Search here for some of the best governance data we know of
 "module-2-title": Data Sets
 "module-2-content": "Interested in getting your hands on all of the data from key governance data producers? We've done the heavy lifting for you."
 "module-3-title": Compare and contrast
-"module-3-content": "Governance data are often imprecise, but they can offer important insights when comparing countries to one another. Here's where to get started in viewing your favorites side by side."
+"module-3-content": "Governance data can offer important insights when comparing countries to one another. Here's where to get started in viewing your countries of interest side by side."
 "module-3-link-text": compare countries
 "module-3-link-url": compare
 "module-3-image": "distribuidoresMul-03"
