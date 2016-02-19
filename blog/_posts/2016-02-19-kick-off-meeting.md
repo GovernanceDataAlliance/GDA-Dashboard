@@ -16,25 +16,39 @@ These are notes the Alliance's May 19th, 2105 "Kick-Off Meeeting", the first sin
 Three primary work streams to focus on in next 12-18 months (see existing “vision paper” for current baseline)
 
 **   A.Producer-to-producer technical assistance**
+
 - Problem: inadequate coordination, common challenges yet regular wheel reinvention
+
 - Activities
+
   o Peer-to-peer help desk function
+  
   o “Good practice” identification and dissemination (whether methodology-, technology-, or project management-related) 
+  
   o Alliance data dashboard (see more below)
 
 **   B.Feedback loops**
+
 - Problem: producers don’t have a good sense of who data users are and what they need; users lack consistent means of signaling to producers; “marketplace” of governance data largely dysfunctional
+
 - Main initial activities (led by AidData):
+
   o Mining AidData’s existing dataset (“Reform Efforts Survey 2014”) to draw out actionable information on existing governance data users (both in and outside of government)
+
   o Using survey sample frame/plumbing to do select “Snap Polls” of data users 
 
 **   C.Experimental coordinated field work**
+
 - Problem: inefficient, costly data collection (leading to inconsistent coverage); failing to take advantage of potential economies of scale
-  • Likely will start in 2016 in 5-6 countries
-  • It will involve experimental sharing of resources; striving for demonstrable efficiencies and cost savings
+  
+  o Likely will start in 2016 in 5-6 countries
+  
+  o It will involve experimental sharing of resources; striving for demonstrable efficiencies and cost savings
 
 **   D. Data Alliance Dashboard**
+
 - Problem: how to answer the complex question “How Zambia is doing governance-wise?” 
+
 - The dashboard will provide a visual snapshot of existing Alliance member data (at least at the “country score” level).We will be able to 
   • say how a country is doing across a number of governance dimensions, above or below (world and/or peer 		cohort) median, over time 
   • offer downloadable snapshots (GIFs, simple csv files, etc.). 
@@ -47,6 +61,7 @@ Three primary work streams to focus on in next 12-18 months (see existing “vis
   • it would be useful to go beyond simple snapshot
   • we  should leverage feedback loop efforts to ensure that the dashboard is responsive to needs  (not just producer needs) 
   • we need to reflect how data collection can be built to make sure it’s useful to countries; including dashboard
+
 
 **2. Updates from participants**
 - Brad Parks, Rebecca Latourell, Samantha Custer/AidData 
@@ -102,6 +117,7 @@ o	Want data to be used - GDA can be helpful
 •	Chris Maloney /MCC
 o	Excited about the dashboard 
 o	How can we be more public/external facing about the GDA - many stakeholders interested in this
+
 
 **3. Next steps**
 System moving forward
