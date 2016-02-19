@@ -150,8 +150,8 @@ var CompareView = Backbone.View.extend({
   renderIndicators: function() {
     var indicatorsNames = new IndicatorsNames();
     indicatorsNames.fetch().done(function(indicators) {
-      var indicators = _.sortByOrder(indicators.rows, ['short_name']);
-      this.$('.js--comparison-indicators').html(indicatorsTemplate({ 'indicators': indicators }))
+      // var indicators = _.sortByOrder(indicators.rows, ['short_name']);
+      this.$('.js--comparison-indicators').html(indicatorsTemplate({ 'indicators': indicators.rows }))
       this.calculateEndScrollPoint();
     }.bind(this))
   },
@@ -242,7 +242,8 @@ var CompareView = Backbone.View.extend({
   },
 
   renderCountryScores: function(indicators, iso, order) {
-    this.indicatorsOrdered = _.sortByOrder(indicators.toJSON(), ['short_name']);
+    this.indicatorsOrdered = indicators.toJSON();
+    // this.indicatorsOrdered = _.sortByOrder(indicators.toJSON(), ['short_name']);
     if (this.mobile) {
       this.$('#'+order+ ' .country').html(templateMobileScores({ 'indicators': this.indicatorsOrdered, 'content': true }));
     } else {
