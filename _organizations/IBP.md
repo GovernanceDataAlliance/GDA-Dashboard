@@ -1,10 +1,11 @@
 ---
 published: true
 name: International Budget Partnership
-logo: css/img/logos/IBP.jpg
+logo: IBP.jpg
 link: "http://www.internationalbudget.org"
 description: ""
 ---
+
 
 
 ![IBP.jpg]({{site.baseurl}}/css/img/logos/IBP.jpg)
