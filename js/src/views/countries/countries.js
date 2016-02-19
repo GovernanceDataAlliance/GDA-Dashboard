@@ -40,6 +40,9 @@ var CountriesView = Backbone.View.extend({
   },
 
   renderCountryList: function() {
+    if ($('.js--index-banner').hasClass('is-hidden')) {
+      $('.js--index-banner').removeClass('is-hidden')
+    }
     var listView = new CountryList({ countries: this.countries });
     this.$('.js--countries-list').html(listView.render().el);
   },
