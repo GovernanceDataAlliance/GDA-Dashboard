@@ -23,6 +23,10 @@
 
       .index-description .organization {
         margin-bottom: 2.75rem;
+
+        > .btn-info {
+          margin-left: rem(5px);
+        }
       }
 
       @media screen and (min-width: $screen-m) {
@@ -86,6 +90,10 @@
           height: rem(2px);
           background-color: #5b5b5b;
         }
+      }
+
+      .description-wrapper {
+        max-width: 80%;
       }
     }
   }
