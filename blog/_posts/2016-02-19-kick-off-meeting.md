@@ -9,6 +9,8 @@ tags: Meeting notes
 title: "Kick-off Meeting"
 ---
 
+
+
 **1. GDA background and updates**
 Three primary work streams to focus on in next 12-18 months (see existing “vision paper” for current baseline)
 
