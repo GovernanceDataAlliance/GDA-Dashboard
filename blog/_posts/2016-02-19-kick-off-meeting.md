@@ -5,7 +5,7 @@ date: "2015-05-19"
 author: Caroline Poirrier
 image: ""
 category: Meeting notes
-tags: Meeting notes
+tags: meeting_notes
 title: "Kick-off Meeting"
 ---
 
