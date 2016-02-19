@@ -1,10 +1,11 @@
 ---
 published: true
-name: The Hewlett Foundation
+name: Hewlett Foundation
 logo: hewlett.jpg
 link: "http://www.hewlett.org"
 description: ""
 ---
+
 
 ## A New Post
 
