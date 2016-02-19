@@ -7,7 +7,7 @@ search_intro: Search here for some of the best governance data we know of
 "module-1-link-text": all the countries
 "module-1-link-url": countries
 "module-1-image": "distribuidoresMul-01"
-"module-2-title": Data Sets
+"module-2-title": Data sets
 "module-2-content": "Interested in getting your hands on all of the data from key governance data producers? We've done the heavy lifting for you."
 "module-3-title": Compare and contrast
 "module-3-content": "Governance data can offer important insights when comparing countries to one another. Here's where to get started in viewing your countries of interest side by side."
