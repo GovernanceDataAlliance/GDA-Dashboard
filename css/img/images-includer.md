@@ -1,4 +1,4 @@
-![amida.png]({{site.baseurl}}/css/img/logos/amida.png)
+![oecd.png]({{site.baseurl}}/css/img/logos/oecd.png)
 ![R4D]({{site.baseurl}}/css/img/logos/image-name.jpg)
 
 Use this file to add new images content. 
