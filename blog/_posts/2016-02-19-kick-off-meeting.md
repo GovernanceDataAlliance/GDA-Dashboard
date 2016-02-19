@@ -48,7 +48,7 @@ Three primary work streams to focus on in next 12-18 months (see existing “vis
   • we  should leverage feedback loop efforts to ensure that the dashboard is responsive to needs  (not just producer needs) 
   • we need to reflect how data collection can be built to make sure it’s useful to countries; including dashboard
 
-**   2. Updates from participants**
+**2. Updates from participants**
 - Brad Parks, Rebecca Latourell, Samantha Custer/AidData 
   • implementation of the Reform Efforts Survey (since September)
   • have not yet studied attributes of users - working on that
