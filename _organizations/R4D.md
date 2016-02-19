@@ -1,10 +1,11 @@
 ---
 published: true
 name: Results for Development
-logo: css/img/logos/R4D.jpg
+logo: R4D.jpg
 link: r4d.org
 description: ""
 ---
+
 
 ## A New Post
 
