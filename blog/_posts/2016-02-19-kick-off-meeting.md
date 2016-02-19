@@ -6,9 +6,10 @@ author: Caroline Poirrier
 image: ""
 category: Meeting notes
 tags: meeting_notes
-title: "Kick-off Meeting"
+title: "Kick-Off Meeting"
 ---
 
+These are notes the Alliance's May 19th, 2105 "Kick-Off Meeeting", the first since funding was secured for the Alliance. 
 
 
 **1. GDA background and updates**
