@@ -17,15 +17,19 @@ The following is a full description of the metadata and data fields used by Alli
 **Field**						
 
 desired_direction				
+
 _"Up" if the scoring scale is one where higher scores are 										positive, "down" if the scale is one where lower scores are 									positive_
 
 has_historical_info			
+
 _“Yes” if data is available for prior years, “no” if not_
 
 income_group_
+
 Country’s income classification, according to the World Bank, 									based on the country’s gross national income (GNI) per capita. 									There are six income groupings: low, lower-middle, upper-middle, 								 high non-OECD, and high OECD._
 
 iso							
+
 _ISO 3166-1 alpha-3 code, three-letter country codes to represent 								 countries, dependent territories, and special areas of 										geographical interest_
 
 lending_category
