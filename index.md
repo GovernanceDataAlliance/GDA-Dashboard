@@ -4,7 +4,7 @@ title: "The marketplace for governance data is broken. We're trying to fix it."
 search_intro: Search here for some of the best governance data we know of
 "module-1-title": Country data
 "module-1-content": "The Alliance offers one-click access to dozens of different governance data sets - ranging from corruption perceptions to business regulation to freedom of the press - for countries in an easy-to-scan dashboard format."
-"module-1-link-text": all the countries
+"module-1-link-text": find a country
 "module-1-link-url": countries
 "module-1-image": "distribuidoresMul-01"
 "module-2-title": Data sets
