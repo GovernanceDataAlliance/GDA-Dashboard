@@ -1,10 +1,11 @@
 ---
 published: true
 name: Omidyar Network
-logo: omidyar.jpg
+logo: on.jpg
 link: "https://www.omidyar.com"
 description: ""
 ---
+
 
 ## A New Post
 
