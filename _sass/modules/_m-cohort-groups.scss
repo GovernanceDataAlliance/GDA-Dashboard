@@ -7,6 +7,10 @@
   background-color: $bg-color-4;
   transform: translatey(100%);
 
+  @media screen and (max-width: 768px) {
+    bottom: rem(50px);
+  }
+  
   @media screen and (max-width: $screen-m) {
     bottom: rem(40px);
 
@@ -18,8 +22,8 @@
       position: absolute;
       top: rem(-11px);
       left: rem(49px);
-
     }
+
     &:hover {
       border-color: $color-1;
       &:before {
@@ -36,21 +40,21 @@
     left: rem(50px);
   }
 
-
   .groups {
     display: flex; display: -ms-box;
     flex-direction: column;
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: 768px) {
       flex-direction: row;
       justify-content: space-between;
+      flex-wrap: wrap;
     }
   }
 
   .group {
     margin: 0 rem(10px);
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: 768px) {
 
       &:first-child {
         margin-left: 0;

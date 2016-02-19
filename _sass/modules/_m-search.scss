@@ -32,6 +32,8 @@
     display: block;
     color: $white;
     border-color: $white;
+    pointer-events: all;
+    z-index: 999;
   }
 
   input {
@@ -136,7 +138,7 @@
 
     .search-box.visible {
       left: rem(180px);
-      right: rem(180px);  
+      right: rem(180px);
     }
 
     .icon {

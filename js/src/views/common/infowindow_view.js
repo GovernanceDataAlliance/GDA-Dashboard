@@ -1,7 +1,7 @@
-var Backbone = require('backbone'),
-    Handlebars = require('handlebars'),
-    _ = require('lodash');
-    $ = require('jquery');
+var _ = require('lodash'),
+  $ = require('jquery'),
+  Backbone = require('backbone'),
+  Handlebars = require('handlebars');
 
 var modalWindowtemplate = Handlebars.compile(require('../../templates/common/modal_window_tpl.hbs'));
 
@@ -49,7 +49,6 @@ var ModalWindowView = Backbone.View.extend({
 
     $('.m-modal-window').remove();
     this.toogleState();
-
   },
 
   toogleState: function() {

@@ -1,45 +1,43 @@
 var $ = require('jquery'),
-    _ = require('lodash'),
-    Backbone = require('backbone'),
-    async = require('async'),
-    enquire = require('enquire.js'),
-    Handlebars = require('handlebars'),
-    slick = require('slick-carousel-browserify');
+  _ = require('lodash'),
+  Backbone = require('backbone'),
+  async = require('async'),
+  enquire = require('enquire.js'),
+  Handlebars = require('handlebars'),
+  slick = require('slick-carousel-browserify');
 
 var Countries = require('../../collections/countries.js'),
-    Years = require('../../collections/years.js'),
-    IndicatorsNames = require('../../collections/indicator_configs.js'),
-    Indicators = require('../../collections/indicators.js');
+  Years = require('../../collections/years.js'),
+  IndicatorsNames = require('../../collections/indicator_configs.js'),
+  Indicators = require('../../collections/indicators.js');
 
 var IndicatorsPresenter = require('../../presenters/indicators.js');
-    CountriesPresenter = require('../../presenters/countries.js');
+  CountriesPresenter = require('../../presenters/countries.js');
 
-var IndicatorService = require('../../lib/services/indicator.js');
-
-var FunctionHelper = require('../../helpers/functions.js');
+var IndicatorService = require('../../lib/services/indicator.js'),
+  FunctionHelper = require('../../helpers/functions.js');
 
 var template = Handlebars.compile(require('../../templates/compare/compare.hbs')),
-    indicatorsTemplate = Handlebars.compile(require('../../templates/compare/compare-indicators.hbs')),
-    countryScoresTemplate = Handlebars.compile(require('../../templates/compare/compare-country-scores.hbs'));
+  indicatorsTemplate = Handlebars.compile(require('../../templates/compare/compare-indicators.hbs')),
+  countryScoresTemplate = Handlebars.compile(require('../../templates/compare/compare-country-scores.hbs'));
 
 var templateMobile = Handlebars.compile(require('../../templates/compare/mobile/compare-mobile.hbs')),
-    templateMobileSlide = Handlebars.compile(require('../../templates/compare/mobile/compare-mobile-slide.hbs')),
-    templateMobileScores = Handlebars.compile(require('../../templates/compare/mobile/compare-country-scores-mobile.hbs'));
+  templateMobileSlide = Handlebars.compile(require('../../templates/compare/mobile/compare-mobile-slide.hbs')),
+  templateMobileScores = Handlebars.compile(require('../../templates/compare/mobile/compare-country-scores-mobile.hbs'));
 
 var CompareSelectorsView = require('./compare_selectors.js'),
-    CountrySelectorView = require('./compare_country_selector.js'),
-    YearSelectorView = require('../common/year_selector.js'),
-    ModalWindowView = require('../common/infowindow_view.js'),
-    ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
-    ModalWindowView = require('../common/infowindow_view.js'),
-    TooltipView = require('../common/tooltip_view.js'),
-    WrapperHeaderView = require('../common/wrapper_header_view.js');
+  CountrySelectorView = require('./compare_country_selector.js'),
+  YearSelectorView = require('../common/year_selector.js'),
+  ModalWindowView = require('../common/infowindow_view.js'),
+  ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
+  ModalWindowView = require('../common/infowindow_view.js'),
+  TooltipView = require('../common/tooltip_view.js');
 
 var compareStatus = new (Backbone.Model.extend({
-      defaults: {
-        countries: {}
-      }
-    }));
+    defaults: {
+      countries: {}
+    }
+  }));
 
 var CompareView = Backbone.View.extend({
 
@@ -69,8 +67,6 @@ var CompareView = Backbone.View.extend({
     });
 
     this.setListeners();
-
-    new WrapperHeaderView();
 
     if (options && options.countries != null) {
       this.countryIds = _.uniq(options.countries);
@@ -154,8 +150,8 @@ var CompareView = Backbone.View.extend({
   renderIndicators: function() {
     var indicatorsNames = new IndicatorsNames();
     indicatorsNames.fetch().done(function(indicators) {
-      var indicators = _.sortByOrder(indicators.rows, ['short_name']);
-      this.$('.js--comparison-indicators').html(indicatorsTemplate({ 'indicators': indicators }))
+      // var indicators = _.sortByOrder(indicators.rows, ['short_name']);
+      this.$('.js--comparison-indicators').html(indicatorsTemplate({ 'indicators': indicators.rows }))
       this.calculateEndScrollPoint();
     }.bind(this))
   },
@@ -246,7 +242,8 @@ var CompareView = Backbone.View.extend({
   },
 
   renderCountryScores: function(indicators, iso, order) {
-    this.indicatorsOrdered = _.sortByOrder(indicators.toJSON(), ['short_name']);
+    this.indicatorsOrdered = indicators.toJSON();
+    // this.indicatorsOrdered = _.sortByOrder(indicators.toJSON(), ['short_name']);
     if (this.mobile) {
       this.$('#'+order+ ' .country').html(templateMobileScores({ 'indicators': this.indicatorsOrdered, 'content': true }));
     } else {

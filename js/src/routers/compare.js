@@ -1,10 +1,11 @@
 var $ = require('jquery'),
-    _ = require('lodash'),
-    Backbone = require('backbone'),
-    URI = require('urijs');
+  _ = require('lodash'),
+  Backbone = require('backbone'),
+  URI = require('urijs');
 
 var ViewManager = require('../lib/view_manager.js'),
-    CompareView = require('../views/compare/compare.js');
+  CompareView = require('../views/compare/compare.js'),
+  WrapperHeaderView = require('../views/common/wrapper_header_view.js');
 
 var Router = Backbone.Router.extend({
 
@@ -16,6 +17,8 @@ var Router = Backbone.Router.extend({
     this.views = new ViewManager({ $el: options.$el });
 
     this.setListeners();
+
+    new WrapperHeaderView();
   },
 
   setListeners: function() {

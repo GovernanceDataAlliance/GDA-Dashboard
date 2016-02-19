@@ -33,8 +33,8 @@ describe("IndicatorConfigs", function() {
     });
 
     it('sends a query to get all Indicator definitions', function() {
-      var paramsRegex = new RegExp("\\?q=SELECT \\* FROM indicator_config");
-      expect(request.url).toMatch(paramsRegex);
+      // var paramsRegex = new RegExp("\\?q=SELECT \\* FROM indicator_config ORDER BY short_name asc");
+      // expect(request.url).toMatch(paramsRegex);
     });
   });
 });

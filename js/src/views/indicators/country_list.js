@@ -1,9 +1,8 @@
-var Backbone = require('backbone'),
-    _ = require('lodash'),
-    Handlebars = require('handlebars');
+var _ = require('lodash'),
+  Backbone = require('backbone'),
+  Handlebars = require('handlebars');
 
-var template = Handlebars.compile(
-  require('../../templates/indicators/country_list.hbs'));
+var template = Handlebars.compile(require('../../templates/indicators/country_list.hbs'));
 
 var IndicatorListView = Backbone.View.extend({
 

@@ -10,10 +10,10 @@
       </div>
       {{#if ../content}}
         {{#if score}}
-          <div class="score {{#if classColor}} {{classColor}} {{/if}} {{#ifCond units_abbr 'M USD'}} -usd {{/ifCond}}" data-index="{{short_name}}" data-year="{{year}}">
-            {{#round}}{{score}}{{/round}}
+          <div class="score {{#if classColor}} {{classColor}} {{/if}} -{{units}}" data-index="{{short_name}}" data-year="{{year}}">
+            <span>{{#round}}{{score}}{{/round}}</span>
             {{#if units_abbr}}
-              <span class="units">{{units_abbr}} </span>
+              <span class="units -{{units}}">{{units_abbr}} </span>
             {{/if}}
           </div>
         {{else}}

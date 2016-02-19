@@ -2,9 +2,9 @@ var $ = require('jquery');
 global.$ = $; // for chosen.js
 
 var chosen = require('chosen-jquery-browserify'),
-    _ = require('lodash'),
-    enquire = require('enquire.js'),
-    Backbone = require('backbone');
+  _ = require('lodash'),
+  enquire = require('enquire.js'),
+  Backbone = require('backbone');
 
 var CategorySelector = Backbone.View.extend({
 
@@ -16,8 +16,7 @@ var CategorySelector = Backbone.View.extend({
     'change select': 'onChangeSelect'
   },
 
-  initialize: function(options) {
-    options = options || {};
+  initialize: function() {
 
     enquire.register("screen and (max-width:768px)", {
       match: _.bind(function(){
@@ -74,7 +73,7 @@ var CategorySelector = Backbone.View.extend({
         }
       });
     }
-    
+
     this.$('select').val(id);
   },
 

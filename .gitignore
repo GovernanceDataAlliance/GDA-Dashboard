@@ -5,9 +5,10 @@
 _site
 .sass-cache
 .grunt
+useful-info.txt
 *.log
 /node_modules
-/js/bundle.js
+/js/about_bundle.js
 /js/blog_bundle.js
 /js/countries_bundle.js
 /js/compare_bundle.js

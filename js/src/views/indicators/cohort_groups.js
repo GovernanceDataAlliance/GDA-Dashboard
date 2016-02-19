@@ -1,12 +1,11 @@
-var Backbone = require('backbone'),
-    $ = require('jquery'),
+var $ = require('jquery'),
     _ = require('lodash'),
+    Backbone = require('backbone'),
     Handlebars = require('handlebars');
 
 var CohortCollection = require('../../collections/cohort_groups.js');
 
-var cohortGroupsTemplate = Handlebars.compile(
-  require('../../templates/indicators/cohort_groups_template.hbs'));
+var cohortGroupsTemplate = Handlebars.compile(require('../../templates/indicators/cohort_groups_template.hbs'));
 
 var CohortGroupsView = Backbone.View.extend({
 
@@ -14,12 +13,10 @@ var CohortGroupsView = Backbone.View.extend({
     'click .group-selector' : 'groupSelected'
   },
 
-
   /*
    * This view draws cohort groups and handles when one of them has been clicked.
    */
-  initialize: function(options) {
-    options = options || {};
+  initialize: function() {
     this.cohortCollection = new CohortCollection();
 
     this.cohortCollection.fetch().done(function (data) {

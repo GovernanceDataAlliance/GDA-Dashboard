@@ -1,5 +1,5 @@
-var Backbone = require('backbone'),
-    _ = require('lodash'),
+var _ = require('lodash'),
+    Backbone = require('backbone'),
     Handlebars = require('handlebars');
 
 var Country = require('../../models/country.js'),
@@ -11,9 +11,7 @@ var CountryHeaderView = require('./country_header.js'),
     ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
     ModalWindowView = require('../common/infowindow_view.js'),
     TooltipView = require('../common/tooltip_view.js'),
-    WrapperHeaderView = require('../common/wrapper_header_view.js');
-
-var ShareView = require('../common/share_view.js');
+    ShareView = require('../common/share_view.js');
 
 var template = Handlebars.compile(
   require('../../templates/countries/country.hbs'));
@@ -31,17 +29,13 @@ var CountryView = Backbone.View.extend({
       throw new Error('CountryView requires a Country ISO ID');
     }
 
-    //Think of a better solution...
-    $('.js--index-banner').addClass('is-hidden');
-
     this.iso = options.iso;
-    new WrapperHeaderView();
+
     this.initializeData();
   },
 
   initializeData: function() {
     this.country = new Country({id: this.iso});
-    // this.listenTo(this.country, 'sync', this.renderCountry);
     this.country.fetch().done(function() {
       this.renderCountry();
     }.bind(this));
@@ -52,10 +46,14 @@ var CountryView = Backbone.View.extend({
   },
 
   render: function(rerender) {
+    if (!$('.js--index-banner').hasClass('is-hidden')) {
+      $('.js--index-banner').addClass('is-hidden')
+    }
+
     this.$el.html(template());
     this.renderToolbars();
 
-    if (rerender === true) {
+    if (rerender) {
       this.renderCountry();
       this.renderToolbars();
       this.renderIndicators();
@@ -111,9 +109,8 @@ var CountryView = Backbone.View.extend({
 
   show: function() {
     this.render();
-  },
+  }
 
-  hide: function() {}
 });
 
 module.exports = CountryView;

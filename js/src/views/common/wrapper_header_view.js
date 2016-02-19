@@ -8,7 +8,7 @@ var WrapperHeaderView = Backbone.View.extend({
   el: '.l-menus',
 
   initialize: function() {
-
+    
     enquire.register("screen and (min-width: 768px)", {
       match: _.bind(function(){
         this.$el.removeClass('is-open');
@@ -32,8 +32,9 @@ var WrapperHeaderView = Backbone.View.extend({
     this.$background.on('click', _.bind(this._closeMenu, this));
   },
 
-  _closeMenu: function() {
+  _closeMenu: function(e) {
     this._resetScroll();
+    e.stopPropagation();
     this.$el.removeClass('is-open');
   },
 

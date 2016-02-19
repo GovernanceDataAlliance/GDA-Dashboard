@@ -1,7 +1,7 @@
 var _ = require('lodash'),
-    $ = require('jquery'),
-    Backbone = require('backbone'),
-    Handlebars = require('handlebars');
+  $ = require('jquery'),
+  Backbone = require('backbone'),
+  Handlebars = require('handlebars');
 
 
 var LegendView = Backbone.View.extend({

@@ -1,6 +1,6 @@
-var Backbone = require('backbone'),
-    _ = require('lodash'),
-    Handlebars = require('handlebars');
+var _ = require('lodash'),
+  Backbone = require('backbone'),
+  Handlebars = require('handlebars');
 
 var IndicatorConfigs = require('../../collections/indicator_configs.js');
 var IndicatorList = require('./indicator_list.js');
@@ -10,8 +10,7 @@ var template = Handlebars.compile(
 
 var IndicatorsView = Backbone.View.extend({
 
-  initialize: function(options) {
-    options = options || {};
+  initialize: function() {
 
     this.indicators = new IndicatorConfigs();
     this.listenTo(this.indicators, 'sync', this.render);

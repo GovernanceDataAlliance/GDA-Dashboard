@@ -1,21 +1,20 @@
-var Backbone = require('backbone'),
-    _ = require('lodash'),
+var _ = require('lodash'),
     enquire = require('enquire.js'),
+    Backbone = require('backbone'),
     Handlebars = require('handlebars');
 
 var Countries = require('../../collections/countries.js');
 var CountryList = require('./country_list.js');
 
-var SearchView = require('../common/search_view.js');
-var SearchMobileView = require('../common/search_mobile_view.js');
+var SearchView = require('../common/search_view.js'),
+  SearchMobileView = require('../common/search_mobile_view.js');
 
 var template = Handlebars.compile(
   require('../../templates/countries/countries.hbs'));
 
 var CountriesView = Backbone.View.extend({
-  
-  initialize: function(options) {
-    options = options || {};
+
+  initialize: function() {
     this.countries = new Countries();
 
     enquire.register("screen and (max-width:769px)", {
@@ -41,15 +40,18 @@ var CountriesView = Backbone.View.extend({
   },
 
   renderCountryList: function() {
+    if ($('.js--index-banner').hasClass('is-hidden')) {
+      $('.js--index-banner').removeClass('is-hidden')
+    }
     var listView = new CountryList({ countries: this.countries });
     this.$('.js--countries-list').html(listView.render().el);
   },
 
   initViews: function() {
     if (!this.mobile) {
-      var search = new SearchView({ el: $('.js--search') });
+      new SearchView({ el: $('.js--search') });
     } else {
-      var searchMobile = new SearchMobileView({ el: $('.js--search') });
+      new SearchMobileView({ el: $('.js--search') });
     }
   },
 
@@ -57,7 +59,8 @@ var CountriesView = Backbone.View.extend({
     this.render();
   },
 
-  hide: function() {}
+  // hide: function() {}
+
 });
 
 module.exports = CountriesView;

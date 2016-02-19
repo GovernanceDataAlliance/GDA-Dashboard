@@ -104,8 +104,13 @@
 
   select {
     padding: rem(12px) 3%;
-    padding-right: 5%;
+    padding-right: 15%;
     width: 100%;
+
+    @media screen and (min-width: $screen-m) {
+      padding-right: 5%;
+    }
+
     &:hover {
       color: $color-4;
     }
@@ -128,7 +133,7 @@
     right: rem(20px);
     pointer-events: none;
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: $screen-s) {
       right: rem(10px);
     }
 

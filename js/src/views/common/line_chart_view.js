@@ -1,8 +1,8 @@
-var Backbone = require('backbone'),
-    Handlebars = require('handlebars'),
-    _ = require('lodash'),
-    $ = require('jquery'),
-    d3 = require('d3');
+var _ = require('lodash'),
+  $ = require('jquery'),
+  Backbone = require('backbone'),
+  Handlebars = require('handlebars'),  
+  d3 = require('d3');
 
 var LineChart = require('../../lib/line_chart.js');
 

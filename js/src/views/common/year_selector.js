@@ -2,10 +2,10 @@ var $ = require('jquery');
 global.$ = $; // for chosen.js
 
 var chosen = require('chosen-jquery-browserify'),
-    _ = require('lodash'),
-    Backbone = require('backbone'),
-    enquire = require('enquire.js'),
-    Handlebars = require('handlebars');
+  _ = require('lodash'),
+  Backbone = require('backbone'),
+  enquire = require('enquire.js'),
+  Handlebars = require('handlebars');
 
 var template = Handlebars.compile(
   require('../../templates/common/year_selector.hbs'));

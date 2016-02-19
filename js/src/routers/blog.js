@@ -1,8 +1,8 @@
-var Backbone = require('backbone'),
-    URI = require('urijs');
+var Backbone = require('backbone');
 
 var ViewManager = require('../lib/view_manager.js'),
-    BlogView = require('../views/blog/blog.js');
+  BlogView = require('../views/blog/blog.js'),
+  WrapperHeaderView = require('../views/common/wrapper_header_view.js');
 
 var Router = Backbone.Router.extend({
 
@@ -11,11 +11,12 @@ var Router = Backbone.Router.extend({
   },
 
   initialize: function(options) {
-    this.views = new ViewManager({ $el: options.$el });
+    new ViewManager({ $el: options.$el });
+    new WrapperHeaderView();
   },
 
   blog: function() {
-    var view = new BlogView({});
+    new BlogView();
   }
 
 });

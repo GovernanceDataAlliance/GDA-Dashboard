@@ -1,8 +1,9 @@
 var Backbone = require('backbone');
 
 var ViewManager = require('../lib/view_manager.js'),
-    IndicatorsView = require('../views/indicators/indicators.js'),
-    IndicatorView = require('../views/indicators/indicator.js');
+  IndicatorsView = require('../views/indicators/indicators.js'),
+  IndicatorView = require('../views/indicators/indicator.js'),
+  WrapperHeaderView = require('../views/common/wrapper_header_view.js');
 
 var Router = Backbone.Router.extend({
 
@@ -13,6 +14,7 @@ var Router = Backbone.Router.extend({
 
   initialize: function(options) {
     this.views = new ViewManager({ $el: options.$el });
+    new WrapperHeaderView();
   },
 
   index: function() {

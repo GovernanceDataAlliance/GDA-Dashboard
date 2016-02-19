@@ -1,7 +1,6 @@
 .m-controls {
   display: flex;
   display: -ms-box;
-  // flex: 1 1 auto;
   align-items: center;
   justify-content: space-between;
 
@@ -26,10 +25,12 @@
       color: $font-color-1;
       background-color: #dedcda;
       min-height: 100%;
-
-      svg {
-        fill: $color-1;
+      &:hover {
+        svg {
+          fill: $color-1;
+        }
       }
+
     }
   }
 
@@ -91,10 +92,12 @@
   }
 
   .l-toolbar.-data & {
-    width: 48%;
+    width: rem(215px);
 
     .js--toolbar-utils .m-controls {
       width: 100%;
+      margin-top: rem(20px);
+      margin-bottom: rem(5px);
     }
 
     &:first-child {
@@ -103,6 +106,10 @@
 
     @media screen and (min-width: $screen-m) {
       width: auto;
+
+      .js--toolbar-utils .m-controls {
+        margin-top: rem(10px);
+      }
 
       .icon {
         display: inline-block;
@@ -118,8 +125,13 @@
 
   .btn-layout-dashboard,
   .btn-layout-list {
-    padding-left: rem(10px) ;
-    padding-right: rem(10px) ;
+    padding-left: rem(10px);
+    padding-right: rem(10px);
+
+    @media screen and (min-width: $screen-l) {
+      padding-left: rem(18px);
+      padding-right: rem(18px);
+    }
   }
 
   &.-right {
