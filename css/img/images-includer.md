@@ -1,4 +1,4 @@
-![pronacom.jpg]({{site.baseurl}}/css/img/logos/pronacom.jpg)
+![aiddata.png]({{site.baseurl}}/css/img/logos/aiddata.png)
 ![R4D]({{site.baseurl}}/css/img/logos/image-name.jpg)
 
 Use this file to add new images content. 
