@@ -14,7 +14,7 @@ search_intro: Search here for some of the best governance data we know of
 "module-3-link-text": compare countries
 "module-3-link-url": compare
 "module-3-image": "distribuidoresMul-03"
-"module-4-title": Data Sets
+"module-4-title": Data sets
 "module-4-content": "Interested in getting your hands on all of the data from key governance data producers for a particular country? We've done the heavy lifting for you."
 "module-4-link-text": Visit the data page
 "module-4-link-url": indicators
