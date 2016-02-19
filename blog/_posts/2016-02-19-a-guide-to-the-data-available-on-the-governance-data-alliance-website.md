@@ -16,32 +16,28 @@ The following is a full description of the metadata and data fields used by Alli
 
 **Field**						
 
-desired_direction:
-_"Up" if the scoring scale is one where higher scores are 										positive, "down" if the scale is one where lower scores are 									positive_
+**desired_direction:** "Up" if the scoring scale is one where higher scores are positive, "down" if the scale is one where lower scores are positive
 
-has_historical_info: 	
-_“Yes” if data is available for prior years, “no” if not_
+**has_historical_info:** “Yes” if data is available for prior years, “no” if not
 
-income_group:
-_Country’s income classification, according to the World Bank, 									based on the country’s gross national income (GNI) per capita. 									There are six income groupings: low, lower-middle, upper-middle, 								 high non-OECD, and high OECD._
+**income_group:** Country’s income classification, according to the World Bank, based on the country’s gross national income (GNI) per capita. There are six income groupings: low, lower-middle, upper-middle, high non-OECD, and high OECD.
 
-iso:
-_ISO 3166-1 alpha-3 code, three-letter country codes to represent 								 countries, dependent territories, and special areas of 										geographical interest_
+**iso:** ISO 3166-1 alpha-3 code, three-letter country codes to represent countries, dependent territories, and special areas of geographical interest
 
-lending_category
-Type of lending the country receives from the World Bank (IDA, Blend, IBRD)
-max_score
-The maximum score a country can have for the particular dataset
-methodology_link
-URL to obtain further information about the product.
-min_score
-The minimum score a country can have for the particular dataset
-name
-Country name
-notes
-Any notes or clarifications about the data.(e.g. What specific commodities are covered by the Resource Governance Index in each country)
-organization
-Name of the organization that produces the data set
+**lending_category:** Type of lending the country receives from the World Bank (IDA, Blend, IBRD)
+
+**max_score:** The maximum score a country can have for the particular dataset
+
+**methodology_link:** URL to obtain further information about the product.
+
+**min_score:** The minimum score a country can have for the particular dataset
+
+**name:** Country name
+
+**notes:** Any notes or clarifications about the data.(e.g. What specific commodities are covered by the Resource Governance Index in each country)
+
+**organization:** Name of the organization that produces the data set
+
 product_description
 A short description of what the product assesses, in plain English terms
 product_logo
