@@ -1,4 +1,4 @@
-![mcc.png]({{site.baseurl}}/css/img/logos/mcc.png)
+![on.jpg]({{site.baseurl}}/css/img/logos/on.jpg)
 ![R4D]({{site.baseurl}}/css/img/logos/image-name.jpg)
 
 Use this file to add new images content. 
