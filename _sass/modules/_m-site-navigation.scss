@@ -47,16 +47,20 @@
       padding: 0 rem(10px);
 
       li {
-        &.-current > a {
-          &:before {
-            content: '';
-            position: absolute;
-            top: auto;
-            left: 0;
-            bottom: -15px;
-            width: 100%;
-            height: 5px;
-            background-color: $celeste
+        &.-current {
+          pointer-events: none;
+
+           > a {
+            &:before {
+              content: '';
+              position: absolute;
+              top: auto;
+              left: 0;
+              bottom: -15px;
+              width: 100%;
+              height: 5px;
+              background-color: $celeste
+            }
           }
         }
         > a {
@@ -94,6 +98,7 @@
           border-bottom: 0;
 
           &.-current {
+            pointer-events: none;
 
             > a {
               &:before {

@@ -102,10 +102,12 @@
   }
 
   .l-toolbar.-data & {
-    width: 48%;
+    width: rem(215px);
 
     .js--toolbar-utils .m-controls {
       width: 100%;
+      margin-top: rem(20px);
+      margin-bottom: rem(5px);
     }
 
     &:first-child {
@@ -114,6 +116,10 @@
 
     @media screen and (min-width: 768px) {
       width: auto;
+
+      .js--toolbar-utils .m-controls {
+        margin-top: rem(10px);
+      }
 
       .icon {
         display: inline-block;
