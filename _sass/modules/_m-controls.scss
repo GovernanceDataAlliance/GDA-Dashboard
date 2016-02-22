@@ -4,13 +4,14 @@
   align-items: center;
   justify-content: space-between;
 
+  //REVIEW
   > * {
     line-height: rem(14px);
   }
 
-  .is-small-text {
-    margin-right: rem(10px);
-  }
+  // .is-small-text {
+  //   margin-right: rem(10px);
+  // }
 
   &.-country-options {
     display: none;
@@ -123,7 +124,7 @@
     }
 
     @media screen and (min-width: 768px) {
-      width: auto;
+      min-width: rem(300px);
 
       .js--download {
         padding-top: 0;
@@ -175,10 +176,15 @@
 
   .is-small-text {
     display: none;
+    white-space: nowrap;
   }
 
   .separator {
     display: none;
+  }
+
+  .selector-wrapper {
+    width: 100%;
   }
 
   @media screen and (min-width: $screen-s) {
@@ -188,12 +194,10 @@
     }
   }
 
-  @media screen and (max-width: 768px) {
+  // @media screen and (max-width: 768px) {
 
-    .selector-wrapper {
-      width: 100%;
-    }
-  }
+  //   
+  // }
 
   @media screen and (min-width: 768px) {
     .is-small-text {
@@ -204,9 +208,9 @@
       display: inline-block;
     }
 
-    .selector-wrapper {
-      width: auto;
-    }
+    // .selector-wrapper {
+    //   width: 100%;
+    // }
   }
 
   @media screen and (max-width: $screen-m) {
