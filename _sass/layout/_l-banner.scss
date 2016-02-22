@@ -195,9 +195,9 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
     @media screen and (min-width: 768px) {
 
-      // &.-country {
-      //   padding: rem(60px) 0;
-      // }
+      &.-country {
+        padding: rem(60px) 0;
+      }
 
       &.-blog {
         > .wrap {
