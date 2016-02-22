@@ -9,7 +9,7 @@
     font-size: rem(40px);
   }
 
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: 768px) {
     font-size: rem(45px) !important;
     line-height: rem(62px);
     margin-bottom: rem(35px);

@@ -1122,18 +1122,27 @@ select {
   .l-banner.-section-2 {
     padding: 3.125rem 0 4.375rem;
     background-color: #ccc; }
-    @media screen and (min-width: 1280px) {
-      .l-banner.-section-2 > .wrap {
-        max-width: 80%;
-        margin: 0; } }
+    @media screen and (min-width: 640px) {
+      .l-banner.-section-2 {
+        padding: 7.5rem 0 11.25rem; } }
     @media screen and (min-width: 769px) {
       .l-banner.-section-2 {
         padding: 8.75rem 0 11.25rem; } }
+    @media screen and (min-width: 1280px) {
+      .l-banner.-section-2 {
+        padding: 7.8125rem 0 13.4375rem; }
+        .l-banner.-section-2 > .wrap {
+          max-width: 80%;
+          margin: 0; } }
     .l-banner.-section-2 p {
       color: #fff;
       letter-spacing: 0.03125rem;
       font-size: 1rem;
       line-height: 1.625rem; }
+      @media screen and (min-width: 640px) {
+        .l-banner.-section-2 p {
+          font-size: 1.125rem;
+          line-height: 2rem; } }
       @media screen and (min-width: 769px) {
         .l-banner.-section-2 p {
           font-size: 1.25rem;
@@ -4433,7 +4442,7 @@ select {
   @media screen and (min-width: 321px) {
     .c-title {
       font-size: 2.5rem; } }
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 768px) {
     .c-title {
       font-size: 2.8125rem !important;
       line-height: 3.875rem;
