@@ -4,17 +4,24 @@
   align-items: center;
   justify-content: space-between;
 
+  > * {
+    line-height: rem(14px);
+  }
+
   .is-small-text {
     margin-right: rem(10px);
+  }
+
+  &.-country-options {
+    display: none;
   }
 
   a,
   button,
   .btn-drop-down {
-
-    font-size: rem(10px);
-
     display: inline-block;
+    font-size: rem(11px);
+    padding: 0;
 
     &:hover {
       color: $color-4;
@@ -30,7 +37,6 @@
           fill: $color-1;
         }
       }
-
     }
   }
 
@@ -41,10 +47,14 @@
     }
   }
 
+  button {
+    display: flex;
+  }
+
   .icon {
     display: none;
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: 768px) {
       display: inline-block;
       vertical-align: middle;
       margin-right: 5px;
@@ -75,7 +85,7 @@
       align-items: flex-start;
     }
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: 768px) {
       flex-direction: row;
       align-items: center;
 
@@ -102,7 +112,7 @@
       margin-right: 4%;
     }
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: 768px) {
       width: auto;
 
       .icon {
@@ -114,7 +124,7 @@
   span {
     align-self: center;
     color: $border-1;
-    padding: 0 rem(10px);
+    padding: 0 rem(8px);
   }
 
   .btn-layout-dashboard,
@@ -133,19 +143,32 @@
   }
 
   &.-country-options {
-    display: none;
     align-items: initial;
   }
 
   .-footer & {
     justify-content: center;
-    margin-bottom: rem(20px);
+
+    button > .icon {
+      display: inline-flex;
+      margin-right: rem(10px);
+    }
+
+    span {
+      padding: 0 rem($wrap-padding-desktop);
+    }
   }
 
-  @media screen and (max-width: $screen-m) {
+  @media screen and (min-width: $screen-s) {
 
     a, button {
-      line-height: rem(28px);
+      line-height: rem(14px);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+
+    a, button {
 
       &.btn-drop-down {
         width: 100%;
@@ -165,23 +188,48 @@
     }
   }
 
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: 768px) {
+
+    &.-country-options {
+      display: flex;
+      display: -ms-box;
+    }
 
     a, button {
       font-size: rem(11px);
+      line-height: rem(28px);
 
       &:first-child {
         margin-left: 0;
       }
     }
 
-    &.-country-options {
-      display: flex; display: -ms-box;
+    button {
+      display: inline-block;
+    }
+
+    span {
+      padding: 0 rem(10px);
     }
 
     .-footer & {
       justify-content: space-between;
       margin-bottom: 0;
+
+      span {
+        padding: 0 rem(10px);
+      }
+    }
+  }
+
+  @media screen and (min-width: $screen-l) {
+    span {
+      padding: 0 rem(20px);
+    }
+    .-footer & {
+      span {
+        padding: 0 rem(20px);
+      }
     }
   }
 }
