@@ -2,6 +2,11 @@
 
   .modal-container {
     padding: 60px 20px 10px;
+
+    @media screen and (min-width: $screen-l) and (orientation: landscape),
+      screen and (min-width: $screen-m) and (orientation: portrait) {
+        padding: rem(75px) rem(50px);
+      }
   }
 
   .modal-content {

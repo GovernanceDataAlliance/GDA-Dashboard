@@ -13,7 +13,7 @@
     color: $white;
     &:hover {
       color: $font-color-3;
-      border-color: $color-4;
+      background-color: $white;
     }
   }
 
@@ -48,9 +48,11 @@
   width: 17px;
   height: 17px;
   padding: 0;
+  margin-left: rem(8px);
   line-height: 17px;
   text-align: center;
   font-weight: 700;
+
 }
 
 .btn-drop-down {

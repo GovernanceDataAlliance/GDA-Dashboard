@@ -54,11 +54,11 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
       }
     }
 
-    @media screen and (min-width: $screen-s) {
-      padding: rem(100px) 0 rem(140px);
-    }
+    // @media screen and (min-width: $screen-s) {
+    //   padding: rem(100px) 0 rem(140px);
+    // }
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: 768px) {
       height: calc(100vh - 95px);
       min-height: rem(700px);
 
@@ -105,7 +105,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
       }
     }
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: 768px) {
       padding: rem(140px) 0 rem(180px);
     }
 
@@ -115,7 +115,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
       font-size: rem(16px);
       line-height: rem(26px);
 
-      @media screen and (min-width: $screen-m) {
+      @media screen and (min-width: 768px) {
         font-size: rem(20px);
         line-height: rem(34px);
       }
@@ -127,7 +127,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     min-height: rem(70px);
     background-color: $bg-color-1;
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: 768px) {
       min-height: rem(90px);
     }
   }
@@ -145,7 +145,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     }
 
     &.-country {
-      padding: rem(80px) 0 rem(40px);
+      padding: rem(40px) 0 rem(40px);
     }
 
     &.-blog {
@@ -178,8 +178,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     //   }
     // }
 
-    @media screen and (min-width: $screen-m) {
-      padding: rem(120px) 0 rem(75px);
+    @media screen and (min-width: 768px) {
 
       &.-country {
         padding: rem(60px) 0;

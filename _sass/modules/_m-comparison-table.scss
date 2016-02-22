@@ -40,6 +40,11 @@
       > .organization {
         display: flex;
         align-items: center;
+
+        h2 {
+          max-width: 100%;
+          margin: 0;
+        }
       }
     }
   }

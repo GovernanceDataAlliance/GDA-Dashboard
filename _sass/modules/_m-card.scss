@@ -8,7 +8,7 @@
     border-bottom: 0;
   }
 
-  @media screen and (min-width: $screen-s) {
+  @media screen and (min-width: 768px) {
     min-height: rem(390px);
   }
 
@@ -23,21 +23,58 @@
 
       .index-description .organization {
         margin-bottom: 2.75rem;
-
-        > .btn-info {
-          margin-left: rem(5px);
-        }
       }
 
-      @media screen and (min-width: $screen-m) {
+      .index-description .btn {
+        display: inline-block;
+      }
+
+      @media screen and (min-width: 768px) {
         flex-direction: column;
+
+        .name {
+          font-size: rem(30px);
+          line-height: rem(37px);
+        }
+
+        .description {
+          font-size: rem(14px);
+          line-height: rem(27px);
+          letter-spacing: rem(.4px);
+        }
+
+        .index-score > .resume {
+          justify-content: space-between;
+          &.-usd {
+            margin-bottom: rem(30px);
+          }
+        }
       }
 
       @media screen and (min-width: $screen-l) {
         padding: rem(55px) rem(50px);
         flex-direction: row;
         align-items: flex-start;
+
+        .name {
+          font-size: rem(27px);
+          line-height: rem(34px);
+        }
+
+        .index-score > .resume.-usd {
+          flex-direction: column;
+          align-items: flex-end;
+        }
+
+        .description {
+          font-size: rem(15px);
+          line-height: rem(29px);
+        }
       }
+    }
+
+    @media screen and (min-width: $screen-l) {
+      padding: 0;
     }
 
     @media screen and (min-width: $screen-xl) {
@@ -53,7 +90,7 @@
   }
 
   a:hover {
-    color: $font-color-hover;
+    color: $color-4;
   }
 
   .name:hover {
@@ -67,6 +104,7 @@
     color: $color-1 !important;
 
     >.wrap {
+      flex-direction: row;
       justify-content: flex-start;
     }
 
@@ -92,8 +130,10 @@
         }
       }
 
-      .description-wrapper {
-        max-width: 80%;
+      @media screen and (min-width: $screen-l) {
+        .description-wrapper {
+          max-width: 80%;
+        }
       }
     }
   }
@@ -114,8 +154,17 @@
         flex-direction: column;
         padding: 0;
 
+        .index-description .btn {
+          display: none;
+        }
+
         .index-description .organization {
           margin-bottom: rem(20px);
+        }
+
+        .index-score > .-usd {
+          flex-direction: column;
+          align-items: flex-start;
         }
       }
     }
@@ -124,34 +173,24 @@
       display: none;
     }
 
-    @media screen and (min-width: $screen-s) {
+    @media screen and (min-width: 768px) {
       display: flex; display: -ms-box;
-      flex-basis: 100%;
-
+      width: 50%;
+      height: rem(500px);
+      float: left;
       border-right: 1px solid $border-1;
 
       &:nth-child(2n) {
         border-right: 0;
       }
 
-      .card-wrap {
-        padding: rem(60px) rem($wrap-padding-mobile);
-
+      > .card-wrap {
+        padding: rem(40px) rem($wrap-padding-tablet);
         >.wrap {
           -webkit-box-orient: vertical;
           -webkit-box-direction: normal;
           flex-direction: column;
         }
-      }
-    }
-
-    @media screen and (min-width: $screen-m) {
-      width: 50%;
-      height: rem(500px);
-      float: left;
-
-      > .card-wrap {
-        padding: rem(40px) rem($wrap-padding-tablet);
       }
     }
 
@@ -166,8 +205,8 @@
         border-right: 0;
       }
 
-      .card-wrap {
-        padding: rem(65px);
+      > .card-wrap {
+        padding: rem(40px);
       }
 
       .info {
@@ -178,6 +217,19 @@
         span:first-child {
           margin-bottom: rem(25px);
         }
+      }
+    }
+
+    @media screen and (min-width: $screen-l) and (orientation: landscape)
+      and (-webkit-min-device-pixel-ratio: 2) {
+      > .card-wrap {
+        padding: rem(40px) rem($wrap-padding-mobile);
+      }
+    }
+
+    @media screen and (min-width: $screen-xl) {
+      > .card-wrap {
+        padding: rem(65px) rem(70px);
       }
     }
   }
@@ -192,10 +244,6 @@
       font-size: rem(24px);
       font-weight: 400;
       margin-bottom: rem(15px);
-
-      @media screen and (min-width: $screen-s) {
-        font-size: rem(27px);
-      }
     }
 
     > .description-wrapper {
@@ -222,6 +270,12 @@
       color: $font-color-3;
       cursor: pointer;
       white-space: nowrap;
+      &:hover {
+        color: $color-4;
+        &:after {
+          border-color: $color-4;
+        }
+      }
     }
 
     .read-more:after,
@@ -297,7 +351,7 @@
     flex-direction: column;
     justify-content: flex-start;
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: 768px) {
       flex-direction: column;
       justify-content: space-between;
       margin-top: rem(10px);
@@ -323,8 +377,7 @@
       align-items: center;
 
       > .graph {
-
-        min-width: rem(250px);
+        min-width: rem(200px);
         min-height: rem(100px);
         fill: transparent;
         stroke: $color-2;
@@ -348,7 +401,7 @@
         letter-spacing: rem(-3.6px);
         line-height: 1em;
 
-        @media screen and (min-width: $screen-m) {
+        @media screen and (min-width: 768px) {
           font-size: rem(80px);
           letter-spacing: rem(-6px);
         }
@@ -362,7 +415,7 @@
           letter-spacing: rem(.1px);
           line-height: .7em;
 
-          @media screen and (min-width: $screen-m) {
+          @media screen and (min-width: 768px) {
             font-size: rem(20px);
           }
         }
@@ -370,7 +423,7 @@
 
       .is-dashboard-layout & {
         > .global-score {
-          @media screen and (min-width: $screen-m) {
+          @media screen and (min-width: 768px) {
             margin: 0;
             font-size: rem(62px);
           }
@@ -398,7 +451,6 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      margin: rem(30px) 0;
       padding: rem(20px);
       background-color: $bg-color-1;
 
@@ -417,12 +469,11 @@
         font-size: rem(30px);
       }
 
-      @media screen and (min-width: $screen-m) {
+      @media screen and (min-width: 768px) {
         flex-direction: row;
         padding: rem(30px);
         align-items: center;
         justify-content: space-around;
-        margin: 0;
 
         > li {
           flex-direction: column;
@@ -431,7 +482,6 @@
 
       @media screen and (min-width: $screen-l) {
         flex-direction: row;
-        margin-top: rem(25px);
 
         > li {
           flex-direction: column;
