@@ -1,7 +1,6 @@
 var $ = require('jquery'),
   _ = require('lodash'),
-  Backbone = require('backbone'),
-  URI = require('urijs');
+  Backbone = require('backbone');
 
 var ViewManager = require('../lib/view_manager.js'),
   CountryView = require('../views/countries/country.js'),
