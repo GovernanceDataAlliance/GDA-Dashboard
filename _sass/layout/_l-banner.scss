@@ -161,9 +161,9 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
       display: flex; display: -ms-box;
     }
 
-    &.-country {
-      padding: rem(40px) 0 rem(40px);
-    }
+    // &.-country {
+    //   padding: rem(40px) 0 rem(40px);
+    // }
 
     &.-blog {
       padding-top: rem(120px);
@@ -195,9 +195,9 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
     @media screen and (min-width: 768px) {
 
-      &.-country {
-        padding: rem(60px) 0;
-      }
+      // &.-country {
+      //   padding: rem(60px) 0;
+      // }
 
       &.-blog {
         > .wrap {
