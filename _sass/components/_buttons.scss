@@ -7,6 +7,10 @@
   align-items: center;
   text-align: center;
 
+  &:hover {
+    color: $color-4;
+  }
+
   &.-white {
     display: inline-block;
     padding: 20px 60px;
@@ -61,7 +65,9 @@
   line-height: 17px;
   text-align: center;
   font-weight: 700;
-
+  &:hover {
+    background-color: #5DE8FF;
+  }
 }
 
 .btn-drop-down {

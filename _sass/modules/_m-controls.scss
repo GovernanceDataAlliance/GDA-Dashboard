@@ -22,7 +22,6 @@
     display: inline-block;
     font-size: rem(11px);
     padding: 0;
-
     &:hover {
       color: $color-4;
       border-color: $color-4;
@@ -33,6 +32,7 @@
       background-color: #dedcda;
       min-height: 100%;
       &:hover {
+        color: $font-color-1;
         svg {
           fill: $color-1;
         }
@@ -42,8 +42,9 @@
 
   a:hover,
   button:hover {
+    color: $color-4;
     svg {
-      fill: $font-color-hover;
+      fill: $dark-sky-blue;
     }
   }
 
