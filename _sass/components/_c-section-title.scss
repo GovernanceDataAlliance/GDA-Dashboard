@@ -33,8 +33,6 @@
 
   &.-light {
     color: $font-color-2;
-    // margin-bottom: rem(60px);
-
     &:after {
       background-color: $white;
     }
@@ -55,7 +53,7 @@
     padding: 0 0 rem(50px) 0;
 
     &.-country-name {
-      padding-bottom: rem(40px);
+      padding: rem(40px) 0 rem(30px) 0;
     }
   }
 
@@ -63,8 +61,11 @@
     padding-bottom: rem(30px);
     margin-bottom: rem(55px);
     font-size: rem(50px);
-    // line-height: rem(85px);
     line-height: 1.2em;
+
+    &.-country-name {
+      padding-bottom: rem(40px);
+    }
 
     &.-small {
       margin-bottom: rem(50px);
