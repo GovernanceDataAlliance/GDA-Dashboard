@@ -93,11 +93,6 @@
     color: $color-4;
   }
 
-  .name:hover {
-    color: $color-4;
-    cursor: pointer;
-  }
-
   .-not-covered {
     min-height: rem(390px);
     background-color: $bg-color-1;
@@ -574,10 +569,6 @@
   &.-score-poor {
     color: $font-color-2;
     background-color: $poor;
-
-    .index-description .name:hover {
-      color: #470614;
-    }
 
     .index-description .organization {
       color: $font-color-2;

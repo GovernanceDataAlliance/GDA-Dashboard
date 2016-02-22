@@ -11,16 +11,21 @@
     letter-spacing: .6px;
     cursor: pointer;
     min-width: rem(100px);
+    &:hover {
+      color: $color-4;
+    }
 
     &.-disabled {
       opacity: 0.3;
       cursor: inherit;
+      &:hover {
+        color: $font-color-3
+      }
     }
   }
-  
+
   > .page-number {
     padding: 0 1rem;
-    // font-family: $font-secondary;
     font-size: rem(12px);
     color: $font-color-1;
     letter-spacing: .4px;
