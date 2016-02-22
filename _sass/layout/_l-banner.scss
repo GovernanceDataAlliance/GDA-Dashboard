@@ -54,9 +54,9 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
       }
     }
 
-    @media screen and (min-width: $screen-s) {
-      padding: rem(100px) 0 rem(140px);
-    }
+    // @media screen and (min-width: $screen-s) {
+    //   padding: rem(100px) 0 rem(140px);
+    // }
 
     @media screen and (min-width: 768px) {
       height: calc(100vh - 95px);
@@ -172,11 +172,11 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
       }
     }
 
-    @media screen and (min-width: $screen-s) {
-      &.-country {
-        padding: rem(100px) 0 rem(60px);
-      }
-    }
+    // @media screen and (min-width: $screen-s) {
+    //   &.-country {
+    //     padding: rem(100px) 0 rem(60px);
+    //   }
+    // }
 
     @media screen and (min-width: 768px) {
       &.-country {
