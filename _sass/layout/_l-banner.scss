@@ -96,19 +96,19 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
   //compare
   //data
   &.-section-2 {
-    padding: rem(50px) 0 rem(70px);
+    padding: rem(75px) 0 rem(110px);
     background-color: #ccc;
 
     @media screen and (min-width: $screen-s) {
-      padding: rem(120px) 0 rem(180px);
+      padding: rem(130px) 0 rem(217px);
     }
 
     @media screen and (min-width: $screen-m) {
-      padding: rem(140px) 0 rem(180px);
+      padding: rem(140px) 0 rem(190px);
     }
 
     @media screen and (min-width: $screen-xl) {
-      padding: rem(125px) 0 rem(215px);
+      padding: rem(145px) 0 rem(210px);
 
       > .wrap {
         max-width: 80%;

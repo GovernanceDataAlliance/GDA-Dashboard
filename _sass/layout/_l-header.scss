@@ -8,7 +8,11 @@ $header-height: rem(70px);
   display: flex;
   align-items: stretch;
 
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: 768px) {
+    height: rem(80px);
+  }
+
+  @media screen and (min-width: $screen-l) {
     height: $header-height-desktop;
   }
 
@@ -17,14 +21,17 @@ $header-height: rem(70px);
     width: rem(95px);
     background-color: $bg-color-2;
 
-    @media screen and (min-width: $screen-m) {
-      height: $header-height-desktop;
+    @media screen and (min-width: 768px) {
       flex-basis: 37%;
       justify-content: flex-end;
       width: auto;
     }
+    
+    @media screen and (min-width: $screen-m) {
+    }
 
     @media screen and (min-width: $screen-l) {
+      height: $header-height-desktop;
       justify-content: center;
     }
   }
@@ -89,12 +96,16 @@ $header-height: rem(70px);
         fill: $color-1;
       }
 
-      @media screen and (min-width: $screen-m) {
+      @media screen and (min-width: 768px) {
+        height: rem(80px);
+      }
+
+      @media screen and (min-width: $screen-l) {
         height: $header-height-desktop;
       }
     }
 
-    @media screen and (min-width: $screen-m) and (orientation: landscape) {
+    @media screen and (min-width: $screen-m) {
       display: flex;
 
       .menus-wrapper {
