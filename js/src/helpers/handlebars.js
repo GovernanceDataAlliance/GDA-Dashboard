@@ -11,11 +11,3 @@ Handlebars.registerHelper('round', function(options) {
 Handlebars.registerHelper('beautifullStrign', function(options) {
   return options.replace('_', ' ');
 });
-
-
-Handlebars.registerHelper('ifCond', function(v1, v2, options) {
-  if(v1 === v2) {
-    return options.fn(this);
-  }
-  return options.inverse(this);
-});

@@ -27,7 +27,7 @@
     </div>
 
     <div class="index-score">
-      <div class="resume {{#ifCond units_abbr 'M USD'}} -usd {{/ifCond}}">
+      <div class="resume -{{units}}">
         <div class="js--graph graph"></div>
         <p class="global-score">
           {{#round}}{{score}}{{/round}}
