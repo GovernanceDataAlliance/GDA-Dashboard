@@ -1,9 +1,13 @@
 .c-title {
-  font-size: rem(40px);
+  font-size: rem(35px);
   margin-bottom: rem(25px);
   font-family: $font-main;
   font-weight: 400;
   color: $font-color-2;
+
+  @media screen and (min-width: 321px) {
+    font-size: rem(40px);
+  }
 
   @media screen and (min-width: $screen-m) {
     font-size: rem(45px) !important;

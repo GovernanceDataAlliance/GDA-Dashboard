@@ -93,15 +93,13 @@
       display: none;
     }
 
-    .js--toolbar-utils {
-      display: flex;
-      order: 1;
+    .wrap {
+      flex-wrap: wrap-reverse;
     }
 
-    @media screen and (min-width: $screen-m) {
-
-      .js--toolbar-utils {
-        order: 3;
+    @media screen and (min-width: $screen-xs) {
+      .wrap {
+        flex-wrap: wrap;
       }
     }
 

@@ -36,6 +36,20 @@
       color: $font-color-2;
     }
   }
+
+  @media screen and (min-width: $screen-s) {
+    .-highlighted {
+      font-size: rem(20px);
+      line-height: rem(34px);
+      letter-spacing: rem(0.4px);
+    }
+
+    > p {
+      + .btn {
+        margin-top: rem(50px);
+      }
+    }
+  }
   
   @media screen and (min-width: 768px) {
     > h2 {
@@ -47,12 +61,6 @@
       font-size: rem(20px);
       line-height: rem(34px);
       letter-spacing: rem(0.4px);
-    }
-
-    > p {
-      + .btn {
-        margin-top: rem(50px);
-      }
     }
   }
 
