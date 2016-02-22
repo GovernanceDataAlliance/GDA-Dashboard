@@ -40,10 +40,14 @@
   width: 100%;
   height: 500px;
   // padding: 50px; //Margen para el scroll de windows
+  padding: rem(75px) rem(45px) rem(75px) rem(15px);
   overflow: scroll;
-  padding: rem(75px) rem(50px);
   font-size: rem(15px);
   align-items: flex-start;
+
+  @media screen and (min-width: $screen-m) {
+    padding: rem(75px) rem(50px);
+  }
 
   @media screen and (min-width: $screen-xl) {
     padding: rem(75px) rem(100px);

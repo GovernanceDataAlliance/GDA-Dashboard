@@ -3,10 +3,11 @@
     <li class="table-cell {{short_name}}">
       <h3>{{product_name}}</h3>
       <div class="organization">
-        <h2>{{organization}}</h2>
-        {{#if product_description}}
-          <button class="btn-info" data-info="{{product_description}}">i</button>
-        {{/if}}
+        <h2>{{organization}}
+          {{#if product_description}}
+            <button class="btn-info" data-info="{{product_description}}">i</button>
+          {{/if}}
+        </h2>
       </div>
     </li>
   {{/each}}
