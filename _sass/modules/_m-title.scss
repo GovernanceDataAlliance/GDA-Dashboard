@@ -9,13 +9,13 @@
   }
 
   img {
-    display: inline-block;
+    display: none;
     max-width: 100%;
     width: rem(200px);
-    margin-top: rem(10px);
+    // margin-top: rem(10px);
 
-    @media screen and (max-width: $screen-m) {
-      display: none;
+    @media screen and (min-width: 768px) {
+      display: inline-block;
     } 
 
     &.freedom_on_the_net,

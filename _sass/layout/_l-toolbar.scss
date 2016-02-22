@@ -97,15 +97,19 @@
       display: none;
     }
 
-    .js--toolbar-utils {
-      display: flex;
-      order: 1;
+    .wrap {
+      flex-wrap: wrap-reverse;
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $screen-xs) {
+      .wrap {
+        flex-wrap: wrap;
+// =======
+//     @media screen and (min-width: 768px) {
 
-      .js--toolbar-utils {
-        order: 3;
+//       .js--toolbar-utils {
+//         order: 3;
+// >>>>>>> a453347c0942e854d71ba7737248381e7c79e17b
       }
     }
 

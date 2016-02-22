@@ -98,33 +98,40 @@
         align-items: center;
       }
     }
-
   }
 
   .l-toolbar.-data & {
-    width: rem(215px);
+    width: 100%;
+    margin-bottom: rem(8px);
 
-    .js--toolbar-utils .m-controls {
-      width: 100%;
-      margin-top: rem(20px);
-      margin-bottom: rem(5px);
+    .js--download {
+      padding-top: rem(20px);
+    }
+    
+    @media screen and (min-width: $screen-xs) {
+      width: 48%;
+      margin-bottom: 0;
+
+      &:first-child {
+        margin-right: 4%;
+      }
     }
 
-    &:first-child {
-      margin-right: 4%;
+    @media screen and (min-width: $screen-s) {
+      width: rem(215px);
     }
 
     @media screen and (min-width: 768px) {
       width: auto;
 
-      .js--toolbar-utils .m-controls {
-        margin-top: rem(10px);
-      }
-
-      .icon {
-        display: inline-block;
+      .js--download {
+        padding-top: 0;
       }
     }
+  }
+
+  .l-toolbar.-data .js--toolbar-utils & {
+    margin-bottom: 0;
   }
 
   span {
@@ -165,6 +172,14 @@
     }
   }
 
+  .is-small-text {
+    display: none;
+  }
+
+  .separator {
+    display: none;
+  }
+
   @media screen and (min-width: $screen-s) {
 
     a, button {
@@ -174,23 +189,33 @@
 
   @media screen and (max-width: 768px) {
 
+    .selector-wrapper {
+      width: 100%;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .is-small-text {
+      display: inline-block;
+    }
+
+    .separator {
+      display: inline-block;
+    }
+
+    .selector-wrapper {
+      width: auto;
+    }
+  }
+
+  @media screen and (max-width: $screen-m) {
+
     a, button {
+      line-height: rem(28px);
 
       &.btn-drop-down {
         width: 100%;
       }
-    }
-
-    .selector-wrapper {
-      width: 100%;
-    }
-
-    .separator {
-      display: none;
-    }
-
-    .is-small-text {
-      display: none;
     }
   }
 

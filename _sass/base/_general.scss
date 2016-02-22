@@ -25,6 +25,10 @@ body {
   -webkit-font-smoothing: antialiased;
 
   @media screen and (min-width: $screen-s) {
+    font-size: 18px;
+  }
+
+  @media screen and (min-width: $screen-m) {
     font-size: $font-size;
   }
 }
@@ -56,10 +60,10 @@ p {
   line-height: 1.5em;
 
   + .btn {
-    margin-top: rem(20px);
+    margin-top: rem(10px);
   }
 
-  @media screen and (min-width: $screen-xs) {
+  @media screen and (min-width: $screen-m) {
     line-height: 1.8em;
 
     + .btn {

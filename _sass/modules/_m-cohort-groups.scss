@@ -1,13 +1,13 @@
 .m-cohort-groups {
   position: absolute;
-  bottom: rem(-10px);
+  bottom: rem(55px);
   z-index: 2;
   width: 90%;
   padding: rem(35px) rem(40px);
   background-color: $bg-color-4;
   transform: translatey(100%);
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
     bottom: rem(50px);
   }
   

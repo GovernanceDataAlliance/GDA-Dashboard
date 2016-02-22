@@ -14,6 +14,8 @@ var IndicatorHeaderView = require('./indicator_header.js'),
   ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
   TooltipView = require('../common/tooltip_view.js');
 
+var TextShortener = require('../common/text_shortener.js');
+
 var template = Handlebars.compile(
   require('../../templates/indicators/indicator.hbs'));
 
@@ -94,6 +96,8 @@ var IndicatorView = Backbone.View.extend({
     var headerView = new IndicatorHeaderView({
       'indicator': this.indicator});
     this.$('.js--indicator-header').append(headerView.render().el);
+
+    new TextShortener({ el: this.el });
   },
 
   renderToolbar: function() {
