@@ -14,6 +14,8 @@ var IndicatorHeaderView = require('./indicator_header.js'),
   ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
   TooltipView = require('../common/tooltip_view.js');
 
+var TextShortener = require('../common/text_shortener.js');
+
 var template = Handlebars.compile(
   require('../../templates/indicators/indicator.hbs'));
 
@@ -29,6 +31,7 @@ var IndicatorView = Backbone.View.extend({
     options = options || {};
 
     this.id = options.id;
+    this.givenYear = options.year || null;
 
     this.initializeData();
     this.setListeners();
@@ -46,6 +49,10 @@ var IndicatorView = Backbone.View.extend({
 
       this.years = years ? years.rows : null;
       this.actualYear = years  && years.rows[0] ? years.rows[0].year : null;
+
+      if (this.givenYear) {
+        this.actualYear = this.givenYear;
+      }
 
       this.indicator = new Indicator({id: this.id});
       this.listenTo(this.indicator, 'sync', this.renderHeader);
@@ -78,7 +85,7 @@ var IndicatorView = Backbone.View.extend({
 
   render: function(rerender) {
     if (!$('.js--index-banner').hasClass('is-hidden')) {
-      $('.js--index-banner').addClass('is-hidden')
+      $('.js--index-banner').addClass('is-hidden');
     }
 
     this.$el.html(template());
@@ -94,6 +101,8 @@ var IndicatorView = Backbone.View.extend({
     var headerView = new IndicatorHeaderView({
       'indicator': this.indicator});
     this.$('.js--indicator-header').append(headerView.render().el);
+
+    new TextShortener({ el: this.el });
   },
 
   renderToolbar: function() {
@@ -137,13 +146,14 @@ var IndicatorView = Backbone.View.extend({
     window.location = url;
   },
 
-  setIndicator: function(id) {
+  setIndicator: function(id, year) {
     if (this.id === id) { this.render(true); }
 
     this.stopListening(this.countries);
     this.stopListening(this.indicator);
 
     this.id = id;
+    this.givenYear = year || null;
     this.initializeData();
   },
 

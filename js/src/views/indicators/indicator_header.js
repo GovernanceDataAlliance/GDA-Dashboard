@@ -2,6 +2,8 @@ var _ = require('lodash'),
     Backbone = require('backbone'),
     Handlebars = require('handlebars');
 
+var TextShortener = require('../common/text_shortener.js');
+
 var template = Handlebars.compile(require('../../templates/indicators/indicator_header.hbs'));
 
 var IndicatorHeaderView = Backbone.View.extend({
@@ -16,7 +18,7 @@ var IndicatorHeaderView = Backbone.View.extend({
     this.$el.html(template({
       'indicator': this.indicator.toJSON()
     }));
-
+   
     return this;
   }
 

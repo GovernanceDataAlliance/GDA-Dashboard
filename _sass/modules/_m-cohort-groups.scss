@@ -1,35 +1,22 @@
 .m-cohort-groups {
   position: absolute;
-  bottom: rem(-10px);
+  bottom: rem(65px);
   z-index: 2;
-  width: 90%;
-  padding: rem(35px) rem(40px);
+  left: rem($wrap-padding-mobile);
+  right: rem($wrap-padding-mobile);
+  max-width: rem($grid-max-width);
+  padding: rem(15px);
   background-color: $bg-color-4;
   transform: translatey(100%);
+  border: 1px solid $color-4;
 
-  @media screen and (max-width: 768px) {
-    bottom: rem(50px);
-  }
-  
-  @media screen and (max-width: $screen-m) {
-    bottom: rem(40px);
 
-    border: 1px solid $color-4;
-
-    &:before {
-      content: "";
-      @include equi-triangle(rem(11px), $color-4, top);
-      position: absolute;
-      top: rem(-11px);
-      left: rem(49px);
-    }
-
-    &:hover {
-      border-color: $color-1;
-      &:before {
-        border-bottom-color: $color-1;
-      }
-    }
+  &:before {
+    content: "";
+    @include equi-triangle(rem(11px), $color-4, top);
+    position: absolute;
+    top: rem(-11px);
+    left: rem(49px);
   }
 
   &:after {
@@ -38,6 +25,33 @@
     position: absolute;
     top: rem(-10px);
     left: rem(50px);
+  }
+
+  @media screen and (min-width: $screen-xs) {
+    bottom: rem(60px);
+  }
+
+  @media screen and (min-width: $screen-s) {
+    bottom: rem(60px);
+    left: rem($wrap-padding-tablet);
+    right: rem($wrap-padding-tablet);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: rem(35px) rem(40px);
+    bottom: rem(-10px);
+    left: rem($wrap-padding-desktop);
+    right: rem($wrap-padding-desktop);
+    border: none;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    left: rem(80px);
+    right: rem(80px);
   }
 
   .groups {
@@ -52,9 +66,10 @@
   }
 
   .group {
-    margin: 0 rem(10px);
+    margin: 0 rem(10px) rem(10px);
 
     @media screen and (min-width: 768px) {
+      margin-bottom: 0;
 
       &:first-child {
         margin-left: 0;
@@ -78,7 +93,10 @@
     font-size: rem(20px);
     font-weight: 400;
     text-transform: capitalize;
-    margin-bottom: rem(15px);
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: rem(15px);
+    }
   }
 
   li {

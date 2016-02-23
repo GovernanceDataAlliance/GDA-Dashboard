@@ -13,7 +13,11 @@
       display: flex; display: -ms-box;
       justify-content: space-between;
       align-items: center;
-      height: rem(100px);
+      height: rem(70px);
+
+      @media screen and (min-width: 768px) {
+        height: rem(100px);
+      }
 
       > .description {
         display: flex; display: -ms-box;

@@ -2,32 +2,36 @@
   position: relative;
   z-index: 1;
   display: flex; display: -ms-box;
+  height: auto;
+  padding: rem(20px) 0;
   background-color: $bg-color-4;
   border-bottom: 1px solid $border-1;
 
-  height: auto;
-  padding-bottom: .5rem;
-  padding-top: .5rem;
-
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: 768px) {
     height: rem(70px);
     padding-top: 0;
     padding-bottom: 0;
   }
 
   .wrap {
-    display: flex; display: -ms-box;
+    display: flex;
+    display: -ms-box;
     justify-content: space-between;
     flex-wrap: wrap;
+    // padding: 0 rem(15px);
 
-    > .js--toolbar-utils {
-      display: flex;
-      // width: 100%;
-    }
-
+    > .js--toolbar-utils,
     > .js--toolbar-display {
-      display: none;
+      display: flex;
     }
+
+    // @media screen and (min-width: 768px) {
+    //   padding: 0 rem($wrap-padding-desktop);
+    // }
+
+    // @media screen and (min-width: $screen-l) {
+    //   padding: 0 rem($wrap-padding-desktop * 2);
+    // }
   }
 
   &.-share {
@@ -93,15 +97,19 @@
       display: none;
     }
 
-    .js--toolbar-utils {
-      display: flex;
-      order: 1;
+    .wrap {
+      flex-wrap: wrap-reverse;
     }
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: $screen-xs) {
+      .wrap {
+        flex-wrap: wrap;
+// =======
+//     @media screen and (min-width: 768px) {
 
-      .js--toolbar-utils {
-        order: 3;
+//       .js--toolbar-utils {
+//         order: 3;
+// >>>>>>> a453347c0942e854d71ba7737248381e7c79e17b
       }
     }
 
@@ -126,6 +134,11 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+
+      > .js--toolbar-utils {
+        width: 100%;
+        justify-content: center;
+      }
     }
   }
 
@@ -135,13 +148,10 @@
     }
   }
 
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: 768px) {
 
-    .wrap {
-
-      > .js--toolbar-display {
-        display: flex;
-      }
+    .wrap > .js--toolbar-display {
+      display: flex;
     }
 
     &.-footer {
@@ -151,6 +161,10 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+
+        > .js--toolbar-utils {
+          width: auto;
+        }
       }
     }
   }

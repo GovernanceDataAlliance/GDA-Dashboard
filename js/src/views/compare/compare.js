@@ -306,7 +306,7 @@ var CompareView = Backbone.View.extend({
 
   yearRecived: function(year) {
     compareStatus.set('year', year);
-    this.year = year || '2015';
+    this.year = year || (new Date).getFullYear() - 1;;
 
     var countries = compareStatus.get('countries');
 

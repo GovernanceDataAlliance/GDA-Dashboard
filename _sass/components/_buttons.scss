@@ -1,10 +1,15 @@
 .btn {
+  width: 100%;
   font-size: rem(11px);
   font-family: $font-secondary;
   text-transform: uppercase;
   display: flex; display: -ms-box;
   align-items: center;
   text-align: center;
+
+  &:hover {
+    color: $color-4;
+  }
 
   &.-white {
     display: inline-block;
@@ -13,7 +18,7 @@
     color: $white;
     &:hover {
       color: $font-color-3;
-      border-color: $color-4;
+      background-color: $white;
     }
   }
 
@@ -39,6 +44,14 @@
     display: flex;
     align-self: center;
   }
+
+  @media screen and (min-width: 320px) {
+    width: auto;
+  }
+
+  @media screen and (min-width: $screen-m) {
+    font-size: rem(11px);
+  }
 }
 
 .btn-info {
@@ -48,20 +61,32 @@
   width: 17px;
   height: 17px;
   padding: 0;
+  margin-left: rem(8px);
   line-height: 17px;
   text-align: center;
   font-weight: 700;
+  &:hover {
+    background-color: #5DE8FF;
+  }
 }
 
 .btn-drop-down {
   position: relative;
+  font-size: rem(16px);
+  line-height: rem(16px) !important;
   width: 100%;
   height: rem(45px);
   margin: 0 6%;
   border: 1px solid $color-4;
 
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: 768px) {
     margin: rem(12px) 6%;
+  }
+
+  @media screen and (min-width: $screen-m) {
+    font-size: rem(11px);
+    line-height: rem(11px) !important;
+    // margin: rem(12px) 6%;
   }
 
   &.btn {
@@ -73,7 +98,7 @@
     margin-left: 0;
 
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: 768px) {
       min-width: rem(210px);
       width: auto;
     }
@@ -90,6 +115,7 @@
     margin-right: 9%;
 
     @media screen and (min-width: 768px) {
+      margin-right: 0;
       margin: rem(12px) 6%;
     }
   }
@@ -97,7 +123,7 @@
   .-data & {
     margin-top: 0;
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: 768px) {
       margin-top: rem(12px);
     }
   }
@@ -106,8 +132,10 @@
     padding: rem(12px) 3%;
     padding-right: 15%;
     width: 100%;
+    line-height: rem(16px) !important;
 
     @media screen and (min-width: $screen-m) {
+      line-height: rem(11px) !important;
       padding-right: 5%;
     }
 
@@ -143,6 +171,14 @@
 
   }
 
+  &.js--btn-ranking {
+    padding-left: rem(10px);
+
+    @media screen and (min-width: 768px) {
+      padding-left: rem(20px);
+    }
+  }
+
   &.-sm {
     margin: 0;
 
@@ -150,12 +186,15 @@
       min-width: rem(200px);
       padding-left: 0;
       padding-right: 0;
-
-      .chzn-container-single .chzn-drop {
-        width: 100% !important;
-        transform: translatey(2px);
-      }
     }
+  }
+}
+
+.l-banner .btn-drop-down .chzn-container-single .chzn-drop {
+  
+  @media screen and (min-width: $screen-m) {
+    width: 100% !important;
+    transform: translatey(2px);
   }
 }
 
@@ -185,4 +224,46 @@
     color: $color-1;
     border-color: $color-1;
   }
+}
+
+.read-more {
+  margin-left: 10px;
+}
+
+.read-more,
+.read-less {
+  position: relative;
+  font-family: "Montserrat";
+  font-size: rem(11px);
+  text-transform: uppercase;
+  color: $font-color-3;
+  cursor: pointer;
+  white-space: nowrap;
+  &:hover {
+    color: $color-4;
+    &:after {
+      border-color: $color-4;
+    }
+  }
+}
+
+.read-more:after,
+.read-less:after {
+  content: '';
+  position: absolute;
+
+}
+
+.read-more:after {
+  top: 0;
+  right: -15px;
+  @include arrow (5px, $color-2, 2px, 225deg);
+  transform: rotate(225deg) translate(0, -50%);
+}
+
+.read-less:after {
+  top: 50%;
+  right: -10px;
+  @include arrow (5px, $color-2, 2px, 45deg);
+  transform: rotate(45deg) translate(0, -50%);
 }

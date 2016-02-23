@@ -5,7 +5,6 @@
 
   > ul {
     display: flex; display: -ms-box;
-    margin-right: rem(20px);
 
     li {
       display: flex; display: -ms-box;
@@ -56,6 +55,7 @@
 
       @media screen and (min-width: $screen-s) {
         flex-direction: row;
+        margin-right: rem(20px);
 
         &:before {
           margin: 0 10px 0 0;

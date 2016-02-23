@@ -1,6 +1,6 @@
 .c-section-title {
   position: relative;
-  padding: rem(30px) 0 rem(20px) 0;
+  padding-bottom: rem(20px);
   margin-bottom: rem(40px);
   font-size: rem(40px);
   font-weight: 400;
@@ -9,8 +9,9 @@
 
   span {
     display: block;
-    margin-top: rem(10px);
     font-size: rem(15px);
+    line-height: rem(15px);
+    margin-top: rem(10px);
     font-weight: 400;
   }
 
@@ -33,8 +34,6 @@
 
   &.-light {
     color: $font-color-2;
-    // margin-bottom: rem(60px);
-
     &:after {
       background-color: $white;
     }
@@ -49,22 +48,32 @@
     margin-top: rem(20px);
   }
 
-  @media screen and (min-width: $screen-m) {
-    font-size: rem(45px);
+  @media screen and (min-width: $screen-s) {
+    padding-bottom: rem(50px);
     margin-bottom: rem(50px);
-    padding: 0 0 rem(50px) 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: rem(45px);
+    margin-bottom: rem(55px);
+    padding-bottom: rem(55px);
+
+    span {
+      margin-top: rem(20px);
+    }
 
     &.-country-name {
-      padding-bottom: rem(40px);
+      padding: rem(40px) 0 rem(30px) 0;
     }
   }
 
   @media screen and (min-width: $screen-l) {
-    padding-bottom: rem(30px);
-    margin-bottom: rem(55px);
     font-size: rem(50px);
-    // line-height: rem(85px);
     line-height: 1.2em;
+
+    &.-country-name {
+      padding-bottom: rem(40px);
+    }
 
     &.-small {
       margin-bottom: rem(50px);
@@ -76,8 +85,8 @@
   }
 
   @media screen and (min-width: $screen-xl) {
-    padding-bottom: rem(55px);
-    margin-bottom: rem(45px);
+    // padding-bottom: rem(60px);
+    // margin-bottom: rem(60px);
 
     &.-small {
       margin-bottom: rem(50px);

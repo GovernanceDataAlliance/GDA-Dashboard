@@ -20,9 +20,14 @@
   img {
     width: rem(40px);
     height: rem(40px);
+
+    &.tablet {
+      display: none;
+    }
   }
 
-  @media screen and (min-width: $screen-m) {
+
+  @media screen and (min-width: 768px) {
     @include col(3);
     justify-content: flex-start;
     padding-left: rem($wrap-padding-desktop);
@@ -35,8 +40,15 @@
 
     img {
       width: auto;
-      height: auto;
       padding-right: rem(20px);
+
+      &.tablet {
+        display: block;
+      }
+
+      &.mobile {
+        display: none;
+      }
     }
   }
 
@@ -51,6 +63,7 @@
 
     img {
       padding: 0;
+      height: auto;
     }
   }
 }

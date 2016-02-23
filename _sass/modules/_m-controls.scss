@@ -4,18 +4,25 @@
   align-items: center;
   justify-content: space-between;
 
-  .is-small-text {
-    margin-right: rem(10px);
+  //REVIEW
+  > * {
+    line-height: rem(14px);
+  }
+
+  // .is-small-text {
+  //   margin-right: rem(10px);
+  // }
+
+  &.-country-options {
+    display: none;
   }
 
   a,
   button,
   .btn-drop-down {
-
-    font-size: rem(10px);
-
     display: inline-block;
-
+    font-size: rem(11px);
+    padding: 0;
     &:hover {
       color: $color-4;
       border-color: $color-4;
@@ -26,25 +33,30 @@
       background-color: #dedcda;
       min-height: 100%;
       &:hover {
+        color: $font-color-1;
         svg {
           fill: $color-1;
         }
       }
-
     }
   }
 
   a:hover,
   button:hover {
+    color: $color-4;
     svg {
-      fill: $font-color-hover;
+      fill: $dark-sky-blue;
     }
+  }
+
+  button {
+    display: flex;
   }
 
   .icon {
     display: none;
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: 768px) {
       display: inline-block;
       vertical-align: middle;
       margin-right: 5px;
@@ -75,7 +87,7 @@
       align-items: flex-start;
     }
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: 768px) {
       flex-direction: row;
       align-items: center;
 
@@ -88,39 +100,46 @@
         align-items: center;
       }
     }
-
   }
 
   .l-toolbar.-data & {
-    width: rem(215px);
+    width: 100%;
+    margin-bottom: rem(8px);
 
-    .js--toolbar-utils .m-controls {
-      width: 100%;
-      margin-top: rem(20px);
-      margin-bottom: rem(5px);
+    .js--download {
+      padding-top: rem(20px);
     }
+    
+    @media screen and (min-width: $screen-xs) {
+      width: 48%;
+      margin-bottom: 0;
 
-    &:first-child {
-      margin-right: 4%;
-    }
-
-    @media screen and (min-width: $screen-m) {
-      width: auto;
-
-      .js--toolbar-utils .m-controls {
-        margin-top: rem(10px);
-      }
-
-      .icon {
-        display: inline-block;
+      &:first-child {
+        margin-right: 4%;
       }
     }
+
+    @media screen and (min-width: $screen-s) {
+      width: rem(215px);
+    }
+
+    @media screen and (min-width: 768px) {
+      min-width: rem(300px);
+
+      .js--download {
+        padding-top: 0;
+      }
+    }
+  }
+
+  .l-toolbar.-data .js--toolbar-utils & {
+    margin-bottom: 0;
   }
 
   span {
     align-self: center;
     color: $border-1;
-    padding: 0 rem(10px);
+    padding: 0 rem(8px);
   }
 
   .btn-layout-dashboard,
@@ -139,13 +158,59 @@
   }
 
   &.-country-options {
-    display: none;
     align-items: initial;
   }
 
   .-footer & {
     justify-content: center;
-    margin-bottom: rem(20px);
+
+    button > .icon {
+      display: inline-flex;
+      margin-right: rem(10px);
+    }
+
+    span {
+      padding: 0 rem($wrap-padding-desktop);
+    }
+  }
+
+  .is-small-text {
+    display: none;
+    white-space: nowrap;
+  }
+
+  .separator {
+    display: none;
+  }
+
+  .selector-wrapper {
+    width: 100%;
+  }
+
+  @media screen and (min-width: $screen-s) {
+
+    a, button {
+      line-height: rem(14px);
+    }
+  }
+
+  // @media screen and (max-width: 768px) {
+
+  //   
+  // }
+
+  @media screen and (min-width: 768px) {
+    .is-small-text {
+      display: inline-block;
+    }
+
+    .separator {
+      display: inline-block;
+    }
+
+    // .selector-wrapper {
+    //   width: 100%;
+    // }
   }
 
   @media screen and (max-width: $screen-m) {
@@ -157,37 +222,50 @@
         width: 100%;
       }
     }
-
-    .selector-wrapper {
-      width: 100%;
-    }
-
-    .separator {
-      display: none;
-    }
-
-    .is-small-text {
-      display: none;
-    }
   }
 
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: 768px) {
+
+    &.-country-options {
+      display: flex;
+      display: -ms-box;
+    }
 
     a, button {
       font-size: rem(11px);
+      line-height: rem(28px);
 
       &:first-child {
         margin-left: 0;
       }
     }
 
-    &.-country-options {
-      display: flex; display: -ms-box;
+    button {
+      display: inline-block;
+    }
+
+    span {
+      padding: 0 rem(10px);
     }
 
     .-footer & {
       justify-content: space-between;
       margin-bottom: 0;
+
+      span {
+        padding: 0 rem(10px);
+      }
+    }
+  }
+
+  @media screen and (min-width: $screen-l) {
+    span {
+      padding: 0 rem(20px);
+    }
+    .-footer & {
+      span {
+        padding: 0 rem(20px);
+      }
     }
   }
 }
