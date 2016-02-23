@@ -84,8 +84,6 @@ var Indicators = CartoDBCollection.extend({
     var query = SQL({ table: this.table, iso: iso});
 
     return this._urlForQuery(query) + '&format=csv';
-
-    // return this.fetch({url: url});
   }
 });
 

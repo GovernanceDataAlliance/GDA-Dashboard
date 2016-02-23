@@ -73,10 +73,11 @@ var Countries = CartoDBCollection.extend({
     var query = SQL({
       'id': id,
       'year': year,
-      'categoryGroup': categoryGroup,
-      'categoryName': categoryName
+      'categoryGroup': encodeURIComponent(categoryGroup),
+      'categoryName': encodeURIComponent(categoryName)
     }),
      url = this._urlForQuery(query) + '&format=csv';
+
     return url;
   }
 });
