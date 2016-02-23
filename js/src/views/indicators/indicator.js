@@ -80,7 +80,7 @@ var IndicatorView = Backbone.View.extend({
 
   render: function(rerender) {
     if (!$('.js--index-banner').hasClass('is-hidden')) {
-      $('.js--index-banner').addClass('is-hidden')
+      $('.js--index-banner').addClass('is-hidden');
     }
 
     this.$el.html(template());

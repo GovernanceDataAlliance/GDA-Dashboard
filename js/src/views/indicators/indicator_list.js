@@ -19,6 +19,10 @@ var IndicatorListView = Backbone.View.extend({
   },
 
   render: function() {
+    if ($('.js--index-banner').hasClass('is-hidden')) {
+      $('.js--index-banner').removeClass('is-hidden');
+    }
+
     this.$el.html(template({
       'indicators': this.indicators.toJSON()
     }));
