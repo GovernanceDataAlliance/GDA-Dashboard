@@ -45,7 +45,7 @@
     align-self: center;
   }
 
-  @media screen and (min-width: 321px) {
+  @media screen and (min-width: 320px) {
     width: auto;
   }
 
@@ -171,6 +171,14 @@
 
   }
 
+  &.js--btn-ranking {
+    padding-left: rem(10px);
+
+    @media screen and (min-width: 768px) {
+      padding-left: rem(20px);
+    }
+  }
+
   &.-sm {
     margin: 0;
 
@@ -178,20 +186,15 @@
       min-width: rem(200px);
       padding-left: 0;
       padding-right: 0;
-
-      .chzn-container-single .chzn-drop {
-        width: 100% !important;
-        transform: translatey(2px);
-      }
     }
   }
+}
 
-  &.js--btn-ranking {
-    padding-left: rem(10px);
-
-    @media screen and (min-width: 768px) {
-      padding-left: rem(20px);
-    }
+.l-banner .btn-drop-down .chzn-container-single .chzn-drop {
+  
+  @media screen and (min-width: $screen-m) {
+    width: 100% !important;
+    transform: translatey(2px);
   }
 }
 

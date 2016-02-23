@@ -11,6 +11,8 @@
     letter-spacing: .6px;
     cursor: pointer;
     min-width: rem(100px);
+    padding: 0;
+
     &:hover {
       color: $color-4;
     }
@@ -29,6 +31,7 @@
     font-size: rem(12px);
     color: $font-color-1;
     letter-spacing: .4px;
+    text-align: center;
   }
 
   @media screen and (min-width: $screen-m) {
