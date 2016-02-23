@@ -37,4 +37,4 @@ This work stream aims to improve the availability of data, particularly for unde
 ___
 
 ## Who we are
-The Alliance brings together a number of world-class organizations and individuals committed to the effective production and use of high-quality governance data. Current data producer members include:
+The Alliance brings together a number of world-class organizations and individuals committed to the effective production and use of high-quality governance data. Current members include:
