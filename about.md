@@ -7,6 +7,7 @@ published: true
 
 
 
+
 ##### The Alliance came together in 2014 because we were collectively worried about the persistence of inadequate data assessing a range of governance dimensions in countries around the world, and the twin challenge of data producers often lacking insight into who the actual users of their data were. We strongly believed that no single organization could solve those problems alone, and that we needed a collective action response to strengthen the future production and use of governance data.
 
 ###### The Alliance is based on the assumption that while governance data has the potential to improve economic, human, and democratic development, the current state of governance data dramatically constrains its ability to produce positive change. We face a series of market failures: the supply of data is highly irregular and ad hoc; feedback loops between governance data producers and governance data users are non-existent or under-employed; and production costs remain high and inconsistent despite possibilities for economies of scale.
@@ -34,6 +35,7 @@ This work stream involves an analysis of responses collected through the 2014 Re
 
 4. ### Piloting coordinated data co-production efforts to explore possible economies of scale. 
 This work stream aims to improve the availability of data, particularly for under-assessed countries, and to drive down the costs of data production over time.
+
 ___
 
 ## Who we are
