@@ -58,7 +58,7 @@
 
     > li {
       margin-bottom: rem(30px);
-      font-size: rem(14px);
+      font-size: rem(15px);
       line-height: rem(29px);
       letter-spacing: rem(0.3px);
     }
@@ -91,7 +91,7 @@
     }
 
     p {
-      font-size: rem(14px);
+      font-size: rem(15px);
       font-weight: 400;
       font-family: $font-main;
       color: $color-1;
@@ -99,7 +99,7 @@
   }
 
   // From 768px
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: 768px) {
 
     h2 {
       padding-bottom: rem(50px);
@@ -112,7 +112,7 @@
     }
 
     h6 {
-      font-size: rem(14px);
+      font-size: rem(15px);
       line-height: rem(27px);
     }
 
@@ -149,10 +149,10 @@
     }
 
     ul {
-    list-style-type: disc;
-    padding-left: rem(20px);
-    font-size: rem(15px);
-    margin-top: rem(50px);
+      list-style-type: disc;
+      padding-left: rem(20px);
+      font-size: rem(15px);
+      margin-top: rem(50px);
 
       > li {
         margin-bottom: rem(30px);
