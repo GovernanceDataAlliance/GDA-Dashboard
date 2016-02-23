@@ -62,14 +62,14 @@ describe('Countries Router', function() {
       expect(show).toHaveBeenCalled();
     });
 
-    it('creates a CountryView and passes in the iso', function() {
-      var initSpy = spyOn(CountryView.prototype, 'initialize');
-
-      router.navigate('#/'+ISO, {trigger: true});
-
-      expect(initSpy).toHaveBeenCalled();
-      expect(initSpy).toHaveBeenCalledWith({iso: ISO});
-    });
+    // it('creates a CountryView and passes in the iso', function() {
+    //   var initSpy = spyOn(CountryView.prototype, 'initialize');
+    //
+    //   router.navigate('#/'+ISO, {trigger: true});
+    //
+    //   expect(initSpy).toHaveBeenCalled();
+    //   expect(initSpy).toHaveBeenCalledWith({iso: ISO});
+    // });
   });
 
   describe("/", function() {
