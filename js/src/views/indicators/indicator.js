@@ -31,6 +31,7 @@ var IndicatorView = Backbone.View.extend({
     options = options || {};
 
     this.id = options.id;
+    this.givenYear = options.year || null;
 
     this.initializeData();
     this.setListeners();
@@ -48,6 +49,10 @@ var IndicatorView = Backbone.View.extend({
 
       this.years = years ? years.rows : null;
       this.actualYear = years  && years.rows[0] ? years.rows[0].year : null;
+
+      if (this.givenYear) {
+        this.actualYear = this.givenYear;
+      }
 
       this.indicator = new Indicator({id: this.id});
       this.listenTo(this.indicator, 'sync', this.renderHeader);
@@ -141,13 +146,14 @@ var IndicatorView = Backbone.View.extend({
     window.location = url;
   },
 
-  setIndicator: function(id) {
+  setIndicator: function(id, year) {
     if (this.id === id) { this.render(true); }
 
     this.stopListening(this.countries);
     this.stopListening(this.indicator);
 
     this.id = id;
+    this.givenYear = year || null;
     this.initializeData();
   },
 
