@@ -9,6 +9,7 @@ published: true
 
 
 
+
 ##### Numerous organizations collect and analyze data on the different dimensions of governance — ranging from corruption perceptions to fiscal transparency to business regulation and freedom of the press — to help shape policy reforms and ultimately improve economic, human, and democratic development. Unfortunately, the current state of the marketplace for governance data limits the potential impact of this information. 
 
 ###### Data sets are available on various platforms in different formats. As a whole, they are also wildly incomplete, covering some countries and years but not others, and they are often produced with little to no understanding of who actually uses these data, and for what purpose. Additionally, production costs remain high despite possibilities for economies of scale. No single organization can solve those problems alone. We need a collective response to strengthen the production, use, and impact of governance data. This is why we formed the Governance Data Alliance.
@@ -16,7 +17,7 @@ published: true
 ___
 
 ## What we do
-The Governance Data Alliance encourages greater coordination amongst data producers to fill data gaps while simultaneously investigating who governance data users actually are. The goal is to produce and aggregate high-quality but accessible governance data that policymakers and other change agents can use to take action. The Alliance’s work is currently organized around three work streams.
+The Governance Data Alliance encourages greater coordination amongst data producers to fill data gaps while simultaneously investigating who governance data users actually are. The goal is to produce and aggregate high-quality but accessible governance data that policymakers and other change agents can use to take action. The Alliance’s work is currently organized around four work streams.
 
 ___
 
