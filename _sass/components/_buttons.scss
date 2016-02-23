@@ -73,17 +73,20 @@
 .btn-drop-down {
   position: relative;
   font-size: rem(16px);
+  line-height: rem(16px) !important;
   width: 100%;
   height: rem(45px);
   margin: 0 6%;
   border: 1px solid $color-4;
 
   @media screen and (min-width: 768px) {
-    font-size: rem(11px);
+    margin: rem(12px) 6%;
   }
 
   @media screen and (min-width: $screen-m) {
-    margin: rem(12px) 6%;
+    font-size: rem(11px);
+    line-height: rem(11px) !important;
+    // margin: rem(12px) 6%;
   }
 
   &.btn {
@@ -113,9 +116,6 @@
 
     @media screen and (min-width: 768px) {
       margin-right: 0;
-    }
-
-    @media screen and (min-width: $screen-m) {
       margin: rem(12px) 6%;
     }
   }
@@ -123,7 +123,7 @@
   .-data & {
     margin-top: 0;
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: 768px) {
       margin-top: rem(12px);
     }
   }
@@ -132,8 +132,10 @@
     padding: rem(12px) 3%;
     padding-right: 15%;
     width: 100%;
+    line-height: rem(16px) !important;
 
     @media screen and (min-width: $screen-m) {
+      line-height: rem(11px) !important;
       padding-right: 5%;
     }
 
