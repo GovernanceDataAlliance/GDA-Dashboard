@@ -16,11 +16,7 @@ published: true
 ___
 
 ## What we do
-The Alliance addresses these problems by facilitating coordination and knowledge-sharing among governance data producers, collecting and analyzing user data and behavior to enhance our collective understanding of target governance data users’ actual needs, and developing mechanisms to ensure that governance data producers are responsive to these needs. Our hope is that, together, these activities will:
-
-* Improve the availability of governance data through greater coordination and user needs assessments.
-* Enhance the quality of governance data by establishing and promoting good practice research methods and data interoperability.
-* Enhance the real-life use of governance data by identifying data users and targeting those users with what they actually want and need.
+The Governance Data Alliance encourages greater coordination amongst data producers to fill data gaps while simultaneously investigating who governance data users actually are. The goal is to produce and aggregate high-quality but accessible governance data that policymakers and other change agents can use to take action. The Alliance’s work is currently organized around three work streams.
 
 ___
 
