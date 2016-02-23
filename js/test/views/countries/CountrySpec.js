@@ -68,9 +68,9 @@ describe('Country View', function() {
         expect(renderCountrySpy.callCount).toBe(2);
       });
 
-      it("re-renders the indicators view", function() {
-        expect(renderIndicatorsSpy.callCount).toBe(1);
-      });
+      // it("re-renders the indicators view", function() {
+      //   expect(renderIndicatorsSpy.callCount).toBe(1);
+      // });
     });
   });
 });

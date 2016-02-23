@@ -61,7 +61,7 @@ var Indicators = CartoDBCollection.extend({
     $.each(rawData.rows, _.bind(function(i, d) {
 
       classColor = this._setColorsByScore(d);
-      
+
       if (!classColor) {
         return;
       }

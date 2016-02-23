@@ -19,17 +19,28 @@ var IndicatorView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
     this.indicator = options.indicator.toJSON();
+    this.currentYear = options.currentYear;
   },
 
   render: function() {
-    this.$el.html(template(this.indicator));
+    if (this.indicator['year'] == this.currentYear) {
 
-    this._setColorClass();
-    this._setTooltips();
-    this.partialRanks();
+      this.$el.html(template(this.indicator));
 
-    if ( this.indicator['has_historical_info'] === true && this.indicator.data[0].score ) {
-      this.drawGraph();
+      this._setColorClass();
+      this._setTooltips();
+      this.partialRanks();
+
+      if (this.indicator['has_historical_info'] && this.indicator.data[0].score) {
+        this.drawGraph();
+      }
+
+    } else {
+      
+      var indicator = this.indicator;
+      indicator['score'] = null;
+
+      this.$el.html(template(indicator));
     }
 
     return this;
