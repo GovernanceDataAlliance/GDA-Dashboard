@@ -18,6 +18,7 @@ var IndicatorListView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
     this.indicators = IndicatorService.groupScoresById(options.indicators);
+    this.currentYear = options.currentYear;
   },
 
   render: function() {
@@ -37,7 +38,8 @@ var IndicatorListView = Backbone.View.extend({
     this.indicators.each(function(indicator) {
       this._scoreToString(indicator);
       var indicatorView = new IndicatorView({
-        'indicator': indicator
+        'indicator': indicator,
+        currentYear: this.currentYear
       });
 
       this.$('.js--indicators-list').append(indicatorView.render().el);

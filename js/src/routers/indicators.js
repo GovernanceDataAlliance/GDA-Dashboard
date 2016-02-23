@@ -35,7 +35,7 @@ var Router = Backbone.Router.extend({
   show: function(params) {
     this.id =  params.split("&")[0];
     this.year =  params.split("&")[1] || null;
-    
+
     if (!this.views.hasView('show')) {
       var view = new IndicatorView({id: this.id, 'year':this.year });
       this.views.addView('show', view);
