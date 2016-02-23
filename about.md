@@ -8,9 +8,11 @@ published: true
 
 
 
-##### The Alliance came together in 2014 because we were collectively worried about the persistence of inadequate data assessing a range of governance dimensions in countries around the world, and the twin challenge of data producers often lacking insight into who the actual users of their data were. We strongly believed that no single organization could solve those problems alone, and that we needed a collective action response to strengthen the future production and use of governance data.
+##### Numerous organizations collect and analyze data on the different dimensions of governance — ranging from corruption perceptions to fiscal transparency to business regulation and freedom of the press — to help shape policy reforms and ultimately improve economic, human, and democratic development. Unfortunately, the current state of the marketplace for governance data limits the potential impact of this information. 
 
-###### The Alliance is based on the assumption that while governance data has the potential to improve economic, human, and democratic development, the current state of governance data dramatically constrains its ability to produce positive change. We face a series of market failures: the supply of data is highly irregular and ad hoc; feedback loops between governance data producers and governance data users are non-existent or under-employed; and production costs remain high and inconsistent despite possibilities for economies of scale.
+###### Data sets are available on various platforms in different formats. As a whole, they are also wildly incomplete, covering some countries and years but not others, and they are often produced with little to no understanding of who actually uses these data, and for what purpose. Additionally, production costs remain high despite possibilities for economies of scale. 
+
+###### No single organization can solve those problems alone. We need a collective response to strengthen the production, use, and impact of governance data. This is why we formed the Governance Data Alliance.
 
 ___
 
