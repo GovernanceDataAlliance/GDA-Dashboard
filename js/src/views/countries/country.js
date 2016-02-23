@@ -78,6 +78,8 @@ var CountryView = Backbone.View.extend({
       this.renderToolbars();
       this.renderIndicators();
     }
+
+    this._setDownloadYear();
   },
 
   _toggleTooltip: function(e) {
@@ -89,8 +91,13 @@ var CountryView = Backbone.View.extend({
 
     this.indicators.forCountry(this.iso).done(function() {
       this.render(true);
+      this._setDownloadYear();
     }.bind(this));
 
+  },
+
+  _setDownloadYear: function() {
+    $('.js--download').attr('data-year', this.currentYear);
   },
 
   renderYearSelector: function() {
