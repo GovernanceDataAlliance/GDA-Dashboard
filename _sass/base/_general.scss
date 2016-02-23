@@ -60,14 +60,14 @@ p {
   line-height: 1.5em;
 
   + .btn {
-    margin-top: rem(10px);
+    margin-top: rem(20px);
   }
 
   @media screen and (min-width: $screen-m) {
     line-height: 1.8em;
 
     + .btn {
-      margin-top: rem(40px);
+      margin-top: rem(30px);
     }
   }
 }
