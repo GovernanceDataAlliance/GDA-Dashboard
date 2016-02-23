@@ -5,7 +5,7 @@
   left: rem($wrap-padding-mobile);
   right: rem($wrap-padding-mobile);
   max-width: rem($grid-max-width);
-  padding: rem(35px) rem(40px);
+  padding: rem(15px);
   background-color: $bg-color-4;
   transform: translatey(100%);
   border: 1px solid $color-4;
@@ -38,6 +38,7 @@
   }
 
   @media screen and (min-width: 768px) {
+    padding: rem(35px) rem(40px);
     bottom: rem(-10px);
     left: rem($wrap-padding-desktop);
     right: rem($wrap-padding-desktop);
@@ -65,9 +66,10 @@
   }
 
   .group {
-    margin: 0 rem(10px);
+    margin: 0 rem(10px) rem(10px);
 
     @media screen and (min-width: 768px) {
+      margin-bottom: 0;
 
       &:first-child {
         margin-left: 0;
@@ -91,7 +93,10 @@
     font-size: rem(20px);
     font-weight: 400;
     text-transform: capitalize;
-    margin-bottom: rem(15px);
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: rem(15px);
+    }
   }
 
   li {
