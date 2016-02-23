@@ -46,16 +46,12 @@ var Indicators = CartoDBCollection.extend({
     return this.fetch({url: url})
   },
 
-  // forCountryAndYear: function(params) {
-  //   if (!params) {
-  //     return;
-  //   }
-  //
-  //   var query = SQLwithYears({ 'table': this.table, 'iso': params.iso, 'year': params.year }),
-  //     url = this._urlForQuery(query);
-  //
-  //   return this.fetch({url: url})
-  // },
+  forCountryAndYear: function(iso, year) {
+    var query = SQLwithYears({ 'table': this.table, 'iso': iso, 'year': year }),
+        url = this._urlForQuery(query);
+
+    return this.fetch({url: url})
+  },
 
   /*
    * Adding elements when no score for that index.
