@@ -18,20 +18,20 @@
     display: -ms-box;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 0 rem(15px);
+    // padding: 0 rem(15px);
 
     > .js--toolbar-utils,
     > .js--toolbar-display {
       display: flex;
     }
 
-    @media screen and (min-width: 768px) {
-      padding: 0 rem($wrap-padding-desktop);
-    }
+    // @media screen and (min-width: 768px) {
+    //   padding: 0 rem($wrap-padding-desktop);
+    // }
 
-    @media screen and (min-width: $screen-l) {
-      padding: 0 rem($wrap-padding-desktop * 2);
-    }
+    // @media screen and (min-width: $screen-l) {
+    //   padding: 0 rem($wrap-padding-desktop * 2);
+    // }
   }
 
   &.-share {
