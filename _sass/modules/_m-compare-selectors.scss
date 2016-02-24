@@ -15,6 +15,9 @@
     align-items: center;
     &.-country {
       border: 0;
+      .btn-drop-down {
+        margin-right: 0;
+      }
     }
   }
 
