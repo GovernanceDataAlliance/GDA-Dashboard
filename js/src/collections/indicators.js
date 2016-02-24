@@ -80,8 +80,12 @@ var Indicators = CartoDBCollection.extend({
     return ColorService.getColor(indicator);
   },
 
-  downloadForCountry: function(iso) {
-    var query = SQL({ table: this.table, iso: iso});
+  downloadForCountry: function(opts) {
+    var query = SQLwithYears({
+      table: this.table,
+      iso: opts.iso,
+      year: opts.year
+    });
 
     return this._urlForQuery(query) + '&format=csv';
   }
