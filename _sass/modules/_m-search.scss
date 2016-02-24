@@ -3,6 +3,10 @@
   background-color: $bg-color-3;
   transition: opacity .2s;
 
+  @media screen and (min-width: $screen-s) {
+    width: 50%;
+  }
+
   .search-wrapper {
     position: fixed;
     top: 0;
@@ -69,12 +73,14 @@
   @media screen and (min-width: $screen-m) {
     position: relative;
     display: block;
-    padding: rem(70px) rem(60px);
+    width: 100%;
+    margin: 0;
+    padding: rem(50px) rem(80px) rem(60px);
 
     input {
       display: block;
       width: 100%;
-      height: rem(60px);
+      height: rem(40px);
       border-bottom: 1px solid $white;
       border-radius: 0;
       font-style: italic;
@@ -94,7 +100,7 @@
     }
 
     .icon {
-      right: rem(60px);
+      right: rem(80px);
     }
 
     .search-box.visible {
@@ -102,7 +108,7 @@
       bottom: rem(40px);
       left: rem(100px);
       right: rem(100px);
-      max-height: rem(500px);
+      // max-height: rem(500px);
       z-index: 2;
       background-color: $bg-color-1;
       border: 1px solid $border-1;
@@ -133,8 +139,20 @@
     }
   }
 
+  @media screen and (min-width: $screen-l) {
+    padding: rem(65px) rem(100px) rem(75px);
+
+    .icon {
+      right: rem(100px);
+    }
+  }
+
   @media screen and (min-width: $screen-xl) {
-    padding: rem(90px) rem(140px);
+    padding: rem(65px) rem(190px) rem(75px);
+
+    input {
+      height: rem(40px);
+    }
 
     .search-box.visible {
       left: rem(180px);
@@ -142,7 +160,15 @@
     }
 
     .icon {
-      right: rem(140px);
+      right: rem(190px);
+    }
+  }
+
+  @media screen and (min-width: $screen-xxl) {
+    padding: rem(70px) rem(190px) rem(80px);
+
+    .icon {
+      right: rem(190px);
     }
   }
 }

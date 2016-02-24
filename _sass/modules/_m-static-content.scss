@@ -46,7 +46,7 @@
     }
   }
 
-  p {
+  p, a {
     font-size: rem(16px);
   }
 
@@ -58,7 +58,7 @@
 
     > li {
       margin-bottom: rem(30px);
-      font-size: rem(14px);
+      font-size: rem(15px);
       line-height: rem(29px);
       letter-spacing: rem(0.3px);
     }
@@ -90,8 +90,8 @@
       color: $color-1;
     }
 
-    p {
-      font-size: rem(14px);
+    p, a {
+      font-size: rem(15px);
       font-weight: 400;
       font-family: $font-main;
       color: $color-1;
@@ -99,7 +99,7 @@
   }
 
   // From 768px
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: 768px) {
 
     h2 {
       padding-bottom: rem(50px);
@@ -112,7 +112,7 @@
     }
 
     h6 {
-      font-size: rem(14px);
+      font-size: rem(15px);
       line-height: rem(27px);
     }
 
@@ -129,6 +129,7 @@
         position: relative;
         margin-bottom: rem(50px);
         padding-left: 50px;
+
         &:before {
           position: absolute;
           top: -26px;
@@ -142,30 +143,30 @@
         letter-spacing: rem(.3px);
       }
 
-      p {
+      p, a {
         line-height: rem(27px);
         letter-spacing: rem(.4px);
       }
     }
 
     ul {
-    list-style-type: disc;
-    padding-left: rem(20px);
-    font-size: rem(15px);
-    margin-top: rem(50px);
+      list-style-type: disc;
+      padding-left: rem(20px);
+      font-size: rem(15px);
+      margin-top: rem(50px);
 
       > li {
         margin-bottom: rem(30px);
         font-size: rem(15px);
       }
 
-      p {
+      p, a {
         font-size: rem(15px);
         line-height: rem(27px);
       }
     }
 
-    p {
+    p, a {
       font-size: rem(18px);
     }
   }
@@ -183,7 +184,7 @@
       letter-spacing: rem(.4px)
     }
 
-    p {
+    p, a {
       font-size: rem(20px);
       line-height: rem(34px);
       letter-spacing: rem(.3px);

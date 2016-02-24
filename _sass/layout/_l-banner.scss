@@ -15,15 +15,6 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
     h3 {
       max-width: 100%;
-
-      @media screen and (min-width: $screen-s) {
-        font-size: rem(55px) !important;
-      }
-
-      @media screen and (min-width: $screen-xl) {
-        font-size: rem(75px) !important;
-        margin-bottom: rem(30px) !important;
-      }
     }
 
     p {
@@ -31,12 +22,25 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
       margin-bottom: rem(35px);
     }
 
+    &.highlighted-text {
+      font-size: rem(16px);
+      line-height: 1em;
+
+      @media screen and (min-width: $screen-s) {
+        font-size: rem(18px);
+      }
+
+      @media screen and (min-width: 768px) {
+        font-size: rem(20px);
+      }
+    }
+
     .scroll-down {
       display: none;
       position: absolute;
       top: auto;
       left: 50%;
-      bottom: rem(47px);
+      bottom: rem(50px);
       transform: translate(-50%, 0);
       padding: 0;
       font-size: rem(15px);
@@ -52,37 +56,62 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
       @media screen and (min-width: $screen-s) {
         display: block;
       }
+
+      @media screen and (min-width: $screen-m) {
+        bottom: rem(20px);
+      }
     }
 
-    // @media screen and (min-width: $screen-s) {
-    //   padding: rem(100px) 0 rem(140px);
-    // }
-
     @media screen and (min-width: 768px) {
-      height: calc(100vh - 95px);
-      min-height: rem(700px);
+      height: calc(100vh - 85px);
+      // min-height: rem(945px);
 
       p {
-        margin-bottom: rem(80px);
+        margin-bottom: rem(50px);
       }
     }
 
     @media screen and (min-width: $screen-l) {
-      min-height: rem(800px);
+      // min-height: rem(700px);
+      padding-top: 0;
 
       h3 {
         max-width: $content-width;
       }
+
+      p {
+        margin-bottom: rem(30px);
+      }
     }
 
     @media screen and (min-width: $screen-xl) {
-      min-height: rem(900px);
-      max-height: rem(1000px);
+      padding: 0;
+      height: calc(100vh - 95px);
+      // min-height: rem(600px);
+
+      h3 {
+        margin-bottom: rem(30px);
+        max-width: $content-width-xl;
+      }
 
       p {
         line-height: rem(34px);
         letter-spacing: rem(0.5px);
-        margin-bottom: rem(80px);
+        margin-bottom: rem(40px);
+      }
+
+      .scroll-down {
+        span {
+          display: none;
+        }
+      }
+    }
+
+    @media screen and (min-width: $screen-xxl) {
+      .scroll-down {
+        span {
+          display: inline-block;
+        }
       }
     }
   }
