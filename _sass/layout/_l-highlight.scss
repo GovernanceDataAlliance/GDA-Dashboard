@@ -4,7 +4,7 @@ $backgrounds-highlight: 'distribuidorDestacado-About', 'distribuidorDestacado-Co
   position: relative;
   display: flex;
   align-items: center;
-  padding: rem(60px) 0;
+  padding: rem(50px) 0;
   background-color: #ccc;
   // min-height: rem(600px);
 
@@ -28,7 +28,7 @@ $backgrounds-highlight: 'distribuidorDestacado-About', 'distribuidorDestacado-Co
   }
 
   @media screen and (min-width: $screen-s) {
-    padding: rem(140px) 0;
+    padding: rem(130px) 0;
   }
 
   @media screen and (min-width: 768px) {

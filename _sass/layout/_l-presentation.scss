@@ -18,7 +18,7 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: rem(40px) 0;
+    padding: rem(35px) 0;
     background-color: $white;
 
     &.-dark {
@@ -66,7 +66,7 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
     }
 
     > .intro {
-      padding: rem(55px) rem($wrap-padding-tablet) rem(90px) rem($wrap-padding-tablet);
+      padding: rem(60px) rem($wrap-padding-tablet) rem(50px);
     }
   }
 
@@ -80,7 +80,7 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
     }
 
     > .intro {
-       padding: rem(70px) 0;
+       padding: rem(75px) 0;
 
       &.-right:after {
         top: rem(40px);
@@ -106,7 +106,7 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
   @media screen and (min-width: $screen-l) {
 
     > .intro {
-      padding: rem(45px) 0 rem(60px);
+      padding: rem(75px) 0 rem(100px);
 
       &.-left {
         align-items: flex-end;

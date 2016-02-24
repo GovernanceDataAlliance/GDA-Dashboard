@@ -5,7 +5,6 @@
 
   @media screen and (min-width: $screen-s) {
     width: 50%;
-    margin: 0 auto;
   }
 
   .search-wrapper {
@@ -76,12 +75,12 @@
     display: block;
     width: 100%;
     margin: 0;
-    padding: rem(50px) rem(80px);
+    padding: rem(50px) rem(80px) rem(60px);
 
     input {
       display: block;
       width: 100%;
-      height: rem(60px);
+      height: rem(40px);
       border-bottom: 1px solid $white;
       border-radius: 0;
       font-style: italic;
@@ -141,7 +140,7 @@
   }
 
   @media screen and (min-width: $screen-l) {
-    padding: rem(65px) rem(100px);
+    padding: rem(65px) rem(100px) rem(75px);
 
     .icon {
       right: rem(100px);
@@ -149,7 +148,11 @@
   }
 
   @media screen and (min-width: $screen-xl) {
-    padding: rem(70px) rem(190px);
+    padding: rem(65px) rem(190px) rem(75px);
+
+    input {
+      height: rem(40px);
+    }
 
     .search-box.visible {
       left: rem(180px);
@@ -162,7 +165,7 @@
   }
 
   @media screen and (min-width: $screen-xxl) {
-    padding: rem(90px) rem(190px);
+    padding: rem(70px) rem(190px) rem(80px);
 
     .icon {
       right: rem(190px);
