@@ -10,12 +10,12 @@
   }
 
   @media screen and (min-width: 768px) {
-    font-size: rem(55px) !important;
+    font-size: rem(55px);
     line-height: rem(62px);
     margin-bottom: rem(35px);
   }
 
-  @media screen and (min-width: $screen-xl) {
-    font-size: rem(60px) !important;
+  @media screen and (min-width: $screen-xxl) {
+    font-size: rem(60px);
   }
 }

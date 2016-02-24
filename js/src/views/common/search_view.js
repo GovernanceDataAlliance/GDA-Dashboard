@@ -88,6 +88,10 @@ var SearchView = Backbone.View.extend({
     if(this.closeOnClick) {
       this.$(this.elSuggestions +' li').removeClass('selected');
     }
+    var heightToScroll = window.innerHeight / 2;
+
+    $('body').animate({scrollTop: heightToScroll + 'px'}, 300);
+    this.listMaxHeight = heightToScroll;
   },
 
   unHighlight: function(ev) {
@@ -135,6 +139,8 @@ var SearchView = Backbone.View.extend({
       this.trigger('results', search);
       this.$(this.elSuggestions).html(templateSuggestions({'data': search, 'mainUrl': main_url}));
       this.$(this.elContent).addClass('visible');
+
+      this.$(this.elSuggestions).css({ 'max-height': this.listMaxHeight });
     }, this), 100);
   },
 
