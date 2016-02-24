@@ -1,18 +1,10 @@
 .m-download {
 
-  .modal-container {
-    padding: 60px 20px 10px;
-
-    @media screen and (min-width: $screen-l) and (orientation: landscape),
-      screen and (min-width: $screen-m) and (orientation: portrait) {
-        padding: rem(75px) rem(50px);
-      }
-  }
-
   .modal-content {
     width: 100%;
 
     h2 {
+      font-size: rem(30px);
       font-weight: 400;
       margin-bottom: rem(30px);
     }
@@ -24,11 +16,16 @@
     p, a {
       font-size: rem(14px);
       line-height: rem(29px);
+      &.js--cancel-btn:hover {
+        color: $color-4;
+      }
     }
 
     > .buttons {
       > a {
+        display: inline-block;
         width: 100%;
+        padding: rem(20px) rem(60px);
         font-size: rem(11px);
         letter-spacing: rem(0.6px);
       }
@@ -53,7 +50,6 @@
       > .buttons {
         > a {
           width: auto;
-          font-size: rem(11px);
           letter-spacing: rem(0.3px);
         }
       }

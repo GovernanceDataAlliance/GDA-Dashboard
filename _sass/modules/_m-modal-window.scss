@@ -31,7 +31,12 @@
   width: 90%;
   max-width: rem(755px);
   min-height: 40%;
-  background-color: #fff;
+  background-color: $white;
+}
+
+.wrapper-container {
+  width: 100%;
+  padding: rem(50px) 0;
 }
 
 .modal-container {
@@ -39,18 +44,21 @@
   display: -ms-box;
   width: 100%;
   height: 500px;
-  // padding: 50px; //Margen para el scroll de windows
-  padding: rem(75px) rem(45px) rem(75px) rem(15px);
+  padding: 0 rem(25px);
   overflow: scroll;
   font-size: rem(15px);
   align-items: flex-start;
 
+  p {
+    font-size: rem(14px);
+  }
+
   @media screen and (min-width: $screen-m) {
-    padding: rem(75px) rem(50px);
+    padding: 0 rem(55px);
   }
 
   @media screen and (min-width: $screen-xl) {
-    padding: rem(75px) rem(100px);
+    padding: 0 rem(100px);
   }
 }
 
