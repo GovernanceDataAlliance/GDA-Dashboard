@@ -55,6 +55,10 @@ var Countries = CartoDBCollection.extend({
         _.extend(current, {'classColor': this._setColorsByScore(current)});
       }
 
+      if (current['score_text']) {
+        current['score'] = current['score_text'];
+      }
+
     }, this));
 
     return rawData.rows;
