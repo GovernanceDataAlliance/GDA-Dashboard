@@ -46,7 +46,7 @@
     }
   }
 
-  p {
+  p, a {
     font-size: rem(16px);
   }
 
@@ -90,7 +90,7 @@
       color: $color-1;
     }
 
-    p {
+    p, a {
       font-size: rem(15px);
       font-weight: 400;
       font-family: $font-main;
@@ -129,6 +129,7 @@
         position: relative;
         margin-bottom: rem(50px);
         padding-left: 50px;
+
         &:before {
           position: absolute;
           top: -26px;
@@ -142,7 +143,7 @@
         letter-spacing: rem(.3px);
       }
 
-      p {
+      p, a {
         line-height: rem(27px);
         letter-spacing: rem(.4px);
       }
@@ -159,13 +160,13 @@
         font-size: rem(15px);
       }
 
-      p {
+      p, a {
         font-size: rem(15px);
         line-height: rem(27px);
       }
     }
 
-    p {
+    p, a {
       font-size: rem(18px);
     }
   }
@@ -183,7 +184,7 @@
       letter-spacing: rem(.4px)
     }
 
-    p {
+    p, a {
       font-size: rem(20px);
       line-height: rem(34px);
       letter-spacing: rem(.3px);

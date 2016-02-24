@@ -3,6 +3,11 @@
   background-color: $bg-color-3;
   transition: opacity .2s;
 
+  @media screen and (min-width: $screen-s) {
+    width: 50%;
+    margin: 0 auto;
+  }
+
   .search-wrapper {
     position: fixed;
     top: 0;
@@ -69,6 +74,8 @@
   @media screen and (min-width: $screen-m) {
     position: relative;
     display: block;
+    width: 100%;
+    margin: 0;
     padding: rem(70px) rem(60px);
 
     input {
