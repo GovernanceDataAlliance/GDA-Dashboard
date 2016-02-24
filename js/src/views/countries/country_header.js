@@ -47,7 +47,8 @@ var CountryHeaderView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(template({
-      name: this.country.get('name')
+      'name': this.country.get('name'),
+      'siteURL': SITEURL
     }));
 
     if (!this.tablet) {
