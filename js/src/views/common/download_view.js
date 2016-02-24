@@ -46,7 +46,10 @@ var DownloadView = Backbone.View.extend({
       return this.countriesCollection.downloadCountriesForIndicator(
         this.options.id, this.options.year, this.options.categoryGroup, this.options.categoryName);
     } else {
-      return this.indicatorsCollection.downloadForCountry(this.options.iso);
+      return this.indicatorsCollection.downloadForCountry({
+        iso: this.options.iso,
+        year: this.options.year
+      });
     }
 
   },

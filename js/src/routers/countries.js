@@ -45,7 +45,7 @@ var Router = Backbone.Router.extend({
       var view = new CountryView(configView);
       this.views.addView('show', view);
     } else {
-      this.views.getView('show')._updateIndicators(configView.year);
+      this.views.getView('show')._updateParams(configView)
     }
 
     this.views.showView('show');
