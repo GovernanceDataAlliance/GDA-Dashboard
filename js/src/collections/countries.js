@@ -73,7 +73,7 @@ var Countries = CartoDBCollection.extend({
     var query = SQL({
       'id': id,
       'year': year,
-      'categoryGroup': encodeURIComponent(categoryGroup),
+      'categoryGroup': categoryGroup ? encodeURIComponent(categoryGroup) : null,
       'categoryName': encodeURIComponent(categoryName)
     }),
 
