@@ -6,7 +6,7 @@
   }
 
   > p {
-    font-size: rem(15px);
+    font-size: rem(14px);
     line-height: rem(29px);
 
     + .btn, + ul {
@@ -71,6 +71,8 @@
 
   @media screen and (min-width: $screen-l) {
     > p {
+      font-size: rem(15px);
+      
       + .btn, + ul {
         margin-top: rem(30px);
       }
