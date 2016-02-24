@@ -33,11 +33,13 @@ var ToolbarUtilsView = Backbone.View.extend({
   _download: function(e) {
     this._avoidScroll();
 
-    var $downloadbtn = $(e.currentTarget);
-    var id = $downloadbtn.data('indicator-id'),
-      year = $downloadbtn.data('year') || 2015,
-      categoryName = $downloadbtn.data('category-name') ? $downloadbtn.data('category-name') : 'global',
-      categoryGroup = $downloadbtn.data('category-group');
+    var downloadbtn = e.currentTarget;
+    var id = downloadbtn.getAttribute('data-indicator-id'),
+      year = downloadbtn.getAttribute('data-year') ? downloadbtn.getAttribute('data-year') : 2015,
+      categoryName = downloadbtn.getAttribute('data-category-name') ?
+        downloadbtn.getAttribute('data-category-name') : 'global',
+      categoryGroup = downloadbtn.getAttribute('data-category-group') ?
+        downloadbtn.getAttribute('data-category-group') : null;
 
     new DownloadView({
       iso: this.viewOptions.iso,
@@ -46,6 +48,7 @@ var ToolbarUtilsView = Backbone.View.extend({
       categoryName: categoryName,
       categoryGroup: categoryGroup
     }).show();
+
   },
 
   _print: function() {

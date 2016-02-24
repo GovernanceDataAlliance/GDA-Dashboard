@@ -76,7 +76,8 @@ var Countries = CartoDBCollection.extend({
       'categoryGroup': encodeURIComponent(categoryGroup),
       'categoryName': encodeURIComponent(categoryName)
     }),
-     url = this._urlForQuery(query) + '&format=csv';
+
+    url = this._urlForQuery(query) + '&format=csv';
 
     return url;
   }
