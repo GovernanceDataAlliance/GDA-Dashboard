@@ -13,12 +13,12 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
 
   > .intro {
     position: relative;
-    flex-basis: 100%;
+    flex-basis: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: rem(35px) 0;
+    padding: rem(35px) rem($wrap-padding-mobile);
     background-color: $white;
 
     &.-dark {
@@ -38,7 +38,7 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
 
   > .picture {
     position: relative;
-    flex-basis: 100%;
+    flex-basis: 50%;
     background-color: #ddd;
 
     @for $i from 1 through length($backgrounds-presentation) {
@@ -70,6 +70,12 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
     }
   }
 
+  @media screen and (min-width: 768px) {
+    > .intro {
+      padding: rem(60px) rem($wrap-padding-desktop) rem(50px);
+    }
+  }
+
   @media screen and (min-width: $screen-l) {
     display: flex;
     display: -ms-box;
@@ -80,7 +86,11 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
     }
 
     > .intro {
-       padding: rem(75px) 0;
+
+       &.-left,
+       &.-right {
+         padding: rem(75px) rem($wrap-padding-desktop);
+       }
 
       &.-right:after {
         top: rem(40px);
@@ -103,10 +113,10 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
     }
   }
 
-  @media screen and (min-width: $screen-l) {
+  @media screen and (min-width: $screen-xl) {
 
     > .intro {
-      padding: rem(75px) 0 rem(100px);
+      padding: rem(75px) rem($wrap-padding-desktop-xl) rem(100px);
 
       &.-left {
         align-items: flex-end;

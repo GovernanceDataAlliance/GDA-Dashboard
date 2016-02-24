@@ -15,7 +15,7 @@
   }
 
   @media screen and (min-width: $screen-xl) {
-    padding: 0 rem(80px);
+    padding: 0 rem($wrap-padding-desktop-xl);
   }
 }
 
