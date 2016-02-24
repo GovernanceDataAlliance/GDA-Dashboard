@@ -22,7 +22,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
       margin-bottom: rem(35px);
     }
 
-    &.highlighted-text {
+    .highlighted-text {
       font-size: rem(16px);
       line-height: 1em;
 
@@ -32,6 +32,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
       @media screen and (min-width: 768px) {
         font-size: rem(20px);
+        margin-bottom: rem(55px);
       }
     }
 
