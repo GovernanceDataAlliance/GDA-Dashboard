@@ -34,7 +34,7 @@ var DownloadView = Backbone.View.extend({
   render: function() {
     this.$el.append(this.template({
       csv: this._getCSV(),
-      siteURL: SITEURL
+      siteURL: SITEURL || null
     }));
 
     this.$el.find('.modal-container').removeClass('is-loading-share');
