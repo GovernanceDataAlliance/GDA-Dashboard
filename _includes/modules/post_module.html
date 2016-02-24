@@ -4,9 +4,9 @@
     {{ page.title }}
   </h1>
 
-  {% if page.image %}
+  {% unless page.image == '' %}
   <div class="image" style="background-image:url({{site.baseurl}}/css/img/blog/{{page.image}})"></div>
-  {%endif%}
+  {%endunless%}
 
   <div class="properties">
     <a class="category" href="{{site.baseurl}}/blog/categories#{{ page.category }}"> {{page.category}} </a>
