@@ -18,7 +18,7 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: rem(35px) rem($wrap-padding-mobile);
+    padding: rem(35px) rem($wrap-padding-mobile) rem(45px);
     background-color: $white;
 
     &.-dark {
@@ -66,13 +66,13 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
     }
 
     > .intro {
-      padding: rem(60px) rem($wrap-padding-tablet) rem(50px);
+      padding: rem(50px) rem($wrap-padding-tablet) rem(60px);
     }
   }
 
   @media screen and (min-width: 768px) {
     > .intro {
-      padding: rem(60px) rem($wrap-padding-desktop) rem(50px);
+      padding: rem(60px) rem($wrap-padding-desktop) rem(70px);
     }
   }
 
