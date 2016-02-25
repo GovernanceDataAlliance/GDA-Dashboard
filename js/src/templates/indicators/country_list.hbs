@@ -21,13 +21,13 @@
       {{/each}}
     </div>
 
-    <div class="table-row -load-more">
+    {{#if countries.rest}}
+      <div class="table-row -load-more">
         <div class="wrap">
           <svg class="icon -regular icon-load"><use xlink:href="#icon-load"></use></svg>
           <p>Load all the data</p>
         </div>
-    </div>
-    {{#if countries.rest}}
+      </div>
       <div class="rest-tier is-hidden">
       {{#each countries.rest}}
         <div class="table-row">
