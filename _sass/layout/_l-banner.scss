@@ -182,18 +182,13 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
   //data detail
   &.-detail {
     display: flex; display: -ms-box;
-    // min-height: rem(320px);
-    padding: rem(80px) 0 rem(40px);
+    padding: rem(70px) 0 rem(40px);
     background-color: $bg-color-1;
     border-bottom: 1px solid $border-1;
 
     > .wrap {
       display: flex; display: -ms-box;
     }
-
-    // &.-country {
-    //   padding: rem(40px) 0 rem(40px);
-    // }
 
     &.-blog {
       padding-top: rem(120px);
@@ -240,7 +235,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
     @media screen and (min-width: $screen-l) {
       padding: rem(140px) 0 rem(120px);
-      
+
       .description {
         max-width: 80%;
       }

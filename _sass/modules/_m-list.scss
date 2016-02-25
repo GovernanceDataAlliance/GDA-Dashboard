@@ -53,6 +53,12 @@
       right: rem(20px);
       pointer-events: none;
     }
+
+    &.list-open {
+      &:after {
+        @include arrow (5px, $color-2, 2px, 45deg);
+      }
+    }
   }
 
   @media screen and (min-width: $screen-xs) {

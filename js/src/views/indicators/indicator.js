@@ -8,6 +8,8 @@ var Indicator = require('../../models/indicator.js'),
 
 var Years = require('../../collections/years.js');
 
+var FunctionHelper = require('../../helpers/functions.js');
+
 var IndicatorHeaderView = require('./indicator_header.js'),
   IndicatorSelectorsToolbarView = require('./indicator_selectors_toolbar.js'),
   CountryListView = require('./country_list.js'),
@@ -32,6 +34,8 @@ var IndicatorView = Backbone.View.extend({
 
     this.id = options.id;
     this.givenYear = options.year || null;
+
+    this.functionHelper = FunctionHelper;
 
     this.initializeData();
     this.setListeners();
@@ -95,6 +99,8 @@ var IndicatorView = Backbone.View.extend({
       this.renderSelectorsToolbar();
       this.renderCountriesList();
     }
+
+    this.functionHelper.scrollTop();
   },
 
   renderHeader: function() {

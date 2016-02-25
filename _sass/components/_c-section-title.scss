@@ -45,6 +45,8 @@
   }
 
   + p {
+    font-size: rem(16px);
+    line-height: rem(26px);
     margin-top: rem(20px);
   }
 
@@ -85,9 +87,6 @@
   }
 
   @media screen and (min-width: $screen-xl) {
-    // padding-bottom: rem(60px);
-    // margin-bottom: rem(60px);
-
     &.-small {
       margin-bottom: rem(50px);
     }
