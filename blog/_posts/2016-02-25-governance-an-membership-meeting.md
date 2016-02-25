@@ -6,14 +6,13 @@ author: Caroline Poirrier
 image: ""
 category: meeting notes
 tags: meeting_notes
-title: "Governance an Membership Meeting "
+title: "Governance and Membership Meeting "
 ---
+
 
 ## A New Post
 
-Governance Data Alliance Call 5.26.2015
-Membership & Governance Discussion
-Participants:
+**Participants:**
 Nathaniel Heller – R4D
 Aprille Knox – R4D
 Farah Ereiqat – MCC
@@ -29,10 +28,11 @@ Alicia Mandaville – Amida Tech
 Alejandro Ponce – World Justice Project
 Brad Parks – AidData
 
-Agenda:
-•	Get through big items on membership and governance
-•	Solicit feedback
-•	Then put pen to paper at R4D, circulate options for final outstanding issues, and ultimately craft draft bylaws
+**Agenda:**
++ Get through big items on membership and governance
++ Solicit feedback
++ Then put pen to paper at R4D, circulate options for final outstanding issues, and ultimately craft draft bylaws
+
 Membership
 •	Members vs. Observers
 o	Finn
