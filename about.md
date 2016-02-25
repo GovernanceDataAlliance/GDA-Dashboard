@@ -10,6 +10,7 @@ published: true
 
 
 
+
 ##### Numerous organizations collect and analyze data on the different dimensions of governance — ranging from corruption perceptions to fiscal transparency to business regulation and freedom of the press — to help shape policy reforms and ultimately improve economic, human, and democratic development. Unfortunately, the current state of the marketplace for governance data limits the potential impact of this information. 
 
 ###### Data sets are available on various platforms in different formats. As a whole, they are also wildly incomplete, covering some countries and years but not others, and they are often produced with little to no understanding of who actually uses these data, and for what purpose. Additionally, production costs remain high despite possibilities for economies of scale. No single organization can solve those problems alone. We need a collective response to strengthen the production, use, and impact of governance data. This is why we formed the Governance Data Alliance.
@@ -34,6 +35,10 @@ This work stream involves an analysis of responses collected through the 2014 Re
 4. ### Piloting coordinated data co-production efforts to explore possible economies of scale. 
 This work stream aims to improve the availability of data, particularly for under-assessed countries, and to drive down the costs of data production over time.
 
+---
+
+## Contact
+For further information about the Alliance, please email us at [dataalliance@r4d.org](mailto:dataalliance@r4d.org)
 ___
 
 ## Who we are
