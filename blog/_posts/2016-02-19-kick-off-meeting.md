@@ -18,77 +18,76 @@ II. Updates from participants
 III. Next steps
 
 **I. GDA background and updates**
+
 Three primary work streams to focus on in next 12-18 months (see existing “vision paper” for current baseline)
 
-**   1.Producer-to-producer technical assistance**
+**1.Producer-to-producer technical assistance**
+Problem: inadequate coordination, common challenges yet regular wheel reinvention
 
-- Problem: inadequate coordination, common challenges yet regular wheel reinvention
+Activities: 
+- Peer-to-peer help desk function
+- “Good practice” identification and dissemination (whether methodology-, technology-, or project management-related)
+- Alliance data dashboard (see more below)
 
-- Activities
+**2.Feedback loops**
+Problem: 
+- producers don’t have a good sense of who data users are and what they need
+- users lack consistent means of signaling to producers
+- “marketplace” of governance data largely dysfunctional
 
-  o Peer-to-peer help desk function
-  
-  o “Good practice” identification and dissemination (whether methodology-, technology-, or project management-related) 
-  
-  o Alliance data dashboard (see more below)
+Main initial activities (led by AidData):
+- Mining AidData’s existing dataset (“Reform Efforts Survey 2014”) to draw out actionable information on existing governance data users (both in and outside of government)
+- Using survey sample frame/plumbing to do select “Snap Polls” of data users 
 
-**   B.Feedback loops**
+**3.Experimental coordinated field work**
+Problem: inefficient, costly data collection (leading to inconsistent coverage); failing to take advantage of potential economies of scale
+- Likely will start in 2016 in 5-6 countries
+- It will involve experimental sharing of resources; striving for demonstrable efficiencies and cost savings
 
-- Problem: producers don’t have a good sense of who data users are and what they need; users lack consistent means of signaling to producers; “marketplace” of governance data largely dysfunctional
+**4. Data Alliance Dashboard**
+Problem: how to answer the complex question “How Zambia is doing governance-wise?” 
 
-- Main initial activities (led by AidData):
+The dashboard will provide a visual snapshot of existing Alliance member data (at least at the “country score” level). We will be able to 
+- say how a country is doing across a number of governance dimensions, above or below (world and/or peer cohort) median, over time 
+- offer downloadable snapshots (GIFs, simple csv files, etc.). 
 
-  o Mining AidData’s existing dataset (“Reform Efforts Survey 2014”) to draw out actionable information on existing governance data users (both in and outside of government)
-
-  o Using survey sample frame/plumbing to do select “Snap Polls” of data users 
-
-**   C.Experimental coordinated field work**
-
-- Problem: inefficient, costly data collection (leading to inconsistent coverage); failing to take advantage of potential economies of scale
-  
-  o Likely will start in 2016 in 5-6 countries
-  
-  o It will involve experimental sharing of resources; striving for demonstrable efficiencies and cost savings
-
-**   D. Data Alliance Dashboard**
-
-- Problem: how to answer the complex question “How Zambia is doing governance-wise?” 
-
-- The dashboard will provide a visual snapshot of existing Alliance member data (at least at the “country score” level).We will be able to 
-  • say how a country is doing across a number of governance dimensions, above or below (world and/or peer 		cohort) median, over time 
-  • offer downloadable snapshots (GIFs, simple csv files, etc.). 
-- What’s needed to make a minimum viable dashboard happen:
-  • Data harmonization: agreement on common publication format (e.g. common Alliance-specific spreadsheets)
-  • Web development
-  • Time to copy/paste existing data into new Alliance spreadsheets
+What’s needed to make a minimum viable dashboard happen:
+- Data harmonization: agreement on common publication format (e.g. common Alliance-specific spreadsheets)
+- Web development
+- Time to copy/paste existing data into new Alliance spreadsheets
 - Dashboard will be key feature of GDA site (other parts will be simple: who we are; blog, etc.)
-  • should dashboard provide just a snapshot or also link to broader research / in-depth diagnostic?
-  • it would be useful to go beyond simple snapshot
-  • we  should leverage feedback loop efforts to ensure that the dashboard is responsive to needs  (not just producer needs) 
-  • we need to reflect how data collection can be built to make sure it’s useful to countries; including dashboard
+
+Should dashboard provide just a snapshot or also link to broader research / in-depth diagnostic?
+- It would be useful to go beyond simple snapshot
+- We  should leverage feedback loop efforts to ensure that the dashboard is responsive to needs  (not just producer needs) 
+- We need to reflect how data collection can be built to make sure it’s useful to countries; including dashboard
 
 
 **II. Updates from participants**
-- Brad Parks, Rebecca Latourell, Samantha Custer/AidData 
-  • implementation of the Reform Efforts Survey (since September)
-  • have not yet studied attributes of users - working on that
-  • how do you track institutional development/strengthening activities?
-  • How do we leverage data to produce even better data in the long-term?
+
+Brad Parks, Rebecca Latourell, Samantha Custer - AidData 
+Implementation of the Reform Efforts Survey (since September)
+- Have not yet studied attributes of users - working on that
+- How do you track institutional development/strengthening activities?
+- How do we leverage data to produce even better data in the long-term?
 - Will organize a meeting to present the “market of ideas [Reform Efforts Survey]” report in DC in June
 - Want to collaborate with people from GDA on the feedback loops work
-- Laura Bacon/Omidyar Network
-  • Great that many members of the Alliance are ON grantees  
-  • Should link up with (Publish What You Fund & Development Initiatives) Joined Up Data Standards and SDGs
-•	Elena Mondo and Claire Schouten/International Budget Partnership
-o	Next Open Budget Survey to be published in September
-o	New survey round launches in February/March 2016 - time for coordination 
-o	They’ve started to think about users
-•	Drafting user profiles; interviewing them
-•	Can we present data in a better way? Medium-term discussion
-•	Alan Hudson/Global Integrity 
-o	Reviewing strategy
-o	How can we build on our core strengths (cross-country comparative studies) to better support country learning?
-o	How can we link up with citizen produced data? 
+
+Laura Bacon - Omidyar Network
+- Great that many members of the Alliance are ON grantees  
+- Should link up with (Publish What You Fund & Development Initiatives) Joined Up Data Standards and SDGs
+
+Elena Mondo and Claire Schouten - International Budget Partnership
+Next Open Budget Survey to be published in September; new survey round launches in February/March 2016
+
+They’ve started to think about users
+- Drafting user profiles; interviewing them
+- Can we present data in a better way? Medium-term discussion
+
+Alan Hudson - Global Integrity 
+- Reviewing strategy
+- How can we build on our core strengths (cross-country comparative studies) to better support country learning?
+- How can we link up with citizen produced data? 
 •	Data shift: http://civicus.org/thedatashift/ 
 •	Ruy Moreno/Government of the Philippines  
 o	The government uses 10-12 reports to identify gaps in systems/processes
