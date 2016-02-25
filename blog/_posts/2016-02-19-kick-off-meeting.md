@@ -135,30 +135,35 @@ Chris Maloney - MCC
 
 
 **III. Next steps**
-System moving forward
-•	Let’s experiment with voluntary opt-in system: constitute smaller groups that are interested in particular pieces of work
-o	Producer coordination, training/help desk
-o	Feedback Loops
-o	Dashboard
-o	Governance and membership decisions 
-•	Expectation that if you opt-in, you’re prepared to make contributions. Don’t opt-in if you don’t have time!
-•	We’ll send out messages to formalize this. 
-•	Within organizations, should we have someone else involved?
-o	Designate key people/points of contact for different tasks/groups
-•	Next step conversation for governance and membership - next Tuesday 
-o	Dig into some of the options previewed in the Vision Paper
-o	Re-read paper and come with an opinion
-•	Alan: also will need to opt-in to joint data collection effort down the line
-•	Nathaniel: start pushing forward with most work streams (except joint data collection) aggressively 
-o	We’ll likely need to develop mini work plans for different streams/deliverables
+
+System moving forward: 
+Let’s experiment with voluntary opt-in system: constitute smaller groups that are interested in particular pieces of work
+- Producer coordination, training/help desk
+- Feedback Loops
+- Dashboard
+- Governance and membership decisions 
+
+Expectation that if you opt-in, you’re prepared to make contributions. Don’t opt-in if you don’t have time!
+- We’ll send out messages to formalize this. 
+- Designate key people/points of contact for different tasks/groups
+
+Next step conversation for governance and membership - next Tuesday 
+- Dig into some of the options previewed in the Vision Paper
+- Re-read paper and come with an opinion
+
+Alan: also will need to opt-in to joint data collection effort down the line
+
+Nathaniel: start pushing forward with most work streams (except joint data collection) aggressively 
+- We’ll likely need to develop mini work plans for different streams/deliverables
 
 Logistics
-•	Streamline existing listserv
-•	Move from Global Integrity domain to something new/TBD 
-•	Website/URL 
-o	We bought governancedataalliance.org/com - only issue is it’s long
-o	Other thoughts/alternatives? Nathaniel and Caroline will poll everyone.
-•	Toby: are we tied to GDA name?
-o	Nathaniel: no reason we can’t change, now, as long as the name remains somewhat specific (e.g. not simply super-broad “Data Alliance”)
+- Streamline existing listserv
+- Move from Global Integrity domain to something new/TBD 
+
+Website/URL 
+- We bought governancedataalliance.org/com - only issue is it’s long
+- Other thoughts/alternatives? Nathaniel and Caroline will poll everyone.
+- Toby: are we tied to GDA name?
+- Nathaniel: no reason we can’t change, now, as long as the name remains somewhat specific (e.g. not simply super-broad “Data Alliance”)
 
 Expect emails from Nathaniel & Caroline! And start thinking of which work streams you’d like to contribute to.
