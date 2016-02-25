@@ -28,7 +28,8 @@ Three primary work streams to focus on in next 12-18 months (see existing “vis
 **1.Producer-to-producer technical assistance**
 Problem: inadequate coordination, common challenges yet regular wheel reinvention
 
-Activities: 
+Activities:   
+
 - Peer-to-peer help desk function
 - “Good practice” identification and dissemination (whether methodology-, technology-, or project management-related)
 - Alliance data dashboard (see more below)
