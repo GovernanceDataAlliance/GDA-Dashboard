@@ -7,18 +7,19 @@ published: true
 
 
 
-##### The Alliance came together in 2014 because we were collectively worried about the persistence of inadequate data assessing a range of governance dimensions in countries around the world, and the twin challenge of data producers often lacking insight into who the actual users of their data were. We strongly believed that no single organization could solve those problems alone, and that we needed a collective action response to strengthen the future production and use of governance data.
 
-###### The Alliance is based on the assumption that while governance data has the potential to improve economic, human, and democratic development, the current state of governance data dramatically constrains its ability to produce positive change. We face a series of market failures: the supply of data is highly irregular and ad hoc; feedback loops between governance data producers and governance data users are non-existent or under-employed; and production costs remain high and inconsistent despite possibilities for economies of scale.
+
+
+
+
+##### Numerous organizations collect and analyze data on the different dimensions of governance — ranging from corruption perceptions to fiscal transparency to business regulation and freedom of the press — to help shape policy reforms and ultimately improve economic, human, and democratic development. Unfortunately, the current state of the marketplace for governance data limits the potential impact of this information. 
+
+###### Data sets are available on various platforms in different formats. As a whole, they are also wildly incomplete, covering some countries and years but not others, and they are often produced with little to no understanding of who actually uses these data, and for what purpose. Additionally, production costs remain high despite possibilities for economies of scale. No single organization can solve those problems alone. We need a collective response to strengthen the production, use, and impact of governance data. This is why we formed the Governance Data Alliance.
 
 ___
 
 ## What we do
-The Alliance addresses these problems by facilitating coordination and knowledge-sharing among governance data producers, collecting and analyzing user data and behavior to enhance our collective understanding of target governance data users’ actual needs, and developing mechanisms to ensure that governance data producers are responsive to these needs. Our hope is that, together, these activities will:
-
-* Improve the availability of governance data through greater coordination and user needs assessments.
-* Enhance the quality of governance data by establishing and promoting good practice research methods and data interoperability.
-* Enhance the real-life use of governance data by identifying data users and targeting those users with what they actually want and need.
+The Governance Data Alliance encourages greater coordination amongst data producers to fill data gaps while simultaneously investigating who governance data users actually are. The goal is to produce and aggregate high-quality but accessible governance data that policymakers and other change agents can use to take action. The Alliance’s work is currently organized around four work streams.
 
 ___
 
@@ -35,16 +36,12 @@ This work stream involves an analysis of responses collected through the 2014 Re
 4. ### Piloting coordinated data co-production efforts to explore possible economies of scale. 
 This work stream aims to improve the availability of data, particularly for under-assessed countries, and to drive down the costs of data production over time.
 
-___
+---
 
 ## Contact
 For further information about the Alliance, please email us at [dataalliance@r4d.org](mailto:dataalliance@r4d.org)
 
-___
+---
 
 ## Who we are
 The Alliance brings together a number of world-class organizations and individuals committed to the effective production and use of high-quality governance data. Current members include:
-
-
-
-

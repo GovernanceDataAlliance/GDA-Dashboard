@@ -16,7 +16,8 @@ var IndicatorHeaderView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(template({
-      'indicator': this.indicator.toJSON()
+      'indicator': this.indicator.toJSON(),
+      'siteURL': SITEURL
     }));
    
     return this;

@@ -142,12 +142,21 @@
     padding: 0 rem(8px);
   }
 
-  .btn-layout-dashboard,
-  .btn-layout-list {
+  .btn-layout-dashboard {
     padding-left: rem(10px);
     padding-right: rem(10px);
 
     @media screen and (min-width: $screen-l) {
+      padding-left: rem(18px);
+      padding-right: rem(18px);
+    }
+  }
+
+  .btn-layout-list {
+    padding-left: rem(10px);
+    padding-right: rem(10px);
+
+    @media screen and (min-width: 768px) {
       padding-left: rem(18px);
       padding-right: rem(18px);
     }

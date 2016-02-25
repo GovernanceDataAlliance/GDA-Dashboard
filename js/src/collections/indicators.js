@@ -53,19 +53,18 @@ var Indicators = CartoDBCollection.extend({
     return this.fetch({url: url})
   },
 
-  /*
-   * Adding elements when no score for that index.
-   */
   parse: function(rawData) {
-    var classColor;
+
     $.each(rawData.rows, _.bind(function(i, d) {
 
-      classColor = this._setColorsByScore(d);
-
-      if (!classColor) {
+      if (!this._setColorsByScore(d)) {
         return;
       }
       _.extend(d, {'classColor': this._setColorsByScore(d)});
+
+      if (d['score_text']) {
+        d['score'] = d['score_text'];
+      }
 
     }, this));
 
