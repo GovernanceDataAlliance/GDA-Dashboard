@@ -6,6 +6,8 @@ var Country = require('../../models/country.js'),
     Indicators = require('../../collections/indicators.js'),
     Years = require('../../collections/years.js');
 
+var FunctionHelper = require('../../helpers/functions.js');
+
 var CountryHeaderView = require('./country_header.js'),
     IndicatorListView = require('./indicator_list.js'),
     CountryToolbarView = require('./country_toolbar.js'),
@@ -34,6 +36,8 @@ var CountryView = Backbone.View.extend({
 
     this.iso = options.iso;
     this.currentYear = options.year;
+
+    this.functionHelper = FunctionHelper;
 
     // Initialize collections
     this.country = new Country({id: this.iso});
@@ -80,6 +84,7 @@ var CountryView = Backbone.View.extend({
     }
 
     this._setDownloadYear();
+    this.functionHelper.scrollTop();
   },
 
   _toggleTooltip: function(e) {
