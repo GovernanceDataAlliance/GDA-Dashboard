@@ -1,6 +1,6 @@
 .m-social-share {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 
   .icon {
     width: rem(20px);
@@ -45,8 +45,6 @@
   }
 
   @media screen and (min-width: $screen-s) {
-    justify-content: center;
-
     &.-footer {
       margin-left: rem(20px);
 
