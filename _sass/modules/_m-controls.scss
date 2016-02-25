@@ -41,6 +41,14 @@
     }
   }
 
+  .separate {
+    display: none;
+
+    @media screen and (min-width: 768px) {
+      display: inline-block;
+    }
+  }
+
   a:hover,
   button:hover {
     color: $color-4;
@@ -51,16 +59,6 @@
 
   button {
     display: flex;
-  }
-
-  .icon {
-    display: none;
-
-    @media screen and (min-width: 768px) {
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 5px;
-    }
   }
 
   &.-selector {

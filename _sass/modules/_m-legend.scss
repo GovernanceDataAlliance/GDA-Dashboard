@@ -4,33 +4,21 @@
   padding: rem(20px) 0;
 
   > ul {
-    display: flex; display: -ms-box;
+    display: flex; 
+    display: -ms-box;
 
     li {
       display: flex; display: -ms-box;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-
-      &:nth-child(2n) {
-        margin: 0 25px;
-      }
+      margin-right: rem(2px);
 
       &:before {
         content: '';
         display: inline-block;
-        width: 14px;
-        height: 14px;
-        margin-bottom: 10px;
-      }
-
-      > .legend-title {
-        font-family: "Montserrat";
-        font-size: rem(10px);
-        letter-spacing: rem(0.2px);
-        color: $brown;
-        text-transform: uppercase;
-        white-space: nowrap;
+        width: 7px;
+        height: 7px;
       }
 
       &.-excellent:before {
@@ -53,14 +41,38 @@
         background: $poor;
       }
 
-      @media screen and (min-width: $screen-s) {
-        flex-direction: row;
-        margin-right: rem(20px);
+      &.literal {
+        font-family: "Montserrat";
+        font-size: rem(11px);
+        text-transform: uppercase;
+        color: $font-color-3;
+        margin-right: rem(4px);
 
         &:before {
-          margin: 0 10px 0 0;
+          display: none;
         }
       }
+    }
+
+    .legend-item {
+      display: none;
+      font-family: "Montserrat";
+      font-size: rem(10px);
+      letter-spacing: rem(0.2px);
+      color: $brown;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+  }
+
+  @media screen and (min-width: $screen-s) {
+
+  }
+
+  @media screen and (min-width: 768px) {
+    .legend-title {
+      display: inline-block;
     }
   }
 
@@ -70,6 +82,5 @@
     @media screen and (min-width: $screen-s) {
       display: block;
     }
-
   }
 }

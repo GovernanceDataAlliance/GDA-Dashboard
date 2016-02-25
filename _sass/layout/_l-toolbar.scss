@@ -3,9 +3,17 @@
   z-index: 1;
   display: flex; display: -ms-box;
   height: auto;
-  padding: rem(20px) 0;
+  padding: rem(5px) 0;
   background-color: $bg-color-4;
   border-bottom: 1px solid $border-1;
+
+  &.-utils {
+    min-height: rem(56px);
+  }
+
+  &.-year-and-legend {
+
+  }
 
   @media screen and (min-width: 768px) {
     height: rem(70px);
@@ -17,21 +25,19 @@
     display: flex;
     display: -ms-box;
     justify-content: space-between;
-    flex-wrap: wrap;
-    // padding: 0 rem(15px);
+
+    .js--toolbar-utils {
+      width: 100%;
+
+      .m-controls {
+        width: 100%;
+      }
+    }
 
     > .js--toolbar-utils,
     > .js--toolbar-display {
       display: flex;
     }
-
-    // @media screen and (min-width: 768px) {
-    //   padding: 0 rem($wrap-padding-desktop);
-    // }
-
-    // @media screen and (min-width: $screen-l) {
-    //   padding: 0 rem($wrap-padding-desktop * 2);
-    // }
   }
 
   &.-share {
@@ -104,43 +110,37 @@
     @media screen and (min-width: $screen-xs) {
       .wrap {
         flex-wrap: wrap;
-// =======
-//     @media screen and (min-width: 768px) {
-
-//       .js--toolbar-utils {
-//         order: 3;
-// >>>>>>> a453347c0942e854d71ba7737248381e7c79e17b
       }
     }
 
   }
 
-  &.-footer {
-    height: auto;
-    background-color: $white;
+  // &.-footer {
+  //   height: auto;
+  //   background-color: $white;
 
-    &.-country {
-      border-top: 1px solid $border-1;
-    }
+  //   &.-country {
+  //     border-top: 1px solid $border-1;
+  //   }
 
-    .js--download,
-    .js--download + span,
-    .compare-link,
-    .compare-link + span{
-      display: none;
-    }
+  //   .js--download,
+  //   .js--download + span,
+  //   .compare-link,
+  //   .compare-link + span{
+  //     display: none;
+  //   }
 
-    .wrap {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+  //   .wrap {
+  //     flex-direction: column;
+  //     align-items: center;
+  //     justify-content: center;
 
-      > .js--toolbar-utils {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-  }
+  //     > .js--toolbar-utils {
+  //       width: 100%;
+  //       justify-content: center;
+  //     }
+  //   }
+  // }
 
   &.-blog {
     .js--print, .js--print + span {
@@ -154,18 +154,18 @@
       display: flex;
     }
 
-    &.-footer {
-       height: rem(70px);
+    // &.-footer {
+    //    height: rem(70px);
 
-      .wrap {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+    //   .wrap {
+    //     flex-direction: row;
+    //     align-items: center;
+    //     justify-content: space-between;
 
-        > .js--toolbar-utils {
-          width: auto;
-        }
-      }
-    }
+    //     > .js--toolbar-utils {
+    //       width: auto;
+    //     }
+    //   }
+    // }
   }
 }

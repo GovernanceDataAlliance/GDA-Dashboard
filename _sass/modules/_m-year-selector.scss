@@ -1,0 +1,32 @@
+.m-year-selector {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: rem(160px);
+
+  &.-mobile {
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .selector-literal {
+    display: none;
+    margin-right: rem(10px);
+
+    @media screen and (min-width: 768px) {
+      display: inline-block;
+    }
+  }
+
+  .btn-drop-down {
+    margin: 0;
+  }
+
+  // .selector-wrapper {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  // }
+}
