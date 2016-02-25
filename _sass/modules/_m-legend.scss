@@ -1,17 +1,17 @@
 .m-legend {
   display: flex; display: -ms-box;
   align-items: center;
-  padding: rem(20px) 0;
+  // padding: rem(20px) 0;
 
   > ul {
     display: flex; 
     display: -ms-box;
 
     li {
-      display: flex; display: -ms-box;
+      display: flex; 
+      display: -ms-box;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
       margin-right: rem(2px);
 
       &:before {
@@ -63,24 +63,41 @@
       text-transform: uppercase;
       white-space: nowrap;
     }
-
   }
 
   @media screen and (min-width: $screen-s) {
-
+    
   }
 
   @media screen and (min-width: 768px) {
-    .legend-title {
-      display: inline-block;
+    > ul {
+
+      li {
+        margin-right: rem(20px);
+
+        &:before {
+          width: 14px;
+          height: 14px;
+          margin-right: rem(7px);
+        }
+
+        &.literal {
+          display: none;
+        }
+      }
+
+      .legend-item {
+        display: inline-block;
+      }
     }
+
   }
 
   .pop-up-legend-container {
     display: none;
     
-    @media screen and (min-width: $screen-s) {
-      display: block;
+    @media screen and (min-width: 768px) {
+      display: flex;
     }
   }
 }

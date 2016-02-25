@@ -125,6 +125,22 @@
   @media screen and (min-width: $screen-m) {
     font-size: rem(11px);
   }
+
+  &.btn-layout-dashboard {
+    .button-literal {
+      display: none;
+    }
+
+    @media screen and (min-width: 768px) {
+      .button-literal {
+        display: none;
+      }
+
+      @media screen and (min-width: 800px) {
+        display: inline-block;
+      }
+    }
+  }
 }
 
 .btn-info {
