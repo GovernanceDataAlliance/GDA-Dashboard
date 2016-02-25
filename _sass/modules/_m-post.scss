@@ -54,6 +54,10 @@ $sections-padding: .5rem .5rem .5rem 0;
         color: $font-color-2;
 
         background-color: $color-4;
+
+        &:hover {
+          background-color: $color-2;
+        }
       }
     }
   }
@@ -95,20 +99,6 @@ $sections-padding: .5rem .5rem .5rem 0;
       position: relative;
       display: inline-block;
       font-size: rem(24px);
-      &:before {
-        content: '';
-        position: absolute;
-        display: inline-block;
-        bottom: 0;
-        width: 100%;
-        height: rem(2px);
-        background-color: transparent;
-      }
-      &:hover {
-        &:before {
-          background-color: $white;
-        }
-      }
     }
 
     &.-underlined {
@@ -204,6 +194,10 @@ $sections-padding: .5rem .5rem .5rem 0;
           line-height: 1.25;
 
           text-decoration: none;
+
+          &:hover {
+            color: $color-4;
+          }
         }
       }
     }
@@ -219,10 +213,14 @@ $sections-padding: .5rem .5rem .5rem 0;
       color: $font-color-2;
     }
 
+    > .title a:hover {
+      color: $font-color-2 !important;
+      text-decoration: underline;
+    }
+
     .category:hover {
       color: $font-color-hover;
     }
-
   }
 
   @media screen and (min-width: $screen-m) {
