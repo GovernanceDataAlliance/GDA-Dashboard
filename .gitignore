@@ -17,5 +17,14 @@ useful-info.txt
 /js/welcome_bundle.js
 /js/test/bundle.js
 /css/main.css
-/_SpecRunner.html
+js/bundle.js
+js/about_bundle.js
+js/blog_bundle.js
+js/countries_bundle.js
+js/compare_bundle.js
+js/indicators_bundle.js
+js/welcome_bundle.js
+js/test/bundle.js
+css/main.css
+_SpecRunner.html
 CNAME
