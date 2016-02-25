@@ -22,6 +22,7 @@ III. Next steps
 
 Three primary work streams to focus on in next 12-18 months (see existing “vision paper” for current baseline)
 
+
 **1.Producer-to-producer technical assistance**
 Problem: inadequate coordination, common challenges yet regular wheel reinvention
 
@@ -32,6 +33,7 @@ Activities:
 
 **2.Feedback loops**
 Problem: 
+
 - producers don’t have a good sense of who data users are and what they need
 - users lack consistent means of signaling to producers
 - “marketplace” of governance data largely dysfunctional
