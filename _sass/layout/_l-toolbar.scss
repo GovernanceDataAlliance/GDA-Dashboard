@@ -46,6 +46,17 @@
 
       @media screen and (min-width: 768px) {
         width: 75%;
+
+        .m-controls {
+
+          button {
+            margin-right: rem(20px);
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
       }
     }
 
@@ -131,6 +142,7 @@
   }
 
   &.-footer {
+    border-top: 1px solid $border-1;
     // height: auto;
     // background-color: $white;
 
@@ -145,6 +157,14 @@
       display: none;
     }
 
+    .wrap {
+      .js--toolbar-utils {
+        .m-controls {
+          justify-content: flex-end;
+        }
+      }
+    }
+
     // .wrap {
     //   flex-direction: column;
     //   align-items: center;
@@ -153,6 +173,13 @@
     //   > .js--toolbar-utils {
     //     width: 100%;
     //     justify-content: center;
+    //   }
+    // }
+
+    // .js--toolbar-utils {
+    //   .m-controls {
+    //     width: 100%;
+    //     max-width: rem(200px);
     //   }
     // }
   }

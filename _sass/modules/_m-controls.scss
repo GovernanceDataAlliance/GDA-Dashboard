@@ -154,16 +154,12 @@
   }
 
   .-footer & {
-    justify-content: center;
+    // justify-content: center;
 
-    button > .icon {
-      display: inline-flex;
-      margin-right: rem(10px);
-    }
-
-    span {
-      padding: 0 rem($wrap-padding-desktop);
-    }
+    // button > .icon {
+    //   display: inline-flex;
+    //   margin-right: rem(10px);
+    // }
   }
 
   .is-small-text {
