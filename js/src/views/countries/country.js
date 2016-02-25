@@ -3,7 +3,8 @@ var _ = require('lodash'),
     Handlebars = require('handlebars');
 
 var Country = require('../../models/country.js'),
-    Indicators = require('../../collections/indicators.js');
+    Indicators = require('../../collections/indicators.js'),
+    Years = require('../../collections/years.js');
 
 var CountryHeaderView = require('./country_header.js'),
     IndicatorListView = require('./indicator_list.js'),
@@ -11,7 +12,9 @@ var CountryHeaderView = require('./country_header.js'),
     ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
     ModalWindowView = require('../common/infowindow_view.js'),
     TooltipView = require('../common/tooltip_view.js'),
-    ShareView = require('../common/share_view.js');
+    ShareView = require('../common/share_view.js'),
+    YearSelectorView = require('../common/year_selector.js');
+
 
 var template = Handlebars.compile(
   require('../../templates/countries/country.hbs'));
@@ -30,44 +33,100 @@ var CountryView = Backbone.View.extend({
     }
 
     this.iso = options.iso;
+    this.currentYear = options.year;
 
-    this.initializeData();
+    // Initialize collections
+    this.country = new Country({id: this.iso});
+    this.indicators = new Indicators();
+    this.yearsCollection = new Years();
+
+    $.when(this.yearsCollection.totalYears(),
+      this.country.fetch()).done(function() {
+
+      this.initializeData();
+      this._setListeners();
+
+    }.bind(this));
+
   },
 
   initializeData: function() {
-    this.country = new Country({id: this.iso});
-    this.country.fetch().done(function() {
+    this.render();
+
+    this.indicators.forCountry(this.iso).done(function() {
       this.renderCountry();
     }.bind(this));
 
-    this.indicators = new Indicators();
+  },
+
+  _setListeners: function() {
+    Backbone.Events.on('year:selected', this._updateYear, this);
     this.listenTo(this.indicators, 'sync', this.renderIndicators);
-    this.indicators.forCountry(this.iso);
   },
 
   render: function(rerender) {
     if (!$('.js--index-banner').hasClass('is-hidden')) {
-      $('.js--index-banner').addClass('is-hidden')
+      $('.js--index-banner').addClass('is-hidden');
     }
 
     this.$el.html(template());
     this.renderToolbars();
+    this.renderYearSelector();
 
     if (rerender) {
       this.renderCountry();
       this.renderToolbars();
       this.renderIndicators();
     }
+
+    this._setDownloadYear();
   },
 
   _toggleTooltip: function(e) {
     new TooltipView().toggleStatus(e);
   },
 
+  _updateYear: function(year) {
+    this.currentYear = year;
+
+    this._updateInfo();
+  },
+
+  _updateParams: function(params) {
+    this.currentYear = params.year;
+    this.iso = params.iso;
+
+    this._updateInfo();
+  },
+
+  _updateInfo: function() {
+
+    this.country = new Country({id: this.iso});
+
+    $.when(this.country.fetch(), this.indicators.forCountry(this.iso)).done(function() {
+      this.render(true);
+    }.bind(this));
+  },
+
+  _setDownloadYear: function() {
+    $('.js--download').attr('data-year', this.currentYear);
+  },
+
+  renderYearSelector: function() {
+    this.currentYear = this.currentYear ? this.currentYear : this.yearsCollection.getLastYear();
+
+    new YearSelectorView({
+      el: this.$('.js--year-selector-country'),
+      'years': this.yearsCollection.toJSON(),
+      'actualYear': this.currentYear
+    });
+  },
+
   renderCountry: function() {
     var headerView = new CountryHeaderView({
       country: this.country});
-    this.$('.js--country-header').append(headerView.render().el);
+
+    this.$('.js--country-header').html(headerView.render().el);
   },
 
   renderToolbars: function() {
@@ -91,10 +150,10 @@ var CountryView = Backbone.View.extend({
   },
 
   renderIndicators: function() {
-    var listView = new IndicatorListView({
-      'indicators': this.indicators
-    });
-    listView.render();
+    new IndicatorListView({
+      'indicators': this.indicators,
+      currentYear: this.currentYear
+    }).render();
   },
 
   setCountry: function(iso) {
@@ -108,7 +167,7 @@ var CountryView = Backbone.View.extend({
   },
 
   show: function() {
-    this.render();
+    // this.render();
   }
 
 });

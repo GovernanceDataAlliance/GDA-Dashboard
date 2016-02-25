@@ -14,6 +14,10 @@ var Years = CartoDBCollection.extend({
   user_name: CONFIG.cartodb.user_name,
   table: CONFIG.cartodb.indicator_data_table_name,
 
+  // Get latest year available
+  getLastYear:function() {
+    return this.at(0).get('year');
+  },
 
   totalYears: function() {
     var query = totalYearsSQL({ 'table': this.table }),

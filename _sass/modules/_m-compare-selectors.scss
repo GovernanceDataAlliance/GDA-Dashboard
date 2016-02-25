@@ -13,7 +13,15 @@
   &.-year {
     justify-content: flex-end;
     align-items: center;
+    &.-country {
+      border: 0;
+      .btn-drop-down {
+        margin-right: 0;
+      }
+    }
   }
+
+
 
   &.-mobile {
     justify-content: flex-start;

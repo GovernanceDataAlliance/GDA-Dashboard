@@ -1,0 +1,21 @@
+.c-main-title {
+  font-size: rem(35px);
+  margin-bottom: rem(25px);
+  font-family: $font-main;
+  font-weight: 400;
+  color: $font-color-2;
+
+  @media screen and (min-width: $screen-s) {
+    font-size: rem(38px);
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: rem(65px);
+    line-height: rem(70px);
+    margin-bottom: rem(55px);
+  }
+
+  @media screen and (min-width: $screen-xxl) {
+    font-size: rem(60px);
+  }
+}

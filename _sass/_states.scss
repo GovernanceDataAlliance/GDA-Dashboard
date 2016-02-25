@@ -11,22 +11,27 @@
   // position: fixed;
 }
 
+//It shows up after 768 (tablet)
 .is-mobile-hidden {
   @extend %hidden;
 
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: 768px) {
     display: block !important;
     visibility: visible !important;
   }
 }
 
+//Is shows up after 769px (small desktop and tablet portrait)
 .is-tablet-hidden {
+  @extend %hidden;
+
   @media screen and (min-width: $screen-m) {
-    display: none !important;
-    visibility: hidden !important;
+    display: inline-block !important;
+    visibility: visible !important;
   }
 }
 
+//It hides at 1024px
 .is-desktop-hidden {
   @media screen and (min-width: $screen-l) {
     display: none !important;

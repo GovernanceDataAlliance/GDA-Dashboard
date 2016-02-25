@@ -53,19 +53,18 @@ var Indicators = CartoDBCollection.extend({
     return this.fetch({url: url})
   },
 
-  /*
-   * Adding elements when no score for that index.
-   */
   parse: function(rawData) {
-    var classColor;
+
     $.each(rawData.rows, _.bind(function(i, d) {
 
-      classColor = this._setColorsByScore(d);
-      
-      if (!classColor) {
+      if (!this._setColorsByScore(d)) {
         return;
       }
       _.extend(d, {'classColor': this._setColorsByScore(d)});
+
+      if (d['score_text']) {
+        d['score'] = d['score_text'];
+      }
 
     }, this));
 
@@ -80,12 +79,14 @@ var Indicators = CartoDBCollection.extend({
     return ColorService.getColor(indicator);
   },
 
-  downloadForCountry: function(iso) {
-    var query = SQL({ table: this.table, iso: iso});
+  downloadForCountry: function(opts) {
+    var query = SQLwithYears({
+      table: this.table,
+      iso: opts.iso,
+      year: opts.year
+    });
 
     return this._urlForQuery(query) + '&format=csv';
-
-    // return this.fetch({url: url});
   }
 });
 

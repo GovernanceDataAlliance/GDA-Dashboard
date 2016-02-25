@@ -2,16 +2,20 @@
 
   > h2 {
     color: $font-color-1;
-    font-size: rem(35px);
     font-weight: 400;
-    margin-bottom: rem(20px);
   }
 
   > p {
-    font-size: rem(15px);
+    font-size: rem(14px);
     line-height: rem(29px);
 
     + .btn, + ul {
+      margin-top: rem(10px);
+    }
+  }
+
+  .-highlighted {
+    + .btn {
       margin-top: rem(20px);
     }
   }
@@ -28,11 +32,6 @@
     font-size: rem(15px);
   }
 
-  &.-left,
-  &.-right {
-    padding: 0 rem($wrap-padding-mobile);
-  }
-
   &.-light {
     h2, p, ul, li {
       color: $font-color-2;
@@ -44,70 +43,47 @@
       font-size: rem(20px);
       line-height: rem(34px);
       letter-spacing: rem(0.4px);
+
+      + .btn {
+        margin-top: rem(75px);
+      }
     }
 
     > p {
       + .btn {
-        margin-top: rem(50px);
+        margin-top: rem(20px);
       }
     }
   }
   
   @media screen and (min-width: 768px) {
-    > h2 {
-      font-size: rem(55px);
-      margin-bottom: rem(35px);
-    }
-
     .-highlighted {
       font-size: rem(20px);
       line-height: rem(34px);
       letter-spacing: rem(0.4px);
+
+      + .btn {
+        margin-top: rem(40px);
+      }
     }
   }
 
-  @media screen and (min-width: $screen-m) {
-    max-width: $content-width;
-
-    &.-left,
-    &.-right {
-      max-width: $grid-max-width/2;
-      padding: 0 rem($wrap-padding-tablet);
-    }
-  }
 
   @media screen and (min-width: $screen-l) {
-    > h2 {
-      margin-bottom: rem(25px);
-      line-height: 1.2em;
-    }
-
     > p {
+      font-size: rem(15px);
+      
       + .btn, + ul {
         margin-top: rem(30px);
       }
     }
-
-    &.-left,
-    &.-right {
-      padding: 0 rem($wrap-padding-desktop);
-    }
   }
 
   @media screen and (min-width: $screen-xl) {
-    > h2 {
-      font-size: rem(60px);
-    }
-
     > p {
       + .btn, + ul {
         margin-top: rem(40px);
       }
-    }
-
-    &.-left,
-    &.-right {
-      padding: rem(35px) rem(80px);
     }
   }
 }

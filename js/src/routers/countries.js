@@ -10,7 +10,7 @@ var ViewManager = require('../lib/view_manager.js'),
 var Router = Backbone.Router.extend({
 
   routes: {
-    ":iso": "show",
+    ":params": "show",
     "*path": "index"
   },
 
@@ -23,8 +23,7 @@ var Router = Backbone.Router.extend({
   },
 
   setListeners: function() {
-    Backbone.Events.on('country:selected', (this.countrySelected).bind(this));
-    Backbone.Events.on('year:selected', (this.yearSelected).bind(this));
+    Backbone.Events.on('year:selected', this.updateParams, this);
   },
 
   index: function() {
@@ -36,41 +35,39 @@ var Router = Backbone.Router.extend({
     this.views.showView('index');
   },
 
-  show: function(iso) {
+  show: function(params) {
+    var configView = {
+      iso: params.split("&")[0],
+      year: params.split("&")[1] || null
+    };
+
     if (!this.views.hasView('show')) {
-      var view = new CountryView({iso: iso});
+      var view = new CountryView(configView);
       this.views.addView('show', view);
     } else {
-      this.views.getView('show').setCountry(iso);
+      this.views.getView('show')._updateParams(configView)
     }
 
     this.views.showView('show');
   },
 
-  //Update countries params
-  countrySelected: function(iso, order) {
-    this.countries[order - 1] = iso;
-    this.updateUrl();
-  },
 
-  //Update year params
-  yearSelected: function(year) {
+  //Update params
+  updateParams: function(year) {
     this.year = year;
     this.updateUrl();
   },
 
   //Update URL
   updateUrl: function() {
-    var hashCountries = 'compare?';
-    var hasYear;
+    var stringYear = '',
+      iso = window.location.hash.split('&')[0].slice(1);
 
-    $.each(this.countries, function(i, country) {
-      hashCountries = hashCountries + 'countries[]=' + country + '&';
-    }.bind(this));
+    if (this.year) {
+      stringYear = '&' + this.year;
+    }
 
-    hasYear = 'year[]=' + this.year;
-
-    this.navigate(hashCountries + hasYear);
+    this.navigate(iso + stringYear);
   }
 });
 
