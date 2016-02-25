@@ -1,61 +1,18 @@
 .m-download {
 
-  .modal-container {
-    padding: 60px 20px 10px;
-
-    @media screen and (min-width: $screen-l) and (orientation: landscape),
-      screen and (min-width: $screen-m) and (orientation: portrait) {
-        padding: rem(75px) rem(50px);
-      }
-  }
-
-  .modal-content {
-    width: 100%;
-
-    h2 {
-      font-weight: 400;
-      margin-bottom: rem(30px);
-    }
-
-    >.content {
-      margin: rem(30px) 0;
-    }
-
-    p, a {
-      font-size: rem(14px);
-      line-height: rem(29px);
-    }
-
-    > .buttons {
-      > a {
-        width: 100%;
-        font-size: rem(11px);
-        letter-spacing: rem(0.6px);
-      }
-
-      > .js--cancel-btn {
+  .buttons {
+    margin-top: rem(30px);
+    > a {
+      display: block;
+      padding: rem(20px) rem(60px);
+      font-size: rem(11px);
+      letter-spacing: rem(0.6px);
+      &:last-child {
         border: 0;
       }
-    }
 
-    // From 640px
-    @media screen and (min-width: $screen-s) {
-      width: 100%;
-
-      h2 {
-        margin-bottom: 0;
-      }
-
-      > .content {
-        margin: rem(20px) 0 rem(35px) 0;
-      }
-
-      > .buttons {
-        > a {
-          width: auto;
-          font-size: rem(11px);
-          letter-spacing: rem(0.3px);
-        }
+      @media screen and (min-width: $screen-s) {
+        display: inline-block;
       }
     }
   }

@@ -31,7 +31,12 @@
   width: 90%;
   max-width: rem(755px);
   min-height: 40%;
-  background-color: #fff;
+  background-color: $white;
+}
+
+.wrapper-container {
+  width: 100%;
+  padding: rem(50px) 0;
 }
 
 .modal-container {
@@ -39,18 +44,42 @@
   display: -ms-box;
   width: 100%;
   height: 500px;
-  // padding: 50px; //Margen para el scroll de windows
-  padding: rem(75px) rem(45px) rem(75px) rem(15px);
-  overflow: scroll;
+  padding: 0 rem(25px);
+  overflow: auto;
   font-size: rem(15px);
   align-items: flex-start;
 
+  .modal-content {
+    width: 100%;
+  }
+
+  h2 {
+    font-size: rem(30px);
+    font-weight: 400;
+    margin-bottom: rem(30px);
+  }
+
+  p, a {
+    font-size: rem(14px);
+    line-height: rem(27px)
+  }
+
+  a:hover {
+    color: $color-4;
+  }
+
+
+
   @media screen and (min-width: $screen-m) {
-    padding: rem(75px) rem(50px);
+    padding: 0 rem(55px);
   }
 
   @media screen and (min-width: $screen-xl) {
-    padding: rem(75px) rem(100px);
+    padding: 0 rem(100px);
+
+    p, a {
+      font-size: rem(15px);
+    }
   }
 }
 

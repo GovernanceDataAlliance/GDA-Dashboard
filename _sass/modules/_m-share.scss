@@ -1,77 +1,49 @@
 .m-share {
 
-  h2 {
-    font-weight: 400;
-    margin-bottom: rem(20px);
+  .link-box {
+    position: relative;
+    width: 100%;
+    margin-top: rem(35px);
+    text-align: left;
   }
 
-  p {
-    font-size: rem(15px);
-    margin-bottom: rem(35px);
-  }
-
-  input {
-    text-style: italic;
+  .url {
+    width: 100%;
     margin-bottom: rem(10px);
+    padding: rem(16px) rem(10px);
+    font-family: $font-secondary;
+    font-size: rem(14px);
+    font-style: italic;
+    color: #5b5b5b;
+    border: rem(1px) solid $beige;
+
+    @include ellipsis-x(100%);
+
+    @media screen and (min-width: $screen-s) {
+      width: calc(100% - 21%);
+      height: rem(51px);
+      margin: 0;
+      border-right: 0;
+    }
+
+    @media screen and (min-width: 768px) {
+      margin: 0;
+    }
   }
 
-  .modal-wrapper {
+  .btn-copy {
+    width: 100%;
+    height: rem(51px);
+    padding: rem(17px);
+    font-family: $font-secondary;
+    font-size: rem(11px);
+    cursor: pointer;
 
-    .modal-container {
-
-      .modal-content {
-        width: 100%;
-
-        .link-box {
-          width: 100%;
-          margin: 0 auto;
-          text-align: left;
-          position: relative;
-        }
-
-        .url {
-          width: 100%;
-          padding: rem(16px) rem(10px);
-          font-family: "Montserrat";
-          font-size: 12px;
-          font-style: italic;
-          color: #5b5b5b;
-
-          @include ellipsis-x(100%);
-        }
-
-        .btn-copy {
-          width: 100%;
-          height: rem(51px);
-          border: 1px solid $color-4;
-          color: $color-2;
-          padding: rem(17px);
-          background: $white;
-          font-size: rem(11px);
-          font-family: $font-secondary;
-          line-height: 18px;
-          text-transform: uppercase;
-          text-align: center;
-          cursor: pointer;
-        }
-
-        @media screen and (min-width: $screen-s) {
-          .url {
-            width: 80%;
-          }
-
-          .btn-copy {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 21%;
-          }
-        }
-
-        .m-social-share {
-          justify-content: center;
-        }
-      }
+    @media screen and (min-width: $screen-s) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 21%;
     }
   }
 }
