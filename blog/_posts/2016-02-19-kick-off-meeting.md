@@ -88,39 +88,50 @@ Alan Hudson - Global Integrity
 - Reviewing strategy
 - How can we build on our core strengths (cross-country comparative studies) to better support country learning?
 - How can we link up with citizen produced data? 
-•	Data shift: http://civicus.org/thedatashift/ 
-•	Ruy Moreno/Government of the Philippines  
-o	The government uses 10-12 reports to identify gaps in systems/processes
-o	Nathaniel Heller: GDA dashboard not producing new data; simply bringing together existing data, one-stop-shop presentation
-•	Toby Mendel/Centre for Law and Democracy
-o	Impact is greatest with advocates pushing for changes before RTI laws are passed, not always assessing existing laws
-•	Finn Heinrich/ Transparency International
-o	Global Citizen Survey - trying mini-GDA; working with other barometers - learning lessons about partnerships
-o	Transparency and lobbying for the EU survey
-o	Open Governance Scorecard
-•	Santiago Gonzalez and Jennifer Moreau/OECD
-o	New indicator on open data and trust in public institutions
-o	Continuing to work with the Effective Institutions Platform (EIP)
-•	http://www.effectiveinstitutions.org/ 
-o	A few members of EIP asked to look at options for how to develop an effective institutions index 
-o	Nathaniel Heller: one piece of the Producers Coordination/technical assistance would be to provide advice/expertise through the GDA to “newbie” data producers; OECD could link up with GDA producers on this
-•	Alicia P. Mandaville/Amida Technology
-o	Focused on who else is using data (beyond just government), especially governance data 
-•	Private sector, for example - for investment decisions
-o	Wants to keep private sector involved 
-•	Vanessa Tucker /Freedom House
-o	Looking closely at narrative part of their two global publications - how can we better explain/contextualize the data?
-o	Hoping to build a new database for Freedom House data
-•	Valentina Saltane/ Doing Business
-o	New survey on assessing public input on proposed government regulations
-o	Will circulate to whole group
-•	Preston Whitt/ OGP Independent Reporting Mechanism (IRM)
-o	IRM data much more contextual
-o	There is a database - explorer; launched in next couple of weeks
-o	Want data to be used - GDA can be helpful 
-•	Chris Maloney /MCC
-o	Excited about the dashboard 
-o	How can we be more public/external facing about the GDA - many stakeholders interested in this
+- Data shift: http://civicus.org/thedatashift/ 
+
+Ruy Moreno - Government of the Philippines  
+- The government uses 10-12 reports to identify gaps in systems/processes
+- Nathaniel Heller: GDA dashboard not producing new data; simply bringing together existing data, one-stop-shop presentation
+
+Toby Mendel - Centre for Law and Democracy
+- Impact is greatest with advocates pushing for changes before RTI laws are passed, not always assessing existing laws
+
+Finn Heinrich - Transparency International
+- Global Citizen Survey - trying mini-GDA; working with other barometers - learning lessons about partnerships
+- Transparency and lobbying for the EU survey
+- Open Governance Scorecard
+
+Santiago Gonzalez and Jennifer Moreau - OECD
+- New indicator on open data and trust in public institutions
+- Continuing to work with the Effective Institutions Platform (EIP)
+http://www.effectiveinstitutions.org/ 
+- A few members of EIP asked to look at options for how to develop an effective institutions index 
+
+Nathaniel Heller - R4D
+- One piece of the Producers Coordination/technical assistance would be to provide advice/expertise through the GDA to “new” data producers
+- OECD could link up with GDA producers on this
+
+Alicia P. Mandaville - Amida Technology
+- Focused on who else is using data (beyond just government), especially governance data 
+- Private sector, for example - for investment decisions
+
+Vanessa Tucker - Freedom House
+- Looking closely at narrative part of their two global publications - how can we better explain/contextualize the data?
+- Hoping to build a new database for Freedom House data
+
+Valentina Saltane - Doing Business
+- New survey on assessing public input on proposed government regulations
+- Will circulate to whole group
+
+Preston Whitt - OGP Independent Reporting Mechanism (IRM)
+- IRM data much more contextual
+- There is a database - explorer; launched in next couple of weeks
+- Want data to be used - GDA can be helpful 
+
+Chris Maloney - MCC
+- Excited about the dashboard 
+- How can we be more public/external facing about the GDA - many stakeholders interested in this
 
 
 **III. Next steps**
