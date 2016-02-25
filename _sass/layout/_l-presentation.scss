@@ -26,7 +26,7 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
     }
 
     &.-right:after,
-    &.-left:after {
+    &.-left:after { 
       content: "";
       position: absolute;
       top: rem(-15px);
