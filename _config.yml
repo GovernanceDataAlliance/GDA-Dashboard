@@ -44,6 +44,8 @@ prose:
     - Gruntfile.js
     - package.json
     - README.md
+    - CNAME
+    - useful-info.txt
   metadata:
     blog: 
       - name: layout
