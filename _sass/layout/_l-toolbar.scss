@@ -41,7 +41,7 @@
 
       .m-controls {
         width: 100%;
-        max-width: rem(500px);
+        max-width: rem(460px);
       }
 
       @media screen and (min-width: 768px) {
@@ -49,7 +49,7 @@
 
         .m-controls {
 
-          button {
+          button, a {
             margin-right: rem(20px);
 
             &:last-child {
@@ -161,6 +161,14 @@
       .js--toolbar-utils {
         .m-controls {
           justify-content: flex-end;
+
+          .btn {
+            margin-right: rem(20px);
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
         }
       }
     }

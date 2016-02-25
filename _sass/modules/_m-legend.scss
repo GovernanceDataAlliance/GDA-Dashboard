@@ -69,11 +69,11 @@
     
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $screen-s) {
     > ul {
 
       li {
-        margin-right: rem(20px);
+        margin-right: rem(10px);
 
         &:before {
           width: 14px;
@@ -90,7 +90,15 @@
         display: inline-block;
       }
     }
+  }
 
+  @media screen and (min-width: 768px) {
+    > ul {
+
+      li {
+        margin-right: rem(20px);
+      }
+    }
   }
 
   .pop-up-legend-container {
