@@ -231,6 +231,12 @@
 
     button {
       display: inline-block;
+
+      &:last-child {
+        span {
+          padding-right: 0;
+        }
+      }
     }
 
     span {

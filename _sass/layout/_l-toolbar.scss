@@ -159,11 +159,13 @@
 
     .wrap {
       .js--toolbar-utils {
+        
         .m-controls {
+          max-width: 100%;
           justify-content: flex-end;
 
           .btn {
-            margin-right: rem(20px);
+            margin-right: rem(40px);
 
             &:last-child {
               margin-right: 0;
@@ -202,6 +204,17 @@
 
     .wrap > .js--toolbar-display {
       display: flex;
+    }
+
+    .wrap {
+      .js--toolbar-utils {
+        
+        .m-controls {
+          .btn {
+            margin-right: rem(10px);
+          }
+        }
+      }
     }
 
     // &.-footer {
