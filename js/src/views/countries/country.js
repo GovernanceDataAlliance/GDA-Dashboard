@@ -14,6 +14,7 @@ var CountryHeaderView = require('./country_header.js'),
     TooltipView = require('../common/tooltip_view.js'),
     ShareView = require('../common/share_view.js'),
     YearSelectorView = require('../common/year_selector.js');
+    LegendView = require('../common/legend.js');
 
 
 var template = Handlebars.compile(
@@ -72,6 +73,7 @@ var CountryView = Backbone.View.extend({
     this.$el.html(template());
     this.renderToolbars();
     this.renderYearSelector();
+    this.renderLegend();
 
     if (rerender) {
       this.renderCountry();
@@ -119,6 +121,13 @@ var CountryView = Backbone.View.extend({
       el: this.$('.js--year-selector-country'),
       'years': this.yearsCollection.toJSON(),
       'actualYear': this.currentYear
+    });
+  },
+
+  renderLegend: function() {
+    var legends = this.$('.js--legend');
+    _.each(legends, function(legend) {
+      new LegendView({ el: legend });
     });
   },
 
