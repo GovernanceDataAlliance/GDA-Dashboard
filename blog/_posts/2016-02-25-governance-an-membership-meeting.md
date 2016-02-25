@@ -33,7 +33,8 @@ title: "Governance and Membership Meeting "
 + Solicit feedback  
 + Then put pen to paper at R4D, circulate options for final outstanding issues, and ultimately craft draft bylaws
 
-Membership
+
+## Membership
 •	Members vs. Observers
 o	Finn
 ♣	No alternative, thinking about whether we need observer status at all? Won’t we be doing most of our work in a way that’s geared towards the public anyways?
@@ -100,7 +101,8 @@ o	Authorities/latitude that steering committee should or should not have?
 •	Steering committee will operate within constitution/bylaws
 •	Broad powers because this is the group that will be discussing all issues, fully engaged and aware of them
 •	If we go to the members and a significant percentage do not respond, not actually a good representation of membership
-•	Secretariat
+
+## Secretariat
 o	Nathaniel
 ♣	Plan is for R4D will take this role for first 12-18 months, after that will reassess
 ♣	The steering committee should not be chaired by a member of the secretariat
@@ -110,7 +112,8 @@ o	Toby
 ♣	Alliance may eventually form its own organization – but not an early option obviously
 ♣	Beyond bylaws, there may need to be some sort of agreement between Secretariat and Steering Committee, particularly around flows of funding
 ♣	Questions on funding allocations – need to have a transparent budget
-•	Fundraising
+
+## Fundraising
 o	Nathaniel
 ♣	2 general types of funding opportunities:
 •	Unrestricted funding – pots of funding that could be used by any member of the alliance for a variety of activities. Unlikely to exist in practice but theoretically possible.
@@ -121,7 +124,8 @@ o	Nathaniel
 •	Want to make sure fundraising strategies are consistent with Alliance strategy and intent 
 •	Don’t want to spam multiple donors with the same requests for the same activities
 o	Toby
-♣	Procedural principle: cannot use Alliance brand without approval of steering committee (agree)
+
+Procedural principle: cannot use Alliance brand without approval of steering committee (agree)
 ♣	Substantive principle: Also can’t use the alliance to do work that is unrelated to the core alliance strategy and raison d’etre
 o	Brad
 ♣	Thinks those prohibitions make sense – cannot use brand without steering committee’s approval
