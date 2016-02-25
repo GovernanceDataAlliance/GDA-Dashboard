@@ -1,4 +1,4 @@
-![gfi.png]({{site.baseurl}}/css/img/logos/gfi.png)
+![promoInteriores-About.jpg]({{site.baseurl}}/css/img/promoInteriores-About.jpg)
 ![R4D]({{site.baseurl}}/css/img/logos/image-name.jpg)
 
 Use this file to add new images content. 

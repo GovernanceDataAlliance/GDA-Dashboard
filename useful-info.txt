@@ -1,6 +1,0 @@
-Change github user foor deploy: 
-git config --replace-all user.name "Clara Linos"
-
-...and email: 
-git config --replace-all user.email "clara.linos@gmail.com"
-
