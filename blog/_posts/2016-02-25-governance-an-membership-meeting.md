@@ -35,6 +35,19 @@ title: "Governance and Membership Meeting "
 + Solicit feedback
 + Then put pen to paper at R4D, circulate options for final outstanding issues, and ultimately craft draft bylaws
 
+### Membership
++ Members vs. Observers
+o	Finn
+♣	No alternative, thinking about whether we need observer status at all? Won’t we be doing most of our work in a way that’s geared towards the public anyways?
+♣	Trying to understand the need to be “closed” (e.g. members vs. non-members)
+♣	Capacity building activities are likely to be open regardless
+♣	Not exactly sure what the contribution of observers are – why aren’t they full members?
+o	Toby
+♣	For training and those sorts of things, fully open to observers
+♣	Access to funding not open to observers
+♣	Thought there would be a lot of people who may have a vague interest that could benefit from observer status
+
+
 ## Membership
 •	Members vs. Observers
 o	Finn
