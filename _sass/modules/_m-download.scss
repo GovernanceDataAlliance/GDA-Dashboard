@@ -1,57 +1,18 @@
 .m-download {
 
-  .modal-content {
-    width: 100%;
-
-    h2 {
-      font-size: rem(30px);
-      font-weight: 400;
-      margin-bottom: rem(30px);
-    }
-
-    >.content {
-      margin: rem(30px) 0;
-    }
-
-    p, a {
-      font-size: rem(14px);
-      line-height: rem(29px);
-      &.js--cancel-btn:hover {
-        color: $color-4;
-      }
-    }
-
-    > .buttons {
-      > a {
-        display: inline-block;
-        width: 100%;
-        padding: rem(20px) rem(60px);
-        font-size: rem(11px);
-        letter-spacing: rem(0.6px);
-      }
-
-      > .js--cancel-btn {
+  .buttons {
+    margin-top: rem(30px);
+    > a {
+      display: block;
+      padding: rem(20px) rem(60px);
+      font-size: rem(11px);
+      letter-spacing: rem(0.6px);
+      &:last-child {
         border: 0;
       }
-    }
 
-    // From 640px
-    @media screen and (min-width: $screen-s) {
-      width: 100%;
-
-      h2 {
-        margin-bottom: 0;
-      }
-
-      > .content {
-        margin: rem(20px) 0 rem(35px) 0;
-      }
-
-      > .buttons {
-        > a {
-          width: auto;
-          letter-spacing: rem(0.3px);
-        }
+      @media screen and (min-width: $screen-s) {
+        display: inline-block;
       }
     }
   }
