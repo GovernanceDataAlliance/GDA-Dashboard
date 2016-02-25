@@ -7,8 +7,30 @@
   align-items: center;
   text-align: center;
 
+  > span {
+    color: $font-color-3;
+  }
+
+  &.is-active {
+    > span {
+      color: $font-color-1;
+    }
+
+    &:hover {
+      color: $font-color-1;
+
+      > span {
+        color: $font-color-1;
+      }
+    }
+  }
+
   &:hover {
     color: $color-4;
+
+    > span {
+      color: $color-4;
+    }
   }
 
   &.-white {
@@ -16,9 +38,18 @@
     padding: 20px 60px;
     border: 1px solid $white;
     color: $white;
+
+    > span {
+      color: $white;
+    }
+
     &:hover {
       color: $font-color-3;
       background-color: $white;
+
+      > span {
+        color: $font-color-3;
+      }
     }
   }
 
@@ -27,6 +58,10 @@
     padding: 20px 60px;
     border: 1px solid $color-1;
     color: $color-1;
+
+    > span {
+      color: $color-1;
+    }
   }
 
   &.-secondary {
@@ -34,15 +69,28 @@
     padding: 20px 60px;
     border: 1px solid $color-4;
     color: $color-2;
+
+    > span {
+      color: $color-2;
+    }
+
     &:hover {
       color: $font-color-2;
       background-color: $color-4;
+
+      > span {
+        color: $font-color-2;
+      }
     }
   }
 
   &.-centered {
     display: flex;
     align-self: center;
+  }
+
+  > span {
+    padding: 0;
   }
 
   @media screen and (min-width: 320px) {
