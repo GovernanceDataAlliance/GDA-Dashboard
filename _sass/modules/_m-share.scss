@@ -34,10 +34,13 @@
   .btn-copy {
     width: 100%;
     height: rem(51px);
-    padding: rem(17px);
     font-family: $font-secondary;
     font-size: rem(11px);
     cursor: pointer;
+
+    &.-secondary {
+      padding: rem(17px);
+    }
 
     @media screen and (min-width: $screen-s) {
       position: absolute;
