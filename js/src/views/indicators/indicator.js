@@ -12,7 +12,8 @@ var IndicatorHeaderView = require('./indicator_header.js'),
   IndicatorSelectorsToolbarView = require('./indicator_selectors_toolbar.js'),
   CountryListView = require('./country_list.js'),
   ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
-  TooltipView = require('../common/tooltip_view.js');
+  TooltipView = require('../common/tooltip_view.js'),
+  LegendView = require('../common/legend.js');
 
 var TextShortener = require('../common/text_shortener.js');
 
@@ -89,6 +90,7 @@ var IndicatorView = Backbone.View.extend({
     }
 
     this.$el.html(template());
+    this.renderLegend();
 
     if (rerender) {
       this.renderHeader();
@@ -127,6 +129,13 @@ var IndicatorView = Backbone.View.extend({
 
     $('.js--download').attr('data-indicator-id', this.id);
     $('.js--download').attr('data-year', this.actualYear);
+  },
+
+  renderLegend: function() {
+    var legends = this.$('.js--legend');
+    _.each(legends, function(legend) {
+      new LegendView({ el: legend });
+    });
   },
 
   renderCountriesList: function() {

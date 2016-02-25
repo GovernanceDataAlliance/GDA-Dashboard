@@ -13,7 +13,7 @@ var CountryHeaderView = require('./country_header.js'),
     ModalWindowView = require('../common/infowindow_view.js'),
     TooltipView = require('../common/tooltip_view.js'),
     ShareView = require('../common/share_view.js'),
-    YearSelectorView = require('../common/year_selector.js');
+    YearSelectorView = require('../common/year_selector.js'),
     LegendView = require('../common/legend.js');
 
 
