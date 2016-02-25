@@ -9,13 +9,18 @@ tags: meeting_notes
 title: "Kick-Off Meeting"
 ---
 
+
 These are notes the Alliance's May 19th, 2105 "Kick-Off Meeeting", the first since funding was secured for the Alliance. 
 
+**Agenda: 
+I. GDA background and updates
+II. Updates from participants
+III. Next steps
 
-**1. GDA background and updates**
+**I. GDA background and updates**
 Three primary work streams to focus on in next 12-18 months (see existing “vision paper” for current baseline)
 
-**   A.Producer-to-producer technical assistance**
+**   1.Producer-to-producer technical assistance**
 
 - Problem: inadequate coordination, common challenges yet regular wheel reinvention
 
@@ -63,7 +68,7 @@ Three primary work streams to focus on in next 12-18 months (see existing “vis
   • we need to reflect how data collection can be built to make sure it’s useful to countries; including dashboard
 
 
-**2. Updates from participants**
+**II. Updates from participants**
 - Brad Parks, Rebecca Latourell, Samantha Custer/AidData 
   • implementation of the Reform Efforts Survey (since September)
   • have not yet studied attributes of users - working on that
@@ -119,7 +124,7 @@ o	Excited about the dashboard
 o	How can we be more public/external facing about the GDA - many stakeholders interested in this
 
 
-**3. Next steps**
+**III. Next steps**
 System moving forward
 •	Let’s experiment with voluntary opt-in system: constitute smaller groups that are interested in particular pieces of work
 o	Producer coordination, training/help desk
@@ -147,4 +152,3 @@ o	Other thoughts/alternatives? Nathaniel and Caroline will poll everyone.
 o	Nathaniel: no reason we can’t change, now, as long as the name remains somewhat specific (e.g. not simply super-broad “Data Alliance”)
 
 Expect emails from Nathaniel & Caroline! And start thinking of which work streams you’d like to contribute to.
-
