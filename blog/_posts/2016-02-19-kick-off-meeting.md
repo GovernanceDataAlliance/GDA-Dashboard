@@ -17,7 +17,8 @@ These are notes the Alliance's May 19th, 2105 "Kick-Off Meeeting", the first sin
 
 + I. GDA background and updates 
 + II. Updates from participants 
-+ III. Next steps
++ III. Next steps  
+
 
 **I. GDA background and updates**
 
