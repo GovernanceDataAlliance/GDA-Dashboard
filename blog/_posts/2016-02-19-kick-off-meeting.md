@@ -13,9 +13,10 @@ title: "Kick-Off Meeting"
 
 These are notes the Alliance's May 19th, 2105 "Kick-Off Meeeting", the first since funding was secured for the Alliance. 
 
-**Agenda: 
-I. GDA background and updates
-II. Updates from participants
+**Agenda:**
+
+I. GDA background and updates 
+II. Updates from participants 
 III. Next steps
 
 **I. GDA background and updates**
