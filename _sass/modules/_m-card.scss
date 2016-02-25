@@ -603,6 +603,11 @@
       }
     }
 
+    .read-more:hover,
+    .read-less:hover {
+      text-decoration: underline;
+    }
+
     a:hover {
       text-decoration: underline;
     }
