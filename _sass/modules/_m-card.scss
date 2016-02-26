@@ -360,6 +360,12 @@
           letter-spacing: rem(-6px);
         }
 
+        @media screen and (min-width: $screen-l) {
+          font-size: rem(55px) !important;
+          letter-spacing: rem(-4.1px);
+          line-height: rem(55px);
+        }
+
         .units {
           margin-left: rem(-8px);
           align-self: flex-end;
@@ -561,10 +567,20 @@
       }
     }
 
+    .read-less {
+      margin: 0;
+    }
+
+    .read-more:hover,
+    .read-less:hover {
+      text-decoration: underline;
+    }
+
     a:hover {
       text-decoration: underline;
     }
 
+    .partial-scores-wrapper,
     .index-score .partial-scores {
       background-color: #850e27;
     }

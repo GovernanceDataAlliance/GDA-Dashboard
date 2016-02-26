@@ -30,6 +30,7 @@
 
   .list-open + ul {
     height: rem(1750px);
+    padding-bottom: rem(20px);
 
     li {
       padding: rem(5px) 20px;
@@ -52,6 +53,12 @@
       top: 40%;
       right: rem(20px);
       pointer-events: none;
+    }
+
+    &.list-open {
+      &:after {
+        @include arrow (5px, $color-2, 2px, 45deg);
+      }
     }
   }
 

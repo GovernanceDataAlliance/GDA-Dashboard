@@ -1,6 +1,13 @@
 .m-table {
 
+  > .top-tier {
+    > .table-row:last-child {
+      border-bottom: 0;
+    }
+  }
+
   > .rest-tier {
+    border-top: 1px solid $border-1;
     > .table-row:last-child{
       border-bottom: 0;
     }
@@ -78,12 +85,13 @@
     }
 
     &.-load-more {
-      font-family:"Montserrat";
+      font-family: $font-secondary;
       font-size: rem(11px);
       letter-spacing: rem(0.6px);
       color: $font-color-3;
       text-transform: uppercase;
       cursor:pointer;
+      border-top: 1px solid $border-1;
       border-bottom: 0;
 
       > .wrap {

@@ -79,10 +79,6 @@
     height: rem(285px);
     padding: 0 rem($wrap-padding-tablet);
 
-    // &:nth-last-child(2) {
-    //   border-bottom: 0;
-    // }
-
     .img {
       height: rem(40px);
     }
@@ -104,6 +100,19 @@
         padding-left: $wrap-padding-desktop;
         padding-right: $wrap-padding-desktop;
       }
+    }
+
+    &:nth-last-child(2) {
+      border-bottom: 0;
+    }
+
+    &:nth-child(2n)  {
+      border-bottom: 1px solid $border-1;
+    }
+
+    &:last-child {
+      border-right: 1px solid $border-1;
+      border-bottom: 0;
     }
   }
 }

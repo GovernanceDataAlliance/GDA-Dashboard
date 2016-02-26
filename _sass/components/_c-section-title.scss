@@ -45,18 +45,30 @@
   }
 
   + p {
+    font-size: rem(16px);
+    line-height: rem(26px);
     margin-top: rem(20px);
   }
 
   @media screen and (min-width: $screen-s) {
     padding-bottom: rem(50px);
     margin-bottom: rem(50px);
+
+    &.-small {
+      padding-bottom: rem(40px);
+      margin-bottom: rem(40px);
+    }
   }
 
   @media screen and (min-width: 768px) {
     font-size: rem(45px);
     margin-bottom: rem(55px);
     padding-bottom: rem(55px);
+
+    &.-small {
+      padding-bottom: rem(45px);
+      margin-bottom: rem(45px);
+    }
 
     span {
       margin-top: rem(20px);
@@ -70,26 +82,10 @@
   @media screen and (min-width: $screen-l) {
     font-size: rem(50px);
     line-height: 1.2em;
+    max-width: 70%;
 
     &.-country-name {
       padding-bottom: rem(40px);
-    }
-
-    &.-small {
-      margin-bottom: rem(50px);
-    }
-
-    + p {
-      margin-top: rem(50px);
-    }
-  }
-
-  @media screen and (min-width: $screen-xl) {
-    // padding-bottom: rem(60px);
-    // margin-bottom: rem(60px);
-
-    &.-small {
-      margin-bottom: rem(50px);
     }
 
     + p {

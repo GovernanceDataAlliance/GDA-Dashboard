@@ -14,6 +14,10 @@ var FunctionHelper = {
       timeout = setTimeout(later, wait);
       if (callNow) func.apply(context, args);
     };
+  },
+
+  scrollTop: function() {
+    document.querySelector('body').scrollTop = 0;
   }
 };
 
