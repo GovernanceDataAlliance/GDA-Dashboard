@@ -40,7 +40,7 @@ var IndicatorListView = Backbone.View.extend({
     var countries = this.direction === 'down' ? this.countries.reverse() : this.countries;
 
     this.$el.html(template({
-      'countries': this._setTier(this.countries),
+      'countries': this._setTier(countries),
       'direction': this.direction
     }));
   }
