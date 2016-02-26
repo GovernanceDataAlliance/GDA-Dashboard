@@ -8,6 +8,8 @@ var template = Handlebars.compile(require('../../templates/common/search_mobile_
 
 var SearchCollection = require('../../collections/countries.js');
 
+var FunctionHelper = require('../../helpers/functions.js');
+
 var SearchMobileView = Backbone.View.extend({
 
   events: {
@@ -20,6 +22,8 @@ var SearchMobileView = Backbone.View.extend({
 
   initialize: function(settings) {
     this.searchCollection = new SearchCollection();
+
+    this.functionHelper = FunctionHelper;
 
     this.body = $('body');
     this.html = $('html');
@@ -46,11 +50,13 @@ var SearchMobileView = Backbone.View.extend({
 
     this.body.removeClass('is-inmobile');
     this.html.removeClass('is-inmobile');
+
+    this.functionHelper.scrollTop();
   },
 
   goToCountry: function(e) {
     e && e.preventDefault() && e.stopPropagation();
-    
+
     window.location.href = SITEURL ?  SITEURL + $(e.currentTarget).val() : $(e.currentTarget).val();
 
     this.closeSearch();
