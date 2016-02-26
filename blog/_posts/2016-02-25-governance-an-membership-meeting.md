@@ -10,15 +10,12 @@ title: "Governance and Membership Meeting "
 ---
 
 
-**Participants:**  
-
-* Nathaniel Heller - R4D
-* Aprille Knox - R4D 
-
 **Agenda:**
-+ Get through big items on membership and
-governance    
+
++ Get through big items on membership and governance    
+
 + Solicit feedback  
+
 + Then put pen to paper at R4D, circulate options
 for final outstanding issues, and ultimately craft draft bylaws
 
