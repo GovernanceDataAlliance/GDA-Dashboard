@@ -206,16 +206,18 @@
       display: flex;
     }
 
+  &.-footer {
     .wrap {
       .js--toolbar-utils {
         
         .m-controls {
           .btn {
-            margin-right: rem(10px);
+            margin-right: rem(20px);
           }
         }
       }
     }
+  }
 
     // &.-footer {
     //    height: rem(70px);
