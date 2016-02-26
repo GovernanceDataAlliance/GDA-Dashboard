@@ -13,37 +13,20 @@ title: "Governance and Membership Meeting "
 **Agenda:**
 
 + Get through big items on membership and governance    
-
 + Solicit feedback  
-
-+ Then put pen to paper at R4D, circulate options
-for final outstanding issues, and ultimately craft draft bylaws
++ Then put pen to paper at R4D, circulate options for final outstanding issues, and ultimately craft draft bylaws
 
 ### **Membership**
   
-Members vs. Observers
+## Members vs. Observers
+Finn - do we need observer status at all? Won’t we be doing most of our work in a way that’s geared towards the public anyways?
 
-o  
-Finn
+Trying to understand the need to be “closed” (e.g. members vs. non-members)
 
-§ 
-No alternative, thinking about whether we need
-observer status at all? Won’t we be doing most of our work in a way that’s
-geared towards the public anyways?
+Capacity building activities are likely to be open regardless
 
-§ 
-Trying to understand the need to be “closed”
-(e.g. members vs. non-members)
+Not exactly sure what the contribution of observers are – why aren’t they full members?
 
-§ 
-Capacity building activities are likely to be
-open regardless
-
-§ 
-Not exactly sure what the contribution of
-observers are – why aren’t they full members?
-
-o  
 Toby
 
 § 
@@ -245,7 +228,7 @@ difference between members other than possibly voting rights
 Individuals otherwise full members, including access
 to funding
 
-**Governance**
+### **Governance**
 
 ·      
 Steering committee
