@@ -33,42 +33,11 @@ title: "Governance and Membership Meeting "
 
 
 **Agenda:**
-+ Get through big items on membership and governance
-+ Solicit feedback
-+ Then put pen to paper at R4D, circulate options for final outstanding issues, and ultimately craft draft bylaws
 
-**Governance Data Alliance Call 5.26.2015**
-
-**Membership & Governance Discussion**
-
-_Participants:_
-
-_Nathaniel Heller – R4D 
-Aprille Knox – R4D 
-Farah Ereiqat – MCC 
-Chris Maloney – MCC 
-Toby Mendel – Centre for Law & Democracy 
-Elena Mondo – IBP 
-Claire Schouten – IBP 
-Rebecca Latourell – AidData 
-Preston Whitt – OGP 
-Bret Nelson – Freedom House 
-Finn Heinrich – Transparency International 
-Alicia Mandaville – Amida Tech 
-Alejandro Ponce – World Justice Project 
-Brad Parks – AidData  _
-
-**Agenda:**
-
-·      
-Get through big items on membership and
-governance
-
-·      
-Solicit feedback
-
-·      
-Then put pen to paper at R4D, circulate options
++ Get through big items on membership and
+governance    
++ Solicit feedback  
++ Then put pen to paper at R4D, circulate options
 for final outstanding issues, and ultimately craft draft bylaws
 
 **Membership**
