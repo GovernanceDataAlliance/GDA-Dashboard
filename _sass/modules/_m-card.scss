@@ -603,10 +603,20 @@
       }
     }
 
+    .read-less {
+      margin: 0;
+    }
+
+    .read-more:hover,
+    .read-less:hover {
+      text-decoration: underline;
+    }
+
     a:hover {
       text-decoration: underline;
     }
 
+    .partial-scores-wrapper,
     .index-score .partial-scores {
       background-color: #850e27;
     }

@@ -239,7 +239,7 @@
 }
 
 .l-banner .btn-drop-down .chzn-container-single .chzn-drop {
-  
+
   @media screen and (min-width: $screen-m) {
     width: 100% !important;
     transform: translatey(2px);
@@ -274,13 +274,10 @@
   }
 }
 
-.read-more {
-  margin-left: 10px;
-}
-
 .read-more,
 .read-less {
   position: relative;
+  margin-left: 10px;
   font-family: "Montserrat";
   font-size: rem(11px);
   text-transform: uppercase;
@@ -299,7 +296,6 @@
 .read-less:after {
   content: '';
   position: absolute;
-
 }
 
 .read-more:after {
