@@ -15,7 +15,13 @@ title: "Governance and Membership Meeting "
 
 ## A New Post
 
-**Participants:**
+**Participants:**  
+
+* Nathaniel Heller - R4D
+* Aprille Knox - R4D 
+
+
+
 - Nathaniel Heller - R4D
 - Aprille Knox - R4D
 - item 
