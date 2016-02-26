@@ -68,13 +68,13 @@
           <div class="m-controls -full -centered">
             <div class="m-pagination">
               {% if paginator.previous_page %}
-                <a href="{{ site.baseurl }}/{{ paginator.previous_page_path }}" class="page-link"> < Newer Post</a>
+                <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="page-link"> < Newer Post</a>
               {% else %}
                 <span class="page-link -disabled">< Newer Post</span>
               {% endif %}
               <span class="page-number ">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
               {% if paginator.next_page %}
-                <a href="{{ site.baseurl }}/{{ paginator.next_page_path }}/" class="page-link"> Older post > </a>
+                <a href="{{ site.baseurl }}{{ paginator.next_page_path }}/" class="page-link"> Older post > </a>
               {% else %}
                 <span class="page-link -disabled">Older post ></span>
               {% endif %}
