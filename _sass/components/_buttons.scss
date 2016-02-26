@@ -197,7 +197,11 @@
   .-selectors & {
     //This is for compare page. Do not change unless you know what are you doing.
     @media screen and (min-width: 768px) {
-      margin: rem(12px) 6%;
+      margin: rem(12px) 15px;
+    }
+
+    @media screen and (min-width: $screen-l) {
+      margin: rem(12px) 20px;
     }
   }
 

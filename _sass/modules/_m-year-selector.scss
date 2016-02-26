@@ -30,9 +30,14 @@
     margin: 0;
   }
 
-  // .selector-wrapper {
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  // }
+  .selector-wrapper {
+    @media screen and (min-width: 768px) {
+      width: 23.33%;
+    }
+  }
+
+  .-compare {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
