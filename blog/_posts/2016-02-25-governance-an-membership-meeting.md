@@ -16,24 +16,23 @@ title: "Governance and Membership Meeting "
 ## A New Post
 
 **Participants:**
-+ Nathaniel Heller – R4D
-+ Aprille Knox – R4D
-+ Farah Ereiqat – MCC
-+ Chris Maloney – MCC
-+ Toby Mendel – Centre for Law & Democracy
-+ Elena Mondo – IBP
-+ Claire Schouten – IBP
-+ Rebecca Latourell – AidData
-+ Preston Whitt – OGP
-+ Bret Nelson – Freedom House
-+ Finn Heinrich – Transparency International
-+ Alicia Mandaville – Amida Tech
-+ Alejandro Ponce – World Justice Project
-+ Brad Parks – AidData 
+  + Nathaniel Heller – R4D
+  + Aprille Knox – R4D
+  + Farah Ereiqat – MCC
+  + Chris Maloney – MCC
+  + Toby Mendel – Centre for Law & Democracy
+  + Elena Mondo – IBP
+  + Claire Schouten – IBP
+  + Rebecca Latourell – AidData
+  + Preston Whitt – OGP
+  + Bret Nelson – Freedom House
+  + Finn Heinrich – Transparency International
+  + Alicia Mandaville – Amida Tech
+  + Alejandro Ponce – World Justice Project
+  + Brad Parks – AidData
 
 
 **Agenda:**
-
 + Get through big items on membership and
 governance    
 + Solicit feedback  
