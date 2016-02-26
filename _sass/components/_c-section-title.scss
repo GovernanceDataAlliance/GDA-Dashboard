@@ -53,12 +53,22 @@
   @media screen and (min-width: $screen-s) {
     padding-bottom: rem(50px);
     margin-bottom: rem(50px);
+
+    &.-small {
+      padding-bottom: rem(40px);
+      margin-bottom: rem(40px);
+    }
   }
 
   @media screen and (min-width: 768px) {
     font-size: rem(45px);
     margin-bottom: rem(55px);
     padding-bottom: rem(55px);
+
+    &.-small {
+      padding-bottom: rem(45px);
+      margin-bottom: rem(45px);
+    }
 
     span {
       margin-top: rem(20px);
@@ -76,20 +86,6 @@
 
     &.-country-name {
       padding-bottom: rem(40px);
-    }
-
-    &.-small {
-      margin-bottom: rem(50px);
-    }
-
-    + p {
-      margin-top: rem(50px);
-    }
-  }
-
-  @media screen and (min-width: $screen-xl) {
-    &.-small {
-      margin-bottom: rem(50px);
     }
 
     + p {

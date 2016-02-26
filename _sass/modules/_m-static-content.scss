@@ -28,7 +28,7 @@
   h2 {
     position: relative;
     padding-bottom: rem(20px);
-    margin-bottom: rem(50px);
+    margin-bottom: rem(20px);
     font-size: rem(12px);
     font-weight: 400;
     color: $font-color-1;
@@ -98,11 +98,18 @@
     }
   }
 
-  // From 768px
+  @media screen and (min-width: $screen-s) {
+    h2 {
+      padding-bottom: rem(40px);
+      margin-bottom: rem(40px);
+    }
+  }
+
   @media screen and (min-width: 768px) {
 
     h2 {
-      padding-bottom: rem(50px);
+      padding-bottom: rem(45px);
+      margin-bottom: rem(45px);
     }
 
     h5 {
