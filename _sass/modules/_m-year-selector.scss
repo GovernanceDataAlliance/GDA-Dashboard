@@ -36,8 +36,18 @@
     }
   }
 
-  .-compare {
+  &.-compare {
+    display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 23%;
+
+    @media screen and (min-width: 768px) {
+      padding: 0 15px;
+    }
+
+    @media screen and (min-width: $screen-l) {
+      padding: 0 20px;
+    }
   }
 }

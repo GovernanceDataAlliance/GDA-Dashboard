@@ -30,17 +30,23 @@
     height: rem(65px);
     z-index: 10;
 
+    &.-mobile {
+      padding-top: rem(10px) 0;
+    }
+
     .m-compare-selectors {
       justify-content: space-between;
 
       @media screen and (min-width: 768px) {
-        padding: 0 15px;
-
-
+        .m-legend {
+          padding-left: 15px;
+        }
       }
 
       @media screen and (min-width: $screen-l) {
-        padding: 0 20px;
+        .m-legend {
+          padding-left: 20px;
+        }
       }
     }
   }
@@ -102,6 +108,7 @@
 
   &.-selectors {
     transform: translate(0,0);
+    padding-bottom: rem(10px);
 
     .wrap {
       display: flex; display: -ms-box;
