@@ -19,6 +19,13 @@
     min-height: rem(56px);
   }
 
+  &.-pagination {
+    padding: rem(10px) 0;
+    .wrap {
+      flex-wrap: wrap;
+    }
+  }
+
 
   @media screen and (min-width: 768px) {
     
@@ -107,10 +114,10 @@
     }
   }
 
-  &.-pagination {
-    border-top: 1px solid $border-1;
-    background-color: transparent;
-  }
+  // &.-pagination {
+  //   border-top: 1px solid $border-1;
+  //   background-color: transparent;
+  // }
 
   &.-year-selector {
     z-index: 10;

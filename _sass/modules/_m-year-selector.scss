@@ -4,6 +4,11 @@
   align-items: center;
   width: rem(160px);
 
+  @media screen and (min-width: 800px) {
+    display: inline-block;
+    width: rem(200px);
+  }
+
   &.-mobile {
     justify-content: flex-start;
     flex-direction: column;
@@ -14,6 +19,7 @@
   .selector-literal {
     display: none;
     margin-right: rem(10px);
+    font-size: 11px;
 
     @media screen and (min-width: 800px) {
       display: inline-block;

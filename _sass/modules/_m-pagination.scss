@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: rem(10px);
 
   > .page-link {
     font-family: $font-secondary;
@@ -34,8 +35,9 @@
     text-align: center;
   }
 
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: $screen-s) {
     min-width: rem(250px);
+    margin-bottom: 0;
 
     > .page-number {
       font-size: rem(12px);
