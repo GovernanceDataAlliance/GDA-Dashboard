@@ -16,7 +16,16 @@ title: "Governance and Membership Meeting "
 ## A New Post
 
 **Participants:**
-  + Nathaniel Heller – R4D
+- Nathaniel Heller - R4D
+- Aprille Knox - R4D
+- item 
+- item
+- item
+- item
+
+
+
+Nathaniel Heller – R4D
   + Aprille Knox – R4D
   + Farah Ereiqat – MCC
   + Chris Maloney – MCC
