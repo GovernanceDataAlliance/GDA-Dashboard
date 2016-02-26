@@ -18,7 +18,7 @@ title: "Governance and Membership Meeting "
 
 ### **Membership**
   
-## Members vs. Observers
+## Members vs. Observers  
 Finn - do we need observer status at all? Won’t we be doing most of our work in a way that’s geared towards the public anyways?
 
 Trying to understand the need to be “closed” (e.g. members vs. non-members)
@@ -27,18 +27,11 @@ Capacity building activities are likely to be open regardless
 
 Not exactly sure what the contribution of observers are – why aren’t they full members?
 
-Toby
+Toby - For training and those sorts of things, fully open to observers
 
-§ 
-For training and those sorts of things, fully
-open to observers
+Access to funding not open to observers 
 
-§ 
-Access to funding not open to observers
-
-§ 
-Thought there would be a lot of people who may
-have a vague interest that could benefit from observer status
+Thought there would be a lot of people who mayhave a vague interest that could benefit from observer status
 
 ·      
 Typology of members – producers, users, and
