@@ -10,27 +10,33 @@ title: "Kick-Off Meeting"
 ---
 
 
+
 These are notes the Alliance's May 19th, 2105 "Kick-Off Meeeting", the first since funding was secured for the Alliance. 
 
-**Agenda: 
-I. GDA background and updates
-II. Updates from participants
-III. Next steps
+**Agenda:**
+
++ I. GDA background and updates 
++ II. Updates from participants 
++ III. Next steps  
+
 
 **I. GDA background and updates**
 
 Three primary work streams to focus on in next 12-18 months (see existing “vision paper” for current baseline)
 
+
 **1.Producer-to-producer technical assistance**
 Problem: inadequate coordination, common challenges yet regular wheel reinvention
 
-Activities: 
+Activities:   
+
 - Peer-to-peer help desk function
 - “Good practice” identification and dissemination (whether methodology-, technology-, or project management-related)
 - Alliance data dashboard (see more below)
 
 **2.Feedback loops**
 Problem: 
+
 - producers don’t have a good sense of who data users are and what they need
 - users lack consistent means of signaling to producers
 - “marketplace” of governance data largely dysfunctional
