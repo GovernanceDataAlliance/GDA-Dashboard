@@ -32,6 +32,14 @@
     }
   }
 
+  .btn {
+    margin-right: rem(10px);
+
+    &.js--btn-ranking {
+      margin-right: 0;
+    }
+  }
+
   a,
   button,
   .btn-drop-down {
@@ -118,37 +126,37 @@
 
   .l-toolbar.-data & {
     width: 100%;
-    margin-bottom: rem(8px);
+    // margin-bottom: rem(8px);
 
-    .js--download {
-      padding-top: rem(20px);
-    }
+    // .js--download {
+    //   padding-top: rem(20px);
+    // }
     
     @media screen and (min-width: $screen-xs) {
-      width: 48%;
-      margin-bottom: 0;
+      // width: 48%;
+      // margin-bottom: 0;
 
-      &:first-child {
-        margin-right: 4%;
-      }
+      // &:first-child {
+      //   margin-right: 4%;
+      // }
     }
 
     @media screen and (min-width: $screen-s) {
-      width: rem(215px);
+      // width: rem(215px);
     }
 
     @media screen and (min-width: 768px) {
-      min-width: rem(300px);
+      // min-width: rem(300px);
 
-      .js--download {
-        padding-top: 0;
-      }
+      // .js--download {
+      //   padding-top: 0;
+      // }
     }
   }
 
-  .l-toolbar.-data .js--toolbar-utils & {
-    margin-bottom: 0;
-  }
+  // .l-toolbar.-data .js--toolbar-utils & {
+  //   margin-bottom: 0;
+  // }
 
   span {
     align-self: center;

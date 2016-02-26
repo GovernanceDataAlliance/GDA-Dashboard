@@ -218,7 +218,7 @@
     margin-top: 0;
 
     @media screen and (min-width: 768px) {
-      margin-top: rem(12px);
+      // margin-top: rem(12px);
     }
   }
 
@@ -268,9 +268,9 @@
   &.js--btn-ranking {
     padding-left: rem(10px);
 
-    @media screen and (min-width: 768px) {
-      padding-left: rem(20px);
-    }
+    // @media screen and (min-width: 768px) {
+    //   padding-left: rem(20px);
+    // }
   }
 
   &.-sm {

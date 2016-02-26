@@ -8,7 +8,8 @@ var template = Handlebars.compile(require('../../templates/indicators/indicators
 var Years = require('../../collections/years.js');
 
 var CohortGroups = require('./cohort_groups.js'),
-  YearSelector = require('../common/year_selector.js');
+  YearSelector = require('../common/year_selector.js'),
+  LegendView = require('../common/legend.js');
 
 var IndicatorsToolbarView = Backbone.View.extend({
 
@@ -29,8 +30,16 @@ var IndicatorsToolbarView = Backbone.View.extend({
 
     this.renderCohortGroups();
     this.renderYearSelector();
+    this.renderLegend();
 
     return this;
+  },
+
+  renderLegend: function() {
+    var legends = this.$('.js--legend');
+    _.each(legends, function(legend) {
+      new LegendView({ el: legend });
+    });
   },
 
   renderCohortGroups: function() {

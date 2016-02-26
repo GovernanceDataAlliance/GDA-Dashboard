@@ -69,6 +69,7 @@
     justify-content: space-between;
 
     .js--toolbar-utils {
+      //country pages
       width: 100%;
 
       .m-controls {
@@ -95,6 +96,17 @@
     > .js--toolbar-utils,
     > .js--toolbar-display {
       display: flex;
+    }
+  }
+
+  &.-data {
+    .js--toolbar-utils {
+      //data pages
+      width: auto;
+
+      @media screen and (min-width: 768px) {
+        width: auto;
+      }
     }
   }
 
@@ -162,15 +174,15 @@
       display: none;
     }
 
-    .wrap {
-      flex-wrap: wrap-reverse;
-    }
+    // .wrap {
+    //   flex-wrap: wrap-reverse;
+    // }
 
-    @media screen and (min-width: $screen-xs) {
-      .wrap {
-        flex-wrap: wrap;
-      }
-    }
+    // @media screen and (min-width: $screen-xs) {
+    //   .wrap {
+    //     flex-wrap: wrap;
+    //   }
+    // }
 
   }
 
@@ -194,7 +206,7 @@
       .js--toolbar-utils {
         
         .m-controls {
-          max-width: 100%;
+          // max-width: 100%;
           justify-content: flex-end;
 
           .btn {
