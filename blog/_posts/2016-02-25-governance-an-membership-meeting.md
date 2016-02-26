@@ -12,6 +12,11 @@ title: "Governance and Membership Meeting "
 
 **Agenda:**
 
+Agenda:
+Get through big items on membership and governance
+Solicit feedback
+Then put pen to paper at R4D, circulate options for final outstanding issues, and ultimately craft draft bylaws
+
 + Get through big items on membership and governance    
 + Solicit feedback  
 + Then put pen to paper at R4D, circulate options for final outstanding issues, and ultimately craft draft bylaws
@@ -33,38 +38,16 @@ Access to funding not open to observers
 
 Thought there would be a lot of people who mayhave a vague interest that could benefit from observer status
 
-·      
-Typology of members – producers, users, and
-funders
+## Typology of members – producers, users, and funders  
 
-o  
 Nathaniel: Users is most fuzzy concept – will
-need to take hand crafted approach for threshold of governance data “users”
+need to take hand crafted approach for threshold of governance data “users”  
 
-o  
-Toby
-
-§ 
-Issue is two-fold
-
-·      
-1) defining governance data – which we carefully
-avoid doing until now, but will need to do that
-
-o  
-We need a procedural or process element to the
-definition
-
-o  
-Need a primary definition of what governance
-data is
-
-o  
-Need to distinguish ourselves from the wider
-world of development data – may want to include some of this, but not all in
-our definition
-
-o  
+Toby - Issue is two-fold     
+1. Defining governance data – which we carefully avoid doing until now, but will need to do that
++ We need a procedural or process element to the definition
+Need a primary definition of what governance data is
+Need to distinguish ourselves from the wider world of development data – may want to include some of this, but not all in our definition
 “common law approach” to the definition –
 something that we can interpret over time
 
