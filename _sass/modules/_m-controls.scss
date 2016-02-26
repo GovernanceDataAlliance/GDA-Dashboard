@@ -17,6 +17,21 @@
     display: none;
   }
 
+  &.-exent-selector {
+
+    @media screen and (min-width: $screen-s) {
+      max-width: 50%;
+    }
+
+    @media screen and (min-width: 768px) {
+      align-items: flex-start;
+    }
+
+    @media screen and (min-width: $screen-s) {
+      margin-top: rem(10px);
+    }
+  }
+
   a,
   button,
   .btn-drop-down {
