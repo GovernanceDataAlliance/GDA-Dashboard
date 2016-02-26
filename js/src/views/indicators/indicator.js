@@ -50,6 +50,7 @@ var IndicatorView = Backbone.View.extend({
   },
 
   initializeData: function() {
+
     this.getYears().done(function(years) {
 
       this.years = years ? years.rows : null;
@@ -62,10 +63,11 @@ var IndicatorView = Backbone.View.extend({
       this.indicator = new Indicator({id: this.id});
       this.listenTo(this.indicator, 'sync', this.renderHeader);
       this.listenTo(this.indicator, 'sync', this.renderSelectorsToolbar);
-      this.indicator.fetch();
-
       this.countries = new Countries();
-      this.updateCountries(this.actualYear);
+
+      this.indicator.fetch().done(function() {
+        this.updateCountries(this.actualYear);
+      }.bind(this));
 
     }.bind(this));
 
@@ -145,11 +147,10 @@ var IndicatorView = Backbone.View.extend({
   },
 
   renderCountriesList: function() {
-    var direction = this.indicator.get('desired_direction');
     new CountryListView({
       el: this.$('.js--countries'),
       'countries': this.countries.toJSON(),
-      'direction': direction
+      'direction': this.indicator.get('desired_direction')
     });
   },
 
