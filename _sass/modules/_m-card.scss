@@ -402,6 +402,12 @@
           letter-spacing: rem(-6px);
         }
 
+        @media screen and (min-width: $screen-l) {
+          font-size: rem(55px) !important;
+          letter-spacing: rem(-4.1px);
+          line-height: rem(55px);
+        }
+
         .units {
           margin-left: rem(-8px);
           align-self: flex-end;
