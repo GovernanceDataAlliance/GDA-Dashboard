@@ -28,8 +28,17 @@
       <div class="l-toolbar -utils">
         <div class="wrap">
 
-          <div class="m-controls  -selector">
-            <div class="btn-drop-down -sm" id="categorySelector" data-url="{{ site.baseurl }}">
+          <div class="m-controls">
+            <button class="js--share btn">
+              <svg class="icon -regular">
+                <use xlink:href="#icon-share"></use>
+              </svg>
+              <span class="button-literal">share</span>
+            </button>
+          </div>
+
+          <div class="m-year-selector">
+            <div class="btn-drop-down" id="categorySelector" data-url="{{ site.baseurl }}">
               <select>
                 <option value="">All categories</option>
                 {% for category in site.categories %}
@@ -44,14 +53,6 @@
             </div>
           </div>
 
-          <div class="m-controls">
-            <button class="js--share btn">
-              <svg class="icon -regular">
-                <use xlink:href="#icon-share"></use>
-              </svg>
-              <span class="button-literal">share</span>
-            </button>
-          </div>
         </div>
       </div>
 
