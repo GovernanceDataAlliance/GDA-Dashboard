@@ -5,16 +5,17 @@
   justify-content: center;
   // max-width: rem(160px);
 
-  @media screen and (min-width: 800px) {
+
+  @media screen and (min-width: $screen-s) {
     max-width: 23.5%;
   }
 
-  &.-mobile {
-    justify-content: flex-start;
-    flex-direction: column;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+  // &.-mobile {
+  //   justify-content: flex-start;
+  //   flex-direction: column;
+  //   flex-direction: row;
+  //   justify-content: space-between;
+  // }
 
   .selector-literal {
     display: none;
@@ -87,13 +88,17 @@
 
   }
 
-  &.-mobile {
-    justify-content: flex-start;
-    flex-direction: column;
+  // &.-mobile {
+  //   justify-content: flex-start;
+  //   flex-direction: column;
 
-    &.-year {
-      flex-direction: row;
-      justify-content: space-between;
-    }
+  //   &.-year {
+  //     flex-direction: row;
+  //     justify-content: space-between;
+  //   }
+  // }
+
+  &.-exent {
+    justify-content: flex-start;
   }
 }

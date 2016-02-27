@@ -108,4 +108,12 @@
       display: flex;
     }
   }
+
+  .l-compare-selectors & {
+    margin-left: rem(10px);
+
+    @media screen and (min-width: $screen-l) {
+      margin-left: rem(20px);
+    }
+  }
 }
