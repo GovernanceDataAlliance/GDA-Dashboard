@@ -105,16 +105,13 @@
       justify-content: initial;
     }
 
-    @at-root {
-
-      .-fixed & {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 2;
-        padding-top: 1.5rem;
-      }
+    &.-fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      padding-top: 1.5rem;
     }
 
     &.-hide-transition {
