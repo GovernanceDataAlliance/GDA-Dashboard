@@ -112,6 +112,13 @@
     padding: 0;
   }
 
+  .js--download,
+  .js--print,
+  .js--share,
+  .compare-link {
+    margin-right: rem(10px);
+  }
+
   @media screen and (min-width: 320px) {
     width: auto;
   }
