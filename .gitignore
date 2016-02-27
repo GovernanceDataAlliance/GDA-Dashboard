@@ -28,3 +28,5 @@ js/test/bundle.js
 css/main.css
 _SpecRunner.html
 CNAME
+_config.yml
+_config_dev.yml
