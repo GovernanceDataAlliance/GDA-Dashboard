@@ -36,9 +36,9 @@
           <div class="m-controls -full -centered">
             <div class="m-pagination">
               {% if page.previous.url%}
-                <a href="{{ site.baseurl }}{{ page.previous.url }}" class="page-link"> < Newer Post</a>
+                <a href="{{ site.baseurl }}{{ page.previous.url }}" class="page-link"> &lt; Newer Post</a>
               {% else %}
-                <span class="page-link -disabled">< Newer Post</span>
+                <span class="page-link -disabled">&lt; Newer Post</span>
               {% endif %}
               {% if page.next.url %}
                 <a href="{{ site.baseurl }}{{ page.next.url }}" class="page-link"> Older post > </a>
@@ -48,7 +48,7 @@
             </div>
           </div>
 
-          <div class="m-controls -right">
+          <div class="m-controls -full -centered">
             <button class="js--share btn">
               <svg class="icon -regular">
                 <use xlink:href="#icon-share"></use>
