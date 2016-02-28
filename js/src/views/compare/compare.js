@@ -199,7 +199,7 @@ var CompareView = Backbone.View.extend({
   },
 
   _onScroll: function() {
-    var $bar = $('.-selectors'),
+    var $bar = $('.-compare'),
         $content = $('.l-content'),
         barHeight = $bar.height(),
         contentHeight = $content.height(),
@@ -208,7 +208,7 @@ var CompareView = Backbone.View.extend({
     if (posY >= this.breakPoints['startPoint']) {
       if (this.mobile) {
         $bar.removeClass('-fixed');
-        $bar = this.$('#country-'+(this.currentSlide+1)+' .-selectors');
+        $bar = this.$('#country-'+(this.currentSlide+1)+' .-compare');
       }
       $bar.addClass('-fixed');
       $content.addClass('-fixed');
