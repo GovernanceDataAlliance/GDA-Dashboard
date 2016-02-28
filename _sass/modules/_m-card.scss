@@ -137,7 +137,7 @@
     flex-basis: 100%;
     margin: 0;
 
-    &:last-child, &:nth-last-child(2) {
+    &:last-child {
       border-bottom: 0;
     }
 
@@ -175,8 +175,18 @@
       float: left;
       border-right: 1px solid $border-1;
 
+
+      &:nth-last-child(2) {
+        border-bottom: 0;
+      }
+
       &:nth-child(2n) {
         border-right: 0;
+        border-bottom: 1px solid $border-1;
+      }
+
+      &:last-child {
+        border-bottom: 0;
       }
 
       > .card-wrap {
@@ -192,12 +202,22 @@
     @media screen and (min-width: $screen-l) {
       width: 33.33%;
 
+
       &:nth-child(2n) {
+        border-bottom: 1px solid $border-1;
         border-right: 1px solid $border-1;
+      }
+
+      
+      &:nth-last-child(2),
+      &:nth-last-child(3),
+      &:last-child {
+        border-bottom: 0;
       }
 
       &:nth-child(3n) {
         border-right: 0;
+        border-bottom: 1px solid $border-1;
       }
 
       > .card-wrap {
@@ -479,6 +499,7 @@
       @media screen and (min-width: $screen-l) {
         display: flex;
         margin-top: rem(25px);
+
         > span:last-child {
           margin: 0;
         }
@@ -556,24 +577,6 @@
         color: $font-color-3;
         background-color: $white;
       }
-    }
-
-    .btn, .read-more,
-    .read-less {
-      color: $font-color-2 !important;
-      &:after {
-        border-top: 2px solid $white !important;
-        border-left: 2px solid $white !important;
-      }
-    }
-
-    .read-less {
-      margin: 0;
-    }
-
-    .read-more:hover,
-    .read-less:hover {
-      text-decoration: underline;
     }
 
     a:hover {
