@@ -86,6 +86,10 @@
           font-size: rem(35px);
         }
 
+        @media screen and (min-width: 768px) {
+          font-size: rem(30px);
+        }
+
         @media screen and (min-width: $screen-l) {
           font-size: rem(50px);
         }
@@ -99,6 +103,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        text-align: center;
 
         @extend %no-data-font;
       }
@@ -142,7 +147,7 @@
   .table-cell {
     height: rem(200px);
     display: flex; display: -ms-box;
-    padding: rem(20px) rem(25px);
+    padding: rem(20px) rem(15px);
 
     &:last-child {
       border-bottom: 0;
