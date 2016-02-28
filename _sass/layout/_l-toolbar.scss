@@ -17,8 +17,18 @@
 
   &.-pagination {
     padding: rem(10px) 0;
+    height: auto;
+
     .wrap {
       flex-wrap: wrap;
+    }
+
+    @media screen and (min-width: $screen-s) {
+      height: rem(56px);
+
+      .wrap { 
+        flex-wrap: nowrap;
+      }
     }
   }
 

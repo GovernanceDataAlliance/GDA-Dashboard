@@ -3,19 +3,10 @@
   flex: 1 1 100%;
   flex-direction: column;
   justify-content: center;
-  // max-width: rem(160px);
-
 
   @media screen and (min-width: $screen-s) {
     max-width: 23.5%;
   }
-
-  // &.-mobile {
-  //   justify-content: flex-start;
-  //   flex-direction: column;
-  //   flex-direction: row;
-  //   justify-content: space-between;
-  // }
 
   .selector-literal {
     display: none;
@@ -54,7 +45,6 @@
       display: none;
       width: 100%;
       max-width: 100%;
-      // justify-content: flex-start;
       border-right: 1px solid $border-1;
 
       p {
@@ -85,20 +75,14 @@
         border-right: none;
       }
     }
-
   }
 
-  // &.-mobile {
-  //   justify-content: flex-start;
-  //   flex-direction: column;
-
-  //   &.-year {
-  //     flex-direction: row;
-  //     justify-content: space-between;
-  //   }
-  // }
-
   &.-exent {
+    flex: auto;
     justify-content: flex-start;
+
+    @media screen and (min-width: 768px) {
+      flex: 1 1 100%;
+    }
   }
 }
