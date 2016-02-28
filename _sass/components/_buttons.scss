@@ -6,8 +6,28 @@
   align-items: center;
   text-align: center;
 
+  @media screen and (min-width: 320px) {
+    width: auto;
+  }
+
+  @media screen and (min-width: $screen-m) {
+    font-size: rem(11px);
+  }
+
+
   .button-literal {
     display: none;
+    line-height: rem(20px);
+
+    @media screen and (min-width: 768px) {
+      display: inline-block;
+      margin-left: rem(5px);
+    }
+
+    @media screen and (min-width:  $screen-l) {
+      display: inline-block;
+      margin-left: rem(10px);
+    }
   }
 
   .icon {
@@ -126,46 +146,31 @@
     }
   }
 
-  @media screen and (min-width: 320px) {
-    width: auto;
-  }
-
-  @media screen and (min-width: 768px) {
-    .button-literal {
-      display: inline-block;
-      margin-left: rem(5px);
-    }
-  }
-
-  @media screen and (min-width: $screen-m) {
-    font-size: rem(11px);
-  }
-
   &.btn-layout-dashboard, 
   &.btn-layout-list {
     .button-literal {
       display: none;
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $screen-s) {
+      padding: 0 rem(30px);
+
       .button-literal {
         display: none;
       }
-
-      @media screen and (min-width: 800px) {
-        display: inline-block;
-
-        .button-literal {
-          display: inline-block;
-        }
-      }
     }
-  }
 
-  @media screen and (min-width:  $screen-l) {
-    .button-literal {
+    @media screen and (min-width: 768px) {
+      padding: 0 rem(20px);
+    }
+
+    @media screen and (min-width: 960px) {
+      padding: 0 rem(20px);
       display: inline-block;
-      margin-left: rem(10px);
+
+      .button-literal {
+        display: inline-block;
+      }
     }
   }
 }

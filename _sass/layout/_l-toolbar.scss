@@ -17,7 +17,6 @@
     padding: rem(5px) 0;
     z-index: 10;
 
-
     @media screen and (min-width: 768px) {
       padding: rem(10px) 0;
     }
@@ -28,15 +27,20 @@
     flex: 1 1 100%;
   }
 
+
   &.-utils {
     height: rem(56px);
+
+    @media screen and (min-width: 768px) {
+      height: rem(70px);
+    }
 
     .js--toolbar-utils {
       display: flex;
       flex: 1 1 100%;
 
       @media screen and (min-width: $screen-s) {
-        max-width: 70%;
+        max-width: 50%;
       }
 
       @media screen and (min-width: 768px) {
@@ -56,16 +60,16 @@
       @media screen and (min-width: $screen-s) {
         display: flex;
         flex: 1 1 100%;
+        max-width: 30%;
+      }
+
+      @media screen and (min-width: 768px) {
         max-width: 20%;
       }
 
-      @media screen and (min-width: $screen-m) {
+      @media screen and (min-width: 960px) {
         max-width: rem(250px);
       }
-    }
-
-    @media screen and (min-width: 768px) {
-      height: rem(70px);
     }
   }
 
