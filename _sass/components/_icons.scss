@@ -6,9 +6,9 @@
     height: 20px;
   }
 
-  &:hover {
-    fill: $font-color-1;
-  }
+  // &:hover {
+  //   fill: $font-color-1;
+  // }
 
   .is-active & {
     fill: $font-color-1;
@@ -20,5 +20,5 @@
 	width: 1em;
 	height: 1em;
 	fill: currentColor;
-	width: 0.5830078125em;
+	width: rem(15px);
 }

@@ -24,8 +24,8 @@
 
           <h1 id="categoryTitle" class="c-section-title" data-type="categories"> Blog posts from all categories </h1>
 
-          <div class="selector-wrapper -category">
-            <div class="btn-drop-down -sm" id="categorySelector">
+          <div class="m-year-selector -exent">
+            <div class="btn-drop-down" id="categorySelector">
               <select>
                 <option value="">All categories</option>
                   {% for category in site.categories %}
@@ -60,7 +60,7 @@
          {% endfor %}
 
 
-      <div class="l-toolbar">
+      <div class="l-toolbar -utils">
         <div class="wrap">
           <div class="m-controls -right">
 
@@ -68,7 +68,7 @@
               <svg class="icon -regular">
                 <use xlink:href="#icon-share"></use>
               </svg>
-              share
+              <span class="button-literal">share</span>
             </button>
           </div>
         </div>

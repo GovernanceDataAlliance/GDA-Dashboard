@@ -103,6 +103,7 @@
     }
 
     &:nth-last-child(2) {
+      border-right: 0;
       border-bottom: 0;
     }
 
@@ -111,8 +112,12 @@
     }
 
     &:last-child {
-      border-right: 1px solid $border-1;
       border-bottom: 0;
+      border-right: 0;
+    }
+
+    &:nth-child(2n + 1) {
+      border-right: 1px solid $border-1;
     }
   }
 }

@@ -25,11 +25,20 @@
         </div>
       </div>
 
-      <div class="l-toolbar">
+      <div class="l-toolbar -year-and-legend">
         <div class="wrap">
 
-          <div class="m-controls  -selector">
-            <div class="btn-drop-down -sm" id="categorySelector" data-url="{{ site.baseurl }}">
+          <div class="m-controls">
+            <button class="js--share btn">
+              <svg class="icon -regular">
+                <use xlink:href="#icon-share"></use>
+              </svg>
+              <span class="button-literal">share</span>
+            </button>
+          </div>
+
+          <div class="m-year-selector">
+            <div class="btn-drop-down" id="categorySelector" data-url="{{ site.baseurl }}">
               <select>
                 <option value="">All categories</option>
                 {% for category in site.categories %}
@@ -44,14 +53,6 @@
             </div>
           </div>
 
-          <div class="m-controls">
-            <button class="js--share btn">
-              <svg class="icon -regular">
-                <use xlink:href="#icon-share"></use>
-              </svg>
-              share
-            </button>
-          </div>
         </div>
       </div>
 
@@ -63,18 +64,18 @@
         {% endfor %}
       </div>
 
-      <div class="l-toolbar">
+      <div class="l-toolbar -utils -pagination">
         <div class="wrap">
           <div class="m-controls -full -centered">
             <div class="m-pagination">
               {% if paginator.previous_page %}
-                <a href="{{ site.baseurl }}/{{ paginator.previous_page_path }}" class="page-link"> < Newer Post</a>
+                <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="page-link"> &lt; Newer Post</a>
               {% else %}
-                <span class="page-link -disabled">< Newer Post</span>
+                <span class="page-link -disabled">&lt; Newer Post</span>
               {% endif %}
               <span class="page-number ">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
               {% if paginator.next_page %}
-                <a href="{{ site.baseurl }}/{{ paginator.next_page_path }}/" class="page-link"> Older post > </a>
+                <a href="{{ site.baseurl }}{{ paginator.next_page_path }}/" class="page-link"> Older post > </a>
               {% else %}
                 <span class="page-link -disabled">Older post ></span>
               {% endif %}
@@ -86,7 +87,7 @@
               <svg class="icon -regular">
                 <use xlink:href="#icon-share"></use>
               </svg>
-              share
+              <span class="button-literal">share</span>
             </button>
           </div>
         </div>
