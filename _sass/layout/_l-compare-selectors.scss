@@ -1,11 +1,9 @@
 .l-compare-selectors {
   display: flex;
   width: 100%;
-  border-left: 1px solid $border-1;
-  border-right: 1px solid $border-1;
 
-  @media screen and (max-width: $screen-m) {
-    border: none;
-    min-height: 0;
+  @media screen and (min-width: 768px) {
+    border-left: 1px solid $border-1;
+    border-right: 1px solid $border-1;
   }
 }
