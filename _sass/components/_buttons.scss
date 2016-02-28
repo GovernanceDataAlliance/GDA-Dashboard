@@ -17,10 +17,15 @@
 
   > span,
   .button-literal {
+    padding: 0;
     color: $font-color-3;
   }
 
   &.is-active {
+    color: $font-color-1;
+    background-color: #dedcda;
+    min-height: 100%;
+    
     > span,
     .button-literal {
       color: $font-color-1;
@@ -28,6 +33,10 @@
 
     &:hover {
       color: $font-color-1;
+
+      svg {
+        fill: $color-1;
+      }
 
       > span,
       .button-literal {
@@ -106,11 +115,6 @@
     align-self: center;
   }
 
-  > span,
-  .button-literal {
-    padding: 0;
-  }
-
   &.js--download,
   &.js--print,
   &.js--share,
@@ -177,6 +181,7 @@
   line-height: 17px;
   text-align: center;
   font-weight: 700;
+  
   &:hover {
     background-color: #5DE8FF;
   }

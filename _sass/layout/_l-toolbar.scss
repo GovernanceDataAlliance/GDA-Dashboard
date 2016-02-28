@@ -6,14 +6,69 @@
   background-color: $bg-color-4;
   border-bottom: 1px solid $border-1;
 
+  .wrap {
+    display: flex;
+    display: -ms-box;
+    justify-content: space-between;
+  }
+
+
   &.-year-and-legend {
     padding: rem(5px) 0;
     z-index: 10;
+
+
+    @media screen and (min-width: 768px) {
+      padding: rem(10px) 0;
+    }
+  }
+
+  .js--legend {
+    display: flex;
+    flex: 1 1 100%;
   }
 
   &.-utils {
     height: rem(56px);
+
+    .js--toolbar-utils {
+      display: flex;
+      flex: 1 1 100%;
+
+      @media screen and (min-width: $screen-s) {
+        max-width: 70%;
+      }
+
+      @media screen and (min-width: 768px) {
+        max-width: rem(500px);
+        
+        @at-root {
+          .-footer .js--toolbar-utils {
+            flex: 1 3 100%;
+          }
+        }
+      }
+    }
+
+    .js--toolbar-display {
+      display: none;
+
+      @media screen and (min-width: $screen-s) {
+        display: flex;
+        flex: 1 1 100%;
+        max-width: 20%;
+      }
+
+      @media screen and (min-width: $screen-m) {
+        max-width: rem(250px);
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      height: rem(70px);
+    }
   }
+
 
   &.-pagination {
     padding: rem(10px) 0;
@@ -31,6 +86,7 @@
       }
     }
   }
+
 
   &.-compare-year-and-legend {
     height: rem(65px);
@@ -57,61 +113,6 @@
     }
   }
 
-
-  @media screen and (min-width: 768px) {
-    
-    &.-year-and-legend {
-      padding: rem(10px) 0;
-    }
-
-    &.-utils {
-      height: rem(70px);
-    }
-  }
-
-  .wrap {
-    display: flex;
-    display: -ms-box;
-    justify-content: space-between;
-  }
-
-  .js--legend {
-    display: flex;
-    flex: 1 1 100%;
-  }
-
-  .js--toolbar-utils {
-    display: flex;
-    flex: 1 1 100%;
-
-    @media screen and (min-width: $screen-s) {
-      max-width: 70%;
-    }
-
-    @media screen and (min-width: $screen-m) {
-      max-width: rem(500px);
-    }
-
-    @at-root {
-      .-footer .js--toolbar-utils {
-        flex: 1 3 100%;
-      }
-    }
-  }
-
-  .js--toolbar-display {
-    display: none;
-
-    @media screen and (min-width: $screen-s) {
-      display: flex;
-      flex: 1 1 100%;
-      max-width: 20%;
-    }
-
-    @media screen and (min-width: $screen-m) {
-      max-width: rem(250px);
-    }
-  }
 
   &.-compare {
     transform: translate(0,0);
@@ -146,6 +147,7 @@
     }
   }
 
+
   &.-year-selector {
     z-index: 10;
     background-color: $bg-color-1;
@@ -156,30 +158,27 @@
     }
   }
 
+
   &.-data {
     .js--print, 
-    .js--print + span,
-    .js--share, 
-    .js--share + span,
-    .js--download + span {
+    .js--share {
       display: none;
     }
   }
 
+
   &.-blog {
-    .js--print, 
-    .js--print + span {
+    .js--print {
       display: none;
     }
   }
+  
 
   &.-footer {
     border-top: 1px solid $border-1;
 
     .js--download,
-    .js--download + span,
-    .compare-link,
-    .compare-link + span {
+    .compare-link {
       display: none;
     }
 
