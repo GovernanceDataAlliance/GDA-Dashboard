@@ -1,14 +1,12 @@
 <div class="l-tag-cloud">
   <div class="wrap">
-    <h2>#Tags</h2>
     {% assign tags = site.tags | sort %}
-    <div class="tag-cloud">
+    <div class="m-tag-cloud">
+      <h2>#Tags</h2>
       {% for tag in tags %}
-        <span class="site-tag">
-          <a href="/blog/tags#{{ tag | first }}">
-            #{{ tag[0]  }}
-          </a>
-        </span>
+        <a class="c-tag" href="{{ site.baseurl }}/blog/tags#{{ tag | first }}">
+          #{{ tag[0]  }}
+        </a>
       {% endfor %}
     </div>
   </div>

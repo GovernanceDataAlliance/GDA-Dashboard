@@ -5,29 +5,4 @@
   @media screen and (min-width: $screen-m) {
     padding: rem(50px) 0 rem(65px) 0;
   }
-
-  h2 {
-    font-weight: 400;
-    color: $font-color-2;
-  }
-
-  .tag-cloud {
-    margin-top: rem(15px);
-    line-height: rem(29px);
-  }
-
-  .tag-cloud > .site-tag {
-    margin-right: rem(30px);
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  .tag-cloud > .site-tag > a {
-    font-family: $font-secondary;
-    font-size: rem(12px);
-    color: $font-color-2;
-    letter-spacing: rem(.3px);
-  }
 }

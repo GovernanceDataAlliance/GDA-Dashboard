@@ -42,24 +42,6 @@ $sections-padding: .5rem .5rem .5rem 0;
         margin-bottom: 0;
       }
     }
-
-    > .tags {
-
-      .tag {
-        padding: 0.25rem 0.75rem;
-        margin-right: rem(10px);
-        float: left;
-
-        @extend %properties-font;
-        color: $font-color-2;
-
-        background-color: $color-4;
-
-        &:hover {
-          background-color: $color-2;
-        }
-      }
-    }
   }
 
   > .details {
@@ -79,6 +61,7 @@ $sections-padding: .5rem .5rem .5rem 0;
     > .date {
       padding-left: .8rem;
       margin-left: .8rem;
+
 
       font-family: $font-secondary;
       font-size: rem(12px);
