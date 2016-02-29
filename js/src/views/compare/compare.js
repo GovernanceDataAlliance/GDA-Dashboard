@@ -31,7 +31,8 @@ var CompareSelectorsView = require('./compare_selectors.js'),
   ModalWindowView = require('../common/infowindow_view.js'),
   ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
   ModalWindowView = require('../common/infowindow_view.js'),
-  TooltipView = require('../common/tooltip_view.js');
+  TooltipView = require('../common/tooltip_view.js'),
+  LegendView = require('../common/legend.js');
 
 var compareStatus = new (Backbone.Model.extend({
     defaults: {
@@ -100,6 +101,7 @@ var CompareView = Backbone.View.extend({
     }
 
     this.renderToolbar();
+    this.renderLegend();
     this._setResize();
     return this;
   },
@@ -197,7 +199,7 @@ var CompareView = Backbone.View.extend({
   },
 
   _onScroll: function() {
-    var $bar = $('.-selectors'),
+    var $bar = $('.-compare'),
         $content = $('.l-content'),
         barHeight = $bar.height(),
         contentHeight = $content.height(),
@@ -206,7 +208,7 @@ var CompareView = Backbone.View.extend({
     if (posY >= this.breakPoints['startPoint']) {
       if (this.mobile) {
         $bar.removeClass('-fixed');
-        $bar = this.$('#country-'+(this.currentSlide+1)+' .-selectors');
+        $bar = this.$('#country-'+(this.currentSlide+1)+' .-compare');
       }
       $bar.addClass('-fixed');
       $content.addClass('-fixed');
@@ -232,6 +234,13 @@ var CompareView = Backbone.View.extend({
     this.$el.find('.js--compare-toolbar').find('.wrap').append(new ToolbarUtilsView({
       el: this.$el.find('.js--toolbar-utils')
     }).render().el);
+  },
+
+  renderLegend: function() {
+    var legends = this.$('.js--legend');
+    _.each(legends, function(legend) {
+      new LegendView({ el: legend });
+    });
   },
 
   getDataForCountry: function(iso, order) {

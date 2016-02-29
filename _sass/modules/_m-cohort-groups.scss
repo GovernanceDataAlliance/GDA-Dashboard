@@ -1,6 +1,6 @@
 .m-cohort-groups {
   position: absolute;
-  bottom: rem(65px);
+  bottom: rem(-10px);
   z-index: 2;
   left: rem($wrap-padding-mobile);
   right: rem($wrap-padding-mobile);
@@ -16,7 +16,7 @@
     @include equi-triangle(rem(11px), $color-4, top);
     position: absolute;
     top: rem(-11px);
-    left: rem(49px);
+    right: rem(49px);
   }
 
   &:after {
@@ -24,22 +24,17 @@
     @include equi-triangle(rem(10px), $bg-color-4, top);
     position: absolute;
     top: rem(-10px);
-    left: rem(50px);
+    right: rem(50px);
   }
 
-  @media screen and (min-width: $screen-xs) {
-    bottom: rem(60px);
-  }
 
   @media screen and (min-width: $screen-s) {
-    bottom: rem(60px);
     left: rem($wrap-padding-tablet);
     right: rem($wrap-padding-tablet);
   }
 
   @media screen and (min-width: 768px) {
     padding: rem(35px) rem(40px);
-    bottom: rem(-10px);
     left: rem($wrap-padding-desktop);
     right: rem($wrap-padding-desktop);
     border: none;

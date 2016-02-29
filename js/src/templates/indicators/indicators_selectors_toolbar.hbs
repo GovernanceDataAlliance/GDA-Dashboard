@@ -1,21 +1,29 @@
-<div class="l-toolbar -data">
+<div class="l-toolbar -year-and-legend">
   <div class="wrap">
-      <div class="m-controls -s-column">
-        <button class="btn-drop-down -min-width btn js--btn-ranking">Globally</button>
-        <span class="separator"> | </span>
-        <div class="js--toolbar-utils"></div>
-      </div>
-      <div class="m-controls">
-        <p class="is-small-text">Select date</p>
-        <div class="selector-wrapper -year">
-          <div class="btn-drop-down -min-width">
-            <div class="js--year-selector-indicators">
-            </div>
-          </div>
+    <div class="js--legend"></div>
+
+    <div class="m-year-selector -country">
+      {{!-- <span class="selector-literal">Select year</span> --}}
+      {{!-- <div class="selector-wrapper -year"> --}}
+        <div class="btn-drop-down">
+          <div class="js--year-selector-indicators"></div>
         </div>
-      </div>
+      {{!-- </div> --}}
+    </div>
   </div>
 </div>
+
+<div class="l-toolbar -data -utils">
+  <div class="wrap">
+
+        <div class="js--toolbar-utils"></div>
+        <div class="m-year-selector -country">
+          <button class="btn-drop-down btn js--btn-ranking">Globally</button>
+        </div>
+
+  </div>
+</div>
+
 <div class="wrap">
   <div class="js--ranking-groups is-hidden"></div>
 </div>
