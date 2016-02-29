@@ -1,0 +1,14 @@
+.c-tag {
+  padding: 0.25rem 0.75rem;
+  margin-right: rem(10px);
+  float: left;
+
+  @extend %properties-font;
+  color: $font-color-2;
+
+  background-color: $color-4;
+
+  &:hover {
+    background-color: $color-2;
+  }
+}
