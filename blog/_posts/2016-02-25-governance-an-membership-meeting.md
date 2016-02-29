@@ -9,13 +9,8 @@ tags: meeting_notes
 title: "Governance and Membership Meeting "
 ---
 
+
 ## Agenda:
-
-- item
-- item
-- item
-
-
 
 - Get through big items on membership and governance
 - Solicit feedback
