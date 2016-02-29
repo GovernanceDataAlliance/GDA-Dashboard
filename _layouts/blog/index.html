@@ -43,7 +43,7 @@
                 <option value="">All categories</option>
                 {% for category in site.categories %}
                   {% unless category[0] == "blog" %}
-                    <option value="{{ site.baseurl }}/blog/categories#{{ category | first | remove:' ' | downcase}}">
+                    <option value="{{ category | first | remove:' ' | downcase}}">
                       {{ category | first }}
                     </option>
                     {% if forloop.last %}.{% else %}, {% endif %}
