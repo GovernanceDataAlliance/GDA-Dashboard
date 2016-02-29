@@ -79,8 +79,9 @@ var CategorySelector = Backbone.View.extend({
   },
 
   onChangeSelect: function(e) {
+    
     var category = e.currentTarget.value;
-
+    debugger
     window.location.href = category.length > 0 ?
        'categories#' + category :  'categories';
   }
