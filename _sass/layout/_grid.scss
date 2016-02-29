@@ -16,7 +16,7 @@
 
   @media screen and (min-width: $screen-xl) {
     padding: 0 rem($wrap-padding-desktop-xl);
-  }
+  } 
 }
 
 @mixin col($columns) {
