@@ -22,4 +22,4 @@
    d.year
   FROM indicator_config AS c
     left JOIN  d ON c.short_name = d.short_name
-  ORDER BY c.short_name asc
+  ORDER BY c.short_name asc, d.year asc
