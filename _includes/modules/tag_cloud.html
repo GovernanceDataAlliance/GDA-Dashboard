@@ -1,0 +1,15 @@
+<div class="l-tag-cloud">
+  <div class="wrap">
+    <h2>#Tags</h2>
+    {% assign tags = site.tags | sort %}
+    <div class="tag-cloud">
+      {% for tag in tags %}
+        <span class="site-tag">
+          <a href="/blog/tags#{{ tag | first | slugify }}">
+            #{{ tag[0]  }}
+          </a>
+        </span>
+      {% endfor %}
+    </div>
+  </div>
+</div>

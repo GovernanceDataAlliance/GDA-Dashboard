@@ -21,19 +21,7 @@
         </div>
 
         <div class="wrap">
-
           <h1 id="categoryTitle" class="c-section-title" data-type="tags"> Blog posts from all tags </h1>
-          <!-- TODO list all tags -->
-          <!-- <div class="selector-wrapper -category">
-            <div class="btn-drop-down -sm" id="categorySelector">
-              <select>
-                {% for category in site.tags %}
-                  <option value="#{{ category | first | remove:' ' | downcase}}">{{ category | first }}</option> {% if forloop.last %}.{% else %}, {% endif %}
-                {% endfor %}
-              </select>
-            </div>
-
-          </div> -->
         </div>
       </div>
 
@@ -62,16 +50,19 @@
               <svg class="icon -regular">
                 <use xlink:href="#icon-share"></use>
               </svg>
-              share
+              <span class="button-literal">share</span>
             </button>
           </div>
         </div>
       </div>
 
+      {% include modules/tag_cloud.html %}
+
       {% include footer.html %}
+
     </div>
     <script>
-      var SITEURL = {{ site.baseurl }} || null;
+      var SITEURL = '{{ site.baseurl }}' || null;
     </script>
     <script src="{{site.baseurl}}/js/blog_bundle.js"></script>
   </body>
