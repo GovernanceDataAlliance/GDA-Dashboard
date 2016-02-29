@@ -4,7 +4,6 @@ var CartoDBCollection = require('../lib/cartodb_collection.js');
 var ColorService = require('../lib/services/colors.js');
 var CONFIG = require('../../config.json');
 
-
 var Handlebars = require('handlebars');
 
 var SQL = Handlebars.compile(require('../templates/queries/countries_for_index.sql.hbs')),
