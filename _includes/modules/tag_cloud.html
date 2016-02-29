@@ -5,7 +5,7 @@
     <div class="tag-cloud">
       {% for tag in tags %}
         <span class="site-tag">
-          <a href="/blog/tags#{{ tag | first | slugify }}">
+          <a href="/blog/tags#{{ tag | first }}">
             #{{ tag[0]  }}
           </a>
         </span>
