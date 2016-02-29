@@ -32,7 +32,7 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
     // padding: rem(30px) rem($wrap-padding-mobile) rem(45px);
     background-color: $white;
 
-    //Paddings and layout stuff are at -mpresentation for IE...
+    //Paddings and layout stuff are at .m-presentation for IE...
     @media screen and (min-width: $screen-s) {
       // padding: rem(40px) rem($wrap-padding-tablet) rem(60px);
     }
