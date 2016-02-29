@@ -9,11 +9,11 @@ tags: meeting_notes
 title: "Governance and Membership Meeting "
 ---
 
-**Agenda:**
+##Agenda:##
 
-+ Get through big items on membership and governance
-+ Solicit feedback
-+ Then put pen to paper at R4D, circulate options for final outstanding issues, and ultimately craft draft bylaws
+- Get through big items on membership and governance
+- Solicit feedback
+- Then put pen to paper at R4D, circulate options for final outstanding issues, and ultimately craft draft bylaws
 
 **Membership**
 
