@@ -23,10 +23,6 @@ title: "Governance and Membership Meeting "
 - put pen to paper
 
 
-1. One
-2. Two
-3. Three
-
 
 **Membership**
 
