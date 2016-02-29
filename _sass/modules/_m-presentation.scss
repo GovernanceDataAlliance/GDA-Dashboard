@@ -1,4 +1,27 @@
 .m-presentation {
+  //Paddings and layout stuff are here for IE...
+  max-width: 100%;
+  padding: rem(30px) rem($wrap-padding-mobile) rem(45px);
+
+
+  @media screen and (min-width: $screen-s) {
+    max-width: 100%;
+    padding: rem(40px) rem($wrap-padding-tablet) rem(60px);
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 100% ;
+    padding: rem(50px) rem($wrap-padding-desktop) rem(70px);
+  }
+
+  @media screen and (min-width: 960px) {
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    max-width: 100%;
+    padding: rem(75px) rem($wrap-padding-desktop-xl) rem(100px);
+  }
 
   > h2 {
     color: $font-color-1;

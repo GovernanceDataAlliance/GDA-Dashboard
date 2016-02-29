@@ -24,24 +24,25 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
 
   > .intro {
     position: relative;
-    flex-basis: 50%;
     display: flex;
+    flex: 1 1 50%;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: rem(30px) rem($wrap-padding-mobile) rem(45px);
+    // padding: rem(30px) rem($wrap-padding-mobile) rem(45px);
     background-color: $white;
 
+    //Paddings and layout stuff are at -mpresentation for IE...
     @media screen and (min-width: $screen-s) {
-      padding: rem(40px) rem($wrap-padding-tablet) rem(60px);
+      // padding: rem(40px) rem($wrap-padding-tablet) rem(60px);
     }
 
     @media screen and (min-width: 768px) {
-      padding: rem(50px) rem($wrap-padding-desktop) rem(70px);
+      // padding: rem(50px) rem($wrap-padding-desktop) rem(70px);
     }
 
     @media screen and (min-width: 960px) {
-      padding: rem(45px) rem($wrap-padding-desktop) rem(80px);
+      // padding: rem(45px) rem($wrap-padding-desktop) rem(80px);
       
       &.-left,
       &.-right {
@@ -64,7 +65,7 @@ $backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'dist
     }
 
     @media screen and (min-width: $screen-xl) {
-      padding: rem(75px) rem($wrap-padding-desktop-xl) rem(100px);
+      // padding: rem(75px) rem($wrap-padding-desktop-xl) rem(100px);
 
       &.-left {
         align-items: flex-end;

@@ -13,6 +13,8 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     background-color: #ccc;
     background-position: top left;
 
+    max-height: rem(700px);
+
     h3 {
       max-width: 100%;
     }
@@ -66,6 +68,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     @media screen and (min-width: 768px) {
       height: calc(100vh - 85px);
       // min-height: rem(945px);
+      max-height: rem(850px);
 
       p {
         margin-bottom: rem(50px);
