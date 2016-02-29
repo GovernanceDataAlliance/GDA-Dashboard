@@ -1,0 +1,8 @@
+.l-tag-cloud {
+  background: $color-4;
+  padding: rem(30px) 0 rem(75px) 0;
+
+  @media screen and (min-width: $screen-m) {
+    padding: rem(50px) 0 rem(65px) 0;
+  }
+}
