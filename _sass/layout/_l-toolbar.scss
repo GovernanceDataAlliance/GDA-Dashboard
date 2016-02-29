@@ -57,11 +57,11 @@
         max-width: rem(120px);
       }
 
-      // @media screen and (min-width: 768px) {
-      //   max-width: rem(120px);
-      // }
-
       @media screen and (min-width: 960px) {
+        max-width: rem(235px);
+      }
+
+      @media screen and (min-width: $screen-l) {
         max-width: rem(250px);
       }
     }
