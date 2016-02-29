@@ -141,8 +141,14 @@
   &.compare-link {
     margin-right: rem(20px);
 
+    &:first-child {
+      margin-left: 0;
+      padding-left: 0;
+    }
+
     &:last-child {
       margin-right: 0;
+      padding-right: 0;
     }
   }
 
@@ -153,15 +159,11 @@
     }
 
     @media screen and (min-width: $screen-s) {
-      padding: 0 rem(30px);
+      padding: 0 rem(20px);
 
       .button-literal {
         display: none;
       }
-    }
-
-    @media screen and (min-width: 768px) {
-      padding: 0 rem(20px);
     }
 
     @media screen and (min-width: 960px) {
