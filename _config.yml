@@ -4,7 +4,7 @@ title: GDA Dashboard
 description: Governance Data Alliance Dashboard
 
 url: "http://vizzuality.github.io/GDA-Dashboard"
-baseurl: ''
+baseurl: '/GDA-Dashboard'
 
 paginate: 2
 paginate_path: "blog/page:num"
@@ -20,7 +20,7 @@ exclude: ['scripts', 'node_modules', 'vendor']
 # prose.io
 prose:
   rooturl: ''
-  siteurl: 'http://vizzuality.github.io/GDA-Dashboard/'
+  siteurl: 'http://www.governancedata.org'
   media: 'css/img'
   ignore:
     - _config.yml
