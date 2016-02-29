@@ -79,6 +79,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     @media screen and (min-width: $screen-l) {
       // min-height: rem(700px);
       padding-top: 0;
+      min-height: rem(615px);
 
       h3 {
         max-width: $content-width;
@@ -92,6 +93,8 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     @media screen and (min-width: $screen-xl) {
       padding: 0;
       height: calc(100vh - 95px);
+      max-height: rem(1000px);
+      min-height: rem(615px);
 
       h3 {
         margin-bottom: rem(30px);
