@@ -1379,6 +1379,9 @@ select {
           max-width: 7.5rem; } }
       @media screen and (min-width: 960px) {
         .l-toolbar.-utils .js--toolbar-display {
+          max-width: 14.6875rem; } }
+      @media screen and (min-width: 1024px) {
+        .l-toolbar.-utils .js--toolbar-display {
           max-width: 15.625rem; } }
   .l-toolbar.-pagination {
     padding: 0.625rem 0;
@@ -2000,6 +2003,13 @@ select {
   .l-blog .blog-filter.-active {
     display: block; }
 
+.l-tag-cloud {
+  background: #49c9de;
+  padding: 1.875rem 0 4.6875rem 0; }
+  @media screen and (min-width: 769px) {
+    .l-tag-cloud {
+      padding: 3.125rem 0 4.0625rem 0; } }
+
 .l-compare-selectors {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2149,7 +2159,7 @@ select {
   height: 109.375rem;
   padding-bottom: 1.25rem; }
   .m-list .list-open + ul li {
-    padding: 0.3125rem 20px; }
+    padding: 0.625rem 20px; }
 .m-list .list-header {
   position: relative;
   font-size: 12px;
@@ -4077,7 +4087,7 @@ select {
       .l-compare-selectors .m-legend {
         margin-left: 1.25rem; } }
 
-.m-post > .properties > .tags .tag {
+.c-tag {
   font-family: "Montserrat";
   font-size: 0.75rem;
   color: #42352b;
@@ -4117,14 +4127,6 @@ select {
       @media screen and (min-width: 769px) {
         .m-post > .properties > .category {
           margin-bottom: 0; } }
-    .m-post > .properties > .tags .tag {
-      padding: 0.25rem 0.75rem;
-      margin-right: 0.625rem;
-      float: left;
-      color: #fff;
-      background-color: #49c9de; }
-      .m-post > .properties > .tags .tag:hover {
-        background-color: #39a1b2; }
   .m-post > .details {
     margin-bottom: 1.5625rem; }
     @media screen and (min-width: 769px) {
@@ -4276,6 +4278,13 @@ select {
       .m-pagination > .page-number {
         font-size: 0.75rem; } }
 
+.m-tag-cloud h2 {
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 0.9375rem; }
+.m-tag-cloud .tag-cloud {
+  line-height: 1.8125rem; }
+
 .btn {
   font-size: 0.6875rem;
   font-family: "Montserrat";
@@ -4423,6 +4432,8 @@ select {
       font-size: 0.6875rem;
       line-height: 0.6875rem !important;
       padding: 0 0.75rem; } }
+  .btn-drop-down .js--year-selector-country {
+    height: 100%; }
   .btn-drop-down.btn {
     text-align: left; }
   .-year .btn-drop-down {
@@ -4437,6 +4448,7 @@ select {
     padding: 0.75rem 3%;
     padding-right: 15%;
     width: 100%;
+    height: 100%;
     line-height: 1rem !important; }
     @media screen and (min-width: 769px) {
       .btn-drop-down select {
@@ -4890,6 +4902,15 @@ select {
     @media screen and (min-width: 640px) {
       .c-tooltip > .pop-up-legend-container {
         display: block; } }
+
+.c-tag {
+  padding: 0.25rem 0.75rem;
+  margin-right: 0.625rem;
+  float: left;
+  color: #fff;
+  background-color: #49c9de; }
+  .c-tag:hover {
+    background-color: #39a1b2; }
 
 /*
  * States are modes that can change

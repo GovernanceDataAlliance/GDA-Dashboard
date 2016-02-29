@@ -79,10 +79,10 @@ var CategorySelector = Backbone.View.extend({
   },
 
   onChangeSelect: function(e) {
+    
     var category = e.currentTarget.value;
-
     window.location.href = category.length > 0 ?
-      SITEURL + 'categories#' + category : SITEURL + 'categories';
+       'categories#' + category :  'categories';
   }
 
 });
