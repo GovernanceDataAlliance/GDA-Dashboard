@@ -14,7 +14,6 @@ var IndicatorHeaderView = require('./indicator_header.js'),
   IndicatorSelectorsToolbarView = require('./indicator_selectors_toolbar.js'),
   CountryListView = require('./country_list.js'),
   ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
-  TooltipView = require('../common/tooltip_view.js'),
   LegendView = require('../common/legend.js');
 
 var TextShortener = require('../common/text_shortener.js');
@@ -25,9 +24,8 @@ var template = Handlebars.compile(
 var IndicatorView = Backbone.View.extend({
 
   events: {
-    "click .js--ranking-groups": "_stopEvent",
-    'click .js--btn-ranking': "_stopEvent",
-    'click #legendPopup': '_toggleTooltip'
+    'click .js--ranking-groups': '_stopEvent',
+    'click .js--btn-ranking': "_stopEvent"
   },
 
   initialize: function(options) {
@@ -84,10 +82,6 @@ var IndicatorView = Backbone.View.extend({
   getYears: function() {
     var years = new Years();
     return years.totalYearsForThisIndex( this.id );
-  },
-
-  _toggleTooltip: function(e) {
-    new TooltipView().toggleStatus(e);
   },
 
   render: function(rerender) {

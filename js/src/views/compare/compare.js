@@ -30,8 +30,7 @@ var CompareSelectorsView = require('./compare_selectors.js'),
   YearSelectorView = require('../common/year_selector.js'),
   ModalWindowView = require('../common/infowindow_view.js'),
   ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
-  ModalWindowView = require('../common/infowindow_view.js'),
-  TooltipView = require('../common/tooltip_view.js'),
+  ModalWindowView = require('../common/infowindow_view.js')
   LegendView = require('../common/legend.js');
 
 var compareStatus = new (Backbone.Model.extend({
@@ -43,8 +42,7 @@ var compareStatus = new (Backbone.Model.extend({
 var CompareView = Backbone.View.extend({
 
   events: {
-    'click .btn-info'    : 'showModalWindow',
-    'click #legendPopup' : '_toggleTooltip'
+    'click .btn-info'    : 'showModalWindow'
   },
 
   initialize: function(options) {
@@ -80,10 +78,6 @@ var CompareView = Backbone.View.extend({
     Backbone.Events.on('country:selected', (this.countryRecived).bind(this));
     Backbone.Events.on('year:selected', (this.yearRecived).bind(this));
     Backbone.Events.on('breakpoints:loaded', this._onScroll.bind(this));
-  },
-
-  _toggleTooltip: function(e) {
-    new TooltipView().toggleStatus(e);
   },
 
   render: function() {
