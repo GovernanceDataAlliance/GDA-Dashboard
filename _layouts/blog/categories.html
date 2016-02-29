@@ -24,7 +24,22 @@
 
           <h1 id="categoryTitle" class="c-section-title" data-type="categories"> Blog posts from all categories </h1>
 
-          <div class="m-year-selector -exent">
+        </div>
+      </div>
+
+      <div class="l-toolbar -year-and-legend">
+        <div class="wrap">
+
+          <div class="m-controls">
+            <button class="js--share btn">
+              <svg class="icon -regular">
+                <use xlink:href="#icon-share"></use>
+              </svg>
+              <span class="button-literal">share</span>
+            </button>
+          </div>
+
+          <div class="m-year-selector">
             <div class="btn-drop-down" id="categorySelector">
               <select>
                 <option value="">All categories</option>
@@ -38,8 +53,8 @@
                   {% endfor %}
               </select>
             </div>
-
           </div>
+
         </div>
       </div>
 
