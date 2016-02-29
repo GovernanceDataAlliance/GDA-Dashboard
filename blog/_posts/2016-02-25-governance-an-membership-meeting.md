@@ -16,9 +16,9 @@ title: "Governance and Membership Meeting "
 - Solicit feedback
 - Then put pen to paper at R4D, circulate options for final outstanding issues, and ultimately craft draft bylaws
 
-1. item
-2. item
-3. item
+1. One
+2. Two
+3. Three
 
 
 **Membership**
