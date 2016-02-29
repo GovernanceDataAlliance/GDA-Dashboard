@@ -10,11 +10,18 @@ title: "Governance and Membership Meeting "
 ---
 
 
+
 ## Agenda:
 
 - Get through big items on membership and governance
 - Solicit feedback
 - Then put pen to paper at R4D, circulate options for final outstanding issues, and ultimately craft draft bylaws
+
+
+- get through big items
+- solicit feedback
+- put pen to paper
+
 
 1. One
 2. Two
@@ -41,5 +48,3 @@ Agenda:
 + Get through big items on membership and governance    
 + Solicit feedback  
 + Then put pen to paper at R4D, circulate options for final outstanding issues, and ultimately craft draft bylaws
-
-
