@@ -3,15 +3,11 @@ var _ = require('lodash'),
   Backbone = require('backbone'),
   Handlebars = require('handlebars');
 
-var modalWindowtemplate = Handlebars.compile(require('../../templates/common/modal_window_tpl.hbs'));
+var modalWindowtemplate = require('../../templates/common/modal_window_tpl.hbs');
 
 var ModalWindowView = Backbone.View.extend({
 
   el: 'body',
-
-  options: {
-    'type': 'legend'
-  },
 
   events: function() {
     if (window.ontouchstart) {
@@ -26,17 +22,35 @@ var ModalWindowView = Backbone.View.extend({
     };
   },
 
-  initialize: function(data) {
-    if (data) {
-      this.render(data);
-    }
+  initialize: function(options, data) {
+    this.type = options ? options.type : 'legend-infowindow';
+
+    this.generateTemplate();
+
+    // if (data) {
+    //   this.render(data);
+    // }
 
     $(document).keyup(_.bind(this.onKeyUp, this));
   },
 
+  generateTemplate: function() {
+    var $tpl = $(modalWindowtemplate);
+    var base = $tpl.filter('#infowindow-base').html();
+    var current = $tpl.filter( '#'+ this.type ).html();
+
+    var baseTpl = Handlebars.compile(base);
+    var currentTpl = Handlebars.compile(current);
+
+    this.template = $(baseTpl).find('#content').append( currentTpl );
+
+    this.render();
+  },
+
   render: function(info) {
     this.fixed = true;
-    this.$el.append(modalWindowtemplate({'info': info}));
+    console.log(this.template);
+    this.$el.append( this.template );
     this.toogleState();
   },
 
