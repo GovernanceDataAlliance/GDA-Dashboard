@@ -49,25 +49,18 @@
   }
 
   .pop-up-legend-container.is-mobile {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 11;
-
     > .pop-up-legend {
+      position: fixed;
       overflow: auto;
       box-sizing: border-box;
-      position: relative;
       display: flex; display: -ms-box;
       margin: auto;
       z-index: 14;
       //optional, min size.
-      width: 90%;
-      height: rem(500px);
-      max-width: rem(755px);
-      min-height: 40%;
+      top: rem(40px);
+      bottom: rem(40px);
+      left: rem(20px);
+      right: rem(20px);
       background-color: $white;
     }
 

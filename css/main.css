@@ -4891,85 +4891,78 @@ select {
             margin-top: 0; }
           .c-tooltip > .pop-up-legend-container > .pop-up-legend > p:last-child {
             margin-bottom: 0; } }
-  .c-tooltip .pop-up-legend-container.is-mobile {
+  .c-tooltip .pop-up-legend-container.is-mobile > .pop-up-legend {
     position: fixed;
-    top: 0;
-    bottom: 0;
+    overflow: auto;
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    display: -ms-box;
+    margin: auto;
+    z-index: 14;
+    top: 2.5rem;
+    bottom: 2.5rem;
+    left: 1.25rem;
+    right: 1.25rem;
+    background-color: #fff; }
+  .c-tooltip .pop-up-legend-container.is-mobile .modal-container {
+    display: block;
+    width: 100%;
+    padding: 0 1.5625rem;
+    overflow: auto;
+    font-size: 0.9375rem;
+    -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+                -ms-grid-row-align: flex-start;
+            align-items: flex-start;
+    position: absolute;
+    top: 3.125rem;
     left: 0;
     right: 0;
-    z-index: 11; }
-    .c-tooltip .pop-up-legend-container.is-mobile > .pop-up-legend {
-      overflow: auto;
-      box-sizing: border-box;
-      position: relative;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      display: -ms-box;
-      margin: auto;
-      z-index: 14;
-      width: 90%;
-      height: 31.25rem;
-      max-width: 47.1875rem;
-      min-height: 40%;
-      background-color: #fff; }
-    .c-tooltip .pop-up-legend-container.is-mobile .modal-container {
-      display: block;
-      width: 100%;
-      padding: 0 1.5625rem;
-      overflow: auto;
-      font-size: 0.9375rem;
-      -webkit-align-items: flex-start;
-          -ms-flex-align: start;
-                  -ms-grid-row-align: flex-start;
-              align-items: flex-start;
-      position: absolute;
-      top: 3.125rem;
-      left: 0;
-      right: 0;
-      bottom: 1.5625rem; }
-    .c-tooltip .pop-up-legend-container.is-mobile .legend-description {
-      margin-bottom: 0.625rem; }
-    .c-tooltip .pop-up-legend-container.is-mobile li {
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-align-items: flex-start;
-          -ms-flex-align: start;
-              align-items: flex-start;
-      margin-right: 0.125rem;
-      padding: 0.3125rem 0; }
-      .c-tooltip .pop-up-legend-container.is-mobile li:before {
-        content: '';
-        display: inline-block;
-        width: 0.875rem;
-        height: 0.875rem;
-        margin-right: 0.3125rem; }
-      .c-tooltip .pop-up-legend-container.is-mobile li.-excellent:before {
-        background: #63A850; }
-      .c-tooltip .pop-up-legend-container.is-mobile li.-good:before {
-        background: #AEB44D; }
-      .c-tooltip .pop-up-legend-container.is-mobile li.-moderate:before {
-        background: #e9b33b; }
-      .c-tooltip .pop-up-legend-container.is-mobile li.-fair:before {
-        background: #cd8200; }
-      .c-tooltip .pop-up-legend-container.is-mobile li.-poor:before {
-        background: #97102c; }
-      .c-tooltip .pop-up-legend-container.is-mobile li.literal {
-        font-family: "Montserrat";
-        font-size: 0.6875rem;
-        text-transform: uppercase;
-        color: #39a1b2;
-        margin-right: 0.25rem; }
-        .c-tooltip .pop-up-legend-container.is-mobile li.literal:before {
-          display: none; }
-    .c-tooltip .pop-up-legend-container.is-mobile .legend-item {
+    bottom: 1.5625rem; }
+  .c-tooltip .pop-up-legend-container.is-mobile .legend-description {
+    margin-bottom: 0.625rem; }
+  .c-tooltip .pop-up-legend-container.is-mobile li {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin-right: 0.125rem;
+    padding: 0.3125rem 0; }
+    .c-tooltip .pop-up-legend-container.is-mobile li:before {
+      content: '';
+      display: inline-block;
+      width: 0.875rem;
+      height: 0.875rem;
+      margin-right: 0.3125rem; }
+    .c-tooltip .pop-up-legend-container.is-mobile li.-excellent:before {
+      background: #63A850; }
+    .c-tooltip .pop-up-legend-container.is-mobile li.-good:before {
+      background: #AEB44D; }
+    .c-tooltip .pop-up-legend-container.is-mobile li.-moderate:before {
+      background: #e9b33b; }
+    .c-tooltip .pop-up-legend-container.is-mobile li.-fair:before {
+      background: #cd8200; }
+    .c-tooltip .pop-up-legend-container.is-mobile li.-poor:before {
+      background: #97102c; }
+    .c-tooltip .pop-up-legend-container.is-mobile li.literal {
       font-family: "Montserrat";
-      font-size: 0.625rem;
-      letter-spacing: 0.0125rem;
-      color: #42352b;
+      font-size: 0.6875rem;
       text-transform: uppercase;
-      white-space: nowrap; }
+      color: #39a1b2;
+      margin-right: 0.25rem; }
+      .c-tooltip .pop-up-legend-container.is-mobile li.literal:before {
+        display: none; }
+  .c-tooltip .pop-up-legend-container.is-mobile .legend-item {
+    font-family: "Montserrat";
+    font-size: 0.625rem;
+    letter-spacing: 0.0125rem;
+    color: #42352b;
+    text-transform: uppercase;
+    white-space: nowrap; }
 
 /*
  * States are modes that can change
