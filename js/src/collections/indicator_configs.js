@@ -3,6 +3,7 @@ var CartoDBCollection = require('../lib/cartodb_collection.js');
 var CONFIG = require('../../config.json');
 
 var SQL = Handlebars.compile(require('../templates/queries/indicators_config.sql.hbs'));
+var list_SQL = Handlebars.compile(require('../templates/queries/indicators_list.sql.hbs'));
 
 var IndicatorConfigs = CartoDBCollection.extend({
   user_name: CONFIG.cartodb.user_name,
@@ -11,6 +12,12 @@ var IndicatorConfigs = CartoDBCollection.extend({
   url: function() {
     var query = SQL({ table: this.table });
     return this._urlForQuery(query);
+  },
+
+  indicatorsForList: function() {
+    var query = list_SQL({ table: this.table });
+    var url = this._urlForQuery(query);
+    return this.fetch({url: url});
   },
 
 });

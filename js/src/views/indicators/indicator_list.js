@@ -14,7 +14,7 @@ var IndicatorListView = Backbone.View.extend({
     this.listenTo(this.indicators, 'sync', this.render);
 
     if (this.indicators.length === 0) {
-      this.indicators.fetch();
+      this.indicators.indicatorsForList();
     }
   },
 
