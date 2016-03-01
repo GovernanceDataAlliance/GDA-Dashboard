@@ -9,6 +9,10 @@ var ModalWindowView = Backbone.View.extend({
 
   el: 'body',
 
+  options: {
+    'type': 'legend'
+  },
+
   events: function() {
     if (window.ontouchstart) {
       return  {
@@ -44,7 +48,7 @@ var ModalWindowView = Backbone.View.extend({
   },
 
   close: function(e) {
-    e.stopPropagation();
+    e && e.stopPropagation();
     this.fixed = false;
 
     $('.m-modal-window').remove();

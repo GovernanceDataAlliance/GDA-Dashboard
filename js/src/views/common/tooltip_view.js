@@ -5,11 +5,9 @@ var _ = require('lodash'),
 
 var LegendView = Backbone.View.extend({
 
-  el: '.c-tooltip',
-
-  events: {
-    'click .btn-close-modal' : '_hide'
-  },
+  // events: {
+  //   'click .btn-close-modal' : '_hide'
+  // },
 
   initialize: function() {
     this.model = new (Backbone.Model.extend({
@@ -37,6 +35,8 @@ var LegendView = Backbone.View.extend({
     } else {
       document.removeEventListener('click', listener);
     }
+
+    this.$('.btn-close-modal').on('click', _.bind(this._hide, this));
   },
 
   _stopEvent: function(e) {

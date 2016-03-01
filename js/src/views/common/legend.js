@@ -38,7 +38,7 @@ var Legend = Backbone.View.extend({
   },
 
   _toggleTooltip: function(e) {
-    new TooltipView().toggleStatus(e);
+    new TooltipView({ 'el': this.$('.c-tooltip') }).toggleStatus(e);
   },
 
 });
