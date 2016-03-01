@@ -586,18 +586,25 @@
       text-decoration: underline;
     }
 
+    .btn,
+    .read-more,
+    .read-less  {
+      color: $font-color-2;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .read-more:after,
+    .read-less:after {
+      border-color: $font-color-2;
+    }
+
     .partial-scores-wrapper,
     .index-score .partial-scores {
       background-color: #850e27;
     }
 
     .graph > svg { stroke: $white;}
-
-    .-not-covered {
-      .btn, .read-more,
-      .read-less {
-        color: $font-color-3 !important;
-      }
-    }
   }
 }
