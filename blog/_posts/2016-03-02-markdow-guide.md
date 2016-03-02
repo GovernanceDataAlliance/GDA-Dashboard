@@ -10,19 +10,25 @@ title: A markdown guide
 
 ---
 
-![Alt text](http://cdn.theatlantic.com/assets/media/img/photo/2015/11/images-from-the-2016-sony-world-pho/s01_130921474920553591/main_900.jpg?1448476701 "The Stormtroopocat")
-
-
-<!-- | Option | Description |
-| ------:| -----------:|
-| data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. | -->
+## Welcome!
 
 ###### _The data available for download on the Governance Data Alliance website_ includes only top-level, national-level scores or ratings for countries. It does not currently contain any of the indicator-, category-, or question-level data that comprise the overall national ratings or scores from each data producer. To access this more disaggregated data, as well as further background information and analysis on each data set, please visit the respective data producer organization’s website (relevant links are included in the downloadable .csv files). The following is a full description of the metadata and data fields used by Alliance data producers to share their data in a consistent and comparable manner on the Governance Data Alliance website and via associated data downloads (.csv files) and API access.
 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
 
 > Curabitur mollis urna a nunc finibus, id suscipit metus varius. Aenean eget blandit elit, a efficitur dui. Suspendisse feugiat fermentum eros id sagittis. Suspendisse potenti.
+
+### An example of comparison table
+
+
+| | Option | Description | Address |
+| ------:| -----------:| -------:|
+| data   | path to data files to supply the data that will be passed into templates. | Lorem ipsum | id suscipit metus varius. Aenean eget blandit elit,
+| engine | engine to be used for processing templates. Handlebars is the default. | Lorem ipsum | Ut enim ad minim veniam, quis nostrud exercitation
+| ext    | extension to be used for dest files. | Lorem ipsum | unt in culpa qui officia deserunt mollit anim id est laborum
+
+#### Some lists
 
 + Curabitur mollis urna a nunc finibus, id [suscipit metus varius](https://www.google.es). Aenean eget blandit elit, a efficitur dui.Suspendisse feugiat fermentum eros id sagittis. Suspendisse potenti.
 + Suspendisse feugiat fermentum eros id sagittis. Suspendisse potenti. Donec dapibus eu sem quis.
@@ -32,7 +38,19 @@ title: A markdown guide
 2. Suspendisse feugiat fermentum eros id sagittis. Suspendisse potenti. Donec dapibus eu sem quis
 3. convallis. Aenean neque velit, scelerisque et commodo sit amet, sodales eget urna.
 
+#### Writing styles
 
+**This is an amazing bold text**
+
+_And this, and incredible italic text!_
+
+
+#### Images!
+
+![Alt text](http://cdn.theatlantic.com/assets/media/img/photo/2015/11/images-from-the-2016-sony-world-pho/s01_130921474920553591/main_900.jpg?1448476701 "The Stormtroopocat")
+
+
+##### Terms
 
 **desired_direction:** "Up" if the scoring scale is one where higher scores are positive, "down" if the scale is one where lower scores are positive
 
