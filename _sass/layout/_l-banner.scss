@@ -26,7 +26,8 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
     .highlighted-text {
       font-size: rem(16px);
-      line-height: 1em;
+      line-height: rem(26px);
+      letter-spacing: rem(.5px);
 
       @media screen and (min-width: $screen-s) {
         font-size: rem(18px);
