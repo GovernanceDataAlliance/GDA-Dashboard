@@ -1,7 +1,7 @@
 {{#if iso}}
   <ul class="{{iso}}">
     {{#each scores}}
-      {{#if score}}
+      {{#if score includeZero=true}}
         <li class="table-cell {{#if classColor}}{{classColor}}{{/if}} -{{units}}" data-index="{{short_name}}" data-year="{{year}}">
          <span>{{#round}}{{score}}{{/round}}</span> 
         {{#if units_abbr}}
@@ -16,7 +16,7 @@
 {{else}}
   <ul>
     {{#each scores}}
-        <li class="table-cell no-data" data-index="{{short_name}}"></li>
+      <li class="table-cell no-data" data-index="{{short_name}}"></li>
     {{/each}}
   </ul>
 {{/if}}
