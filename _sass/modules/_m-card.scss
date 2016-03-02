@@ -433,6 +433,11 @@
       padding: rem(15px);
       background-color: $bg-color-1;
       padding: rem(15px) rem(30px) rem(30px);
+      
+      //To hide partial ranks at CER index.
+      &.-cer {
+        display: none;
+      }
     }
 
     .explanation {
