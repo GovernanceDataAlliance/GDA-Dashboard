@@ -2380,6 +2380,8 @@ select {
           display: none; }
         .is-dashboard-layout .m-card .card-wrap > .wrap .index-description .organization {
           margin-bottom: 1.25rem; }
+        .is-dashboard-layout .m-card .card-wrap > .wrap .index-description > .not-covered {
+          margin: 0; }
         .is-dashboard-layout .m-card .card-wrap > .wrap .index-score > .-usd {
           -webkit-flex-direction: column;
               -ms-flex-direction: column;
@@ -2477,13 +2479,14 @@ select {
     height: 30px;
     background-color: #ddd; }
   .m-card .index-description .not-covered {
+    margin-top: 1.5625rem;
     font-size: 1.0625rem;
     font-weight: 700;
     color: #5b5b5b;
     text-transform: uppercase;
     font-family: "Montserrat"; }
   .m-card .index-description .btn:last-child {
-    margin-top: 25px; }
+    margin-top: 1.5625rem; }
   .m-card .index-score {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -2517,7 +2520,8 @@ select {
         .is-dashboard-layout .m-card .index-score {
           width: 100%; }
         .m-card .index-score > .js--partial-ranks {
-          width: 100%; } }
+          width: 100%;
+          min-height: 7.5rem; } }
     .m-card .index-score > .resume {
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -2598,6 +2602,8 @@ select {
       padding: 0.9375rem;
       background-color: #f4f3f2;
       padding: 0.9375rem 1.875rem 1.875rem; }
+      .m-card .index-score .partial-scores-wrapper.-cer {
+        display: none; }
     .m-card .index-score .explanation {
       font-size: 0.875rem;
       margin-bottom: 0.625rem;
@@ -2731,14 +2737,22 @@ select {
         background-color: #fff; }
     .m-card.-score-poor a:hover {
       text-decoration: underline; }
+    .m-card.-score-poor .btn,
+    .m-card.-score-poor .read-more,
+    .m-card.-score-poor .read-less {
+      color: #fff; }
+      .m-card.-score-poor .btn:hover,
+      .m-card.-score-poor .read-more:hover,
+      .m-card.-score-poor .read-less:hover {
+        text-decoration: underline; }
+    .m-card.-score-poor .read-more:after,
+    .m-card.-score-poor .read-less:after {
+      border-color: #fff; }
     .m-card.-score-poor .partial-scores-wrapper,
     .m-card.-score-poor .index-score .partial-scores {
       background-color: #850e27; }
     .m-card.-score-poor .graph > svg {
       stroke: #fff; }
-    .m-card.-score-poor .-not-covered .btn, .m-card.-score-poor .-not-covered .read-more,
-    .m-card.-score-poor .-not-covered .read-less {
-      color: #39a1b2 !important; }
 
 .m-card--indexes {
   width: 100%;
@@ -3839,7 +3853,7 @@ select {
       width: 3.75rem;
       height: 0.1875rem;
       background-color: #49c9de; }
-  .m-static-content p, .m-static-content a {
+  .m-static-content p, .m-static-content a:not(.c-tag) {
     font-size: 1rem; }
   .m-static-content ul {
     list-style-type: disc;
@@ -3921,18 +3935,20 @@ select {
       .m-static-content ul p, .m-static-content ul a {
         font-size: 0.9375rem;
         line-height: 1.6875rem; }
-    .m-static-content p, .m-static-content a {
+    .m-static-content p, .m-static-content a:not(.c-tag) {
       font-size: 1.125rem; } }
   @media screen and (min-width: 1024px) {
     .m-static-content {
       max-width: 80%; }
+      .m-static-content.m-post {
+        max-width: 100%; }
       .m-static-content h5 {
         line-height: 2.125rem; }
       .m-static-content h6 {
         font-size: 0.9375rem;
         line-height: 1.8125rem;
         letter-spacing: 0.025rem; }
-      .m-static-content p, .m-static-content a {
+      .m-static-content p, .m-static-content a:not(.c-tag) {
         font-size: 1.25rem;
         line-height: 2.125rem;
         letter-spacing: 0.01875rem; }
@@ -4698,6 +4714,8 @@ select {
   font-weight: 400;
   color: #42352b;
   line-height: 1em; }
+  .m-static-content .c-section-title {
+    max-width: 100%; }
   .c-section-title span {
     display: block;
     font-size: 0.9375rem;
