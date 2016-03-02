@@ -1,13 +1,16 @@
-<div class="l-tag-cloud">
-  <div class="wrap">
-    {% assign tags = site.tags | sort %}
-    <div class="m-tag-cloud">
-      <h2>#Tags</h2>
-      {% for tag in tags %}
-        <a class="c-tag" href="{{ site.baseurl }}/blog/tags#{{ tag | first }}">
-          #{{ tag[0]  }}
-        </a>
-      {% endfor %}
+{% assign tags = site.tags | sort %}
+
+{% unless tags == empty  %}
+  <div class="l-tag-cloud">
+    <div class="wrap">
+      <div class="m-tag-cloud">
+        <h2>#Tags</h2>
+        {% for tag in tags %}
+          <a class="c-tag" href="{{ site.baseurl }}/blog/tags#{{ tag | first }}">
+            #{{tag[0]  | replace:'_', ' '}}
+          </a>
+        {% endfor %}
+      </div>
     </div>
   </div>
-</div>
+{% endunless %}

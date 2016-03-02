@@ -53,7 +53,7 @@ var IndicatorView = Backbone.View.extend({
   },
 
   partialRanks: function() {
-    if ( this.indicator.iso != undefined && this.indicator.score ) {
+    if ( this.indicator.iso != undefined && this.indicator.score && this.indicator.short_name != 'cer') {
       new PartialRanksView({
         'el': this.$('.js--partial-ranks'),
         'iso': this.indicator.iso,
