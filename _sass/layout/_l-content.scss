@@ -1,6 +1,10 @@
 .l-content {
   //Countries list
-  padding: rem(20px) 0 rem(60px) 0;
+  padding: rem(60px) 0;
+
+  .btn.-secondary {
+    margin-top: rem(30px);
+  }
 
   &:nth-child(2n + 1) {
     background-color: $bg-color-1;
@@ -16,17 +20,24 @@
   }
 
   @media screen and (min-width: $screen-s) {
+    padding: rem(95px) 0;
     &.-countries {
       padding: 0;
     }
   }
 
   @media screen and (min-width: 768px) {
-    padding: rem(85px) 0 rem(120px);
-
     &.-countries {
       padding: rem(85px) 0 rem(120px);
     }
+  }
+
+  @media screen and (min-width: $screen-l) {
+    padding: rem(95px) 0 rem(120px);
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    padding: rem(120px) 0;
   }
 }
 
