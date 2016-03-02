@@ -40,7 +40,7 @@ var CohortGruops = CartoDBCollection.extend({
 
 module.exports = CohortGruops;
 
-},{"../../config.json":1,"../lib/cartodb_collection.js":10,"../templates/queries/cohort_groups.sql.hbs":29,"handlebars":87,"jquery":99,"lodash":100}],3:[function(require,module,exports){
+},{"../../config.json":1,"../lib/cartodb_collection.js":10,"../templates/queries/cohort_groups.sql.hbs":29,"handlebars":88,"jquery":100,"lodash":101}],3:[function(require,module,exports){
 var $ = require('jquery'), _ = require('lodash');
 
 var CartoDBCollection = require('../lib/cartodb_collection.js');
@@ -136,7 +136,7 @@ var Countries = CartoDBCollection.extend({
 
 module.exports = Countries;
 
-},{"../../config.json":1,"../lib/cartodb_collection.js":10,"../lib/services/colors.js":13,"../templates/queries/countries_for_index.sql.hbs":30,"../templates/queries/countries_list.sql.hbs":31,"handlebars":87,"jquery":99,"lodash":100}],4:[function(require,module,exports){
+},{"../../config.json":1,"../lib/cartodb_collection.js":10,"../lib/services/colors.js":13,"../templates/queries/countries_for_index.sql.hbs":30,"../templates/queries/countries_list.sql.hbs":31,"handlebars":88,"jquery":100,"lodash":101}],4:[function(require,module,exports){
 var Handlebars = require('handlebars');
 var CartoDBCollection = require('../lib/cartodb_collection.js');
 var CONFIG = require('../../config.json');
@@ -163,7 +163,7 @@ var IndicatorConfigs = CartoDBCollection.extend({
 
 module.exports = IndicatorConfigs;
 
-},{"../../config.json":1,"../lib/cartodb_collection.js":10,"../templates/queries/indicators_config.sql.hbs":33,"../templates/queries/indicators_list.sql.hbs":34,"handlebars":87}],5:[function(require,module,exports){
+},{"../../config.json":1,"../lib/cartodb_collection.js":10,"../templates/queries/indicators_config.sql.hbs":33,"../templates/queries/indicators_list.sql.hbs":35,"handlebars":88}],5:[function(require,module,exports){
 var $ = require('jquery'),
     _ = require('lodash');
 
@@ -174,7 +174,8 @@ var CONFIG = require('../../config.json');
 var Handlebars = require('handlebars');
 
 var SQL = Handlebars.compile(require('../templates/queries/indicators.sql.hbs')),
-    SQLwithYears = Handlebars.compile(require('../templates/queries/indicators_with_years.sql.hbs'));
+    SQLwithYears = Handlebars.compile(require('../templates/queries/indicators_with_years.sql.hbs')),
+    SQLHistoricalData = Handlebars.compile(require('../templates/queries/indicators_historical_data.sql.hbs'));
 
 var Indicators = CartoDBCollection.extend({
   user_name: CONFIG.cartodb.user_name,
@@ -194,8 +195,8 @@ var Indicators = CartoDBCollection.extend({
     return this.fetch({url: url})
   },
 
-  forCountryAndYear: function(iso, year) {
-    var query = SQLwithYears({ 'table': this.table, 'iso': iso, 'year': year }),
+  historicalData: function(iso, short_name) {
+    var query = SQLHistoricalData({ 'table': this.table, 'iso': iso, 'index': short_name }),
         url = this._urlForQuery(query);
 
     return this.fetch({url: url})
@@ -240,7 +241,7 @@ var Indicators = CartoDBCollection.extend({
 
 module.exports = Indicators;
 
-},{"../../config.json":1,"../lib/cartodb_collection.js":10,"../lib/services/colors.js":13,"../templates/queries/indicators.sql.hbs":32,"../templates/queries/indicators_with_years.sql.hbs":35,"handlebars":87,"jquery":99,"lodash":100}],6:[function(require,module,exports){
+},{"../../config.json":1,"../lib/cartodb_collection.js":10,"../lib/services/colors.js":13,"../templates/queries/indicators.sql.hbs":32,"../templates/queries/indicators_historical_data.sql.hbs":34,"../templates/queries/indicators_with_years.sql.hbs":36,"handlebars":88,"jquery":100,"lodash":101}],6:[function(require,module,exports){
 var $ = require('jquery'),
     _ = require('lodash');
 
@@ -280,7 +281,7 @@ var Years = CartoDBCollection.extend({
 
 module.exports = Years;
 
-},{"../../config.json":1,"../lib/cartodb_collection.js":10,"../templates/queries/total_years.sql.hbs":36,"../templates/queries/years_for_this_index.sql.hbs":37,"handlebars":87,"jquery":99,"lodash":100}],7:[function(require,module,exports){
+},{"../../config.json":1,"../lib/cartodb_collection.js":10,"../templates/queries/total_years.sql.hbs":37,"../templates/queries/years_for_this_index.sql.hbs":38,"handlebars":88,"jquery":100,"lodash":101}],7:[function(require,module,exports){
 
 var FunctionHelper = {
 
@@ -343,7 +344,7 @@ Handlebars.registerHelper('ordinalNumber', function(number) {
   return number + sufix;
 });
 
-},{"handlebars":87}],9:[function(require,module,exports){
+},{"handlebars":88}],9:[function(require,module,exports){
 var $ = require('jquery'),
     Backbone = require('backbone');
 
@@ -356,7 +357,7 @@ var Router = require('./routers/indicators.js'),
 
 Backbone.history.start();
 
-},{"./helpers/handlebars.js":8,"./routers/indicators.js":16,"backbone":54,"jquery":99}],10:[function(require,module,exports){
+},{"./helpers/handlebars.js":8,"./routers/indicators.js":16,"backbone":55,"jquery":100}],10:[function(require,module,exports){
 var  $ = require('jquery'),
     Backbone = require('backbone'),
     format = require('./format.js');
@@ -390,7 +391,7 @@ var CartoDBCollection = Backbone.Collection.extend({
 
 module.exports = CartoDBCollection;
 
-},{"./format.js":12,"backbone":54,"jquery":99}],11:[function(require,module,exports){
+},{"./format.js":12,"backbone":55,"jquery":100}],11:[function(require,module,exports){
 var Backbone = require('backbone'),
     format = require('./format.js'),
     _ = require('lodash');
@@ -428,7 +429,7 @@ var CartoDBModel = Backbone.Model.extend({
 
 module.exports = CartoDBModel;
 
-},{"./format.js":12,"backbone":54,"lodash":100}],12:[function(require,module,exports){
+},{"./format.js":12,"backbone":55,"lodash":101}],12:[function(require,module,exports){
 module.exports = function() {
   var str = arguments[0],
       len = arguments.length+1,
@@ -578,7 +579,7 @@ var ViewManager = Backbone.Model.extend({
 
 module.exports = ViewManager;
 
-},{"backbone":54,"lodash":100}],15:[function(require,module,exports){
+},{"backbone":55,"lodash":101}],15:[function(require,module,exports){
 var CartoDBModel = require('../lib/cartodb_model.js');
 
 var CONFIG = require('../../config.json');
@@ -651,7 +652,7 @@ var Router = Backbone.Router.extend({
 
 module.exports = Router;
 
-},{"../lib/view_manager.js":14,"../views/common/wrapper_header_view.js":44,"../views/indicators/indicator.js":48,"../views/indicators/indicators.js":52,"backbone":54}],17:[function(require,module,exports){
+},{"../lib/view_manager.js":14,"../views/common/wrapper_header_view.js":45,"../views/indicators/indicator.js":49,"../views/indicators/indicators.js":53,"backbone":55}],17:[function(require,module,exports){
 module.exports = "<div class=\"m-modal-window m-download\">\n  <div class=\"modal-wrapper\">\n    <div class=\"btn-close-modal\">×</div>\n    <div class=\"modal-container is-loading-share\">\n    <div class=\"modal-content\">\n\n      <div class=\"share-nav\">\n        <h2>Download data</h2>\n      </div>\n\n      <div class=\"tabs-content content\">\n        <div class=\"content active\" id=\"share-link\">\n          <p>For details on the data you are about to download, including a full description of the\n          meta data and data fields used by Alliance data producers to share their data in a consistent and comparable manner, please <a href=\"{{siteURL}}/blog/2016/02/19/a-guide-to-the-data-available-on-the-governance-data-alliance-website.html\" target=\"_blank\">click here</a>.</p>\n        </div>\n      </div>\n\n      <div class=\"buttons\">\n        <a href=\"{{csv}}\" class=\"btn -secondary js--download-btn\" download=\"data.csv\">download</a>\n        <a href=\"\" class=\"btn js--cancel-btn\">cancel</a>\n      </div>\n    </div>\n  </div>\n  </div>\n  <div class=\"modal-background\"></div>\n</div>\n";
 
 },{}],18:[function(require,module,exports){
@@ -703,18 +704,21 @@ module.exports = " with d as (\n select * from indicator_data where iso='{{iso}}
 module.exports = "SELECT * FROM indicator_config ORDER BY short_name asc\n";
 
 },{}],34:[function(require,module,exports){
-module.exports = "SELECT * FROM indicator_config ORDER BY product_name COLLATE \"C\"  asc\n";
+module.exports = "SELECT\n short_name, \n iso,\n score,\n score_text,\n year \nFROM indicator_data \nWHERE iso='{{iso}}' and short_name='{{index}}'\nORDER BY year asc\n";
 
 },{}],35:[function(require,module,exports){
-module.exports = " with d as (\n select * from indicator_data where iso='{{iso}}' and year={{year}}\n )\n SELECT\n   distinct on(c.short_name) c.short_name,\n   c.score_range,\n   c.desired_direction,\n   c.has_historical_info,\n   c.max_score,\n   c.methodology_link,\n   c.min_score,\n   c.product_description,\n   c.product_logo,\n   c.product_name,\n   c.units, \n   c.units_abbr,\n   c.organization,\n   '{{iso}}' as iso,\n   d.notes,\n   d.score,\n   d.score_text,\n   d.year\n  FROM indicator_config AS c\n    left JOIN  d ON c.short_name = d.short_name\n  ORDER BY c.short_name asc, d.year asc\n";
+module.exports = "SELECT * FROM indicator_config ORDER BY product_name COLLATE \"C\"  asc\n";
 
 },{}],36:[function(require,module,exports){
-module.exports = "SELECT distinct on (year) \n  year \nFROM {{table}} \nWHERE year is not null \nORDER BY year desc";
+module.exports = " with d as (\n select * from indicator_data where iso='{{iso}}' and year={{year}}\n )\n SELECT\n   distinct on(c.short_name) c.short_name,\n   c.score_range,\n   c.desired_direction,\n   c.has_historical_info,\n   c.max_score,\n   c.methodology_link,\n   c.min_score,\n   c.product_description,\n   c.product_logo,\n   c.product_name,\n   c.units, \n   c.units_abbr,\n   c.organization,\n   '{{iso}}' as iso,\n   d.notes,\n   d.score,\n   d.score_text,\n   d.year\n  FROM indicator_config AS c\n    left JOIN  d ON c.short_name = d.short_name\n  ORDER BY c.short_name asc, d.year asc\n";
 
 },{}],37:[function(require,module,exports){
-module.exports = "SELECT distinct on (year) \n  year,\n  short_name \nFROM {{table}}  \nWHERE year is not null AND short_name='{{index}}'\nORDER BY year desc";
+module.exports = "SELECT distinct on (year) \n  year \nFROM {{table}} \nWHERE year is not null \nORDER BY year desc";
 
 },{}],38:[function(require,module,exports){
+module.exports = "SELECT distinct on (year) \n  year,\n  short_name \nFROM {{table}}  \nWHERE year is not null AND short_name='{{index}}'\nORDER BY year desc";
+
+},{}],39:[function(require,module,exports){
 var _ = require('lodash'),
   $ = require('jquery'),
   Backbone = require('backbone'),
@@ -794,7 +798,7 @@ var DownloadView = Backbone.View.extend({
 
 module.exports = DownloadView;
 
-},{"../../collections/countries":3,"../../collections/indicators":5,"../../templates/common/download_tpl.hbs":17,"backbone":54,"handlebars":87,"jquery":99,"lodash":100}],39:[function(require,module,exports){
+},{"../../collections/countries":3,"../../collections/indicators":5,"../../templates/common/download_tpl.hbs":17,"backbone":55,"handlebars":88,"jquery":100,"lodash":101}],40:[function(require,module,exports){
 var _ = require('lodash'),
   $ = require('jquery'),
   Backbone = require('backbone'),
@@ -818,7 +822,7 @@ var Legend = Backbone.View.extend({
 
 module.exports = Legend;
 
-},{"../../templates/common/legend_tpl.hbs":18,"backbone":54,"handlebars":87,"jquery":99,"lodash":100}],40:[function(require,module,exports){
+},{"../../templates/common/legend_tpl.hbs":18,"backbone":55,"handlebars":88,"jquery":100,"lodash":101}],41:[function(require,module,exports){
 var _ = require('lodash');
   $ = require('jquery'),
   Backbone = require('backbone'),
@@ -897,7 +901,7 @@ var ShareView = Backbone.View.extend({
 
 module.exports = ShareView;
 
-},{"../../templates/common/share_tpl.hbs":19,"backbone":54,"handlebars":87,"jquery":99,"lodash":100}],41:[function(require,module,exports){
+},{"../../templates/common/share_tpl.hbs":19,"backbone":55,"handlebars":88,"jquery":100,"lodash":101}],42:[function(require,module,exports){
 var _ = require('lodash'),
   $ = require('jquery'),
   Backbone = require('backbone');
@@ -959,7 +963,7 @@ var TextShortener = Backbone.View.extend({
 
 module.exports = TextShortener;
 
-},{"backbone":54,"jquery":99,"lodash":100}],42:[function(require,module,exports){
+},{"backbone":55,"jquery":100,"lodash":101}],43:[function(require,module,exports){
 var _ = require('lodash'),
   Backbone = require('backbone'),
   Handlebars = require('handlebars');
@@ -1031,7 +1035,7 @@ var ToolbarUtilsView = Backbone.View.extend({
 
 module.exports = ToolbarUtilsView;
 
-},{"../../templates/common/toolbar_utils_tpl.hbs":20,"./download_view.js":38,"./share_view.js":40,"backbone":54,"handlebars":87,"lodash":100}],43:[function(require,module,exports){
+},{"../../templates/common/toolbar_utils_tpl.hbs":20,"./download_view.js":39,"./share_view.js":41,"backbone":55,"handlebars":88,"lodash":101}],44:[function(require,module,exports){
 var _ = require('lodash'),
   $ = require('jquery'),
   Backbone = require('backbone'),
@@ -1097,7 +1101,7 @@ var LegendView = Backbone.View.extend({
 
 module.exports = LegendView;
 
-},{"backbone":54,"handlebars":87,"jquery":99,"lodash":100}],44:[function(require,module,exports){
+},{"backbone":55,"handlebars":88,"jquery":100,"lodash":101}],45:[function(require,module,exports){
 var _ = require('lodash'),
   $ = require('jquery'),
   Backbone = require('backbone'),
@@ -1158,7 +1162,7 @@ var WrapperHeaderView = Backbone.View.extend({
 
 module.exports = WrapperHeaderView;
 
-},{"backbone":54,"enquire.js":56,"jquery":99,"lodash":100}],45:[function(require,module,exports){
+},{"backbone":55,"enquire.js":57,"jquery":100,"lodash":101}],46:[function(require,module,exports){
 (function (global){
 var $ = require('jquery');
 global.$ = $; // for chosen.js
@@ -1238,7 +1242,7 @@ var CompareYearSelectors = Backbone.View.extend({
 module.exports = CompareYearSelectors;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../../templates/common/year_selector.hbs":21,"backbone":54,"chosen-jquery-browserify":55,"enquire.js":56,"handlebars":87,"jquery":99,"lodash":100}],46:[function(require,module,exports){
+},{"../../templates/common/year_selector.hbs":21,"backbone":55,"chosen-jquery-browserify":56,"enquire.js":57,"handlebars":88,"jquery":100,"lodash":101}],47:[function(require,module,exports){
 var $ = require('jquery'),
     _ = require('lodash'),
     Backbone = require('backbone'),
@@ -1292,7 +1296,7 @@ var CohortGroupsView = Backbone.View.extend({
 
 module.exports = CohortGroupsView;
 
-},{"../../collections/cohort_groups.js":2,"../../templates/indicators/cohort_groups_template.hbs":22,"backbone":54,"handlebars":87,"jquery":99,"lodash":100}],47:[function(require,module,exports){
+},{"../../collections/cohort_groups.js":2,"../../templates/indicators/cohort_groups_template.hbs":22,"backbone":55,"handlebars":88,"jquery":100,"lodash":101}],48:[function(require,module,exports){
 var _ = require('lodash'),
   Backbone = require('backbone'),
   Handlebars = require('handlebars');
@@ -1343,7 +1347,7 @@ var IndicatorListView = Backbone.View.extend({
 
 module.exports = IndicatorListView;
 
-},{"../../templates/indicators/country_list.hbs":23,"backbone":54,"handlebars":87,"lodash":100}],48:[function(require,module,exports){
+},{"../../templates/indicators/country_list.hbs":23,"backbone":55,"handlebars":88,"lodash":101}],49:[function(require,module,exports){
 var _ = require('lodash'),
     $ = require('jquery'),
     Backbone = require('backbone'),
@@ -1549,7 +1553,7 @@ var IndicatorView = Backbone.View.extend({
 
 module.exports = IndicatorView;
 
-},{"../../collections/countries.js":3,"../../collections/years.js":6,"../../helpers/functions.js":7,"../../models/indicator.js":15,"../../templates/indicators/indicator.hbs":24,"../common/legend.js":39,"../common/text_shortener.js":41,"../common/toolbar_utils_view.js":42,"../common/tooltip_view.js":43,"./country_list.js":47,"./indicator_header.js":49,"./indicator_selectors_toolbar.js":51,"backbone":54,"handlebars":87,"jquery":99,"lodash":100}],49:[function(require,module,exports){
+},{"../../collections/countries.js":3,"../../collections/years.js":6,"../../helpers/functions.js":7,"../../models/indicator.js":15,"../../templates/indicators/indicator.hbs":24,"../common/legend.js":40,"../common/text_shortener.js":42,"../common/toolbar_utils_view.js":43,"../common/tooltip_view.js":44,"./country_list.js":48,"./indicator_header.js":50,"./indicator_selectors_toolbar.js":52,"backbone":55,"handlebars":88,"jquery":100,"lodash":101}],50:[function(require,module,exports){
 var _ = require('lodash'),
     Backbone = require('backbone'),
     Handlebars = require('handlebars');
@@ -1579,7 +1583,7 @@ var IndicatorHeaderView = Backbone.View.extend({
 
 module.exports = IndicatorHeaderView;
 
-},{"../../templates/indicators/indicator_header.hbs":25,"../common/text_shortener.js":41,"backbone":54,"handlebars":87,"lodash":100}],50:[function(require,module,exports){
+},{"../../templates/indicators/indicator_header.hbs":25,"../common/text_shortener.js":42,"backbone":55,"handlebars":88,"lodash":101}],51:[function(require,module,exports){
 var _ = require('lodash'),
   Backbone = require('backbone'),
   Handlebars = require('handlebars');
@@ -1615,7 +1619,7 @@ var IndicatorListView = Backbone.View.extend({
 
 module.exports = IndicatorListView;
 
-},{"../../templates/indicators/indicator_list.hbs":26,"backbone":54,"handlebars":87,"lodash":100}],51:[function(require,module,exports){
+},{"../../templates/indicators/indicator_list.hbs":26,"backbone":55,"handlebars":88,"lodash":101}],52:[function(require,module,exports){
 var _ = require('lodash'),
     $ = require('jquery'),
     Backbone = require('backbone'),
@@ -1685,7 +1689,7 @@ var IndicatorsToolbarView = Backbone.View.extend({
 
 module.exports = IndicatorsToolbarView;
 
-},{"../../collections/years.js":6,"../../templates/indicators/indicators_selectors_toolbar.hbs":28,"../common/legend.js":39,"../common/year_selector.js":45,"./cohort_groups.js":46,"backbone":54,"handlebars":87,"jquery":99,"lodash":100}],52:[function(require,module,exports){
+},{"../../collections/years.js":6,"../../templates/indicators/indicators_selectors_toolbar.hbs":28,"../common/legend.js":40,"../common/year_selector.js":46,"./cohort_groups.js":47,"backbone":55,"handlebars":88,"jquery":100,"lodash":101}],53:[function(require,module,exports){
 var _ = require('lodash'),
   Backbone = require('backbone'),
   Handlebars = require('handlebars');
@@ -1724,7 +1728,7 @@ var IndicatorsView = Backbone.View.extend({
 
 module.exports = IndicatorsView;
 
-},{"../../collections/indicator_configs.js":4,"../../templates/indicators/indicators.hbs":27,"./indicator_list.js":50,"backbone":54,"handlebars":87,"lodash":100}],53:[function(require,module,exports){
+},{"../../collections/indicator_configs.js":4,"../../templates/indicators/indicators.hbs":27,"./indicator_list.js":51,"backbone":55,"handlebars":88,"lodash":101}],54:[function(require,module,exports){
 (function (process,__filename){
 /** vim: et:ts=4:sw=4:sts=4
  * @license amdefine 1.0.0 Copyright (c) 2011-2015, The Dojo Foundation All Rights Reserved.
@@ -2029,7 +2033,7 @@ function amdefine(module, requireFn) {
 module.exports = amdefine;
 
 }).call(this,require('_process'),"/node_modules/amdefine/amdefine.js")
-},{"_process":102,"path":101}],54:[function(require,module,exports){
+},{"_process":103,"path":102}],55:[function(require,module,exports){
 (function (global){
 //     Backbone.js 1.2.3
 
@@ -3927,7 +3931,7 @@ module.exports = amdefine;
 }));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"jquery":99,"underscore":103}],55:[function(require,module,exports){
+},{"jquery":100,"underscore":104}],56:[function(require,module,exports){
 (function (global){
 (function() {
   var $, AbstractChosen, Chosen, SelectParser, get_side_border_padding, _ref,
@@ -5007,7 +5011,7 @@ module.exports = amdefine;
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],56:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 /*!
  * enquire.js v2.1.1 - Awesome Media Queries in JavaScript
  * Copyright (c) 2014 Nick Williams - http://wicky.nillia.ms/enquire.js
@@ -5301,9 +5305,9 @@ module.exports = amdefine;
 	return new MediaQueryDispatch();
 
 }));
-},{}],57:[function(require,module,exports){
-
 },{}],58:[function(require,module,exports){
+
+},{}],59:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -5370,7 +5374,7 @@ exports['default'] = inst;
 module.exports = exports['default'];
 
 
-},{"./handlebars.runtime":59,"./handlebars/compiler/ast":61,"./handlebars/compiler/base":62,"./handlebars/compiler/compiler":64,"./handlebars/compiler/javascript-compiler":66,"./handlebars/compiler/visitor":69,"./handlebars/no-conflict":83}],59:[function(require,module,exports){
+},{"./handlebars.runtime":60,"./handlebars/compiler/ast":62,"./handlebars/compiler/base":63,"./handlebars/compiler/compiler":65,"./handlebars/compiler/javascript-compiler":67,"./handlebars/compiler/visitor":70,"./handlebars/no-conflict":84}],60:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -5439,7 +5443,7 @@ exports['default'] = inst;
 module.exports = exports['default'];
 
 
-},{"./handlebars/base":60,"./handlebars/exception":73,"./handlebars/no-conflict":83,"./handlebars/runtime":84,"./handlebars/safe-string":85,"./handlebars/utils":86}],60:[function(require,module,exports){
+},{"./handlebars/base":61,"./handlebars/exception":74,"./handlebars/no-conflict":84,"./handlebars/runtime":85,"./handlebars/safe-string":86,"./handlebars/utils":87}],61:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -5545,7 +5549,7 @@ exports.createFrame = _utils.createFrame;
 exports.logger = _logger2['default'];
 
 
-},{"./decorators":71,"./exception":73,"./helpers":74,"./logger":82,"./utils":86}],61:[function(require,module,exports){
+},{"./decorators":72,"./exception":74,"./helpers":75,"./logger":83,"./utils":87}],62:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -5578,7 +5582,7 @@ exports['default'] = AST;
 module.exports = exports['default'];
 
 
-},{}],62:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -5628,7 +5632,7 @@ function parse(input, options) {
 }
 
 
-},{"../utils":86,"./helpers":65,"./parser":67,"./whitespace-control":70}],63:[function(require,module,exports){
+},{"../utils":87,"./helpers":66,"./parser":68,"./whitespace-control":71}],64:[function(require,module,exports){
 /* global define */
 'use strict';
 
@@ -5796,7 +5800,7 @@ exports['default'] = CodeGen;
 module.exports = exports['default'];
 
 
-},{"../utils":86,"source-map":88}],64:[function(require,module,exports){
+},{"../utils":87,"source-map":89}],65:[function(require,module,exports){
 /* eslint-disable new-cap */
 
 'use strict';
@@ -6370,7 +6374,7 @@ function transformLiteralToPath(sexpr) {
 }
 
 
-},{"../exception":73,"../utils":86,"./ast":61}],65:[function(require,module,exports){
+},{"../exception":74,"../utils":87,"./ast":62}],66:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -6602,7 +6606,7 @@ function preparePartialBlock(open, program, close, locInfo) {
 }
 
 
-},{"../exception":73}],66:[function(require,module,exports){
+},{"../exception":74}],67:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -7730,7 +7734,7 @@ exports['default'] = JavaScriptCompiler;
 module.exports = exports['default'];
 
 
-},{"../base":60,"../exception":73,"../utils":86,"./code-gen":63}],67:[function(require,module,exports){
+},{"../base":61,"../exception":74,"../utils":87,"./code-gen":64}],68:[function(require,module,exports){
 /* istanbul ignore next */
 /* Jison generated parser */
 "use strict";
@@ -8470,7 +8474,7 @@ var handlebars = (function () {
 exports['default'] = handlebars;
 
 
-},{}],68:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 /* eslint-disable new-cap */
 'use strict';
 
@@ -8658,7 +8662,7 @@ PrintVisitor.prototype.HashPair = function (pair) {
 /* eslint-enable new-cap */
 
 
-},{"./visitor":69}],69:[function(require,module,exports){
+},{"./visitor":70}],70:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -8800,7 +8804,7 @@ exports['default'] = Visitor;
 module.exports = exports['default'];
 
 
-},{"../exception":73}],70:[function(require,module,exports){
+},{"../exception":74}],71:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9023,7 +9027,7 @@ exports['default'] = WhitespaceControl;
 module.exports = exports['default'];
 
 
-},{"./visitor":69}],71:[function(require,module,exports){
+},{"./visitor":70}],72:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9041,7 +9045,7 @@ function registerDefaultDecorators(instance) {
 }
 
 
-},{"./decorators/inline":72}],72:[function(require,module,exports){
+},{"./decorators/inline":73}],73:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9072,7 +9076,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":86}],73:[function(require,module,exports){
+},{"../utils":87}],74:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9114,7 +9118,7 @@ exports['default'] = Exception;
 module.exports = exports['default'];
 
 
-},{}],74:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9162,7 +9166,7 @@ function registerDefaultHelpers(instance) {
 }
 
 
-},{"./helpers/block-helper-missing":75,"./helpers/each":76,"./helpers/helper-missing":77,"./helpers/if":78,"./helpers/log":79,"./helpers/lookup":80,"./helpers/with":81}],75:[function(require,module,exports){
+},{"./helpers/block-helper-missing":76,"./helpers/each":77,"./helpers/helper-missing":78,"./helpers/if":79,"./helpers/log":80,"./helpers/lookup":81,"./helpers/with":82}],76:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9203,7 +9207,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":86}],76:[function(require,module,exports){
+},{"../utils":87}],77:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9299,7 +9303,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../exception":73,"../utils":86}],77:[function(require,module,exports){
+},{"../exception":74,"../utils":87}],78:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9326,7 +9330,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../exception":73}],78:[function(require,module,exports){
+},{"../exception":74}],79:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9357,7 +9361,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":86}],79:[function(require,module,exports){
+},{"../utils":87}],80:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9385,7 +9389,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{}],80:[function(require,module,exports){
+},{}],81:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9399,7 +9403,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{}],81:[function(require,module,exports){
+},{}],82:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9434,7 +9438,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":86}],82:[function(require,module,exports){
+},{"../utils":87}],83:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9483,7 +9487,7 @@ exports['default'] = logger;
 module.exports = exports['default'];
 
 
-},{"./utils":86}],83:[function(require,module,exports){
+},{"./utils":87}],84:[function(require,module,exports){
 (function (global){
 /* global window */
 'use strict';
@@ -9506,7 +9510,7 @@ module.exports = exports['default'];
 
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],84:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9800,7 +9804,7 @@ function executeDecorators(fn, prog, container, depths, data, blockParams) {
 }
 
 
-},{"./base":60,"./exception":73,"./utils":86}],85:[function(require,module,exports){
+},{"./base":61,"./exception":74,"./utils":87}],86:[function(require,module,exports){
 // Build out our basic SafeString type
 'use strict';
 
@@ -9817,7 +9821,7 @@ exports['default'] = SafeString;
 module.exports = exports['default'];
 
 
-},{}],86:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -9943,7 +9947,7 @@ function appendContextPath(contextPath, id) {
 }
 
 
-},{}],87:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 // USAGE:
 // var handlebars = require('handlebars');
 /* eslint-disable no-var */
@@ -9970,7 +9974,7 @@ if (typeof require !== 'undefined' && require.extensions) {
   require.extensions['.hbs'] = extension;
 }
 
-},{"../dist/cjs/handlebars":58,"../dist/cjs/handlebars/compiler/printer":68,"fs":57}],88:[function(require,module,exports){
+},{"../dist/cjs/handlebars":59,"../dist/cjs/handlebars/compiler/printer":69,"fs":58}],89:[function(require,module,exports){
 /*
  * Copyright 2009-2011 Mozilla Foundation and contributors
  * Licensed under the New BSD license. See LICENSE.txt or:
@@ -9980,7 +9984,7 @@ exports.SourceMapGenerator = require('./source-map/source-map-generator').Source
 exports.SourceMapConsumer = require('./source-map/source-map-consumer').SourceMapConsumer;
 exports.SourceNode = require('./source-map/source-node').SourceNode;
 
-},{"./source-map/source-map-consumer":95,"./source-map/source-map-generator":96,"./source-map/source-node":97}],89:[function(require,module,exports){
+},{"./source-map/source-map-consumer":96,"./source-map/source-map-generator":97,"./source-map/source-node":98}],90:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -10089,7 +10093,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./util":98,"amdefine":53}],90:[function(require,module,exports){
+},{"./util":99,"amdefine":54}],91:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -10237,7 +10241,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./base64":91,"amdefine":53}],91:[function(require,module,exports){
+},{"./base64":92,"amdefine":54}],92:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -10312,7 +10316,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":53}],92:[function(require,module,exports){
+},{"amdefine":54}],93:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -10431,7 +10435,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":53}],93:[function(require,module,exports){
+},{"amdefine":54}],94:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2014 Mozilla Foundation and contributors
@@ -10519,7 +10523,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./util":98,"amdefine":53}],94:[function(require,module,exports){
+},{"./util":99,"amdefine":54}],95:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -10641,7 +10645,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":53}],95:[function(require,module,exports){
+},{"amdefine":54}],96:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -11720,7 +11724,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./array-set":89,"./base64-vlq":90,"./binary-search":92,"./quick-sort":94,"./util":98,"amdefine":53}],96:[function(require,module,exports){
+},{"./array-set":90,"./base64-vlq":91,"./binary-search":93,"./quick-sort":95,"./util":99,"amdefine":54}],97:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -12121,7 +12125,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./array-set":89,"./base64-vlq":90,"./mapping-list":93,"./util":98,"amdefine":53}],97:[function(require,module,exports){
+},{"./array-set":90,"./base64-vlq":91,"./mapping-list":94,"./util":99,"amdefine":54}],98:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -12537,7 +12541,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./source-map-generator":96,"./util":98,"amdefine":53}],98:[function(require,module,exports){
+},{"./source-map-generator":97,"./util":99,"amdefine":54}],99:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -12909,7 +12913,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":53}],99:[function(require,module,exports){
+},{"amdefine":54}],100:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -22121,7 +22125,7 @@ return jQuery;
 
 }));
 
-},{}],100:[function(require,module,exports){
+},{}],101:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -34476,7 +34480,7 @@ return jQuery;
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],101:[function(require,module,exports){
+},{}],102:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -34704,7 +34708,7 @@ var substr = 'ab'.substr(-1) === 'b'
 ;
 
 }).call(this,require('_process'))
-},{"_process":102}],102:[function(require,module,exports){
+},{"_process":103}],103:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -34797,7 +34801,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],103:[function(require,module,exports){
+},{}],104:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
