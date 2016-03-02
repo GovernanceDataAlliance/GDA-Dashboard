@@ -121,45 +121,6 @@ $sections-padding: .5rem .5rem .5rem 0;
     @media screen and (min-width: $screen-m) {
       margin: rem(50px) 0 rem(30px);
     }
-
-  }
-
-  > .content {
-
-    p {
-      font-size: rem(15px);
-    }
-
-    &.-empashis {
-      margin-top: rem(20px);
-
-      p:first-child {
-        margin-bottom: rem(40px);
-        font-size: rem(18px);
-      }
-
-      p {
-        margin-bottom: rem(10px);
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-
-      @media screen and (min-width: $screen-m) {
-        margin-top: rem(50px);
-
-        p:first-child {
-          margin-bottom: rem(35px);
-          font-size: rem(20px);
-        }
-
-        p {
-          margin-bottom: rem(25px);
-        }
-      }
-    }
-
   }
 
   .-list & {
