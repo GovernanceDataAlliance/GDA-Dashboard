@@ -157,6 +157,10 @@
           margin-bottom: rem(20px);
         }
 
+        .index-description > .not-covered {
+          margin: 0;
+        }
+
         .index-score > .-usd {
           flex-direction: column;
           align-items: flex-start;
@@ -202,13 +206,11 @@
     @media screen and (min-width: $screen-l) {
       width: 33.33%;
 
-
       &:nth-child(2n) {
         border-bottom: 1px solid $border-1;
         border-right: 1px solid $border-1;
       }
 
-      
       &:nth-last-child(2),
       &:nth-last-child(3),
       &:last-child {
@@ -307,6 +309,7 @@
     }
 
     .not-covered {
+      margin-top: rem(25px);
       font-size: rem(17px);
       font-weight: 700;
       color: #5b5b5b;
@@ -315,7 +318,7 @@
     }
 
     .btn:last-child {
-      margin-top: 25px;
+      margin-top: rem(25px);
     }
   }
 
@@ -583,18 +586,25 @@
       text-decoration: underline;
     }
 
+    .btn,
+    .read-more,
+    .read-less  {
+      color: $font-color-2;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .read-more:after,
+    .read-less:after {
+      border-color: $font-color-2;
+    }
+
     .partial-scores-wrapper,
     .index-score .partial-scores {
       background-color: #850e27;
     }
 
     .graph > svg { stroke: $white;}
-
-    .-not-covered {
-      .btn, .read-more,
-      .read-less {
-        color: $font-color-3 !important;
-      }
-    }
   }
 }
