@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 layout: blog/post
 title: images test
 date: "2016-02-06 19:00:00 +0200"
@@ -8,6 +8,7 @@ image: little_plant.jpg
 category: category1
 tags: tag1 tag3 tagged2
 ---
+
 
 
 The Alliance is based on the assumption that while governance data has the potential to improve economic, human, and democratic development, the current state of governance data dramatically constrains its ability to produce positive change. We face a series of market failures: the supply of data is highly irregular and ad hoc; feedback loops between governance data producers and governance data users are non-existent or under-employed; and production costs remain high and inconsistent despite possibilities for economies of scale.
