@@ -750,7 +750,7 @@ module.exports = " with d as (\n select * from indicator_data where iso='{{iso}}
 module.exports = "SELECT * FROM indicator_config ORDER BY short_name asc\n";
 
 },{}],35:[function(require,module,exports){
-module.exports = "SELECT\n short_name, \n iso,\n score,\n score_text,\n year \nFROM indicator_data \nWHERE iso='{{iso}}' and short_name='{{index}}'\nORDER BY year asc\n";
+module.exports = "SELECT\n short_name, \n iso,\n cast(score as decimal(10,2)),\n score_text,\n year \nFROM indicator_data \nWHERE iso='{{iso}}' and short_name='{{index}}'\nORDER BY year asc\n";
 
 },{}],36:[function(require,module,exports){
 module.exports = "SELECT * FROM indicator_config ORDER BY product_name COLLATE \"C\"  asc\n";

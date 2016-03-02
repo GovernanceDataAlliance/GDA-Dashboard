@@ -904,7 +904,7 @@ module.exports = " SELECT \n p.iso3, \n p.name, \n p.region_name, \n max (i.year
 module.exports = " with d as (\n select * from indicator_data where iso='{{iso}}'\n )\n SELECT\n   c.short_name,\n   c.score_range,\n   c.desired_direction,\n   c.has_historical_info,\n   c.max_score,\n   c.methodology_link,\n   c.min_score,\n   c.product_description,\n   c.product_logo,\n   c.product_name,\n   c.units,\n   c.units_abbr,\n   c.organization,\n   '{{iso}}' as iso,\n   d.notes,\n   d.score,\n   d.score_text,\n   d.year\n  FROM indicator_config AS c\n    left JOIN  d ON c.short_name = d.short_name\n  ORDER BY c.short_name asc, d.year asc\n";
 
 },{}],40:[function(require,module,exports){
-module.exports = "SELECT\n short_name, \n iso,\n score,\n score_text,\n year \nFROM indicator_data \nWHERE iso='{{iso}}' and short_name='{{index}}'\nORDER BY year asc\n";
+module.exports = "SELECT\n short_name, \n iso,\n cast(score as decimal(10,2)),\n score_text,\n year \nFROM indicator_data \nWHERE iso='{{iso}}' and short_name='{{index}}'\nORDER BY year asc\n";
 
 },{}],41:[function(require,module,exports){
 module.exports = " with d as (\n select * from indicator_data where iso='{{iso}}' and year={{year}}\n )\n SELECT\n   distinct on(c.short_name) c.short_name,\n   c.score_range,\n   c.desired_direction,\n   c.has_historical_info,\n   c.max_score,\n   c.methodology_link,\n   c.min_score,\n   c.product_description,\n   c.product_logo,\n   c.product_name,\n   c.units, \n   c.units_abbr,\n   c.organization,\n   '{{iso}}' as iso,\n   d.notes,\n   d.score,\n   d.score_text,\n   d.year\n  FROM indicator_config AS c\n    left JOIN  d ON c.short_name = d.short_name\n  ORDER BY c.short_name asc, d.year asc\n";
