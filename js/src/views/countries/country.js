@@ -36,7 +36,7 @@ var CountryView = Backbone.View.extend({
     }
 
     this.iso = options.iso;
-    this.currentYear = options.year;
+    this.currentYear = options.year || (new Date).getFullYear() - 1;
 
     this.functionHelper = FunctionHelper;
 
@@ -58,7 +58,7 @@ var CountryView = Backbone.View.extend({
   initializeData: function() {
     this.render();
 
-    this.indicators.forCountry(this.iso).done(function() {
+    this.indicators.forCountryAndYear(this.iso, this.currentYear).done(function() {
       this.renderCountry();
     }.bind(this));
 
@@ -110,7 +110,7 @@ var CountryView = Backbone.View.extend({
 
     this.country = new Country({id: this.iso});
 
-    $.when(this.country.fetch(), this.indicators.forCountry(this.iso)).done(function() {
+    $.when(this.country.fetch(), this.indicators.forCountryAndYear(this.iso, this.currentYear)).done(function() {
       this.render(true);
     }.bind(this));
   },

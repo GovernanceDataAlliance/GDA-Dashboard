@@ -8,7 +8,8 @@ var CONFIG = require('../../config.json');
 var Handlebars = require('handlebars');
 
 var SQL = Handlebars.compile(require('../templates/queries/indicators.sql.hbs')),
-    SQLwithYears = Handlebars.compile(require('../templates/queries/indicators_with_years.sql.hbs'));
+    SQLwithYears = Handlebars.compile(require('../templates/queries/indicators_with_years.sql.hbs')),
+    SQLHistoricalData = Handlebars.compile(require('../templates/queries/indicators_historical_data.sql.hbs'));
 
 var Indicators = CartoDBCollection.extend({
   user_name: CONFIG.cartodb.user_name,
@@ -23,6 +24,13 @@ var Indicators = CartoDBCollection.extend({
 
   forCountryAndYear: function(iso, year) {
     var query = SQLwithYears({ 'table': this.table, 'iso': iso, 'year': year }),
+        url = this._urlForQuery(query);
+
+    return this.fetch({url: url})
+  },
+
+  historicalData: function(iso, short_name) {
+    var query = SQLHistoricalData({ 'table': this.table, 'iso': iso, 'index': short_name }),
         url = this._urlForQuery(query);
 
     return this.fetch({url: url})

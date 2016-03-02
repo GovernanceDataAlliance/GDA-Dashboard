@@ -7,7 +7,8 @@ var template = Handlebars.compile(
 
 var LineChartView = require('../common/line_chart_view.js'),
   PartialRanksView = require('./partial_ranks.js'),
-  TooltipView = require('../common/tooltip_view.js');
+  TooltipView = require('../common/tooltip_view.js'),
+  Indicators = require('../../collections/indicators.js');
 
 var ModalWindowView = require('../common/infowindow_view.js');
 
@@ -30,9 +31,13 @@ var IndicatorView = Backbone.View.extend({
       this._setColorClass();
       this._setTooltips();
       this.partialRanks();
-
-      if (this.indicator['has_historical_info'] && this.indicator.data[0].score) {
-        this.drawGraph();
+      
+      console.log(this.indicator)
+      if ( this.indicator['has_historical_info'] ) {
+        this.indicators = new Indicators();
+        // this.indicators.historicalData(this.iso, this.short_name).done(function() {
+        //   this.drawGraph();
+        // }.bind(this));
       }
 
     } else {
