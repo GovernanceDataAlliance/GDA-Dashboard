@@ -6,7 +6,8 @@ var CONFIG = require('../../config.json');
 
 var Handlebars = require('handlebars');
 
-var totalYearsSQL = Handlebars.compile(require('../templates/queries/total_years.sql.hbs')),
+var yearsSQL = Handlebars.compile(require('../templates/queries/total_years.sql.hbs')),
+  yearsByCountrySQL = Handlebars.compile(require('../templates/queries/years_by_country.sql.hbs')),
   yearsForThisIndexSQL = Handlebars.compile(require('../templates/queries/years_for_this_index.sql.hbs'));
 
 
@@ -19,9 +20,21 @@ var Years = CartoDBCollection.extend({
     return this.at(0).get('year');
   },
 
-  totalYears: function() {
-    var query = totalYearsSQL({ 'table': this.table }),
-        url = this._urlForQuery(query);
+  getYears: function() {
+    var query = yearsSQL({
+      'table': this.table
+    }),
+    url = this._urlForQuery(query);
+
+    return this.fetch({url: url});
+  },
+
+  getYearsByCountry: function(params) {
+    var query = yearsByCountrySQL({
+      'table': this.table,
+      iso: params.iso
+    }),
+    url = this._urlForQuery(query);
 
     return this.fetch({url: url});
   },

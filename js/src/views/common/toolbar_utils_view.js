@@ -35,6 +35,7 @@ var ToolbarUtilsView = Backbone.View.extend({
 
     var downloadbtn = e.currentTarget;
     var id = downloadbtn.getAttribute('data-indicator-id'),
+      iso = downloadbtn.getAttribute('data-year') ? downloadbtn.getAttribute('data-iso') : this.viewOptions.iso,
       year = downloadbtn.getAttribute('data-year') ? downloadbtn.getAttribute('data-year') : 2015,
       categoryName = downloadbtn.getAttribute('data-category-name') ?
         downloadbtn.getAttribute('data-category-name') : 'global',
@@ -42,7 +43,7 @@ var ToolbarUtilsView = Backbone.View.extend({
         downloadbtn.getAttribute('data-category-group') : null;
 
     new DownloadView({
-      iso: this.viewOptions.iso,
+      iso: iso,
       id: id,
       year: year,
       categoryName: categoryName,
