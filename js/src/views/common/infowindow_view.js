@@ -3,8 +3,17 @@ var _ = require('lodash'),
   Backbone = require('backbone'),
   Handlebars = require('handlebars');
 
-var modalWindowtemplate = Handlebars.compile(require('../../templates/common/modal_window_tpl.hbs'));
+var modalWindowtemplate = require('../../templates/common/modal_window_tpl.hbs');
 
+/* 
+ * Creates modal infowindow.
+ * It should recieve type option to generate template.
+ * Default type: info
+ * Available options: 
+ * - info-infowindow
+ * - legend-infowindow
+ * - share-infowindow
+*/
 var ModalWindowView = Backbone.View.extend({
 
   el: 'body',
@@ -22,17 +31,30 @@ var ModalWindowView = Backbone.View.extend({
     };
   },
 
-  initialize: function(data) {
-    if (data) {
-      this.render(data);
-    }
+  initialize: function(options) {
+    this.type = options && options.type ? options.type : 'info-infowindow';
+    this.data = options && options.data ? options.data : null;
+    this.template = $(modalWindowtemplate);
+
+    this.render();
 
     $(document).keyup(_.bind(this.onKeyUp, this));
   },
 
-  render: function(info) {
+  appendCurrentContent: function() {
+    var current = this.template.filter( '#'+ this.type ).html();
+    var currentTpl = Handlebars.compile(current);
+
+    this.$('#content').append(currentTpl({ 'data': this.data }));
+  },
+
+  render: function() {
     this.fixed = true;
-    this.$el.append(modalWindowtemplate({'info': info}));
+    var base = this.template.filter('#infowindow-base').html();
+    var baseTpl = Handlebars.compile(base);
+    this.$el.append( baseTpl );
+
+    this.appendCurrentContent();
     this.toogleState();
   },
 
@@ -44,7 +66,7 @@ var ModalWindowView = Backbone.View.extend({
   },
 
   close: function(e) {
-    e.stopPropagation();
+    e && e.stopPropagation();
     this.fixed = false;
 
     $('.m-modal-window').remove();
