@@ -1,8 +1,16 @@
 .m-modal-window .-legend {
+
+  h2 {
+    font-size: rem(24px);
+    margin-bottom: rem(35px);
+    text-transform: capitalize;
+  }
+
   > ul {
     display: flex; 
     display: -ms-box;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: flex-start;
     margin-bottom: rem(30px);
 
@@ -11,15 +19,15 @@
       display: -ms-box;
       align-items: center;
       justify-content: center;
-      margin-right: rem(10px);
-      margin-bottom: rem(5px);
+      margin-right: rem(40px);
+      margin-bottom: rem(20px);
 
       &:before {
         content: '';
         display: inline-block;
-        width: 14px;
-        height: 14px;
-        margin-right: rem(7px);
+        width: rem(25px);
+        height: rem(25px);
+        margin-right: rem(10px);
       }
 
       &.-excellent:before {
@@ -66,9 +74,21 @@
   }
 
   @media screen and (min-width: 768px) {
+    h2 {
+      font-size: rem(30px);
+      line-height: rem(37px);
+      margin-bottom: rem(30px);
+    }
+
     > ul {
       li {
+        margin-bottom: 0;
         margin-right: rem(20px);
+
+        &:before {
+          width: rem(14px);
+          height: rem(14px);
+        }
       }
     }
   }

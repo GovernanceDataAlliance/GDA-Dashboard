@@ -1,4 +1,4 @@
-<div class="m-post">
+<div class="m-post m-markdown">
 
   <h1 class="c-section-title">
     {{ page.title }}
@@ -12,7 +12,7 @@
     <a class="category" href="{{site.baseurl}}/blog/categories#{{ page.category }}"> {{page.category}} </a>
     <div class="tags">
       {% for tag in page.tags %}
-      <a class="tag" href="{{ site.baseurl }}/blog/tags#{{tag}}">#{{tag}}</a>
+        <a class="c-tag" href="{{ site.baseurl }}/blog/tags#{{tag}}">#{{tag}}</a>
       {% endfor %}
     </div>
   </div>
@@ -26,7 +26,7 @@
     </span>
   </div>
 
-  <div class="content -empashis">
+  <div class="content">
     {{page.content | markdownify}}
   </div>
 
