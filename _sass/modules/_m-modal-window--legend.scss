@@ -1,24 +1,25 @@
-.m-legend {
-  display: flex; display: -ms-box;
-  align-items: center;
-  // padding: rem(20px) 0;
-
+.m-modal-window .-legend {
   > ul {
     display: flex; 
     display: -ms-box;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: rem(30px);
 
     li {
       display: flex; 
       display: -ms-box;
       align-items: center;
       justify-content: center;
-      margin-right: rem(2px);
+      margin-right: rem(10px);
+      margin-bottom: rem(5px);
 
       &:before {
         content: '';
         display: inline-block;
-        width: 7px;
-        height: 7px;
+        width: 14px;
+        height: 14px;
+        margin-right: rem(7px);
       }
 
       &.-excellent:before {
@@ -55,8 +56,7 @@
     }
 
     .legend-item {
-      display: none;
-      font-family: "Montserrat";
+      font-family: $font-secondary;
       font-size: rem(10px);
       letter-spacing: rem(0.2px);
       color: $brown;
@@ -65,41 +65,11 @@
     }
   }
 
-  @media screen and (min-width: $screen-s) {
-    > ul {
-      li {
-        margin-right: rem(10px);
-
-        &:before {
-          width: 14px;
-          height: 14px;
-          margin-right: rem(7px);
-        }
-
-        &.literal {
-          display: none;
-        }
-      }
-
-      .legend-item {
-        display: inline-block;
-      }
-    }
-  }
-
   @media screen and (min-width: 768px) {
     > ul {
       li {
         margin-right: rem(20px);
       }
-    }
-  }
-
-  .l-compare-selectors & {
-    margin-left: rem(10px);
-
-    @media screen and (min-width: $screen-l) {
-      margin-left: rem(20px);
     }
   }
 }

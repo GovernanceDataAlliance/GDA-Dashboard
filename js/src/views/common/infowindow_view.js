@@ -5,7 +5,6 @@ var _ = require('lodash'),
 
 var modalWindowtemplate = require('../../templates/common/modal_window_tpl.hbs');
 
-
 /* 
  * Creates modal infowindow.
  * It should recieve type option to generate template.
@@ -42,20 +41,20 @@ var ModalWindowView = Backbone.View.extend({
     $(document).keyup(_.bind(this.onKeyUp, this));
   },
 
-  appendCurrentConent: function() {
+  appendCurrentContent: function() {
     var current = this.template.filter( '#'+ this.type ).html();
     var currentTpl = Handlebars.compile(current);
 
-    this.$('#content').append(currentTpl({'data': this.data}));
+    this.$('#content').append(currentTpl({ 'data': this.data }));
   },
 
   render: function() {
-     this.fixed = true;
+    this.fixed = true;
     var base = this.template.filter('#infowindow-base').html();
     var baseTpl = Handlebars.compile(base);
     this.$el.append( baseTpl );
 
-    this.appendCurrentConent();
+    this.appendCurrentContent();
     this.toogleState();
   },
 

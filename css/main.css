@@ -3204,6 +3204,66 @@ select {
       .modal-container p, .modal-container a {
         font-size: 0.9375rem; } }
 
+.m-modal-window .-legend > ul {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  display: -ms-box;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 1.875rem; }
+  .m-modal-window .-legend > ul li {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    display: -ms-box;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-right: 0.625rem;
+    margin-bottom: 0.3125rem; }
+    .m-modal-window .-legend > ul li:before {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      margin-right: 0.4375rem; }
+    .m-modal-window .-legend > ul li.-excellent:before {
+      background: #63A850; }
+    .m-modal-window .-legend > ul li.-good:before {
+      background: #AEB44D; }
+    .m-modal-window .-legend > ul li.-moderate:before {
+      background: #e9b33b; }
+    .m-modal-window .-legend > ul li.-fair:before {
+      background: #cd8200; }
+    .m-modal-window .-legend > ul li.-poor:before {
+      background: #97102c; }
+    .m-modal-window .-legend > ul li.literal {
+      font-family: "Montserrat";
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      color: #39a1b2;
+      margin-right: 0.25rem; }
+      .m-modal-window .-legend > ul li.literal:before {
+        display: none; }
+  .m-modal-window .-legend > ul .legend-item {
+    font-family: "Montserrat";
+    font-size: 0.625rem;
+    letter-spacing: 0.0125rem;
+    color: #42352b;
+    text-transform: uppercase;
+    white-space: nowrap; }
+@media screen and (min-width: 768px) {
+  .m-modal-window .-legend > ul li {
+    margin-right: 1.25rem; } }
+
 .m-search {
   width: 100%;
   background-color: #beb7aa;
@@ -4067,15 +4127,6 @@ select {
   @media screen and (min-width: 768px) {
     .m-legend > ul li {
       margin-right: 1.25rem; } }
-  .m-legend .pop-up-legend-container {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; }
-    @media screen and (min-width: 768px) {
-      .m-legend .pop-up-legend-container {
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex; } }
   .l-compare-selectors .m-legend {
     margin-left: 0.625rem; }
     @media screen and (min-width: 1024px) {
