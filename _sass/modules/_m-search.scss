@@ -89,6 +89,9 @@
       font-size: rem(24px);
       font-family: $font-main;
       text-align: left;
+      &::-ms-clear {
+        display: none;
+      }
 
       @include placeholder() {
         color: $font-color-2;
