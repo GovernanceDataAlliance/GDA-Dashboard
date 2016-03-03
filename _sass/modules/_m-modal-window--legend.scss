@@ -14,6 +14,10 @@
     align-items: flex-start;
     margin-bottom: rem(30px);
 
+    @media screen and (min-width: $screen-l) {
+      display: none;
+    }
+
     li {
       display: flex; 
       display: -ms-box;
@@ -21,6 +25,10 @@
       justify-content: center;
       margin-right: rem(40px);
       margin-bottom: rem(20px);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
 
       &:before {
         content: '';
@@ -73,11 +81,11 @@
     }
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $screen-s) {
     h2 {
       font-size: rem(30px);
       line-height: rem(37px);
-      margin-bottom: rem(30px);
+      margin-bottom: rem(25px);
     }
 
     > ul {

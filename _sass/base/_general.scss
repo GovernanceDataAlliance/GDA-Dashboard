@@ -65,7 +65,7 @@ p {
   }
 
   @media screen and (min-width: $screen-m) {
-    line-height: 1.8em;
+    line-height: rem(29px);
 
     + .btn {
       margin-top: rem(30px);
