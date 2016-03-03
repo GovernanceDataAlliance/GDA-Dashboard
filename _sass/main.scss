@@ -23,6 +23,8 @@
   "layout/l-main-container",
   "layout/l-post",
   "layout/l-blog",
+  "layout/l-tag-cloud",
+  "layout/l-compare-selectors",
 
   "modules/m-site-navigation",
   "modules/m-list",
@@ -30,7 +32,7 @@
   "modules/m-card",
   "modules/m-card--indexes",
   "modules/m-comparison-table",
-  "modules/m-compare-selectors",
+  "modules/m-year-selector",
   "modules/m-modal-window",
   "modules/m-search",
   "modules/m-presentation",
@@ -48,7 +50,10 @@
   "modules/m-country-silhouette",
   "modules/m-legend",
   "modules/m-post",
+  "modules/m-markdown",
   "modules/m-pagination",
+  "modules/m-tag-cloud",
+  "modules/m-highlight",
 
 
   "components/buttons",
@@ -62,6 +67,7 @@
   "components/c-search",
   "components/c-brand",
   "components/c-tooltip",
+  "components/c-tag",
 
   "states",
 

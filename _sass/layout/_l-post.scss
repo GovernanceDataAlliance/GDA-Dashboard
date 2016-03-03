@@ -1,6 +1,7 @@
 .l-post {
   background-color: $bg-color-1;
   padding-bottom: rem(40px);
+  border-bottom: 1px solid $border-1;
 
   &:last-child {
     border-bottom: none;

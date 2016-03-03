@@ -18,6 +18,7 @@ var IndicatorListView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
     this.indicators = IndicatorService.groupScoresById(options.indicators);
+    // this.indicators = options.indicators;
     this.currentYear = options.currentYear;
   },
 

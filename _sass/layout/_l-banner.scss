@@ -13,6 +13,8 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     background-color: #ccc;
     background-position: top left;
 
+    max-height: rem(700px);
+
     h3 {
       max-width: 100%;
     }
@@ -24,7 +26,8 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
     .highlighted-text {
       font-size: rem(16px);
-      line-height: 1em;
+      line-height: rem(26px);
+      letter-spacing: rem(.5px);
 
       @media screen and (min-width: $screen-s) {
         font-size: rem(18px);
@@ -41,7 +44,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
       position: absolute;
       top: auto;
       left: 50%;
-      bottom: rem(50px);
+      bottom: rem(30px);
       transform: translate(-50%, 0);
       padding: 0;
       font-size: rem(15px);
@@ -66,15 +69,21 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     @media screen and (min-width: 768px) {
       height: calc(100vh - 85px);
       // min-height: rem(945px);
+      max-height: rem(850px);
 
       p {
         margin-bottom: rem(50px);
       }
     }
 
+    @media screen and (min-width: 768px) and (orientation: portrait) {
+      max-height: rem(850px);
+    }
+
     @media screen and (min-width: $screen-l) {
       // min-height: rem(700px);
       padding-top: 0;
+      min-height: rem(615px);
 
       h3 {
         max-width: $content-width;
@@ -88,6 +97,8 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     @media screen and (min-width: $screen-xl) {
       padding: 0;
       height: calc(100vh - 95px);
+      max-height: rem(1000px);
+      min-height: rem(615px);
 
       h3 {
         margin-bottom: rem(30px);

@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: rem(10px);
 
   > .page-link {
     font-family: $font-secondary;
@@ -12,6 +13,14 @@
     cursor: pointer;
     min-width: rem(100px);
     padding: 0;
+
+    &:first-child {
+      padding-right: rem(15px);
+    }
+
+    &:last-child {
+      padding-left: rem(15px);
+    }
 
     &:hover {
       color: $color-4;
@@ -27,15 +36,15 @@
   }
 
   > .page-number {
-    padding: 0 1rem;
     font-size: rem(12px);
     color: $font-color-1;
     letter-spacing: .4px;
     text-align: center;
   }
 
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: $screen-s) {
     min-width: rem(250px);
+    margin-bottom: 0;
 
     > .page-number {
       font-size: rem(12px);

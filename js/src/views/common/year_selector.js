@@ -39,7 +39,19 @@ var CompareYearSelectors = Backbone.View.extend({
       },this)
     });
 
-    if (!this.mobile) {
+    enquire.register("screen and (max-width:768px)", {
+      match: _.bind(function(){
+        this.tablet = true;
+      },this)
+    });
+
+    enquire.register("screen and (min-width:769px)", {
+      match: _.bind(function(){
+        this.tablet = false;
+      },this)
+    });
+
+    if (!this.tablet) {
       this.$('select').chosen();
     }
 

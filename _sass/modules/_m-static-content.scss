@@ -46,7 +46,7 @@
     }
   }
 
-  p, a {
+  p, a:not(.c-tag) {
     font-size: rem(16px);
   }
 
@@ -173,13 +173,16 @@
       }
     }
 
-    p, a {
+    p, a:not(.c-tag) {
       font-size: rem(18px);
     }
   }
 
   @media screen and (min-width: $screen-l) {
     max-width: $content-width;
+    &.m-post {
+      max-width: 100%;
+    }
 
     h5 {
       line-height: rem(34px);
@@ -191,7 +194,7 @@
       letter-spacing: rem(.4px)
     }
 
-    p, a {
+    p, a:not(.c-tag) {
       font-size: rem(20px);
       line-height: rem(34px);
       letter-spacing: rem(.3px);

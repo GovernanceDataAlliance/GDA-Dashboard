@@ -7,19 +7,60 @@
   align-items: center;
   text-align: center;
 
-  > span {
+  @media screen and (min-width: $screen-s) {
+    width: auto;
+  }
+
+  @media screen and (min-width: $screen-m) {
+    font-size: rem(11px);
+  }
+
+
+  .button-literal {
+    display: none;
+    line-height: rem(20px);
+
+    @media screen and (min-width: 768px) {
+      display: inline-block;
+      margin-left: rem(5px);
+    }
+
+    @media screen and (min-width:  $screen-l) {
+      display: inline-block;
+      margin-left: rem(10px);
+    }
+  }
+
+  .icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  > span,
+  .button-literal {
+    padding: 0;
     color: $font-color-3;
   }
 
   &.is-active {
-    > span {
+    color: $font-color-1;
+    background-color: #dedcda;
+    min-height: 100%;
+
+    > span,
+    .button-literal {
       color: $font-color-1;
     }
 
     &:hover {
       color: $font-color-1;
 
-      > span {
+      svg {
+        fill: $color-1;
+      }
+
+      > span,
+      .button-literal {
         color: $font-color-1;
       }
     }
@@ -28,7 +69,8 @@
   &:hover {
     color: $color-4;
 
-    > span {
+    > span,
+    .button-literal {
       color: $color-4;
     }
   }
@@ -39,7 +81,8 @@
     border: 1px solid $white;
     color: $white;
 
-    > span {
+    > span,
+    .button-literal {
       color: $white;
     }
 
@@ -47,7 +90,8 @@
       color: $font-color-3;
       background-color: $white;
 
-      > span {
+      > span,
+      .button-literal {
         color: $font-color-3;
       }
     }
@@ -59,7 +103,8 @@
     border: 1px solid $color-1;
     color: $color-1;
 
-    > span {
+    > span,
+    .button-literal {
       color: $color-1;
     }
   }
@@ -70,7 +115,8 @@
     border: 1px solid $color-4;
     color: $color-2;
 
-    > span {
+    > span,
+    .button-literal {
       color: $color-2;
     }
 
@@ -78,7 +124,8 @@
       color: $font-color-2;
       background-color: $color-4;
 
-      > span {
+      > span,
+      .button-literal {
         color: $font-color-2;
       }
     }
@@ -89,16 +136,45 @@
     align-self: center;
   }
 
-  > span {
-    padding: 0;
+  &.js--download,
+  &.js--print,
+  &.js--share,
+  &.compare-link {
+    margin-right: rem(20px);
+
+    &:first-child {
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+      padding-right: 0;
+    }
   }
 
-  @media screen and (min-width: 320px) {
-    width: auto;
-  }
+  &.btn-layout-dashboard,
+  &.btn-layout-list {
+    .button-literal {
+      display: none;
+    }
 
-  @media screen and (min-width: $screen-m) {
-    font-size: rem(11px);
+    @media screen and (min-width: $screen-s) {
+      padding: 0 rem(20px);
+
+      .button-literal {
+        display: none;
+      }
+    }
+
+    @media screen and (min-width: 960px) {
+      padding: 0 rem(20px);
+      display: inline-block;
+
+      .button-literal {
+        display: inline-block;
+      }
+    }
   }
 }
 
@@ -113,6 +189,7 @@
   line-height: 17px;
   text-align: center;
   font-weight: 700;
+
   &:hover {
     background-color: #5DE8FF;
   }
@@ -124,39 +201,21 @@
   line-height: rem(16px) !important;
   width: 100%;
   height: rem(45px);
-  margin: 0 6%;
+  padding: 0 rem(6px);
   border: 1px solid $color-4;
-
-  @media screen and (min-width: 768px) {
-    margin: rem(12px) 6%;
-  }
 
   @media screen and (min-width: $screen-m) {
     font-size: rem(11px);
     line-height: rem(11px) !important;
-    // margin: rem(12px) 6%;
+    padding: 0 rem(12px);
+  }
+
+  .js--year-selector-country {
+    height: 100%;
   }
 
   &.btn {
     text-align: left;
-  }
-
-  &.-min-width {
-    min-width: rem(120px);
-    margin-left: 0;
-
-
-    @media screen and (min-width: 768px) {
-      min-width: rem(210px);
-      width: auto;
-    }
-  }
-
-  .-selectors & {
-    //This is for compare page. Do not change unless you know what are you doing.
-    @media screen and (min-width: 768px) {
-      margin: rem(12px) 6%;
-    }
   }
 
   .-year & {
@@ -170,16 +229,13 @@
 
   .-data & {
     margin-top: 0;
-
-    @media screen and (min-width: 768px) {
-      margin-top: rem(12px);
-    }
   }
 
   select {
     padding: rem(12px) 3%;
     padding-right: 15%;
     width: 100%;
+    height: 100%;
     line-height: rem(16px) !important;
 
     @media screen and (min-width: $screen-m) {
@@ -196,6 +252,8 @@
   .chzn-container-single .chzn-single {
     height: rem(43px);
     line-height: rem(43px);
+    padding: 0;
+
     span:hover {
       color: $color-4;
     }
@@ -215,25 +273,6 @@
 
     @media screen and (min-width: $screen-l) {
       right: rem(20px);
-    }
-
-  }
-
-  &.js--btn-ranking {
-    padding-left: rem(10px);
-
-    @media screen and (min-width: 768px) {
-      padding-left: rem(20px);
-    }
-  }
-
-  &.-sm {
-    margin: 0;
-
-    @media screen and (min-width: $screen-m) {
-      min-width: rem(200px);
-      padding-left: 0;
-      padding-right: 0;
     }
   }
 }

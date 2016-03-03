@@ -1,7 +1,9 @@
 var Handlebars = require('handlebars');
 
+/*
+  Given a number, returns number with two decimals.
+*/
 Handlebars.registerHelper('round', function(options) {
-
   if (!isNaN(parseFloat(this.score))) {
     if (this.score % 1 != 0) {
       return parseFloat(this.score).toFixed(2);

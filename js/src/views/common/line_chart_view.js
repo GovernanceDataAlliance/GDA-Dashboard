@@ -12,7 +12,7 @@ var LineChartView = Backbone.View.extend({
     options = options || {};
 
     this.indicator = options.indicator;
-    this.data = options.indicator.data;
+    this.data = options.data;
 
     var graph = new LineChart({
       elem: this.el,
@@ -22,7 +22,7 @@ var LineChartView = Backbone.View.extend({
       loader: 'is-loading',
       interpolate: 'linear',
       dateFormat: '%Y',
-      unit: options.indicator.unit,
+      unit: '',
       margin: {
         top: 20,
         right: 20,

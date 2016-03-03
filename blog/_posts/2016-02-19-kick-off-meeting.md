@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 layout: blog/post
 date: "2015-05-19"
 author: Caroline Poirrier
@@ -8,6 +8,7 @@ category: Meeting notes
 tags: meeting_notes
 title: "Kick-Off Meeting"
 ---
+
 
 
 

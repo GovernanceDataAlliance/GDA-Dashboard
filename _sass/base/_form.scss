@@ -3,6 +3,10 @@ select {
   color: $font-color-3;
   font-family: $font-secondary;
   font-size: 16px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 /*
@@ -26,7 +30,7 @@ select {
   border: none;
   border-radius: 0;
   background-color: $light-grey-two;
-  transform: translate(-5%, 15px);
+  transform: translate(-5%, 12px);
   font-family: $font-secondary;
 }
 

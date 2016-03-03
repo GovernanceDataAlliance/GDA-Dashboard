@@ -137,7 +137,7 @@
     flex-basis: 100%;
     margin: 0;
 
-    &:last-child, &:nth-last-child(2) {
+    &:last-child {
       border-bottom: 0;
     }
 
@@ -155,6 +155,10 @@
 
         .index-description .organization {
           margin-bottom: rem(20px);
+        }
+
+        .index-description > .not-covered {
+          margin: 0;
         }
 
         .index-score > .-usd {
@@ -175,8 +179,18 @@
       float: left;
       border-right: 1px solid $border-1;
 
+
+      &:nth-last-child(2) {
+        border-bottom: 0;
+      }
+
       &:nth-child(2n) {
         border-right: 0;
+        border-bottom: 1px solid $border-1;
+      }
+
+      &:last-child {
+        border-bottom: 0;
       }
 
       > .card-wrap {
@@ -193,11 +207,19 @@
       width: 33.33%;
 
       &:nth-child(2n) {
+        border-bottom: 1px solid $border-1;
         border-right: 1px solid $border-1;
+      }
+
+      &:nth-last-child(2),
+      &:nth-last-child(3),
+      &:last-child {
+        border-bottom: 0;
       }
 
       &:nth-child(3n) {
         border-right: 0;
+        border-bottom: 1px solid $border-1;
       }
 
       > .card-wrap {
@@ -216,10 +238,11 @@
       }
     }
 
-    @media screen and (min-width: $screen-l) and (orientation: landscape)
+    @media screen and (min-width: $screen-l)
+      and (orientation: landscape)
       and (-webkit-min-device-pixel-ratio: 2) {
       > .card-wrap {
-        padding: rem(40px) rem($wrap-padding-mobile);
+        padding: rem($wrap-padding-desktop);
       }
     }
 
@@ -252,48 +275,6 @@
         }
       }
     }
-
-    // .read-more {
-    //   margin-left: 10px;
-    // }
-
-    // .read-more,
-    // .read-less {
-    //   position: relative;
-    //   font-family: "Montserrat";
-    //   font-size: rem(11px);
-    //   text-transform: uppercase;
-    //   color: $font-color-3;
-    //   cursor: pointer;
-    //   white-space: nowrap;
-    //   &:hover {
-    //     color: $color-4;
-    //     &:after {
-    //       border-color: $color-4;
-    //     }
-    //   }
-    // }
-
-    // .read-more:after,
-    // .read-less:after {
-    //   content: '';
-    //   position: absolute;
-
-    // }
-
-    // .read-more:after {
-    //   top: 0;
-    //   right: -15px;
-    //   @include arrow (5px, $color-2, 2px, 225deg);
-    //   transform: rotate(225deg) translate(0, -50%);
-    // }
-
-    // .read-less:after {
-    //   top: 50%;
-    //   right: -10px;
-    //   @include arrow (5px, $color-2, 2px, 45deg);
-    //   transform: rotate(45deg) translate(0, -50%);
-    // }
 
     .organization {
       font-size: rem(15px);
@@ -329,6 +310,7 @@
     }
 
     .not-covered {
+      margin-top: rem(25px);
       font-size: rem(17px);
       font-weight: 700;
       color: #5b5b5b;
@@ -337,7 +319,7 @@
     }
 
     .btn:last-child {
-      margin-top: 25px;
+      margin-top: rem(25px);
     }
   }
 
@@ -364,6 +346,7 @@
 
       > .js--partial-ranks {
         width: 100%;
+        min-height: rem(120px);
       }
     }
 
@@ -449,9 +432,13 @@
     .partial-scores-wrapper {
       display: block;
       width: 100%;
-      padding: rem(15px);
+      padding: rem(15px) rem(25px);
       background-color: $bg-color-1;
-      padding: rem(15px) rem(30px) rem(30px);
+
+      //To hide partial ranks at CER index.
+      &.-cer {
+        display: none;
+      }
     }
 
     .explanation {
@@ -464,16 +451,16 @@
     .partial-scores {
       display: flex;
       display: -ms-box;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
+      align-items: flex-start;
 
       > li {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        flex-basis: 33%;
         align-items: center;
+        text-align: center;
+      }
+
+      > li > p:last-child {
+        line-height: rem(21px);
       }
 
       .partial-rank {
@@ -482,30 +469,14 @@
 
       .partial-score {
         font-size: rem(30px);
+
+        @media screen and (min-width: $screen-l) {
+          min-width: auto;
+        }
       }
 
       @media screen and (min-width: 768px) {
-        flex-direction: row;
-        // padding: rem(30px);
-        align-items: center;
         justify-content: space-around;
-
-        > li {
-          flex-direction: column;
-        }
-      }
-
-      @media screen and (min-width: $screen-l) {
-        flex-direction: row;
-
-        > li {
-          flex-direction: column;
-          align-items: center;
-
-          > .partial-score {
-            min-width: auto;
-          }
-        }
       }
     }
 
@@ -521,6 +492,7 @@
       @media screen and (min-width: $screen-l) {
         display: flex;
         margin-top: rem(25px);
+
         > span:last-child {
           margin: 0;
         }
@@ -600,26 +572,22 @@
       }
     }
 
-    .btn, .read-more,
-    .read-less {
-      color: $font-color-2 !important;
-      &:after {
-        border-top: 2px solid $white !important;
-        border-left: 2px solid $white !important;
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .btn,
+    .read-more,
+    .read-less  {
+      color: $font-color-2;
+      &:hover {
+        text-decoration: underline;
       }
     }
 
-    .read-less {
-      margin: 0;
-    }
-
-    .read-more:hover,
-    .read-less:hover {
-      text-decoration: underline;
-    }
-
-    a:hover {
-      text-decoration: underline;
+    .read-more:after,
+    .read-less:after {
+      border-color: $font-color-2;
     }
 
     .partial-scores-wrapper,
@@ -628,12 +596,5 @@
     }
 
     .graph > svg { stroke: $white;}
-
-    .-not-covered {
-      .btn, .read-more,
-      .read-less {
-        color: $font-color-3 !important;
-      }
-    }
   }
 }

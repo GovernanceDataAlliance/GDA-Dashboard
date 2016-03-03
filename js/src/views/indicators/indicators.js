@@ -11,7 +11,6 @@ var template = Handlebars.compile(
 var IndicatorsView = Backbone.View.extend({
 
   initialize: function() {
-
     this.indicators = new IndicatorConfigs();
     this.listenTo(this.indicators, 'sync', this.render);
   },

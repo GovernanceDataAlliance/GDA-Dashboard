@@ -16,10 +16,10 @@ describe("Countries", function() {
       url = collection.url();
     });
 
-    it("appends a WHERE clause to remove countries without regions", function() {
-      var paramsRegex = new RegExp("WHERE region > 0$");
-      expect(url).toMatch(paramsRegex);
-    });
+    // it("appends a WHERE clause to remove countries without regions", function() {
+    //   var paramsRegex = new RegExp("WHERE region > 0$");
+    //   expect(url).toMatch(paramsRegex);
+    // });
   });
 
   describe(".forIds", function() {

@@ -23,6 +23,7 @@ body {
   font-size: rem(15px);
   background-color: #eee;
   -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
 
   @media screen and (min-width: $screen-s) {
     font-size: 18px;

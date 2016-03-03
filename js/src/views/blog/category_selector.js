@@ -39,9 +39,10 @@ var CategorySelector = Backbone.View.extend({
     this.hash = window.location.hash;
 
     if (this.hash) {
-      this.setTitle(this.hash.substring(1));
-      this.setActive(this.hash.substring(1));
-      this.$('select').val(this.hash);
+      var category = this.hash.substring(1);
+      this.setTitle(category);
+      this.setActive(category);
+      this.$('select').val(category);
     } else {
       this.post.removeClass('-active');
       $('#blog').addClass('-active');
@@ -78,7 +79,10 @@ var CategorySelector = Backbone.View.extend({
   },
 
   onChangeSelect: function(e) {
-    window.location = e.currentTarget.value;
+    
+    var category = e.currentTarget.value;
+    window.location.href = category.length > 0 ?
+       'categories#' + category :  'categories';
   }
 
 });
