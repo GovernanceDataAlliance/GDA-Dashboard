@@ -154,7 +154,11 @@ var CountryView = Backbone.View.extend({
     if (!data) {
       return;
     }
-    new ModalWindowView().render(data);
+    
+    new ModalWindowView({
+      'type': 'info-infowindow', 
+      'data': data
+    });
   },
 
   renderIndicators: function() {

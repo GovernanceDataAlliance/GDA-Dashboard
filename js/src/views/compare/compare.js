@@ -329,9 +329,12 @@ var CompareView = Backbone.View.extend({
     if (!data) {
       return;
     }
-    new ModalWindowView().render(data);
-  }
 
+    new ModalWindowView({
+      'type': 'info-infowindow', 
+      'data': data
+    });
+  }
 });
 
 module.exports = CompareView;

@@ -32,36 +32,30 @@ var ModalWindowView = Backbone.View.extend({
     };
   },
 
-  initialize: function(options, data) {
-    this.type = options ? options.type : 'info-infowindow';
+  initialize: function(options) {
+    this.type = options && options.type ? options.type : 'info-infowindow';
+    this.data = options && options.data ? options.data : null;
+    this.template = $(modalWindowtemplate);
 
-    
-    this.getTemplate();
-
-    // if (data) {
-    //   this.render(data);
-    // }
+    this.render();
 
     $(document).keyup(_.bind(this.onKeyUp, this));
   },
 
-  getTemplate: function() {
-    var $tpl = $(modalWindowtemplate);
-    var base = $tpl.filter('#infowindow-base').html();
-    var current = $tpl.filter( '#'+ this.type ).html();
-
-    var baseTpl = Handlebars.compile(base);
+  appendCurrentConent: function() {
+    var current = this.template.filter( '#'+ this.type ).html();
     var currentTpl = Handlebars.compile(current);
 
-    this.template = $(baseTpl).find('#content').append( currentTpl );
-
-    this.render();
+    this.$('#content').append(currentTpl({'data': this.data}));
   },
 
-  render: function(info) {
-    this.fixed = true;
-    console.log(this.template);
-    this.$el.append( this.template );
+  render: function() {
+     this.fixed = true;
+    var base = this.template.filter('#infowindow-base').html();
+    var baseTpl = Handlebars.compile(base);
+    this.$el.append( baseTpl );
+
+    this.appendCurrentConent();
     this.toogleState();
   },
 
