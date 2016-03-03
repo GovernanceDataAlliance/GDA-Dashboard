@@ -57,12 +57,9 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
         }
       }
 
-      @media screen and (min-width: $screen-s) {
+      @media screen and (min-width: 768px) {
         display: block;
-      }
-
-      @media screen and (min-width: $screen-m) {
-        bottom: rem(20px);
+        bottom: rem(25px);
       }
     }
 
