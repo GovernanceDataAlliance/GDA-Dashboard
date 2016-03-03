@@ -12,8 +12,7 @@ var CountryHeaderView = require('./country_header.js'),
     IndicatorListView = require('./indicator_list.js'),
     CountryToolbarView = require('./country_toolbar.js'),
     ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
-    ModalWindowView = require('../common/infowindow_view.js'),
-    TooltipView = require('../common/tooltip_view.js'),
+    ModalWindowView = require('../common/infowindow_view.js')
     ShareView = require('../common/share_view.js'),
     YearSelectorView = require('../common/year_selector.js'),
     LegendView = require('../common/legend.js');
@@ -25,7 +24,6 @@ var template = Handlebars.compile(
 var CountryView = Backbone.View.extend({
 
   events: {
-    'click #legendPopup': '_toggleTooltip',
     'click .btn-info': 'showModalWindow'
   },
 
@@ -217,7 +215,11 @@ var CountryView = Backbone.View.extend({
     if (!data) {
       return;
     }
-    new ModalWindowView().render(data);
+
+    new ModalWindowView({
+      'type': 'info-infowindow',
+      'data': data
+    });
   },
 
   renderIndicators: function() {
