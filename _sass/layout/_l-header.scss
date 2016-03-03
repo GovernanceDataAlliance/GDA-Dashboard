@@ -7,6 +7,7 @@ $header-height: rem(70px);
 
   display: flex;
   align-items: stretch;
+  justify-content: space-between;
 
   @media screen and (min-width: 768px) {
     height: rem(80px);
@@ -18,21 +19,23 @@ $header-height: rem(70px);
 
   .l-brand {
     display: flex;
+    justify-content: center;
     width: rem(95px);
     background-color: $bg-color-2;
 
     @media screen and (min-width: 768px) {
       flex-basis: 37%;
-      justify-content: flex-end;
-      width: auto;
+      // justify-content: center;
+      width: rem(270px);
     }
     
     @media screen and (min-width: $screen-m) {
+      width: rem(360px);
     }
 
     @media screen and (min-width: $screen-l) {
       height: $header-height-desktop;
-      justify-content: center;
+      // justify-content: center;
     }
   }
 
@@ -40,7 +43,6 @@ $header-height: rem(70px);
     display: flex;
     align-items: stretch;
     justify-content: flex-end;
-    width: 100%;
 
     .modal-background {
       display: none;
@@ -107,6 +109,7 @@ $header-height: rem(70px);
 
     @media screen and (min-width: $screen-m) {
       display: flex;
+      width: 100%;
 
       .menus-wrapper {
         width: 100%;

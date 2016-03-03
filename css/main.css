@@ -1831,7 +1831,10 @@ select {
   display: flex;
   -webkit-align-items: stretch;
       -ms-flex-align: stretch;
-          align-items: stretch; }
+          align-items: stretch;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
   @media screen and (min-width: 768px) {
     .l-header {
       height: 5rem; } }
@@ -1842,6 +1845,9 @@ select {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     width: 5.9375rem;
     background-color: #42352b; }
     @media screen and (min-width: 768px) {
@@ -1849,16 +1855,13 @@ select {
         -webkit-flex-basis: 37%;
             -ms-flex-preferred-size: 37%;
                 flex-basis: 37%;
-        -webkit-justify-content: flex-end;
-            -ms-flex-pack: end;
-                justify-content: flex-end;
-        width: auto; } }
+        width: 16.875rem; } }
+    @media screen and (min-width: 769px) {
+      .l-header .l-brand {
+        width: 22.5rem; } }
     @media screen and (min-width: 1024px) {
       .l-header .l-brand {
-        height: 5.9375rem;
-        -webkit-justify-content: center;
-            -ms-flex-pack: center;
-                justify-content: center; } }
+        height: 5.9375rem; } }
   .l-header .l-menus {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -1868,8 +1871,7 @@ select {
             align-items: stretch;
     -webkit-justify-content: flex-end;
         -ms-flex-pack: end;
-            justify-content: flex-end;
-    width: 100%; }
+            justify-content: flex-end; }
     .l-header .l-menus .modal-background {
       display: none; }
     .l-header .l-menus.is-open .modal-background {
@@ -1917,7 +1919,8 @@ select {
       .l-header .l-menus {
         display: -webkit-flex;
         display: -ms-flexbox;
-        display: flex; }
+        display: flex;
+        width: 100%; }
         .l-header .l-menus .menus-wrapper {
           width: 100%;
           position: static;
