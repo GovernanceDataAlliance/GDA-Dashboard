@@ -1,0 +1,9 @@
+SELECT
+ short_name, 
+ iso,
+ cast(score as decimal(10,2)),
+ score_text,
+ year 
+FROM indicator_data 
+WHERE iso='{{iso}}' and short_name='{{index}}'
+ORDER BY year asc

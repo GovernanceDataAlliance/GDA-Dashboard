@@ -10,6 +10,10 @@ var WelcomeView = Backbone.View.extend({
 
   el: '.welcome',
 
+  events: {
+    'click .scroll-down' : '_scrollDown'
+  },
+
   initialize: function() {
 
     enquire.register("screen and (max-width:769px)", {
@@ -43,6 +47,16 @@ var WelcomeView = Backbone.View.extend({
     } else {
       var searchMobile = new SearchMobileView({ el: $('.js--search') });
     }
+  },
+
+  _scrollDown: function() {
+    var $banner = $('.l-banner'),
+      $header = $('.m-site-navigation'),
+      scroll = $header.outerHeight() + $banner.outerHeight();
+
+    $('body').animate(
+      {scrollTop: scroll },
+    '500', 'swing');
   }
 
 });

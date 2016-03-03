@@ -53,7 +53,7 @@
       left: 0;
       transform: translatey(100%);
       max-height: rem(208px);
-      overflow-y: scroll;
+      overflow-y: auto;
       background-color: $white;
       // @extend %clear-scroll-bars;
 
