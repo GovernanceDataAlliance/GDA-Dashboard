@@ -1,5 +1,6 @@
 .c-brand {
-  display: flex; display: -ms-box;
+  display: flex; 
+  display: -ms-box;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -26,21 +27,35 @@
     }
   }
 
+  &.-expanded {
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  @media screen and (min-width: $screen-l) {
+    img {
+      height: auto;
+    }
+  }
 
   @media screen and (min-width: 768px) {
-    @include col(3);
-    justify-content: flex-start;
-    padding-left: rem($wrap-padding-desktop);
+    // @include col(3);
+    // justify-content: flex-start;
+    // padding-left: rem($wrap-padding-desktop);
 
-    &.-expanded {
-      justify-content: center;
-      padding: 0;
-      max-width: 100%;
-    }
+    // &.-expanded {
+    //   // justify-content: center;
+    //   // padding: 0;
+    //   width: 100%;
+    // }
 
     img {
       width: auto;
-      padding-right: rem(20px);
+      // height: auto;
+      // padding-right: rem(20px);
 
       &.tablet {
         display: block;
@@ -52,18 +67,27 @@
     }
   }
 
-  @media screen and (min-width: $screen-l) {
-    justify-content: center;
-    padding: 0 rem($wrap-padding-tablet);
+  @media screen and (min-width: $screen-s) {
+    // justify-content: center;
+    // padding: 0 rem($wrap-padding-tablet);
 
-    &:hover {
-      max-width: 100%;
-      padding: 0;
+    // &:hover {
+    //   max-width: 100%;
+    //   padding: 0;
+    // }
+
+    &.-expanded {
+      
+      img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+      }
     }
 
-    img {
-      padding: 0;
-      height: auto;
-    }
+    // img {
+    //   width: auto;
+    //   height: auto;
+    // }
   }
 }

@@ -1125,7 +1125,7 @@ select {
     @media screen and (min-width: 1024px) {
       .l-banner.-main {
         padding-top: 0;
-        min-height: 38.4375rem; }
+        min-height: 37.5rem; }
         .l-banner.-main h3 {
           max-width: 80%; }
         .l-banner.-main p {
@@ -5083,39 +5083,25 @@ select {
     height: 2.5rem; }
     .c-brand img.tablet {
       display: none; }
-  @media screen and (min-width: 768px) {
-    .c-brand {
-      max-width: 21.875rem;
-      width: 100%;
-      -webkit-justify-content: flex-start;
-          -ms-flex-pack: start;
-              justify-content: flex-start;
-      padding-left: 2.5rem; }
-      .c-brand.-expanded {
-        -webkit-justify-content: center;
-            -ms-flex-pack: center;
-                justify-content: center;
-        padding: 0;
-        max-width: 100%; }
-      .c-brand img {
-        width: auto;
-        padding-right: 1.25rem; }
-        .c-brand img.tablet {
-          display: block; }
-        .c-brand img.mobile {
-          display: none; } }
+  .c-brand.-expanded {
+    width: 100%; }
+    .c-brand.-expanded img {
+      width: 100%; }
   @media screen and (min-width: 1024px) {
-    .c-brand {
-      -webkit-justify-content: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-      padding: 0 1.875rem; }
-      .c-brand:hover {
-        max-width: 100%;
-        padding: 0; }
-      .c-brand img {
-        padding: 0;
-        height: auto; } }
+    .c-brand img {
+      height: auto; } }
+  @media screen and (min-width: 768px) {
+    .c-brand img {
+      width: auto; }
+      .c-brand img.tablet {
+        display: block; }
+      .c-brand img.mobile {
+        display: none; } }
+  @media screen and (min-width: 640px) {
+    .c-brand.-expanded img {
+      width: auto;
+      height: auto;
+      max-width: 100%; } }
 
 .c-tooltip {
   display: inline-block; }
