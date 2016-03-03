@@ -5,6 +5,16 @@ var _ = require('lodash'),
 
 var modalWindowtemplate = require('../../templates/common/modal_window_tpl.hbs');
 
+
+/* 
+ * Creates modal infowindow.
+ * It should recieve type option to generate template.
+ * Default type: info
+ * Available options: 
+ * - info-infowindow
+ * - legend-infowindow
+ * - share-infowindow
+*/
 var ModalWindowView = Backbone.View.extend({
 
   el: 'body',
@@ -23,9 +33,10 @@ var ModalWindowView = Backbone.View.extend({
   },
 
   initialize: function(options, data) {
-    this.type = options ? options.type : 'legend-infowindow';
+    this.type = options ? options.type : 'info-infowindow';
 
-    this.generateTemplate();
+    
+    this.getTemplate();
 
     // if (data) {
     //   this.render(data);
@@ -34,7 +45,7 @@ var ModalWindowView = Backbone.View.extend({
     $(document).keyup(_.bind(this.onKeyUp, this));
   },
 
-  generateTemplate: function() {
+  getTemplate: function() {
     var $tpl = $(modalWindowtemplate);
     var base = $tpl.filter('#infowindow-base').html();
     var current = $tpl.filter( '#'+ this.type ).html();

@@ -4,14 +4,16 @@ var _ = require('lodash'),
   Handlebars = require('handlebars'),
   enquire = require('enquire.js');
 
-var TooltipView = require('../common/tooltip_view.js');
+// var TooltipView = require('../common/tooltip_view.js');
+
+var ModalWindowView = require('../common/infowindow_view.js');
 
 var tpl = Handlebars.compile(require('../../templates/common/legend_tpl.hbs')); 
 
 var Legend = Backbone.View.extend({
 
   events: {
-    'click #legendPopup': '_toggleTooltip'
+    'click #legendPopup': '_openInfowindow'
   },
 
   template: tpl,
@@ -37,9 +39,13 @@ var Legend = Backbone.View.extend({
     this.$el.append(this.template({ 'mobile': this.mobile }));
   },
 
-  _toggleTooltip: function(e) {
-    new TooltipView({ 'el': this.$('.c-tooltip') }).toggleStatus(e);
-  },
+  // _toggleTooltip: function(e) {
+  //   new TooltipView({ 'el': this.$('.c-tooltip') }).toggleStatus(e);
+  // },
+
+  _openInfowindow: function() {
+    new ModalWindowView({'type': 'legend-infowindow'})
+  }
 
 });
 
