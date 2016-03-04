@@ -33,93 +33,153 @@ var CountryView = Backbone.View.extend({
       throw new Error('CountryView requires a Country ISO ID');
     }
 
-    this.iso = options.iso;
-    this.currentYear = options.year || (new Date).getFullYear() - 1;
+    this.status = new (Backbone.Model.extend({
+      defaults: {
+        iso: null,
+        year: null
+      }
+    }));
 
     this.functionHelper = FunctionHelper;
 
     // Initialize collections
-    this.country = new Country({id: this.iso});
+    this.country = new Country({id: options.iso});
     this.indicators = new Indicators();
     this.yearsCollection = new Years();
 
-    $.when(this.yearsCollection.totalYears(),
-      this.country.fetch()).done(function() {
+    this.status.set({
+      iso: options.iso,
+      year: options.year
+    });
 
-      this.initializeData();
-      this._setListeners();
-
-    }.bind(this));
-
+    this._setListeners();
+    this.initializeData();
   },
 
   initializeData: function() {
+    var iso = this.status.get('iso'),
+      currentYear = this.status.get('year');
+
     this.render();
 
-    this.indicators.forCountryAndYear(this.iso, this.currentYear).done(function() {
-      this.renderCountry();
+    this.country.fetch();
+
+    this.yearsCollection.getYearsByCountry({iso: iso}).done(function() {
+
+      if (!this.status.get('year')) {
+        this.status.set('year', this.yearsCollection.getLastYear())
+      } else {
+        this.indicators.forCountryAndYear(iso, this.status.get('year'));
+      }
+
     }.bind(this));
 
   },
 
   _setListeners: function() {
+    // Model listeners
+    this.status.on('change:year', _.bind(this._onUpdateYear, this));
+    this.status.on('change:iso', _.bind(this.updateCountry, this));
+
     Backbone.Events.on('year:selected', this._updateYear, this);
+
+    // Collections listeners
     this.listenTo(this.indicators, 'sync', this.renderIndicators);
+    this.listenTo(this.country, 'sync', this.renderCountry);
+    this.listenTo(this.yearsCollection, 'sync', this.renderYearSelector);
   },
 
-  render: function(rerender) {
+  _hideBanner: function() {
     if (!$('.js--index-banner').hasClass('is-hidden')) {
       $('.js--index-banner').addClass('is-hidden');
     }
+  },
+
+  render: function() {
+    this._hideBanner();
 
     this.$el.html(template());
     this.renderToolbars();
-    this.renderYearSelector();
     this.renderLegend();
 
-    if (rerender) {
-      this.renderCountry();
-      this.renderToolbars();
-      this.renderIndicators();
-    }
-
-    this._setDownloadYear();
     this.functionHelper.scrollTop();
   },
 
-  _updateYear: function(year) {
-    this.currentYear = year;
+  _toggleTooltip: function(e) {
+    new TooltipView().toggleStatus(e);
+  },
 
-    this._updateInfo();
+  updateCountry: function() {
+    this.stopListening(this.country);
+
+    this.country.id = this.status.get('iso');
+    this.country.fetch();
+  },
+
+  _updateYear: function(year) {
+    this.status.set('year', year);
+  },
+
+  _onUpdateYear: function() {
+    this._setDownloadData();
+    this.indicators.forCountryAndYear(this.status.get('iso'), this.status.get('year'));
   },
 
   _updateParams: function(params) {
-    this.currentYear = params.year;
-    this.iso = params.iso;
 
-    this._updateInfo();
-  },
+    this.yearsCollection.getYearsByCountry({iso: params.iso}).done(function() {
 
-  _updateInfo: function() {
+      var lastYear = this.yearsCollection.getLastYear();
 
-    this.country = new Country({id: this.iso});
+      if (params.year == this.status.get('year')) {
 
-    $.when(this.country.fetch(), this.indicators.forCountryAndYear(this.iso, this.currentYear)).done(function() {
-      this.render(true);
+        this.status.set({
+          iso: params.iso,
+          year: params.year ? params.year : lastYear
+        });
+
+        this.status.trigger('change:year');
+
+      } else {
+
+        this.status.set({
+          iso: params.iso,
+          year: params.year ? params.year : lastYear
+        });
+
+        if (this.status.get('year') == lastYear) {
+          this.status.trigger('change:year');
+        }
+      }
+
+      this._hideBanner();
+      this._updateYearSelector();
+
+      this.utilsToolbar.delegateEvents();
+      this.countryToolbar.delegateEvents();
+      this._setDownloadData();
+
     }.bind(this));
+
   },
 
-  _setDownloadYear: function() {
-    $('.js--download').attr('data-year', this.currentYear);
+  _updateYearSelector: function() {
+    var $yearSelector = $('.js--year-selector-country').find('select');
+    $yearSelector.val(this.status.get('year'))
+    $yearSelector.trigger("liszt:updated");
+  },
+
+  _setDownloadData: function() {
+    var $downloadbtn = this.$el.find('.js--toolbar-utils').find('.js--download');
+    $downloadbtn.attr('data-year', this.status.get('year'));
+    $downloadbtn.attr('data-iso', this.status.get('iso'));
   },
 
   renderYearSelector: function() {
-    this.currentYear = this.currentYear ? this.currentYear : this.yearsCollection.getLastYear();
-
     new YearSelectorView({
       el: this.$('.js--year-selector-country'),
       'years': this.yearsCollection.toJSON(),
-      'actualYear': this.currentYear
+      'actualYear': this.status.get('year')
     });
   },
 
@@ -132,61 +192,46 @@ var CountryView = Backbone.View.extend({
 
   renderCountry: function() {
     var headerView = new CountryHeaderView({
-      country: this.country});
+      country: this.country
+    });
 
     this.$('.js--country-header').html(headerView.render().el);
   },
 
   renderToolbars: function() {
-    this.$el.find('.js--country-toolbar').find('.wrap').append(new ToolbarUtilsView({
+    this.utilsToolbar = new ToolbarUtilsView({
       el: this.$el.find('.js--toolbar-utils'),
       isCountry: true,
-      iso: this.iso
-    }).render().el);
+      iso: this.status.get('iso')
+    });
 
-    this.$el.find('.js--country-toolbar').find('.wrap').append(new CountryToolbarView({
+    this.countryToolbar = new CountryToolbarView({
       el: this.$el.find('.js--toolbar-display')
-    }).render().el);
-  },
+    });
 
-  _getIndicatorInfo(opts) {
-    return this.indicatorCollection.getInfoByIndicator(opts);
+    this.$el.find('.js--country-toolbar').find('.wrap').append(this.utilsToolbar.render().el);
+    this.$el.find('.js--country-toolbar').find('.wrap').append(this.countryToolbar.render().el);
+
+    this._setDownloadData();
   },
 
   showModalWindow: function(e) {
-    var indicator = $(e.currentTarget).data('indicator');
-    if (!indicator) {
+    var data = $(e.currentTarget).data('info');
+    if (!data) {
       return;
     }
 
-    this._getIndicatorInfo({
-      indicator: indicator
-    }).done(function() {
-
-      new ModalWindowView({
-        'type': 'info-infowindow',
-        'data': {
-          indicator: indicator
-        }
-      });
+    new ModalWindowView({
+      'type': 'info-infowindow',
+      'data': data
     });
   },
 
   renderIndicators: function() {
     new IndicatorListView({
       'indicators': this.indicators,
-      currentYear: this.currentYear
+      currentYear: this.status.get('year')
     }).render();
-  },
-
-  setCountry: function(iso) {
-    if (this.iso === iso) { this.render(true); }
-
-    this.stopListening(this.indicators);
-    this.stopListening(this.country);
-
-    this.iso = iso;
-    this.initializeData();
   },
 
   show: function() {
