@@ -25,7 +25,6 @@ $header-height: rem(70px);
 
     @media screen and (min-width: 768px) {
       flex-basis: 37%;
-      // justify-content: center;
       width: rem(270px);
     }
     
@@ -35,7 +34,6 @@ $header-height: rem(70px);
 
     @media screen and (min-width: $screen-l) {
       height: $header-height-desktop;
-      // justify-content: center;
     }
   }
 

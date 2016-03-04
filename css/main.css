@@ -1706,7 +1706,7 @@ select {
   -webkit-align-items: stretch;
       -ms-flex-align: stretch;
           align-items: stretch; }
-  @media screen and (min-width: 640px) {
+  @media screen and (min-width: 768px) {
     .l-footer {
       height: 13.125rem;
       -webkit-flex-direction: row;
@@ -1731,7 +1731,7 @@ select {
         -ms-flex-pack: end;
             justify-content: flex-end;
     background-color: #42352b; }
-    @media screen and (min-width: 640px) {
+    @media screen and (min-width: 768px) {
       .l-footer .l-brand {
         -webkit-order: 1;
             -ms-flex-order: 1;
@@ -1778,7 +1778,7 @@ select {
           padding: 0; } }
     .l-footer .l-menus p {
       font-size: 0.875rem; }
-    @media screen and (min-width: 640px) {
+    @media screen and (min-width: 768px) {
       .l-footer .l-menus {
         padding: 2.8125rem 0 2.1875rem 0;
         -webkit-order: 2;
@@ -1809,7 +1809,7 @@ select {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center; }
-    @media screen and (min-width: 640px) {
+    @media screen and (min-width: 768px) {
       .l-footer .footer-info {
         -webkit-flex-direction: row;
             -ms-flex-direction: row;
@@ -3185,6 +3185,9 @@ select {
     .modal-wrapper {
       max-width: 46.875rem;
       max-height: 30.3125rem; } }
+
+.modal-content {
+  width: 100%; }
 
 .modal-container {
   display: -webkit-flex;
@@ -5083,25 +5086,26 @@ select {
     height: 2.5rem; }
     .c-brand img.tablet {
       display: none; }
+    @media screen and (min-width: 768px) {
+      .c-brand img {
+        width: auto; }
+        .c-brand img.tablet {
+          display: block; }
+        .c-brand img.mobile {
+          display: none; } }
+    @media screen and (min-width: 1024px) {
+      .c-brand img {
+        height: auto; } }
   .c-brand.-expanded {
     width: 100%; }
     .c-brand.-expanded img {
-      width: 100%; }
-  @media screen and (min-width: 1024px) {
-    .c-brand img {
-      height: auto; } }
-  @media screen and (min-width: 768px) {
-    .c-brand img {
-      width: auto; }
-      .c-brand img.tablet {
-        display: block; }
-      .c-brand img.mobile {
-        display: none; } }
-  @media screen and (min-width: 640px) {
-    .c-brand.-expanded img {
-      width: auto;
-      height: auto;
-      max-width: 100%; } }
+      width: 100%;
+      height: 3.125rem; }
+    @media screen and (min-width: 768px) {
+      .c-brand.-expanded img {
+        width: auto;
+        height: auto;
+        max-width: 100%; } }
 
 .c-tooltip {
   display: inline-block; }
