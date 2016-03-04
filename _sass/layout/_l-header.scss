@@ -42,6 +42,11 @@ $header-height: rem(70px);
     align-items: stretch;
     justify-content: flex-end;
 
+    @media screen and (min-width: $screen-m) {
+      display: flex;
+      width: 100%;
+    }
+
     .modal-background {
       display: none;
     }
@@ -74,6 +79,14 @@ $header-height: rem(70px);
       background-color: $bg-color-4;
       transition: all .3s ease-in .1s;
       transform: translatex(100%);
+
+      @media screen and (min-width: $screen-m) {
+        width: 100%;
+        position: static;
+        display: flex;
+        background-color: transparent;
+        transform: translatex(0);
+      }
     }
 
     .scroll-wrapper {
@@ -84,11 +97,24 @@ $header-height: rem(70px);
       right: 0;
       padding: 0 rem(40px);
       overflow-y: scroll;
+
+      @media screen and (min-width: $screen-m) {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        overflow-y: hidden;
+        padding: 0;
+      }
     }
 
     .btn-mobile-menu {
       width: $header-height;
       height: $header-height;
+
+      @media screen and (min-width: $screen-m) {
+        display: none;
+      }
 
       svg {
         width: rem(20px);
@@ -105,32 +131,8 @@ $header-height: rem(70px);
       }
     }
 
-    @media screen and (min-width: $screen-m) {
-      display: flex;
-      width: 100%;
-
-      .menus-wrapper {
-        width: 100%;
-        position: static;
-        display: flex;
-        background-color: transparent;
-        transform: translatex(0);
-      }
-
-      .scroll-wrapper {
-        position: static;
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        overflow-y: hidden;
-        padding: 0;
-      }
-
-      .btn-mobile-menu {
-        display: none;
-      }
-
-      .btn-close {
+    .btn-close {
+      @media screen and (min-width: $screen-m) {
         display: none;
       }
     }

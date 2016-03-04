@@ -44,23 +44,6 @@ $footer-height: rem(375px);
     padding: rem(60px) 0;
     height: $footer-desktop-height;
 
-    .menus-wrapper {
-      @include col(5);
-      display: flex; display: -ms-box;
-      padding: 0 rem($wrap-padding-mobile);
-      justify-content: space-between;
-      align-items: center;
-      flex-direction: column;
-
-      @media screen and (min-width: $screen-l) {
-        padding: 0;
-      }
-    }
-
-    p {
-      font-size: rem(14px);
-    }
-
     @media screen and (min-width: 768px) {
       padding: rem(45px) 0 rem(35px) 0;
       order: 2;
@@ -80,9 +63,23 @@ $footer-height: rem(375px);
       }
     }
 
-    @media screen and (min-width: $screen-xl) {
+    .menus-wrapper {
+      @include col(5);
+      display: flex; display: -ms-box;
+      padding: 0 rem($wrap-padding-mobile);
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
 
+      @media screen and (min-width: $screen-l) {
+        padding: 0;
+      }
     }
+
+    p {
+      font-size: rem(14px);
+    }
+
   }
 
   .footer-info {
@@ -93,10 +90,6 @@ $footer-height: rem(375px);
     @media screen and (min-width: 768px) {
       flex-direction: row;
       align-items: flex-end
-    }
-
-    @media screen and (min-width: $screen-xl) {
-
     }
   }
 
