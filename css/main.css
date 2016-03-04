@@ -3719,7 +3719,10 @@ select {
     font-size: 1.875rem;
     margin-right: 2.5rem; }
   .m-table .table-row .name {
-    font-size: 0.9375rem; }
+    font-size: 0.9375rem;
+    color: #42352b; }
+    .m-table .table-row .name:hover {
+      text-decoration: underline; }
   .m-table .table-row .score {
     font-size: 2.1875rem;
     letter-spacing: -2px; }
@@ -3727,6 +3730,15 @@ select {
       display: inline-block;
       font-family: "Montserrat";
       font-weight: 700; }
+    .m-table .table-row .score .max_score {
+      font-size: 1.25rem; }
+    .m-table .table-row .score .usd .max_score,
+    .m-table .table-row .score .usd .units {
+      font-size: 0.75rem; }
+    @media screen and (min-width: 768px) {
+      .m-table .table-row .score .usd .max_score,
+      .m-table .table-row .score .usd .units {
+        font-size: 1.25rem; } }
     .m-table .table-row .score .units {
       -webkit-align-self: flex-end;
           -ms-flex-item-align: end;

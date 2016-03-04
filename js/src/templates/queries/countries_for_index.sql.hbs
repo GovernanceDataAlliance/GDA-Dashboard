@@ -10,7 +10,8 @@ SELECT
   w.income_group,
   c.desired_direction, 
   c.score_range,
-  c.units_abbr  
+  c.units_abbr,
+  c.units   
 FROM indicator_data i 
   INNER JOIN wb_countries_clasification w ON i.iso=w.iso 
   INNER JOIN indicator_config c ON i.short_name=c.short_name 

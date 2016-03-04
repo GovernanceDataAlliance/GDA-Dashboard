@@ -14,6 +14,7 @@ var IndicatorListView = Backbone.View.extend({
     options = options || {};
 
     this.direction = options.direction;
+    this.max_score = options.max_score;
     this.countries = options.countries;
 
     this.render();
@@ -41,7 +42,8 @@ var IndicatorListView = Backbone.View.extend({
 
     this.$el.html(template({
       'countries': this._setTier(countries),
-      'direction': this.direction
+      'direction': this.direction,
+      'max_score': this.max_score
     }));
   }
 });
