@@ -89,10 +89,14 @@ var CountryView = Backbone.View.extend({
     this.listenTo(this.yearsCollection, 'sync', this.renderYearSelector);
   },
 
-  render: function() {
+  _hideBanner: function() {
     if (!$('.js--index-banner').hasClass('is-hidden')) {
       $('.js--index-banner').addClass('is-hidden');
     }
+  },
+
+  render: function() {
+    this._hideBanner();
 
     this.$el.html(template());
     this.renderToolbars();
@@ -148,6 +152,7 @@ var CountryView = Backbone.View.extend({
         }
       }
 
+      this._hideBanner();
       this._updateYearSelector();
 
       this.utilsToolbar.delegateEvents();
