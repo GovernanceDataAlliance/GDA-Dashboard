@@ -45,6 +45,10 @@ var ModalWindowView = Backbone.View.extend({
     $(document).keyup(_.bind(this.onKeyUp, this));
   },
 
+  _remove: function() {
+    this.$el.find('#infowindow-base').remove();
+  },
+
   render: function() {
     this.fixed = true;
 
@@ -74,7 +78,7 @@ var ModalWindowView = Backbone.View.extend({
     e && e.stopPropagation();
     this.fixed = false;
 
-    $('.m-modal-window').remove();
+    this._remove();
     this.toogleState();
   },
 
