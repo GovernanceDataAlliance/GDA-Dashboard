@@ -3,8 +3,6 @@ var _ = require('lodash'),
   Backbone = require('backbone'),
   Handlebars = require('handlebars');
 
-var indicatorCollection = require('../../collections/indicators.js');
-
 var modalWindowtemplate = require('../../templates/common/modal_window_tpl.hbs');
 
 /*
@@ -36,57 +34,32 @@ var ModalWindowView = Backbone.View.extend({
   initialize: function(options) {
     this.type = options && options.type ? options.type : 'info-infowindow';
     this.data = options && options.data ? options.data : null;
-    this.template = $(modalWindowtemplate);
-
-    this.indicatorCollection = new indicatorCollection();
+    this.template = Handlebars.compile(modalWindowtemplate);
 
     this._setListeners();
 
-    this._switchView();
+    this.render();
   },
-
 
   _setListeners: function() {
     $(document).keyup(_.bind(this.onKeyUp, this));
   },
 
-  _switchView: function() {
-    this._selectTemplate();
-
-    if (this.type == 'info-infowindow') {
-      this._getIndicatorInfo(this.data).done(function() {
-
-        this.data = this.indicatorCollection.at(0).toJSON();
-        this.render();
-        
-      }.bind(this));
-    } else {
-      this.render();
-    }
-  },
-
-  _getIndicatorInfo(opts) {
-    return this.indicatorCollection.getInfoByIndicator(opts);
-  },
-
-  // Select template according incoming type
-  _selectTemplate: function() {
-    var current = this.template.filter( '#'+ this.type ).html();
-    this.currentTemplate = Handlebars.compile(current);
-  },
-
-  // Set data into the selected template
-  appendCurrentContent: function() {
-    this.$('#content').append(this.currentTemplate({ 'data': this.data }));
-  },
-
   render: function() {
     this.fixed = true;
-    var base = this.template.filter('#infowindow-base').html(),
-      baseTpl = Handlebars.compile(base);
 
-    this.$el.append(baseTpl);
-    this.appendCurrentContent();
+    // Filters content depending on the data
+    var innerContent = this.template({
+      type: this.type,
+      data: this.data
+    });
+
+    // Renders base template
+    this.$el.append(this.template());
+
+    // Adds filtered content to base template
+    this.$('#content').append(innerContent);
+
     this.toogleState();
   },
 

@@ -3,6 +3,7 @@ var _ = require('lodash'),
     Handlebars = require('handlebars');
 
 var Country = require('../../models/country.js'),
+    InfoWindowModel = require('../../models/infowindow.js'),
     Indicators = require('../../collections/indicators.js'),
     Years = require('../../collections/years.js');
 
@@ -32,6 +33,10 @@ var CountryView = Backbone.View.extend({
     if (options.iso === undefined) {
       throw new Error('CountryView requires a Country ISO ID');
     }
+
+
+    // Models
+    this.infoWindowModel = new InfoWindowModel();
 
     this.status = new (Backbone.Model.extend({
       defaults: {
@@ -215,16 +220,27 @@ var CountryView = Backbone.View.extend({
     this._setDownloadData();
   },
 
+  _getIndicatorInfo(opts) {
+    return this.infoWindowModel.getIndicator(opts);
+  },
+
   showModalWindow: function(e) {
-    var data = $(e.currentTarget).data('info');
-    if (!data) {
+    var indicator = $(e.currentTarget).data('indicator');
+    if (!indicator) {
       return;
     }
 
-    new ModalWindowView({
-      'type': 'info-infowindow',
-      'data': data
-    });
+    this._getIndicatorInfo({
+      indicator: indicator
+    }).done(function() {
+
+      new ModalWindowView({
+        'type': 'info-infowindow',
+        'data': this.infoWindowModel.toJSON()
+      });
+
+    }.bind(this));
+
   },
 
   renderIndicators: function() {

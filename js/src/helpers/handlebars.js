@@ -33,3 +33,10 @@ Handlebars.registerHelper('ordinalNumber', function(number) {
 
   return number + sufix;
 });
+
+Handlebars.registerHelper('equal', function(a, b, opts) {
+  if(a == b)
+    return opts.fn(this);
+  else
+    return opts.inverse(this);
+});
