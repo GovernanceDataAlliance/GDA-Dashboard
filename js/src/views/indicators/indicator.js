@@ -113,10 +113,6 @@ var IndicatorView = Backbone.View.extend({
     this.$el.find('.l-toolbar').first().find('.m-control').first().append(new ToolbarUtilsView({
       el: this.$el.find('.js--toolbar-utils')
     }).render().el);
-
-    setTimeout(function() {
-      new TooltipView({el: '.m-legend'});
-    }, 10);
   },
 
   renderSelectorsToolbar: function() {
