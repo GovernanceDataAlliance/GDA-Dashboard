@@ -104,12 +104,11 @@
       font-family: $font-secondary;
       font-size: rem(11px);
       text-transform: uppercase;
+      &:hover {
+        color: $color-4;
+      }
     }
   }
-
-  // a:hover {
-  //   color: $color-4;
-  // }
 }
 
 .btn-close-modal {
