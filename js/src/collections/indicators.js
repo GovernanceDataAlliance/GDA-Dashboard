@@ -9,7 +9,8 @@ var Handlebars = require('handlebars');
 
 var SQL = Handlebars.compile(require('../templates/queries/indicators.sql.hbs')),
     SQLwithYears = Handlebars.compile(require('../templates/queries/indicators_with_years.sql.hbs')),
-    SQLHistoricalData = Handlebars.compile(require('../templates/queries/indicators_historical_data.sql.hbs'));
+    SQLHistoricalData = Handlebars.compile(require('../templates/queries/indicators_historical_data.sql.hbs')),
+    infoIndicatorSQL = Handlebars.compile(require('../templates/queries/indicator_info.sql.hbs'));
 
 var Indicators = CartoDBCollection.extend({
   user_name: CONFIG.cartodb.user_name,
@@ -70,7 +71,17 @@ var Indicators = CartoDBCollection.extend({
     });
 
     return this._urlForQuery(query) + '&format=csv';
+  },
+
+  getInfoByIndicator: function(opts) {
+    var query = infoIndicatorSQL({
+      indicator_id: opts.indicator
+    }),
+    url = this._urlForQuery(query);
+
+    return this.fetch({url: url});
   }
+
 });
 
 module.exports = Indicators;

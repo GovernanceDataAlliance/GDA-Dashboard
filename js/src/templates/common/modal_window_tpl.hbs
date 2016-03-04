@@ -4,7 +4,7 @@
       <div class="btn-close-modal close-icon">×</div>
       <div class="modal-container">
         <div id="content" class="modal-content">
-          
+
         </div>
       </div>
     </div>
@@ -14,7 +14,14 @@
 
 
 <div id="info-infowindow">
-  <p>{{{data}}}</p>
+  <h2>{{{data.product_name}}}</h2>
+  <div class="c-indicator-logo">
+    <img src="/css/img/logos/{{data.product_logo}}" alt="{{data.product_logo}}" />
+  </div>
+  <h3>{{data.organization}}</h3>
+  <a href="{{data.methodology_link}}" target="_blank">visit website</a>
+
+  <p>{{data.product_description}}</p>
 </div>
 
 
@@ -34,7 +41,3 @@
     <p>Alliance data producer organizations have selected specific scoring bands for each of their data sets that correspond to the color codes used here. These Alliance scoring/color bands may or may not correspond to how each data producer currently publishes their results independently; again, this inconsistency in certain cases is an unavoidable result of our attempt to provider a snapshot, unified overview of all results for a country. If you are confused by a certain color assignation on these dashboards, please consult the specific data producer organization's website for in-depth details on their respective scoring methodology.</p>
   </div>
 </div>
-
-
-
-

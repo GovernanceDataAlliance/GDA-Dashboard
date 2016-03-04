@@ -162,7 +162,6 @@ var CountryView = Backbone.View.extend({
     this._getIndicatorInfo({
       indicator: indicator
     }).done(function() {
-      this.ind
 
       new ModalWindowView({
         'type': 'info-infowindow',
@@ -171,8 +170,6 @@ var CountryView = Backbone.View.extend({
         }
       });
     });
-
-
   },
 
   renderIndicators: function() {
