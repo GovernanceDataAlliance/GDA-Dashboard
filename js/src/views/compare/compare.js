@@ -291,7 +291,7 @@ var CompareView = Backbone.View.extend({
 
   getYears: function() {
     var years = new Years();
-    return years.totalYears()
+    return years.getYears()
   },
 
   setParams: function(countries, year) {
