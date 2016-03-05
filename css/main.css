@@ -2302,7 +2302,8 @@ select {
           -webkit-flex-direction: column;
               -ms-flex-direction: column;
                   flex-direction: column; }
-          .m-card .card-wrap > .wrap .name {
+          .m-card .card-wrap > .wrap .name,
+          .m-card .card-wrap > .wrap .name a {
             font-size: 1.875rem;
             line-height: 2.3125rem; }
           .m-card .card-wrap > .wrap .description {
@@ -2325,7 +2326,8 @@ select {
               -ms-flex-align: start;
                       -ms-grid-row-align: flex-start;
                   align-items: flex-start; }
-          .m-card .card-wrap > .wrap .name {
+          .m-card .card-wrap > .wrap .name,
+          .m-card .card-wrap > .wrap .name a {
             font-size: 1.6875rem;
             line-height: 2.125rem; }
           .m-card .card-wrap > .wrap .index-score > .resume.-usd {
@@ -2347,7 +2349,8 @@ select {
         padding: 4.0625rem 0 5.3125rem; }
         .m-card .card-wrap > .wrap {
           padding: 0 5.3125rem; }
-          .m-card .card-wrap > .wrap .name {
+          .m-card .card-wrap > .wrap .name,
+          .m-card .card-wrap > .wrap .name a {
             line-height: 1.3; } }
   .m-card a:hover {
     color: #49c9de; }
@@ -2368,10 +2371,12 @@ select {
               flex-basis: 100%; }
       .m-card .-not-covered .index-description .organization {
         color: #42352b !important; }
-      .m-card .-not-covered .index-description h2 {
+      .m-card .-not-covered .index-description .name,
+      .m-card .-not-covered .index-description .name a {
         position: relative;
         padding-bottom: 3.125rem; }
-        .m-card .-not-covered .index-description h2:after {
+        .m-card .-not-covered .index-description .name:after,
+        .m-card .-not-covered .index-description .name a:after {
           content: "";
           position: absolute;
           bottom: 0;
@@ -2473,7 +2478,9 @@ select {
   @media screen and (min-width: 1024px) {
     .m-card .index-description {
       width: 48%; } }
-  .m-card .index-description .name {
+  .m-card .index-description .name,
+  .m-card .index-description .name a {
+    color: #42352b;
     font-size: 1.5rem;
     font-weight: 400;
     margin-bottom: 0.9375rem; }
@@ -2720,6 +2727,9 @@ select {
   .m-card.-score-poor {
     color: #fff;
     background-color: #97102c; }
+    .m-card.-score-poor .index-description .name,
+    .m-card.-score-poor .index-description .name a {
+      color: #fff; }
     .m-card.-score-poor .index-description .organization {
       color: #fff; }
       .m-card.-score-poor .index-description .organization .btn-info {
@@ -2993,16 +3003,20 @@ select {
     @media screen and (min-width: 1024px) {
       .m-comparison-table .table-cell {
         height: 10rem; } }
-  .m-comparison-table h3 {
-    font-size: 1.25rem;
+  .m-comparison-table h3,
+  .m-comparison-table h3 a {
     margin-bottom: 0.625rem;
-    font-weight: 400; }
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #42352b; }
     @media screen and (min-width: 769px) {
-      .m-comparison-table h3 {
+      .m-comparison-table h3,
+      .m-comparison-table h3 a {
         font-size: 1.125rem;
         line-height: 1.3em; } }
     @media screen and (min-width: 1024px) {
-      .m-comparison-table h3 {
+      .m-comparison-table h3,
+      .m-comparison-table h3 a {
         font-size: 1.25rem;
         line-height: 1.5em; } }
   .m-comparison-table h2 {
