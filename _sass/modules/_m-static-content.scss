@@ -122,7 +122,7 @@
     }
 
     li {
-      margin-bottom: rem(50px);
+      margin-bottom: rem(40px);
 
       &:before {
         display: inline-block;
@@ -167,9 +167,13 @@
   // Miscellaneous
   hr {
     height: rem(1px);
-    margin: rem(40px) 0;
+    margin: rem(45px) 0;
     border: 0;
     background: $light-grey;
+
+    @media screen and (min-width: $screen-s) {
+      margin: rem(75px) 0;
+    }
 
     @media screen and (min-width: 768px) {
       margin: rem(100px) 0;

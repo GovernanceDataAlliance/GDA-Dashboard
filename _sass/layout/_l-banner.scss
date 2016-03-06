@@ -253,6 +253,16 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
   }
 
   &.-about {
+    padding: rem(75px) 0 rem(60px);
+
+    @media screen and (min-width: $screen-s) {
+      padding: rem(115px) 0 rem(170px);
+    }
+
+    @media screen and (min-width: 768px) {
+      padding: rem(130px) 0 rem(135px);
+    }
+
 
     .c-section-title {
       margin-bottom: rem(40px);
