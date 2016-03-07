@@ -33,13 +33,6 @@ Handlebars.registerHelper('ordinalNumber', function(number) {
   return number + sufix;
 });
 
-Handlebars.registerHelper('equal', function(a, b, opts) {
-  if(a == b)
-    return opts.fn(this);
-  else
-    return opts.inverse(this);
-});
-
 Handlebars.registerHelper('unlessPercentage', function(options) {
   if (!this.units_abbr || this.units_abbr != '%') {
     return '<span class="max_score">/'+ options +'</span>'
