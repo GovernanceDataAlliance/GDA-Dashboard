@@ -326,7 +326,7 @@ var CompareView = Backbone.View.extend({
 
   hide: function() {},
 
-  _getIndicatorInfo(opts) {
+  _getIndicatorInfo: function(opts) {
     return this.infoWindowModel.getIndicator(opts);
   },
 
