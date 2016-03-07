@@ -4,11 +4,9 @@ var _ = require('lodash'),
   format = require('../lib/format.js');
 
 var BASE_URL = "http://{0}.cartodb.com/api/v2/sql";
-  CONFIG = require('../../config.json');
 var CartoDBModel = require('../lib/cartodb_model.js');
 
 var infoIndicatorSQL = Handlebars.compile(require('../templates/queries/indicator_info.sql.hbs'));
-
 
 var InfowindowModel = CartoDBModel.extend({
 
@@ -19,7 +17,7 @@ var InfowindowModel = CartoDBModel.extend({
   getIndicator: function(opts) {
     var query = infoIndicatorSQL({
       indicator_id: opts.indicator
-    });
+    }),
     url = this._url(query);
 
     return this.fetch({url: url});
