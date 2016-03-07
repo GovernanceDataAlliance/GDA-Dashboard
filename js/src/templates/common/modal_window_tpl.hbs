@@ -1,40 +1,48 @@
-<div id="infowindow-base">
-  <div class="m-modal-window">
-    <div class="modal-wrapper">
-      <div class="btn-close-modal close-icon">×</div>
-      <div class="modal-container">
-        <div id="content" class="modal-content">
-          
+{{#if isBase}}
+  <div id="infowindow-base">
+    <div class="m-modal-window">
+      <div class="modal-wrapper">
+        <div class="btn-close-modal close-icon">×</div>
+        <div class="modal-container">
+          <div id="content" class="modal-content">
+            {{{content}}}
+          </div>
         </div>
       </div>
+      <div class="modal-background"></div>
     </div>
-    <div class="modal-background"></div>
   </div>
-</div>
+{{/if}}
 
-
-<div id="info-infowindow">
-  <p>{{{data}}}</p>
-</div>
-
-
-<div id="legend-infowindow">
-  <div class="-legend">
-    <h2>legend</h2>
-    <ul>
-      <li class="-excellent"><span class="legend-item">excellent</span></li>
-      <li class="-good"><span class="legend-item">Good</span></li>
-      <li class="-moderate"><span class="legend-item">moderate</span></li>
-      <li class="-fair"><span class="legend-item">fair</span></li>
-      <li class="-poor"><span class="legend-item">poor</span></li>
-    </ul>
-
-    <p>The color coding scheme employed by the Governance Data Alliance on this website is an attempt to provide users with a way to compare whether a particular score for a particular country is, relative to other scores from other data sets, encouraging or cause for concern. Data points provided by Governance Data Alliance producer organizations to Alliance dashboards derive from very different research methodologies and scoring scales. Our use of this unified color scheme is an attempt to provide a snapshot overview of the relative strengths and weaknesses associated with country performance across these disparate indicators.</p>
-
-    <p>Alliance data producer organizations have selected specific scoring bands for each of their data sets that correspond to the color codes used here. These Alliance scoring/color bands may or may not correspond to how each data producer currently publishes their results independently; again, this inconsistency in certain cases is an unavoidable result of our attempt to provider a snapshot, unified overview of all results for a country. If you are confused by a certain color assignation on these dashboards, please consult the specific data producer organization's website for in-depth details on their respective scoring methodology.</p>
+{{#if isIndicator}}
+  <div id="info-infowindow">
+    <div class="-indicator">
+      <h2 class="indicator-name">{{{data.product_name}}}</h2>
+      <div class="img-wrapper">
+        <div class="indicator-logo" style="background-image: url('/css/img/logos/{{data.product_logo}}')"></div>
+        <a class="indicator-website" href="{{data.methodology_link}}" target="_blank">visit the website</a>
+      </div>
+      <!-- <h3 class="indicator-organization">{{data.organization}}</h3> -->
+      <p>{{data.product_description}}</p>
+    </div>
   </div>
-</div>
+{{/if}}
 
+{{#if isLegend}}
+  <div id="legend-infowindow">
+    <div class="-legend">
+      <h2>legend</h2>
+      <ul>
+        <li class="-excellent"><span class="legend-item">excellent</span></li>
+        <li class="-good"><span class="legend-item">Good</span></li>
+        <li class="-moderate"><span class="legend-item">moderate</span></li>
+        <li class="-fair"><span class="legend-item">fair</span></li>
+        <li class="-poor"><span class="legend-item">poor</span></li>
+      </ul>
 
+      <p>The color coding scheme employed by the Governance Data Alliance on this website is an attempt to provide users with a way to compare whether a particular score for a particular country is, relative to other scores from other data sets, encouraging or cause for concern. Data points provided by Governance Data Alliance producer organizations to Alliance dashboards derive from very different research methodologies and scoring scales. Our use of this unified color scheme is an attempt to provide a snapshot overview of the relative strengths and weaknesses associated with country performance across these disparate indicators.</p>
 
-
+      <p>Alliance data producer organizations have selected specific scoring bands for each of their data sets that correspond to the color codes used here. These Alliance scoring/color bands may or may not correspond to how each data producer currently publishes their results independently; again, this inconsistency in certain cases is an unavoidable result of our attempt to provider a snapshot, unified overview of all results for a country. If you are confused by a certain color assignation on these dashboards, please consult the specific data producer organization's website for in-depth details on their respective scoring methodology.</p>
+    </div>
+  </div>
+{{/if}}

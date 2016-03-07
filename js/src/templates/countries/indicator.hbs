@@ -5,13 +5,13 @@
     <div class="index-description">
       <div class="title">
         <h2 class="name">
-          {{product_name}}
+          <a href="indicators#{{short_name}}">{{product_name}}</a>
         </h2>
         {{#if organization}}
           <h3 class="organization">
             {{organization}}
             {{#if product_description}}
-              <button class="btn-info" data-info="{{product_description}}">i</button>
+              <button class="btn-info" data-indicator="{{short_name}}">i</button>
             {{/if}}
           </h3>
         {{/if}}
@@ -66,13 +66,13 @@
   <div class="wrap">
     <div class="index-description">
         <h2 class="name">
-          {{product_name}}
+          <a href="indicators#{{short_name}}">{{product_name}}</a>
         </h2>
         {{#if organization}}
           <h3 class="organization">
             {{organization}}
             {{#if product_description}}
-              <button class="btn-info" data-info="{{product_description}}">i</button>
+              <button class="btn-info" data-indicator="{{short_name}}">i</button>
             {{/if}}
           </h3>
         {{/if}}

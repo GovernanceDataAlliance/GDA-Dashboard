@@ -162,10 +162,12 @@
     }
   }
 
-  h3 {
-    font-size: rem(20px);
+  h3, 
+  h3 a {
     margin-bottom: rem(10px);
+    font-size: rem(20px);
     font-weight: 400;
+    color: $font-color-1;
 
     @media screen and (min-width: $screen-m) {
       font-size: rem(18px);
