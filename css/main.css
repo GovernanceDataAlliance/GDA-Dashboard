@@ -5367,48 +5367,64 @@ select {
     padding-top: 2.5em;
     padding-bottom: 2.5em; }
 
-  .m-card .index-score {
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-align-items: flex-end;
-        -ms-flex-align: end;
-                -ms-grid-row-align: flex-end;
-            align-items: flex-end; }
-    .m-card .index-score > .js--partial-ranks {
-      width: 100%; }
-  .m-card .index-description > .description-wrapper .description {
-    max-height: none !important; }
-  .m-card .index-score > .resume {
-    width: 100% !important;
-    -webkit-flex-direction: row !important;
-        -ms-flex-direction: row !important;
-            flex-direction: row !important; }
-  .m-card .index-score > .resume > .graph {
-    max-width: 50% !important; }
-  .m-card .index-description > .description-wrapper .description .read-more,
-  .m-card .index-description > .description-wrapper .description .read-less {
-    display: none !important; }
-  .m-card .index-score .partial-scores {
-    display: -webkit-flex !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-    -webkit-align-items: flex-start !important;
-        -ms-flex-align: start !important;
-            align-items: flex-start !important; }
-  .m-card .index-score .partial-scores > li {
-    width: 31%; }
-  .m-card .index-score .info {
-    margin-top: 0 !important; }
-  .m-card .index-score .partial-scores .partial-score,
-  .m-card .index-score .partial-scores .partial-rank {
-    text-align: center; }
-  .m-card .index-score .info span {
-    display: inline-block !important; }
-  .m-card .index-description > .description-wrapper {
-    display: block !important; }
-  .m-card .-not-covered {
-    display: none !important; }
+  .l-grid {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+
+  .is-dashboard-layout .m-card {
+    width: 50%;
+    -webkit-flex-basis: 50%;
+        -ms-flex-preferred-size: 50%;
+            flex-basis: 50%;
+    height: 420px; }
+    .is-dashboard-layout .m-card.-not-covered {
+      display: none !important; }
+    .is-dashboard-layout .m-card:nth-child(2n) {
+      border-right: 1px solid #d6d8d9; }
+    .is-dashboard-layout .m-card .index-score {
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column; }
+      .is-dashboard-layout .m-card .index-score > .js--partial-ranks {
+        width: 100%; }
+    .is-dashboard-layout .m-card .card-wrap {
+      height: 100%; }
+    .is-dashboard-layout .m-card .index-description > .description-wrapper .description {
+      max-height: none !important; }
+    .is-dashboard-layout .m-card .index-score > .resume {
+      width: 100% !important;
+      -webkit-flex-direction: column !important;
+          -ms-flex-direction: column !important;
+              flex-direction: column !important; }
+    .is-dashboard-layout .m-card .index-score > .resume > .graph {
+      max-width: 50% !important; }
+    .is-dashboard-layout .m-card .index-description > .description-wrapper .description .read-more,
+    .is-dashboard-layout .m-card .index-description > .description-wrapper .description .read-less {
+      display: none !important; }
+    .is-dashboard-layout .m-card .index-score .partial-scores {
+      display: -webkit-flex !important;
+      display: -ms-flexbox !important;
+      display: flex !important;
+      -webkit-align-items: flex-start !important;
+          -ms-flex-align: start !important;
+              align-items: flex-start !important; }
+    .is-dashboard-layout .m-card .index-score .partial-scores > li {
+      width: 31%; }
+    .is-dashboard-layout .m-card .index-score .info {
+      margin-top: 0 !important; }
+    .is-dashboard-layout .m-card .index-score .partial-scores .partial-score,
+    .is-dashboard-layout .m-card .index-score .partial-scores .partial-rank {
+      text-align: center; }
+    .is-dashboard-layout .m-card .index-score .info span {
+      display: inline-block !important; }
+    .is-dashboard-layout .m-card .index-description > .description-wrapper {
+      display: block !important; }
+    .is-dashboard-layout .m-card .-not-covered {
+      display: none !important; }
 
   .l-banner.-section-2 {
     background-image: none;
@@ -5434,18 +5450,26 @@ select {
     height: 9.375rem;
     font-size: 25px; }
 
-  .m-compare-selectors > .-index {
+  .m-year-selector > .-index {
     display: -webkit-flex !important;
     display: -ms-flexbox !important;
     display: flex !important; }
 
-  .m-compare-selectors > .-index {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    width: 30.1%; }
-  .m-compare-selectors > .-score {
-    width: 23.33%; }
+  .m-year-selector.-compare {
+    -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto; }
+    .m-year-selector.-compare.-index {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      width: 30.1%; }
+    .m-year-selector.-compare.-score {
+      width: 23.33%;
+      padding: 10px 1%; }
+
+  .l-banner.-detail .description {
+    display: none; }
 
   .m-table .table-row > .wrap {
     height: auto !important; }
