@@ -219,7 +219,7 @@ var CountryView = Backbone.View.extend({
     this._setDownloadData();
   },
 
-  _getIndicatorInfo(opts) {
+  _getIndicatorInfo: function(opts) {
     return this.infoWindowModel.getIndicator(opts);
   },
 
