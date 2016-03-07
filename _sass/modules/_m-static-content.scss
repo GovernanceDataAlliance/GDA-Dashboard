@@ -1,30 +1,39 @@
 .m-static-content {
   max-width: 100%;
 
-  h5 {
-    margin-bottom: rem(20px);
-    line-height: rem(34px);
+  @media screen and (min-width: $screen-xl) {
+    max-width: $content-width;
   }
 
-  h6 {
-    font-size: rem(15px);
-    line-height: rem(29px);
+  // Links, paragraphs
+  p, a, h6 {
+    font-family: $font-main;
+    font-size: rem(14px);
     font-weight: 400;
+    line-height: rem(26px);
+    letter-spacing: rem(.4px);
+
+    @media screen and (min-width: $screen-s) {
+      line-height: rem(29px);
+    }
+
+    @media screen and (min-width: $screen-xl) {
+      font-size: rem(15px);
+    }
   }
 
-  h5, h6 {
-    font-size: rem(16px);
-    font-weight: 400;
-    letter-spacing: rem(0.3px);
+  p {
+    color: $font-color-1;
   }
 
-  hr {
-    height: 1px;
-    margin: rem(40px) 0;
-    border: 0;
-    background: $light-grey;
+  a {
+    color: $font-color-3;
+    &:hover {
+      color: $color-4;
+    }
   }
 
+  // Headings
   h2 {
     position: relative;
     padding-bottom: rem(20px);
@@ -44,95 +53,85 @@
       height: rem(3px);
       background-color: $color-4;
     }
+
+    @media screen and (min-width: $screen-s) {
+      padding-bottom: rem(40px);
+      margin-bottom: rem(40px);
+    }
+
+    @media screen and (min-width: 768px) {
+      padding-bottom: rem(45px);
+      margin-bottom: rem(45px);
+    }
   }
 
-  p, a:not(.c-tag) {
+  h5, h6 {
+    line-height: rem(26px);
+    font-weight: 400;
+  }
+
+  h5 {
+    margin-bottom: rem(20px);
     font-size: rem(16px);
+    letter-spacing: rem(.3px);
+    &:last-child {
+      margin: 0;
+    }
+
+    a {
+      font-size: rem(16px);
+    }
+
+    @media screen and (min-width: $screen-s) {
+      font-size: rem(18px);
+      line-height: rem(32px);
+      a {
+        font-size: rem(18px);
+      }
+    }
   }
 
+  // Lists
   ul {
     list-style-type: disc;
     padding-left: rem(20px);
-
-    margin-top: rem(20px);
+    margin: rem(20px) 0;
 
     > li {
-      margin-bottom: rem(30px);
-      font-size: rem(15px);
-      line-height: rem(29px);
-      letter-spacing: rem(0.3px);
+      font-size: rem(14px);
+      line-height: rem(26px);
+      letter-spacing: rem(.3px);
+
+      @media screen and (min-width: $screen-xl) {
+        font-size: rem(15px);
+      }
     }
   }
 
   ol {
     list-style-type: none;
     counter-reset: item;
-    color: $color-4;
+    font-family: $font-secondary;
     font-size: rem(40px);
     font-weight: 700;
-    font-family: $font-secondary;
+
+    @media screen and (min-width: 768px) {
+      margin-top: rem(70px);
+      margin-left: rem(10px);
+      font-size: rem(72px);
+    }
 
     li {
-      // change
-      margin-bottom: rem(50px);
+      margin-bottom: rem(40px);
+
       &:before {
         display: inline-block;
         content: counter(item);
         counter-increment: item;
+        color: $color-4;
       }
-    }
 
-    h3 {
-      margin-bottom: rem(15px);
-      font-size: rem(16px);
-      font-weight: 400;
-      font-family: $font-main;
-      color: $color-1;
-    }
-
-    p, a {
-      font-size: rem(15px);
-      font-weight: 400;
-      font-family: $font-main;
-      color: $color-1;
-    }
-  }
-
-  @media screen and (min-width: $screen-s) {
-    h2 {
-      padding-bottom: rem(40px);
-      margin-bottom: rem(40px);
-    }
-  }
-
-  @media screen and (min-width: 768px) {
-
-    h2 {
-      padding-bottom: rem(45px);
-      margin-bottom: rem(45px);
-    }
-
-    h5 {
-      margin-bottom: rem(40px);
-      font-size: rem(20px);
-      line-height: rem(31px);
-    }
-
-    h6 {
-      font-size: rem(15px);
-      line-height: rem(27px);
-    }
-
-    hr {
-      margin: rem(100px) 0;
-    }
-
-    ol {
-      margin-top: rem(70px);
-      margin-left: rem(10px);
-      font-size: rem(72px);
-
-      li {
+      @media screen and (min-width: 768px) {
         position: relative;
         margin-bottom: rem(50px);
         padding-left: 50px;
@@ -140,68 +139,44 @@
         &:before {
           position: absolute;
           top: -26px;
-          left: -5px;
+          left: -8px;
         }
       }
+    }
 
-      h3 {
-        margin-bottom: rem(20px);
+    h3 {
+      margin-bottom: rem(15px);
+      font-family: $font-main;
+      font-size: rem(16px);
+      font-weight: 400;
+      line-height: rem(26px);
+      letter-spacing: rem(.3px);
+
+      @media screen and (min-width: $screen-s) {
         font-size: rem(18px);
-        letter-spacing: rem(.3px);
+        line-height: rem(32px);
       }
 
-      p, a {
-        line-height: rem(27px);
-        letter-spacing: rem(.4px);
+      @media screen and (min-width: 768px) {
+        margin-bottom: rem(20px);
       }
-    }
-
-    ul {
-      list-style-type: disc;
-      padding-left: rem(20px);
-      font-size: rem(15px);
-      margin-top: rem(50px);
-
-      > li {
-        margin-bottom: rem(30px);
-        font-size: rem(15px);
-      }
-
-      p, a {
-        font-size: rem(15px);
-        line-height: rem(27px);
-      }
-    }
-
-    p, a:not(.c-tag) {
-      font-size: rem(18px);
     }
   }
 
-  @media screen and (min-width: $screen-l) {
-    max-width: $content-width;
-    &.m-post {
-      max-width: 100%;
+
+  // Miscellaneous
+  hr {
+    height: rem(1px);
+    margin: rem(45px) 0;
+    border: 0;
+    background: $light-grey;
+
+    @media screen and (min-width: $screen-s) {
+      margin: rem(75px) 0;
     }
 
-    h5 {
-      line-height: rem(34px);
-    }
-
-    h6 {
-      font-size: rem(15px);
-      line-height: rem(29px);
-      letter-spacing: rem(.4px)
-    }
-
-    p, a:not(.c-tag) {
-      font-size: rem(20px);
-      line-height: rem(34px);
-      letter-spacing: rem(.3px);
-    }
-
-    ul > li {
-      letter-spacing: rem(.4px);
+    @media screen and (min-width: 768px) {
+      margin: rem(100px) 0;
     }
   }
 }

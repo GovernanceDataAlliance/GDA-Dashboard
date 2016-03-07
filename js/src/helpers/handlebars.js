@@ -13,7 +13,6 @@ Handlebars.registerHelper('round', function(options) {
   } else {
     return this.score;
   }
-
 });
 
 Handlebars.registerHelper('beautifullStrign', function(options) {
@@ -39,4 +38,10 @@ Handlebars.registerHelper('equal', function(a, b, opts) {
     return opts.fn(this);
   else
     return opts.inverse(this);
+});
+
+Handlebars.registerHelper('unlessPercentage', function(options) {
+  if (!this.units_abbr || this.units_abbr != '%') {
+    return '<span class="max_score">/'+ options +'</span>'
+  }
 });

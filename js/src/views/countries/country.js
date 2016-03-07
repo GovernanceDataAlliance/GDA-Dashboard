@@ -19,8 +19,7 @@ var CountryHeaderView = require('./country_header.js'),
     LegendView = require('../common/legend.js');
 
 
-var template = Handlebars.compile(
-  require('../../templates/countries/country.hbs'));
+var template = Handlebars.compile(require('../../templates/countries/country.hbs'));
 
 var CountryView = Backbone.View.extend({
 

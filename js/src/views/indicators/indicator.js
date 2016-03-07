@@ -140,7 +140,8 @@ var IndicatorView = Backbone.View.extend({
     new CountryListView({
       el: this.$('.js--countries'),
       'countries': this.countries.toJSON(),
-      'direction': this.indicator.get('desired_direction')
+      'direction': this.indicator.get('desired_direction'),
+      'max_score': this.indicator.get('max_score')
     });
   },
 
