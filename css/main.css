@@ -5425,18 +5425,26 @@ select {
     height: 9.375rem;
     font-size: 25px; }
 
-  .m-compare-selectors > .-index {
+  .m-year-selector > .-index {
     display: -webkit-flex !important;
     display: -ms-flexbox !important;
     display: flex !important; }
 
-  .m-compare-selectors > .-index {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    width: 30.1%; }
-  .m-compare-selectors > .-score {
-    width: 23.33%; }
+  .m-year-selector.-compare {
+    -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto; }
+    .m-year-selector.-compare.-index {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      width: 30.1%; }
+    .m-year-selector.-compare.-score {
+      width: 23.33%;
+      padding: 10px 1%; }
+
+  .l-banner.-detail .description {
+    display: none; }
 
   .m-table .table-row > .wrap {
     height: auto !important; }

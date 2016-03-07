@@ -168,22 +168,29 @@
     font-size: 25px;
   }
 
-  .m-compare-selectors > .-index {
+  .m-year-selector > .-index {
     display: flex !important;
   }
 
-  .m-compare-selectors { 
-    > .-index {
+  .m-year-selector.-compare { 
+    flex: 1 1 auto;
+
+    &.-index {
       display: flex;
       width: 30.1%;
     }
 
-    > .-score {
+    &.-score {
       width: 23.33%;
+      padding: 10px 1%;
     }
   }
 
   //DATA PAGE
+  .l-banner.-detail .description {
+    display: none;
+  }
+
   .m-table .table-row > .wrap {
     height: auto !important;
   }
