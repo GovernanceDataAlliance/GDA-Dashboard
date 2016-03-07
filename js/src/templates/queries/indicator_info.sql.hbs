@@ -1,10 +1,21 @@
+with years as (
+  select short_name, 
+    max(year) lastYear 
+    from indicator_data 
+  where iso='{{iso}}' 
+  and short_name = '{{indicator_id}}' 
+  group by short_name
+)
 SELECT 
+  c.methodology_link, 
+  c.organization, 
+  c.product_description, 
+  c.product_logo, 
+  c.product_name, 
+  c.short_name, 
+  years.lastYear 
 
-methodology_link, 
-organization, 
-product_description, 
-product_logo, 
-product_name 
-
-FROM indicator_config 
-where short_name = '{{indicator_id}}'
+FROM indicator_config as c 
+right join years 
+on c.short_name = '{{indicator_id}}' 
+and c.short_name = years.short_name

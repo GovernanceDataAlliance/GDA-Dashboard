@@ -16,6 +16,7 @@ var InfowindowModel = CartoDBModel.extend({
 
   getIndicator: function(opts) {
     var query = infoIndicatorSQL({
+      iso: opts.iso,
       indicator_id: opts.indicator
     }),
     url = this._url(query);

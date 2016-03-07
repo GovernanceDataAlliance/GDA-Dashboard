@@ -99,7 +99,7 @@
     display: flex;;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: rem(40px);
+    margin-bottom: rem(20px);
 
     > a {
       font-family: $font-secondary;
@@ -109,6 +109,11 @@
         color: $color-4;
       }
     }
+  }
+
+  .last-update {
+    display: inline-block;
+    margin-bottom: rem(40px);
   }
 }
 

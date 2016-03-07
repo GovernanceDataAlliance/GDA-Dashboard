@@ -230,12 +230,13 @@ var CountryView = Backbone.View.extend({
     }
 
     this._getIndicatorInfo({
-      indicator: indicator
+      indicator: indicator,
+      iso: this.status.get('iso')
     }).done(function() {
 
       new ModalWindowView({
-        'type': 'info-infowindow',
-        'data': this.infoWindowModel.toJSON()
+        type: 'info-infowindow',
+        data: this.infoWindowModel.toJSON()
       });
 
     }.bind(this));
