@@ -46,7 +46,6 @@
     }
   }
 
-
   .l-banner.-detail.-country {
     padding-top: 2.5em;
   }
@@ -56,30 +55,34 @@
     padding-bottom: 2.5em;
   }
 
-  .m-card {
+  .l-grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-    // &:nth-child(2n) {
-    //   page-break-after: always !important;
-    // }
+  .is-dashboard-layout  .m-card {
+    width: 50%;
+    flex-basis: 50%;
+    height: 420px;
 
-    .index-description {
-      // display: inline-block;
-      // width: 48% !important;
+    &.-not-covered {
+      display: none !important;
+    }
+
+    &:nth-child(2n) {
+      border-right: 1px solid $border-1;
     }
 
     .index-score {
-      // display: inline-block;
       flex-direction: column;
-      align-items: flex-end;
-      // width: 48% !important;
 
       > .js--partial-ranks {
         width: 100%;
       }
     }
 
-    .card-wrap > .wrap {
-      // flex-direction: row !important;
+    .card-wrap {
+      height: 100%;
     }
 
     .index-description > .description-wrapper .description {
@@ -88,7 +91,7 @@
 
     .index-score > .resume {
       width: 100% !important;
-      flex-direction: row !important;
+      flex-direction: column !important;
     }
 
     .index-score > .resume > .graph {
