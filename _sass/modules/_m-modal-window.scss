@@ -1,5 +1,5 @@
 .m-modal-window {
-  display: flex; 
+  display: flex;
   display: -ms-box;
   position: fixed;
   top: 0;
@@ -83,9 +83,33 @@
     margin-bottom: rem(30px);
   }
 
-  // a:hover {
-  //   color: $color-4;
-  // }
+  .indicator-logo {
+    width: 50%;
+    height: rem(55px);
+    background-position: top left;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .indicator-organization {
+    margin: rem(20px) 0;
+  }
+
+  .img-wrapper {
+    display: flex;;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: rem(40px);
+
+    > a {
+      font-family: $font-secondary;
+      font-size: rem(11px);
+      text-transform: uppercase;
+      &:hover {
+        color: $color-4;
+      }
+    }
+  }
 }
 
 .btn-close-modal {

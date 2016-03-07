@@ -6,6 +6,8 @@ var $ = require('jquery'),
   Handlebars = require('handlebars'),
   slick = require('slick-carousel-browserify');
 
+var InfoWindowModel = require('../../models/infowindow.js');
+
 var Countries = require('../../collections/countries.js'),
   Years = require('../../collections/years.js'),
   IndicatorsNames = require('../../collections/indicator_configs.js'),
@@ -64,6 +66,8 @@ var CompareView = Backbone.View.extend({
         this.mobile = false;
       },this)
     });
+
+    this.infoWindowModel = new InfoWindowModel();
 
     this.setListeners();
 
@@ -322,17 +326,29 @@ var CompareView = Backbone.View.extend({
 
   hide: function() {},
 
+  _getIndicatorInfo(opts) {
+    return this.infoWindowModel.getIndicator(opts);
+  },
+
   showModalWindow: function(e) {
-    var data = $(e.currentTarget).data('info');
-    if (!data) {
+    var indicator = $(e.currentTarget).data('indicator');
+    if (!indicator) {
       return;
     }
 
-    new ModalWindowView({
-      'type': 'info-infowindow', 
-      'data': data
-    });
+    this._getIndicatorInfo({
+      indicator: indicator
+    }).done(function() {
+
+      new ModalWindowView({
+        'type': 'info-infowindow',
+        'data': this.infoWindowModel.toJSON()
+      });
+
+    }.bind(this));
+
   }
+
 });
 
 module.exports = CompareView;

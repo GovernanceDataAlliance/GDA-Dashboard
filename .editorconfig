@@ -16,3 +16,6 @@ trim_trailing_whitespace = false
 
 [*.slim]
 trim_trailing_whitespace = false
+
+[*.hbs]
+trim_trailing_whitespace = false
