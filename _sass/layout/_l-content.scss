@@ -10,6 +10,18 @@
     background-color: $bg-color-1;
   }
 
+  &.-main {
+    padding: rem(40px) 0 rem(50px);
+
+    @media screen and (min-width: $screen-s) {
+      padding: rem(75px) 0 rem(75px);
+    }
+
+    @media screen and (min-width: 768px) {
+      padding: rem(85px) 0 rem(105px);
+    }
+  }
+
   &.-fullscreen {
     padding: 0;
     background-color: transparent;

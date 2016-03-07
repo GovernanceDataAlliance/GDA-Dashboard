@@ -130,31 +130,29 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     background-color: $bg-color-1;
   }
 
-  //compare
-  //data
+  //Compare-main
+  //Data-main
+  //About-main
   &.-section-2 {
-    padding: rem(75px) 0 rem(110px);
-    background-color: #ccc;
+    padding: rem(75px) 0 rem(60px);
 
     @media screen and (min-width: $screen-s) {
-      padding: rem(130px) 0 rem(217px);
-    }
-
-    @media screen and (min-width: $screen-m) {
-      padding: rem(140px) 0 rem(190px);
-    }
-
-    @media screen and (min-width: $screen-xl) {
-      padding: rem(145px) 0 rem(210px);
-
-      > .wrap {
-        max-width: 80%;
-        margin: 0;
-      }
+      padding: rem(115px) 0 rem(170px);
     }
 
     @media screen and (min-width: 768px) {
-      padding: rem(140px) 0 rem(180px);
+      padding: rem(130px) 0 rem(135px);
+    }
+
+    .c-section-title {
+      margin-bottom: rem(40px);
+    }
+
+    @media screen and (min-width: $screen-l) {
+      > .wrap {
+        max-width: $content-width;
+        margin-left: 0;
+      }
     }
 
     p {
@@ -249,19 +247,6 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     }
   }
 
-  &.-about {
-
-    .c-section-title {
-      margin-bottom: rem(40px);
-    }
-
-    @media screen and (min-width: $screen-l) {
-      > .wrap {
-        max-width: $content-width;
-        margin-left: 0;
-      }
-    }
-  }
 
   @for $i from 1 through length($backgrounds) {
     &.#{nth($backgrounds, $i)}{
