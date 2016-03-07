@@ -46,31 +46,31 @@ describe('Countries Router', function() {
   //   });
   // });
 
-  describe("/<iso>", function() {
-    var ISO = 'GBR';
+  // describe("/<iso>", function() {
+  //   var ISO = 'GBR';
 
-    it('triggers the "show" route', function () {
-      var show = spyOn(router, 'show').and.callThrough();
-      var updateHashSpy = spyOn(Backbone.history, '_updateHash').and.callFake(function (loc, frag) {
-        expect(frag).toEqual('/'+ISO);
-        router.show(frag);
-      });
+  //   it('triggers the "show" route', function () {
+  //     var show = spyOn(router, 'show').and.callThrough();
+  //     var updateHashSpy = spyOn(Backbone.history, '_updateHash').and.callFake(function (loc, frag) {
+  //       expect(frag).toEqual('/'+ISO);
+  //       router.show(frag);
+  //     });
 
-      router.navigate('#/'+ISO, {trigger: true});
+  //     router.navigate('#/'+ISO, {trigger: true});
 
-      expect(updateHashSpy).toHaveBeenCalled();
-      expect(show).toHaveBeenCalled();
-    });
+  //     expect(updateHashSpy).toHaveBeenCalled();
+  //     expect(show).toHaveBeenCalled();
+  //   });
 
-    // it('creates a CountryView and passes in the iso', function() {
-    //   var initSpy = spyOn(CountryView.prototype, 'initialize');
-    //
-    //   router.navigate('#/'+ISO, {trigger: true});
-    //
-    //   expect(initSpy).toHaveBeenCalled();
-    //   expect(initSpy).toHaveBeenCalledWith({iso: ISO});
-    // });
-  });
+  //   it('creates a CountryView and passes in the iso', function() {
+  //     var initSpy = spyOn(CountryView.prototype, 'initialize');
+    
+  //     router.navigate('#/'+ISO, {trigger: true});
+    
+  //     expect(initSpy).toHaveBeenCalled();
+  //     expect(initSpy).toHaveBeenCalledWith({iso: ISO});
+  //   });
+  // });
 
   describe("/", function() {
     it('triggers the "index" route', function () {

@@ -71,6 +71,7 @@ var Indicators = CartoDBCollection.extend({
 
     return this._urlForQuery(query) + '&format=csv';
   }
+
 });
 
 module.exports = Indicators;

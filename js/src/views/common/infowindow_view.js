@@ -5,11 +5,11 @@ var _ = require('lodash'),
 
 var modalWindowtemplate = require('../../templates/common/modal_window_tpl.hbs');
 
-/* 
+/*
  * Creates modal infowindow.
  * It should recieve type option to generate template.
  * Default type: info
- * Available options: 
+ * Available options:
  * - info-infowindow
  * - legend-infowindow
  * - share-infowindow
@@ -34,27 +34,52 @@ var ModalWindowView = Backbone.View.extend({
   initialize: function(options) {
     this.type = options && options.type ? options.type : 'info-infowindow';
     this.data = options && options.data ? options.data : null;
-    this.template = $(modalWindowtemplate);
+    this.template = Handlebars.compile(modalWindowtemplate);
+
+    this._setListeners();
 
     this.render();
+  },
 
+  _setListeners: function() {
     $(document).keyup(_.bind(this.onKeyUp, this));
   },
 
-  appendCurrentContent: function() {
-    var current = this.template.filter( '#'+ this.type ).html();
-    var currentTpl = Handlebars.compile(current);
+  _remove: function() {
+    this.$el.find('#infowindow-base').remove();
+  },
 
-    this.$('#content').append(currentTpl({ 'data': this.data }));
+  _setView: function() {
+    switch(this.type) {
+      case 'legend-infowindow':
+        return { isLegend: true };
+
+      case 'share-infowindow':
+        return { isShare: true };
+
+      default:
+        return { isIndicator: true };
+    }
   },
 
   render: function() {
     this.fixed = true;
-    var base = this.template.filter('#infowindow-base').html();
-    var baseTpl = Handlebars.compile(base);
-    this.$el.append( baseTpl );
 
-    this.appendCurrentContent();
+    var params = _.extend({
+      data: this.data
+    }, this._setView());
+
+    // Filters content depending on the data
+    var innerContent = this.template(params);
+
+    // Renders base template
+    this.$el.append(this.template({
+      isBase: true
+    }));
+
+    // Adds filtered content to base template
+    this.$('#content').append(innerContent);
+
     this.toogleState();
   },
 
@@ -69,7 +94,7 @@ var ModalWindowView = Backbone.View.extend({
     e && e.stopPropagation();
     this.fixed = false;
 
-    $('.m-modal-window').remove();
+    this._remove();
     this.toogleState();
   },
 
