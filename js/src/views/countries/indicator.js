@@ -44,7 +44,12 @@ var IndicatorView = Backbone.View.extend({
       var indicator = this.indicator;
       indicator['score'] = null;
 
+      console.log(indicator)
       this.$el.html(template(indicator));
+
+      if (!indicator.score) {
+        this.$el.addClass('-not-covered');
+      };
     }
 
     return this;
