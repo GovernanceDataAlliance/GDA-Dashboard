@@ -49,17 +49,33 @@ var ModalWindowView = Backbone.View.extend({
     this.$el.find('#infowindow-base').remove();
   },
 
+  _setView: function() {
+    switch(this.type) {
+      case 'legend-infowindow':
+        return { isLegend: true };
+
+      case 'share-infowindow':
+        return { isShare: true };
+
+      default:
+        return { isIndicator: true };
+    }
+  },
+
   render: function() {
     this.fixed = true;
 
-    // Filters content depending on the data
-    var innerContent = this.template({
-      type: this.type,
+    var params = _.extend({
       data: this.data
-    });
+    }, this._setView());
+
+    // Filters content depending on the data
+    var innerContent = this.template(params);
 
     // Renders base template
-    this.$el.append(this.template());
+    this.$el.append(this.template({
+      isBase: true
+    }));
 
     // Adds filtered content to base template
     this.$('#content').append(innerContent);

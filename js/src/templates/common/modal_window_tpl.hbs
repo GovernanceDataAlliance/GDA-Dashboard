@@ -1,4 +1,4 @@
-{{#unless type}}
+{{#if isBase}}
   <div id="infowindow-base">
     <div class="m-modal-window">
       <div class="modal-wrapper">
@@ -12,9 +12,9 @@
       <div class="modal-background"></div>
     </div>
   </div>
-{{/unless}}
+{{/if}}
 
-{{#equal type 'info-infowindow'}}
+{{#if isIndicator}}
   <div id="info-infowindow">
     <div class="-indicator">
       <h2 class="indicator-name">{{{data.product_name}}}</h2>
@@ -28,9 +28,9 @@
       <p>{{data.product_description}}</p>
     </div>
   </div>
-{{/equal}}
+{{/if}}
 
-{{#equal type 'legend-infowindow'}}
+{{#if isLegend}}
   <div id="legend-infowindow">
     <div class="-legend">
       <h2>legend</h2>
@@ -47,4 +47,4 @@
       <p>Alliance data producer organizations have selected specific scoring bands for each of their data sets that correspond to the color codes used here. These Alliance scoring/color bands may or may not correspond to how each data producer currently publishes their results independently; again, this inconsistency in certain cases is an unavoidable result of our attempt to provider a snapshot, unified overview of all results for a country. If you are confused by a certain color assignation on these dashboards, please consult the specific data producer organization's website for in-depth details on their respective scoring methodology.</p>
     </div>
   </div>
-{{/equal}}
+{{/if}}
