@@ -30,8 +30,6 @@
         display: flex; display: -ms-box;
         align-items: baseline;
       }
-
-      > .score {}
     }
 
     .rank {
@@ -54,6 +52,7 @@
 
       p {
         display: inline-block;
+        font-size: rem(35px);
         font-family: $font-secondary;
         font-weight: 700;
       }
@@ -121,6 +120,7 @@
         justify-content: center;
 
         p {
+          font-size: rem(11px);
           margin-left: 5px;
         }
       }
