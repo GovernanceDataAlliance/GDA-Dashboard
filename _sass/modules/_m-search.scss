@@ -7,6 +7,19 @@
     width: 50%;
   }
 
+  .js--search-mobile {
+    @media screen and (min-width: $screen-m) {
+      display: none;
+    }
+  }
+
+  > .js--search-desktop {
+    display: none;
+    @media screen and (min-width: $screen-m) {
+      display: block;
+    }
+  }
+
   .search-wrapper {
     position: fixed;
     top: 0;
