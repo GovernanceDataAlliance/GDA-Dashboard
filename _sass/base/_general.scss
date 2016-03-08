@@ -75,6 +75,21 @@ p {
       margin-top: rem(30px);
     }
   }
+
+  &.description {
+    font-size: rem(16px);
+    line-height: rem(26px);
+
+    @media screen and (min-width: 768px) {
+      font-size: rem(18px);
+      line-height: rem(31px);
+    }
+  
+    @media screen and (min-width: $screen-l) {
+      font-size: rem(20px);
+      line-height: rem(34px);
+    }
+  }
 }
 
 a, button, input, select, textarea {
