@@ -1,4 +1,5 @@
 var Handlebars = require('handlebars');
+var _ = require('lodash');
 var CartoDBCollection = require('../lib/cartodb_collection.js');
 var CONFIG = require('../../config.json');
 
@@ -18,7 +19,16 @@ var IndicatorConfigs = CartoDBCollection.extend({
     var query = list_SQL({ table: this.table });
     var url = this._urlForQuery(query);
     return this.fetch({url: url});
-  },
+  }
+
+  // parse: function(data) {
+  //   var ogp = _.find(data.rows, {'short_name': 'ogp_regular_consult_forum'});
+
+  //   if (ogp['max_score']) {
+  //     ogp['max_score'] =  'yes';
+  //     ogp['min_score'] =  'no';
+  //   }
+  // }
 
 });
 
