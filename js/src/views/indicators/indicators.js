@@ -11,19 +11,24 @@ var template = Handlebars.compile(
 var IndicatorsView = Backbone.View.extend({
 
   initialize: function() {
-    this.indicators = new IndicatorConfigs();
-    this.listenTo(this.indicators, 'sync', this.render);
+    this.render();
+    this.initializeData();
+  },
+
+  initializeData: function(argument) {
+    var indicators = new IndicatorConfigs();
+    indicators.indicatorsForList().done(function(data) {
+      this.renderIndicatorsList(data);
+    }.bind(this))
   },
 
   render: function() {
     this.$el.html(template());
-    this.renderIndicatorsList();
-
     return this;
   },
 
-  renderIndicatorsList: function() {
-    var listView = new IndicatorList({indicators: this.indicators});
+  renderIndicatorsList: function(data) {
+    var listView = new IndicatorList({ indicators: data.rows });
     this.$('.js--indicators').html(listView.render().el);
   },
 
