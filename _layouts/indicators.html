@@ -5,18 +5,13 @@
 
   <body>
     {% include icons.html %}
-    
-    <div class="l-main-container"> 
+
+    <div class="l-main-container">
       {% include header.html %}
 
       <div class="l-banner -section-2 promoInteriores-Data js--index-banner">
-        <div class="m-breadcrumbs -light">
-          <ul>
-            <li><a href="{{ site.baseurl }}/">home </a></li>
-            <li><span> / </span></li>
-            <li> {{ page.page-name }} </li>
-          </ul>
-        </div>
+
+        {% include breadcrumbs.html %}
 
         <div class="wrap">
 
@@ -24,7 +19,7 @@
           <p>{{ page.intro-text }}</p>
         </div>
       </div>
-      
+
       {{ content }}
       <div class="js--indicators-container"></div>
 
@@ -38,4 +33,3 @@
   </body>
 
 </html>
-
