@@ -38,12 +38,9 @@ var IndicatorListView = Backbone.View.extend({
   },
 
   render: function() {
-    var countries = this.direction === 'down' ? this.countries.reverse() : this.countries;
-
     this.$el.html(template({
-      'countries': this._setTier(countries),
-      'direction': this.direction,
-      'max_score': this.max_score
+      countries: this._setTier(this.countries),
+      max_score: this.max_score
     }));
   }
 });
