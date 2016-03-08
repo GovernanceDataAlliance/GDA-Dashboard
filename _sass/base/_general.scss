@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  font-size: rem(16px);
+  font-size: rem(14px);
   line-height: rem(26px);
 
   + .btn {
@@ -70,8 +70,9 @@ p {
   }
 
   @media screen and (min-width: 768px) {
-    font-size: rem(18px);
-    line-height: rem(31px);
+    font-size: rem(15px);
+    line-height: rem(29px);
+    
   }
 
   @media screen and (min-width: $screen-m) {
@@ -82,8 +83,8 @@ p {
   }
   
   @media screen and (min-width: $screen-l) {
-    font-size: rem(15px);
-    line-height: rem(29px);
+    // font-size: rem(18px);
+    // line-height: rem(31px);
 
     &.description {
       font-size: rem(20px);

@@ -10,10 +10,14 @@ $sections-padding: .5rem .5rem .5rem 0;
 
 %title-font {
   font-family: $font-main;
-  font-size: rem(50px);
+  font-size: rem(24px);
   line-height: 1.4;
   color: $font-color-1;
   font-weight: 500;
+
+  @media screen and (min-width: 768px) {
+    font-size: rem(30px);
+  }
 }
 
 
@@ -76,7 +80,6 @@ $sections-padding: .5rem .5rem .5rem 0;
   > .title {
     margin-bottom: rem(25px);
 
-
     h3 {
       @extend %title-font;
       position: relative;
@@ -134,9 +137,6 @@ $sections-padding: .5rem .5rem .5rem 0;
         a {
           @extend %title-font;
           color: $font-color-3;
-          font-size: rem(30px);
-          line-height: 1.25;
-
           text-decoration: none;
 
           &:hover {
