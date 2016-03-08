@@ -33,17 +33,16 @@ Handlebars.registerHelper('ordinalNumber', function(number) {
   return number + sufix;
 });
 
+
 Handlebars.registerHelper('unlessPercentage', function(max_score) {
-  if ( this.units_abbr != '%' && this.units != "yes/no") {
+  if (this.units_abbr != '%' && this.units != "yes/no") {
     return '<span class="max_score">/'+ max_score +'</span>'
-      }
+  }
 });
- 
+
 Handlebars.registerHelper('equal', function(a, b, opts) {
   if(a == b)
     return opts.fn(this);
   else
     return opts.inverse(this);
 });
-
- 

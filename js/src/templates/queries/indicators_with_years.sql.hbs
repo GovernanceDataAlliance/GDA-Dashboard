@@ -1,6 +1,14 @@
  with d as (
  select * from indicator_data where iso='{{iso}}' and year={{year}}
- )
+ ),
+ years as (
+  select
+    short_name,
+    max(year) lastYear
+  from indicator_data
+  where iso='{{iso}}'
+  group by short_name
+)
  SELECT
    distinct on(c.short_name) c.short_name,
    c.score_range,
@@ -12,14 +20,16 @@
    c.product_description,
    c.product_logo,
    c.product_name,
-   c.units, 
+   c.units,
    c.units_abbr,
    c.organization,
    '{{iso}}' as iso,
    d.notes,
    d.score,
    d.score_text,
-   d.year
+   d.year,
+   years.lastYear
   FROM indicator_config AS c
     left JOIN  d ON c.short_name = d.short_name
+    left JOIN years ON c.short_name = years.short_name
   ORDER BY c.short_name asc, d.year asc
