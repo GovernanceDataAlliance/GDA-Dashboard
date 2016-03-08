@@ -44,7 +44,12 @@
 
   @media screen and (min-width: $screen-l) {
     max-width: rem(750px);
-    max-height: rem(485px);
+    max-height: rem(550px);
+  }
+
+  @media screen and (min-width: $screen-l) {
+    max-width: rem(1000px);
+    max-height: rem(600px);
   }
 }
 
@@ -57,7 +62,7 @@
   display: -ms-box;
   align-items: flex-start;
   position: absolute;
-  top: rem(50px);
+  top: rem(65px);
   bottom: rem(25px);
   left: 0;
   right: 0;
@@ -76,44 +81,18 @@
     // bottom: rem(115px);
     padding: 0 rem(100px);
   }
-
+  
   h2 {
-    font-size: rem(30px);
+    font-size: rem(24px);
     font-weight: 400;
-    margin-bottom: rem(30px);
-  }
+    margin-bottom: rem(35px);
+    text-transform: capitalize;
 
-  .indicator-logo {
-    width: 50%;
-    height: rem(55px);
-    background-position: top left;
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-
-  .indicator-organization {
-    margin: rem(20px) 0;
-  }
-
-  .img-wrapper {
-    display: flex;;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: rem(20px);
-
-    > a {
-      font-family: $font-secondary;
-      font-size: rem(11px);
-      text-transform: uppercase;
-      &:hover {
-        color: $color-4;
-      }
+    @media screen and (min-width: $screen-s) {
+      font-size: rem(30px);
+      line-height: rem(37px);
+      margin-bottom: rem(25px);
     }
-  }
-
-  .score-range {
-    display: inline-block;
-    margin-bottom: rem(40px);
   }
 }
 

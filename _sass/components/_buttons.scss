@@ -301,7 +301,8 @@
 
   width: rem(24px);
   height: rem(24px);
-  line-height: 18px;
+  line-height: rem(17px);
+  letter-spacing: -1px;
   border-radius: 50%;
   text-align: center;
   border: 2px solid $color-4;

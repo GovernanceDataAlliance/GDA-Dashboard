@@ -64,6 +64,10 @@ p {
     margin-top: rem(20px);
   }
 
+  + p {
+    margin-top: rem(10px);
+  }
+
   @media screen and (min-width: $screen-m) {
     line-height: rem(29px);
 

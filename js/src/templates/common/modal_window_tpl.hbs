@@ -18,12 +18,11 @@
   <div id="info-infowindow">
     <div class="-indicator">
       <h2 class="indicator-name">{{{data.product_name}}}</h2>
-      <div class="img-wrapper">
-        <div class="indicator-logo" style="background-image: url('/css/img/logos/{{data.product_logo}}')"></div>
-        <a class="indicator-website" href="{{data.methodology_link}}" target="_blank">visit the website</a>
+      <div class="indicator-logo" style="background-image: url('/css/img/logos/{{data.product_logo}}')"></div>
+      <div class="info-wrapper">
+        <span class="score-range">Score Range: {{data.max_score}} - {{data.min_score}}</span>
+        <a class="btn indicator-website" href="{{data.methodology_link}}" target="_blank">visit the website &gt;</a>
       </div>
-      <!-- <h3 class="indicator-organization">{{data.organization}}</h3> -->
-      <span class="score-range">Score Range: {{data.max_score}} - {{data.min_score}}</span>
       <p>{{data.product_description}}</p>
     </div>
   </div>

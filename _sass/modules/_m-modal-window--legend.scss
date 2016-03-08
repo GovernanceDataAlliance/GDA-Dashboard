@@ -1,11 +1,5 @@
 .m-modal-window .-legend {
 
-  h2 {
-    font-size: rem(24px);
-    margin-bottom: rem(35px);
-    text-transform: capitalize;
-  }
-
   > ul {
     display: flex; 
     display: -ms-box;
@@ -36,6 +30,16 @@
         width: rem(25px);
         height: rem(25px);
         margin-right: rem(10px);
+      }
+
+      @media screen and (min-width: $screen-s) {
+        margin-bottom: 0;
+        margin-right: rem(20px);
+
+        &:before {
+          width: rem(14px);
+          height: rem(14px);
+        }
       }
 
       &.-excellent:before {
@@ -78,26 +82,6 @@
       color: $brown;
       text-transform: uppercase;
       white-space: nowrap;
-    }
-  }
-
-  @media screen and (min-width: $screen-s) {
-    h2 {
-      font-size: rem(30px);
-      line-height: rem(37px);
-      margin-bottom: rem(25px);
-    }
-
-    > ul {
-      li {
-        margin-bottom: 0;
-        margin-right: rem(20px);
-
-        &:before {
-          width: rem(14px);
-          height: rem(14px);
-        }
-      }
     }
   }
 }
