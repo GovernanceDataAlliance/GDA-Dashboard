@@ -19,16 +19,16 @@ var IndicatorConfigs = CartoDBCollection.extend({
     var query = list_SQL({ table: this.table });
     var url = this._urlForQuery(query);
     return this.fetch({url: url});
+  },
+
+  parse: function(data) {
+    var ogp = _.find(data.rows, {'short_name': 'ogp_regular_consult_forum'});
+
+    if (ogp['max_score']) {
+      ogp['max_score'] =  'yes';
+      ogp['min_score'] =  'no';
+    }
   }
-
-  // parse: function(data) {
-  //   var ogp = _.find(data.rows, {'short_name': 'ogp_regular_consult_forum'});
-
-  //   if (ogp['max_score']) {
-  //     ogp['max_score'] =  'yes';
-  //     ogp['min_score'] =  'no';
-  //   }
-  // }
 
 });
 
