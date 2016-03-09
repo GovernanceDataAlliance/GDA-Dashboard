@@ -66,7 +66,7 @@ var CountrySelectorView = Backbone.View.extend({
 
   setRecivedValues: function() {
     $.each(this.countries, function(i, country) {
-      var currentSelector = this.$el.find('#country-'+ (i+1));
+      var currentSelector = this.$el.find('#selectcountry-'+ (i+1));
       currentSelector.val(country).trigger('change');
     }.bind(this));
   },
