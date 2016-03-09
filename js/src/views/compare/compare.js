@@ -75,6 +75,7 @@ var CompareView = Backbone.View.extend({
       this.countryIds = _.uniq(options.countries);
     };
 
+
     this.setParams(options.countries, options.year);
   },
 
@@ -298,8 +299,16 @@ var CompareView = Backbone.View.extend({
   },
 
   setParams: function(countries, year) {
-     this.countryIds = countries || [];
-     this.year = year || (new Date).getFullYear() - 1;
+    this.countryIds = countries || [];
+
+    this.year = year;
+
+    if(!this.year) {
+      this.getYears().done(function(years) {
+        this.year = years.rows[0].year;
+        Backbone.Events.trigger('year:selected', this.year);
+      }.bind(this));
+    }
    },
 
   countryRecived: function(iso, order) {

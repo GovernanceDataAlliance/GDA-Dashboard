@@ -49,6 +49,8 @@ var CompareSelectorsView = Backbone.View.extend({
       var countries = _.sortByOrder(countries.rows, ['name']);
       this.$el.html(template({ 'countries': countries }));
 
+      this.delegateEvents();
+
       if (this.countries) {
         this.setRecivedValues();
       };

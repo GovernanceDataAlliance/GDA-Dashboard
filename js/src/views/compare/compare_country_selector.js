@@ -49,6 +49,9 @@ var CountrySelectorView = Backbone.View.extend({
     this.getData().done(function(countries) {
       var countries = _.sortByOrder(countries.rows, ['name']);
       this.$el.html(template({ 'countries': countries , 'index': this.index}));
+
+      this.delegateEvents();
+
       if (this.countries) {
         this.setRecivedValues();
       };
