@@ -7,7 +7,8 @@
   {% unless page.image == '' %}
   <div class="image" style="background-image:url({{site.baseurl}}/css/img/blog/{{page.image}})"></div>
   {%endunless%}
-
+  
+  {% unless page.category == '' %}
   <div class="properties">
     <a class="category" href="{{site.baseurl}}/blog/categories#{{ page.category }}"> {{page.category}} </a>
     <div class="tags">
@@ -16,7 +17,8 @@
       {% endfor %}
     </div>
   </div>
-
+  {%endunless%}
+  
   <div class="details">
     <span class="author">
       Author: {{ page.author }}

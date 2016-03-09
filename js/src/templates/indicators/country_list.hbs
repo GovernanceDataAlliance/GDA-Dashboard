@@ -1,4 +1,4 @@
-<div class="l-content -fullscreen {{direction}}">
+<div class="l-content -fullscreen">
   {{#if countries.top}}
   <div class="m-table -rank">
 
@@ -8,13 +8,18 @@
         <div class="table-row">
           <div class="wrap">
             <div class="description">
-              <p class="name">{{name}}</p>
+              <a href="countries#{{iso}}" class="name">{{name}}</a>
             </div>
-            <div class="score {{#if classColor}} {{classColor}} {{/if}}" data-year="{{year}}">
-              <p>{{#round}}{{score}}{{/round}}</p>
-              {{#if units_abbr}}
-                <span class="units">{{units_abbr}}</span>
-              {{/if}}
+            <div class="score {{#if classColor}}{{classColor}}{{/if}}" data-year="{{year}}">
+              <p {{#if units}}class="{{units}}"{{/if}}>
+                {{#round}}{{score}}{{/round}}
+                {{#unlessPercentage ../max_score}}
+                  {{max_score}}
+                {{/unlessPercentage}}
+                {{#if units_abbr}}
+                  <span class="units">{{units_abbr}}</span>
+                {{/if}}
+              </p>
             </div>
           </div>
         </div>
@@ -33,13 +38,18 @@
         <div class="table-row">
           <div class="wrap">
             <div class="description">
-              <p class="name">{{name}}</p>
+              <a href="countries#{{iso}}" class="name">{{name}}</a>
             </div>
             <div class="score {{#if classColor}} {{classColor}} {{/if}}" data-year="{{year}}">
-              <p>{{#round}}{{score}}{{/round}}</p>
-              {{#if units_abbr}}
-                <span class="units">{{units_abbr}}</span>
-              {{/if}}
+               <p {{#if units}}class="{{units}}"{{/if}}>
+                {{#round}}{{score}}{{/round}}
+                {{#unlessPercentage ../max_score}}
+                  {{max_score}}
+                {{/unlessPercentage}}
+                {{#if units_abbr}}
+                  <span class="units">{{units_abbr}}</span>
+                {{/if}}
+              </p>
             </div>
           </div>
         </div>

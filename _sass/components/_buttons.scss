@@ -1,5 +1,5 @@
 .btn {
-  width: 100%;
+  // width: 100%;
   font-size: rem(11px);
   font-family: $font-secondary;
   text-transform: uppercase;
@@ -14,7 +14,6 @@
   @media screen and (min-width: $screen-m) {
     font-size: rem(11px);
   }
-
 
   .button-literal {
     display: none;
@@ -290,9 +289,9 @@
   top: 0;
   right: 0;
   z-index: 1;
-
-  margin-right: rem(20px);
-  margin-top: rem(20px);
+  
+  //Margin left and bottom are to make click area bigger
+  margin: rem(30px) rem(20px) rem(5px) rem(5px);
 
   cursor: pointer;
   font-family: $font-main;
@@ -302,7 +301,8 @@
 
   width: rem(24px);
   height: rem(24px);
-  line-height: 18px;
+  line-height: rem(17px);
+  letter-spacing: -1px;
   border-radius: 50%;
   text-align: center;
   border: 2px solid $color-4;
@@ -310,6 +310,14 @@
   &.-color-1 {
     color: $color-1;
     border-color: $color-1;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin: rem(40px) rem(30px) 0 0;
+  }
+
+  @media screen and (min-width: $screen-l) {
+    margin: rem(40px) rem(40px) 0 0;
   }
 }
 

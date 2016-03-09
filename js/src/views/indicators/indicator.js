@@ -14,7 +14,6 @@ var IndicatorHeaderView = require('./indicator_header.js'),
   IndicatorSelectorsToolbarView = require('./indicator_selectors_toolbar.js'),
   CountryListView = require('./country_list.js'),
   ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
-  TooltipView = require('../common/tooltip_view.js'),
   LegendView = require('../common/legend.js');
 
 var TextShortener = require('../common/text_shortener.js');
@@ -25,9 +24,8 @@ var template = Handlebars.compile(
 var IndicatorView = Backbone.View.extend({
 
   events: {
-    "click .js--ranking-groups": "_stopEvent",
-    'click .js--btn-ranking': "_stopEvent",
-    'click #legendPopup': '_toggleTooltip'
+    'click .js--ranking-groups': '_stopEvent',
+    'click .js--btn-ranking': "_stopEvent"
   },
 
   initialize: function(options) {
@@ -86,10 +84,6 @@ var IndicatorView = Backbone.View.extend({
     return years.totalYearsForThisIndex( this.id );
   },
 
-  _toggleTooltip: function(e) {
-    new TooltipView().toggleStatus(e);
-  },
-
   render: function(rerender) {
     if (!$('.js--index-banner').hasClass('is-hidden')) {
       $('.js--index-banner').addClass('is-hidden');
@@ -119,10 +113,6 @@ var IndicatorView = Backbone.View.extend({
     this.$el.find('.l-toolbar').first().find('.m-control').first().append(new ToolbarUtilsView({
       el: this.$el.find('.js--toolbar-utils')
     }).render().el);
-
-    setTimeout(function() {
-      new TooltipView({el: '.m-legend'});
-    }, 10);
   },
 
   renderSelectorsToolbar: function() {
@@ -150,7 +140,8 @@ var IndicatorView = Backbone.View.extend({
     new CountryListView({
       el: this.$('.js--countries'),
       'countries': this.countries.toJSON(),
-      'direction': this.indicator.get('desired_direction')
+      'direction': this.indicator.get('desired_direction'),
+      'max_score': this.indicator.get('max_score')
     });
   },
 

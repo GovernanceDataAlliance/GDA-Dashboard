@@ -6,6 +6,8 @@ var $ = require('jquery'),
   Handlebars = require('handlebars'),
   slick = require('slick-carousel-browserify');
 
+var InfoWindowModel = require('../../models/infowindow.js');
+
 var Countries = require('../../collections/countries.js'),
   Years = require('../../collections/years.js'),
   IndicatorsNames = require('../../collections/indicator_configs.js'),
@@ -31,7 +33,6 @@ var CompareSelectorsView = require('./compare_selectors.js'),
   ModalWindowView = require('../common/infowindow_view.js'),
   ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
   ModalWindowView = require('../common/infowindow_view.js'),
-  TooltipView = require('../common/tooltip_view.js'),
   LegendView = require('../common/legend.js');
 
 var compareStatus = new (Backbone.Model.extend({
@@ -43,8 +44,7 @@ var compareStatus = new (Backbone.Model.extend({
 var CompareView = Backbone.View.extend({
 
   events: {
-    'click .btn-info'    : 'showModalWindow',
-    'click #legendPopup' : '_toggleTooltip'
+    'click .btn-info'    : 'showModalWindow'
   },
 
   initialize: function(options) {
@@ -67,6 +67,8 @@ var CompareView = Backbone.View.extend({
       },this)
     });
 
+    this.infoWindowModel = new InfoWindowModel();
+
     this.setListeners();
 
     if (options && options.countries != null) {
@@ -80,10 +82,6 @@ var CompareView = Backbone.View.extend({
     Backbone.Events.on('country:selected', (this.countryRecived).bind(this));
     Backbone.Events.on('year:selected', (this.yearRecived).bind(this));
     Backbone.Events.on('breakpoints:loaded', this._onScroll.bind(this));
-  },
-
-  _toggleTooltip: function(e) {
-    new TooltipView().toggleStatus(e);
   },
 
   render: function() {
@@ -152,7 +150,6 @@ var CompareView = Backbone.View.extend({
   renderIndicators: function() {
     var indicatorsNames = new IndicatorsNames();
     indicatorsNames.fetch().done(function(indicators) {
-      // var indicators = _.sortByOrder(indicators.rows, ['short_name']);
       this.$('.js--comparison-indicators').html(indicatorsTemplate({ 'indicators': indicators.rows }))
       this.calculateEndScrollPoint();
     }.bind(this))
@@ -297,7 +294,7 @@ var CompareView = Backbone.View.extend({
 
   getYears: function() {
     var years = new Years();
-    return years.totalYears()
+    return years.getYears()
   },
 
   setParams: function(countries, year) {
@@ -328,12 +325,27 @@ var CompareView = Backbone.View.extend({
 
   hide: function() {},
 
+  _getIndicatorInfo: function(opts) {
+    return this.infoWindowModel.getIndicator(opts);
+  },
+
   showModalWindow: function(e) {
-    var data = $(e.currentTarget).data('info');
-    if (!data) {
+    var indicator = $(e.currentTarget).data('indicator');
+    if (!indicator) {
       return;
     }
-    new ModalWindowView().render(data);
+
+    this._getIndicatorInfo({
+      indicator: indicator
+    }).done(function() {
+
+      new ModalWindowView({
+        'type': 'info-infowindow',
+        'data': this.infoWindowModel.toJSON()
+      });
+
+    }.bind(this));
+
   }
 
 });

@@ -30,8 +30,6 @@
         display: flex; display: -ms-box;
         align-items: baseline;
       }
-
-      > .score {}
     }
 
     .rank {
@@ -41,6 +39,11 @@
 
     .name {
       font-size: rem(15px);
+      color: $font-color-1;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     .score {
@@ -49,8 +52,27 @@
 
       p {
         display: inline-block;
+        font-size: rem(35px);
         font-family: $font-secondary;
         font-weight: 700;
+      }
+
+      .max_score {
+        font-size: rem(20px);
+      }
+
+      .usd {
+        .max_score, 
+        .units {
+          font-size: rem(12px);
+        }
+
+        @media screen and (min-width: 768px) {
+          .max_score, 
+          .units {
+            font-size: rem(20px);
+          }
+        }
       }
 
       .units {
@@ -98,6 +120,7 @@
         justify-content: center;
 
         p {
+          font-size: rem(11px);
           margin-left: 5px;
         }
       }

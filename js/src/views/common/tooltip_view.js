@@ -3,10 +3,11 @@ var _ = require('lodash'),
   Backbone = require('backbone'),
   Handlebars = require('handlebars');
 
-
 var LegendView = Backbone.View.extend({
 
-  el: '.c-tooltip',
+  // events: {
+  //   'click .btn-close-modal' : '_hide'
+  // },
 
   initialize: function() {
     this.model = new (Backbone.Model.extend({
@@ -30,10 +31,12 @@ var LegendView = Backbone.View.extend({
 
     if (!this.model.get('isHidden')) {
       document.addEventListener('click', listener);
-      $('.pop-up-legend').on('click', _.bind(this._stopEvent, this));
+      $('.pop-up-legend-container').on('click', _.bind(this._stopEvent, this));
     } else {
       document.removeEventListener('click', listener);
     }
+
+    this.$('.btn-close-modal').on('click', _.bind(this._hide, this));
   },
 
   _stopEvent: function(e) {
@@ -41,8 +44,8 @@ var LegendView = Backbone.View.extend({
   },
 
   _hide: function() {
-    if (!this.$el.find('.pop-up-legend').hasClass('is-hidden')) {
-      this.$el.find('.pop-up-legend').addClass('is-hidden');
+    if (!this.$el.find('.pop-up-legend-container').hasClass('is-hidden')) {
+      this.$el.find('.pop-up-legend-container').addClass('is-hidden');
     }
   },
 
@@ -55,7 +58,7 @@ var LegendView = Backbone.View.extend({
   },
 
   _toggleLegend: function() {
-    this.$el.find('.pop-up-legend').toggleClass('is-hidden');
+    this.$el.find('.pop-up-legend-container').toggleClass('is-hidden');
     this._setEvents();
   }
 

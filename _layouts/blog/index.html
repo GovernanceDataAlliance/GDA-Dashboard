@@ -10,13 +10,8 @@
       {% include header.html %}
 
       <div class="l-banner -section-2 promoInteriores-Blog">
-        <div class="m-breadcrumbs -light">
-          <ul>
-            <li><a href="{{ site.baseurl }}"> home </a></li>
-            <li><span> / </span></li>
-            <li> {{ page.page-name }} </li>
-          </ul>
-        </div>
+
+        {% include breadcrumbs.html %}
 
         <div class="wrap">
 
@@ -96,7 +91,7 @@
       {% include modules/tag_cloud.html %}
 
       {% include footer.html %}
-      
+
       </div>
     <script>
       var SITEURL = '{{ site.baseurl }}' || null;

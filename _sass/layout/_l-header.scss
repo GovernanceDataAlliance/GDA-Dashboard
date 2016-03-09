@@ -7,6 +7,7 @@ $header-height: rem(70px);
 
   display: flex;
   align-items: stretch;
+  justify-content: space-between;
 
   @media screen and (min-width: 768px) {
     height: rem(80px);
@@ -18,21 +19,21 @@ $header-height: rem(70px);
 
   .l-brand {
     display: flex;
+    justify-content: center;
     width: rem(95px);
     background-color: $bg-color-2;
 
     @media screen and (min-width: 768px) {
       flex-basis: 37%;
-      justify-content: flex-end;
-      width: auto;
+      width: rem(270px);
     }
     
     @media screen and (min-width: $screen-m) {
+      width: rem(360px);
     }
 
     @media screen and (min-width: $screen-l) {
       height: $header-height-desktop;
-      justify-content: center;
     }
   }
 
@@ -40,7 +41,11 @@ $header-height: rem(70px);
     display: flex;
     align-items: stretch;
     justify-content: flex-end;
-    width: 100%;
+
+    @media screen and (min-width: $screen-m) {
+      display: flex;
+      width: 100%;
+    }
 
     .modal-background {
       display: none;
@@ -74,6 +79,14 @@ $header-height: rem(70px);
       background-color: $bg-color-4;
       transition: all .3s ease-in .1s;
       transform: translatex(100%);
+
+      @media screen and (min-width: $screen-m) {
+        width: 100%;
+        position: static;
+        display: flex;
+        background-color: transparent;
+        transform: translatex(0);
+      }
     }
 
     .scroll-wrapper {
@@ -84,11 +97,24 @@ $header-height: rem(70px);
       right: 0;
       padding: 0 rem(40px);
       overflow-y: scroll;
+
+      @media screen and (min-width: $screen-m) {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        overflow-y: hidden;
+        padding: 0;
+      }
     }
 
     .btn-mobile-menu {
       width: $header-height;
       height: $header-height;
+
+      @media screen and (min-width: $screen-m) {
+        display: none;
+      }
 
       svg {
         width: rem(20px);
@@ -105,31 +131,8 @@ $header-height: rem(70px);
       }
     }
 
-    @media screen and (min-width: $screen-m) {
-      display: flex;
-
-      .menus-wrapper {
-        width: 100%;
-        position: static;
-        display: flex;
-        background-color: transparent;
-        transform: translatex(0);
-      }
-
-      .scroll-wrapper {
-        position: static;
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        overflow-y: hidden;
-        padding: 0;
-      }
-
-      .btn-mobile-menu {
-        display: none;
-      }
-
-      .btn-close {
+    .btn-close {
+      @media screen and (min-width: $screen-m) {
         display: none;
       }
     }

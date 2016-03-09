@@ -19,12 +19,14 @@ var WelcomeView = Backbone.View.extend({
     enquire.register("screen and (max-width:769px)", {
       match: _.bind(function(){
         this.mobile = true;
+        this.initViews();
       },this)
     });
 
     enquire.register("screen and (min-width:770px)", {
       match: _.bind(function(){
         this.mobile = false;
+        this.initViews();
       },this)
     });
 

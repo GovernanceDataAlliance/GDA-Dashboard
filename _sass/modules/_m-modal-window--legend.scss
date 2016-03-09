@@ -1,24 +1,45 @@
-.m-legend {
-  display: flex; display: -ms-box;
-  align-items: center;
-  // padding: rem(20px) 0;
+.m-modal-window .-legend {
 
   > ul {
     display: flex; 
     display: -ms-box;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: rem(30px);
+
+    @media screen and (min-width: $screen-l) {
+      display: none;
+    }
 
     li {
       display: flex; 
       display: -ms-box;
       align-items: center;
       justify-content: center;
-      margin-right: rem(2px);
+      margin-right: rem(40px);
+      margin-bottom: rem(20px);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
 
       &:before {
         content: '';
         display: inline-block;
-        width: 7px;
-        height: 7px;
+        width: rem(25px);
+        height: rem(25px);
+        margin-right: rem(10px);
+      }
+
+      @media screen and (min-width: $screen-s) {
+        margin-bottom: 0;
+        margin-right: rem(20px);
+
+        &:before {
+          width: rem(14px);
+          height: rem(14px);
+        }
       }
 
       &.-excellent:before {
@@ -55,51 +76,12 @@
     }
 
     .legend-item {
-      display: none;
-      font-family: "Montserrat";
+      font-family: $font-secondary;
       font-size: rem(10px);
       letter-spacing: rem(0.2px);
       color: $brown;
       text-transform: uppercase;
       white-space: nowrap;
-    }
-  }
-
-  @media screen and (min-width: $screen-s) {
-    > ul {
-      li {
-        margin-right: rem(10px);
-
-        &:before {
-          width: 14px;
-          height: 14px;
-          margin-right: rem(7px);
-        }
-
-        &.literal {
-          display: none;
-        }
-      }
-
-      .legend-item {
-        display: inline-block;
-      }
-    }
-  }
-
-  @media screen and (min-width: 768px) {
-    > ul {
-      li {
-        margin-right: rem(20px);
-      }
-    }
-  }
-
-  .l-compare-selectors & {
-    margin-left: rem(10px);
-
-    @media screen and (min-width: $screen-l) {
-      margin-left: rem(20px);
     }
   }
 }
