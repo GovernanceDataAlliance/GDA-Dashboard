@@ -1,0 +1,12 @@
+.c-share-shortcut {
+  @extend %wrap;
+  position: absolute;
+  top: rem(30px);
+  right: 0;
+  width: auto;
+
+  > button {
+    padding: rem(10px) rem(30px);
+    border: 1px solid $color-4;
+  }
+}

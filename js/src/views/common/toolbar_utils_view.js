@@ -14,7 +14,7 @@ var ToolbarUtilsView = Backbone.View.extend({
   events: {
     'click .js--download' : '_download',
     'click .js--print': '_print',
-    'click .js--share': '_share'
+    // 'click .js--share': '_share'
   },
 
   initialize: function(opts) {
@@ -56,10 +56,10 @@ var ToolbarUtilsView = Backbone.View.extend({
     window.print();
   },
 
-  _share: function() {
-    this._avoidScroll();
-    new ShareView().show();
-  },
+  // _share: function() {
+  //   this._avoidScroll();
+  //   new ShareView().show();
+  // },
 
   render: function() {
     this.$el.html(this.template(this.viewOptions));

@@ -3,73 +3,40 @@ var _ = require('lodash');
   Backbone = require('backbone'),
   Handlebars = require('handlebars');
 
+var infoWindowView = require('./infowindow_view.js');
+
 var sharetemplate = Handlebars.compile(require('../../templates/common/share_tpl.hbs'));
 
-var ShareView = Backbone.View.extend({
+var ShareView = infoWindowView.extend({
+
+  template: sharetemplate,
 
   events: {
-    'click .btn-close-modal': 'hide',
-    'click .modal-background': 'hide',
-    'click .btn-copy': 'copyUrl'
+    'click .btn-copy': '_copyUrl'
   },
 
-  el: 'body',
+  initialize: function() {},
 
-  initialize: function(settings) {
-    var options = settings && settings.options ? settings.options : settings;
-    this.options = _.extend(this.defaults, options);
+  _copyUrl: function() {
+    var $parent = this.$el.find('.m-share .content.active'),
+      $url = $parent.find('.url');
+      $btn = $parent.find('.btn-copy');
+      parentId = $parent[0].id;
 
-    this.setListeners();
-  },
-
-  setListeners: function() {
-    Backbone.Events.on('share:show', this.show, this);
-    Backbone.Events.on('share:hide', this.hide, this);
-
-    $('.modal-background').on('click', _.bind(this.hide));
-  },
-
-  render: function() {
-    var url = window.location.href;
-    var html = sharetemplate({
-      url: url,
-      link: url
-    });
-
-    this.$el.append(html);
-    this.$el.find('.modal-container').removeClass('is-loading-share');
-  },
-
-  show: function() {
-    this.render();
-  },
-
-  _avoidScroll: function() {
-    $('html').addClass('is-inmobile');
-    $('body').addClass('is-inmobile');
-  },
-
-  _enableScroll: function() {
-    $('html').removeClass('is-inmobile');
-    $('body').removeClass('is-inmobile');
-  },
-
-  hide: function() {
-    this._enableScroll();
-    this.$el.find('.m-modal-window').remove();
-  },
-
-  copyUrl: function() {
-    var $parent = this.$el.find('.m-share .content.active');
-    var $url = $parent.find('.url');
-    var $btn = $parent.find('.btn-copy');
-    var parentId = $parent[0].id;
     $url.select();
 
     try {
       var successful = document.execCommand('copy');
       $btn.html('copied');
-    } catch(err) {}
+    } catch(err) {
+      throw err;
+    }
+  },
+
+  render: function() {
+    this.$el.append(this.template({
+      link: window.location.href
+    }));
   }
 
 });
