@@ -92,6 +92,7 @@ var CompareView = Backbone.View.extend({
       this.$el.html(templateMobile());
       this.renderSlides();
       this.calculateLimitPoint();
+
     } else {
       this.renderIndicators();
       this.$el.html(template());
@@ -105,6 +106,27 @@ var CompareView = Backbone.View.extend({
     return this;
   },
 
+  _setScrollMobile: function() {
+    var debouncedScroll = FunctionHelper.debounce(this._onScrollMobile, 10, true);
+    window.addEventListener('scroll', _.bind(debouncedScroll, this));
+  },
+
+  _onScrollMobile: function() {
+    var posY = window.pageYOffset,
+      arrows = $('.slick-arrow'),
+      elem = $('.slick-next');
+
+    var offset = elem.offset().left - elem.parent().offset().left;
+    breakPoint = $('.m-comparison-table').height() + offset;
+
+    if (posY >= breakPoint) {
+      arrows.addClass('stop');
+    } else {
+      if (arrows.hasClass('stop')) {
+        arrows.removeClass('stop');
+      }
+    }
+  },
 
   /*
    * Render indicators names
@@ -123,6 +145,7 @@ var CompareView = Backbone.View.extend({
       }
       this.calculateEndScrollPoint();
       this.initSlide();
+      this._setScrollMobile();
 
     }.bind(this));
   },
