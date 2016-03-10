@@ -13,6 +13,7 @@ var FunctionHelper = require('../../helpers/functions.js');
 var IndicatorHeaderView = require('./indicator_header.js'),
   IndicatorSelectorsToolbarView = require('./indicator_selectors_toolbar.js'),
   CountryListView = require('./country_list.js'),
+  ShareWindowView = require('../common/share_window_view.js'),
   ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
   LegendView = require('../common/legend.js');
 
@@ -107,6 +108,7 @@ var IndicatorView = Backbone.View.extend({
     this.$('.js--indicator-header').append(headerView.render().el);
 
     new TextShortener({ el: this.el });
+    // new ShareWindowView();
   },
 
   renderToolbar: function() {
