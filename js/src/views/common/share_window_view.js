@@ -38,6 +38,14 @@ var ShareWindowView = infoWindowView.extend({
     window.print();
   },
 
+  _setActive: function(e) {
+    var buttons = document.querySelectorAll('.btn'),
+      current = e.currentTarget;
+
+    $(buttons).removeClass('-active');
+    $(current).addClass('-active');
+  },
+
   _cleanContent: function() {
     var content = document.querySelector('#toolbar-content');
 
@@ -46,17 +54,43 @@ var ShareWindowView = infoWindowView.extend({
     }
   },
 
-  _share: function() {
-    this._cleanContent();
+  _share: function(e) {
+
+    if (!e) {
+
+      $('.js--share').addClass('-active');
+
+    } else {
+
+      if (this._isActive(e)) {
+        return;
+      }
+
+      this._cleanContent();
+      this._setActive(e);
+    }
+
     this.shareView.setElement($('#toolbar-content'));
     this.shareView.render();
   },
 
-  _download: function() {
+  _isActive: function(e) {
+    return e && $(e.currentTarget).hasClass('-active');
+  },
+
+  _download: function(e) {
+
+    if (e && this._isActive(e)) {
+      return;
+    }
+
+    this._setActive(e);
     this._cleanContent();
+
     this.downloadView.setElement($('#toolbar-content'));
     this.downloadView.render();
     this.downloadView.delegateEvents();
+
   },
 
   render: function() {

@@ -14,7 +14,6 @@ var IndicatorHeaderView = require('./indicator_header.js'),
   IndicatorSelectorsToolbarView = require('./indicator_selectors_toolbar.js'),
   CountryListView = require('./country_list.js'),
   ShareWindowView = require('../common/share_window_view.js'),
-  ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
   LegendView = require('../common/legend.js');
 
 var TextShortener = require('../common/text_shortener.js');
@@ -111,11 +110,11 @@ var IndicatorView = Backbone.View.extend({
     // new ShareWindowView();
   },
 
-  renderToolbar: function() {
-    this.$el.find('.l-toolbar').first().find('.m-control').first().append(new ToolbarUtilsView({
-      el: this.$el.find('.js--toolbar-utils')
-    }).render().el);
-  },
+  // renderToolbar: function() {
+  //   this.$el.find('.l-toolbar').first().find('.m-control').first().append(new ToolbarUtilsView({
+  //     el: this.$el.find('.js--toolbar-utils')
+  //   }).render().el);
+  // },
 
   renderSelectorsToolbar: function() {
     var toolbarView = new IndicatorSelectorsToolbarView({
@@ -125,7 +124,7 @@ var IndicatorView = Backbone.View.extend({
     });
     this.$('.js--indicator-toolbar').append(toolbarView.render().el);
 
-    this.renderToolbar();
+    // this.renderToolbar();
 
     $('.js--download').attr('data-indicator-id', this.id);
     $('.js--download').attr('data-year', this.actualYear);

@@ -1,8 +1,7 @@
 var _ = require('lodash'),
   $ = require('jquery'),
   Backbone = require('backbone'),
-  Handlebars = require('handlebars'),
-  URI = require('urijs');
+  Handlebars = require('handlebars');
 
 var indicators = require('../../collections/indicators'),
   countries = require('../../collections/countries');
@@ -79,7 +78,7 @@ var DownloadView = infoWindowView.extend({
       csv: this._getCSV(),
       siteURL: SITEURL || null
     }));
-  },
+  }
 
 });
 

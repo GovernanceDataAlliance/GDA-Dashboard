@@ -6,7 +6,10 @@
   width: auto;
 
   > button {
-    padding: rem(10px) rem(30px);
-    border: 1px solid $color-4;
+
+    @media screen and (min-width: $screen-s) {
+      border: 1px solid $color-4;
+      padding: rem(10px) rem(30px);
+    }
   }
 }

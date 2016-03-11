@@ -12,7 +12,7 @@ var FunctionHelper = require('../../helpers/functions.js');
 var CountryHeaderView = require('./country_header.js'),
     IndicatorListView = require('./indicator_list.js'),
     CountryToolbarView = require('./country_toolbar.js'),
-    ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
+    // ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
     ModalWindowView = require('../common/infowindow_view.js')
     ShareView = require('../common/share_view.js'),
     YearSelectorView = require('../common/year_selector.js'),
@@ -203,17 +203,17 @@ var CountryView = Backbone.View.extend({
   },
 
   renderToolbars: function() {
-    this.utilsToolbar = new ToolbarUtilsView({
-      el: this.$el.find('.js--toolbar-utils'),
-      isCountry: true,
-      iso: this.status.get('iso')
-    });
+    // this.utilsToolbar = new ToolbarUtilsView({
+    //   el: this.$el.find('.js--toolbar-utils'),
+    //   isCountry: true,
+    //   iso: this.status.get('iso')
+    // });
 
     this.countryToolbar = new CountryToolbarView({
       el: this.$el.find('.js--toolbar-display')
     });
 
-    this.$el.find('.js--country-toolbar').find('.wrap').append(this.utilsToolbar.render().el);
+    // this.$el.find('.js--country-toolbar').find('.wrap').append(this.utilsToolbar.render().el);
     this.$el.find('.js--country-toolbar').find('.wrap').append(this.countryToolbar.render().el);
 
     this._setDownloadData();

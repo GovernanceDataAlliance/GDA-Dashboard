@@ -31,7 +31,7 @@ var CompareSelectorsView = require('./compare_selectors.js'),
   CountrySelectorView = require('./compare_country_selector.js'),
   YearSelectorView = require('../common/year_selector.js'),
   ModalWindowView = require('../common/infowindow_view.js'),
-  ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
+  // ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
   ModalWindowView = require('../common/infowindow_view.js'),
   LegendView = require('../common/legend.js');
 
@@ -99,7 +99,7 @@ var CompareView = Backbone.View.extend({
       this.renderSelectors();
     }
 
-    this.renderToolbar();
+    // this.renderToolbar();
     this.renderLegend();
     this._setResize();
     return this;
@@ -228,11 +228,11 @@ var CompareView = Backbone.View.extend({
     }
   },
 
-  renderToolbar: function() {
-    this.$el.find('.js--compare-toolbar').find('.wrap').append(new ToolbarUtilsView({
-      el: this.$el.find('.js--toolbar-utils')
-    }).render().el);
-  },
+  // renderToolbar: function() {
+  //   this.$el.find('.js--compare-toolbar').find('.wrap').append(new ToolbarUtilsView({
+  //     el: this.$el.find('.js--toolbar-utils')
+  //   }).render().el);
+  // },
 
   renderLegend: function() {
     var legends = this.$('.js--legend');
