@@ -9,6 +9,9 @@ var _ = require('lodash'),
   async = require('async');
 
 var CountriesCollection = require('../../collections/countries.js');
+  yearsCollection = require('../../collections/years.js');
+
+var YearSelectorView = require('../common/year_selector.js');
 
 var template = Handlebars.compile(
   require('../../templates/compare/compare_selectors.hbs'));
@@ -36,7 +39,10 @@ var CompareSelectorsView = Backbone.View.extend({
 
     this.countries = options.countries;
 
+
     this.countriesCollection = new CountriesCollection();
+    this.yearsCollection = new yearsCollection();
+
     this.render();
   },
 
@@ -53,11 +59,28 @@ var CompareSelectorsView = Backbone.View.extend({
 
       if (this.countries) {
         this.setRecivedValues();
-      };
+      }
 
       if (!this.tablet) {
         this.$('select').chosen();
+
+        this._setYearsSelectors();
       }
+
+    }.bind(this));
+  },
+
+  _setYearsSelectors: function() {
+    this.yearsCollection.getYears().done(function() {
+      var selectors = $('.js--year-selector-compare');
+
+      $.each(selectors, function(index, selector) {
+        new YearSelectorView({
+          actualYear: this.yearsCollection.getLastYear(),
+          el: $(selector),
+          years: this.yearsCollection.toJSON()
+        });
+      }.bind(this));
 
     }.bind(this));
   },

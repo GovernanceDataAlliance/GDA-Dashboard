@@ -79,6 +79,10 @@
         padding-bottom: rem(10px);
       }
 
+      .btn-drop-down:last-child {
+        margin-top: rem(10px);
+      }
+
       &:last-child {
         border-right: none;
       }
