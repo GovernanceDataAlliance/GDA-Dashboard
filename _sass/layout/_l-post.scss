@@ -3,10 +3,6 @@
   padding-bottom: rem(40px);
   border-bottom: 1px solid $border-1;
 
-  &:last-child {
-    border-bottom: none;
-  }
-
   &.-img {
     background-size: cover;
     background-position: center;
@@ -27,6 +23,10 @@
     background-color: transparent;
     padding: rem(30px) 0 rem(75px) 0;
     border-bottom: 1px solid $border-1;
+
+    &:last-child {
+      border-bottom: 0;
+    }
 
     @media screen and (min-width: $screen-m) {
       padding-top: rem(95px);
