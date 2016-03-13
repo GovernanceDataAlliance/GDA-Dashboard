@@ -18,7 +18,7 @@ var ShareView = infoWindowView.extend({
   initialize: function() {},
 
   _copyUrl: function() {
-    var $parent = this.$el.find('.m-share .content.active'),
+    var $parent = this.$el.find('.content.active'),
       $url = $parent.find('.url');
       $btn = $parent.find('.btn-copy');
       parentId = $parent[0].id;
