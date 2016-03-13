@@ -52,6 +52,19 @@
       }
     }
 
+    &.-compare {
+      width: 25%;
+      min-width: rem(100px);
+
+      .js--download {
+        display: none;
+      }
+      
+      @media screen and (min-width: 768px) {
+        min-width: rem(200px);
+      }
+    }
+
     @media screen and (min-width: 768px) {
       width: 75%;
       max-width: rem(400px);

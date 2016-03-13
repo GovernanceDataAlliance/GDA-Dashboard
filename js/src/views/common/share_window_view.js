@@ -29,9 +29,13 @@ var ShareWindowView = infoWindowView.extend({
 
     // Views
     this.shareView = new ShareView();
-    this.downloadView = new DownloadView({
-      options: this.options
-    });
+
+    if (!this.options.isCompare) {
+      this.downloadView = new DownloadView({
+        options: this.options
+      });
+    }
+
   },
 
   _print: function() {
@@ -97,6 +101,10 @@ var ShareWindowView = infoWindowView.extend({
     // take a look later..
     this.$el.append(this.infoWindowTemplate());
     this.$('#content').append(this.template());
+
+    if (this.options.isCompare) {
+      $('.share-toolbar').addClass('-compare');
+    }
 
     this.avoidScroll();
 
