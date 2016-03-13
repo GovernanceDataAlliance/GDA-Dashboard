@@ -272,10 +272,12 @@ var CompareView = Backbone.View.extend({
   },
 
   renderYearSelector: function() {
-    //TODO -- Add view manager.
 
     this.getYears().done(function(years) {
-      var yearSelectors = new YearSelectorView({ el: this.$('.js--year-selector-compare'), 'years': years.rows, 'actualYear': this.year });
+      new CountrySelectorView({
+        actualYear: this.year,
+        el: this.$('.js--year-selector-compare')
+      });
     }.bind(this));
   },
 

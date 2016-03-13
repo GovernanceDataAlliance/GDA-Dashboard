@@ -8,7 +8,8 @@ var _ = require('lodash'),
   chosen = require('chosen-jquery-browserify'),
   async = require('async');
 
-var CountriesCollection = require('../../collections/countries.js');
+var CountriesCollection = require('../../collections/countries.js'),
+  YearsCollection = require('../../collections/years.js');
 
 var template = Handlebars.compile(
   require('../../templates/compare/selectors/compare_country_selector.hbs'));
@@ -38,6 +39,7 @@ var CountrySelectorView = Backbone.View.extend({
     this.index = options.index;
 
     this.countriesCollection = new CountriesCollection();
+    this.yearsCollection = new YearsCollection();
     this.render();
   },
 
@@ -46,9 +48,17 @@ var CountrySelectorView = Backbone.View.extend({
   },
 
   render: function() {
-    this.getData().done(function(countries) {
-      var countries = _.sortByOrder(countries.rows, ['name']);
-      this.$el.html(template({ 'countries': countries , 'index': this.index}));
+
+    $.when(this.yearsCollection.getYears(), this.getData()).done(function() {
+
+      var countries = this.countriesCollection.toJSON(),
+        years = this.yearsCollection.toJSON();
+
+      this.$el.html(template({
+        countries: countries ,
+        index: this.index,
+        years: years
+      }));
 
       this.delegateEvents();
 
@@ -62,6 +72,7 @@ var CountrySelectorView = Backbone.View.extend({
       }
 
     }.bind(this));
+
   },
 
   setRecivedValues: function() {
