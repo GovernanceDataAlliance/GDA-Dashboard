@@ -25,7 +25,8 @@ var IndicatorView = Backbone.View.extend({
 
   events: {
     'click .js--ranking-groups': '_stopEvent',
-    'click .js--btn-ranking': "_stopEvent"
+    'click .js--btn-ranking': "_stopEvent",
+    'click .js--view-share': '_openShareWindow'
   },
 
   initialize: function(options) {
@@ -35,6 +36,10 @@ var IndicatorView = Backbone.View.extend({
     this.givenYear = options.year || null;
 
     this.functionHelper = FunctionHelper;
+
+    window.indicatorId = this.id;
+
+    this.shareWindowView = new ShareWindowView();
 
     this.initializeData();
     this.setListeners();
@@ -69,6 +74,11 @@ var IndicatorView = Backbone.View.extend({
 
     }.bind(this));
 
+  },
+
+  _openShareWindow: function() {
+    this.shareWindowView.render();
+    this.shareWindowView.delegateEvents();
   },
 
   _stopEvent: function(e) {
