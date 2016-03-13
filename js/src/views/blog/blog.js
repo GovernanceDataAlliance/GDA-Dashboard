@@ -1,7 +1,7 @@
 var $ = require('jquery'),
   Backbone = require('backbone');
 
-var ShareView = require('../common/share_view.js');
+var ShareWindowView = require('../common/share_window_view.js');
 
 var CategorySelector = require('./category_selector.js');
 
@@ -12,11 +12,14 @@ var BlogView = Backbone.View.extend({
   el: '.js-blog',
 
   events: {
-    'click .js--share': '_share'
+    'click .js--view-share': '_openShareWindow'
   },
 
   initialize: function() {
-    this.share = new ShareView();
+    this.shareWindowView = new ShareWindowView({
+      noDownload: true
+    });
+
     this.FunctionHelper = FunctionHelper;
     this._category();
 
@@ -29,10 +32,10 @@ var BlogView = Backbone.View.extend({
     });
   },
 
-  _share: function() {
-    this.share.show();
-    this.share._avoidScroll();
-  }
+  _openShareWindow: function() {
+    this.shareWindowView.render();
+    this.shareWindowView.delegateEvents();
+  },
 
 });
 
