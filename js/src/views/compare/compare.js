@@ -69,7 +69,7 @@ var CompareView = Backbone.View.extend({
     this.infoWindowModel = new InfoWindowModel();
 
     this.shareWindowView = new ShareWindowView({
-      isCompare: true
+      noDownload: true
     });
 
     this.setListeners();

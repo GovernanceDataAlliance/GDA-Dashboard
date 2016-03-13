@@ -52,14 +52,14 @@
       }
     }
 
-    &.-compare {
+    &.-no-download {
       width: 25%;
       min-width: rem(100px);
 
       .js--download {
         display: none;
       }
-      
+
       @media screen and (min-width: 768px) {
         min-width: rem(200px);
       }

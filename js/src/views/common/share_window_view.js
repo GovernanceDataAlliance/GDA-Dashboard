@@ -30,7 +30,7 @@ var ShareWindowView = infoWindowView.extend({
     // Views
     this.shareView = new ShareView();
 
-    if (!this.options.isCompare) {
+    if (!this.options.noDownload) {
       this.downloadView = new DownloadView({
         options: this.options
       });
@@ -102,8 +102,8 @@ var ShareWindowView = infoWindowView.extend({
     this.$el.append(this.infoWindowTemplate());
     this.$('#content').append(this.template());
 
-    if (this.options.isCompare) {
-      $('.share-toolbar').addClass('-compare');
+    if (this.options.noDownload) {
+      $('.share-toolbar').addClass('-no-download');
     }
 
     this.avoidScroll();
