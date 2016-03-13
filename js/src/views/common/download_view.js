@@ -27,6 +27,12 @@ var DownloadView = infoWindowView.extend({
       id: window.indicatorId
     });
 
+    if (window.location.pathname == '/countries') {
+      _.extend(this.options, {
+        iso: window.location.hash.split('&')[0].slice(1)
+      });
+    }
+
     this.indicatorsCollection = new indicators();
     this.countriesCollection  = new countries();
 

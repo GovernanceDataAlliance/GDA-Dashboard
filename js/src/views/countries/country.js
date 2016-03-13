@@ -12,9 +12,8 @@ var FunctionHelper = require('../../helpers/functions.js');
 var CountryHeaderView = require('./country_header.js'),
     IndicatorListView = require('./indicator_list.js'),
     CountryToolbarView = require('./country_toolbar.js'),
-    // ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
     ModalWindowView = require('../common/infowindow_view.js')
-    ShareView = require('../common/share_view.js'),
+    ShareWindowView = require('../common/share_window_view.js'),
     YearSelectorView = require('../common/year_selector.js'),
     LegendView = require('../common/legend.js');
 
@@ -24,7 +23,8 @@ var template = Handlebars.compile(require('../../templates/countries/country.hbs
 var CountryView = Backbone.View.extend({
 
   events: {
-    'click .btn-info': 'showModalWindow'
+    'click .btn-info': 'showModalWindow',
+    'click .js--view-share': '_openShareWindow'
   },
 
   initialize: function(options) {
@@ -32,7 +32,6 @@ var CountryView = Backbone.View.extend({
     if (options.iso === undefined) {
       throw new Error('CountryView requires a Country ISO ID');
     }
-
 
     // Models
     this.infoWindowModel = new InfoWindowModel();
@@ -45,6 +44,8 @@ var CountryView = Backbone.View.extend({
     }));
 
     this.functionHelper = FunctionHelper;
+
+    this.shareWindowView = new ShareWindowView();
 
     // Initialize collections
     this.country = new Country({id: options.iso});
@@ -91,6 +92,11 @@ var CountryView = Backbone.View.extend({
     this.listenTo(this.indicators, 'sync', this.renderIndicators);
     this.listenTo(this.country, 'sync', this.renderCountry);
     this.listenTo(this.yearsCollection, 'sync', this.renderYearSelector);
+  },
+
+  _openShareWindow: function() {
+    this.shareWindowView.render();
+    this.shareWindowView.delegateEvents();
   },
 
   _hideBanner: function() {
@@ -159,7 +165,6 @@ var CountryView = Backbone.View.extend({
       this._hideBanner();
       this._updateYearSelector();
 
-      this.utilsToolbar.delegateEvents();
       this.countryToolbar.delegateEvents();
       this._setDownloadData();
 
@@ -203,19 +208,11 @@ var CountryView = Backbone.View.extend({
   },
 
   renderToolbars: function() {
-    // this.utilsToolbar = new ToolbarUtilsView({
-    //   el: this.$el.find('.js--toolbar-utils'),
-    //   isCountry: true,
-    //   iso: this.status.get('iso')
-    // });
-
     this.countryToolbar = new CountryToolbarView({
       el: this.$el.find('.js--toolbar-display')
     });
 
-    // this.$el.find('.js--country-toolbar').find('.wrap').append(this.utilsToolbar.render().el);
     this.$el.find('.js--country-toolbar').find('.wrap').append(this.countryToolbar.render().el);
-
     this._setDownloadData();
   },
 
@@ -249,9 +246,7 @@ var CountryView = Backbone.View.extend({
     }).render();
   },
 
-  show: function() {
-    // this.render();
-  }
+  show: function() {}
 
 });
 
