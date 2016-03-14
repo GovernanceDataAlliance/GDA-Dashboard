@@ -1,11 +1,7 @@
 .l-post {
   background-color: $bg-color-1;
   padding-bottom: rem(40px);
-  border-bottom: 1px solid $border-1;
-
-  &:last-child {
-    border-bottom: none;
-  }
+  // border-bottom: 1px solid $border-1;
 
   &.-img {
     background-size: cover;
@@ -28,10 +24,14 @@
     padding: rem(30px) 0 rem(75px) 0;
     border-bottom: 1px solid $border-1;
 
+    &:last-child {
+      border-bottom: 0;
+    }
+
     @media screen and (min-width: $screen-m) {
       padding-top: rem(95px);
       padding-bottom: rem(105px);
-      
+
       .wrap {
         margin: 0;
       }
@@ -43,7 +43,7 @@
 
 .blog-category {
   display: none;
-  
+
   &.-active {
     display: block;
   }

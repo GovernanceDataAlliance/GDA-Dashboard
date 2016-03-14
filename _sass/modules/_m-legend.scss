@@ -68,16 +68,25 @@
   @media screen and (min-width: $screen-s) {
     > ul {
       li {
-        margin-right: rem(10px);
 
         &:before {
           width: 14px;
           height: 14px;
-          margin-right: rem(7px);
+          margin-right: rem(10px);
         }
 
         &.literal {
           display: none;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .-footer & {
+      > ul {
+        li {
+          margin-right: rem(20px);
         }
       }
 
@@ -87,12 +96,17 @@
     }
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $screen-l) {
     > ul {
       li {
         margin-right: rem(20px);
       }
+      
+      .legend-item {
+        display: inline-block;
+      }
     }
+
   }
 
   .l-compare-selectors & {

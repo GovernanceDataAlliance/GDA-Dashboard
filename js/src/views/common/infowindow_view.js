@@ -18,6 +18,8 @@ var ModalWindowView = Backbone.View.extend({
 
   el: 'body',
 
+  template: Handlebars.compile(modalWindowtemplate),
+
   events: function() {
     if (window.ontouchstart) {
       return  {
@@ -34,7 +36,6 @@ var ModalWindowView = Backbone.View.extend({
   initialize: function(options) {
     this.type = options && options.type ? options.type : 'info-infowindow';
     this.data = options && options.data ? options.data : null;
-    this.template = Handlebars.compile(modalWindowtemplate);
 
     this._setListeners();
 
@@ -46,7 +47,7 @@ var ModalWindowView = Backbone.View.extend({
   },
 
   _remove: function() {
-    this.$el.find('#infowindow-base').remove();
+    $(this.el).find('#infowindow-base').remove();
   },
 
   _setView: function() {
@@ -96,12 +97,23 @@ var ModalWindowView = Backbone.View.extend({
 
     this._remove();
     this.toogleState();
+    this._enableScroll();
   },
 
   toogleState: function() {
-    this.$el.toggleClass('is-inmobile', this.fixed);
+    $(this.el).toggleClass('is-inmobile', this.fixed);
     $('html').toggleClass('is-inmobile', this.fixed);
-  }
+  },
+
+  _enableScroll: function() {
+    $('html').removeClass('is-inmobile');
+    $('body').removeClass('is-inmobile');
+  },
+
+  avoidScroll: function() {
+    $('html').addClass('is-inmobile');
+    $('body').addClass('is-inmobile');
+  },
 
 });
 

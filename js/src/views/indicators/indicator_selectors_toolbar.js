@@ -53,6 +53,7 @@ var IndicatorsToolbarView = Backbone.View.extend({
         'years': years.rows,
         'actualYear': this.actualYear
       });
+      Backbone.Events.trigger('year:selected', this.actualYear);
     }.bind(this));
   },
 

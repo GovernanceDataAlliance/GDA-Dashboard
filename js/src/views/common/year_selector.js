@@ -26,6 +26,7 @@ var CompareYearSelectors = Backbone.View.extend({
   render: function() {
     this.$el.html(template({ 'years': this.years }));
     this.setCurrentYear();
+    Backbone.Events.trigger('year:selected', this.actualYear);
 
     enquire.register("screen and (max-width:640px)", {
       match: _.bind(function(){
