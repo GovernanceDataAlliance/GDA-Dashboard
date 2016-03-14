@@ -49,6 +49,9 @@ var CountrySelectorView = Backbone.View.extend({
     this.getData().done(function(countries) {
       var countries = _.sortByOrder(countries.rows, ['name']);
       this.$el.html(template({ 'countries': countries , 'index': this.index}));
+
+      this.delegateEvents();
+
       if (this.countries) {
         this.setRecivedValues();
       };
@@ -63,7 +66,7 @@ var CountrySelectorView = Backbone.View.extend({
 
   setRecivedValues: function() {
     $.each(this.countries, function(i, country) {
-      var currentSelector = this.$el.find('#country-'+ (i+1));
+      var currentSelector = this.$el.find('#selectcountry-'+ (i+1));
       currentSelector.val(country).trigger('change');
     }.bind(this));
   },
