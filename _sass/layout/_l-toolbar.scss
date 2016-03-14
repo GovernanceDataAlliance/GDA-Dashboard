@@ -28,18 +28,6 @@
     }
   }
 
-
-  // &.-year-and-legend {
-  //   // padding: rem(20px) 0;
-  //   z-index: 10;
-
-  //   @media screen and (min-width: 768px) {
-  //     &:not(.-country) {
-  //       padding: rem(10px) 0;
-  //     }
-  //   }
-  // }
-
   .js--legend {
     display: flex;
     flex: 1 1 100%;
@@ -54,16 +42,6 @@
       }
     }
   }
-
-
-  // &.-utils {
-  //   height: rem(56px);
-
-  //   @media screen and (min-width: 768px) {
-  //     height: rem(70px);
-  //   }
-
-  // }
 
   .js--toolbar-utils {
     display: flex;
@@ -188,25 +166,6 @@
     }
   }
 
-
-  // &.-data {
-  //   .js--print,
-  //   .js--share {
-  //     display: none;
-  //   }
-  // }
-
-
-  // &.-blog {
-  //   .js--print {
-  //     display: none;
-  //   }
-  // }
-
-
-  // &.-blog {
-  // }
-
   &.-footer {
     border-top: 1px solid $border-1;
     padding: rem(10px) 0;
@@ -218,30 +177,5 @@
     .wrap {
       flex-direction: row;
     }
-
-    .c-share {
-      position: relative;
-      padding: 0;
-    }
-
-    // .js--download,
-    // .compare-link {
-    //   display: none;
-    // }
-
-    // .js--toolbar-utils {
-
-    //   @media screen and (min-width: 768px) {
-    //     max-width: rem(200px);
-    //   }
-
-    //   @media screen and (min-width: $screen-l) {
-    //     max-width: rem(250px);
-    //   }
-
-    //   .m-controls {
-    //     justify-content: flex-end;
-    //   }
-    // }
   }
 }

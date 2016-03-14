@@ -2,10 +2,6 @@
   display: flex;
   width: 100%;
 
-  .c-share {
-    display: flex;
-    margin-right: rem(20px);
-  }
 
   @media screen and (min-width: 768px) {
     border-left: 1px solid $border-1;

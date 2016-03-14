@@ -1,5 +1,10 @@
 .c-share {
 
+  .l-compare-selectors & {
+    display: flex;
+    margin-right: rem(20px);
+  }
+
   .link-box {
     position: relative;
     width: 100%;
