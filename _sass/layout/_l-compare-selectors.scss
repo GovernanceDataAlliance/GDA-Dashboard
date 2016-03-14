@@ -1,10 +1,19 @@
 .l-compare-selectors {
-  display: flex;
+
   width: 100%;
 
+  .btn-drop-down:last-child {
+    margin-top: rem(20px);
+  }
 
   @media screen and (min-width: 768px) {
+    display: flex;
+
     border-left: 1px solid $border-1;
     border-right: 1px solid $border-1;
+
+    .btn-drop-down:last-child {
+      margin: 0;
+    }
   }
 }
