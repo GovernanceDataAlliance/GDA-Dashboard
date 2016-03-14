@@ -29,7 +29,6 @@ var templateMobile = Handlebars.compile(require('../../templates/compare/mobile/
 
 var CompareSelectorsView = require('./compare_selectors.js'),
   CountrySelectorView = require('./compare_country_selector.js'),
-  YearSelectorView = require('../common/year_selector.js'),
   ModalWindowView = require('../common/infowindow_view.js'),
   ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
   ModalWindowView = require('../common/infowindow_view.js'),
@@ -97,7 +96,7 @@ var CompareView = Backbone.View.extend({
       this.renderIndicators();
       this.$el.html(template());
       this.calculateLimitPoint();
-      this.renderSelectors();
+      this.renderComparesSelector();
     }
 
     this.renderToolbar();
@@ -295,20 +294,18 @@ var CompareView = Backbone.View.extend({
 
   },
 
-  renderSelectors: function() {
-    this.renderYearSelector();
-    this.renderComparesSelector();
-  },
-
   renderYearSelector: function() {
-    //TODO -- Add view manager.
+
     this.getYears().done(function(years) {
-      var yearSelectors = new YearSelectorView({ el: this.$('.js--year-selector-compare'), 'years': years.rows, 'actualYear': this.year });
+      new CountrySelectorView({
+        actualYear: this.year,
+        el: this.$('.js--year-selector-compare')
+      });
     }.bind(this));
   },
 
   renderComparesSelector: function() {
-    var selectors = new CompareSelectorsView({ el: this.$('.js--compare-selectors'), 'countries': this.countryIds });
+    new CompareSelectorsView({ el: this.$('.js--compare-selectors'), 'countries': this.countryIds });
   },
 
   renderCountrySelector: function(el, index) {
