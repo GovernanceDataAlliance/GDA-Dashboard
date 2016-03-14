@@ -1,69 +1,81 @@
 .l-toolbar  {
   position: relative;
-  z-index: 1;
+  z-index: 10;
   display: flex; display: -ms-box;
   height: auto;
+  padding: rem(20px) 0;
   background-color: $bg-color-4;
   border-bottom: 1px solid $border-1;
+
+  @media screen and (min-width: $screen-s) {
+    padding: rem(10px) 0;
+  }
+  
+  @media screen and (min-width: 768px) {  
+    &.-country {
+      padding: 0;
+    }
+  }
 
   .wrap {
     display: flex;
     display: -ms-box;
     justify-content: space-between;
-  }
+    flex-direction: column;
 
-
-  &.-year-and-legend {
-    padding: rem(5px) 0;
-    z-index: 10;
-
-    @media screen and (min-width: 768px) {
-      padding: rem(10px) 0;
+    @media screen and (min-width: $screen-s) {
+      flex-direction: row;
     }
   }
 
   .js--legend {
     display: flex;
     flex: 1 1 100%;
+    
+    @at-root {
+      .l-toolbar:not(.-footer) .js--legend {
+        padding-bottom: rem(20px);
+        
+        @media screen and (min-width: $screen-s) {
+          padding-bottom: 0;
+        }
+      }
+    }
   }
 
+  .js--toolbar-utils {
+    display: flex;
+    flex: 1 1 100%;
+    height: rem(56px);
 
-  &.-utils {
+    @media screen and (min-width: $screen-s) {
+      max-width: 50%;
+    }
+
+    @media screen and (min-width: 768px) {
+      max-width: rem(500px);
+      height: rem(70px);
+    }
+  }
+
+  .js--toolbar-display {
+    display: none;
     height: rem(56px);
 
     @media screen and (min-width: 768px) {
-      height: rem(70px);
-    }
-
-    .js--toolbar-utils {
       display: flex;
       flex: 1 1 100%;
-
-      @media screen and (min-width: $screen-s) {
-        max-width: 50%;
-      }
-
-      @media screen and (min-width: 768px) {
-        max-width: rem(500px);
-      }
+      max-width: rem(120px);
+      height: rem(70px);
+      margin-left: rem(20px);
     }
 
-    .js--toolbar-display {
-      display: none;
+    @media screen and (min-width: 960px) {
+      max-width: rem(235px);
+    }
 
-      @media screen and (min-width: 768px) {
-        display: flex;
-        flex: 1 1 100%;
-        max-width: rem(120px);
-      }
-
-      @media screen and (min-width: 960px) {
-        max-width: rem(235px);
-      }
-
-      @media screen and (min-width: $screen-l) {
-        max-width: rem(250px);
-      }
+    @media screen and (min-width: $screen-l) {
+      max-width: rem(250px);
     }
   }
 
@@ -72,14 +84,18 @@
     padding: rem(10px) 0;
     height: auto;
 
-    .wrap {
-      flex-wrap: wrap;
-    }
-
     @media screen and (min-width: $screen-s) {
       height: rem(56px);
+    }
 
-      .wrap {
+    @media screen and (min-width: 768px) {
+      height: auto;
+    }
+
+    .wrap {
+      flex-wrap: wrap;
+
+      @media screen and (min-width: $screen-s) {
         flex-wrap: nowrap;
       }
     }
@@ -109,6 +125,11 @@
         }
       }
     }
+  }
+
+  &.-compare-legend {
+    padding: 0;
+    height: rem(65px); 
   }
 
 
@@ -145,43 +166,16 @@
     }
   }
 
-
-  &.-data {
-    .js--print,
-    .js--share {
-      display: none;
-    }
-  }
-
-
-  &.-blog {
-    .js--print {
-      display: none;
-    }
-  }
-
-
   &.-footer {
     border-top: 1px solid $border-1;
-
-    .js--download,
-    .compare-link {
-      display: none;
+    padding: rem(10px) 0;
+    
+    @media screen and (min-width: 768px) {
+      padding: rem(25px) 0;
     }
 
-    .js--toolbar-utils {
-
-      @media screen and (min-width: 768px) {
-        max-width: rem(200px);
-      }
-
-      @media screen and (min-width: $screen-l) {
-        max-width: rem(250px);
-      }
-
-      .m-controls {
-        justify-content: flex-end;
-      }
+    .wrap {
+      flex-direction: row;
     }
   }
 }

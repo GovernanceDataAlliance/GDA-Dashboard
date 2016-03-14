@@ -30,8 +30,7 @@ var templateMobile = Handlebars.compile(require('../../templates/compare/mobile/
 var CompareSelectorsView = require('./compare_selectors.js'),
   CountrySelectorView = require('./compare_country_selector.js'),
   ModalWindowView = require('../common/infowindow_view.js'),
-  ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
-  ModalWindowView = require('../common/infowindow_view.js'),
+  ShareWindowView = require('../common/share_window_view.js'),
   LegendView = require('../common/legend.js');
 
 var compareStatus = new (Backbone.Model.extend({
@@ -43,7 +42,8 @@ var compareStatus = new (Backbone.Model.extend({
 var CompareView = Backbone.View.extend({
 
   events: {
-    'click .btn-info'    : 'showModalWindow'
+    'click .btn-info' : 'showModalWindow',
+    'click .js--view-share': '_openShareWindow'
   },
 
   initialize: function(options) {
@@ -67,6 +67,10 @@ var CompareView = Backbone.View.extend({
     });
 
     this.infoWindowModel = new InfoWindowModel();
+
+    this.shareWindowView = new ShareWindowView({
+      noDownload: true
+    });
 
     this.setListeners();
 
@@ -99,7 +103,6 @@ var CompareView = Backbone.View.extend({
       this.renderComparesSelector();
     }
 
-    this.renderToolbar();
     this.renderLegend();
     this._setResize();
     return this;
@@ -250,12 +253,6 @@ var CompareView = Backbone.View.extend({
     }
   },
 
-  renderToolbar: function() {
-    this.$el.find('.js--compare-toolbar').find('.wrap').append(new ToolbarUtilsView({
-      el: this.$el.find('.js--toolbar-utils')
-    }).render().el);
-  },
-
   renderLegend: function() {
     var legends = this.$('.js--legend');
     _.each(legends, function(legend) {
@@ -375,6 +372,11 @@ var CompareView = Backbone.View.extend({
 
     }.bind(this));
 
+  },
+
+  _openShareWindow: function() {
+    this.shareWindowView.render();
+    this.shareWindowView.delegateEvents();
   }
 
 });

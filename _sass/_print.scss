@@ -1,12 +1,12 @@
 @media print {
-  
-  .l-header, 
+
+  .l-header,
   .l-footer,
   .l-highlight,
-  .l-toolbar, 
+  .l-toolbar,
   .no-printable,
   .m-breadcrumbs,
-  .btn-info, 
+  .btn-info,
   .btn,
   .btn-drop-down:after {
     display: none !important;
@@ -98,7 +98,7 @@
       max-width: 50%!important;
     }
 
-    .index-description > .description-wrapper .description .read-more, 
+    .index-description > .description-wrapper .description .read-more,
     .index-description > .description-wrapper .description .read-less {
       display: none !important;
     }
@@ -125,7 +125,7 @@
       display: inline-block !important;
     }
 
-  
+
     // .description,
     .index-description > .description-wrapper {
       display: block !important;
@@ -172,7 +172,7 @@
     display: flex !important;
   }
 
-  .m-year-selector.-compare { 
+  .m-year-selector.-compare {
     flex: 1 1 auto;
 
     &.-index {
@@ -202,6 +202,11 @@
 
   .m-table .table-row.-load-more {
     display: none !important;
+  }
+
+  // infowindow
+  .m-modal-window {
+    display: none;
   }
 
 }

@@ -6,38 +6,59 @@ var _ = require('lodash'),
 var indicators = require('../../collections/indicators'),
   countries = require('../../collections/countries');
 
+var infoWindowView = require('./infowindow_view.js');
+
 var tpl = Handlebars.compile(require('../../templates/common/download_tpl.hbs'));
 
-var DownloadView = Backbone.View.extend({
+var DownloadView = infoWindowView.extend({
 
   template: tpl,
 
   events: {
-    'click .btn-close-modal': 'hide',
-    'click .modal-background': 'hide',
     'click .js--download-btn': '_getDownload',
     'click .js--cancel-btn': '_cancel'
   },
-
-  el: 'body',
 
   initialize: function(settings) {
     var options = settings && settings.options ? settings.options : settings;
     this.options = _.extend({}, options);
 
+    _.extend(this.options, {
+      id: window.indicatorId
+    });
+
+    if (window.location.pathname == '/countries') {
+      _.extend(this.options, {
+        iso: window.location.hash.split('&')[0].slice(1)
+      });
+    }
+
     this.indicatorsCollection = new indicators();
     this.countriesCollection  = new countries();
 
-    $('.modal-background').on('click', _.bind(this.hide));
+    this._setListeners();
   },
 
-  render: function() {
-    this.$el.append(this.template({
-      csv: this._getCSV(),
-      siteURL: SITEURL || null
-    }));
+  _setListeners: function() {
+    Backbone.Events.on('rankGroup:chosen', this._setCohortInfo, this);
+    Backbone.Events.on('year:selected', this._setYear, this);
+  },
 
-    this.$el.find('.modal-container').removeClass('is-loading-share');
+  _setCohortInfo: function() {
+    _.extend(this.options, {
+      categoryGroup: arguments[1],
+      categoryName: arguments[2] ? arguments[2] : 'global'
+    });
+
+    if (this.options.categoryName == 'globally') {
+      this.options.categoryGroup = null;
+    }
+  },
+
+  _setYear: function(year) {
+    _.extend(this.options, {
+      year: year
+    });
   },
 
   _getCSV: function() {
@@ -51,26 +72,18 @@ var DownloadView = Backbone.View.extend({
         year: this.options.year
       });
     }
-
   },
 
   _cancel: function(e) {
     e.preventDefault();
-    this.hide();
+    this.constructor.__super__.close();
   },
 
-  show: function() {
-    this.render();
-  },
-
-  hide: function() {
-    this._enableScroll();
-    this.$el.find('.m-modal-window').remove();
-  },
-
-  _enableScroll: function() {
-    $('html').removeClass('is-inmobile');
-    $('body').removeClass('is-inmobile');
+  render: function() {
+    this.$el.append(this.template({
+      csv: this._getCSV(),
+      siteURL: SITEURL || null
+    }));
   }
 
 });

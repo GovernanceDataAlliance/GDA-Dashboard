@@ -137,7 +137,6 @@
 
   &.js--download,
   &.js--print,
-  &.js--share,
   &.compare-link {
     margin-right: rem(20px);
 
@@ -289,7 +288,7 @@
   top: 0;
   right: 0;
   z-index: 1;
-  
+
   //Margin left and bottom are to make click area bigger
   margin: rem(30px) rem(20px) rem(5px) rem(5px);
 

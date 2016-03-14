@@ -20,17 +20,8 @@
         </div>
       </div>
 
-      <div class="l-toolbar -year-and-legend">
+      <div class="l-toolbar -blog">
         <div class="wrap">
-
-          <div class="m-controls">
-            <button class="js--share btn">
-              <svg class="icon -regular">
-                <use xlink:href="#icon-share"></use>
-              </svg>
-              <span class="button-literal">share</span>
-            </button>
-          </div>
 
           <div class="m-year-selector">
             <div class="btn-drop-down" id="categorySelector" data-url="{{ site.baseurl }}">
@@ -48,6 +39,13 @@
             </div>
           </div>
 
+          <button class="js--view-share btn">
+            <svg class="icon -regular">
+              <use xlink:href="#icon-share"></use>
+            </svg>
+            <span class="button-literal">share</span>
+          </button>
+
         </div>
       </div>
 
@@ -59,7 +57,7 @@
         {% endfor %}
       </div>
 
-      <div class="l-toolbar -utils -pagination">
+      <div class="l-toolbar -pagination -footer">
         <div class="wrap">
           <div class="m-controls -full -centered">
             <div class="m-pagination">
@@ -77,14 +75,13 @@
             </div>
           </div>
 
-          <div class="m-controls -full -centered">
-            <button class="js--share btn">
-              <svg class="icon -regular">
-                <use xlink:href="#icon-share"></use>
-              </svg>
-              <span class="button-literal">share</span>
-            </button>
-          </div>
+          <button class="js--view-share btn">
+            <svg class="icon -regular">
+              <use xlink:href="#icon-share"></use>
+            </svg>
+            <span class="button-literal">share</span>
+          </button>
+          
         </div>
       </div>
 

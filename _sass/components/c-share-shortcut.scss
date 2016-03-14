@@ -1,0 +1,19 @@
+.c-share-shortcut {
+  @extend %wrap;
+  position: absolute;
+  top: rem(23px);
+  right: 0;
+  width: auto;
+
+  @media screen and (min-width: $screen-s) {
+    top: rem(25px);
+  }
+
+  > button {
+
+    @media screen and (min-width: $screen-s) {
+      border: 1px solid $color-4;
+      padding: rem(10px) rem(30px);
+    }
+  }
+}
