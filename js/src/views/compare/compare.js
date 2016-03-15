@@ -6,6 +6,8 @@ var $ = require('jquery'),
   Handlebars = require('handlebars'),
   slick = require('slick-carousel-browserify');
 
+var FunctionHelper = require('../../helpers/functions.js');
+
 var InfoWindowModel = require('../../models/infowindow.js');
 
 var Countries = require('../../collections/countries.js'),
@@ -13,11 +15,11 @@ var Countries = require('../../collections/countries.js'),
   IndicatorsNamesCollection = require('../../collections/indicator_configs.js'),
   IndicatorCollection = require('../../collections/indicators.js');
 
-var IndicatorsPresenter = require('../../presenters/indicators.js');
-  CountriesPresenter = require('../../presenters/countries.js');
-
-var IndicatorService = require('../../lib/services/indicator.js'),
-  FunctionHelper = require('../../helpers/functions.js');
+var CompareSelectorsView = require('./compare_selectors.js'),
+  CountrySelectorView = require('./compare_country_selector.js'),
+  ModalWindowView = require('../common/infowindow_view.js'),
+  ShareWindowView = require('../common/share_window_view.js'),
+  LegendView = require('../common/legend.js');
 
 var template = Handlebars.compile(require('../../templates/compare/compare.hbs')),
   indicatorsTemplate = Handlebars.compile(require('../../templates/compare/compare-indicators.hbs')),
@@ -27,17 +29,6 @@ var templateMobile = Handlebars.compile(require('../../templates/compare/mobile/
   templateMobileSlide = Handlebars.compile(require('../../templates/compare/mobile/compare-mobile-slide.hbs')),
   templateMobileScores = Handlebars.compile(require('../../templates/compare/mobile/compare-country-scores-mobile.hbs'));
 
-var CompareSelectorsView = require('./compare_selectors.js'),
-  CountrySelectorView = require('./compare_country_selector.js'),
-  ModalWindowView = require('../common/infowindow_view.js'),
-  ShareWindowView = require('../common/share_window_view.js'),
-  LegendView = require('../common/legend.js');
-
-// var compareStatus = new (Backbone.Model.extend({
-//     defaults: {
-//       countries: {}
-//     }
-//   }));
 
 var CompareView = Backbone.View.extend({
 
@@ -114,7 +105,7 @@ var CompareView = Backbone.View.extend({
     }
 
     this.renderLegend();
-    // this._setResize();
+    
     return this;
   },
 
@@ -216,18 +207,6 @@ var CompareView = Backbone.View.extend({
     this._setScroll();
   },
 
-  // _setResize: function() {
-  //   var debouncedResize = FunctionHelper.debounce(this._onResize, 250, true);
-  //   window.addEventListener('resize', _.bind(debouncedResize, this));
-  // },
-  //
-  // _onResize: function() {
-  //   var isMobile = (window.innerWidth || document.body.clientWidth) < 768 ? true:false;
-  //   if (this.mobile != isMobile) {
-  //     this.render();
-  //   }
-  // },
-
   _setScroll: function() {
     var debouncedScroll = FunctionHelper.debounce(this._onScroll, 10, true);
     window.addEventListener('scroll', _.bind(debouncedScroll, this));
@@ -272,14 +251,22 @@ var CompareView = Backbone.View.extend({
   },
 
   // Desktop
-  getDataForCountry: function(country) {
-    var iso = country.get('iso'),
-      order = Number(country.get('order')),
-      year = country.get('year');
+  getDataForCountry: function() {
+    var countryScores = this.selectorsView.getCollection();
 
-    this.indicatorCollection.forCountryAndYear(iso, year).done(function() {
-      this.renderCountryScores(this.indicatorCollection.toJSON(), iso, order);
+    countryScores.forEach(function(countryModel) {
+      var iso = countryModel.get('iso'),
+      order = Number(countryModel.get('order')),
+      year = countryModel.get('year');
+
+      if (iso) {
+        this.indicatorCollection.forCountryAndYear(iso, year).done(function() {
+          this.renderCountryScores(this.indicatorCollection.toJSON(), iso, order);
+        }.bind(this));
+      }
+
     }.bind(this));
+
   },
 
   // Desktop
@@ -301,6 +288,7 @@ var CompareView = Backbone.View.extend({
             scores: indicators
           }));
         } else {
+
           if (!$.trim(this.$('.js--country-' + i).html())) {
             this.$('.js--country-' + i).html(countryScoresTemplate({
               scores: indicators

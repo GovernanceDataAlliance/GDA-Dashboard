@@ -2,8 +2,6 @@ var _ = require('lodash'),
   $ = require('jquery'),
   Backbone = require('backbone');
 
-var order = 1;
-
 var CountrySelectorModel = Backbone.Model.extend({
 
   defaults: {
@@ -12,10 +10,7 @@ var CountrySelectorModel = Backbone.Model.extend({
     year: null
   },
 
-  initialize: function() {
-    this.set('order', order);
-    order += 1;
-  }
+  initialize: function() {}
 
 });
 

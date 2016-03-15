@@ -25,12 +25,7 @@ var CompareSelectorsView = Backbone.View.extend({
     'change .js--year-selector' : 'getYear'
   },
 
-  initialize: function(options) {
-    options = options || {};
-    var totalCountries = 3;
-
-    this.countries = options.countries;
-    this.year = options.year;
+  initialize: function() {
 
     // collections
     this.countriesCollection = new CountriesCollection();
@@ -39,14 +34,25 @@ var CompareSelectorsView = Backbone.View.extend({
       model: CountrySelectorModel
     }));
 
-
-    for (var i = 0; i < totalCountries; i++) {
-      this.countriesSelectorCollection.add(new CountrySelectorModel())
-    }
+    this._initCollection();
 
     this._setView();
 
     this._setListeners();
+  },
+
+  _initCollection: function() {
+    var totalCountries = 3;
+
+    this.countriesSelectorCollection.reset();
+
+    for (var i = 1; i <= totalCountries; i++) {
+      this.countriesSelectorCollection.add(
+        new CountrySelectorModel().set({
+          order: i
+        }, {silent: true})
+      );
+    }
   },
 
   _setView: function() {
@@ -72,6 +78,8 @@ var CompareSelectorsView = Backbone.View.extend({
 
   setParams: function(params) {
 
+    this._initCollection();
+
     _.each(params, function(d, i) {
       var data = d.split(':');
 
@@ -80,6 +88,7 @@ var CompareSelectorsView = Backbone.View.extend({
         year: Number(data[1])
       });
     }.bind(this));
+
   },
 
   _setNewCountry: function() {
@@ -92,7 +101,8 @@ var CompareSelectorsView = Backbone.View.extend({
 
         var countryModel = this.countriesSelectorCollection.at(Number(i)),
           iso = countryModel.get('iso');
-        $(selector).val(iso).trigger('chosen:updated');
+
+        $(selector).val(iso).trigger('liszt:updated');
       }
 
     }.bind(this));

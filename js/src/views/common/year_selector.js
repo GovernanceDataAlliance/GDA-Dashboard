@@ -66,7 +66,7 @@ var CompareYearSelectors = Backbone.View.extend({
 
   setCurrentYear: function() {
     // this.actualYear ? $('#year-'+ this.actualYear ).attr('selected', true) : $(this.$('option')[0]).attr('selected', true);
-    this.$el.find('select').val(this.actualYear).trigger('chosen:updated');
+    this.$el.find('select').val(this.actualYear);
   },
 
   getYear: function(e) {
