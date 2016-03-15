@@ -1,5 +1,14 @@
 .c-share {
 
+  .btn {
+    display: block;
+    width: 50px;
+
+    @media screen and (min-width: $screen-s) {
+      width: 90px;
+    }
+  }
+
   .l-compare-selectors & {
     display: flex;
     margin-right: rem(20px);
