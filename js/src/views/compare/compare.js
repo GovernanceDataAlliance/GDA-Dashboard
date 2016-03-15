@@ -137,8 +137,8 @@ var CompareView = Backbone.View.extend({
   renderSlides: function() {
 
     this.indicatorsNamesCollection.fetch().done(function(indicators) {
+      this.indicatorsOrdered = indicators.rows;
 
-      this.indicatorsOrdered = _.sortByOrder(indicators.rows, ['short_name']);
       for (var i = 1 ; i <= 3; i++) {
         this.$('#compareSlider').append(templateMobileSlide({ 'index': i }));
 
@@ -174,7 +174,7 @@ var CompareView = Backbone.View.extend({
 
   renderIndicatorNames: function() {
     this.indicatorsNamesCollection.fetch().done(function(indicators) {
-
+      
       this.$('.js--comparison-indicators').html(indicatorsTemplate({
         indicators: indicators.rows
       }));
