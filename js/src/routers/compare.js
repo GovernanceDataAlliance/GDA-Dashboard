@@ -22,59 +22,56 @@ var Router = Backbone.Router.extend({
   },
 
   setListeners: function() {
-    Backbone.Events.on('country:selected', (this.countrySelected).bind(this));
-    Backbone.Events.on('year:selected', (this.yearSelected).bind(this));
+    Backbone.Events.on('router:update', (this._updateUrl).bind(this));
   },
 
   compare: function() {
 
     var params =  URI("?" + window.location.hash.split("#")[1]).query(true);
+    var data = {};
 
-    this.countries = params && params['countries[]'] ? params['countries[]'] : [];
-    this.year = params && params['year[]'] ? params['year[]'] : null;
 
-    //When only one value, string instead of array. We need array.
-    if ( _.isString(this.countries)) {
-      this.countries = [ this.countries ];
+    if (params.countries) {
+      var c = params.countries;
+      data = c.split(',');
     }
 
     if (!this.views.hasView('compare')) {
-      var view = new CompareView({
-        'countries': this.countries,
-        'year': this.year
-      });
-      this.views.addView('compare', view);
+      this.views.addView('compare', new CompareView(data));
     } else {
-      this.views.getView('compare').setParams(this.countries, this.year);
+      this.views.getView('compare').update(data);
     }
 
     this.views.showView('compare');
   },
 
-  //Update countries params
-  countrySelected: function(iso, order) {
-    this.countries[order - 1] = iso;
-    this.updateUrl();
-  },
-
-  //Update year params
-  yearSelected: function(year) {
-    this.year = year;
-    this.updateUrl();
-  },
-
   //Update URL
-  updateUrl: function() {
-    var hashCountries = '',
-      hasYear = 'year[]=';
+  _updateUrl: function(countriesCollection) {
+    var params = countriesCollection.toJSON(),
+      url = 'countries=',
+      totalData;
 
-    $.each(this.countries, function(i, country) {
-      hashCountries += 'countries[]=' + country + '&';
+    params = _.omit(params, function(p) {
+      return !p.iso || p.iso == 'no_data';
+    });
+
+    totalData = _.size(params);
+
+    if(totalData == 0) {
+      url = '';
+    }
+
+    $.each(params, function(i, country) {
+
+      url +=  country.iso + ':' + country.year;
+
+      if(Number(i) + 1 < totalData) {
+        url += ',';
+      }
+
     }.bind(this));
 
-    hasYear += this.year;
-
-    this.navigate(hashCountries + hasYear);
+    this.navigate(url);
   }
 });
 
