@@ -46,30 +46,61 @@ var Router = Backbone.Router.extend({
   },
 
   //Update URL
-  _updateUrl: function(countriesCollection) {
-    var params = countriesCollection.toJSON(),
-      url = 'countries=',
-      totalData;
+  _updateUrl: function(p) {
+    var isCollection = false,
+      url = 'countries=';
 
-    params = _.omit(params, function(p) {
-      return !p.iso || p.iso == 'no_data';
-    });
+    if (typeof p.toJSON === 'function') {
+      isCollection = true;
+      params= p.toJSON();
 
-    totalData = _.size(params);
+      params = _.omit(params, function(p) {
+        return !p.iso || p.iso == 'no_data';
+      });
 
-    if(totalData == 0) {
-      url = '';
+
+      totalData = _.size(params);
+    } else {
+      params = [];
+      _.each(p, function(slide) {
+        if(slide.status.get('iso')) {
+          params.push(slide.status);
+        }
+      });
+
+      totalData = params.length;
     }
 
-    $.each(params, function(i, country) {
+    if (isCollection) {
 
-      url +=  country.iso + ':' + country.year;
-
-      if(Number(i) + 1 < totalData) {
-        url += ',';
+      if(totalData == 0) {
+        url = '';
       }
 
-    }.bind(this));
+      _.each(params, function(country, i) {
+
+        url +=  country.iso + ':' + country.year;
+
+        if(Number(i) + 1 < totalData) {
+          url += ',';
+        }
+
+      }.bind(this));
+
+    } else {
+
+      if(totalData == 0) {
+        url = '';
+      }
+
+      _.each(params, function(slide, i) {
+        url += slide.get('iso') + ':' + slide.get('year');
+
+        if(i + 1 < totalData) {
+          url += ',';
+        }
+      });
+    }
 
     this.navigate(url);
   }
