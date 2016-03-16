@@ -1,18 +1,25 @@
-var Handlebars = require('handlebars');
+var _ = require('lodash'),
+  Handlebars = require('handlebars');
 
-/*
-  Given a number, returns number with two decimals.
-*/
-Handlebars.registerHelper('round', function(options) {
+// returns a number with comma notation and 2 two decimals (if needed)
+Handlebars.registerHelper('comma', function(options) {
+
   if (!isNaN(parseFloat(this.score))) {
+
     if (this.score % 1 != 0) {
-      return parseFloat(this.score).toFixed(2);
+
+      if (parseInt(this.score).toString().length > 3) {
+        return parseFloat(this.score).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+      } else {
+        return parseFloat(this.score).toFixed(2);
+      }
+
     } else {
       return this.score;
     }
-  } else {
-    return this.score;
   }
+
+  return this.score;
 });
 
 Handlebars.registerHelper('beautifullStrign', function(options) {
@@ -38,11 +45,4 @@ Handlebars.registerHelper('unlessPercentage', function(max_score) {
   if (this.units_abbr != '%' && this.units != "yes/no" && this.short_name != "doing_business") {
     return '<span class="max_score">/'+ max_score +'</span>'
   }
-});
-
-Handlebars.registerHelper('equal', function(a, b, opts) {
-  if(a == b)
-    return opts.fn(this);
-  else
-    return opts.inverse(this);
 });
