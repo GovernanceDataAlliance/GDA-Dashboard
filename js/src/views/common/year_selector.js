@@ -20,12 +20,18 @@ var CompareYearSelectors = Backbone.View.extend({
     options = options || {};
     this.years = options.years;
     this.actualYear = options.actualYear;
+    this.index = options.index;
     this.render();
   },
 
   render: function() {
-    this.$el.html(template({ 'years': this.years }));
+    this.$el.html(template({
+      index: this.index,
+      years: this.years
+    }));
+
     this.setCurrentYear();
+
     Backbone.Events.trigger('year:selected', this.actualYear);
 
     enquire.register("screen and (max-width:640px)", {
@@ -59,7 +65,8 @@ var CompareYearSelectors = Backbone.View.extend({
   },
 
   setCurrentYear: function() {
-    this.actualYear ? $('#year-'+ this.actualYear ).attr('selected', true) : $(this.$('option')[0]).attr('selected', true);
+    // this.actualYear ? $('#year-'+ this.actualYear ).attr('selected', true) : $(this.$('option')[0]).attr('selected', true);
+    this.$el.find('select').val(this.actualYear);
   },
 
   getYear: function(e) {
