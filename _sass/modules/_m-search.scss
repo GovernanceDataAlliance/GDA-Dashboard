@@ -1,10 +1,19 @@
 .m-search {
   width: 100%;
+  min-height: rem(65px);
   background-color: $bg-color-3;
   transition: opacity .2s;
 
   @media screen and (min-width: $screen-s) {
     width: 50%;
+  }
+
+  @media screen and (min-width: $screen-m) {
+    min-height: rem(153px);
+  }
+
+  @media screen and (min-width: $screen-l) {
+    min-height: rem(193px);
   }
 
   .js--search-mobile {
