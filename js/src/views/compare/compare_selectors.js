@@ -56,13 +56,13 @@ var CompareSelectorsView = Backbone.View.extend({
   },
 
   _setView: function() {
-    enquire.register("screen and (max-width:769px)", {
+    enquire.register("screen and (min-width:768px) and (max-width: 1024px)", {
       match: _.bind(function(){
         this.tablet = true;
       },this)
     });
 
-    enquire.register("screen and (min-width:770px)", {
+    enquire.register("screen and (min-width:1025px)", {
       match: _.bind(function(){
         this.tablet = false;
       },this)
@@ -120,9 +120,10 @@ var CompareSelectorsView = Backbone.View.extend({
 
       if (!this.tablet) {
         this.$('select').chosen();
-        this._populateYearSelectors();
-        this._setNewCountry();
       }
+
+      this._populateYearSelectors();
+      this._setNewCountry();
 
       this.delegateEvents();
 
