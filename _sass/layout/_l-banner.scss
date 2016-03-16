@@ -12,7 +12,6 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     padding: rem(30px) 0 rem(60px);
     background-color: #ccc;
     background-position: top left;
-
     max-height: rem(700px);
 
     h3 {
@@ -193,6 +192,10 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
     > .wrap {
       display: flex; display: -ms-box;
+
+      .btn {
+        text-align: left;
+      }
     }
 
     &.-blog {

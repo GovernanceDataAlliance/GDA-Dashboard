@@ -228,6 +228,24 @@
 
             @extend %no-data-font;
           }
+
+          // Scores
+          &.-score-excellent {
+            color: $excellent;
+          }
+          &.-score-good {
+            color: $good;
+          }
+          &.-score-moderate {
+            color: $moderate;
+          }
+          &.-score-fair {
+            color: $fair;
+          }
+          &.-score-poor {
+            color: $white;
+            background-color: $poor;
+          }
         }
 
         > .score-range {
