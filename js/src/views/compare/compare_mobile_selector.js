@@ -8,8 +8,6 @@ var _ = require('lodash'),
   chosen = require('chosen-jquery-browserify'),
   async = require('async');
 
-// var CompareSelectorsView = require('./compare_selectors.js');
-
 var CountriesCollection = require('../../collections/countries.js'),
   YearsCollection = require('../../collections/years.js');
 
@@ -43,12 +41,6 @@ var CountrySelectorView = Backbone.View.extend({
     this.yearsCollection = new YearsCollection();
 
     this._setView();
-
-    this._setListeners();
-  },
-
-  _setListeners: function() {
-    // this.listenTo(this.status, 'change:iso', this._setCountryValue.bind(this));
   },
 
   getPromise: function() {
@@ -123,7 +115,7 @@ var CountrySelectorView = Backbone.View.extend({
       order = this.status.get('order')
       $selector = $('#selectcountry-' + order);
 
-      $selector.val(iso);
+    $selector.val(iso);
   },
 
   _setYearValue: function() {
@@ -131,7 +123,7 @@ var CountrySelectorView = Backbone.View.extend({
       order = this.status.get('order'),
       $selector = $('#selectyear-' + order);
 
-      $selector.val(year);
+    $selector.val(year);
   },
 
   _getCountry: function(e) {
