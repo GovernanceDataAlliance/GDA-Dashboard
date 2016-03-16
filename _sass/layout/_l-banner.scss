@@ -125,6 +125,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
   //countries
   &.-section-1 {
+    min-height: rem(438px);
     padding: rem(100px) 0 rem(60px);
     background-color: $bg-color-1;
   }
