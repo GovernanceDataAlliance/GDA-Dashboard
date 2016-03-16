@@ -8,10 +8,7 @@ var CountrySelectorModel = Backbone.Model.extend({
     iso: null,
     order: null,
     year: null
-  },
-
-  initialize: function() {}
-
+  }
 });
 
 module.exports = CountrySelectorModel;

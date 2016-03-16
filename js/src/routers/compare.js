@@ -39,7 +39,6 @@ var Router = Backbone.Router.extend({
     if (!this.views.hasView('compare')) {
       this.views.addView('compare', new CompareView(data));
     } else {
-      console.log('update?')
       this.views.getView('compare').update(data);
     }
 
