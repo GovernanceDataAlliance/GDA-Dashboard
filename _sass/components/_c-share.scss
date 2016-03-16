@@ -8,6 +8,8 @@
   }
 
   .url {
+    -webkit-appearance: none;
+
     width: 100%;
     margin-bottom: rem(10px);
     padding: rem(16px) rem(10px);
@@ -16,6 +18,8 @@
     font-style: italic;
     color: #5b5b5b;
     border: rem(1px) solid $beige;
+    border-radius: 0;
+
 
     @include ellipsis-x(100%);
 
