@@ -10,7 +10,12 @@
 
   .l-compare-selectors & {
     display: flex;
-    margin-right: rem(20px);
+    flex: 1 1 100px;
+    margin-right: rem(10px);
+
+    @media screen and (min-width: 768px) {
+      margin-right: rem(20px);
+    }
   }
 
   .link-box {
