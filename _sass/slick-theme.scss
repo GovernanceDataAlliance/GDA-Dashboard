@@ -131,7 +131,7 @@ $slick-dot-opacity-not-active: 0.8 !default;
   .-fixed & {
     position: fixed;
     top: rem(3px);
-    z-index: 2;
+    z-index: 5;
   }
 
   li {
