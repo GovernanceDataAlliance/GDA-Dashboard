@@ -94,6 +94,18 @@
     }
   }
 
+  &.-blog {
+    .wrap {
+      flex-direction: row;
+      min-height: rem(40px);
+
+      .btn {
+        width: auto;
+        margin-left: rem(20px);
+      }
+    }
+  }
+
 
   &.-pagination {
     padding: rem(10px) 0;
@@ -113,6 +125,10 @@
       @media screen and (min-width: $screen-s) {
         flex-wrap: nowrap;
       }
+    }
+
+    .c-share {
+      width: 100%;
     }
   }
 
@@ -191,6 +207,7 @@
     }
 
     .wrap {
+      min-height: 0;
       flex-direction: row;
     }
   }
