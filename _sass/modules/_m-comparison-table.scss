@@ -229,28 +229,42 @@
             @extend %no-data-font;
           }
 
-          // Scores
-          &.-score-excellent {
-            color: $excellent;
-          }
-          &.-score-good {
-            color: $good;
-          }
-          &.-score-moderate {
-            color: $moderate;
-          }
-          &.-score-fair {
-            color: $fair;
-          }
-          &.-score-poor {
-            color: $white;
-            background-color: $poor;
-          }
         }
 
         > .score-range {
           margin-top: rem(10px);
         }
+
+        // Scores
+        &.-score-excellent {
+          .score {
+            color: $excellent;
+          }
+        }
+        &.-score-good {
+          .score {
+            color: $good;
+          }
+        }
+        &.-score-moderate {
+          .score {
+            color: $moderate;
+          }
+        }
+        &.-score-fair {
+          .score {
+            color: $fair;
+          }
+        }
+        &.-score-poor {
+          color: $white;
+          background-color: $poor;
+
+          h3, a {
+            color: $white;
+          }
+        }
+
       }
     }
   }
