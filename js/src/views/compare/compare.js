@@ -6,18 +6,20 @@ var $ = require('jquery'),
   Handlebars = require('handlebars'),
   slick = require('slick-carousel-browserify');
 
+var FunctionHelper = require('../../helpers/functions.js');
+
 var InfoWindowModel = require('../../models/infowindow.js');
 
 var Countries = require('../../collections/countries.js'),
-  Years = require('../../collections/years.js'),
-  IndicatorsNames = require('../../collections/indicator_configs.js'),
-  Indicators = require('../../collections/indicators.js');
+  YearsCollection = require('../../collections/years.js'),
+  IndicatorsNamesCollection = require('../../collections/indicator_configs.js'),
+  IndicatorCollection = require('../../collections/indicators.js');
 
-var IndicatorsPresenter = require('../../presenters/indicators.js');
-  CountriesPresenter = require('../../presenters/countries.js');
-
-var IndicatorService = require('../../lib/services/indicator.js'),
-  FunctionHelper = require('../../helpers/functions.js');
+var CompareSelectorsView = require('./compare_selectors.js'),
+  MobileSelectorView = require('./compare_mobile_selector.js'),
+  ModalWindowView = require('../common/infowindow_view.js'),
+  ShareWindowView = require('../common/share_window_view.js'),
+  LegendView = require('../common/legend.js');
 
 var template = Handlebars.compile(require('../../templates/compare/compare.hbs')),
   indicatorsTemplate = Handlebars.compile(require('../../templates/compare/compare-indicators.hbs')),
@@ -27,17 +29,6 @@ var templateMobile = Handlebars.compile(require('../../templates/compare/mobile/
   templateMobileSlide = Handlebars.compile(require('../../templates/compare/mobile/compare-mobile-slide.hbs')),
   templateMobileScores = Handlebars.compile(require('../../templates/compare/mobile/compare-country-scores-mobile.hbs'));
 
-var CompareSelectorsView = require('./compare_selectors.js'),
-  CountrySelectorView = require('./compare_country_selector.js'),
-  ModalWindowView = require('../common/infowindow_view.js'),
-  ShareWindowView = require('../common/share_window_view.js'),
-  LegendView = require('../common/legend.js');
-
-var compareStatus = new (Backbone.Model.extend({
-    defaults: {
-      countries: {}
-    }
-  }));
 
 var CompareView = Backbone.View.extend({
 
@@ -49,6 +40,50 @@ var CompareView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
 
+    this._setView();
+
+    // views
+    this.infoWindowModel = new InfoWindowModel();
+
+    this.shareWindowView = new ShareWindowView({
+      noDownload: true
+    });
+
+
+    // collections
+    this.indicatorCollection = new IndicatorCollection();
+    this.indicatorsNamesCollection = new IndicatorsNamesCollection()
+
+
+    if (this.mobile) {
+
+      this.slides = [
+        new MobileSelectorView(),
+        new MobileSelectorView(),
+        new MobileSelectorView()
+      ];
+
+      var promises = this.slides.map(function(slide) {
+        return slide.getPromise();
+      });
+
+      $.when.apply($, promises).done(function() {
+        this._setListeners();
+        if (options) {
+          this.setParams(options);
+        }
+
+      }.bind(this));
+
+    } else {
+
+      this.selectorsView = new CompareSelectorsView();
+      this._setListeners();
+      this.setParams(options);
+    }
+  },
+
+  _setView: function() {
     enquire.register("screen and (max-width:767px)", {
       match: _.bind(function(){
         this.mobile = true;
@@ -65,46 +100,42 @@ var CompareView = Backbone.View.extend({
         this.mobile = false;
       },this)
     });
-
-    this.infoWindowModel = new InfoWindowModel();
-
-    this.shareWindowView = new ShareWindowView({
-      noDownload: true
-    });
-
-    this.setListeners();
-
-    if (options && options.countries != null) {
-      this.countryIds = _.uniq(options.countries);
-    };
-
-
-    this.setParams(options.countries, options.year);
   },
 
-  setListeners: function() {
-    Backbone.Events.on('country:selected', (this.countryRecived).bind(this));
-    Backbone.Events.on('year:selected', (this.yearRecived).bind(this));
+  _setListeners: function() {
     Backbone.Events.on('breakpoints:loaded', this._onScroll.bind(this));
+
+    if (!this.mobile) {
+      this.listenTo(this.selectorsView.getCollection(), 'change', (this.getDataForCountry).bind(this));
+    }
+
+    if (this.mobile) {
+      _.each(this.slides, function(slide) {
+        this.listenTo(slide.status, 'change', (this.getDataForCountry).bind(this));
+      }.bind(this));
+    }
+  },
+
+  update: function(params) {
+    this.setParams(params);
   },
 
   render: function() {
 
     if (this.mobile) {
-      this.renderYearSelector();
       this.$el.html(templateMobile());
       this.renderSlides();
       this.calculateLimitPoint();
 
     } else {
-      this.renderIndicators();
+      this.renderIndicatorNames();
       this.$el.html(template());
       this.calculateLimitPoint();
       this.renderComparesSelector();
     }
 
     this.renderLegend();
-    this._setResize();
+
     return this;
   },
 
@@ -134,17 +165,31 @@ var CompareView = Backbone.View.extend({
    * Render indicators names
    */
   renderSlides: function() {
-    var indicatorsNames = new IndicatorsNames();
-    indicatorsNames.fetch().done(function(indicators) {
 
-      this.indicatorsOrdered = _.sortByOrder(indicators.rows, ['short_name']);
-      for (var i = 1 ; i <= 3; i++) {
-        this.$('#compareSlider').append(templateMobileSlide({ 'index':i }));
+    this.indicatorsNamesCollection.fetch().done(function(indicators) {
 
-        this.$('#country-'+ i + ' .country').append(templateMobileScores({ 'indicators': this.indicatorsOrdered, 'index':i }));
+      var indicatorsOrdered = _.sortByOrder(indicators.rows, ['short_name']);
 
-        this.renderCountrySelector(this.$('#country-'+ i + ' .js--compare-selectors'), i);
-      }
+      _.each(this.slides, function(slide) {
+
+        var order = slide.status.get('order');
+
+        this.$('#compareSlider').append(templateMobileSlide({
+          index: order
+        }));
+
+        this.$('#country-' + order + ' .country')
+          .append(templateMobileScores({
+            index: order,
+            indicators: indicatorsOrdered
+          }));
+
+        slide.setElement(this.$('.selectors-' + order));
+
+        slide.render();
+
+      }.bind(this));
+
       this.calculateEndScrollPoint();
       this.initSlide();
       this._setScrollMobile();
@@ -153,10 +198,9 @@ var CompareView = Backbone.View.extend({
   },
 
   initSlide: function(){
-    var self = this;
 
     //swipe false to avoid strange behaviour on iOS.
-    this.slide = $('#compareSlider').slick({
+    var slider = $('#compareSlider').slick({
       dots: true,
       useTransform: false,
       adaptiveHeight: true,
@@ -164,20 +208,23 @@ var CompareView = Backbone.View.extend({
     });
 
     this.currentSlide = 0;
-    this.slide.on('afterChange', function(ev, slick, current){
-      self.currentSlide = current;
-      self._onScroll();
-    });
+
+    slider.on('afterChange', function(ev, slick, current){
+      this.currentSlide = current;
+      this._onScroll();
+    }.bind(this));
+
   },
 
-  /*
-   * Render indicators names
-   */
-  renderIndicators: function() {
-    var indicatorsNames = new IndicatorsNames();
-    indicatorsNames.fetch().done(function(indicators) {
-      this.$('.js--comparison-indicators').html(indicatorsTemplate({ 'indicators': indicators.rows }))
+  renderIndicatorNames: function() {
+    this.indicatorsNamesCollection.fetch().done(function(indicators) {
+
+      this.$('.js--comparison-indicators').html(indicatorsTemplate({
+        indicators: indicators.rows
+      }));
+
       this.calculateEndScrollPoint();
+
     }.bind(this))
   },
 
@@ -202,18 +249,6 @@ var CompareView = Backbone.View.extend({
     }.bind(this));
 
     this._setScroll();
-  },
-
-  _setResize: function() {
-    var debouncedResize = FunctionHelper.debounce(this._onResize, 250, true);
-    window.addEventListener('resize', _.bind(debouncedResize, this));
-  },
-
-  _onResize: function() {
-    var isMobile = (window.innerWidth || document.body.clientWidth) < 768 ? true:false;
-    if (this.mobile != isMobile) {
-      this.render();
-    }
   },
 
   _setScroll: function() {
@@ -254,32 +289,73 @@ var CompareView = Backbone.View.extend({
   },
 
   renderLegend: function() {
-    var legends = this.$('.js--legend');
-    _.each(legends, function(legend) {
+    _.each(this.$('.js--legend'), function(legend) {
       new LegendView({ el: legend });
     });
   },
 
-  getDataForCountry: function(iso, order) {
-    var indicators = new Indicators();
-    indicators.forCountryAndYear(iso, this.year).done(function() {
-      this.renderCountryScores(indicators, iso, order)
-    }.bind(this));
-  },
-
-  renderCountryScores: function(indicators, iso, order) {
-    this.indicatorsOrdered = indicators.toJSON();
+  // desktop - mobile
+  getDataForCountry: function() {
 
     if (this.mobile) {
-      this.$('#'+order+ ' .country').html(templateMobileScores({ 'indicators': this.indicatorsOrdered, 'content': true }));
+      var slideModel = arguments[0];
+
+      var iso = slideModel.get('iso'),
+        year = slideModel.get('year'),
+        order = slideModel.get('order');
+
+      this.indicatorCollection.forCountryAndYear(iso, year).done(function() {
+        this.renderCountryScores(this.indicatorCollection.toJSON(), iso, order);
+      }.bind(this));
+
+
+    } else {
+
+      var countryScores = this.selectorsView.getCollection();
+
+      countryScores.forEach(function(countryModel) {
+        var iso = countryModel.get('iso'),
+        order = Number(countryModel.get('order')),
+        year = countryModel.get('year');
+
+        if (iso) {
+          this.indicatorCollection.forCountryAndYear(iso, year).done(function() {
+            this.renderCountryScores(this.indicatorCollection.toJSON(), iso, order);
+          }.bind(this));
+        }
+
+      }.bind(this));
+
+    }
+
+  },
+
+  // Desktop
+  renderCountryScores: function(indicators, iso, order) {
+
+    if (this.mobile) {
+      
+      this.$('#country-' + order + ' .country').html(templateMobileScores({
+        content: true,
+        indicators: indicators
+      }));
+
+      Backbone.Events.trigger('router:update', this.slides);
+
     } else {
       for (var i = 1 ; i <= 3; i++) {
-        if ('country-' + i == order) {
+        if (i == order) {
           iso = iso == 'no_data' ? null: iso;
-          this.$('.js--' + order).html(countryScoresTemplate({ 'scores': this.indicatorsOrdered, 'iso': iso }));
+          this.$('.js--country-' + order).html(countryScoresTemplate({
+            iso: iso,
+            scores: indicators
+          }));
         } else {
+
           if (!$.trim(this.$('.js--country-' + i).html())) {
-            this.$('.js--country-' + i).html(countryScoresTemplate({ 'scores': this.indicatorsOrdered}));
+            this.$('.js--country-' + i).html(countryScoresTemplate({
+              scores: indicators
+            }));
           }
         }
       }
@@ -291,68 +367,46 @@ var CompareView = Backbone.View.extend({
 
   },
 
-  renderYearSelector: function() {
-
-    this.getYears().done(function(years) {
-      new CountrySelectorView({
-        actualYear: this.year,
-        el: this.$('.js--year-selector-compare')
-      });
-    }.bind(this));
-  },
-
+  // Desktop
   renderComparesSelector: function() {
-    new CompareSelectorsView({ el: this.$('.js--compare-selectors'), 'countries': this.countryIds });
+    this.selectorsView.setElement(this.$('.js--compare-selectors'));
+    this.selectorsView.render();
   },
 
-  renderCountrySelector: function(el, index) {
-    el = el || '.js--compare-selectors';
-    var selectors = new CountrySelectorView({ el: this.$(el), 'countries': this.countryIds, index: index });
-  },
 
-  getYears: function() {
-    var years = new Years();
-    return years.getYears()
-  },
+  // Mobile
+  // renderCountrySelector: function(el, index) {
+  //   el = el || '.js--compare-selectors';
+  //
+  //   _.each(this.slides, function(slide) {
+  //
+  //     console.log(slide);
+  //
+  //     // slide.setElement(this.$(el));
+  //     slide.render();
+  //
+  //   }.bind(this));
+  //
+  //   // new MobileSelectorView({
+  //   //   countries: this.countryIds,
+  //   //   el: this.$(el),
+  //   //   index: index
+  //   // }).render();
+  // },
 
-  setParams: function(countries, year) {
-    this.countryIds = countries || [];
-
-    this.year = year;
-
-    if(!this.year) {
-      this.getYears().done(function(years) {
-        this.year = years.rows[0].year;
-        Backbone.Events.trigger('year:selected', this.year);
+  setParams: function(params) {
+    if (!this.mobile) {
+      this.selectorsView.setParams(params);
+    } else {
+      _.each(params, function(d, i) {
+        var slide = this.slides[i];
+          data = d.split(':');
+        slide.status.set({
+          iso: data[0],
+          year: Number(data[1])
+        });
       }.bind(this));
     }
-   },
-
-  countryRecived: function(iso, order) {
-    var order = 'country-'+ order
-    compareStatus.get('countries')[order] = iso;
-    this.getDataForCountry(iso, order);
-  },
-
-  yearRecived: function(year) {
-    compareStatus.set('year', year);
-    this.year = year || (new Date).getFullYear() - 1;;
-
-    var countries = compareStatus.get('countries');
-
-    _.each(countries, function(country, order) {
-      this.getDataForCountry(country, order);
-    }.bind(this))
-  },
-
-  show: function() {
-    this.render();
-  },
-
-  hide: function() {},
-
-  _getIndicatorInfo: function(opts) {
-    return this.infoWindowModel.getIndicator(opts);
   },
 
   showModalWindow: function(e) {
@@ -361,13 +415,13 @@ var CompareView = Backbone.View.extend({
       return;
     }
 
-    this._getIndicatorInfo({
+    this.infoWindowModel.getIndicator({
       indicator: indicator
     }).done(function() {
 
       new ModalWindowView({
-        'type': 'info-infowindow',
-        'data': this.infoWindowModel.toJSON()
+        type: 'info-infowindow',
+        data: this.infoWindowModel.toJSON()
       });
 
     }.bind(this));
@@ -377,7 +431,13 @@ var CompareView = Backbone.View.extend({
   _openShareWindow: function() {
     this.shareWindowView.render();
     this.shareWindowView.delegateEvents();
-  }
+  },
+
+  show: function() {
+    this.render();
+  },
+
+  hide: function() {}
 
 });
 

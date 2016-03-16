@@ -22,59 +22,88 @@ var Router = Backbone.Router.extend({
   },
 
   setListeners: function() {
-    Backbone.Events.on('country:selected', (this.countrySelected).bind(this));
-    Backbone.Events.on('year:selected', (this.yearSelected).bind(this));
+    Backbone.Events.on('router:update', (this._updateUrl).bind(this));
   },
 
   compare: function() {
 
     var params =  URI("?" + window.location.hash.split("#")[1]).query(true);
+    var data = {};
 
-    this.countries = params && params['countries[]'] ? params['countries[]'] : [];
-    this.year = params && params['year[]'] ? params['year[]'] : null;
 
-    //When only one value, string instead of array. We need array.
-    if ( _.isString(this.countries)) {
-      this.countries = [ this.countries ];
+    if (params.countries) {
+      var c = params.countries;
+      data = c.split(',');
     }
 
     if (!this.views.hasView('compare')) {
-      var view = new CompareView({
-        'countries': this.countries,
-        'year': this.year
-      });
-      this.views.addView('compare', view);
+      this.views.addView('compare', new CompareView(data));
     } else {
-      this.views.getView('compare').setParams(this.countries, this.year);
+      console.log('update?')
+      this.views.getView('compare').update(data);
     }
 
     this.views.showView('compare');
   },
 
-  //Update countries params
-  countrySelected: function(iso, order) {
-    this.countries[order - 1] = iso;
-    this.updateUrl();
-  },
-
-  //Update year params
-  yearSelected: function(year) {
-    this.year = year;
-    this.updateUrl();
-  },
-
   //Update URL
-  updateUrl: function() {
-    var hashCountries = '',
-      hasYear = 'year[]=';
+  _updateUrl: function(p) {
+    var isCollection = false,
+      url = 'countries=';
 
-    $.each(this.countries, function(i, country) {
-      hashCountries += 'countries[]=' + country + '&';
-    }.bind(this));
+    if (typeof p.toJSON === 'function') {
+      isCollection = true;
+      params= p.toJSON();
 
-    hasYear += this.year;
+      params = _.omit(params, function(p) {
+        return !p.iso || p.iso == 'no_data';
+      });
 
-    this.navigate(hashCountries + hasYear);
+
+      totalData = _.size(params);
+    } else {
+      params = [];
+      _.each(p, function(slide) {
+        if(slide.status.get('iso')) {
+          params.push(slide.status);
+        }
+      });
+
+      totalData = params.length;
+    }
+
+    if (isCollection) {
+
+      if(totalData == 0) {
+        url = '';
+      }
+
+      _.each(params, function(country, i) {
+
+        url +=  country.iso + ':' + country.year;
+
+        if(Number(i) + 1 < totalData) {
+          url += ',';
+        }
+
+      }.bind(this));
+
+    } else {
+
+      if(totalData == 0) {
+        url = '';
+      }
+
+      _.each(params, function(slide, i) {
+        url += slide.get('iso') + ':' + slide.get('year');
+
+        if(i + 1 < totalData) {
+          url += ',';
+        }
+      });
+    }
+
+    this.navigate(url);
   }
 });
 
