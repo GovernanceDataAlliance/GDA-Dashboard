@@ -47,11 +47,6 @@ $footer-height: rem(375px);
     @media screen and (min-width: 768px) {
       padding: rem(45px) 0 rem(35px) 0;
       order: 2;
-
-      .menus-wrapper {
-        align-items: flex-end;
-        padding-right: rem($wrap-padding-desktop);
-      }
     }
 
     @media screen and (min-width: $screen-l) {
@@ -63,16 +58,23 @@ $footer-height: rem(375px);
       }
     }
 
-    .menus-wrapper {
-      @include col(5);
-      display: flex; display: -ms-box;
-      padding: 0 rem($wrap-padding-mobile);
-      justify-content: space-between;
-      align-items: center;
-      flex-direction: column;
+    &.-footer {
 
-      @media screen and (min-width: $screen-l) {
-        padding: 0;
+      > .wrap {
+        display: flex;
+      }
+
+    }
+
+    .menus-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+      @media screen and (min-width: 768px) {
+        align-items: flex-end;
       }
     }
 
