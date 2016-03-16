@@ -218,6 +218,10 @@
           align-items: center;
           @extend %score-font;
 
+          &.-usd span:not(.units) {
+            font-size: rem(50px);
+          }
+
           &.-percent {
             flex-direction: row;
           }
