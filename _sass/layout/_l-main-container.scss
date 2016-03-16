@@ -9,3 +9,13 @@
 .l-main-container {
   @extend %l-main-container;
 }
+
+
+.js--countries,
+.js--compare-container {
+  min-height: rem(500px);
+}
+
+.js--indicators-container {
+  min-height: rem(900px);
+}

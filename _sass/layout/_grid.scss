@@ -23,18 +23,3 @@
   max-width: rem(($grid-max-width)/12 * $columns);
   width: 100%;
 }
-
-.l-banner {
-  &.-section-1 {
-    min-height: rem(438px);
-  }
-}
-
-.js--countries,
-.js--compare-container {
-  min-height: rem(500px);
-}
-
-.js--indicators-container {
-  min-height: rem(900px);
-}
