@@ -10,8 +10,8 @@
   @media screen and (min-width: $screen-s) {
     padding: rem(10px) 0;
   }
-  
-  @media screen and (min-width: 768px) {  
+
+  @media screen and (min-width: 768px) {
     &.-country {
       padding: 0;
     }
@@ -33,13 +33,13 @@
 
   .js--legend {
     display: flex;
-    flex: 1 1 100%;
-    
+    flex: 1 1 80%;
+
     @at-root {
       .l-toolbar:not(.-footer) .js--legend {
         padding-bottom: 10px;
         padding-top: 5px;
-        
+
         @media screen and (min-width: $screen-s) {
           padding-bottom: 0;
           padding-top: 0;
@@ -164,7 +164,7 @@
 
   &.-compare-legend {
     padding: 0;
-    height: rem(65px); 
+    height: rem(65px);
   }
 
 
@@ -173,7 +173,7 @@
     padding-bottom: rem(10px);
 
     .wrap {
-      display: flex; 
+      display: flex;
       display: -ms-box;
       align-items: initial;
       justify-content: initial;
@@ -205,7 +205,7 @@
   &.-footer {
     border-top: 1px solid $border-1;
     padding: rem(10px) 0;
-    
+
     @media screen and (min-width: 768px) {
       padding: rem(25px) 0;
     }
