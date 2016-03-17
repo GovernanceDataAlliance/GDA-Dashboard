@@ -30,7 +30,7 @@
       <div class="resume -{{units}}">
         <div class="js--graph graph"></div>
         <p class="global-score">
-          {{#comma}}{{score}}{{/comma}}
+          {{#comma score}}{{/comma}}
           {{#if units_abbr}}
             <span class="units">
              {{units_abbr}}
@@ -56,7 +56,7 @@
 
       <div class="info">
         <span>Last Updated: {{lastyear}}</span>
-        <span>Score Range: {{max_score}} - {{min_score}}</span>
+        <span>Score Range: {{#comma max_score}}{{/comma}} - {{#comma min_score}}{{/comma}}</span>
       </div>
     </div>
   </div>
