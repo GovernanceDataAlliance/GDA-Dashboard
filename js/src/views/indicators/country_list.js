@@ -40,7 +40,12 @@ var IndicatorListView = Backbone.View.extend({
   render: function() {
     this.$el.html(template({
       countries: this._setTier(this.countries),
-      max_score: this.max_score
+      max_score: function() {
+        if(!isNaN(parseFloat(this.max_score)) && parseInt(this.max_score).toString().length > 3) {
+          return parseFloat(this.max_score).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        }
+        return this.max_score;
+      }.bind(this)()
     }));
   }
 });
