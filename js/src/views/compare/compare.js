@@ -218,7 +218,7 @@ var CompareView = Backbone.View.extend({
 
   renderIndicatorNames: function() {
     this.indicatorsNamesCollection.fetch().done(function(indicators) {
-      
+
       this.$('.js--comparison-indicators').html(indicatorsTemplate({
         indicators: indicators.rows
       }));
@@ -290,7 +290,8 @@ var CompareView = Backbone.View.extend({
 
   renderLegend: function() {
     _.each(this.$('.js--legend'), function(legend) {
-      new LegendView({ el: legend });
+      var legendView = new LegendView({ el: legend })
+      legendView.delegateEvents();
     });
   },
 

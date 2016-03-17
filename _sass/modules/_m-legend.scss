@@ -3,11 +3,11 @@
   align-items: center;
 
   > ul {
-    display: flex; 
+    display: flex;
     display: -ms-box;
 
     li {
-      display: flex; 
+      display: flex;
       display: -ms-box;
       align-items: center;
       justify-content: center;
@@ -100,7 +100,7 @@
       li {
         margin-right: rem(20px);
       }
-      
+
       .legend-item {
         display: inline-block;
       }
