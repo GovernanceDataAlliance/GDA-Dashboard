@@ -10,7 +10,7 @@
   group by short_name
 )
  SELECT
-   distinct on(c.short_name) c.short_name,
+   distinct on(c.product_name) c.product_name,
    c.score_range,
    c.desired_direction,
    c.has_historical_info,
@@ -23,6 +23,7 @@
    c.units,
    c.units_abbr,
    c.organization,
+   c.short_name, 
    '{{iso}}' as iso,
    d.notes,
    d.score,
@@ -32,4 +33,4 @@
   FROM indicator_config AS c
     left JOIN  d ON c.short_name = d.short_name
     left JOIN years ON c.short_name = years.short_name
-  ORDER BY c.short_name asc, d.year asc
+  ORDER BY c.product_name asc

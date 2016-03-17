@@ -113,8 +113,7 @@
         color: $color-1 !important;
       }
 
-      .name,
-      .name a {
+      .name {
         position: relative;
         padding-bottom: rem(50px);
 
@@ -348,6 +347,10 @@
 
       .is-dashboard-layout & {
         width: 100%;
+
+        > .js--partial-ranks {
+          display: none;
+        }
       }
 
       > .js--partial-ranks {

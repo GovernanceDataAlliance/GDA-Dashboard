@@ -1,5 +1,7 @@
 .l-blog {
   @extend %l-main-container;
+  border-left: 0;
+  border-right: 0;
 
   .blog-filter {
     display: none;

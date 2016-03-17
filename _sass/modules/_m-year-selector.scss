@@ -4,12 +4,28 @@
   flex-direction: column;
   justify-content: center;
 
+  + .m-year-selector {
+    margin-top: rem(5px);
+
+    @media screen and (min-width: $screen-s) {
+      margin-top: 0;
+      margin-left: rem(20px);
+    }
+  }
+
+  &.-compare {
+
+    @media screen and (min-width: 768px) {
+      margin-left: 0;
+    }
+  }
+
   @media screen and (min-width: $screen-s) {
     max-width: 23.5%;
   }
 
   @media screen and (min-width: $screen-l) {
-    max-width: rem(250px);
+    max-width: rem(160px);
 
     &.-compare {
       max-width: 23.5%;
@@ -77,6 +93,10 @@
         max-width: 23.33%;
         padding-top: rem(10px);
         padding-bottom: rem(10px);
+      }
+
+      .btn-drop-down:last-child {
+        margin-top: rem(10px);
       }
 
       &:last-child {

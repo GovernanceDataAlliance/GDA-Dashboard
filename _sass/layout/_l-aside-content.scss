@@ -1,0 +1,21 @@
+.l-aside-content {
+  padding: rem(60px) 0;
+  background-color: $bg-color-1;
+
+  .btn.-secondary {
+    margin-top: rem(30px);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: rem(95px) 0 rem(100px);
+  }
+
+  @media screen and (min-width: $screen-m) {
+    padding: rem(95px) 0 rem(100px);
+    border-top: 1px solid $border-1;
+  }
+
+  @media screen and (min-width: $screen-l) {
+    padding: rem(95px) 0  rem(120px);
+  }
+}

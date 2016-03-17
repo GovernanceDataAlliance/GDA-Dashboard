@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
   {% include head.html %}
 
   <body>
@@ -27,17 +26,8 @@
         </div>
       </div>
 
-      <div class="l-toolbar -year-and-legend">
+      <div class="l-toolbar">
         <div class="wrap">
-
-          <div class="m-controls">
-            <button class="js--share btn">
-              <svg class="icon -regular">
-                <use xlink:href="#icon-share"></use>
-              </svg>
-              <span class="button-literal">share</span>
-            </button>
-          </div>
 
           <div class="m-year-selector">
             <div class="btn-drop-down" id="categorySelector">
@@ -54,6 +44,13 @@
               </select>
             </div>
           </div>
+
+          <button class="js--view-share btn">
+            <svg class="icon -regular">
+              <use xlink:href="#icon-share"></use>
+            </svg>
+            <span class="button-literal">share</span>
+          </button>
 
         </div>
       </div>
@@ -75,11 +72,10 @@
          {% endfor %}
 
 
-      <div class="l-toolbar -utils">
+      <div class="l-toolbar -footer">
         <div class="wrap">
-          <div class="m-controls -right">
-
-            <button class="js--share btn">
+          <div class="c-share">
+            <button class="js--view-share btn">
               <svg class="icon -regular">
                 <use xlink:href="#icon-share"></use>
               </svg>
@@ -92,7 +88,7 @@
       {% include modules/tag_cloud.html %}
 
       {% include footer.html %}
-      
+
     </div>
     <script>
       var SITEURL = '{{ site.baseurl }}' || null;

@@ -15,6 +15,7 @@
   "layout/l-banner",
   "layout/l-toolbar",
   "layout/l-content",
+  "layout/l-aside-content",
   "layout/l-highlight",
   "layout/l-presentation",
   "layout/l-footer",
@@ -47,8 +48,6 @@
   "modules/m-advise",
   "modules/m-graph-tooltip",
   "modules/m-static-content",
-  "modules/m-share",
-  "modules/m-download",
   "modules/m-country-silhouette",
   "modules/m-legend",
   "modules/m-post",
@@ -56,9 +55,11 @@
   "modules/m-pagination",
   "modules/m-tag-cloud",
   "modules/m-highlight",
+  "modules/m-share-window",
 
 
   "components/buttons",
+  "components/c-share-shortcut",
   "components/icons",
   "components/c-title",
   "components/c-main-title",
@@ -70,6 +71,8 @@
   "components/c-brand",
   "components/c-tooltip",
   "components/c-tag",
+  "components/c-share",
+  "components/c-download",
 
   "states",
 

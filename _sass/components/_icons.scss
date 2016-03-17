@@ -2,14 +2,10 @@
   fill: $color-4;
 
   &.-regular {
-    width: 20px;
+    width: 22px;
     height: 20px;
   }
-
-  // &:hover {
-  //   fill: $font-color-1;
-  // }
-
+  
   .is-active & {
     fill: $font-color-1;
   }

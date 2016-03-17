@@ -207,8 +207,8 @@
 
         border-bottom: 1px solid $border-1;
 
-        min-height: rem(200px);
-        height: auto;
+        // min-height: rem(200px);
+        height: rem(245px);
         text-align: center;
 
         > .score {
@@ -218,22 +218,57 @@
           align-items: center;
           @extend %score-font;
 
+          &.-usd span:not(.units) {
+            font-size: rem(50px);
+          }
+
           &.-percent {
             flex-direction: row;
           }
 
           &.no-data {
+            min-height: rem(79px);
             margin-top: rem(10px);
-            // padding: 2rem;
-            // line-height: 0;
 
             @extend %no-data-font;
           }
+
         }
 
         > .score-range {
           margin-top: rem(10px);
         }
+
+        // Scores
+        &.-score-excellent {
+          .score {
+            color: $excellent;
+          }
+        }
+        &.-score-good {
+          .score {
+            color: $good;
+          }
+        }
+        &.-score-moderate {
+          .score {
+            color: $moderate;
+          }
+        }
+        &.-score-fair {
+          .score {
+            color: $fair;
+          }
+        }
+        &.-score-poor {
+          color: $white;
+          background-color: $poor;
+
+          h3, a {
+            color: $white;
+          }
+        }
+
       }
     }
   }

@@ -77,6 +77,13 @@ $slick-dot-opacity-not-active: 0.8 !default;
 
     transform: translateY(-50%);
   }
+
+  &.stop {
+    position: absolute;
+    top: auto;
+    bottom: 50px;
+    transform: inherit;
+  }
 }
 .slick-prev {
   left: 0;
@@ -124,7 +131,7 @@ $slick-dot-opacity-not-active: 0.8 !default;
   .-fixed & {
     position: fixed;
     top: rem(3px);
-    z-index: 2;
+    z-index: 5;
   }
 
   li {

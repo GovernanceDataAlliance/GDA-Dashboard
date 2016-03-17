@@ -5,7 +5,7 @@ with up as (
     i.score, 
     i.score_text, 
     i.year, 
-    w.name, 
+    b.name, 
     w.region, 
     w.lending_category, 
     w.income_group, 
@@ -15,6 +15,7 @@ with up as (
     c.units 
   FROM indicator_data i 
     INNER JOIN wb_countries_clasification w ON i.iso=w.iso 
+    INNER JOIN world_borders b ON w.name=b.name
     INNER JOIN indicator_config c ON i.short_name=c.short_name 
   WHERE i.short_name = '{{id}}' 
   AND i.score is not null 
@@ -33,7 +34,7 @@ with up as (
     i.score, 
     i.score_text, 
     i.year, 
-    w.name, 
+    b.name, 
     w.region, 
     w.lending_category, 
     w.income_group, 
@@ -43,6 +44,7 @@ with up as (
     c.units 
   FROM indicator_data i 
     INNER JOIN wb_countries_clasification w ON i.iso=w.iso 
+    INNER JOIN world_borders b ON w.name=b.name
     INNER JOIN indicator_config c ON i.short_name=c.short_name 
   WHERE i.short_name = '{{id}}' 
   AND i.score is not null 
@@ -55,5 +57,4 @@ with up as (
   AND c.desired_direction ='down' 
   order by score, name 
 )
-
 SELECT  * from up  UNION ALL SELECT * from down

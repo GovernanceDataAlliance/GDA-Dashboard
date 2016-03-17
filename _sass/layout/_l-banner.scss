@@ -12,7 +12,6 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     padding: rem(30px) 0 rem(60px);
     background-color: #ccc;
     background-position: top left;
-
     max-height: rem(700px);
 
     h3 {
@@ -126,6 +125,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
   //countries
   &.-section-1 {
+    min-height: rem(438px);
     padding: rem(100px) 0 rem(60px);
     background-color: $bg-color-1;
   }
@@ -193,10 +193,14 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
     > .wrap {
       display: flex; display: -ms-box;
+
+      .btn {
+        text-align: left;
+      }
     }
 
     &.-blog {
-      padding-top: rem(120px);
+      // padding-top: rem(120px);
       padding-bottom: rem(20px);
 
       > .wrap {

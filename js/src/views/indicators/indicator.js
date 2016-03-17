@@ -13,7 +13,7 @@ var FunctionHelper = require('../../helpers/functions.js');
 var IndicatorHeaderView = require('./indicator_header.js'),
   IndicatorSelectorsToolbarView = require('./indicator_selectors_toolbar.js'),
   CountryListView = require('./country_list.js'),
-  ToolbarUtilsView = require('../common/toolbar_utils_view.js'),
+  ShareWindowView = require('../common/share_window_view.js'),
   LegendView = require('../common/legend.js');
 
 var TextShortener = require('../common/text_shortener.js');
@@ -25,7 +25,8 @@ var IndicatorView = Backbone.View.extend({
 
   events: {
     'click .js--ranking-groups': '_stopEvent',
-    'click .js--btn-ranking': "_stopEvent"
+    'click .js--btn-ranking': "_stopEvent",
+    'click .js--view-share': '_openShareWindow'
   },
 
   initialize: function(options) {
@@ -35,6 +36,10 @@ var IndicatorView = Backbone.View.extend({
     this.givenYear = options.year || null;
 
     this.functionHelper = FunctionHelper;
+
+    window.indicatorId = this.id;
+
+    this.shareWindowView = new ShareWindowView();
 
     this.initializeData();
     this.setListeners();
@@ -69,6 +74,11 @@ var IndicatorView = Backbone.View.extend({
 
     }.bind(this));
 
+  },
+
+  _openShareWindow: function() {
+    this.shareWindowView.render();
+    this.shareWindowView.delegateEvents();
   },
 
   _stopEvent: function(e) {
@@ -109,12 +119,6 @@ var IndicatorView = Backbone.View.extend({
     new TextShortener({ el: this.el });
   },
 
-  renderToolbar: function() {
-    this.$el.find('.l-toolbar').first().find('.m-control').first().append(new ToolbarUtilsView({
-      el: this.$el.find('.js--toolbar-utils')
-    }).render().el);
-  },
-
   renderSelectorsToolbar: function() {
     var toolbarView = new IndicatorSelectorsToolbarView({
       'indicator': this.indicator,
@@ -123,8 +127,6 @@ var IndicatorView = Backbone.View.extend({
     });
     this.$('.js--indicator-toolbar').append(toolbarView.render().el);
 
-    this.renderToolbar();
-
     $('.js--download').attr('data-indicator-id', this.id);
     $('.js--download').attr('data-year', this.actualYear);
   },
@@ -132,7 +134,8 @@ var IndicatorView = Backbone.View.extend({
   renderLegend: function() {
     var legends = this.$('.js--legend');
     _.each(legends, function(legend) {
-      new LegendView({ el: legend });
+      var legendView = new LegendView({ el: legend });
+      legendView.delegateEvents();
     });
   },
 

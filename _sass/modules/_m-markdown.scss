@@ -101,6 +101,22 @@
           font-size: rem(15px);
         }
       }
+
+      ul {
+        padding-left: rem(40px);
+
+        li {
+          &:before {
+            content: '';
+            display: inline-block;
+            width: rem(5px);
+            height: rem(5px);
+            margin-right: rem(15px);
+            border-radius: 50%;
+            border: 1px solid $color-4;
+          }
+        }
+      }
     }
 
     ol {

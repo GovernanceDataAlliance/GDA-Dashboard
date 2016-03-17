@@ -13,55 +13,62 @@ var template = Handlebars.compile(
 var CompareYearSelectors = Backbone.View.extend({
 
   events: {
-    'change select': 'getYear'
+    'change select': '_getYear'
   },
 
   initialize: function(options) {
     options = options || {};
+
     this.years = options.years;
     this.actualYear = options.actualYear;
+    this.index = options.index;
+
+    this._setView();
     this.render();
   },
 
-  render: function() {
-    this.$el.html(template({ 'years': this.years }));
-    this.setCurrentYear();
-
+  _setView: function() {
     enquire.register("screen and (max-width:640px)", {
-      match: _.bind(function(){
+      match: _.bind(function() {
         this.mobile = true;
-      },this)
-    });
-
-    enquire.register("screen and (min-width:641px)", {
-      match: _.bind(function(){
-        this.mobile = false;
-      },this)
-    });
-
-    enquire.register("screen and (max-width:768px)", {
-      match: _.bind(function(){
-        this.tablet = true;
-      },this)
-    });
-
-    enquire.register("screen and (min-width:769px)", {
-      match: _.bind(function(){
         this.tablet = false;
       },this)
     });
 
-    if (!this.tablet) {
+    enquire.register("screen and (min-width:641px)", {
+      match: _.bind(function() {
+        this.mobile = false;
+        this.tablet = true;
+      },this)
+    });
+
+    enquire.register("screen and (min-width:1025px)", {
+      match: _.bind(function() {
+        this.tablet = false;
+      },this)
+    });
+  },
+
+  render: function() {
+    this.$el.html(template({
+      index: this.index,
+      years: this.years
+    }));
+
+    this._setCurrentYear();
+
+    if (!this.mobile && !this.tablet) {
       this.$('select').chosen();
     }
-
   },
 
-  setCurrentYear: function() {
-    this.actualYear ? $('#year-'+ this.actualYear ).attr('selected', true) : $(this.$('option')[0]).attr('selected', true);
+  _setCurrentYear: function() {
+    this.$el.find('select').val(this.actualYear);
+
+    Backbone.Events.trigger('year:selected', this.actualYear);
   },
 
-  getYear: function(e) {
+  _getYear: function(e) {
     var year = $(e.currentTarget).val();
     Backbone.Events.trigger('year:selected', year);
   },
