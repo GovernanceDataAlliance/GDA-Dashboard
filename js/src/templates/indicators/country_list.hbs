@@ -12,7 +12,7 @@
             </div>
             <div class="score {{#if classColor}}{{classColor}}{{/if}}" data-year="{{year}}">
               <p {{#if units}}class="{{units}}"{{/if}}>
-                {{#comma}}{{score}}{{/comma}}
+                {{#comma score}}{{/comma}}
                 {{#unlessPercentage ../max_score}}
                   {{max_score}}
                 {{/unlessPercentage}}
@@ -42,9 +42,9 @@
             </div>
             <div class="score {{#if classColor}} {{classColor}} {{/if}}" data-year="{{year}}">
                <p {{#if units}}class="{{units}}"{{/if}}>
-                {{#comma}}{{score}}{{/comma}}
+                {{#comma score}}{{/comma}}
                 {{#unlessPercentage ../max_score}}
-                  {{max_score}}
+                  {{#comma max_score}}{{/comma}}
                 {{/unlessPercentage}}
                 {{#if units_abbr}}
                   <span class="units">{{units_abbr}}</span>

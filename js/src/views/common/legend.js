@@ -17,9 +17,7 @@ var Legend = Backbone.View.extend({
   },
 
   initialize: function() {
-
-    console.log(this.events);
-
+    
     enquire.register("screen and (max-width:640px)", {
       match: _.bind(function(){
         this.mobile = true;
