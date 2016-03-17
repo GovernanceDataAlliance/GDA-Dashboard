@@ -195,7 +195,8 @@ var CountryView = Backbone.View.extend({
   renderLegend: function() {
     var legends = this.$('.js--legend');
     _.each(legends, function(legend) {
-      new LegendView({ el: legend });
+      var legendView = new LegendView({ el: legend });
+      legendView.delegateEvents();
     });
   },
 

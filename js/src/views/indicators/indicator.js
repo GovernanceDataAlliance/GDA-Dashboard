@@ -117,14 +117,7 @@ var IndicatorView = Backbone.View.extend({
     this.$('.js--indicator-header').append(headerView.render().el);
 
     new TextShortener({ el: this.el });
-    // new ShareWindowView();
   },
-
-  // renderToolbar: function() {
-  //   this.$el.find('.l-toolbar').first().find('.m-control').first().append(new ToolbarUtilsView({
-  //     el: this.$el.find('.js--toolbar-utils')
-  //   }).render().el);
-  // },
 
   renderSelectorsToolbar: function() {
     var toolbarView = new IndicatorSelectorsToolbarView({
@@ -134,8 +127,6 @@ var IndicatorView = Backbone.View.extend({
     });
     this.$('.js--indicator-toolbar').append(toolbarView.render().el);
 
-    // this.renderToolbar();
-
     $('.js--download').attr('data-indicator-id', this.id);
     $('.js--download').attr('data-year', this.actualYear);
   },
@@ -143,7 +134,8 @@ var IndicatorView = Backbone.View.extend({
   renderLegend: function() {
     var legends = this.$('.js--legend');
     _.each(legends, function(legend) {
-      new LegendView({ el: legend });
+      var legendView = new LegendView({ el: legend });
+      legendView.delegateEvents();
     });
   },
 
