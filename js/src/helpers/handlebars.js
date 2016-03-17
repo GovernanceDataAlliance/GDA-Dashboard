@@ -2,24 +2,28 @@ var _ = require('lodash'),
   Handlebars = require('handlebars');
 
 // returns a number with comma notation and 2 two decimals (if needed)
-Handlebars.registerHelper('comma', function(options) {
+Handlebars.registerHelper('comma', function(number) {
 
-  if (!isNaN(parseFloat(this.score))) {
+  if (!isNaN(parseFloat(number))) {
 
-    if (this.score % 1 != 0) {
+    if (number % 1 != 0) {
 
-      if (parseInt(this.score).toString().length > 3) {
-        return parseFloat(this.score).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+      if (parseInt(number).toString().length > 3) {
+        return parseFloat(number).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
       } else {
-        return parseFloat(this.score).toFixed(2);
+        return parseFloat(number).toFixed(2);
       }
 
     } else {
-      return this.score;
+
+      if (parseInt(number).toString().length > 3) {
+        var d = parseFloat(number).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        return d.split('.')[0];
+      }
     }
   }
 
-  return this.score;
+  return number;
 });
 
 Handlebars.registerHelper('beautifullStrign', function(options) {
