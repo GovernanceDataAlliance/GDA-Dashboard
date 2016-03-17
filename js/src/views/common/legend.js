@@ -6,17 +6,19 @@ var _ = require('lodash'),
 
 var ModalWindowView = require('../common/infowindow_view.js');
 
-var tpl = Handlebars.compile(require('../../templates/common/legend_tpl.hbs')); 
+var tpl = Handlebars.compile(require('../../templates/common/legend_tpl.hbs'));
 
 var Legend = Backbone.View.extend({
+
+  template: tpl,
 
   events: {
     'click #legendPopup': '_openInfowindow'
   },
 
-  template: tpl,
-
   initialize: function() {
+
+    console.log(this.events);
 
     enquire.register("screen and (max-width:640px)", {
       match: _.bind(function(){
@@ -30,14 +32,27 @@ var Legend = Backbone.View.extend({
       },this)
     });
 
+    this._setListeners();
+
     this.render();
   },
 
-  render: function() {
-    this.$el.append(this.template({ 'mobile': this.mobile }));
+  _setListeners: function() {
+    if (this.mobile) {
+      _.extend(this.events, {
+        'touchstart .m-legend': '_openInfowindow'
+      });
+    }
   },
 
-  _openInfowindow: function() {
+  render: function() {
+    this.$el.append(this.template({
+      mobile: this.mobile
+    }));
+  },
+
+  _openInfowindow: function(e) {
+    e && e.stopPropagation();
     new ModalWindowView({'type': 'legend-infowindow'})
   }
 
