@@ -3,7 +3,7 @@
     {{#each scores}}
       {{#if score includeZero=true}}
         <li class="table-cell {{#if classColor}}{{classColor}}{{/if}} -{{units}}" data-index="{{short_name}}" data-year="{{year}}">
-         <span>{{#round}}{{score}}{{/round}}</span> 
+         <span>{{#comma}}{{score}}{{/comma}}</span> 
         {{#if units_abbr}}
           <span class="units -{{units}}">{{units_abbr}} </span>
         {{/if}}

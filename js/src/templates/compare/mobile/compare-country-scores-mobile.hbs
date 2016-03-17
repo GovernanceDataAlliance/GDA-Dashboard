@@ -12,7 +12,7 @@
       {{#if ../content}}
         {{#if score includeZero=true}}
           <div class="score -{{units}}" data-index="{{short_name}}" data-year="{{year}}">
-            <span>{{#round}}{{score}}{{/round}}</span>
+            <span>{{#comma}}{{score}}{{/comma}}</span>
             {{#if units_abbr}}
               <span class="units -{{units}}">{{units_abbr}} </span>
             {{/if}}
