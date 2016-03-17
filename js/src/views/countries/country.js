@@ -77,6 +77,8 @@ var CountryView = Backbone.View.extend({
         this.indicators.forCountryAndYear(iso, this.status.get('year'));
       }
 
+      this._updateCompareLink();
+
     }.bind(this));
 
   },
@@ -119,6 +121,14 @@ var CountryView = Backbone.View.extend({
     new TooltipView().toggleStatus(e);
   },
 
+  _updateCompareLink: function() {
+    var link = document.querySelector('.l-aside-content a'),
+      iso = this.status.get('iso'),
+      year = this.status.get('year');
+
+    link.href = '/compare#countries=' + iso + ':' + year;
+  },
+
   updateCountry: function() {
     this.stopListening(this.country);
 
@@ -132,6 +142,7 @@ var CountryView = Backbone.View.extend({
 
   _onUpdateYear: function() {
     this._setDownloadData();
+    this._updateCompareLink();
     this.indicators.forCountryAndYear(this.status.get('iso'), this.status.get('year'));
   },
 
