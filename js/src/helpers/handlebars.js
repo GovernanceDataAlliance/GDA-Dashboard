@@ -1,18 +1,29 @@
-var Handlebars = require('handlebars');
+var _ = require('lodash'),
+  Handlebars = require('handlebars');
 
-/*
-  Given a number, returns number with two decimals.
-*/
-Handlebars.registerHelper('round', function(options) {
-  if (!isNaN(parseFloat(this.score))) {
-    if (this.score % 1 != 0) {
-      return parseFloat(this.score).toFixed(2);
+// returns a number with comma notation and 2 two decimals (if needed)
+Handlebars.registerHelper('comma', function(number) {
+
+  if (!isNaN(parseFloat(number))) {
+
+    if (number % 1 != 0) {
+
+      if (parseInt(number).toString().length > 3) {
+        return parseFloat(number).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+      } else {
+        return parseFloat(number).toFixed(2);
+      }
+
     } else {
-      return this.score;
+
+      if (parseInt(number).toString().length > 3) {
+        var d = parseFloat(number).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        return d.split('.')[0];
+      }
     }
-  } else {
-    return this.score;
   }
+
+  return number;
 });
 
 Handlebars.registerHelper('beautifullStrign', function(options) {
@@ -38,11 +49,4 @@ Handlebars.registerHelper('unlessPercentage', function(max_score) {
   if (this.units_abbr != '%' && this.units != "yes/no" && this.short_name != "doing_business") {
     return '<span class="max_score">/'+ max_score +'</span>'
   }
-});
-
-Handlebars.registerHelper('equal', function(a, b, opts) {
-  if(a == b)
-    return opts.fn(this);
-  else
-    return opts.inverse(this);
 });
