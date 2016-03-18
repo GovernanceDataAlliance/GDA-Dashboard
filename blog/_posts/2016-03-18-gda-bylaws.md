@@ -11,7 +11,8 @@ tags: Operations
 
 
 
-##What follows are the Governance Data Alliance's bylaws, including information about the Alliance's governance, and membership, among others.
+
+What follows are the Governance Data Alliance's bylaws, including information about the Alliance's governance, and membership, among others.
 
 
 The Governance Data Alliance (GDA or Alliance) is a network of national and international organisations and individuals, established in 2015 on the understanding that: 
