@@ -21,7 +21,10 @@ var BlogView = Backbone.View.extend({
     });
 
     this.FunctionHelper = FunctionHelper;
-    this._category();
+
+    if (! !!$('body').hasClass('is-post-page')) {
+      this._category();
+    };
 
     this.FunctionHelper.scrollTop();
   },

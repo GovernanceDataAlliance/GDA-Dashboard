@@ -17,7 +17,6 @@ var CategorySelector = Backbone.View.extend({
   },
 
   initialize: function() {
-
     enquire.register("screen and (max-width:768px)", {
       match: _.bind(function(){
         this.mobile = true;
