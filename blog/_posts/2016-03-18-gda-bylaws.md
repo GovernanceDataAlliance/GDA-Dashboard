@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: blog/post
 title: Governance Data Alliance Bylaws
 date: "2016-03-18 19:00:00 +0200"
@@ -8,6 +8,7 @@ image: ""
 category: ""
 tags: Operations
 ---
+
 
 
 ##What follows are the Governance Data Alliance's bylaws, including information about the Alliance's governance, and membership, among others.
