@@ -101,6 +101,22 @@
           font-size: rem(15px);
         }
       }
+
+      ul {
+        padding-left: rem(40px);
+
+        li {
+          &:before {
+            content: '';
+            display: inline-block;
+            width: rem(5px);
+            height: rem(5px);
+            margin-right: rem(15px);
+            border-radius: 50%;
+            border: 1px solid $color-4;
+          }
+        }
+      }
     }
 
     ol {
@@ -111,7 +127,7 @@
         margin-bottom: rem(15px);
         padding-left: rem(10px);
         font-size: rem(14px);
-        font-style: italic;
+        // font-style: italic;
         color: $font-color-1;
         line-height: rem(29px);
         letter-spacing: rem(.4px);
