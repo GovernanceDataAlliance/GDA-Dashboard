@@ -20,7 +20,7 @@ exclude: ['scripts', 'node_modules', 'vendor']
 # prose.io
 prose:
   rooturl: ''
-  siteurl: 'http://www.governancedata.org'
+  siteurl: 'http://governancedata.org'
   media: 'css/img'
   ignore:
     - _config.yml
