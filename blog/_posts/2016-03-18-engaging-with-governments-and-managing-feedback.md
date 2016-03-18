@@ -9,7 +9,12 @@ tags: "Meeting notes, Producers Workshop "
 title: Engaging with governments and managing feedback
 ---
 
+
+
+
 ## Below are the notes from our first producers' workshop. The session, co-led by Finn Heinrich of Transparency International, Elena Mondo of the International Budget Partnership, and Johannes Tonn of Global Integrity, focuses on engaging with governments, managing feedback, and making data collection more real-time
+
+
 
 ## I - Engagement with government
 Tour de table: what are different groups’ current policies and practices around engaging government? 
