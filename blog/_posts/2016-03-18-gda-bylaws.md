@@ -10,7 +10,8 @@ tags: ""
 ---
 
 
-##Introduction
+
+##What follows are the Governance Data Alliance's bylaws, including information about the Alliance's governance, and membership, among others.
 
 The Governance Data Alliance (GDA or Alliance) is a network of national and international organisations and individuals, established in 2015 on the understanding that: 
 
@@ -174,4 +175,4 @@ Proposals for amendments to these Bylaws must be endorsed by at least 10 Member 
 
 ##Working Language
 
-The working language of the Alliance shall be English. Where possible, and subject to funding, documents will be translated. 
+The working language of the Alliance shall be English. Where possible, and subject to funding, documents will be translated.
