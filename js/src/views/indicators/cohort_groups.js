@@ -39,9 +39,7 @@ var CohortGroupsView = Backbone.View.extend({
     var categoryName = $(e.currentTarget).attr('data-rankGroup');
     var categoryGroup = $(e.currentTarget).attr('data-rankCategory');
 
-    var year = null;
-
-    Backbone.Events.trigger('rankGroup:chosen', year, categoryGroup, categoryName);
+    Backbone.Events.trigger('rankGroup:chosen', categoryGroup, categoryName);
     this.groupSelector.html(categoryName);
 
     //Hide panel.

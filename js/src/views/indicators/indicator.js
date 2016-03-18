@@ -3,10 +3,10 @@ var _ = require('lodash'),
     Backbone = require('backbone'),
     Handlebars = require('handlebars');
 
-var Indicator = require('../../models/indicator.js'),
-    Countries = require('../../collections/countries.js');
+var Indicator = require('../../models/indicator.js');
 
-var Years = require('../../collections/years.js');
+var Countries = require('../../collections/countries.js');
+    YearsCollection = require('../../collections/years.js');
 
 var FunctionHelper = require('../../helpers/functions.js');
 
@@ -32,48 +32,92 @@ var IndicatorView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
 
-    this.id = options.id;
-    this.givenYear = options.year || null;
-
-    this.functionHelper = FunctionHelper;
-
     window.indicatorId = this.id;
 
+    // models
+    this.status = new (Backbone.Model.extend({
+      defaults: {
+        id: options.id,
+        year: options.year,
+        categoryGroup: null,
+        categoryName: null
+      }
+    }));
+
+    this.indicator = new Indicator()
+
+    // collections
+    this.countries = new Countries();
+    this.yearsCollection = new YearsCollection();
+
+    // views
     this.shareWindowView = new ShareWindowView();
 
-    this.initializeData();
-    this.setListeners();
+    // helper
+    this.functionHelper = FunctionHelper;
+
+
+    // this._initializeData();
+
+    this._setListeners();
+
+    this.indicator.set({
+      id: this.status.get('id')
+    }).fetch();
   },
 
-  setListeners: function() {
-    Backbone.Events.on('rankGroup:chosen', _.bind(this.updateCountries, this));
-    Backbone.Events.on('year:selected', _.bind(this.updateCountries, this));
+  _setListeners: function() {
+    this.listenTo(this.indicator, 'sync', _.bind(this._onFetchIndicator, this));
+
+    // this.listenTo(this.status, 'change:id', _.bind(this.renderHeader, this));
+    this.listenTo(this.status, 'change', _.bind(this._updateCountries, this));
+
+    Backbone.Events.on('rankGroup:chosen', _.bind(this._onRankChosen, this));
+    Backbone.Events.on('year:selected', _.bind(this._onSelectedYear, this));
 
     $('html').click(this._hideRanking);
   },
 
-  initializeData: function() {
+  _initializeData: function() {
+    var id = this.status.get('id');
 
-    this.getYears().done(function(years) {
+    this.renderHeader();
 
-      this.years = years ? years.rows : null;
-      this.actualYear = years  && years.rows[0] ? years.rows[0].year : null;
+    this.yearsCollection.totalYearsForThisIndex(id).done(function() {
 
-      if (this.givenYear) {
-        this.actualYear = this.givenYear;
+      if (!this.status.get('year')) {
+        this.status.set({
+          year: this.yearsCollection.getLastYear()
+        });
+      } else {
+        this._updateCountries();
       }
 
-      this.indicator = new Indicator({id: this.id});
-      this.listenTo(this.indicator, 'sync', this.renderHeader);
-      this.listenTo(this.indicator, 'sync', this.renderSelectorsToolbar);
-      this.countries = new Countries();
-
-      this.indicator.fetch().done(function() {
-        this.updateCountries(this.actualYear);
-      }.bind(this));
+      this.renderSelectorsToolbar();
 
     }.bind(this));
+  },
 
+  _onFetchIndicator: function() {
+    this._initializeData();
+  },
+
+  _onSelectedYear: function(year) {
+    this.status.set({
+      year: year
+    });
+
+    Backbone.Events.trigger('router:update', {
+      id: this.status.get('id'),
+      year: this.status.get('year')
+    });
+  },
+
+  _onRankChosen: function(categoryName, categoryGroup) {
+    this.status.set({
+      categoryName: categoryName,
+      categoryGroup: categoryGroup
+    });
   },
 
   _openShareWindow: function() {
@@ -89,12 +133,7 @@ var IndicatorView = Backbone.View.extend({
     $('.js--ranking-groups').addClass('is-hidden');
   },
 
-  getYears: function() {
-    var years = new Years();
-    return years.totalYearsForThisIndex( this.id );
-  },
-
-  render: function(rerender) {
+  render: function() {
     if (!$('.js--index-banner').hasClass('is-hidden')) {
       $('.js--index-banner').addClass('is-hidden');
     }
@@ -102,18 +141,14 @@ var IndicatorView = Backbone.View.extend({
     this.$el.html(template());
     this.renderLegend();
 
-    if (rerender) {
-      this.renderHeader();
-      this.renderSelectorsToolbar();
-      this.renderCountriesList();
-    }
-
     this.functionHelper.scrollTop();
   },
 
   renderHeader: function() {
     var headerView = new IndicatorHeaderView({
-      'indicator': this.indicator});
+      indicator: this.indicator
+    });
+
     this.$('.js--indicator-header').append(headerView.render().el);
 
     new TextShortener({ el: this.el });
@@ -121,19 +156,15 @@ var IndicatorView = Backbone.View.extend({
 
   renderSelectorsToolbar: function() {
     var toolbarView = new IndicatorSelectorsToolbarView({
-      'indicator': this.indicator,
-      'years': this.years,
-      'actualYear': this.actualYear
+      actualYear: this.status.get('year'),
+      years: this.yearsCollection.toJSON()
     });
-    this.$('.js--indicator-toolbar').append(toolbarView.render().el);
 
-    $('.js--download').attr('data-indicator-id', this.id);
-    $('.js--download').attr('data-year', this.actualYear);
+    this.$('.js--indicator-toolbar').append(toolbarView.render().el);
   },
 
   renderLegend: function() {
-    var legends = this.$('.js--legend');
-    _.each(legends, function(legend) {
+    _.each(this.$('.js--legend'), function(legend) {
       var legendView = new LegendView({ el: legend });
       legendView.delegateEvents();
     });
@@ -142,50 +173,33 @@ var IndicatorView = Backbone.View.extend({
   renderCountriesList: function() {
     new CountryListView({
       el: this.$('.js--countries'),
-      'countries': this.countries.toJSON(),
-      'direction': this.indicator.get('desired_direction'),
-      'max_score': this.indicator.get('max_score')
+      countries: this.countries.toJSON(),
+      direction: this.indicator.get('desired_direction'),
+      max_score: this.indicator.get('max_score')
     });
   },
 
-  download: function(event) {
-    event.preventDefault();
-    event.stopPropagation();
+  update: function(params) {
+    this.status.set({
+      id: params.id,
+      year: params.year
+    });
 
-    var url = this.countries.downloadCountriesForIndicator(this.id);
-    window.location = url;
+    this.indicator.set({
+      id: this.status.get('id')
+    }).fetch();
   },
 
-  setIndicator: function(id, year) {
-    if (this.id === id) { this.render(true); }
+  // updates countries list when year or category  are selected.
+  _updateCountries: function() {
+      var id = this.status.get('id'),
+        year = this.status.get('year'),
+        categoryName = this.status.get('categoryName'),
+        categoryGroup =  this.status.get('categoryGroup');
 
-    this.stopListening(this.countries);
-    this.stopListening(this.indicator);
-
-    this.id = id;
-    this.givenYear = year || null;
-    this.initializeData();
-  },
-
-  _updateDownload: function() {
-    var $downloadBtn = $('.js--download');
-
-    $downloadBtn.attr('data-year', this.actualYear);
-    $downloadBtn.attr('data-category-name', this.categoryName);
-    $downloadBtn.attr('data-category-group', this.categoryGroup);
-  },
-
-  //Update countries when year or category selected.
-  updateCountries: function(year, categoryGroup, categoryName) {
-    this.actualYear = year || this.actualYear;
-    this.categoryName = categoryName || this.categoryName;
-    this.categoryGroup = categoryGroup || this.categoryGroup;
-
-    this.countries.countriesForIndicator(this.id, this.actualYear, this.categoryGroup, this.categoryName).done(function() {
+    this.countries.countriesForIndicator(id, year, categoryName, categoryGroup).done(function() {
       this.renderCountriesList();
     }.bind(this))
-
-    this._updateDownload();
   },
 
   show: function() {
