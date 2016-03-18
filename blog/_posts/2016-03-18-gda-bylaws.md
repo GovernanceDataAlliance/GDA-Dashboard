@@ -10,8 +10,6 @@ tags: Operations
 ---
 
 
-
-
 What follows are the Governance Data Alliance's bylaws, including information about the Alliance's governance, and membership, among others.
 
 
