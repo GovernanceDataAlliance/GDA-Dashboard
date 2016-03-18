@@ -22,7 +22,7 @@ The Governance Data Alliance (GDA or Alliance) is a network of national and inte
 
 These Bylaws are the foundational document for the GDA, setting out the ground rules which guide the development and growth of the Alliance, its planning and organisational processes and the spirit of its work. 
 
-## Mission Statement
+## Mission Statement##
 
 _**Vision**_: 
 
@@ -41,7 +41,7 @@ The GDA and its members are committed to the following core values: 
 - Engaging actively in the work of the Alliance in a spirit of respect for other members.
 - Respect for human rights and democracy, human dignity and equality, including based on race, religion and gender. 
 
-## Activities
+## Activities##
 
 The GDA’s activities include, but are not limited to: 
 
@@ -58,11 +58,11 @@ The GDA’s activities include, but are not limited to: 
 - Coordinating the participation of the Alliance and its members in other governance data activities. 
 - Providing support to Alliance members. 
 
-## Structure of the Alliance
+## Structure of the Alliance##
 
 The GDA is comprised of members, the Steering Committee and the Secretariat. In addition, the Alliance may establish working groups on specific topics. 
 
-## Membership
+## Membership##
 
 The GDA is a network of organisations and individuals which fall into three different cohorts – producers of governance data, users of governance data and funders of governance data – which subscribe to the GDA’s Mission Statement and which otherwise meet the rules regarding membership.
 
