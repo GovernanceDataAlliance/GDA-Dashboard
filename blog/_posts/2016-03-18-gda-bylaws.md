@@ -41,7 +41,7 @@ The GDA and its members are committed to the following core values: 
 - Engaging actively in the work of the Alliance in a spirit of respect for other members.
 - Respect for human rights and democracy, human dignity and equality, including based on race, religion and gender. 
 
-##Activities
+## Activities
 
 The GDA’s activities include, but are not limited to: 
 
