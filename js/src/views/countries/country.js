@@ -200,7 +200,7 @@ var CountryView = Backbone.View.extend({
       el: this.$('.js--year-selector-country'),
       'years': this.yearsCollection.toJSON(),
       'actualYear': this.status.get('year')
-    });
+    }).render();
   },
 
   renderLegend: function() {

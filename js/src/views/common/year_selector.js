@@ -21,10 +21,9 @@ var CompareYearSelectors = Backbone.View.extend({
 
     this.years = options.years;
     this.actualYear = options.actualYear;
-    this.index = options.index;
+    this.index = options.index || null;
 
     this._setView();
-    this.render();
   },
 
   _setView: function() {
@@ -58,8 +57,10 @@ var CompareYearSelectors = Backbone.View.extend({
     this._setCurrentYear();
 
     if (!this.mobile && !this.tablet) {
-      this.$('select').chosen();
+      this.$el.find('select').chosen();
     }
+
+    return this;
   },
 
   _setCurrentYear: function() {
