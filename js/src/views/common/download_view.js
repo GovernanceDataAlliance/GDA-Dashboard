@@ -46,8 +46,8 @@ var DownloadView = infoWindowView.extend({
 
   _setCohortInfo: function() {
     _.extend(this.options, {
-      categoryGroup: arguments[1],
-      categoryName: arguments[2] ? arguments[2] : 'global'
+      categoryGroup: arguments[0],
+      categoryName: arguments[1] ? arguments[1] : 'global'
     });
 
     if (this.options.categoryName == 'globally') {

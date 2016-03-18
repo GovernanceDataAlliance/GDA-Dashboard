@@ -20,7 +20,6 @@ var IndicatorsToolbarView = Backbone.View.extend({
   initialize: function(options) {
     options = options || {};
 
-    this.indicator = options.indicator.id;
     this.years = options.years;
     this.actualYear = options.actualYear;
   },
@@ -28,37 +27,35 @@ var IndicatorsToolbarView = Backbone.View.extend({
   render: function() {
     this.$el.html(template());
 
-    this.renderCohortGroups();
-    this.renderYearSelector();
-    this.renderLegend();
+    this._renderCohortGroups();
+    this._renderLegend();
+    this._renderYearSelector();
 
     return this;
   },
 
-  renderLegend: function() {
-    var legends = this.$('.js--legend');
-    _.each(legends, function(legend) {
+  _renderLegend: function() {
+    _.each(this.$('.js--legend'), function(legend) {
       new LegendView({ el: legend });
     });
   },
 
-  renderCohortGroups: function() {
-    new CohortGroups({ el: this.$('.js--ranking-groups') })
+  _renderCohortGroups: function() {
+    new CohortGroups({
+      el: this.$('.js--ranking-groups')
+    });
   },
 
-  renderYearSelector: function() {
-    this.getYears().done(function(years) {
-      var yearSelectors = new YearSelector({
-        el: this.$('.js--year-selector-indicators'),
-        'years': years.rows,
-        'actualYear': this.actualYear
-      });
-      Backbone.Events.trigger('year:selected', this.actualYear);
-    }.bind(this));
-  },
+  _renderYearSelector: function() {
+    // take a look..
+    setTimeout(function() {
+      new YearSelector({
+        el: this.$el.find('.js--year-selector-indicators'),
+        years: this.years,
+        actualYear: this.actualYear
+      }).render();
 
-  getYears: function() {
-    return new Years().totalYearsForThisIndex(this.indicator);
+    }.bind(this), 0);
   },
 
   showRankingGroups: function() {

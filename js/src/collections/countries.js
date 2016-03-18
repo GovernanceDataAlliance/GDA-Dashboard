@@ -18,14 +18,6 @@ var Countries = CartoDBCollection.extend({
     return this._urlForQuery(query);
   },
 
-  // url: function() {
-  //   // Ignore countries without a valid region ID
-  //   var whereClause = "WHERE region > 0";
-
-  //   var query = [this._getQuery(), whereClause].join(" ");
-  //   return this._urlForQuery(query);
-  // },
-
   //For general list at /countries.
   groupByRegion: function() {
     return _.groupBy(_.sortBy(this.toJSON(), 'region_name'), 'region_name');

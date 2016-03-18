@@ -14,42 +14,46 @@ var Router = Backbone.Router.extend({
 
   initialize: function(options) {
     this.views = new ViewManager({ $el: options.$el });
-    this.setListeners();
+
+    this._setListeners();
 
     new WrapperHeaderView();
   },
 
-  setListeners: function() {
-    Backbone.Events.on('year:selected', (this.yearSelected).bind(this));
+  _setListeners: function() {
+    Backbone.Events.on('router:update', (this._updateParams).bind(this));
   },
 
   index: function() {
     if (!this.views.hasView('index')) {
-      var view = new IndicatorsView();
-      this.views.addView('index', view);
+      this.views.addView('index', new IndicatorsView());
+      this.views.showView('index');
+    } else {
+      this.views.showView('index');
+      this.views.getView('index').renderIndicatorsList();
     }
-
-    this.views.showView('index');
   },
 
   show: function(params) {
-    this.id =  params.split("&")[0];
-    this.year =  params.split("&")[1] || null;
+    var configView = {
+      id: params.split(":")[0],
+      year: params.split(":")[1] || null
+    };
 
     if (!this.views.hasView('show')) {
-      var view = new IndicatorView({id: this.id, 'year':this.year });
-      this.views.addView('show', view);
+      this.views.addView('show', new IndicatorView(configView));
     } else {
-      this.views.getView('show').setIndicator(this.id, this.year);
+      this.views.getView('show').update(configView);
     }
 
     this.views.showView('show');
   },
 
-  //Update year params
-  yearSelected: function(year) {
-    this.year = year;
-    this.navigate(this.id +'&'+ year);
+  _updateParams: function(params) {
+    var id = params.id,
+      year = params.year;
+
+    this.navigate(id + ':' + year);
   }
 
 });

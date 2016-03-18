@@ -11,25 +11,33 @@ var template = Handlebars.compile(
 var IndicatorsView = Backbone.View.extend({
 
   initialize: function() {
-    this.render();
-    this.initializeData();
+
+    this.indicatorsData = null;
+
+    // collections
+    this.indicators = new IndicatorConfigs();
+
+    this._getIndicators();
   },
 
-  initializeData: function(argument) {
-    var indicators = new IndicatorConfigs();
-    indicators.indicatorsForList().done(function(data) {
-      this.renderIndicatorsList(data);
+  _getIndicators: function() {
+    this.indicators.indicatorsForList().done(function(data) {
+      this.indicatorsData = data.rows;
+      this.renderIndicatorsList();
     }.bind(this))
+  },
+
+  renderIndicatorsList: function() {
+    var listView = new IndicatorList({
+      indicators: this.indicatorsData
+    });
+
+    this.$('.js--indicators').html(listView.render().el);
   },
 
   render: function() {
     this.$el.html(template());
     return this;
-  },
-
-  renderIndicatorsList: function(data) {
-    var listView = new IndicatorList({ indicators: data.rows });
-    this.$('.js--indicators').html(listView.render().el);
   },
 
   show: function() {

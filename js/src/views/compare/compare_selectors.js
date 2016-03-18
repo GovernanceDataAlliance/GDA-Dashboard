@@ -155,7 +155,7 @@ var CompareSelectorsView = Backbone.View.extend({
           el: $(selector),
           index: Number(i) + 1,
           years: this.yearsCollection.toJSON()
-        });
+        }).render();
 
       }.bind(this));
 

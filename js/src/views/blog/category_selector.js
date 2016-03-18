@@ -55,9 +55,9 @@ var CategorySelector = Backbone.View.extend({
 
   setTitle: function(title) {
     if (title === 'all') {
-      this.title.innerHTML = this.defaults.title + ' ' + title + ' ' + this.title.getAttribute('data-type');
+      this.title.innerHTML = this.defaults && this.defaults.title ? this.defaults.title + ' ' + title + ' ' + this.title.getAttribute('data-type') : null;
     } else {
-      this.title.innerHTML = this.defaults.title + ' ' + title;
+      this.title.innerHTML = this.defaults && this.defaults.title ? this.defaults.title + ' ' + title : null;
     }
   },
 
