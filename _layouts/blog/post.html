@@ -15,7 +15,7 @@
             <li><a href="{{ site.baseurl }}/"> home </a></li>
             <li><span> / </span></li>
             <li><a href="{{ site.baseurl }}/blog/"> blog </a></li>
-            {% unless page.category == '' %}
+            {% unless page.category == nil %}
             <li><span> / </span></li>
             <li><a href="{{ site.baseurl }}/blog/categories#{{page.category | downcase}}"> {{page.category}} </a></li>
             {% endunless %}
