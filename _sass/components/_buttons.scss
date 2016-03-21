@@ -278,7 +278,7 @@
 }
 
 .btn-close {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   z-index: 1;
@@ -310,6 +310,7 @@
   }
 
   @media screen and (min-width: $screen-l) {
+    position: absolute;
     margin: rem(40px) rem(40px) 0 0;
   }
 }
