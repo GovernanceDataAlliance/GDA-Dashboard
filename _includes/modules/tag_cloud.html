@@ -6,7 +6,7 @@
       <div class="m-tag-cloud">
         <h2>#Tags</h2>
         {% for tag in tags %}
-          <a class="c-tag" href="{{ site.baseurl }}/blog/tags#{{ tag | first }}">
+          <a class="c-tag" href="{{ site.baseurl }}/blog/tags#{{ tag | first | downcase }}">
             #{{tag[0]  | replace:'_', ' '}}
           </a>
         {% endfor %}

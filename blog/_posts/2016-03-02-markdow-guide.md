@@ -4,7 +4,7 @@ layout: blog/post
 date: "2016-03-11"
 author: Vizzuality
 image: ""
-category: ""
+category:
 tags: ""
 title: A markdown guide
 

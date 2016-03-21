@@ -81,6 +81,7 @@ prose:
           element: "text"
           label: category
           placeholder: "add only one category"
+          value:
       - name: tags 
         field: 
           element: "text"
