@@ -16,8 +16,10 @@
 
       &.-active {
         position: relative;
-        > svg{
-          fill: #000;
+        color: $font-color-1;
+
+        > svg {
+          fill: $font-color-1;
         }
 
         &:after {
@@ -31,10 +33,15 @@
           background-color: $color-4;
         }
 
+        .button-literal {
+          color: $font-color-1;
+        }
+
         @media screen and (min-width: 768px) {
           &:after {
             display: none;
           }
+
           .button-literal {
             position: relative;
             &:after {

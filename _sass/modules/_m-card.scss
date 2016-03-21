@@ -36,6 +36,10 @@
         .name a {
           font-size: rem(30px);
           line-height: rem(37px);
+
+          a:hover {
+            text-decoration: underline;
+          }
         }
 
         .description {
@@ -579,17 +583,13 @@
       }
 
       .organization {
-          color: $font-color-2;
-    
-          .btn-info {
-            color: $font-color-3;
-            background-color: $white;
-          }
+        color: $font-color-2;
+  
+        .btn-info {
+          color: $font-color-3;
+          background-color: $white;
         }
       }
-
-    a:hover {
-      text-decoration: underline;
     }
 
     .btn,
