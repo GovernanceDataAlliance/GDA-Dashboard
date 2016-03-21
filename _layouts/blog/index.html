@@ -22,7 +22,9 @@
 
       <div class="l-toolbar -blog">
         <div class="wrap">
-
+          
+          {% assign categoriesSize = site.categories | size %}
+          {% unless categoriesSize == 1 %}
           <div class="m-year-selector">
             <div class="btn-drop-down" id="categorySelector" data-url="{{ site.baseurl }}">
               <select>
@@ -38,6 +40,7 @@
               </select>
             </div>
           </div>
+          {% endunless %}
           
           <button class="js--view-share btn">
             <svg class="icon -regular">

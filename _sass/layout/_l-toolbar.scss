@@ -89,7 +89,7 @@
     .wrap {
       min-height: rem(150px);
 
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: $screen-s) {
         min-height: 0;
       }
     }
@@ -103,6 +103,10 @@
       .btn {
         width: auto;
         margin-left: rem(20px);
+
+        @media screen and (min-width: 768px) {
+          margin-left: auto;
+        }
       }
     }
   }
