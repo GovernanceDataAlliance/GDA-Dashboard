@@ -37,6 +37,10 @@
     }
   }
 
+  .btn {
+    display: inline-block;
+  }
+
   .-highlighted {
     + .btn {
       margin-top: rem(20px);
