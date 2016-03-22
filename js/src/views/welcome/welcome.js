@@ -29,8 +29,6 @@ var WelcomeView = Backbone.View.extend({
         this.initViews();
       },this)
     });
-
-    this.initViews();
   },
 
   show: function() {

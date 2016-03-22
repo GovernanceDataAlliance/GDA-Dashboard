@@ -154,7 +154,7 @@
         font-size: rem(20px);
       }
 
-      &.highlight {
+      &:hover, &.highlight {
         background-color: $bg-color-3;
       }
 
