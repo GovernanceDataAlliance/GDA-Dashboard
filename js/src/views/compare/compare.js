@@ -49,7 +49,6 @@ var CompareView = Backbone.View.extend({
       noDownload: true
     });
 
-
     // collections
     this.indicatorCollection = new IndicatorCollection();
     this.indicatorsNamesCollection = new IndicatorsNamesCollection()

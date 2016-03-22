@@ -26,6 +26,7 @@
     display: none;
     @media screen and (min-width: $screen-m) {
       display: block;
+      cursor: pointer;
     }
   }
 
@@ -64,6 +65,7 @@
 
   input {
     @extend %clean-button-or-input;
+    cursor: pointer;
   }
 
   select {
