@@ -26,6 +26,7 @@
     display: none;
     @media screen and (min-width: $screen-m) {
       display: block;
+      cursor: pointer;
     }
   }
 
@@ -64,6 +65,7 @@
 
   input {
     @extend %clean-button-or-input;
+    cursor: pointer;
   }
 
   select {
@@ -88,6 +90,7 @@
     right: 10%;
     width: rem(20px);
     height: rem(20px);
+    margin-top: rem(-7px);
     fill: $white;
   }
 
