@@ -30,7 +30,7 @@
 
   &.-compare {
     .wrap {
-      padding: 0;
+      padding: 0 rem(10px);
 
       @media screen and (min-width: $screen-l) {
         padding: 0 rem($wrap-padding-desktop);
