@@ -31,7 +31,7 @@
   position: relative;
   display: flex; display: -ms-box;
 
-  @media screen and (min-width: $screen-s) {
+  @media screen and (min-width: $screen-l) {
     border-left: 1px solid $border-1;
     border-right: 1px solid $border-1;
   }
