@@ -17,12 +17,22 @@ var RetractableMenuView = Backbone.View.extend({
   },
 
   _retractableMenuOn: function() {
+    this.currentScroll = 0;
     var debouncedScroll = FunctionHelper.debounce(this._onScrollMobile, 50, true);
     window.addEventListener('scroll', _.bind(debouncedScroll, this));
   },
 
   _onScrollMobile: function(){
-    console.log('scroll');
+    this.$el.addClass('hide');
+
+    var currentPositon = $('body').scrollTop();
+    console.log(currentPositon);
+
+    if (currentPositon > this.currentScroll) {
+      console.log('im going down');
+    };
+
+    this.currentScroll = currentPositon;
   }
 
 });
