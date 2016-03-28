@@ -20,5 +20,8 @@ search_intro: Search here for some of the best governance data we know of
 "module-4-link-url": indicators
 "module-4-image": "distribuidoresMul-04"
 published: true
+crosseling-module-title: About the Alliance
+crosseling-module-text: We're a group of NGOs, governments, firms, and donors who are serious about improving the quality, availability, breadth, and use of governance data. We identify and spread good practices for data production, we build feedback loops between data users and data producers, and we drive down the time and cost to produce data.
+crosseling-module-link: Learn more about the Alliance
 ---
 
