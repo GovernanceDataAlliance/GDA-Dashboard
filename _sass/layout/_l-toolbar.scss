@@ -89,7 +89,7 @@
     .wrap {
       min-height: rem(150px);
 
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: $screen-s) {
         min-height: 0;
       }
     }
@@ -103,6 +103,10 @@
       .btn {
         width: auto;
         margin-left: rem(20px);
+
+        @media screen and (min-width: 768px) {
+          margin-left: auto;
+        }
       }
     }
   }
@@ -148,24 +152,25 @@
 
     .m-compare-selectors {
       justify-content: space-between;
-
-      @media screen and (min-width: 768px) {
-        .m-legend {
-          padding-left: 15px;
-        }
-      }
-
-      @media screen and (min-width: $screen-l) {
-        .m-legend {
-          padding-left: 20px;
-        }
-      }
     }
   }
 
   &.-compare-legend {
     padding: 0;
     height: rem(65px);
+
+    .wrap {
+      padding: 0 rem(10px);
+      max-width: 100%;
+
+      @media screen and (min-width: $screen-l) {
+        padding: 0 rem($wrap-padding-desktop);
+      }
+
+      @media screen and (min-width: $screen-xl) {
+        padding: 0 rem($wrap-padding-desktop-xl);
+      }
+    }
   }
 
 
@@ -178,6 +183,15 @@
       display: -ms-box;
       align-items: initial;
       justify-content: initial;
+      padding: 0 rem(10px);
+
+      @media screen and (min-width: $screen-l) {
+        padding: 0 rem($wrap-padding-desktop);
+      }
+
+      @media screen and (min-width: $screen-xl) {
+        padding: 0 rem($wrap-padding-desktop-xl);
+      }
     }
 
     &.-fixed {

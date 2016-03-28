@@ -18,6 +18,11 @@
   }
 
   .-highlighted {
+
+    @media screen and (min-width: $screen-l) {
+      max-width: 80%;
+    }
+
     + .btn {
       margin-top: rem(20px);
     }

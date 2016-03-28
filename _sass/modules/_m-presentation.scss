@@ -37,6 +37,11 @@
     }
   }
 
+  .btn {
+    display: inline-block;
+    text-align: left;
+  }
+
   .-highlighted {
     + .btn {
       margin-top: rem(20px);

@@ -123,10 +123,12 @@ var SearchView = Backbone.View.extend({
 
   showSuggestions: function(text) {
     text = text.toLowerCase();
+
     var search = this.searchCollection.toJSON();
     if(this.searchTimer) {
       clearTimeout(this.timer);
     }
+    
     this.searchTimer = setTimeout(_.bind(function() {
       search = _.filter(search, function(item) {
         var name = item['name'].toLowerCase().replace(/-/gi, ' ');

@@ -195,7 +195,7 @@
   font-size: rem(16px);
   line-height: rem(16px) !important;
   width: 100%;
-  height: rem(40px);
+  height: rem(45px);
   padding: 0 rem(6px);
   border: 1px solid $color-4;
 
@@ -226,10 +226,12 @@
     padding: rem(12px) 3%;
     padding-right: 15%;
     width: 100%;
-    line-height: rem(16px) !important;
+    height: rem(45px);
+    // line-height: rem(16px) !important;
+    text-transform: uppercase;
 
     @media screen and (min-width: $screen-m) {
-      line-height: rem(11px) !important;
+      // line-height: rem(11px) !important;
       padding-right: 5%;
     }
 
@@ -276,7 +278,7 @@
 }
 
 .btn-close {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   z-index: 1;
@@ -308,6 +310,7 @@
   }
 
   @media screen and (min-width: $screen-l) {
+    position: absolute;
     margin: rem(40px) rem(40px) 0 0;
   }
 }
