@@ -4,6 +4,7 @@
   text-transform: uppercase;
   text-align: center;
   width: 100%;
+  
 
   @media screen and (min-width: $screen-s) {
     width: auto;
@@ -196,7 +197,7 @@
   line-height: rem(16px) !important;
   width: 100%;
   height: rem(45px);
-  padding: 0 rem(6px);
+  padding: 0 rem(6px) 0 rem(15px);
   border: 1px solid $color-4;
 
   @media screen and (min-width: $screen-m) {
@@ -223,7 +224,7 @@
   }
 
   select {
-    padding: 0 3%;
+    padding: 0;
     padding-right: 15%;
     width: 100%;
     height: rem(45px);

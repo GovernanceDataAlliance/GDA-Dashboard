@@ -20,11 +20,13 @@
   .info-wrapper {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     margin-bottom: rem(20px);
 
     @media screen and (min-width: $screen-s) {
       margin-bottom: rem(15px);
+      flex-direction: row;
     }
   }
 
@@ -33,10 +35,12 @@
   }
 
   .indicator-website {
-    text-align: right;
+    width: 100%;
+    white-space: nowrap;
+    margin-top: rem(20px);
 
     @media screen and (min-width: $screen-s) {
-      width: 100%;
+      width: auto;
     }
   }
 }
