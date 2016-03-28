@@ -46,7 +46,7 @@ Handlebars.registerHelper('ordinalNumber', function(number) {
 
 
 Handlebars.registerHelper('unlessPercentage', function(max_score) {
-  if (this.units_abbr != '%' && this.units != "yes/no" && this.short_name != "doing_business") {
+  if (this.units_abbr != '%' && this.units != "yes/no" && this.short_name != "doing_business" && this.short_name != "illicit_financial_flows" ) {
     return '<span class="max_score">/'+ max_score +'</span>'
   }
 });
