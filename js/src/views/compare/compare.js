@@ -104,6 +104,8 @@ var CompareView = Backbone.View.extend({
   _setListeners: function() {
     Backbone.Events.on('breakpoints:loaded', this._onScroll.bind(this));
 
+    // Backbone.Events.on('years:update', this._filterYear, this);
+
     if (!this.mobile) {
       this.listenTo(this.selectorsView.getCollection(), 'change', (this.getDataForCountry).bind(this));
     }
@@ -136,6 +138,49 @@ var CompareView = Backbone.View.extend({
 
     return this;
   },
+
+  // _filterYear: function(params) {
+  //   console.log('_filterYear');
+  //   var currentCountry = params.currentCountry;
+  //     index = currentCountry.get('order'),
+  //     forbiddenYear = currentCountry.get('year'),
+  //     duplicates = params.duplicates,
+  //     selectors = this.selectorsView.getCollection();
+  //
+  //   // Disable chosen year for others selectors with same country
+  //   _.each(duplicates, function(country) {
+  //     if (!_.isEqual(currentCountry.toJSON(), country)) {
+  //       // var $select = $('#year-' + country.order);
+  //
+  //       var yearSelector = selectors.at(country.order - 1).get('yearSelectorView');
+  //
+  //       yearSelector.disableYear(forbiddenYear);
+  //     }
+  //   });
+  //
+  //   // 1 year less for most recently duplicated country
+  //   if (selectors.at(index - 1).get('year') == forbiddenYear) {
+  //
+  //     var yearSelector = selectors.at(index - 1).get('yearSelectorView');
+  //
+  //     // yearSelector.filterYear(forbiddenYear)
+  //
+  //     // var $select = $('#year-' + currentCountry.get('order'));
+  //     //
+  //     // debugger;
+  //     //
+  //     // var year = this.years[1].year;
+  //     // $select.val(year);
+  //     //
+  //     // Backbone.Events.trigger('year:selected', year);
+  //     //
+  //     // $select.trigger('liszt:updated');
+  //     // $select.change();
+  //   }
+  //
+  //   // $select.trigger('liszt:updated');
+  //   // $select.change();
+  // },
 
   _setScrollMobile: function() {
     var debouncedScroll = FunctionHelper.debounce(this._onScrollMobile, 10, true);

@@ -27,6 +27,8 @@ var CompareSelectorsView = Backbone.View.extend({
 
   initialize: function() {
 
+    this.filteredYears = [];
+
     // collections
     this.countriesCollection = new CountriesCollection();
     this.yearsCollection = new yearsCollection();
@@ -74,6 +76,24 @@ var CompareSelectorsView = Backbone.View.extend({
     this.listenTo(this.countriesSelectorCollection, 'change', function() {
       Backbone.Events.trigger('router:update', this.countriesSelectorCollection);
     });
+
+    Backbone.Events.on('year:filtered', this._setFilteredYears, this);
+  },
+
+  _setFilteredYears: function(p) {
+    var index = Number(p.index) - 1;
+    this.filteredYears[index] = p.year;
+
+    var years = this.yearsCollection.toJSON();
+
+    var filter = years;
+
+    _.each(this.filteredYears, function(y) {
+
+      filter = _.omit(filter, {year: y});
+    });
+
+    console.log(filter);
   },
 
   setParams: function(params) {
@@ -150,12 +170,18 @@ var CompareSelectorsView = Backbone.View.extend({
 
         }
 
-        new YearSelectorView({
-          actualYear: this.countriesSelectorCollection.at(Number(i)).get('year'),
-          el: $(selector),
-          index: Number(i) + 1,
-          years: this.yearsCollection.toJSON()
-        }).render();
+        this.countriesSelectorCollection.at(Number(i)).set({
+          'yearSelectorView' : new YearSelectorView({
+            actualYear: this.countriesSelectorCollection.at(Number(i)).get('year'),
+            el: $(selector),
+            index: Number(i) + 1,
+            years: this.yearsCollection.toJSON()
+          })
+        });
+
+        this.countriesSelectorCollection.at(Number(i)).get('yearSelectorView').render();
+
+        // this.yearSelectorView.render();
 
       }.bind(this));
 
