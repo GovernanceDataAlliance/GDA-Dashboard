@@ -1,5 +1,6 @@
 var _ = require('lodash'),
     Backbone = require('backbone'),
+    enquire = require('enquire.js'),
     Handlebars = require('handlebars');
 
 var Country = require('../../models/country.js'),
@@ -15,7 +16,8 @@ var CountryHeaderView = require('./country_header.js'),
     ModalWindowView = require('../common/infowindow_view.js')
     ShareWindowView = require('../common/share_window_view.js'),
     YearSelectorView = require('../common/year_selector.js'),
-    LegendView = require('../common/legend.js');
+    LegendView = require('../common/legend.js'),
+    RetractableMenuView = require('../common/retractable_menu_view.js');
 
 
 var template = Handlebars.compile(require('../../templates/countries/country.hbs'));
@@ -32,6 +34,20 @@ var CountryView = Backbone.View.extend({
     if (options.iso === undefined) {
       throw new Error('CountryView requires a Country ISO ID');
     }
+
+    enquire.register("screen and (max-width:769px)", {
+      match: _.bind(function(){
+        this.mobile = true;
+        this.initViews();
+      },this)
+    });
+
+    enquire.register("screen and (min-width:770px)", {
+      match: _.bind(function(){
+        this.mobile = false;
+        this.initViews();
+      },this)
+    });
 
     // Models
     this.infoWindowModel = new InfoWindowModel();
@@ -59,6 +75,12 @@ var CountryView = Backbone.View.extend({
 
     this._setListeners();
     this.initializeData();
+  },
+
+  initViews: function() {
+    if (this.mobile) {
+      new RetractableMenuView();
+    }
   },
 
   initializeData: function() {

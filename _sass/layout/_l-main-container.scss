@@ -13,9 +13,10 @@ $header-height: rem(70px);
 
 .l-main-container {
   @extend %l-main-container;
+  margin-top: $header-height;
   
-  &.-mobile {
-    margin-top: $header-height;
+  @media screen and (min-width: $screen-m) {
+    margin-top: 0;
   }
 }
 

@@ -3,14 +3,25 @@ var _ = require('lodash'),
   Backbone = require('backbone'),
   enquire = require('enquire.js');
 
+var tpl = Handlebars.compile(
+  require('../../templates/common/mobile_menu_tpl.hbs'));
+
 var WrapperHeaderView = Backbone.View.extend({
 
   el: '.l-menus',
 
   initialize: function() {
-    
-    enquire.register("screen and (min-width: 768px)", {
+
+    enquire.register("screen and (max-width:769px)", {
       match: _.bind(function(){
+        this.mobile = true;
+        this.render();
+      },this)
+    });
+
+    enquire.register("screen and (min-width:770px)", {
+      match: _.bind(function(){
+        this.mobile = false;
         this.$el.removeClass('is-open');
       },this)
     });
@@ -20,9 +31,9 @@ var WrapperHeaderView = Backbone.View.extend({
   },
 
   cacheVars: function() {
-    this.$background = this.$('.modal-background');
-    this.$menu = this.$('.menus-wrapper');
-    this.$btnClose = this.$('.btn-close');
+    this.$background = $('.menu-background');
+    this.$menu = $('.m-mobile-menu');
+    this.$btnClose = $('.btn-close');
     this$btnOpen = this.$('.btn-mobile-menu');
   },
 
@@ -35,12 +46,14 @@ var WrapperHeaderView = Backbone.View.extend({
   _closeMenu: function(e) {
     this._resetScroll();
     e.stopPropagation();
-    this.$el.removeClass('is-open');
+    this.$menu.removeClass('is-open');
+    this.$background.removeClass('is-open');
   },
 
   _openMenu: function(e) {
     e.stopPropagation();
-    this.$el.addClass('is-open');
+    this.$menu.addClass('is-open');
+    this.$background.addClass('is-open');
     this._avoidScroll();
   },
 
@@ -52,6 +65,10 @@ var WrapperHeaderView = Backbone.View.extend({
   _resetScroll: function() {
     $('html').removeClass('is-inmobile');
     $('body').removeClass('is-inmobile');
+  },
+
+  render: function() {
+    $('body').append(tpl());
   }
 
 });

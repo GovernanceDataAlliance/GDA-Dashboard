@@ -1,6 +1,7 @@
 var _ = require('lodash'),
     $ = require('jquery'),
     Backbone = require('backbone'),
+    enquire = require('enquire.js'),
     Handlebars = require('handlebars');
 
 var Indicator = require('../../models/indicator.js');
@@ -15,6 +16,8 @@ var IndicatorHeaderView = require('./indicator_header.js'),
   CountryListView = require('./country_list.js'),
   ShareWindowView = require('../common/share_window_view.js'),
   LegendView = require('../common/legend.js');
+
+var RetractableMenuView = require('../common/retractable_menu_view.js');
 
 var TextShortener = require('../common/text_shortener.js');
 
@@ -31,6 +34,20 @@ var IndicatorView = Backbone.View.extend({
 
   initialize: function(options) {
     options = options || {};
+
+    enquire.register("screen and (max-width:769px)", {
+      match: _.bind(function(){
+        this.mobile = true;
+        this.initViews();
+      },this)
+    });
+
+    enquire.register("screen and (min-width:770px)", {
+      match: _.bind(function(){
+        this.mobile = false;
+        this.initViews();
+      },this)
+    });
 
     window.indicatorId = this.id;
 
@@ -64,6 +81,12 @@ var IndicatorView = Backbone.View.extend({
     this.indicator.set({
       id: this.status.get('id')
     }).fetch();
+  },
+
+  initViews: function() {
+    if (this.mobile) {
+      new RetractableMenuView();
+    }
   },
 
   _setListeners: function() {

@@ -8,28 +8,28 @@ var RetractableMenuView = Backbone.View.extend({
 
   el: '.l-header',
 
-
   initialize: function() {
-    this.$el.addClass('is-retractable')
-    $('.l-main-container').addClass('-mobile');
-
+    this.$el.addClass('is-retractable');
     this._retractableMenuOn();
   },
 
   _retractableMenuOn: function() {
     this.currentScroll = 0;
-    var debouncedScroll = FunctionHelper.debounce(this._onScrollMobile, 50, true);
+    var debouncedScroll = FunctionHelper.debounce(this._onScrollMobile, 10, true);
     window.addEventListener('scroll', _.bind(debouncedScroll, this));
   },
 
   _onScrollMobile: function(){
-    this.$el.addClass('hide');
+    var currentPositon = window.pageYOffset;
 
-    var currentPositon = $('body').scrollTop();
-    console.log(currentPositon);
+    if (currentPositon > this.$el.height() && currentPositon != 0 ) {
+      this.$el.addClass('hide').removeClass('show');
+    } else {
+      return;
+    }
 
-    if (currentPositon > this.currentScroll) {
-      console.log('im going down');
+    if (currentPositon < this.currentScroll) {
+      this.$el.removeClass('hide').addClass('show');
     };
 
     this.currentScroll = currentPositon;
