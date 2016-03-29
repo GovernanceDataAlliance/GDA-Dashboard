@@ -23,7 +23,7 @@
     flex: 1 1 100%;
     justify-content: space-between;
     flex-direction: column;
-    min-height: rem(78px);
+    min-height: rem(105px);
 
     @media screen and (min-width: $screen-s) {
       flex-direction: row;
@@ -85,7 +85,7 @@
 
   &.-data {
     .wrap {
-      min-height: rem(128px);
+      min-height: rem(160px);
 
       @media screen and (min-width: $screen-s) {
         min-height: 0;
@@ -94,13 +94,14 @@
   }
 
   &.-blog {
+
     .wrap {
       flex-direction: row;
       min-height: rem(40px);
 
       .btn {
         width: auto;
-        margin-left: rem(20px);
+        // margin-left: rem(20px);
 
         @media screen and (min-width: 768px) {
           margin-left: auto;

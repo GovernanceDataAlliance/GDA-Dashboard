@@ -1,3 +1,6 @@
+$header-height-desktop: rem(95px);
+$header-height: rem(70px);
+
 %l-main-container {
   max-width: $grid-max-width;
   width: 100%;
@@ -6,8 +9,15 @@
   border-right: 1px solid $light-grey;
   background-color: $white;
 }
+
+
 .l-main-container {
   @extend %l-main-container;
+  margin-top: $header-height;
+  
+  @media screen and (min-width: $screen-m) {
+    margin-top: 0;
+  }
 }
 
 

@@ -1,14 +1,15 @@
 var _ = require('lodash'),
     $ = require('jquery'),
     Backbone = require('backbone'),
+    enquire = require('enquire.js'),
     Handlebars = require('handlebars');
 
 var Indicator = require('../../models/indicator.js');
 
+var FunctionHelper = require('../../helpers/functions.js');
+
 var Countries = require('../../collections/countries.js');
     YearsCollection = require('../../collections/years.js');
-
-var FunctionHelper = require('../../helpers/functions.js');
 
 var IndicatorHeaderView = require('./indicator_header.js'),
   IndicatorSelectorsToolbarView = require('./indicator_selectors_toolbar.js'),
