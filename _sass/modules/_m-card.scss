@@ -369,11 +369,19 @@
       align-items: center;
 
       > .graph {
-        min-width: rem(200px);
-        min-height: rem(100px);
+        width: 100%;
+        height: rem(100px);
         fill: transparent;
         stroke: $color-2;
         stroke-width: 2px;
+
+        @media screen and (min-width: 768px) {
+          width: 80%;
+
+          .is-dashboard-layout & {
+            width: 100%;
+          }
+        }
 
         text {
           font-size: rem(10px);
