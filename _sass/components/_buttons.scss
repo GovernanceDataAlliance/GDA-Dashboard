@@ -196,11 +196,12 @@
   font-size: rem(16px);
   line-height: rem(16px) !important;
   width: 100%;
-  height: rem(45px);
+  height: rem(40px);
   padding: 0 rem(6px) 0 rem(15px);
   border: 1px solid $color-4;
 
   @media screen and (min-width: $screen-m) {
+    height: rem(45px);
     font-size: rem(11px);
     line-height: rem(11px) !important;
     padding: 0 rem(12px);
@@ -227,12 +228,11 @@
     padding: 0;
     padding-right: 15%;
     width: 100%;
-    height: rem(45px);
-    // line-height: rem(16px) !important;
+    height: rem(40px);
     text-transform: uppercase;
 
     @media screen and (min-width: $screen-m) {
-      // line-height: rem(11px) !important;
+      height: rem(45px);
       padding-right: 5%;
     }
 
