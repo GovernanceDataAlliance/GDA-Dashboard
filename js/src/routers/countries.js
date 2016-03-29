@@ -5,7 +5,7 @@ var $ = require('jquery'),
 var ViewManager = require('../lib/view_manager.js'),
   CountryView = require('../views/countries/country.js'),
   CountriesView = require('../views/countries/countries.js'),
-  WrapperHeaderView = require('../views/common/wrapper_header_view.js');
+  MobileMenuView = require('../views/common/mobile_menu_view.js');
 
 var Router = Backbone.Router.extend({
 
@@ -19,7 +19,7 @@ var Router = Backbone.Router.extend({
 
     this.setListeners();
 
-    new WrapperHeaderView();
+    new MobileMenuView();
   },
 
   setListeners: function() {

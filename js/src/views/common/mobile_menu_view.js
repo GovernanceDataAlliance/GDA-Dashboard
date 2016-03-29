@@ -1,25 +1,29 @@
 var _ = require('lodash'),
   $ = require('jquery'),
   Backbone = require('backbone'),
+  Handlebars = require('handlebars'),
   enquire = require('enquire.js');
+
+var FunctionHelper = require('../../helpers/functions.js');
 
 var tpl = Handlebars.compile(
   require('../../templates/common/mobile_menu_tpl.hbs'));
 
-var WrapperHeaderView = Backbone.View.extend({
+var MobileMenuView = Backbone.View.extend({
 
-  el: '.l-menus',
+  el: '.l-header',
 
   initialize: function() {
 
-    enquire.register("screen and (max-width:769px)", {
+    enquire.register("screen and (max-width:768px)", {
       match: _.bind(function(){
         this.mobile = true;
+        this._retractableMenuOn();
         this.render();
       },this)
     });
 
-    enquire.register("screen and (min-width:770px)", {
+    enquire.register("screen and (min-width:769px)", {
       match: _.bind(function(){
         this.mobile = false;
         this.$el.removeClass('is-open');
@@ -35,6 +39,10 @@ var WrapperHeaderView = Backbone.View.extend({
     this.$menu = $('.m-mobile-menu');
     this.$btnClose = $('.btn-close');
     this$btnOpen = this.$('.btn-mobile-menu');
+
+    this.$body = $('body');
+    this.$html = $('html');
+
   },
 
   _setListeners: function() {
@@ -58,19 +66,41 @@ var WrapperHeaderView = Backbone.View.extend({
   },
 
   _avoidScroll: function() {
-    $('html').addClass('is-inmobile');
-    $('body').addClass('is-inmobile');
+    this.$html.addClass('is-inmobile');
+    this.$body.addClass('is-inmobile');
   },
 
   _resetScroll: function() {
-    $('html').removeClass('is-inmobile');
-    $('body').removeClass('is-inmobile');
+    this.$html.removeClass('is-inmobile');
+    this.$body.removeClass('is-inmobile');
   },
 
   render: function() {
     $('body').append(tpl());
+  },
+
+  _retractableMenuOn: function() {
+    this.currentScroll = 0;
+    var debouncedScroll = FunctionHelper.debounce(this._onScrollMobile, 10, true);
+    window.addEventListener('scroll', _.bind(debouncedScroll, this));
+  },
+
+  _onScrollMobile: function(){
+    var currentPositon = window.pageYOffset;
+
+    if (currentPositon > this.$el.height() && currentPositon != 0 ) {
+      this.$el.addClass('hide').removeClass('show');
+    } else {
+      this.$el.removeClass('hide')
+    }
+
+    if (currentPositon < this.currentScroll) {
+      this.$el.removeClass('hide').addClass('show');
+    };
+
+    this.currentScroll = currentPositon;
   }
 
 });
 
-module.exports = WrapperHeaderView;
+module.exports = MobileMenuView;

@@ -52,7 +52,6 @@ var CountriesView = Backbone.View.extend({
       new SearchView({ el: $('.js--search') });
     } else {
       new SearchMobileView({ el: $('.js--search') });
-      new RetractableMenuView();
     }
   },
 

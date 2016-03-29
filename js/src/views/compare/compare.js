@@ -19,8 +19,7 @@ var CompareSelectorsView = require('./compare_selectors.js'),
   MobileSelectorView = require('./compare_mobile_selector.js'),
   ModalWindowView = require('../common/infowindow_view.js'),
   ShareWindowView = require('../common/share_window_view.js'),
-  LegendView = require('../common/legend.js'),
-  RetractableMenuView = require('../common/retractable_menu_view.js');
+  LegendView = require('../common/legend.js');
 
 var template = Handlebars.compile(require('../../templates/compare/compare.hbs')),
   indicatorsTemplate = Handlebars.compile(require('../../templates/compare/compare-indicators.hbs')),
@@ -91,7 +90,6 @@ var CompareView = Backbone.View.extend({
         _.extend(this.events, {
           'click .btn-info': 'showModalWindow'
         });
-        this.initViews();
 
       },this)
     });
@@ -99,15 +97,8 @@ var CompareView = Backbone.View.extend({
     enquire.register("screen and (min-width:768px)", {
       match: _.bind(function(){
         this.mobile = false;
-        this.initViews();
       },this)
     });
-  },
-
-  initViews: function() {
-    if (this.mobile) {
-      new RetractableMenuView();
-    }
   },
 
   _setListeners: function() {

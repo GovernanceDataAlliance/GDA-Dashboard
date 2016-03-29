@@ -1,9 +1,7 @@
 var $ = require('jquery'),
-  enquire = require('enquire.js'),
   Backbone = require('backbone');
 
-var ShareWindowView = require('../common/share_window_view.js'),
-    RetractableMenuView = require('../common/retractable_menu_view.js');
+var ShareWindowView = require('../common/share_window_view.js');
 
 var CategorySelector = require('./category_selector.js');
 
@@ -18,19 +16,6 @@ var BlogView = Backbone.View.extend({
   },
 
   initialize: function() {
-    enquire.register("screen and (max-width:769px)", {
-      match: _.bind(function(){
-        this.mobile = true;
-        this.initViews();
-      },this)
-    });
-
-    enquire.register("screen and (min-width:770px)", {
-      match: _.bind(function(){
-        this.mobile = false;
-        this.initViews();
-      },this)
-    });
 
     this.shareWindowView = new ShareWindowView({
       noDownload: true
@@ -43,12 +28,6 @@ var BlogView = Backbone.View.extend({
     };
 
     this.FunctionHelper.scrollTop();
-  },
-
-  initViews: function() {
-    if (this.mobile) {
-      new RetractableMenuView();
-    }
   },
 
   _category: function() {
