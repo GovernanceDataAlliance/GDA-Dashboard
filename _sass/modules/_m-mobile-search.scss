@@ -1,0 +1,34 @@
+.m-mobile-search {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: $bg-color-3;
+
+  .btn-close-modal {
+    display: block;
+    color: $white;
+    border-color: $white;
+    pointer-events: all;
+    z-index: 999;
+  }
+
+  select {
+    @extend %clean-button-or-input;
+    @extend %center;
+    display: block;
+    height: rem(50px);
+    width: 80%;
+    border-bottom: 1px solid $white;
+    border-radius: 0;
+    line-height: 1.8em;
+    font-family: $font-main;
+    font-style: italic;
+    font-size: rem(18px);
+    text-transform: none;
+    color: $font-color-1;
+    text-align: left;
+  }
+}
