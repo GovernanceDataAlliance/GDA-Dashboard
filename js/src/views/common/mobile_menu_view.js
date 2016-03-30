@@ -88,15 +88,18 @@ var MobileMenuView = Backbone.View.extend({
   _onScrollMobile: function(){
     var currentPositon = window.pageYOffset;
 
-    if (currentPositon > this.$el.height() && currentPositon != 0 ) {
-      this.$el.addClass('hide').removeClass('show');
+    if (currentPositon < this.$el.height() ) {
+      //Show
+      this.$el.addClass('show').removeClass('hide');
     } else {
-      this.$el.removeClass('hide')
+      if (currentPositon < this.currentScroll) {
+        //Show
+        this.$el.addClass('show').removeClass('hide');
+      } else {
+        //hide
+        this.$el.addClass('hide').removeClass('show');
+      }
     }
-
-    if (currentPositon < this.currentScroll) {
-      this.$el.removeClass('hide').addClass('show');
-    };
 
     this.currentScroll = currentPositon;
   }
