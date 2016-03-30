@@ -12,6 +12,10 @@ var template = Handlebars.compile(
 
 var CountryHeaderView = Backbone.View.extend({
 
+  events: {
+    'change #notCoveredSwitcher' : 'toogleNotCoveredItems'
+  },
+
   initialize: function(options) {
     options = options || {};
     this.country = options.country;
@@ -63,6 +67,13 @@ var CountryHeaderView = Backbone.View.extend({
         requiredAttributes = ['name'];
 
     return _.intersection(currentAttributes, requiredAttributes).length > 0;
+  },
+
+  toogleNotCoveredItems: function(e) {
+    $('.-not-covered').toggleClass('is-hidden', e.currentTarget.checked);
+
+    var label = e.currentTarget.checked ? 'show not covered' : 'hide not covered'
+    this.$('.c-switcher--label').html(label);
   }
 });
 
