@@ -59,3 +59,26 @@ $bg-color-active: $bg-color-3;
     }
   }
 }
+
+.c-switcher--label {
+  font-family: $font-secondary;
+  font-size: rem(10px);
+  text-transform: uppercase;
+  margin-right: rem(10px);
+}
+
+.c-switcher--wrapper {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: rem(20px);
+
+  @media screen and (min-width: 768px) {
+    margin-top: rem(35px);
+  }
+
+  @media screen and (min-width: $screen-l) {
+    margin-top: rem(50px);
+  }
+}
