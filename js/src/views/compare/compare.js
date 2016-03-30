@@ -104,10 +104,8 @@ var CompareView = Backbone.View.extend({
   _setListeners: function() {
     Backbone.Events.on('breakpoints:loaded', this._onScroll.bind(this));
 
-    // Backbone.Events.on('years:update', this._filterYear, this);
-
     if (!this.mobile) {
-      this.listenTo(this.selectorsView.getCollection(), 'change', (this.getDataForCountry).bind(this));
+      this.listenTo(this.selectorsView.getCollection(), 'change:year', (this.getDataForCountry).bind(this));
     }
 
     if (this.mobile) {
@@ -138,49 +136,6 @@ var CompareView = Backbone.View.extend({
 
     return this;
   },
-
-  // _filterYear: function(params) {
-  //   console.log('_filterYear');
-  //   var currentCountry = params.currentCountry;
-  //     index = currentCountry.get('order'),
-  //     forbiddenYear = currentCountry.get('year'),
-  //     duplicates = params.duplicates,
-  //     selectors = this.selectorsView.getCollection();
-  //
-  //   // Disable chosen year for others selectors with same country
-  //   _.each(duplicates, function(country) {
-  //     if (!_.isEqual(currentCountry.toJSON(), country)) {
-  //       // var $select = $('#year-' + country.order);
-  //
-  //       var yearSelector = selectors.at(country.order - 1).get('yearSelectorView');
-  //
-  //       yearSelector.disableYear(forbiddenYear);
-  //     }
-  //   });
-  //
-  //   // 1 year less for most recently duplicated country
-  //   if (selectors.at(index - 1).get('year') == forbiddenYear) {
-  //
-  //     var yearSelector = selectors.at(index - 1).get('yearSelectorView');
-  //
-  //     // yearSelector.filterYear(forbiddenYear)
-  //
-  //     // var $select = $('#year-' + currentCountry.get('order'));
-  //     //
-  //     // debugger;
-  //     //
-  //     // var year = this.years[1].year;
-  //     // $select.val(year);
-  //     //
-  //     // Backbone.Events.trigger('year:selected', year);
-  //     //
-  //     // $select.trigger('liszt:updated');
-  //     // $select.change();
-  //   }
-  //
-  //   // $select.trigger('liszt:updated');
-  //   // $select.change();
-  // },
 
   _setScrollMobile: function() {
     var debouncedScroll = FunctionHelper.debounce(this._onScrollMobile, 10, true);
@@ -360,15 +315,30 @@ var CompareView = Backbone.View.extend({
           order = Number(countryModel.get('order')),
           year = countryModel.get('year');
 
-        if (iso) {
+        if (iso && year && year !== 'no-data') {
+
           this.indicatorCollection.forCountryAndYear(iso, year).done(function() {
             this.renderCountryScores(this.indicatorCollection.toJSON(), iso, order);
           }.bind(this));
+
+        }
+
+        if (iso == 'no_data' || year == 'no-data') {
+          this._cleanColumn(order);
         }
 
       }.bind(this));
     }
 
+  },
+
+  _cleanColumn: function(order) {
+    var $column = $('.js--country-' + order);
+
+    $column.find('ul li')
+      .empty()
+      .removeClass()
+      .addClass('table-cell');
   },
 
   renderCountryScores: function(indicators, iso, order) {
@@ -416,14 +386,18 @@ var CompareView = Backbone.View.extend({
     if (!this.mobile) {
       this.selectorsView.setParams(params);
     } else {
+
       _.each(params, function(d, i) {
         var slide = this.slides[i];
           data = d.split(':');
+
         slide.status.set({
           iso: data[0],
           year: Number(data[1])
         });
+
       }.bind(this));
+
     }
   },
 

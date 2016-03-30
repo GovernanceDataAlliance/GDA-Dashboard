@@ -55,11 +55,11 @@ var Router = Backbone.Router.extend({
       params= p.toJSON();
 
       params = _.omit(params, function(p) {
-        return !p.iso || p.iso == 'no_data';
+        return !p.iso || p.iso == 'no_data' || !p.year || p.year == 'no-data';
       });
 
-
       totalData = _.size(params);
+
     } else {
       params = [];
       _.each(p, function(slide) {
@@ -74,7 +74,7 @@ var Router = Backbone.Router.extend({
     if (isCollection) {
 
       if(totalData == 0) {
-        url = '';
+        url = 'default';
       }
 
       _.each(params, function(country, i) {
@@ -101,9 +101,9 @@ var Router = Backbone.Router.extend({
         }
       });
     }
-
     this.navigate(url);
   }
+
 });
 
 module.exports = Router;
