@@ -26,7 +26,7 @@ with up as (
     AND w.{{categoryGroup}} = '{{categoryName}}' 
   {{/if}}
   AND c.desired_direction ='up' 
-  order by score desc, name 
+  order by i.score desc, b.name 
 ), down as ( 
   SELECT 
     i.iso, 
@@ -55,6 +55,6 @@ with up as (
     AND w.{{categoryGroup}} = '{{categoryName}}' 
   {{/if}}
   AND c.desired_direction ='down' 
-  order by score, name 
+  order by i.score, b.name 
 )
 SELECT  * from up  UNION ALL SELECT * from down
