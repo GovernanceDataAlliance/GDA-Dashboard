@@ -58,7 +58,6 @@ var Indicators = CartoDBCollection.extend({
     if (!indicator.score_range) {
       return;
     }
-
     return ColorService.getColor(indicator);
   },
 
@@ -69,7 +68,7 @@ var Indicators = CartoDBCollection.extend({
       year: opts.year
     });
 
-    return this._urlForQuery(query) + '&format=csv';
+    return this._urlForQuery(query) + '&format=csv&filename=indicators_for_' + opts.iso;
   }
 
 });
