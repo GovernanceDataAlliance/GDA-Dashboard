@@ -215,8 +215,6 @@ var CompareView = Backbone.View.extend({
   renderIndicatorNames: function() {
     this.indicatorsNamesCollection.fetch().done(function() {
 
-      console.log(this.indicatorsNamesCollection.toJSON());
-
       this.$('.js--comparison-indicators').html(indicatorsTemplate({
         indicators: this.indicatorsNamesCollection.toJSON()
       }));
