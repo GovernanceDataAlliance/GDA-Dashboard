@@ -1,6 +1,6 @@
 .m-card {
   width: 100%;
-  border-bottom: 1px solid $border-1;
+  border-bottom: .5px solid $border-1;
   color: $font-color-1;
   background-color: $white;
 
@@ -144,10 +144,6 @@
     flex-basis: 100%;
     margin: 0;
 
-    &:last-child {
-      border-bottom: 0;
-    }
-
     .card-wrap {
       padding: rem(40px) rem($wrap-padding-mobile);
 
@@ -186,18 +182,8 @@
       float: left;
       border-right: 1px solid $border-1;
 
-
-      &:nth-last-child(2) {
-        border-bottom: 0;
-      }
-
-      &:nth-child(2n) {
-        border-right: 0;
-        border-bottom: 1px solid $border-1;
-      }
-
       &:last-child {
-        border-bottom: 0;
+        border-bottom: 1px solid $border-1;
       }
 
       > .card-wrap {
@@ -211,23 +197,7 @@
     }
 
     @media screen and (min-width: $screen-l) {
-      width: 33.33%;
-
-      &:nth-child(2n) {
-        border-bottom: 1px solid $border-1;
-        border-right: 1px solid $border-1;
-      }
-
-      &:nth-last-child(2),
-      &:nth-last-child(3),
-      &:last-child {
-        border-bottom: 0;
-      }
-
-      &:nth-child(3n) {
-        border-right: 0;
-        border-bottom: 1px solid $border-1;
-      }
+      width: 33.33333333%;
 
       > .card-wrap {
         padding: rem(40px);
