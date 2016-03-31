@@ -10,7 +10,7 @@ var chosen = require('chosen-jquery-browserify'),
 var template = Handlebars.compile(
   require('../../templates/common/year_selector.hbs'));
 
-var CompareYearSelectors = Backbone.View.extend({
+var YearSelectors = Backbone.View.extend({
 
   events: {
     'change select': '_getYear'
@@ -63,18 +63,6 @@ var CompareYearSelectors = Backbone.View.extend({
     return this;
   },
 
-  // filterYear: function() {
-  //
-  // },
-
-  // disableYear: function(forbiddenYear) {
-  //   var $select = this.$('select');
-  //
-  //   $select.find('option[value=' + forbiddenYear + ']')[0].setAttribute('disabled', 'disabled');
-  //   $select.trigger('liszt:updated')
-  //     .change();
-  // },
-
   _setCurrentYear: function() {
     this.$el.find('select').val(this.actualYear);
 
@@ -84,12 +72,10 @@ var CompareYearSelectors = Backbone.View.extend({
   _getYear: function(e) {
     var year = $(e.currentTarget).val(),
       index = $(e.currentTarget).attr('id').split('-')[1];
-    Backbone.Events.trigger('year:selected', year);
-    Backbone.Events.trigger('year:filtered', {
-      index: index,
-      year: year
-    });
 
+    this.actualYear = year;
+
+    Backbone.Events.trigger('year:selected', year);
   },
 
   show: function() {
@@ -99,4 +85,4 @@ var CompareYearSelectors = Backbone.View.extend({
   hide: function() {}
 });
 
-module.exports = CompareYearSelectors;
+module.exports = YearSelectors;
