@@ -13,7 +13,7 @@ var template = Handlebars.compile(
 var CountryHeaderView = Backbone.View.extend({
 
   events: {
-    'change #notCoveredSwitcher' : 'toogleNotCoveredItems'
+    'change #notCoveredSwitcher' : 'setNotcoveredStatus'
   },
 
   initialize: function(options) {
@@ -65,6 +65,8 @@ var CountryHeaderView = Backbone.View.extend({
       this.drawCountry();
     }
 
+    Backbone.Events.on('countriesList:render', _.bind( this.toogleNotCoveredItems, this ));
+
     return this;
   },
 
@@ -75,11 +77,17 @@ var CountryHeaderView = Backbone.View.extend({
     return _.intersection(currentAttributes, requiredAttributes).length > 0;
   },
 
-  toogleNotCoveredItems: function(e) {
-    $('.-not-covered').toggleClass('is-hidden', e.currentTarget.checked);
-
-    var label = e.currentTarget.checked ? 'show not covered' : 'hide not covered'
+  toogleNotCoveredItems: function() {
+    $('.-not-covered').toggleClass('is-hidden', this.checked);
+    
+    var label = this.checked ? 'show not covered' : 'hide not covered'
     this.$('.c-switcher--label').html(label);
+  },
+
+  setNotcoveredStatus: function(e) {
+    this.checked = e.currentTarget.checked;
+    this.toogleNotCoveredItems();
+
   }
 });
 
