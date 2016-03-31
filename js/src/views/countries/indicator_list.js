@@ -45,7 +45,10 @@ var IndicatorListView = Backbone.View.extend({
 
       this.$('.js--indicators-list').append(indicatorView.render().el);
     }.bind(this));
+    
+    Backbone.Events.trigger('countriesList:render');
   }
+
 });
 
 module.exports = IndicatorListView;
