@@ -44,8 +44,14 @@ var CountryHeaderView = Backbone.View.extend({
 
       sql = ["SELECT the_geom FROM world_borders WHERE iso3 = UPPER('" + iso + "')&format=topojson"].join(' ');
 
+      var options = {
+        element: '.js--country-silhouette',
+        width: 300,
+        height: 175
+      };
+
       d3.json('https://gda.cartodb.com/api/v2/sql?q=' + sql, _.bind(function(error, topology) {
-        countryDrawer.draw(topology, 0, { alerts: true });
+        countryDrawer.draw(topology, 0, options, { alerts: true });
       }, this ));
   },
 
