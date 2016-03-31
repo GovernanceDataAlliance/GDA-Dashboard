@@ -1,0 +1,85 @@
+$width: 55px;
+$height: 30px;
+$color: $bg-color-3;
+$bg-color: $bg-color-1;
+$bg-color-active: $bg-color-3;
+
+.c-switcher {
+  display: inline-block;
+  position: relative;
+  width: $width;
+  height: $height;
+
+  label {
+    position: absolute;
+    width: $width;
+    height: $height;
+    border: 1px solid $color;
+    background-color: $bg-color;
+    border-radius: $height;
+    cursor: pointer;
+    transition: .2s ease-in;
+
+    &:after {
+      content: '';
+      @extend %centery;
+      z-index: 1;
+      left: 2px;
+      width: $height - 4px;
+      height: $height - 4px;
+      border-radius: 50%;
+      background-color: $color;
+      transition: .2s ease-in;
+    }
+  }
+
+  input {
+    @extend %clean-button-or-input;
+    @extend %centery;
+    z-index: 1;
+    left: 2px;
+    width: $height - 4px;
+    height: $height - 4px;
+    border-radius: 50%;
+    background-color: $color;
+    opacity: 0;
+    transition: .2s ease-in;
+  }
+
+  input:checked {
+    left: $width - $height + 1px;
+    background-color: $bg-color-3;
+
+    & + label {
+      // background-color: $bg-color-active;
+      &:after {
+        left: $width - $height + 1px;
+        background-color: $bg-color-3;
+      }
+    }
+  }
+}
+
+.c-switcher--label {
+  font-family: $font-secondary;
+  font-size: rem(10px);
+  text-transform: uppercase;
+  margin-right: rem(10px);
+  width: rem(112px);
+}
+
+.c-switcher--wrapper {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: rem(20px);
+
+  @media screen and (min-width: 768px) {
+    margin-top: rem(35px);
+  }
+
+  @media screen and (min-width: $screen-l) {
+    margin-top: rem(50px);
+  }
+}

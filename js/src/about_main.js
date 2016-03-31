@@ -1,4 +1,2 @@
-
-var WrapperHeaderView = require('./views/common/wrapper_header_view.js');
-
-new WrapperHeaderView();
+var MobileMenuView = require('./views/common/mobile_menu_view.js');
+new MobileMenuView();

@@ -1,0 +1,48 @@
+.m-mobile-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  width: 90%;
+  background-color: $bg-color-4;
+  transition: all .3s ease-in .2s;
+  transform: translatex(100%);
+
+  .scroll-wrapper {
+    position: absolute;
+    top: rem(60px);
+    bottom: rem(60px);
+    left: 0;
+    right: 0;
+    padding: 0 rem(40px);
+    overflow-y: scroll;
+  }
+
+  .link:first-child {
+    a {
+      padding: rem(10px) rem(40px) rem(20px) 0;
+    }
+  }
+
+  &.is-open {
+    transform: translatex(0);
+    transition: all .3s ease-in .2s;
+  }
+}
+
+.menu-background {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  background: #000;
+  opacity: .5;
+
+  &.is-open {
+    display: block;
+  }
+}

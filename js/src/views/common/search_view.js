@@ -22,7 +22,9 @@ var SearchView = Backbone.View.extend({
 
   events: {
     'keyup #searchMap' : '_onSearch',
-    'click #searchMap' : 'positionSearchBox'
+    'focus #searchMap' : 'highlight',
+    'keydown #searchMap': 'highlightResultsBox',
+    'click .search-area' : '_clearSearch'
   },
 
   initialize: function(settings) {
@@ -44,6 +46,7 @@ var SearchView = Backbone.View.extend({
 
     // search options
     this.closeOnClick = this.options.closeOnClick;
+    this.listHeight = 300;
 
     this._setListeners();
 
@@ -95,6 +98,8 @@ var SearchView = Backbone.View.extend({
       this.$(this.elContent).removeClass('searching');
       this._clearSuggestions();
     }
+
+    this.positionSearchBox();
   },
 
   _triggerResult: function() {
@@ -134,9 +139,7 @@ var SearchView = Backbone.View.extend({
       }
     }
 
-
     selectedResult = results[this.selectedIndex];
-
 
     $(results).removeClass('highlight');
     $(selectedResult).addClass('highlight');
@@ -184,14 +187,13 @@ var SearchView = Backbone.View.extend({
 
     this.$(this.elInput).addClass('focus');
 
-    this.listHeight = 300;
     var marginFromBottom = 30;
 
     var heightToScroll = this.$el.offset().top + this.$el.outerHeight() + this.listHeight + marginFromBottom - document.documentElement.clientHeight;
 
-    $('body').animate({
-      scrollTop: heightToScroll + 'px'}
-    , 300);
+    if (heightToScroll > 100) {
+      $('body').animate({scrollTop: heightToScroll + 'px'}, 300);
+    }
   },
 
   _unHighlight: function(ev) {
@@ -221,10 +223,12 @@ var SearchView = Backbone.View.extend({
 
     this.selectedIndex = -1;
 
-    results = _.filter(this.searchCollection.toJSON(), function(item) {
+    results = _.filter(this.searchCollection.toJSON(), function(item, i) {
       var name = item['name'].toLowerCase().replace(/-/gi, ' ');
       var index = name.indexOf(text);
       if(index >= 0) {
+
+        this.selectedIndex++;
 
         var start = item.name.substring(0, index),
           substr = item.name.substring(index, index + text.length),
@@ -232,12 +236,13 @@ var SearchView = Backbone.View.extend({
 
         item.title = item.name;
         item.iso = item.iso;
+        item.index = this.selectedIndex;
         item.name = start + '<span>' + substr + '</span>' + end;
         item.selected = item.selected || false;
 
         return item;
       }
-    });
+    }.bind(this));
 
     this.$(this.elSuggestions).html(templateSuggestions({
       data: results
@@ -246,6 +251,29 @@ var SearchView = Backbone.View.extend({
     this.$(this.elContent).addClass('visible');
 
     this.$(this.elSuggestions).css({ 'max-height': this.listHeight + 'px'});
+
+    this._addEventsResults();
+  },
+
+  _addEventsResults: function() {
+    var $results = $('.search-area');
+
+    _.each($results, function(result) {
+      result.addEventListener('mouseenter', this._onHover, false);
+    }.bind(this));
+  },
+
+  _onHover: function(e) {
+    var $results = $('.search-area'),
+      $currentResult = $(e.currentTarget);
+
+    _.each($results, function(result) {
+      $(result).removeClass('highlight');
+    });
+
+    $currentResult.addClass('highlight');
+
+    this.selectedIndex = Number($currentResult.data('index'));
   },
 
   _clearSuggestions: function() {

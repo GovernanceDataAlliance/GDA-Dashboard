@@ -21,9 +21,23 @@
       </div>
 
       {{ content }}
+
       <div class="js--compare-container"></div>
 
-      {% include modules/about_module.html %}
+      <div class="l-highlight distribuidorDestacado-About02">
+        <div class="wrap">  
+          <div class="m-highlight">
+            <h2 class="c-block-title">
+              {{ page.crosseling-module-title }}
+            </h2>
+            <p class="-highlighted">
+              {{ page.crosseling-module-text }}
+            </p>
+            <a href="{{ site.baseurl }}/about" class="btn -white">find out more</a>  
+          </div>
+        </div>
+      </div>
+
       {% include footer.html %}
     </div>
     <script>

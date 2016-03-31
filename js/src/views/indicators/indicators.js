@@ -11,7 +11,6 @@ var template = Handlebars.compile(
 var IndicatorsView = Backbone.View.extend({
 
   initialize: function() {
-
     this.indicatorsData = null;
 
     // collections
