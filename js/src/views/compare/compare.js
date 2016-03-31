@@ -428,6 +428,7 @@ var CompareView = Backbone.View.extend({
       }));
 
     } else {
+
       for (var i = 1 ; i <= 3; i++) {
         if (i == order) {
           iso = iso == 'no_data' ? null: iso;

@@ -40,7 +40,11 @@ var Indicators = CartoDBCollection.extend({
 
     $.each(rawData.rows, _.bind(function(i, d) {
 
-      _.extend(d, {'classColor': this._setColorsByScore(d)});
+      if (this._setColorsByScore(d)) {
+        _.extend(d, {
+          classColor: this._setColorsByScore(d)
+        });
+      }
 
       if (d['score_text']) {
         d['score'] = d['score_text'];
