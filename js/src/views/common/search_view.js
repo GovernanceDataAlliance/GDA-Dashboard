@@ -22,7 +22,8 @@ var SearchView = Backbone.View.extend({
   events: {
     'keyup #searchMap' : 'onSearch',
     'focus #searchMap' : 'highlight',
-    'keydown #searchMap': 'highlightResultsBox'
+    'keydown #searchMap': 'highlightResultsBox',
+    'click .search-area' : 'clearSearch'
   },
 
   initialize: function(settings) {
@@ -77,6 +78,8 @@ var SearchView = Backbone.View.extend({
         this.clearSuggestions();
       }
     }
+
+    this.positionSearchBox();
   },
 
   highlight: function(ev) {
@@ -88,8 +91,6 @@ var SearchView = Backbone.View.extend({
     if(this.closeOnClick) {
       this.$(this.elSuggestions +' li').removeClass('selected');
     }
-
-    this.positionSearchBox();
   },
 
   positionSearchBox: function() {
@@ -98,7 +99,9 @@ var SearchView = Backbone.View.extend({
 
     var heightToScroll = this.$el.offset().top + this.$el.outerHeight() + this.listHeight + marginFromBottom - document.documentElement.clientHeight;
 
-    $('body').animate({scrollTop: heightToScroll + 'px'}, 300);
+    if (heightToScroll > 150) {
+      $('body').animate({scrollTop: heightToScroll + 'px'}, 300);
+    }
   },
 
   unHighlight: function(ev) {
@@ -163,7 +166,7 @@ var SearchView = Backbone.View.extend({
   clearSearch: function() {
     var $input = this.$(this.elInput);
     $input.val('');
-    this.onSearch();
+    this.clearSuggestions();
   },
 
   highlightResultsBox: function(ev) {

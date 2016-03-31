@@ -19,7 +19,16 @@
   </div>
 
   <div class="wrap">
-    <h1 class="c-section-title -country-name">{{name}}</h1>
+    <div>
+      <h1 class="c-section-title -country-name">{{name}}</h1>
+      <div class="c-switcher--wrapper">
+        <span class="c-switcher--label">hide not covered</span>
+        <div class="c-switcher">
+          <input id="notCoveredSwitcher" type="checkbox">
+          <label for="notCoveredSwitcher"></label>
+        </div>
+      </div>
+    </div>
     <div class="js--country-silhouette m-country-silhouette"></div>
   </div>
 </div>

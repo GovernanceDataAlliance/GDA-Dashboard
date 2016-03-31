@@ -8,7 +8,8 @@
 
 .is-inmobile {
   overflow: hidden !important;
-  // position: fixed;
+  height: 100vh;
+  width: 100%;
 }
 
 //It shows up after 768 (tablet)

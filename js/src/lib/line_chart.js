@@ -4,8 +4,8 @@ var d3 = require('d3'),
 var LineChart = function(params) {
   var elem = params.elem;
   var $el = $(elem);
-  var contentWidth = $(document).width() < 900 ? 200 : 250;
-  var contentHeight = 100;
+  var contentWidth = $el.width();
+  var contentHeight = $el.height();
   var data = params.data;
   var dateFormat = params.dateFormat || '%Y';
   var hover = params.hover;
@@ -22,6 +22,7 @@ var LineChart = function(params) {
     xaxis: 10,
     tooltip: 1.8
   };
+
 
   var width = contentWidth - margin.right - margin.left,
       height = contentHeight - margin.top - margin.bottom;

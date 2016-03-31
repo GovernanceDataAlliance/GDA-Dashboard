@@ -28,18 +28,22 @@
 
       > .description {
         display: flex; display: -ms-box;
-        align-items: baseline;
+        align-items: center;
       }
     }
 
     .rank {
       font-size: rem(30px);
-      margin-right: rem(40px);
+      margin-left: rem(40px);
     }
 
     .name {
       font-size: rem(15px);
-      color: $font-color-1;
+      // color: $font-color-1;
+
+      @media screen and (min-width: 768px) {
+       margin-left: rem(25px);
+      }
 
       &:hover {
         text-decoration: underline;
@@ -124,6 +128,15 @@
           margin-left: 5px;
         }
       }
+    }
+  }
+
+  .figure {
+    fill: $bg-color-3;
+    display: none;
+
+    @media screen and (min-width: 768px) {
+      display: block;
     }
   }
 }

@@ -102,7 +102,7 @@
       font-size: rem(15px);
 
       + .btn, + ul {
-        margin-top: rem(30px);
+        margin-top: rem(10px);
       }
     }
   }
@@ -110,7 +110,7 @@
   @media screen and (min-width: $screen-xl) {
     > p {
       + .btn, + ul {
-        margin-top: rem(40px);
+        margin-top: rem(20px);
       }
     }
   }

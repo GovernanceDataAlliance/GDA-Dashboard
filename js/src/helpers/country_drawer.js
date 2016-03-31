@@ -3,11 +3,11 @@ var d3 = require('d3'),
 
 var countryHelper = {
 
-  draw: function(topology, c) {
+  draw: function(topology, c, options) {
     var country = topojson.feature(topology, topology.objects[c]);
-    var width = 300,
-        height = 175,
-        el = '.js--country-silhouette';
+    var width = options.width,
+        height = options.height,
+        el = options.element;
 
     var svg = d3.select(el).append("svg:svg")
       .attr("width", width)
