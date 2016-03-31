@@ -40,13 +40,15 @@ var Indicators = CartoDBCollection.extend({
 
     $.each(rawData.rows, _.bind(function(i, d) {
 
-      if (!this._setColorsByScore(d)) {
-        return;
-      }
       _.extend(d, {'classColor': this._setColorsByScore(d)});
 
       if (d['score_text']) {
         d['score'] = d['score_text'];
+      }
+
+      if (d['score_range'] == '1,0') {
+        d['max_score'] = 'yes';
+        d['min_score'] = 'no';
       }
 
     }, this));

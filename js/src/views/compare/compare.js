@@ -164,10 +164,7 @@ var CompareView = Backbone.View.extend({
    */
   renderSlides: function() {
 
-    this.indicatorsNamesCollection.fetch().done(function(indicators) {
-      this.indicatorsOrdered = indicators.rows;
-
-      var indicatorsOrdered = _.sortByOrder(indicators.rows, ['short_name']);
+    this.indicatorsNamesCollection.fetch().done(function() {
 
       _.each(this.slides, function(slide) {
 
@@ -180,7 +177,7 @@ var CompareView = Backbone.View.extend({
         this.$('#country-' + order + ' .country')
           .append(templateMobileScores({
             index: order,
-            indicators: indicatorsOrdered
+            indicators: this.indicatorsNamesCollection.toJSON()
           }));
 
         slide.setElement(this.$('.selectors-' + order));
@@ -216,10 +213,12 @@ var CompareView = Backbone.View.extend({
   },
 
   renderIndicatorNames: function() {
-    this.indicatorsNamesCollection.fetch().done(function(indicators) {
+    this.indicatorsNamesCollection.fetch().done(function() {
+
+      console.log(this.indicatorsNamesCollection.toJSON());
 
       this.$('.js--comparison-indicators').html(indicatorsTemplate({
-        indicators: indicators.rows
+        indicators: this.indicatorsNamesCollection.toJSON()
       }));
 
       this.calculateEndScrollPoint();
