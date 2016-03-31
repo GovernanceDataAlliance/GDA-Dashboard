@@ -55,17 +55,20 @@ var Router = Backbone.Router.extend({
       params= p.toJSON();
 
       params = _.omit(params, function(p) {
-        return !p.iso || p.iso == 'no_data';
+        return !p.iso || p.iso == 'no_data' || !p.year || p.year == 'no-data';
       });
 
-
       totalData = _.size(params);
+
     } else {
       params = [];
       _.each(p, function(slide) {
-        if(slide.status.get('iso')) {
+
+        if(slide.status.get('iso') && slide.status.get('iso') !== 'no_data'
+          && slide.status.get('year') && slide.status.get('year') !== 'no-data') {
           params.push(slide.status);
         }
+
       });
 
       totalData = params.length;
@@ -74,7 +77,7 @@ var Router = Backbone.Router.extend({
     if (isCollection) {
 
       if(totalData == 0) {
-        url = '';
+        url = 'default';
       }
 
       _.each(params, function(country, i) {
@@ -90,7 +93,9 @@ var Router = Backbone.Router.extend({
     } else {
 
       if(totalData == 0) {
-        url = '';
+        url = 'default';
+      } else {
+        url = 'countries=';
       }
 
       _.each(params, function(slide, i) {
@@ -100,10 +105,11 @@ var Router = Backbone.Router.extend({
           url += ',';
         }
       });
-    }
 
+    }
     this.navigate(url);
   }
+
 });
 
 module.exports = Router;
