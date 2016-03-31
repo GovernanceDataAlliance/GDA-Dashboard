@@ -32,7 +32,7 @@ var SearchView = Backbone.View.extend({
     this.options = _.extend(this.defaults, options);
 
     // this.count = 0;
-    this.selectedIndex = 0;
+    this.selectedIndex = -1;
     this.limit = -1;
 
     // collections
@@ -116,7 +116,6 @@ var SearchView = Backbone.View.extend({
     var results = this.$(this.elSuggestions).find('ul').children(),
       totalResults = results.length,
       selectedResult;
-
 
     if (!results) {
       return;
@@ -219,16 +218,15 @@ var SearchView = Backbone.View.extend({
 
   showSuggestions: function(text) {
     text = text.toLowerCase();
-    var results;
-
-    this.selectedIndex = -1;
+    var results,
+      indexResult= -1;
 
     results = _.filter(this.searchCollection.toJSON(), function(item, i) {
       var name = item['name'].toLowerCase().replace(/-/gi, ' ');
       var index = name.indexOf(text);
       if(index >= 0) {
 
-        this.selectedIndex++;
+        indexResult++;
 
         var start = item.name.substring(0, index),
           substr = item.name.substring(index, index + text.length),
@@ -236,7 +234,7 @@ var SearchView = Backbone.View.extend({
 
         item.title = item.name;
         item.iso = item.iso;
-        item.index = this.selectedIndex;
+        item.index = indexResult;
         item.name = start + '<span>' + substr + '</span>' + end;
         item.selected = item.selected || false;
 
@@ -259,7 +257,7 @@ var SearchView = Backbone.View.extend({
     var $results = $('.search-area');
 
     _.each($results, function(result) {
-      result.addEventListener('mouseenter', this._onHover, false);
+      result.addEventListener('mouseenter', _.bind(this._onHover, this), false);
     }.bind(this));
   },
 
