@@ -99,7 +99,7 @@ var SearchView = Backbone.View.extend({
 
     var heightToScroll = this.$el.offset().top + this.$el.outerHeight() + this.listHeight + marginFromBottom - document.documentElement.clientHeight;
 
-    if (heightToScroll > 150) {
+    if (heightToScroll > 100) {
       $('body').animate({scrollTop: heightToScroll + 'px'}, 300);
     }
   },
