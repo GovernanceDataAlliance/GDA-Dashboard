@@ -215,8 +215,6 @@ var CompareView = Backbone.View.extend({
   renderIndicatorNames: function() {
     this.indicatorsNamesCollection.fetch().done(function() {
 
-      console.log(this.indicatorsNamesCollection.toJSON());
-
       this.$('.js--comparison-indicators').html(indicatorsTemplate({
         indicators: this.indicatorsNamesCollection.toJSON()
       }));
@@ -430,6 +428,7 @@ var CompareView = Backbone.View.extend({
       }));
 
     } else {
+
       for (var i = 1 ; i <= 3; i++) {
         if (i == order) {
           iso = iso == 'no_data' ? null: iso;
