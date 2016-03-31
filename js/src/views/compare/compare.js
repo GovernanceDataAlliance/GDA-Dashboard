@@ -313,9 +313,6 @@ var CompareView = Backbone.View.extend({
               var filteredValues = this._getFilteredValuesMobile(iso);
               this._updateSelectorsMobile(filteredValues, iso);
             }
-
-
-            // slide.checkSelection();
           }
 
           if (iso && year && year !== 'no-data') {
