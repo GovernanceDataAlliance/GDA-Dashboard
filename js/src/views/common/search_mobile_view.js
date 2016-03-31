@@ -45,7 +45,7 @@ var SearchMobileView = Backbone.View.extend({
 
   setEvents: function() {
     $('.btn-close-search').on('click', _.bind(this.closeSearch, this));
-    $('#countries').on('change', _.bind(this.goToCountry, this));
+    $(document).on('change', '#countries', _.bind(this.goToCountry, this));
   },
 
   closeSearch: function(e) {
@@ -60,7 +60,6 @@ var SearchMobileView = Backbone.View.extend({
   },
 
   goToCountry: function(e) {
-    console.log('mi');
     e && e.preventDefault() && e.stopPropagation();
 
     window.location.href = SITEURL ?  SITEURL + $(e.currentTarget).val() : $(e.currentTarget).val();

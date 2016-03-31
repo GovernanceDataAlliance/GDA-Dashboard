@@ -5,9 +5,12 @@ $header-height: rem(70px);
   max-width: $grid-max-width;
   width: 100%;
   margin: 0 auto;
-  border-left: 1px solid $light-grey;
-  border-right: 1px solid $light-grey;
   background-color: $white;
+
+  @media screen and (min-width: $screen-xl) {
+    border-left: 1px solid $light-grey;
+    border-right: 1px solid $light-grey;
+  }
 }
 
 
