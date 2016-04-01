@@ -36,6 +36,8 @@ var CountryHeaderView = Backbone.View.extend({
     if (!this.hasRequiredAttributes()) {
       this.country.fetch();
     }
+
+    this.checked = false;
   },
 
   drawCountry: function() {
