@@ -62,7 +62,6 @@ var DownloadView = infoWindowView.extend({
   },
 
   _getCSV: function() {
-
     if (this.options.id) {
       return this.countriesCollection.downloadCountriesForIndicator(
         this.options.id, this.options.year, this.options.categoryGroup, this.options.categoryName);

@@ -25,9 +25,11 @@ var IndicatorConfigs = CartoDBCollection.extend({
     var ogp = _.find(data.rows, {'short_name': 'ogp_regular_consult_forum'});
 
     if (ogp['max_score']) {
-      ogp['max_score'] =  'yes';
-      ogp['min_score'] =  'no';
+      ogp['max_score'] = 'yes';
+      ogp['min_score'] = 'no';
     }
+
+    return data.rows;
   }
 
 });
