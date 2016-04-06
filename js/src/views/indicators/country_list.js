@@ -4,6 +4,7 @@ var _ = require('lodash'),
   Handlebars = require('handlebars');
 
 var countryDrawer = require('../../helpers/country_drawer.js');
+var countryQuery = require('../../templates/queries/country_topology.hbs');
 var template = Handlebars.compile(require('../../templates/indicators/country_list.hbs'));
 
 var IndicatorListView = Backbone.View.extend({
@@ -18,6 +19,8 @@ var IndicatorListView = Backbone.View.extend({
     this.direction = options.direction;
     this.max_score = options.max_score;
     this.countries = options.countries;
+
+    this.countryQuery = Handlebars.compile(countryQuery);
 
     this.render();
   },
@@ -56,12 +59,17 @@ var IndicatorListView = Backbone.View.extend({
   drawFigures: function() {
     var figures = this.$('.figure');
 
-    $.each(figures, function(figure){
-      var iso = $(this).data('iso');
-      var sql = ["SELECT the_geom FROM world_borders WHERE iso3 = UPPER('" + iso + "')&format=topojson"].join(' ');
+    $.each(figures, function(index, figure){
+      var iso = $(figure).data('iso');
+
+      var sql = this.countryQuery({
+        iso: iso.toUpperCase()
+      });
+
+      sql += '&format=topojson';
 
       var options = {
-        element: this,
+        element: figure,
         width: 30,
         height: 30
       }
@@ -69,7 +77,7 @@ var IndicatorListView = Backbone.View.extend({
       d3.json('https://gda.cartodb.com/api/v2/sql?q=' + sql, _.bind(function(error, topology) {
         countryDrawer.draw(topology, 0, options, { alerts: true });
       }, this ));
-    })
+    }.bind(this));
   },
 
 

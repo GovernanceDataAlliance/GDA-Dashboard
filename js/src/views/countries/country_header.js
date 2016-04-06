@@ -6,6 +6,8 @@ var _ = require('lodash'),
 
 var countryDrawer = require('../../helpers/country_drawer.js');
 
+var countryQuery = require('../../templates/queries/country_topology.hbs');
+
 var template = Handlebars.compile(
   require('../../templates/countries/country_header.hbs'));
 
@@ -20,6 +22,8 @@ var CountryHeaderView = Backbone.View.extend({
     options = options || {};
     this.country = options.country;
     this.listenTo(this.country, 'sync', this.render);
+
+    this.countryQuery = Handlebars.compile(countryQuery);
 
     enquire.register("screen and (max-width:768px)", {
       match: _.bind(function(){
@@ -42,9 +46,13 @@ var CountryHeaderView = Backbone.View.extend({
 
   drawCountry: function() {
     var iso = this.country.get('iso3'),
-       sql;
+      sql;
 
-      sql = ["SELECT the_geom FROM world_borders WHERE iso3 = UPPER('" + iso + "')&format=topojson"].join(' ');
+      sql = this.countryQuery({
+        iso: iso.toUpperCase()
+      });
+
+      sql += '&format=topojson';
 
       var options = {
         element: '.js--country-silhouette',
@@ -81,7 +89,7 @@ var CountryHeaderView = Backbone.View.extend({
 
   toogleNotCoveredItems: function() {
     $('.-not-covered').toggleClass('is-hidden', this.checked);
-    
+
     var label = this.checked ? 'show not covered' : 'hide not covered'
     this.$('.c-switcher--label').html(label);
   },
