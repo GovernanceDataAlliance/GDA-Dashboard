@@ -209,7 +209,7 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
     &.-row {
       > .wrap {
-        display: flex; 
+        display: flex;
         display: -ms-box;
         flex-direction: row;
         justify-content: space-between;
@@ -273,5 +273,9 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
   a:hover {
     color: $color-4;
+  }
+
+  .title-container {
+    width: 100%;
   }
 }
