@@ -24,7 +24,7 @@
 
   > .js--search-desktop {
     display: none;
-    
+
     @media screen and (min-width: $screen-m) {
       display: block;
       cursor: pointer;
