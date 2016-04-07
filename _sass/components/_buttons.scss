@@ -4,7 +4,7 @@
   text-transform: uppercase;
   text-align: center;
   width: 100%;
-  
+
 
   @media screen and (min-width: $screen-s) {
     width: auto;
@@ -237,6 +237,10 @@
 
     &:hover {
       color: $color-4;
+    }
+
+    &:disabled {
+      opacity: .5;
     }
   }
 
