@@ -280,6 +280,7 @@ var SearchView = Backbone.View.extend({
   _clearSuggestions: function() {
     this.$el.find('.search-suggestions').html('');
     this.$el.find('#searchContent').removeClass('visible');
+    this.selectedIndex = -1;
   },
 
   _clearSearch: function() {
