@@ -97,7 +97,7 @@ var CountrySelectorView = Backbone.View.extend({
       if (this.status.get('year')) {
         this._setYearValue();
       } else {
-        $(this.$('select')[0]).attr('disabled', 'disabled');
+        $(this.$('select')[1]).attr('disabled', 'disabled');
       }
 
       if (!this.mobile) {
@@ -113,7 +113,7 @@ var CountrySelectorView = Backbone.View.extend({
   },
 
   filter: function(filteredYears) {
-    var $select = $(this.$el.find('select')[0]),
+    var $select = $(this.$el.find('select')[1]),
       currentYear = $select.val();
 
     this.resetYears();
@@ -128,7 +128,7 @@ var CountrySelectorView = Backbone.View.extend({
   },
 
   resetYears: function() {
-    var $options = $(this.$('select')[0]).find('option');
+    var $options = $(this.$('select')[1]).find('option');
 
     _.each($options, function(option) {
       $(option).removeAttr('disabled');
@@ -137,24 +137,24 @@ var CountrySelectorView = Backbone.View.extend({
 
   checkSelection: function() {
     var year = this.status.get('year'),
-      $currentOption = $(this.$('select')[0]).find('option[value="' + year + '"]');
+      $currentOption = $(this.$('select')[1]).find('option[value="' + year + '"]');
 
     if ($currentOption.length > 0 && $currentOption.attr('disabled') == 'disabled') {
 
-      $(this.$('select')[0])
+      $(this.$('select')[1])
         .val('no-data')
         .trigger('change');
     }
   },
 
   _enableYearSelector: function() {
-    var $select = $(this.$('select')[0]);
+    var $select = $(this.$('select')[1]);
 
     $select.removeAttr('disabled');
   },
 
   _disableYearSelector: function() {
-    var $select = $(this.$('select')[0]);
+    var $select = $(this.$('select')[1]);
 
     $select.val('no-data');
 
@@ -185,7 +185,7 @@ var CountrySelectorView = Backbone.View.extend({
       this._disableYearSelector();
       this.resetYears();
     } else {
-      if ($(this.$('select')[0]).attr('disabled')) {
+      if ($(this.$('select')[1]).attr('disabled')) {
         this._enableYearSelector();
       }
     }

@@ -6,9 +6,6 @@
       </div>
       <div class="m-year-selector -compare -score">
         <div class="btn-drop-down">
-          <div class="js--year-selector-compare"></div>
-        </div>
-        <div class="btn-drop-down">
           <select class="js--compare-selector" name="country1" id="country-1" readonly="true" >
             <option value="no_data">Select country</option>
             {{#each countries}}
@@ -16,31 +13,34 @@
             {{/each}}
           </select>
         </div>
-      </div>
-      <div class="m-year-selector -compare -score">
         <div class="btn-drop-down">
           <div class="js--year-selector-compare"></div>
         </div>
+      </div>
+      <div class="m-year-selector -compare -score">
         <div class="btn-drop-down">
           <select class="js--compare-selector -score" name="country2" id="country-2" readonly="true" >
             <option value="no_data">Select country</option>
             {{#each countries}}
-              <option value="{{this.iso3}}">{{this.name}}</option>
+            <option value="{{this.iso3}}">{{this.name}}</option>
             {{/each}}
           </select>
+        </div>
+        <div class="btn-drop-down">
+          <div class="js--year-selector-compare"></div>
         </div>
       </div>
       <div class="m-year-selector -compare -score">
         <div class="btn-drop-down">
-          <div class="js--year-selector-compare"></div>
-        </div>
-        <div class="btn-drop-down">
           <select class="js--compare-selector -score" name="country3" id="country-3" readonly="true" >
             <option value="no_data">Select country</option>
             {{#each countries}}
-              <option value="{{this.iso3}}">{{this.name}}</option>
+            <option value="{{this.iso3}}">{{this.name}}</option>
             {{/each}}
           </select>
+        </div>
+        <div class="btn-drop-down">
+          <div class="js--year-selector-compare"></div>
         </div>
       </div>
     </div>
