@@ -6,6 +6,8 @@ var $ = require('jquery'),
 
 var SearchCollection = require('../../collections/countries.js');
 
+var FunctionHelper = require('../../helpers/functions.js');
+
 var template = Handlebars.compile(require('../../templates/common/search_tpl.hbs')),
     templateSuggestions = Handlebars.compile(require('../../templates/common/search_suggestions_tpl.hbs'));
 
@@ -47,6 +49,8 @@ var SearchView = Backbone.View.extend({
     // search options
     this.closeOnClick = this.options.closeOnClick;
     this.listHeight = 300;
+
+    this.debounceHightlight = FunctionHelper.debounce(this._highlightResult, 85, true);
 
     this._setListeners();
 
@@ -140,10 +144,20 @@ var SearchView = Backbone.View.extend({
 
     selectedResult = results[this.selectedIndex];
 
+    this._scrollResult(selectedResult, key)
+    this.debounceHightlight(null, selectedResult);
+  },
+
+  _highlightResult: function(e, selectedResult) {
+    if (e) {
+      var selectedResult = e.target;
+      this.selectedIndex = Number($(selectedResult).data('index'));
+    }
+
+    var results = this.$(this.elSuggestions).find('ul').children();
+
     $(results).removeClass('highlight');
     $(selectedResult).addClass('highlight');
-
-    this._scrollResult(selectedResult, key)
   },
 
 
@@ -153,10 +167,11 @@ var SearchView = Backbone.View.extend({
 
     if (this.selectedIndex > 3) {
 
-      if (key == 38) {
-        this.limit -= itemHeight;
+      var marginHeight = this.$('.search-box').height() / 2;
 
-        var marginHeight = this.$('.search-box').height() / 2;
+      if (key == 38) {
+
+        this.limit -= itemHeight;
 
         var movement = this.selectedIndex * itemHeight - marginHeight;
 
@@ -165,7 +180,8 @@ var SearchView = Backbone.View.extend({
         }, 300);
 
       } else {
-        this.limit += itemHeight;
+
+        this.limit = itemHeight * this.selectedIndex - marginHeight;
 
         $('.search-box').animate({
           scrollTop: this.limit + 'px'
@@ -257,21 +273,8 @@ var SearchView = Backbone.View.extend({
     var $results = $('.search-area');
 
     _.each($results, function(result) {
-      result.addEventListener('mouseenter', _.bind(this._onHover, this), false);
+      result.addEventListener('mouseenter', _.bind(this.debounceHightlight, this), false);
     }.bind(this));
-  },
-
-  _onHover: function(e) {
-    var $results = $('.search-area'),
-      $currentResult = $(e.currentTarget);
-
-    _.each($results, function(result) {
-      $(result).removeClass('highlight');
-    });
-
-    $currentResult.addClass('highlight');
-
-    this.selectedIndex = Number($currentResult.data('index'));
   },
 
   _clearSuggestions: function() {
