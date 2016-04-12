@@ -41,6 +41,7 @@ var DownloadView = infoWindowView.extend({
 
   _setListeners: function() {
     Backbone.Events.on('rankGroup:chosen', this._setCohortInfo, this);
+    Backbone.Events.on('compare:download-data', this._setDownloadData, this);
     Backbone.Events.on('year:selected', this._setYear, this);
   },
 
@@ -55,6 +56,10 @@ var DownloadView = infoWindowView.extend({
     }
   },
 
+  _setDownloadData: function(countries) {
+    this.options.compare = countries;
+  },
+
   _setYear: function(year) {
     _.extend(this.options, {
       year: year
@@ -65,11 +70,27 @@ var DownloadView = infoWindowView.extend({
     if (this.options.id) {
       return this.countriesCollection.downloadCountriesForIndicator(
         this.options.id, this.options.year, this.options.categoryGroup, this.options.categoryName);
+    } else if (this.options.compare) {
+
+      if (!this.options.compare.length > 0) {
+        return;
+      }
+
+      $('.js--download-btn')
+        .unbind('click')
+        .removeClass('disabled');
+
+      return this.indicatorsCollection.downloadForCountries({
+        countries: this.options.compare
+      });
+
     } else {
+
       return this.indicatorsCollection.downloadForCountry({
         iso: this.options.iso,
         year: this.options.year
       });
+
     }
   },
 
@@ -78,11 +99,32 @@ var DownloadView = infoWindowView.extend({
     this.constructor.__super__.close();
   },
 
+  _checkCompareDownload: function() {
+    if (window.location.pathname !== '/compare') {
+      return;
+    }
+
+    if (this.options.compare && this.options.compare.length > 0) {
+      $('.js--download-btn')
+        .unbind('click')
+        .removeClass('-disabled');
+
+    } else {
+      $('.js--download-btn').on('click', function(e) {
+        e.preventDefault();
+      });
+
+      $('.js--download-btn').addClass('-disabled');
+    }
+  },
+
   render: function() {
     this.$el.append(this.template({
       csv: this._getCSV(),
       siteURL: SITEURL || null
     }));
+
+    this._checkCompareDownload();
   }
 
 });

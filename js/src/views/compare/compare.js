@@ -45,9 +45,7 @@ var CompareView = Backbone.View.extend({
     // views
     this.infoWindowModel = new InfoWindowModel();
 
-    this.shareWindowView = new ShareWindowView({
-      noDownload: true
-    });
+    this.shareWindowView = new ShareWindowView();
 
     // collections
     this.indicatorCollection = new IndicatorCollection();

@@ -9,6 +9,7 @@ var Handlebars = require('handlebars');
 
 var SQL = Handlebars.compile(require('../templates/queries/indicators.sql.hbs')),
     SQLwithYears = Handlebars.compile(require('../templates/queries/indicators_with_years.sql.hbs')),
+    SQLMultipleCountries = Handlebars.compile(require('../templates/queries/indicators-multiple-countries.sql.hbs')),
     SQLHistoricalData = Handlebars.compile(require('../templates/queries/indicators_historical_data.sql.hbs'));
 
 var Indicators = CartoDBCollection.extend({
@@ -65,6 +66,31 @@ var Indicators = CartoDBCollection.extend({
       return;
     }
     return ColorService.getColor(indicator);
+  },
+
+  downloadForCountries: function(opts) {
+    var data = opts.countries,
+      countriesAndYears = '';
+
+    if (!data.length > 0) {
+      return;
+    }
+
+    _.each(data, function(country, index) {
+      if (index > 0) {
+        countriesAndYears += " OR iso='" + country.iso + "' AND year=" + country.year;
+      } else {
+        countriesAndYears += "iso='" + country.iso + "' AND year=" + country.year;
+      }
+
+    });
+
+    var query = SQLMultipleCountries({
+      table: this.table,
+      countriesAndYears: countriesAndYears,
+    });
+
+    return this._urlForQuery(query) + '&format=csv';
   },
 
   downloadForCountry: function(opts) {
