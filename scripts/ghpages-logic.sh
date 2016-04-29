@@ -1,7 +1,7 @@
 #!/bin/bash
 
 git config user.name "Travis CI"
-git config user.email "adam.mulligan@vizzuality.com"
+git config user.email "${GH_USER}"
 
 if [ -z ${GH_TOKEN+x} ]; then
   git remote add origin "https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
