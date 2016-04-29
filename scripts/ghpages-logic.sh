@@ -3,10 +3,16 @@
 git config user.name "Travis CI"
 git config user.email "adam.mulligan@vizzuality.com"
 
+if [ -z ${GH_TOKEN+x} ]; then
+  git remote add origin "https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
+else
+  echo "Removing local gh-pages branch"
+  git branch -D gh-pages
+fi
+
 echo "Fetching existing gh-pages branch"
-git remote add upstream "https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
-git fetch upstream
-git checkout -b gh-pages upstream/gh-pages
+git fetch origin
+git checkout -b gh-pages origin/gh-pages
 
 echo "Rebasing"
 git rebase develop
