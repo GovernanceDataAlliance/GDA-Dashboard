@@ -4,8 +4,9 @@ git config user.name "Travis CI"
 git config user.email "adam.mulligan@vizzuality.com"
 
 echo "Fetching existing gh-pages branch"
-git fetch
-git checkout -b gh-pages
+git remote add upstream "https://${GH_TOKEN}@${GH_REF}"
+git fetch upstream
+git checkout gh-pages
 
 echo "Rebasing"
 git rebase develop
