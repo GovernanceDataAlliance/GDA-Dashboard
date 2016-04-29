@@ -19,8 +19,11 @@ git add -f css/main.css
 
 CHANGED=$(git diff-index --name-only HEAD --)
 if [ -n "$CHANGED" ]; then
-  echo "Commiting dependecies deltas"
+  echo "Committing dependencies deltas"
   git commit -m 'Automatic Travis Build - Dependency update'
 else
   echo "No dependency changes detected"
 fi
+
+echo "Pushing to gh-pages branch"
+git push --force --quiet origin gh-pages:gh-pages
