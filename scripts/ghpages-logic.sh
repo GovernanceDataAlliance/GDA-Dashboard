@@ -7,7 +7,7 @@ if [ -z ${GH_TOKEN+x} ]; then
   echo "Removing local gh-pages branch"
   git branch -D gh-pages
 else
-  git remote add origin "https://github.com/${TRAVIS_REPO_SLUG}.git"
+  git fetch origin
 fi
 
 echo "Fetching existing gh-pages branch"
