@@ -11,8 +11,8 @@ else
 fi
 
 echo "Fetching existing gh-pages branch"
-git fetch origin
-git checkout -b gh-pages origin/gh-pages
+git branch gh-pages origin/gh-pages
+git checkout gh-pages
 
 echo "Rebasing"
 git rebase develop
