@@ -5,7 +5,7 @@ git config user.email "adam.mulligan@vizzuality.com"
 
 echo "Fetching existing gh-pages branch"
 git fetch
-git checkout gh-pages
+git checkout -b gh-pages
 
 echo "Rebasing"
 git rebase develop
