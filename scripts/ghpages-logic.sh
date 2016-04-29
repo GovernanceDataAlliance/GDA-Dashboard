@@ -4,7 +4,7 @@ git config user.name "Travis CI"
 git config user.email "adam.mulligan@vizzuality.com"
 
 echo "Fetching existing gh-pages branch"
-git remote add upstream "https://${GH_TOKEN}@${GH_REF}"
+git remote add upstream "https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
 git fetch upstream
 git checkout -b gh-pages upstream/gh-pages
 
