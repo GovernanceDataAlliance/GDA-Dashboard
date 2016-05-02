@@ -7,15 +7,16 @@ if [ -z ${GH_TOKEN+x} ]; then
   echo "Removing local gh-pages branch"
   git branch -D gh-pages
 else
-  git fetch origin
+  echo "Fetching existing gh-pages branch"
+  git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+  git fetch origin --unshallow
 fi
 
-echo "Fetching existing gh-pages branch"
-git branch gh-pages origin/gh-pages
+echo "Switching to gh-pages branch"
 git checkout gh-pages
 
 echo "Rebasing"
-git rebase develop
+git rebase origin/develop
 
 echo "Installing dependencies"
 grunt dist
@@ -32,4 +33,4 @@ else
 fi
 
 echo "Pushing to gh-pages branch"
-git push --force --quiet origin gh-pages:gh-pages
+git push --force "https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git" gh-pages:gh-pages
