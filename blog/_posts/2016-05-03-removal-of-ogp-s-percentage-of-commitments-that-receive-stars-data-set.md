@@ -8,7 +8,7 @@ category: ""
 tags: data
 title: "Removal of OGP's \"percentage of commitments that receive stars\" data set"
 ---
-## This blog posts explains why the OGP has decided to remove the "percentage of an action plan’s commitments that receive stars" data set from the Alliance website.
+This blog posts explains why the OGP has decided to remove the "percentage of an action plan’s commitments that receive stars" data set from the Alliance website.
 
 
 The Open Government Partnership (OGP) is proud to be one of the [founding participants](http://www.opengovpartnership.org/blog/j-preston-whitt/2015/08/27/ogp-and-governance-data-alliance-marketplace-governance-data-broken) in the Governance Data Alliance.
