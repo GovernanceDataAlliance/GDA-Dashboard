@@ -66,7 +66,6 @@ Index strengths
 **Index challenges**
 
 - Cost: Household surveys are very expensive [the cost for the survey varies by location, but it is for example 20-60K in the Middle East; and 90K in Afghanistan, the most expensive); around $1M per release 
-
 - Experts survey: these are very time-consuming and done pro bono which makes it challenging to get experts to agree to do them and follow through
 	- How do you incentivize participation of experts?
 	- How do you vet experts and polling companies?
@@ -137,7 +136,7 @@ Index strengths
 	- Does the law exist?
     - How strong are the clauses around timeliness, low-cost etc.?
 
-**Data collection: **
+**Data collection:**
 
 - WRI contracted with 70 legal experts who scored indicators, using Indaba 
 	- They had to provide the law and specific clause 
@@ -236,7 +235,7 @@ Index strengths
 
 **Joe Spanjerss**
 
- – GFI uses DataWrapper to do map
+- GFI uses DataWrapper to do map
 
 **Nathaniel:** 
 
@@ -247,7 +246,7 @@ Index strengths
 
 - We try to incentivize the use and analysis of data by experts
 
-**Abhinav - OGP **
+**Abhinav - OGP**
 
 - Also want to encourage people to use data – how do we incentive this?  
 
@@ -262,7 +261,7 @@ Index strengths
 - WRI did a basic analysis only as well because there was not enough time
 - Researchers were very behind - how do we manage all the delays?
 
-**Nathaniel ** on GI’s experience
+**Nathaniel** on GI’s experience
 
 Some options include:
 
@@ -276,7 +275,7 @@ Some options include:
 
 **All: never enough time for analysis**
 
-**Nathaniel: **
+**Nathaniel:**
 
 - We could talk to companies such as Splunk; Google that do large scale data mining
 - Should have a conversation with DataKind 
