@@ -41,7 +41,7 @@ Organizations presented and discusses their data collection and analysis tools
 
 **Joel on the Rule of Law Index (WJP)**
 
-**Data collection tools: **
+**Data collection tools:**
 
 - Expert surveys and household surveys are the two sources of data
 - The research is done in 53 countries
