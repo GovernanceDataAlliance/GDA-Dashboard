@@ -24,7 +24,7 @@ Organizations presented and discusses their data collection and analysis tools
 - Score changes are done by consensus 
 - The expert coder also produces a narrative report
 
-**Strengths:**
+**Strengths**
 
 - It provides a simple assessment of the complex question of political rights, which we do not have clear quantitative indicators for
 - The scale is from 0-7 will allows for easy for global comparisons
@@ -48,7 +48,7 @@ Organizations presented and discusses their data collection and analysis tools
 - In most countries, the household survey is carried out every other year
 - The experts’ survey is carried out every year. 
 
-**Experts’ survey: **
+**Experts’ survey:**
 
 - It is taken by in-country experts (about 2,500 responses) through Survey Gizmo (in a few countries it is completed in a word document and faxed)
 - The survey is only available in English, French, and Spanish, which creates gaps
