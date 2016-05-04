@@ -33,9 +33,9 @@ Organizations presented and discusses their data collection and analysis tools
 
 - The scale is from 0-7 - it’s a blunt tool
 - Experts
-		- Finding experts: it is challenging to find the right experts who can also write an “academic” narrative
-		- Logistical challenges: we privilege in-country experts, which makes getting everyone to the US difficult.
-		- Security challenges: in some places, those participating in the survey are seen as criticizing part of political system, and therefore face security issues. They often do not communicate with ease or come to the US
+	- Finding experts: it is challenging to find the right experts who can also write an “academic” narrative
+	- Logistical challenges: we privilege in-country experts, which makes getting everyone to the US difficult.
+	- Security challenges: in some places, those participating in the survey are seen as criticizing part of political system, and therefore face security issues. They often do not communicate with ease or come to the US
 
 - Scoring system has become more complex and rigorous in the last 20 years, and FH would like to go back and recode previous years, but does not have the resources to do so.
 
