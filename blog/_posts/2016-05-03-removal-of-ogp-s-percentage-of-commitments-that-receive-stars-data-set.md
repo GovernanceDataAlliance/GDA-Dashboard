@@ -26,4 +26,3 @@ The percentage of starred commitments, however, does not lend itself so easily t
 For that reason, OGP has requested that the GDA remove the percentage of starred commitments dataset from its dashboard.  We hope the remaining two datasets serve the GDA community much better.  And of course, anyone who still wishes to analyze the percentage of starred commitments (or any other wonky analysis project) can still do so using the [OGP Explorer](http://www.opengovpartnership.org/explorer/landing).
  
 Please address any questions to info@opengovpartnership.org
-
