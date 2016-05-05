@@ -5,7 +5,7 @@ date: "2016-02-01"
 author: Caroline Poirrier
 image: ""
 category: ""
-tags: meeting_notes
+tags: meeting_notes producers_workshop
 title: Research Design and Use of Data
 ---
 Below are the notes from our third producers’ workshop. The session, co-led by the Centre for Law and Democracy (CLD), the International Budget Partnership (IBP), and the Natural Resource Governance Institute (NRGI), focused on research design and the use of data.
@@ -129,7 +129,3 @@ The right to information presents particular challenges because it do not lend i
 	- A groups of organizations - including the Govlab at NYU, World Bank, R4D – is thinking about a research agenda trying to show impact of governance work on outcomes  
 
 ### 4.	Profile raising; fundraising
-
-
-
-
