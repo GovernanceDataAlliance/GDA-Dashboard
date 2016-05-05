@@ -5,7 +5,7 @@ date: "2015-11-09"
 author: ""
 image: ""
 category: ""
-tags: "meeting_notes, producers_workshop "
+tags: "meeting_notes producers_workshop "
 title: Engaging with governments and managing feedback
 ---
 
