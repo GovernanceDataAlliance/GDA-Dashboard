@@ -5,7 +5,7 @@ date: "2016-02-01"
 author: Caroline Poirrier
 image: ""
 category: ""
-tags: ""
+tags: meeting_notes
 title: Research Design and Use of Data
 ---
 Below are the notes from our third producers’ workshop. The session, co-led by the Centre for Law and Democracy (CLD), the International Budget Partnership (IBP), and the Natural Resource Governance Institute (NRGI), focused on research design and the use of data.
