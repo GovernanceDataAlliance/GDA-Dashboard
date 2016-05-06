@@ -145,11 +145,11 @@ Mo Ibrahim commissioned an organization to create a huge spreadsheet
 - It costs about 10-20K to build, but you can then keep reusing it
 - Might the Alliance be interested in investing in something like this?
 
-**Jesse and Santhosh ** – many partners would find it useful to have a tool you can use offline 
+**Jesse and Santhosh** – many partners would find it useful to have a tool you can use offline 
 
 **Nathaniel** – we could at least put all of the high-level data on the website into excel as a first way to test this type of tool 
 
-**Have people tested the use of visualization?
+**Have people tested the use of visualization?**
 
 **Sam** - AidData has done some of this
 
