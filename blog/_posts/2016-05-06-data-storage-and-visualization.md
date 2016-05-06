@@ -177,6 +177,3 @@ Mo Ibrahim commissioned an organization to create a huge spreadsheet
 - We could use the Alliance to push this message
 - We should do a brain dump of tools/tricks that people use
 - Perhaps we could develop a 5-10 question surveys to an audience list
-
-
-
