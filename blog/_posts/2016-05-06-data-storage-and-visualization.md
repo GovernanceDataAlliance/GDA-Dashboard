@@ -1,7 +1,7 @@
 ---
 published: true
 layout: blog/post
-date: "2016-03-01"
+date: "2016-02-29"
 author: Caroline Poirrier
 image: ""
 category: ""
