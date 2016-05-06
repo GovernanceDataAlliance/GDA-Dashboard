@@ -156,7 +156,7 @@ Mo Ibrahim commissioned an organization to create a huge spreadsheet
 - People are evenly split between preferring/using visualization, the full data set, and other things
 - Experiments in a couple of countries – the results were quite different here, with people preferring static tools 
 
-**Melissa **– the WB uses data to inform investment decisions
+**Melissa**– the WB uses data to inform investment decisions
 
 - Example: evidence that translated pages were not being used much led to those pages being cut. 
 
