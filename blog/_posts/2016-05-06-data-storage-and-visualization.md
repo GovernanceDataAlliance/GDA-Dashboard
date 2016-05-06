@@ -88,11 +88,11 @@ WRI’s approach is “Empathize/explain/simplify”
 
 **Alejandro**
 
-– It depends on the audience
-- Some need just the rankings
-- Some want the details of what is happening in a given country
-- Some people want aggregate score, others want more disaggregated data; It can be hard to accommodate both
-- In the past, WJP has asked for feedback on what users prefer – and preferences are mixed!
+- It depends on the audience
+	- Some need just the rankings
+	- Some want the details of what is happening in a given country
+	- Some people want aggregate score, others want more disaggregated data; It can be hard to accommodate both
+	- In the past, WJP has asked for feedback on what users prefer – and preferences are mixed!
 
 **Melissa**
 
