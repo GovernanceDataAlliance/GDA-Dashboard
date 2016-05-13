@@ -28,6 +28,20 @@
     background-color: transparent;
   }
 
+  &.-compare {
+    .wrap {
+      padding: 0 rem(10px);
+
+      @media screen and (min-width: $screen-l) {
+        padding: 0 rem($wrap-padding-desktop);
+      }
+
+      @media screen and (min-width: $screen-xl) {
+        padding: 0 rem($wrap-padding-desktop-xl);
+      }
+    }
+  }
+
   &.-fixed {
     margin-top: rem(70px);
   }

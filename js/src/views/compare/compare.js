@@ -45,10 +45,7 @@ var CompareView = Backbone.View.extend({
     // views
     this.infoWindowModel = new InfoWindowModel();
 
-    this.shareWindowView = new ShareWindowView({
-      noDownload: true
-    });
-
+    this.shareWindowView = new ShareWindowView();
 
     // collections
     this.indicatorCollection = new IndicatorCollection();
@@ -106,7 +103,7 @@ var CompareView = Backbone.View.extend({
     Backbone.Events.on('breakpoints:loaded', this._onScroll.bind(this));
 
     if (!this.mobile) {
-      this.listenTo(this.selectorsView.getCollection(), 'change', (this.getDataForCountry).bind(this));
+      this.listenTo(this.selectorsView.getCollection(), 'change:year', (this.getDataForCountry).bind(this));
     }
 
     if (this.mobile) {
@@ -165,10 +162,7 @@ var CompareView = Backbone.View.extend({
    */
   renderSlides: function() {
 
-    this.indicatorsNamesCollection.fetch().done(function(indicators) {
-      this.indicatorsOrdered = indicators.rows;
-
-      var indicatorsOrdered = _.sortByOrder(indicators.rows, ['short_name']);
+    this.indicatorsNamesCollection.fetch().done(function() {
 
       _.each(this.slides, function(slide) {
 
@@ -181,7 +175,7 @@ var CompareView = Backbone.View.extend({
         this.$('#country-' + order + ' .country')
           .append(templateMobileScores({
             index: order,
-            indicators: indicatorsOrdered
+            indicators: this.indicatorsNamesCollection.toJSON()
           }));
 
         slide.setElement(this.$('.selectors-' + order));
@@ -217,10 +211,10 @@ var CompareView = Backbone.View.extend({
   },
 
   renderIndicatorNames: function() {
-    this.indicatorsNamesCollection.fetch().done(function(indicators) {
+    this.indicatorsNamesCollection.fetch().done(function() {
 
       this.$('.js--comparison-indicators').html(indicatorsTemplate({
-        indicators: indicators.rows
+        indicators: this.indicatorsNamesCollection.toJSON()
       }));
 
       this.calculateEndScrollPoint();
@@ -298,13 +292,38 @@ var CompareView = Backbone.View.extend({
   getDataForCountry: function() {
 
     if (this.mobile) {
-      var slideModel = arguments[0],
-        iso = slideModel.get('iso'),
-        year = slideModel.get('year'),
-        order = slideModel.get('order');
 
-      this.indicatorCollection.forCountryAndYear(iso, year).done(function() {
-        this.renderCountryScores(this.indicatorCollection.toJSON(), iso, order);
+      this.slides.forEach(function(slide) {
+        var SlideStatus = slide.status,
+          iso = SlideStatus.get('iso'),
+          order = SlideStatus.get('order'),
+          year = SlideStatus.get('year');
+
+          if (iso) {
+            var isRepeated = this._checkDuplicatedCountryMobile(iso);
+
+            if (!isRepeated) {
+              slide.resetYears();
+            } else {
+              var filteredValues = this._getFilteredValuesMobile(iso);
+              this._updateSelectorsMobile(filteredValues, iso);
+            }
+          }
+
+          if (iso && year && year !== 'no-data') {
+
+            this.indicatorCollection.forCountryAndYear(iso, year).done(function() {
+              this.renderCountryScores(this.indicatorCollection.toJSON(), iso, order);
+            }.bind(this));
+
+          }
+
+          if (iso == 'no_data' || year == 'no-data') {
+            this._cleanColumnMobile(order);
+          }
+
+          Backbone.Events.trigger('router:update', this.slides);
+
       }.bind(this));
 
     } else {
@@ -316,15 +335,85 @@ var CompareView = Backbone.View.extend({
           order = Number(countryModel.get('order')),
           year = countryModel.get('year');
 
-        if (iso) {
+        if (iso && year && year !== 'no-data') {
+
           this.indicatorCollection.forCountryAndYear(iso, year).done(function() {
             this.renderCountryScores(this.indicatorCollection.toJSON(), iso, order);
           }.bind(this));
+
+        }
+
+        if (iso == 'no_data' || year == 'no-data') {
+          this._cleanColumn(order);
         }
 
       }.bind(this));
     }
 
+  },
+
+  _checkDuplicatedCountryMobile: function(isoToCheck) {
+    var counter = 0,
+      isRepeated = false;
+
+    _.each(this.slides, function(slide) {
+      if (slide.status.get('iso') == isoToCheck) {
+        counter++;
+      }
+    });
+
+    if (counter > 1) {
+      isRepeated = !isRepeated;
+    }
+
+    return isRepeated;
+  },
+
+  _getFilteredValuesMobile: function(isoToCheck) {
+    var filteredValues = [];
+
+    _.each(this.slides, function(slide) {
+      if (slide.status.get('iso') == isoToCheck) {
+        filteredValues.push(Number(slide.status.get('year')));
+      }
+    });
+
+    return _.uniq(filteredValues);
+  },
+
+  _updateSelectorsMobile: function(filteredValues, selectedCountry) {
+
+    _.each(this.slides, function(slide) {
+      var status = slide.status;
+
+      if (status.get('iso') == selectedCountry) {
+        slide.filter(filteredValues);
+      } else {
+        if (status.get('iso')) {
+          slide.resetYears();
+        }
+      }
+    });
+  },
+
+  _cleanColumnMobile: function(order) {
+    var $column = $('#country-' + order);
+
+    $column.find('ul li')
+      .removeClass()
+      .addClass('table-cell')
+      .find('.score')
+      .empty()
+      .addClass('no-data');
+  },
+
+  _cleanColumn: function(order) {
+    var $column = $('.js--country-' + order);
+
+    $column.find('ul li')
+      .empty()
+      .removeClass()
+      .addClass('table-cell');
   },
 
   renderCountryScores: function(indicators, iso, order) {
@@ -336,9 +425,8 @@ var CompareView = Backbone.View.extend({
         indicators: indicators
       }));
 
-      Backbone.Events.trigger('router:update', this.slides);
-
     } else {
+
       for (var i = 1 ; i <= 3; i++) {
         if (i == order) {
           iso = iso == 'no_data' ? null: iso;
@@ -372,14 +460,18 @@ var CompareView = Backbone.View.extend({
     if (!this.mobile) {
       this.selectorsView.setParams(params);
     } else {
+
       _.each(params, function(d, i) {
         var slide = this.slides[i];
           data = d.split(':');
+
         slide.status.set({
           iso: data[0],
           year: Number(data[1])
         });
+
       }.bind(this));
+
     }
   },
 

@@ -141,7 +141,7 @@ var CountryView = Backbone.View.extend({
   },
 
   _onUpdateYear: function() {
-    this._setDownloadData();
+    // this._setDownloadData();
     this._updateCompareLink();
     this.indicators.forCountryAndYear(this.status.get('iso'), this.status.get('year'));
   },
@@ -177,7 +177,6 @@ var CountryView = Backbone.View.extend({
       this._updateYearSelector();
 
       this.countryToolbar.delegateEvents();
-      this._setDownloadData();
 
     }.bind(this));
 
@@ -187,12 +186,6 @@ var CountryView = Backbone.View.extend({
     var $yearSelector = $('.js--year-selector-country').find('select');
     $yearSelector.val(this.status.get('year'))
     $yearSelector.trigger("liszt:updated");
-  },
-
-  _setDownloadData: function() {
-    var $downloadbtn = this.$el.find('.js--toolbar-utils').find('.js--download');
-    $downloadbtn.attr('data-year', this.status.get('year'));
-    $downloadbtn.attr('data-iso', this.status.get('iso'));
   },
 
   renderYearSelector: function() {
@@ -225,7 +218,6 @@ var CountryView = Backbone.View.extend({
     });
 
     this.$el.find('.js--country-toolbar').find('.wrap').append(this.countryToolbar.render().el);
-    this._setDownloadData();
   },
 
   _getIndicatorInfo: function(opts) {

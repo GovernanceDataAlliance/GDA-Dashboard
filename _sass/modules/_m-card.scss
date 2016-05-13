@@ -1,6 +1,6 @@
 .m-card {
   width: 100%;
-  border-bottom: 1px solid $border-1;
+  border-bottom: .5px solid $border-1;
   color: $font-color-1;
   background-color: $white;
 
@@ -36,6 +36,10 @@
         .name a {
           font-size: rem(30px);
           line-height: rem(37px);
+
+          a:hover {
+            text-decoration: underline;
+          }
         }
 
         .description {
@@ -113,7 +117,7 @@
         color: $color-1 !important;
       }
 
-      .name {
+      .organization {
         position: relative;
         padding-bottom: rem(50px);
 
@@ -139,10 +143,6 @@
   .is-dashboard-layout & {
     flex-basis: 100%;
     margin: 0;
-
-    &:last-child {
-      border-bottom: 0;
-    }
 
     .card-wrap {
       padding: rem(40px) rem($wrap-padding-mobile);
@@ -182,18 +182,8 @@
       float: left;
       border-right: 1px solid $border-1;
 
-
-      &:nth-last-child(2) {
-        border-bottom: 0;
-      }
-
-      &:nth-child(2n) {
-        border-right: 0;
-        border-bottom: 1px solid $border-1;
-      }
-
       &:last-child {
-        border-bottom: 0;
+        border-bottom: 1px solid $border-1;
       }
 
       > .card-wrap {
@@ -207,23 +197,7 @@
     }
 
     @media screen and (min-width: $screen-l) {
-      width: 33.33%;
-
-      &:nth-child(2n) {
-        border-bottom: 1px solid $border-1;
-        border-right: 1px solid $border-1;
-      }
-
-      &:nth-last-child(2),
-      &:nth-last-child(3),
-      &:last-child {
-        border-bottom: 0;
-      }
-
-      &:nth-child(3n) {
-        border-right: 0;
-        border-bottom: 1px solid $border-1;
-      }
+      width: 33.33333333%;
 
       > .card-wrap {
         padding: rem(40px);
@@ -365,11 +339,19 @@
       align-items: center;
 
       > .graph {
-        min-width: rem(200px);
-        min-height: rem(100px);
+        width: 100%;
+        height: rem(100px);
         fill: transparent;
         stroke: $color-2;
         stroke-width: 2px;
+
+        @media screen and (min-width: 768px) {
+          width: 80%;
+
+          .is-dashboard-layout & {
+            width: 100%;
+          }
+        }
 
         text {
           font-size: rem(10px);
@@ -579,17 +561,13 @@
       }
 
       .organization {
-          color: $font-color-2;
-    
-          .btn-info {
-            color: $font-color-3;
-            background-color: $white;
-          }
+        color: $font-color-2;
+  
+        .btn-info {
+          color: $font-color-3;
+          background-color: $white;
         }
       }
-
-    a:hover {
-      text-decoration: underline;
     }
 
     .btn,

@@ -15,7 +15,6 @@ var WelcomeView = Backbone.View.extend({
   },
 
   initialize: function() {
-
     enquire.register("screen and (max-width:769px)", {
       match: _.bind(function(){
         this.mobile = true;
@@ -29,8 +28,6 @@ var WelcomeView = Backbone.View.extend({
         this.initViews();
       },this)
     });
-
-    this.initViews();
   },
 
   show: function() {
@@ -45,9 +42,9 @@ var WelcomeView = Backbone.View.extend({
 
   initViews: function() {
     if (!this.mobile) {
-      var search = new SearchView({ el: $('.js--search') });
+      new SearchView({ el: $('.js--search') });
     } else {
-      var searchMobile = new SearchMobileView({ el: $('.js--search') });
+      new SearchMobileView({ el: $('.js--search') });;
     }
   },
 

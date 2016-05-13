@@ -3,7 +3,7 @@
   z-index: 10;
   display: flex; display: -ms-box;
   height: auto;
-  padding: rem(5px) 0;
+  padding: rem(20px) 0;
   background-color: $bg-color-4;
   border-bottom: 1px solid $border-1;
 
@@ -23,7 +23,7 @@
     flex: 1 1 100%;
     justify-content: space-between;
     flex-direction: column;
-    min-height: rem(90px);
+    min-height: rem(105px);
 
     @media screen and (min-width: $screen-s) {
       flex-direction: row;
@@ -38,12 +38,10 @@
 
     @at-root {
       .l-toolbar:not(.-footer) .js--legend {
-        padding-bottom: 10px;
-        padding-top: 5px;
+        padding-bottom: 20px;
 
         @media screen and (min-width: $screen-s) {
           padding-bottom: 0;
-          padding-top: 0;
         }
       }
     }
@@ -87,22 +85,27 @@
 
   &.-data {
     .wrap {
-      min-height: rem(150px);
+      min-height: rem(160px);
 
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: $screen-s) {
         min-height: 0;
       }
     }
   }
 
   &.-blog {
+
     .wrap {
       flex-direction: row;
       min-height: rem(40px);
 
       .btn {
         width: auto;
-        margin-left: rem(20px);
+        // margin-left: rem(20px);
+
+        @media screen and (min-width: 768px) {
+          margin-left: auto;
+        }
       }
     }
   }
@@ -148,24 +151,25 @@
 
     .m-compare-selectors {
       justify-content: space-between;
-
-      @media screen and (min-width: 768px) {
-        .m-legend {
-          padding-left: 15px;
-        }
-      }
-
-      @media screen and (min-width: $screen-l) {
-        .m-legend {
-          padding-left: 20px;
-        }
-      }
     }
   }
 
   &.-compare-legend {
     padding: 0;
     height: rem(65px);
+
+    .wrap {
+      padding: 0 rem(10px);
+      max-width: 100%;
+
+      @media screen and (min-width: $screen-l) {
+        padding: 0 rem($wrap-padding-desktop);
+      }
+
+      @media screen and (min-width: $screen-xl) {
+        padding: 0 rem($wrap-padding-desktop-xl);
+      }
+    }
   }
 
 
@@ -178,6 +182,15 @@
       display: -ms-box;
       align-items: initial;
       justify-content: initial;
+      padding: 0 rem(10px);
+
+      @media screen and (min-width: $screen-l) {
+        padding: 0 rem($wrap-padding-desktop);
+      }
+
+      @media screen and (min-width: $screen-xl) {
+        padding: 0 rem($wrap-padding-desktop-xl);
+      }
     }
 
     &.-fixed {

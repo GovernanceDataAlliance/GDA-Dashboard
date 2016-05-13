@@ -8,16 +8,18 @@
   <div class="image" style="background-image:url({{site.baseurl}}/css/img/blog/{{page.image}})"></div>
   {%endunless%}
   
-  {% unless page.category == '' %}
   <div class="properties">
+    {% unless page.category == nil %}
     <a class="category" href="{{site.baseurl}}/blog/categories#{{ page.category }}"> {{page.category}} </a>
+    {%endunless%}
+    {% unless page.tags == empty %}
     <div class="tags">
       {% for tag in page.tags %}
-        <a class="c-tag" href="{{ site.baseurl }}/blog/tags#{{tag}}">#{{tag}}</a>
+        <a class="c-tag" href="{{ site.baseurl }}/blog/tags#{{tag | downcase}}">#{{tag}}</a>
       {% endfor %}
     </div>
+    {%endunless%}
   </div>
-  {%endunless%}
   
   <div class="details">
     <span class="author">

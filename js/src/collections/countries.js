@@ -69,7 +69,6 @@ var Countries = CartoDBCollection.extend({
   },
 
   downloadCountriesForIndicator: function(id, year, categoryGroup, categoryName) {
-
     var query = SQL({
       'id': id,
       'year': year,
@@ -77,7 +76,7 @@ var Countries = CartoDBCollection.extend({
       'categoryName': encodeURIComponent(categoryName)
     }),
 
-    url = this._urlForQuery(query) + '&format=csv';
+    url = this._urlForQuery(query) + '&format=csv&filename=countries_for_' + id;
 
     return url;
   }

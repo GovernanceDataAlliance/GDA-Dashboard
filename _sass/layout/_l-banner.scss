@@ -192,10 +192,9 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
     border-bottom: 1px solid $border-1;
 
     > .wrap {
-      display: flex; display: -ms-box;
 
       .btn {
-        text-align: left;
+        flex: 1 1 auto;
       }
     }
 
@@ -210,6 +209,8 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
     &.-row {
       > .wrap {
+        display: flex;
+        display: -ms-box;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
@@ -272,5 +273,9 @@ $backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCoun
 
   a:hover {
     color: $color-4;
+  }
+
+  .title-container {
+    width: 100%;
   }
 }

@@ -16,6 +16,7 @@ var BlogView = Backbone.View.extend({
   },
 
   initialize: function() {
+
     this.shareWindowView = new ShareWindowView({
       noDownload: true
     });

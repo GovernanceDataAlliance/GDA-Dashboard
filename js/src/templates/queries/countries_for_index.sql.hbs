@@ -15,7 +15,7 @@ with up as (
     c.units 
   FROM indicator_data i 
     INNER JOIN wb_countries_clasification w ON i.iso=w.iso 
-    INNER JOIN world_borders b ON w.name=b.name
+    INNER JOIN world_borders b ON w.iso=b.iso3
     INNER JOIN indicator_config c ON i.short_name=c.short_name 
   WHERE i.short_name = '{{id}}' 
   AND i.score is not null 
@@ -26,7 +26,7 @@ with up as (
     AND w.{{categoryGroup}} = '{{categoryName}}' 
   {{/if}}
   AND c.desired_direction ='up' 
-  order by score desc, name 
+  order by i.score desc, b.name 
 ), down as ( 
   SELECT 
     i.iso, 
@@ -44,7 +44,7 @@ with up as (
     c.units 
   FROM indicator_data i 
     INNER JOIN wb_countries_clasification w ON i.iso=w.iso 
-    INNER JOIN world_borders b ON w.name=b.name
+    INNER JOIN world_borders b ON w.iso=b.iso3
     INNER JOIN indicator_config c ON i.short_name=c.short_name 
   WHERE i.short_name = '{{id}}' 
   AND i.score is not null 
@@ -55,6 +55,6 @@ with up as (
     AND w.{{categoryGroup}} = '{{categoryName}}' 
   {{/if}}
   AND c.desired_direction ='down' 
-  order by score, name 
+  order by i.score, b.name 
 )
 SELECT  * from up  UNION ALL SELECT * from down

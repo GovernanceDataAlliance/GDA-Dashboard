@@ -5,14 +5,11 @@ date: "2015-11-09"
 author: ""
 image: ""
 category: ""
-tags: "Meeting notes, Producers Workshop "
+tags: "meeting_notes producers_workshop "
 title: Engaging with governments and managing feedback
 ---
 
-
-
-
-Below are the notes from our first producers' workshop. The session, co-led by Finn Heinrich of Transparency International, Elena Mondo of the International Budget Partnership, and Johannes Tonn of Global Integrity, focuses on engaging with governments, managing feedback, and making data collection more real-time
+Below are the notes from our first producers' workshop. The session, co-led by Finn Heinrich of Transparency International, Elena Mondo of the International Budget Partnership, and Johannes Tonn of Global Integrity, focused on engaging with governments, managing feedback, and making data collection more real-time
 
 
 
@@ -208,4 +205,4 @@ GFI releases its report on an annual basis
 - What we all heard today: decisions around government engagement and frequency of data collection depend on the organization, the data, theory of change, etc. – It would be useful to give people a typology to think through these choices 
 
 **Jesse/WRI**
-- We could ask Francis at Vizzuality to talk through the EDI dashboard 
+- We could ask Francis at Vizzuality to talk through the EDI dashboard

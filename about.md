@@ -1,10 +1,11 @@
 ---
 layout: about
 title: About the Alliance
-page-name: About
+"page-name": About
 "intro-text": "The Governance Data Alliance is a community of governance data producers, users, and funders committed to the effective production and use of high-quality data to advance democratic governance reforms in countries."
 published: true
 ---
+##### **Interested in joining the Alliance? Apply [here](https://docs.google.com/forms/d/1JtpUQ2wrlqn3llLBoIV1kzBIVBbDqoo8ElmLL-4g5XQ/viewform)**
 
 ##### Numerous organizations collect and analyze data on the different dimensions of governance — ranging from corruption perceptions to fiscal transparency to business regulation and freedom of the press — to help shape policy reforms and ultimately improve economic, human, and democratic development. Unfortunately, the current state of the marketplace for governance data limits the potential impact of this information.
 
