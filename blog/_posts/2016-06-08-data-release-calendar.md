@@ -7,7 +7,7 @@ author: Caroline Poirrier
 ---
 
 
-|Data Set|Anticipated time of release |Organization|
+|Data Set| Organization| Approximate Release Date |
 |:-----------:|:-------------:| -----:|
 | col 3 is      | right-aligned | $1600 |
 | col 2 is      |    centered   |   $12 |
