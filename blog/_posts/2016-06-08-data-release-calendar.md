@@ -9,6 +9,24 @@ author: Caroline Poirrier
 
 |Data Set| Organization| Approximate Release Date |
 |:--------------:|:--------------:|:--------------:|
-| RTI Rating| Center for Law and Democracy| $1600 |
-| col 2 is      |    centered   |   $12 |
-| zebra stripes |    are neat   |    $1 |
+|RTI Rating| Center for Law and Democracy|Updated continuously|
+|Freedom of the Press|Freedom House|April 2016|
+|Freedom in the World|Freedom House|    $1 |
+|Freedom on the Net|Freedom House|November 2016|
+| | |  |
+|Freedom of the Press|Freedom House|   $12 |
+|Freedom in the World|Freedom House|    $1 |
+|Freedom of the Press|Freedom House|   $12 |
+|Freedom in the World|Freedom House|    $1 |
+|Freedom of the Press|Freedom House|   $12 |
+|Freedom in the World|Freedom House|    $1 |
+|Freedom of the Press|Freedom House|   $12 |
+|Freedom in the World|Freedom House|    $1 |
+|Freedom of the Press|Freedom House|   $12 |
+|Freedom in the World|Freedom House|    $1 |
+|Freedom of the Press|Freedom House|   $12 |
+|Freedom in the World|Freedom House|    $1 |
+|Freedom of the Press|Freedom House|   $12 |
+|Freedom in the World|Freedom House|    $1 |
+|Freedom of the Press|Freedom House|   $12 |
+|Freedom in the World|Freedom House|    $1 |
