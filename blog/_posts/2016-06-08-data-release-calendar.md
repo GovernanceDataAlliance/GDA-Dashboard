@@ -26,7 +26,7 @@ Below are the approximate dates at which different producers anticipate releasin
 |January 2017|Freedom in the World|Freedom House|
 |Last quarter of 2017|Environmental Democracy Index|World Resources Institue|
 |December 2017|Open Budget Survey|International Budget Partnership|
-|Updated continuously|RTI Rating| Center for Law and Democracy|
+|Updated continuously|RTI Rating| Centre for Law and Democracy|
 
 
 
@@ -48,5 +48,5 @@ Below are the approximate dates at which different producers anticipate releasin
 |OGP IRM Number Starred Commitments|Open Government Partnership|July 2016|
 |Open Budget Survey|International Budget Partnership|December 2017|
 |Resource Governance Index|Natural Resource Governance Institute|December 2016|
-|RTI Rating| Center for Law and Democracy|Updated continuously|
+|RTI Rating| Centre for Law and Democracy|Updated continuously|
 |WJP Rule of Law Index|World Justice Project|September-October 2016|
