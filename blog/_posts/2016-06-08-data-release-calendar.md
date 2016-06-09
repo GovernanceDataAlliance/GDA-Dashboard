@@ -14,7 +14,7 @@ Below are the approximate dates at which different producers anticipate releasin
 |:--------------:|:--------------:|:--------------:|
 |April 27, 2016|Freedom of the Press|Freedom House|
 |July 2016|Africa Integrity Indicators|Global Integrity|
-|July 2016|Citizen Engagement in Rulemaking|World Bank Group|
+|June 28, 2016|Global Indicators of Regulatory Governance|World Bank Group|
 |July 2016|OGP IRM Number Starred Commitments|Open Government Partnership|
 |September-October 2016|WJP Rule of Law Index|World Justice Project|
 |October 2016|Global Corruption Barometer|Transparency International|
@@ -36,7 +36,6 @@ Below are the approximate dates at which different producers anticipate releasin
 |Data Set| Organization| Approximate Release Date |
 |:--------------:|:--------------:|:--------------:|
 |Africa Integrity Indicators|Global Integrity|July 2016|
-|Citizen Engagement in Rulemaking|World Bank Group|July 2016|
 |Corruption Perceptions Index|Transparency International|January 2017|
 |Doing Business|World Bank Group|October 27, 2016|
 |Environmental Democracy Index|World Resources Institue|Last quarter of 2017|
@@ -44,6 +43,7 @@ Below are the approximate dates at which different producers anticipate releasin
 |Freedom of the Press|Freedom House|April 27, 2016|
 |Freedom on the Net|Freedom House|November 2016|
 |Global Corruption Barometer|Transparency International|October 2016|
+|Global Indicators of Regulatory Governance|World Bank Group|June 28, 2016|
 |Illicit Financial Flows|Global Financial Integrity|December 12, 2016|
 |OGP IRM Number Starred Commitments|Open Government Partnership|July 2016|
 |Open Budget Survey|International Budget Partnership|December 2017|
