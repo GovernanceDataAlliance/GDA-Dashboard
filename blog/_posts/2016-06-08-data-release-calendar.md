@@ -8,7 +8,7 @@ author: Caroline Poirrier
 
 Below are the approximate dates at which different producers anticipate releasing new data in 2016 and 2017. These are subject to change; we will update them as often as possible. Please check again closer to the anticipated dates!
 
-##By Date##
+## By Date
 
 |Data Set| Organization| Approximate Release Date |
 |:--------------:|:--------------:|:--------------:|
@@ -30,7 +30,7 @@ Below are the approximate dates at which different producers anticipate releasin
 
 
 
-##By Data Set##
+## By Data Set
 
 |Data Set| Organization| Approximate Release Date |
 |:--------------:|:--------------:|:--------------:|
