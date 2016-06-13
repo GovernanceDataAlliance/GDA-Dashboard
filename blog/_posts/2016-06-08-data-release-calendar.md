@@ -20,7 +20,7 @@ Below are the approximate dates at which different producers anticipate releasin
 |October 2016|Global Corruption Barometer|Transparency International|
 |October 27, 2016|Doing Business|World Bank Group|
 |November 2016|Freedom on the Net|Freedom House|
-|December 12, 2016|Illicit Financial Flows|Global Financial Integrity|
+|December 2016|Illicit Financial Flows|Global Financial Integrity|
 |December 2016|Resource Governance Index|Natural Resource Governance Institute|
 |January 2017|Corruption Perceptions Index|Transparency International|
 |January 2017|Freedom in the World|Freedom House|
@@ -44,7 +44,7 @@ Below are the approximate dates at which different producers anticipate releasin
 |Freedom on the Net|Freedom House|November 2016|
 |Global Corruption Barometer|Transparency International|October 2016|
 |Global Indicators of Regulatory Governance|World Bank Group|June 28, 2016|
-|Illicit Financial Flows|Global Financial Integrity|December 12, 2016|
+|Illicit Financial Flows|Global Financial Integrity|December 2016|
 |OGP IRM Number Starred Commitments|Open Government Partnership|July 2016|
 |Open Budget Survey|International Budget Partnership|December 2017|
 |Resource Governance Index|Natural Resource Governance Institute|December 2016|
