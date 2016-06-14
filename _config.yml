@@ -47,7 +47,7 @@ prose:
     - CNAME
     - useful-info.txt
   metadata:
-    blog: 
+    blog:
       - name: layout
         field:
           element: "hidden"
@@ -71,19 +71,18 @@ prose:
           element: "text"
           label: "author"
       - name: image
-        field: 
+        field:
           element: "text"
           label: image
           placeholder: "example.jpg"
-          value: 
       - name: category
-        field: 
+        field:
           element: "text"
           label: category
           placeholder: "add only one category"
           value:
-      - name: tags 
-        field: 
+      - name: tags
+        field:
           element: "text"
           label: tags
           placeholder: tag1 tag_2 tag-3
@@ -101,7 +100,7 @@ prose:
           element: "text"
           label: "logo"
           placeholder: "example.jpg"
-          value: 
+          value:
       - name: link
         field:
           element: "text"
