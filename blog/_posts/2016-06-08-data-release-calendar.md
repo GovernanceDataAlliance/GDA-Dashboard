@@ -3,6 +3,7 @@ published: true
 layout: blog/post
 title: Data Release Calendar
 date: '2016-06-08'
+image: ""
 author: Caroline Poirrier
 ---
 
