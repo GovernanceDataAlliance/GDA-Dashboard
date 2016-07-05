@@ -3,7 +3,6 @@ published: true
 layout: blog/post
 title: Data Release Calendar
 date: '2016-06-08'
-image: ""
 author: Caroline Poirrier
 ---
 
@@ -14,8 +13,8 @@ Below are the approximate dates at which different producers anticipate releasin
 |Data Set| Organization| Approximate Release Date |
 |:--------------:|:--------------:|:--------------:|
 |April 27, 2016|Freedom of the Press|Freedom House|
-|July 2016|Africa Integrity Indicators|Global Integrity|
 |June 28, 2016|Global Indicators of Regulatory Governance|World Bank Group|
+|July 2016|Africa Integrity Indicators|Global Integrity|
 |July 2016|OGP IRM Number Starred Commitments|Open Government Partnership|
 |September-October 2016|WJP Rule of Law Index|World Justice Project|
 |October 2016|Global Corruption Barometer|Transparency International|
