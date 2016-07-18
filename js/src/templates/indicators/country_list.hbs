@@ -1,0 +1,69 @@
+<div class="l-content -fullscreen">
+  {{#if countries.top}}
+  <div class="m-table -rank">
+
+    <div class="top-tier">
+
+      {{#each countries.top}}
+        <div class="table-row">
+          <div class="wrap">
+            <div class="description">
+              <div class="figure" data-iso="{{iso}}"></div>
+              <a href="countries#{{iso}}" class="name">{{name}}</a>
+            </div>
+            <div class="score {{#if classColor}}{{classColor}}{{/if}}" data-year="{{year}}">
+              <p {{#if units}}class="{{units}}"{{/if}}>
+                {{#comma score}}{{/comma}}
+                {{#unlessPercentage ../max_score}}
+                  {{max_score}}
+                {{/unlessPercentage}}
+                {{#if units_abbr}}
+                  <span class="units">{{units_abbr}}</span>
+                {{/if}}
+              </p>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+
+    {{#if countries.rest}}
+      <div class="table-row -load-more">
+        <div class="wrap">
+          <svg class="icon -regular icon-load"><use xlink:href="#icon-load"></use></svg>
+          <p>Load all the data</p>
+        </div>
+      </div>
+      <div class="rest-tier is-hidden">
+      {{#each countries.rest}}
+        <div class="table-row">
+          <div class="wrap">
+            <div class="description">
+              <div class="figure" data-iso="{{iso}}"></div>
+              <a href="countries#{{iso}}" class="name">{{name}}</a>
+            </div>
+            <div class="score {{#if classColor}} {{classColor}} {{/if}}" data-year="{{year}}">
+               <p {{#if units}}class="{{units}}"{{/if}}>
+                {{#comma score}}{{/comma}}
+                {{#unlessPercentage ../max_score}}
+                  {{#comma max_score}}{{/comma}}
+                {{/unlessPercentage}}
+                {{#if units_abbr}}
+                  <span class="units">{{units_abbr}}</span>
+                {{/if}}
+              </p>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+      </div>
+    {{/if}}
+  </div>
+  {{else}}
+  <div class="wrap">
+    <div class="m-advise -clearfix">
+      <p>no data for countries on this group</p>
+    </div>
+  </div>
+  {{/if}}
+</div>

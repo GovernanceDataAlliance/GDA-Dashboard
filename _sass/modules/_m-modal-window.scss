@@ -1,0 +1,101 @@
+.m-modal-window {
+  display: flex;
+  display: -ms-box;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.modal-background {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 11;
+  background: #000;
+  opacity: .5;
+}
+
+.modal-wrapper {
+  box-sizing: border-box;
+  display: flex; display: -ms-box;
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 100%;
+  z-index: 14;
+  margin: auto;
+  overflow: auto;
+  background-color: $white;
+
+  @media screen and (min-width: $screen-s) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80%;
+    width: 90%;
+    max-width: rem(690px);
+    max-height: rem(780px);
+  }
+
+  @media screen and (min-width: $screen-l) {
+    max-width: rem(750px);
+    max-height: rem(550px);
+  }
+
+  @media screen and (min-width: $screen-l) {
+    max-width: rem(1000px);
+    max-height: rem(600px);
+  }
+}
+
+.modal-content {
+  width: 100%;
+}
+
+.modal-container {
+  display: flex;
+  display: -ms-box;
+  align-items: flex-start;
+  position: absolute;
+  top: rem(65px);
+  bottom: rem(25px);
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 0 rem(20px);
+  font-size: rem(15px);
+  overflow: auto;
+
+  @media screen and (min-width: $screen-s) {
+    top: rem(90px);
+    bottom: rem(80px);
+    padding: 0 rem(60px);
+  }
+
+  @media screen and (min-width: $screen-l) {
+    // bottom: rem(115px);
+    padding: 0 rem(100px);
+  }
+  
+  h2 {
+    font-size: rem(24px);
+    font-weight: 400;
+    margin-bottom: rem(35px);
+    text-transform: capitalize;
+
+    @media screen and (min-width: $screen-s) {
+      font-size: rem(30px);
+      line-height: rem(37px);
+      margin-bottom: rem(25px);
+    }
+  }
+}
+
+.btn-close-modal {
+  @extend .btn-close;
+}

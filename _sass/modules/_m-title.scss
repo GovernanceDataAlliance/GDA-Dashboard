@@ -1,0 +1,32 @@
+.m-title {
+  display: flex; display: -ms-box;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  .c-section-title {
+    display: inline-block;
+    margin-right: rem(20px);
+  }
+
+  img {
+    display: none;
+    max-width: 100%;
+    width: rem(200px);
+    // margin-top: rem(10px);
+
+    @media screen and (min-width: 768px) {
+      display: inline-block;
+    } 
+
+    &.freedom_on_the_net,
+    &.freedom_in_the_world,
+    &.freedom_of_the_press,
+    &.nations_in_transit {
+      margin-top: rem(-30px);
+    }
+
+    &.ogp_regular_consult_forum {
+      width: rem(100px);
+    }
+  }
+}

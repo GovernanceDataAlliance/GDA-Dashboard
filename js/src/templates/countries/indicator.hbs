@@ -1,0 +1,92 @@
+{{!-- <a href="/indicators#{{short_name}}"> --}}
+{{#if score}}
+<div class="card-wrap">
+  <div class="wrap">
+    <div class="index-description">
+      <div class="title">
+        <h2 class="name">
+          <a href="indicators#{{short_name}}">{{product_name}}</a>
+        </h2>
+        {{#if organization}}
+          <h3 class="organization">
+            {{organization}}
+            {{#if product_description}}
+              <button class="btn-info" data-indicator="{{short_name}}">i</button>
+            {{/if}}
+          </h3>
+        {{/if}}
+      </div>
+      {{#if product_description}}
+      <div class="description-wrapper">
+        <p class="description">
+          {{product_description}}
+        </p>
+      </div>
+      {{/if}}
+      <a class="btn" href="indicators#{{short_name}}">See the full data set &gt; </a>
+    </div>
+
+    <div class="index-score">
+      <div class="resume -{{units}}">
+        <div class="js--graph graph"></div>
+        <p class="global-score">
+          {{#comma score}}{{/comma}}
+          {{#if units_abbr}}
+            <span class="units">
+             {{units_abbr}}
+            </span>
+          {{/if}}
+        </p>
+      </div>
+
+
+      <div class="js--partial-ranks">
+        <div class="partial-scores-wrapper -{{short_name}}">
+          <p class="explanation">Performance relative to other countries</p>
+          <ul class="partial-scores">
+            <li id="global">
+            </li>
+            <li id="region">
+            </li>
+            <li id="income_group">
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="info">
+        <span>Last Updated: {{lastyear}}</span>
+        <span>Score Range: {{#comma max_score}}{{/comma}} - {{#comma min_score}}{{/comma}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+{{else}}
+<div class="card-wrap -not-covered">
+  <div class="wrap">
+    <div class="index-description">
+        <h2 class="name">
+          <a href="indicators#{{short_name}}">{{product_name}}</a>
+        </h2>
+        {{#if organization}}
+        <h3 class="organization">
+          {{organization}}
+          {{#if product_description}}
+            <button class="btn-info" data-indicator="{{short_name}}">i</button>
+          {{/if}}
+        </h3>
+        {{/if}}
+        {{#if product_description}}
+          <div class="description-wrapper">
+            <p class="description">
+              {{product_description}}
+            </p>
+          </div>
+        {{/if}}
+        <p class="not-covered">not covered</p>
+        <a class="btn" href="/indicators#{{short_name}}">See the full index &gt; </a>
+    </div>
+  </div>
+</div>
+{{/if}}
+{{!-- </a> --}}

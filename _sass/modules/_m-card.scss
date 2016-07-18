@@ -1,0 +1,594 @@
+.m-card {
+  width: 100%;
+  border-bottom: .5px solid $border-1;
+  color: $font-color-1;
+  background-color: $white;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    min-height: rem(390px);
+  }
+
+  .card-wrap {
+    display: flex;
+    width: 100%;
+    padding: rem(65px) 0;
+
+    >.wrap {
+      display: flex;
+      justify-content: space-between;
+
+      .index-description .organization {
+        margin-bottom: 2.75rem;
+      }
+
+      .index-description .btn {
+        display: inline-block;
+      }
+
+      @media screen and (min-width: 768px) {
+        flex-direction: column;
+
+        .name,
+        .name a {
+          font-size: rem(30px);
+          line-height: rem(37px);
+
+          a:hover {
+            text-decoration: underline;
+          }
+        }
+
+        .description {
+          font-size: rem(14px);
+          line-height: rem(27px);
+          letter-spacing: rem(.4px);
+        }
+
+        .index-score > .resume {
+          justify-content: space-between;
+          &.-usd {
+            margin-bottom: rem(30px);
+          }
+        }
+      }
+
+      @media screen and (min-width: $screen-l) {
+        padding: rem(55px) rem(50px);
+        flex-direction: row;
+        align-items: flex-start;
+
+        .name,
+        .name a {
+          font-size: rem(27px);
+          line-height: rem(34px);
+        }
+
+        .index-score > .resume.-usd {
+          flex-direction: column;
+          align-items: flex-end;
+        }
+
+        .description {
+          font-size: rem(15px);
+          line-height: rem(29px);
+        }
+      }
+    }
+
+    @media screen and (min-width: $screen-l) {
+      padding: 0;
+    }
+
+    @media screen and (min-width: $screen-xl) {
+      padding: rem(65px) 0 rem(85px);
+      > .wrap {
+        padding: 0 rem(85px);
+
+        .name,
+        .name a {
+          line-height: 1.3;
+        }
+      }
+    }
+  }
+
+  a:hover {
+    color: $color-4;
+  }
+
+  .-not-covered {
+    min-height: rem(390px);
+    background-color: $bg-color-1;
+    color: $color-1 !important;
+
+    >.wrap {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
+    .index-description {
+      flex-basis: 100%;
+
+      .organization {
+        color: $color-1 !important;
+      }
+
+      .organization {
+        position: relative;
+        padding-bottom: rem(50px);
+
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: rem(60px);
+          height: rem(2px);
+          background-color: #5b5b5b;
+        }
+      }
+
+      @media screen and (min-width: $screen-l) {
+        .description-wrapper {
+          max-width: 80%;
+        }
+      }
+    }
+  }
+
+  .is-dashboard-layout & {
+    flex-basis: 100%;
+    margin: 0;
+
+    .card-wrap {
+      padding: rem(40px) rem($wrap-padding-mobile);
+
+      > .wrap {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+
+        .index-description .btn {
+          display: none;
+        }
+
+        .index-description .organization {
+          margin-bottom: rem(20px);
+        }
+
+        .index-description > .not-covered {
+          margin: 0;
+        }
+
+        .index-score > .-usd {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    }
+
+    .description {
+      display: none;
+    }
+
+    @media screen and (min-width: 768px) {
+      display: flex; display: -ms-box;
+      width: 50%;
+      height: rem(500px);
+      float: left;
+      border-right: 1px solid $border-1;
+
+      &:last-child {
+        border-bottom: 1px solid $border-1;
+      }
+
+      > .card-wrap {
+        padding: rem(40px) rem($wrap-padding-tablet);
+        >.wrap {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          flex-direction: column;
+        }
+      }
+    }
+
+    @media screen and (min-width: $screen-l) {
+      width: 33.33333333%;
+
+      > .card-wrap {
+        padding: rem(40px);
+      }
+
+      .info {
+        display: flex !important;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+
+        span:first-child {
+          margin-bottom: rem(25px);
+        }
+      }
+    }
+
+    @media screen and (min-width: $screen-l)
+      and (orientation: landscape)
+      and (-webkit-min-device-pixel-ratio: 2) {
+      > .card-wrap {
+        padding: rem($wrap-padding-desktop);
+      }
+    }
+
+    @media screen and (min-width: $screen-xl) {
+      > .card-wrap {
+        padding: rem(65px) rem(70px);
+      }
+    }
+  }
+
+  .index-description {
+
+    @media screen and (min-width: $screen-l) {
+      width: 48%;
+    }
+
+    .name,
+    .name a {
+      color: $font-color-1;
+      font-size: rem(24px);
+      font-weight: 400;
+      margin-bottom: rem(15px);
+    }
+
+    > .description-wrapper {
+      position: relative;
+      font-size: rem(15px);
+
+      .description {
+        &.-expand {
+          max-height: none;
+        }
+      }
+    }
+
+    .organization {
+      font-size: rem(15px);
+      font-weight: 400;
+      color: $font-color-1;
+    }
+
+    .is-dashboard-layout & {
+      width: 100%;
+
+      > .description-wrapper,
+      > .btn-read-more {
+        display: none;
+      }
+
+      .btn {
+        display: none;
+      }
+
+      .info {
+        text-align: left;
+
+        span {
+          display: block;
+        }
+      }
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+      background-color: #ddd;
+    }
+
+    .not-covered {
+      margin-top: rem(25px);
+      font-size: rem(17px);
+      font-weight: 700;
+      color: #5b5b5b;
+      text-transform: uppercase;
+      font-family: $font-secondary;
+    }
+
+    .btn:last-child {
+      margin-top: rem(25px);
+    }
+  }
+
+  .index-score {
+    display: flex;
+    display: -ms-box;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: column;
+      justify-content: space-between;
+      margin-top: rem(10px);
+    }
+
+    @media screen and (min-width: $screen-l) {
+      flex-direction: column;
+      align-items: flex-end;
+      width: 48%;
+
+      .is-dashboard-layout & {
+        width: 100%;
+
+        > .js--partial-ranks {
+          display: none;
+        }
+      }
+
+      > .js--partial-ranks {
+        width: 100%;
+        min-height: rem(120px);
+      }
+    }
+
+    > .resume {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      > .graph {
+        width: 100%;
+        height: rem(100px);
+        fill: transparent;
+        stroke: $color-2;
+        stroke-width: 2px;
+
+        @media screen and (min-width: 768px) {
+          width: 80%;
+
+          .is-dashboard-layout & {
+            width: 100%;
+          }
+        }
+
+        text {
+          font-size: rem(10px);
+        }
+
+        .dot {
+          fill: $color-2;
+          stroke-width: 3px;
+          stroke-fill: transparent;
+        }
+      }
+
+      > .global-score {
+        font-family: $font-secondary;
+        font-weight: 700;
+        font-size: rem(62px);
+        letter-spacing: rem(-3.6px);
+        line-height: 1em;
+
+        @media screen and (min-width: 768px) {
+          font-size: rem(80px);
+          letter-spacing: rem(-6px);
+        }
+
+        @media screen and (min-width: $screen-l) {
+          font-size: rem(55px) !important;
+          letter-spacing: rem(-4.1px);
+          line-height: rem(55px);
+        }
+
+        .units {
+          margin-left: rem(-8px);
+          align-self: flex-end;
+          font-family: $font-secondary;
+          font-weight: 400;
+          font-size: rem(15px);
+          letter-spacing: rem(.1px);
+          line-height: .7em;
+
+          @media screen and (min-width: 768px) {
+            font-size: rem(20px);
+          }
+        }
+      }
+
+      .is-dashboard-layout & {
+        > .global-score {
+          @media screen and (min-width: 768px) {
+            margin: 0;
+            font-size: rem(62px);
+          }
+        }
+      }
+
+
+      &.-usd {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      @media screen and (min-width: $screen-l) {
+        width: 100%;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+    }
+
+    .partial-scores-wrapper {
+      display: block;
+      width: 100%;
+      padding: rem(15px) rem(25px);
+      background-color: $bg-color-1;
+
+      //To hide partial ranks at CER index.
+      &.-cer {
+        display: none;
+      }
+    }
+
+    .explanation {
+      font-size: rem(14px);
+      margin-bottom: rem(10px);
+      line-height: rem(27px);
+      text-align: center;
+    }
+
+    .partial-scores {
+      display: flex;
+      display: -ms-box;
+      align-items: flex-start;
+
+      > li {
+        flex-basis: 33%;
+        align-items: center;
+        text-align: center;
+      }
+
+      > li > p:last-child {
+        line-height: rem(21px);
+      }
+
+      .partial-rank {
+        font-size: rem(14px);
+      }
+
+      .partial-score {
+        font-size: rem(30px);
+
+        @media screen and (min-width: $screen-l) {
+          min-width: auto;
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        justify-content: space-around;
+      }
+    }
+
+    > .info {
+      margin-top: rem(20px);
+      font-size: rem(14px);
+      text-align: right;
+
+      span:first-child {
+        margin-right: rem(20px);
+      }
+
+      @media screen and (min-width: $screen-l) {
+        display: flex;
+        margin-top: rem(25px);
+
+        > span:last-child {
+          margin: 0;
+        }
+      }
+    }
+
+    .is-dashboard-layout & {
+      > .resume {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .partial-scores,
+      .partial-scores-wrapper,
+      > .btn-read-more {
+        display: none;
+      }
+
+      .btn {
+        display: none;
+      }
+
+      .global-score {
+        margin-bottom: rem(20px);
+
+        > .units {
+          margin-left: rem(-6px);
+        }
+      }
+
+      .info {
+        margin-top: rem(15px);
+        text-align: left;
+
+        span {
+          display: block;
+
+          &:first-child {
+            margin-bottom: rem(5px);
+          }
+        }
+      }
+    }
+  }
+
+  // Scores
+  &.-score-excellent {
+    .global-score { color: $excellent;}
+    .graph > svg { stroke: $excellent;}
+  }
+
+  &.-score-good {
+    .global-score { color: $good;}
+    .graph > svg { stroke: $good;}
+  }
+
+  &.-score-moderate {
+    .global-score { color: $moderate;}
+    .graph > svg { stroke: $moderate;}
+  }
+
+  &.-score-fair {
+    .global-score { color: $fair;}
+    .graph > svg { stroke: $fair;}
+  }
+
+  &.-score-poor {
+    color: $font-color-2;
+    background-color: $poor;
+
+    .index-description {
+      .name,
+      .name a {
+        color: $font-color-2;
+      }
+
+      .organization {
+        color: $font-color-2;
+  
+        .btn-info {
+          color: $font-color-3;
+          background-color: $white;
+        }
+      }
+    }
+
+    .btn,
+    .read-more,
+    .read-less  {
+      color: $font-color-2;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .read-more:after,
+    .read-less:after {
+      border-color: $font-color-2;
+    }
+
+    .partial-scores-wrapper,
+    .index-score .partial-scores {
+      background-color: #850e27;
+    }
+
+    .graph > svg { stroke: $white;}
+  }
+}

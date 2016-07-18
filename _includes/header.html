@@ -1,0 +1,48 @@
+<header class="l-header show">
+  <div class="l-brand">
+    <a class="c-brand" href="{{ site.baseurl }}/">
+      <img class="mobile" src="{{ site.baseurl }}/css/img/logo-simple.svg" alt="">
+      <img class="tablet" src="{{ site.baseurl }}/css/img/logo.svg" alt="">
+    </a>
+  </div>
+
+  <div class="l-menus">
+    <button class="btn-mobile-menu js--open-menu">
+      <svg class="icon">
+        <use xlink:href="#icon-menu"></use>
+      </svg>
+    </button>
+    <div class="menus-wrapper">
+      <div class="scroll-wrapper">
+        <nav class="m-site-navigation -header">
+          <ul>
+            <li class='link {% if page.url == "/countries.html" %} -current {% endif %}'><a href="{{ site.baseurl }}/countries">Countries</a></li>
+            <li class='link {% if page.url == "/indicators.html" %} -current {% endif %}'><a href="{{ site.baseurl }}/indicators">Data</a></li>
+            <li class='link {% if page.url == "/compare.html" %} -current {% endif %}'><a href="{{ site.baseurl }}/compare">Compare</a></li>
+            <li class='link {% if page.url == "/about.html" %} -current {% endif %}'><a href="{{ site.baseurl }}/about">About</a></li>
+            <li class='link {% if page.isBlog or page.layout == "blog/post" %} -current {% endif %}'><a href="{{ site.baseurl }}/blog/">Blog</a></li>
+          </ul>
+        </nav>
+
+        <div class="m-social-share -header">
+          <ul>
+            <li class="icon -twitter">
+              <a href="https://twitter.com/@GovDataAlliance">
+                <svg class="icon">
+                  <use xlink:href="#icon-twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <!-- <li class="icon -facebook">
+              <a href="https://www.facebook.com">
+                <svg class="icon">
+                  <use xlink:href="#icon-facebook"></use>
+                </svg>
+              </a>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

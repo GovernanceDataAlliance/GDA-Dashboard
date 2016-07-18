@@ -1,0 +1,22 @@
+{{#if iso}}
+  <ul class="{{iso}}">
+    {{#each scores}}
+      {{#if score includeZero=true}}
+        <li class="table-cell {{#if classColor}}{{classColor}}{{/if}} -{{units}}" data-index="{{short_name}}" data-year="{{year}}">
+         <span>{{#comma score}}{{/comma}}</span>
+        {{#if units_abbr}}
+          <span class="units -{{units}}">{{units_abbr}} </span>
+        {{/if}}
+        </li>
+      {{else}}
+        <li class="table-cell no-data" data-index="{{short_name}}">not covered</li>
+      {{/if}}
+    {{/each}}
+  </ul>
+{{else}}
+  <ul>
+    {{#each scores}}
+      <li class="table-cell no-data" data-index="{{short_name}}"></li>
+    {{/each}}
+  </ul>
+{{/if}}

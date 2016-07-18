@@ -1,0 +1,38 @@
+.m-breadcrumbs {
+  @extend %wrap;
+  position: absolute;
+  top: rem(30px);
+  left: 0;
+  right: 0;
+
+  ul {
+    max-width: 90%;
+  }
+
+  li {
+    float: left;
+    text-transform: uppercase;
+    font-size: rem(9px);
+    font-family: $font-secondary;
+    color: #5B5B5B;
+  }
+
+  a {
+    font-size: rem(9px);
+    font-family: $font-secondary;
+  }
+
+  span {
+    padding: 0 rem(5px);
+  }
+
+  &.-light {
+    li, a {
+      color: $white;
+    }
+  }
+
+  @media screen and (min-width: $screen-m) {
+    top: rem(40px);
+  }
+}

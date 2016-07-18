@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body class="is-post-page">
+    {% include icons.html %}
+
+    <div class="l-main-container js-blog">
+      {% include header.html %}
+
+      <div class="l-banner -section-3">
+        <div class="m-breadcrumbs">
+          <ul>
+            <li><a href="{{ site.baseurl }}/"> home </a></li>
+            <li><span> / </span></li>
+            <li><a href="{{ site.baseurl }}/blog/"> blog </a></li>
+            {% unless page.category == nil %}
+            <li><span> / </span></li>
+            <li><a href="{{ site.baseurl }}/blog/categories#{{page.category | downcase}}"> {{page.category}} </a></li>
+            {% endunless %}
+            <li><span> / </span></li>
+            <li> {{ page.title }} </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="l-post">
+        <div class="wrap">
+          {% include modules/post_module.html %}
+        </div>
+      </div>
+
+      <div class="l-toolbar -pagination -footer">
+        <div class="wrap">
+          <div class="m-controls -full -centered">
+            <div class="m-pagination">
+              {% if page.previous.url%}
+                <a href="{{ site.baseurl }}{{ page.previous.url }}" class="page-link"> &lt; Newer Post</a>
+              {% else %}
+                <span class="page-link -disabled">&lt; Newer Post</span>
+              {% endif %}
+              {% if page.next.url %}
+                <a href="{{ site.baseurl }}{{ page.next.url }}" class="page-link"> Older post > </a>
+              {% else %}
+                <span class="page-link -disabled">Older post ></span>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="m-controls -full -centered">
+            <button class="js--view-share btn">
+              <svg class="icon -regular">
+                <use xlink:href="#icon-share"></use>
+              </svg>
+              <span class="button-literal">share</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      {% include modules/tag_cloud.html %}
+
+      {% include footer.html %}
+
+    </div>
+    <script>
+      var SITEURL = '{{ site.baseurl }}' || null;
+    </script>
+    <script src="{{site.baseurl}}/js/blog_bundle.js"></script>
+  </body>
+
+</html>

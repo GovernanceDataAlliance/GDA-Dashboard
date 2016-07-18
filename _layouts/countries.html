@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    {% include icons.html %}
+
+    <div class="l-main-container">
+      {% include header.html %}
+
+      <div class="l-banner -section-1 {{ page.image }} js--index-banner">
+
+        {% include breadcrumbs.html %}
+
+        <div class="wrap">
+          <h3 class="c-title -medium">{{ page.page-name }}</h3>
+
+          <div class="m-search js--search">
+            <button class="btn-open-search js--open-search-mb">Search country</button>
+            <div class="js--search-mobile"></div>
+            <div class="js--search-desktop" id="searchBox"></div>
+          </div>
+
+        </div>
+      </div>
+
+      {{ content }}
+
+      <div class="js--country-container"></div>
+
+      {% include modules/compare_module.html %}
+
+      <div class="l-highlight distribuidorDestacado-About02">
+        <div class="wrap">  
+          <div class="m-highlight">
+            <h2 class="c-block-title">
+              {{ page.crosseling-module-title }}
+            </h2>
+            <p class="-highlighted">
+              {{ page.crosseling-module-text }}
+            </p>
+            <a href="{{ site.baseurl }}/about" class="btn -white">find out more</a>  
+          </div>
+        </div>
+      </div>
+
+      {% include footer.html %}
+    </div>
+    <script>
+      var SITEURL = '{{ site.baseurl }}' || null;
+    </script>
+    <script src="js/countries_bundle.js"></script>
+  </body>
+
+</html>

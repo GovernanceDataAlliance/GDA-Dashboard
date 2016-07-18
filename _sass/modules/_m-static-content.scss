@@ -1,0 +1,182 @@
+.m-static-content {
+  max-width: 100%;
+
+  @media screen and (min-width: $screen-xl) {
+    max-width: $content-width;
+  }
+
+  // Links, paragraphs
+  p, a, h6 {
+    font-family: $font-main;
+    font-size: rem(14px);
+    font-weight: 400;
+    line-height: rem(26px);
+    letter-spacing: rem(.4px);
+
+    @media screen and (min-width: $screen-s) {
+      line-height: rem(29px);
+    }
+
+    @media screen and (min-width: $screen-xl) {
+      font-size: rem(15px);
+    }
+  }
+
+  p {
+    color: $font-color-1;
+  }
+
+  a {
+    color: $font-color-3;
+    &:hover {
+      color: $color-4;
+    }
+  }
+
+  // Headings
+  h2 {
+    position: relative;
+    padding-bottom: rem(20px);
+    margin-bottom: rem(20px);
+    font-size: rem(12px);
+    font-weight: 400;
+    color: $font-color-1;
+    font-family: $font-secondary;
+    text-transform: uppercase;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: rem(60px);
+      height: rem(3px);
+      background-color: $color-4;
+    }
+
+    @media screen and (min-width: $screen-s) {
+      padding-bottom: rem(40px);
+      margin-bottom: rem(40px);
+    }
+
+    @media screen and (min-width: 768px) {
+      padding-bottom: rem(45px);
+      margin-bottom: rem(45px);
+    }
+  }
+
+  h5, h6 {
+    line-height: rem(26px);
+    font-weight: 400;
+  }
+
+  h5 {
+    margin-bottom: rem(20px);
+    font-size: rem(16px);
+    letter-spacing: rem(.3px);
+    &:last-child {
+      margin: 0;
+    }
+
+    a {
+      font-size: rem(16px);
+    }
+
+    @media screen and (min-width: $screen-s) {
+      font-size: rem(18px);
+      line-height: rem(32px);
+      a {
+        font-size: rem(18px);
+      }
+    }
+  }
+
+  // Lists
+  ul {
+    list-style-type: disc;
+    padding-left: rem(20px);
+    margin: rem(20px) 0;
+
+    > li {
+      font-size: rem(14px);
+      line-height: rem(26px);
+      letter-spacing: rem(.3px);
+
+      @media screen and (min-width: $screen-xl) {
+        font-size: rem(15px);
+      }
+    }
+  }
+
+  ol {
+    list-style-type: none;
+    counter-reset: item;
+    font-family: $font-secondary;
+    font-size: rem(40px);
+    font-weight: 700;
+
+    @media screen and (min-width: 768px) {
+      margin-top: rem(70px);
+      margin-left: rem(10px);
+      font-size: rem(72px);
+    }
+
+    li {
+      margin-bottom: rem(40px);
+
+      &:before {
+        display: inline-block;
+        content: counter(item);
+        counter-increment: item;
+        color: $color-4;
+      }
+
+      @media screen and (min-width: 768px) {
+        position: relative;
+        margin-bottom: rem(50px);
+        padding-left: 50px;
+
+        &:before {
+          position: absolute;
+          top: -26px;
+          left: -8px;
+        }
+      }
+    }
+
+    h3 {
+      margin-bottom: rem(15px);
+      font-family: $font-main;
+      font-size: rem(16px);
+      font-weight: 400;
+      line-height: rem(26px);
+      letter-spacing: rem(.3px);
+
+      @media screen and (min-width: $screen-s) {
+        font-size: rem(18px);
+        line-height: rem(32px);
+      }
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: rem(20px);
+      }
+    }
+  }
+
+
+  // Miscellaneous
+  hr {
+    height: rem(1px);
+    margin: rem(45px) 0;
+    border: 0;
+    background: $light-grey;
+
+    @media screen and (min-width: $screen-s) {
+      margin: rem(75px) 0;
+    }
+
+    @media screen and (min-width: 768px) {
+      margin: rem(100px) 0;
+    }
+  }
+}

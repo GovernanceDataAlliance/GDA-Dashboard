@@ -1,0 +1,48 @@
+<footer class="l-footer">
+  <div class="l-brand">
+    <a href="{{ site.baseurl }}/" class="c-brand -expanded"><img src="{{ site.baseurl }}/css/img/logo-simple.svg" alt=""></a>
+  </div>
+
+  <div class="l-menus -footer">
+    <div class="wrap">
+      <div class="menus-wrapper">
+        <nav class="m-site-navigation -footer">
+          <ul>
+            <li class='link {% if page.url == "/countries.html" %} -current {% endif %}'><a href="{{ site.baseurl }}/countries">countries</a></li>
+            <li class='link {% if page.url == "/indicators.html" %} -current {% endif %}'><a href="{{ site.baseurl }}/indicators">data</a></li>
+            <li class='link {% if page.url == "/compare.html" %} -current {% endif %}'><a href="{{ site.baseurl }}/compare">compare</a></li>
+            <li class='link {% if page.url == "/about.html" %} -current {% endif %}'><a href="{{ site.baseurl }}/about">about</a></li>
+            <li class='link {% if page.isBlog or page.layout == "blog/post" %} -current {% endif %}'><a href="{{ site.baseurl }}/blog/">Blog</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-info">
+          <p>Results for Development Institute</p>
+          <div class="m-social-share -footer">
+            <ul>
+              <li>
+                <a class="creative-common-logo" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+              </li>
+              <!-- <li class="icon -facebook">
+                <a href="https://www.facebook.com">
+                  <svg class="icon">
+                    <use xlink:href="#icon-facebook"></use>
+                  </svg>
+                </a>
+              </li> -->
+              <li class="icon -twitter">
+                <a href="https://twitter.com/@GovDataAlliance">
+                  <svg class="icon">
+                    <use xlink:href="#icon-twitter"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+    
+</footer>

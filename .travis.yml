@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+- 2.2.2
+before_script:
+- npm install
+- npm install -g grunt-cli
+- gem install sass
+script: npm test
+after_success: bash ./scripts/cibuild
+branches:
+  only:
+    - develop
+env:
+  global:
+  - GH_REF: github.com/GovernanceDataAlliance/GDA-Dashboard.git
+  - secure: tm/+I/cgW+pZCPuBu+JvuG7NrcLUHipeSlMgPiOu9Q/Wy4FFYqfncUZljY7mxSpzsOzBciSjKNRUB7ZT3rOrzhZHMg4XoHIjxdKXC/jHjryZZN4eunsgvm5pZb7zWvIAEsHK0g4E0isyj6Yc+BFzDd2kuB18cPPVHweQRe1+EDbvPW+voBqOf9muz2e07cPlie8ctr+9YsII0klM9UWbsrHPtm+JCGe25Uwe5B9z6FLCur/SdnJYxNiSmi7ByKpPuLLITUDtN7o+Tpw6GiO9GV2RM3XLll5VSn1XLqiHbVfbGv2k459IyjkIys/kMBmwpBE/OCRIid0rOsMOeDtqjBTZr88LgH4J4GUw2faQzVKjloIYHvhj801Z7ITDF/+kAlHpkbeHwv+/PtGVf03b6dPmLJh/+DZe1GaiIRH2cSCTd5MNpRoWCxIwVWIRzfcraZKuZq3xhl4SQq1wcZeBMKsipJiMixMY0CGfG7DlgpP/u8kLawc1q8mO5GEj/u4ZxHluFS+rudXQ2hxbORCZeZQg/yqASMnuFhlJkapurNG+eK4gR/exOzdTezHqMmWkRPJKpfAhFoPE2uDX47O181m4MZ4XDBYx/aILLvMkIicLhR4Ej7Fo5E0DwDQsLWEX9MYLiFijMHOe91552M6uQ+XYkkGAbL7iBgfKwbwVb38=  

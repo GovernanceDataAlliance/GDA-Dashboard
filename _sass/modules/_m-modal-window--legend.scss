@@ -1,0 +1,87 @@
+.m-modal-window .-legend {
+
+  > ul {
+    display: flex; 
+    display: -ms-box;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: rem(30px);
+
+    @media screen and (min-width: $screen-l) {
+      display: none;
+    }
+
+    li {
+      display: flex; 
+      display: -ms-box;
+      align-items: center;
+      justify-content: center;
+      margin-right: rem(40px);
+      margin-bottom: rem(20px);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:before {
+        content: '';
+        display: inline-block;
+        width: rem(25px);
+        height: rem(25px);
+        margin-right: rem(10px);
+      }
+
+      @media screen and (min-width: $screen-s) {
+        margin-bottom: 0;
+        margin-right: rem(20px);
+
+        &:before {
+          width: rem(14px);
+          height: rem(14px);
+        }
+      }
+
+      &.-excellent:before {
+        background: $excellent;
+      }
+
+      &.-good:before {
+        background: $good;
+      }
+
+      &.-moderate:before {
+        background: $moderate;
+      }
+
+      &.-fair:before {
+        background: $fair;
+      }
+
+      &.-poor:before {
+        background: $poor;
+      }
+
+      &.literal {
+        font-family: $font-secondary;
+        font-size: rem(11px);
+        text-transform: uppercase;
+        color: $font-color-3;
+        margin-right: rem(4px);
+
+        &:before {
+          display: none;
+        }
+      }
+    }
+
+    .legend-item {
+      font-family: $font-secondary;
+      font-size: rem(10px);
+      letter-spacing: rem(0.2px);
+      color: $brown;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+  }
+}

@@ -1,0 +1,143 @@
+.m-site-navigation {
+
+  .link {
+    > a {
+      position: relative;
+      font-family: $font-secondary;
+      color: $font-color-1;
+      text-transform: uppercase;
+    }
+  }
+
+  &.-header {
+    margin-bottom: rem(40px);
+
+    .is-open & {
+      margin-bottom: rem(30px);
+    }
+
+    ul {
+      height: 100%;
+
+      > .link {
+        height: 100%;
+        border-bottom: 1px solid  $bg-color-3;
+
+        > a {
+          display:block;
+          height: 100%;
+          font-size: rem(17px);
+          padding: rem(35px) 0 rem(20px) 0;
+
+          @media screen and (min-width: $screen-l) {
+            padding: rem(40px) 0 rem(20px) 0;
+          }
+        }
+      }
+    }
+
+  }
+
+  &.-footer {
+    width: 100%;
+    max-width: 430px;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      max-width: rem(450px);
+      width: 100%;
+      padding: 0 rem(10px);
+
+      li {
+        &.-current {
+          // pointer-events: none;
+
+           > a {
+            &:before {
+              content: '';
+              position: absolute;
+              top: auto;
+              left: 0;
+              bottom: -15px;
+              width: 100%;
+              height: 5px;
+              background-color: $celeste
+            }
+          }
+        }
+        > a {
+          font-size: rem(11px);
+          &:hover {
+            color: $font-color-3;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $screen-m) {
+
+    &.-header {
+      margin-bottom: 0;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: rem(95px);
+      left: 0;
+      display: flex; display: -ms-box;
+      justify-content: center;
+
+      ul {
+        display: flex; display: -ms-box;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: rem(450px);
+        width: 100%;
+        padding: 0 rem(10px);
+
+        > .link {
+          padding: 0;
+          border-bottom: 0;
+
+          &.-current {
+            // pointer-events: none;
+
+            > a {
+              &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 5px;
+                background-color: $celeste
+              }
+            }
+          }
+
+          > a {
+            font-size: rem(11px);
+            font-weight: 400;
+
+            &:hover {
+              color: $font-color-3;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $screen-l) {
+
+    &.-header {
+      width: calc(100% - 100px);
+
+      ul {
+        max-width: rem(550px);
+      }
+    }
+  }
+}

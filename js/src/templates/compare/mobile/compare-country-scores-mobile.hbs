@@ -1,0 +1,30 @@
+<ul class="table">
+  {{#each indicators}}
+    <li class="table-cell {{short_name}} {{#if classColor}} {{classColor}} {{/if}}">
+      <h3><a href="/{{short_name}}">{{product_name}}</a></h3>
+      <div class="organization">
+        <h2>{{organization}}</h2>
+        {{#if product_description}}
+          <button class="btn-info" data-indicator="{{short_name}}">i</button>
+        {{/if}}
+      </div>
+
+      {{#if ../content}}
+        {{#if score includeZero=true}}
+          <div class="score -{{units}}" data-index="{{short_name}}" data-year="{{year}}">
+            <span>{{#comma score}}{{/comma}}</span>
+            {{#if units_abbr}}
+              <span class="units -{{units}}">{{units_abbr}} </span>
+            {{/if}}
+          </div>
+        {{else}}
+          <div class="score no-data" data-index="{{short_name}}">not covered</div>
+        {{/if}}
+      {{else}}
+        <div class="score no-data" data-index="{{short_name}}"></div>
+      {{/if}}
+
+      <span class="score-range">Score Range: {{#comma max_score}} {{/comma}} - {{#comma min_score}}{{/comma}}</span>
+    </li>
+  {{/each}}
+</ul>

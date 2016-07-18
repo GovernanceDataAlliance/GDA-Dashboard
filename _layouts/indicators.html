@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    {% include icons.html %}
+
+    <div class="l-main-container">
+      {% include header.html %}
+
+      <div class="l-banner -section-2 promoInteriores-Data js--index-banner">
+
+        {% include breadcrumbs.html %}
+
+        <div class="wrap">
+
+          <h1 class="c-section-title -light">{{ page.page-name }}</h1>
+          <p>{{ page.intro-text }}</p>
+        </div>
+      </div>
+
+      {{ content }}
+      
+      <div class="js--indicators-container"></div>
+
+      <div class="l-highlight distribuidorDestacado-About02">
+        <div class="wrap">  
+          <div class="m-highlight">
+            <h2 class="c-block-title">
+              {{ page.crosseling-module-title }}
+            </h2>
+            <p class="-highlighted">
+              {{ page.crosseling-module-text }}
+            </p>
+            <a href="{{ site.baseurl }}/about" class="btn -white">find out more</a>  
+          </div>
+        </div>
+      </div>
+
+      {% include footer.html %}
+    </div>
+    <script>
+      var SITEURL = '{{ site.baseurl }}' || null;
+    </script>
+    <script src="js/indicators_bundle.js"></script>
+  </body>
+
+</html>

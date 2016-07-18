@@ -1,0 +1,117 @@
+.m-presentation {
+  //Paddings and layout stuff are here for IE...
+  max-width: 100%;
+  padding: rem(30px) rem($wrap-padding-mobile) rem(45px);
+
+
+  @media screen and (min-width: $screen-s) {
+    max-width: 100%;
+    padding: rem(40px) rem($wrap-padding-tablet) rem(60px);
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 100% ;
+    padding: rem(50px) rem($wrap-padding-desktop) rem(70px);
+  }
+
+  @media screen and (min-width: 960px) {
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    max-width: 100%;
+    padding: rem(75px) rem($wrap-padding-desktop-xl) rem(100px);
+  }
+
+  > h2 {
+    color: $font-color-1;
+    font-weight: 400;
+  }
+
+  > p {
+    font-size: rem(16px);
+    line-height: rem(26px);
+
+    + .btn, + ul {
+      margin-top: rem(20px);
+    }
+  }
+
+  .btn {
+    display: inline-block;
+    text-align: left;
+  }
+
+  .-highlighted {
+    + .btn {
+      margin-top: rem(20px);
+    }
+  }
+
+  > ul, li {
+    list-style-type: disc;
+  }
+
+  ul {
+    padding-left: rem(20px);
+  }
+
+  li {
+    font-size: rem(15px);
+  }
+
+  &.-light {
+    h2, p, ul, li {
+      color: $font-color-2;
+    }
+  }
+
+  @media screen and (min-width: $screen-s) {
+    .-highlighted {
+      font-size: rem(20px);
+      line-height: rem(34px);
+      letter-spacing: rem(0.4px);
+
+      + .btn {
+        margin-top: rem(75px);
+      }
+    }
+
+    > p {
+      + .btn {
+        margin-top: rem(20px);
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .-highlighted {
+      font-size: rem(20px);
+      line-height: rem(34px);
+      letter-spacing: rem(0.4px);
+
+      + .btn {
+        margin-top: rem(40px);
+      }
+    }
+  }
+
+
+  @media screen and (min-width: $screen-l) {
+    > p {
+      font-size: rem(15px);
+
+      + .btn, + ul {
+        margin-top: rem(10px);
+      }
+    }
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    > p {
+      + .btn, + ul {
+        margin-top: rem(20px);
+      }
+    }
+  }
+}

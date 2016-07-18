@@ -1,0 +1,60 @@
+with up as (
+  SELECT 
+    i.iso, 
+    i.short_name, 
+    i.score, 
+    i.score_text, 
+    i.year, 
+    b.name, 
+    w.region, 
+    w.lending_category, 
+    w.income_group, 
+    c.desired_direction, 
+    c.score_range, 
+    c.units_abbr, 
+    c.units 
+  FROM indicator_data i 
+    INNER JOIN wb_countries_clasification w ON i.iso=w.iso 
+    INNER JOIN world_borders b ON w.iso=b.iso3
+    INNER JOIN indicator_config c ON i.short_name=c.short_name 
+  WHERE i.short_name = '{{id}}' 
+  AND i.score is not null 
+  {{#if year}}
+    AND i.year = '{{year}}' 
+  {{/if}}
+  {{#if categoryGroup}}
+    AND w.{{categoryGroup}} = '{{categoryName}}' 
+  {{/if}}
+  AND c.desired_direction ='up' 
+  order by i.score desc, b.name 
+), down as ( 
+  SELECT 
+    i.iso, 
+    i.short_name, 
+    i.score, 
+    i.score_text, 
+    i.year, 
+    b.name, 
+    w.region, 
+    w.lending_category, 
+    w.income_group, 
+    c.desired_direction, 
+    c.score_range, 
+    c.units_abbr, 
+    c.units 
+  FROM indicator_data i 
+    INNER JOIN wb_countries_clasification w ON i.iso=w.iso 
+    INNER JOIN world_borders b ON w.iso=b.iso3
+    INNER JOIN indicator_config c ON i.short_name=c.short_name 
+  WHERE i.short_name = '{{id}}' 
+  AND i.score is not null 
+  {{#if year}}
+    AND i.year = '{{year}}' 
+  {{/if}}
+  {{#if categoryGroup}}
+    AND w.{{categoryGroup}} = '{{categoryName}}' 
+  {{/if}}
+  AND c.desired_direction ='down' 
+  order by i.score, b.name 
+)
+SELECT  * from up  UNION ALL SELECT * from down

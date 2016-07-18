@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body>
+    {% include icons.html %}
+    <div class="l-main-container">
+      {% include header.html %}
+
+      <div class="l-banner -section-2 -about promoInteriores-About">
+
+        {% include breadcrumbs.html %}
+
+        <div class="wrap">
+          <h1 class="c-section-title -light">{{ page.title }}</h1>
+          <p>{{ page.intro-text }}</p>
+        </div>
+      </div>
+
+      <div class="l-content -main">
+        <div class="wrap">
+          <div class="m-static-content">
+            {{ content }}
+          </div>
+        </div>
+      </div>
+
+      <div class="l-content -fullscreen">
+        <div class="l-grid -partners">
+          {% assign organizations = site.organizations | sort: 'name' %}
+          {% for organization in organizations %}
+            <div class="m-card--indexes">
+              <a href="{{ organization.link }}" target="_blank" class="index-description">
+                <span style="background-image:url('css/img/logos/{{ organization.logo }}')" alt=""></span>
+                <h3 class="name">{{ organization.name }}</h3>
+                <!-- <p class="organization">{{ organization.description }}</p> -->
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      {% include footer.html %}
+    </div>
+    <script>
+      var SITEURL = '{{ site.baseurl }}' || null;
+    </script>
+    <script src="js/about_bundle.js"></script>
+  </body>
+
+</html>

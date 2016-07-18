@@ -1,0 +1,44 @@
+.icon {
+  fill: $color-4;
+
+  &.-regular {
+    width: 22px;
+    height: 20px;
+  }
+  
+  .is-active & {
+    fill: $font-color-1;
+  }
+}
+
+.icon-mouse {
+  display: block;
+  width: rem(14px);
+	height: rem(24px);
+	fill: currentColor;
+}
+
+.icon-search {
+  @extend %centery;
+  right: 10%;
+  width: rem(20px);
+  height: rem(20px);
+  margin-top: rem(-7px);
+  fill: $white;
+
+  @media screen and (min-width: $screen-m) {
+    right: rem(80px);
+  }
+
+  @media screen and (min-width: $screen-l) {
+    right: rem(100px);
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    right: rem(190px);
+  }
+
+  @media screen and (min-width: $screen-xxl) {
+    right: rem(190px);
+  }
+}

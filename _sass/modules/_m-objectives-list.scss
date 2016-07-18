@@ -1,0 +1,27 @@
+.m-objectives-list {
+  text-align: center;
+  
+  > ul {
+    width: 100%;
+    margin: rem(100px) 0 rem(125px);
+    display: flex; display: -ms-box;
+    flex-direction: row;
+    justify-content: space-around;
+
+    li {
+      display: flex; display: -ms-box;
+      flex-direction: column;
+      justify-content: space-between;
+      height: rem(200px);
+    }
+
+    span {
+      font-size: rem(30px);
+    }
+
+    .icon {
+      fill: $color-1;
+      height: rem(100px);
+    }
+  }
+}

@@ -1,0 +1,7 @@
+ SELECT
+ p.iso3,
+ p.name,
+ p.region_name,
+ max (i.year)
+ FROM world_borders p JOIN indicator_data i on p.iso3=i.iso GROUP BY p.iso3, p.name, p.region_name
+ ORDER BY p.name

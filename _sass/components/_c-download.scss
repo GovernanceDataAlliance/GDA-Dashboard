@@ -1,0 +1,19 @@
+.c-download {
+
+  .buttons {
+    margin-top: rem(30px);
+    > a {
+      display: block;
+      padding: rem(20px) rem(60px);
+      font-size: rem(11px);
+      letter-spacing: rem(0.6px);
+      &:last-child {
+        border: 0;
+      }
+
+      @media screen and (min-width: $screen-s) {
+        display: inline-block;
+      }
+    }
+  }
+}

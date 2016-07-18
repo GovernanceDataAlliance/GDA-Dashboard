@@ -1,0 +1,15 @@
+<ul>
+  {{#each countriesByRegion}}
+  <li>
+    <div class="m-list -mobile"> 
+      <h2 class="js--list-handler list-header">{{@key}}</h2>
+      <ul>
+        {{#each this}}
+          <li><a href="#{{iso3}}&{{max}}" title="{{name}}">{{name}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+  </li>
+  {{/each}}
+</ul>
+

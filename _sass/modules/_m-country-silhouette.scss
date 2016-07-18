@@ -1,0 +1,13 @@
+.m-country-silhouette {
+  display: none;
+
+  @media screen and (min-width: $screen-l) {
+    display: block;
+
+    > .svg-country-silhouette {
+      transform: translate(0, rem(30px));
+  		fill: $beige;
+  	  opacity: .3;
+  	}
+  }
+}

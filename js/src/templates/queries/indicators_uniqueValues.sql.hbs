@@ -1,0 +1,9 @@
+SELECT distinct on (d.short_name) 
+ c.desired_direction, c.has_historical_info, c.max_score,
+ c.methodology_link, c.min_score, c.product_description, c.product_logo,
+ c.product_name, c.short_name, c.units, d.iso, d.notes, d.score,
+ d.score_text, d.year 
+FROM {{table}} d 
+INNER JOIN indicator_config AS c ON d.short_name = c.short_name 
+WHERE d.iso = '{{iso}}' 
+order by d.short_name, year desc

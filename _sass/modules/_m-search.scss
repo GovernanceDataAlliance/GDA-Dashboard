@@ -1,0 +1,141 @@
+.m-search {
+  width: 100%;
+  min-height: rem(65px);
+  background-color: $bg-color-3;
+  transition: opacity .2s;
+
+  @media screen and (min-width: $screen-s) {
+    width: 50%;
+  }
+
+  @media screen and (min-width: $screen-m) {
+    min-height: rem(153px);
+  }
+
+  @media screen and (min-width: $screen-l) {
+    min-height: rem(193px);
+  }
+
+  .js--search-mobile {
+    @media screen and (min-width: $screen-m) {
+      display: none;
+    }
+  }
+
+  > .js--search-desktop {
+    display: none;
+
+    @media screen and (min-width: $screen-m) {
+      display: block;
+      cursor: pointer;
+    }
+  }
+
+  .btn-open-search {
+    width: 100%;
+    padding: rem(25px) 0;
+    text-align: center;
+    font-family: $font-secondary;
+    font-size: rem(12px);
+    text-transform: uppercase;
+    color: $white;
+
+    @media screen and (min-width: $screen-m) {
+      display: none;
+    }
+  }
+
+  input {
+    @extend %clean-button-or-input;
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: $screen-m) {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: rem(50px) rem(80px) rem(60px);
+
+    input {
+      display: block;
+      width: 100%;
+      height: rem(40px);
+      border-bottom: 1px solid $white;
+      border-radius: 0;
+      font-style: italic;
+      text-transform: none;
+      line-height: 1.8em;
+      font-size: rem(24px);
+      font-family: $font-main;
+      text-align: left;
+      &::-ms-clear {
+        display: none;
+      }
+
+      @include placeholder() {
+        color: $font-color-2;
+        font-size: rem(24px);
+        text-transform: none;
+        text-align: left;
+        text-style: italic;
+      }
+    }
+
+    .search-box.visible {
+      position: absolute;
+      bottom: rem(40px);
+      left: rem(100px);
+      right: rem(100px);
+      // max-height: rem(500px);
+      z-index: 2;
+      background-color: $bg-color-1;
+      border: 1px solid $border-1;
+      transform: translatey(100%);
+      overflow-y: scroll;
+    }
+
+    .search-area {
+      width: 100%;
+      background-color: #eeedea;
+      border-bottom: 1px solid $border-1;
+
+      a, &.no-results > span {
+        display: inline-block;
+        width: 100%;
+        padding: rem(20px) rem(90px);
+        color: $font-color-1;
+        font-size: rem(20px);
+      }
+
+      &.highlight {
+        background-color: $bg-color-3;
+      }
+
+      span span {
+        font-weight: 700;
+      }
+    }
+  }
+
+  @media screen and (min-width: $screen-l) {
+    padding: rem(65px) rem(100px) rem(75px);
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    padding: rem(65px) rem(190px) rem(75px);
+
+    input {
+      height: rem(40px);
+    }
+
+    .search-box.visible {
+      left: rem(180px);
+      right: rem(180px);
+    }
+  }
+
+  @media screen and (min-width: $screen-xxl) {
+    padding: rem(70px) rem(190px) rem(80px);
+  }
+}

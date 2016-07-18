@@ -1,0 +1,6 @@
+SELECT distinct on (year) 
+  year,
+  short_name 
+FROM {{table}}  
+WHERE year is not null AND short_name='{{index}}'
+ORDER BY year desc

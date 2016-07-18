@@ -1,0 +1,281 @@
+$backgrounds: 'promoHome', 'promoInteriores-About', 'promoInteriores-CompareCountries', 'promoInteriores-Countries', 'promoInteriores-Data', 'promoInteriores-Blog';
+
+.l-banner {
+  position: relative;
+
+  //home
+  &.-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100vh - 70px);
+    padding: rem(30px) 0 rem(60px);
+    background-color: #ccc;
+    background-position: top left;
+    max-height: rem(700px);
+
+    h3 {
+      max-width: 100%;
+    }
+
+    p {
+      color: $font-color-2;
+      margin-bottom: rem(35px);
+    }
+
+    .highlighted-text {
+      font-size: rem(16px);
+      line-height: rem(26px);
+      letter-spacing: rem(.5px);
+
+      @media screen and (min-width: $screen-s) {
+        font-size: rem(18px);
+      }
+
+      @media screen and (min-width: 768px) {
+        font-size: rem(20px);
+        margin-bottom: rem(55px);
+      }
+    }
+
+    .scroll-down {
+      display: none;
+      position: absolute;
+      top: auto;
+      left: 50%;
+      bottom: rem(30px);
+      transform: translate(-50%, 0);
+      padding: 0;
+      font-size: rem(15px);
+      color: $font-color-2;
+
+      .icon-mouse {
+        margin: rem(5px) auto 0;
+        &:hover {
+          fill: $white;
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        display: block;
+        bottom: rem(25px);
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      height: calc(100vh - 85px);
+      // min-height: rem(945px);
+      max-height: rem(850px);
+
+      p {
+        margin-bottom: rem(50px);
+      }
+    }
+
+    @media screen and (min-width: 768px) and (orientation: portrait) {
+      max-height: rem(850px);
+    }
+
+    @media screen and (min-width: $screen-l) {
+      // min-height: rem(700px);
+      padding-top: 0;
+      min-height: rem(600px);
+
+      h3 {
+        max-width: $content-width;
+      }
+
+      p {
+        margin-bottom: rem(30px);
+      }
+    }
+
+    @media screen and (min-width: $screen-xl) {
+      padding: 0;
+      height: calc(100vh - 95px);
+      max-height: rem(1000px);
+      min-height: rem(615px);
+
+      h3 {
+        margin-bottom: rem(30px);
+        max-width: $content-width-xl;
+      }
+
+      p {
+        line-height: rem(34px);
+        letter-spacing: rem(0.5px);
+        margin-bottom: rem(40px);
+      }
+
+      .scroll-down {
+        span {
+          display: none;
+        }
+      }
+    }
+
+    @media screen and (min-width: $screen-xxl) {
+      .scroll-down {
+        span {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  //countries
+  &.-section-1 {
+    min-height: rem(438px);
+    padding: rem(100px) 0 rem(60px);
+    background-color: $bg-color-1;
+  }
+
+  //Compare-main
+  //Data-main
+  //About-main
+  &.-section-2 {
+    padding: rem(75px) 0 rem(60px);
+
+    @media screen and (min-width: $screen-s) {
+      padding: rem(115px) 0 rem(170px);
+    }
+
+    @media screen and (min-width: 768px) {
+      padding: rem(130px) 0 rem(135px);
+    }
+
+    .c-section-title {
+      margin-bottom: rem(40px);
+    }
+
+    @media screen and (min-width: $screen-l) {
+      > .wrap {
+        max-width: $content-width;
+        margin-left: 0;
+      }
+    }
+
+    p {
+      color: $white;
+      letter-spacing: rem(0.5px);
+      font-size: rem(16px);
+      line-height: rem(26px);
+
+      @media screen and (min-width: $screen-s) {
+        font-size: rem(18px);
+        line-height: rem(32px);
+      }
+
+      @media screen and (min-width: 768px) {
+        font-size: rem(20px);
+        line-height: rem(34px);
+      }
+    }
+  }
+
+  //Blog
+  &.-section-3 {
+    min-height: rem(70px);
+    background-color: $bg-color-1;
+
+    @media screen and (min-width: 768px) {
+      min-height: rem(90px);
+    }
+  }
+
+  //country-show
+  //data detail
+  &.-detail {
+    display: flex; display: -ms-box;
+    padding: rem(70px) 0 rem(40px);
+    background-color: $bg-color-1;
+    border-bottom: 1px solid $border-1;
+
+    > .wrap {
+
+      .btn {
+        flex: 1 1 auto;
+      }
+    }
+
+    &.-blog {
+      // padding-top: rem(120px);
+      padding-bottom: rem(20px);
+
+      > .wrap {
+        flex-direction: column;
+      }
+    }
+
+    &.-row {
+      > .wrap {
+        display: flex;
+        display: -ms-box;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    &.-col {
+      > .wrap {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media screen and (min-width: $screen-s) {
+      padding: rem(120px) 0 rem(75px);
+    }
+
+    @media screen and (min-width: 768px) {
+
+      &.-country {
+        padding: rem(60px) 0;
+      }
+
+      &.-blog {
+        > .wrap {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+      }
+
+    }
+
+    @media screen and (min-width: $screen-l) {
+      padding: rem(140px) 0 rem(120px);
+
+      .description {
+        max-width: 80%;
+      }
+    }
+  }
+
+
+  @for $i from 1 through length($backgrounds) {
+    &.#{nth($backgrounds, $i)}{
+      background-image: url('img/#{nth($backgrounds, $i)}.jpg');
+      background-size: cover;
+      background-position: center;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(65, 52, 43, 0.5);
+      }
+    }
+  }
+
+  a:hover {
+    color: $color-4;
+  }
+
+  .title-container {
+    width: 100%;
+  }
+}

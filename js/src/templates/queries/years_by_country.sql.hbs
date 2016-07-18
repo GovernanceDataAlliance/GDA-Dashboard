@@ -1,0 +1,6 @@
+SELECT 
+  distinct on (year) year 
+FROM {{table}} 
+WHERE year is not null 
+AND iso = '{{iso}}' 
+ORDER BY year desc 

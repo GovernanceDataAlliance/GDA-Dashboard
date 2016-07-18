@@ -1,0 +1,22 @@
+.l-compare-selectors {
+
+  width: 100%;
+
+  .btn-drop-down:last-child {
+    margin-top: rem(20px);
+  }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+
+    .btn-drop-down:last-child {
+      margin: 0;
+    }
+  }
+  
+  @media screen and (min-width: $screen-l) {
+    border-left: 1px solid $border-1;
+    border-right: 1px solid $border-1;
+  }
+
+}

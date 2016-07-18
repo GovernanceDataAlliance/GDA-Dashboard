@@ -1,0 +1,16 @@
+{% assign tags = site.tags | sort %}
+
+{% unless tags == empty  %}
+  <div class="l-tag-cloud">
+    <div class="wrap">
+      <div class="m-tag-cloud">
+        <h2>#Tags</h2>
+        {% for tag in tags %}
+          <a class="c-tag" href="{{ site.baseurl }}/blog/tags#{{ tag | first | downcase }}">
+            #{{tag[0]  | replace:'_', ' '}}
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endunless %}

@@ -1,0 +1,31 @@
+.m-graph-tooltip {
+  position: absolute;
+  padding: rem(20px) rem(25px);
+  pointer-events: none;
+  text-align: center;
+  background-color: $light-grey-two;
+
+  transform: translate(-55%, -85%);
+
+  &:after {
+    content: "";
+    @include equi-triangle(10px, $light-grey-two, bottom);
+    position: absolute;
+    bottom: rem(-10px);
+    left: 50%;
+    transform: translatex(-50%);
+  }
+
+  .score {
+    font-size: rem(17px);
+    line-height: 1em;
+    font-weight: 700;
+    font-family: $font-secondary;
+  }
+
+  .year {
+    font-size: rem(12px);
+    line-height: 1em;
+    font-family: $font-secondary;
+  }
+}

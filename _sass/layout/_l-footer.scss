@@ -1,0 +1,105 @@
+$footer-desktop-height: rem(210px);
+$footer-height: rem(375px);
+
+.l-footer {
+  position: relative;
+  height: $footer-height;
+
+  display: flex; display: -ms-box;
+  flex-direction: column;
+  align-items: stretch;
+
+  @media screen and (min-width: 768px) {
+    height: $footer-desktop-height;
+    flex-direction: row;
+  }
+
+  @media screen and (min-width: $screen-l) {
+    height: rem(245px);
+  }
+
+  .l-brand {
+    display: flex; display: -ms-box;
+    order: 2;
+    height: rem(130px);
+    flex-basis: 33.33%;
+    justify-content: flex-end;
+    background-color: $bg-color-2;
+
+    @media screen and (min-width: 768px) {
+      order: 1;
+      height: $footer-desktop-height;
+    }
+
+    @media screen and (min-width: $screen-l) {
+      height: rem(245px);
+    }
+  }
+
+  .l-menus {
+    flex-basis: 66.66%;
+    display: flex; display: -ms-box;
+    align-items: stretch;
+    justify-content: center;
+    padding: rem(60px) 0;
+    height: $footer-desktop-height;
+
+    @media screen and (min-width: 768px) {
+      padding: rem(45px) 0 rem(35px) 0;
+      order: 2;
+    }
+
+    @media screen and (min-width: $screen-l) {
+      height: rem(245px);
+      padding: rem(60px) 0;
+
+      &.-footer {
+        justify-content: flex-end;
+      }
+    }
+
+    &.-footer {
+
+      > .wrap {
+        display: flex;
+      }
+
+    }
+
+    .menus-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+      @media screen and (min-width: 768px) {
+        align-items: flex-end;
+      }
+    }
+
+    p {
+      font-size: rem(14px);
+    }
+
+  }
+
+  .footer-info {
+    display: flex; display: -ms-box;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      align-items: flex-end
+    }
+  }
+
+  .creative-common-logo {
+    height: rem(20px);
+
+    img {
+      height: rem(20px);
+    }
+  }
+}

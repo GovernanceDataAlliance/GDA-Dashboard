@@ -1,0 +1,73 @@
+.l-content {
+  //Countries list
+  padding: rem(60px) 0;
+  min-height: rem(500px);
+
+  .btn.-secondary {
+    margin-top: rem(30px);
+  }
+
+  &:nth-child(2n + 1) {
+    background-color: $bg-color-1;
+  }
+
+  &.-main {
+    padding: rem(40px) 0 rem(50px);
+
+    @media screen and (min-width: $screen-s) {
+      padding: rem(75px) 0 rem(75px);
+    }
+
+    @media screen and (min-width: 768px) {
+      padding: rem(85px) 0 rem(105px);
+    }
+  }
+
+  &.-fullscreen {
+    padding: 0;
+    background-color: transparent;
+  }
+
+  &.-compare {
+    .wrap {
+      padding: 0 rem(10px);
+
+      @media screen and (min-width: $screen-l) {
+        padding: 0 rem($wrap-padding-desktop);
+      }
+
+      @media screen and (min-width: $screen-xl) {
+        padding: 0 rem($wrap-padding-desktop-xl);
+      }
+    }
+  }
+
+  &.-fixed {
+    margin-top: rem(70px);
+  }
+
+  @media screen and (min-width: $screen-s) {
+    padding: rem(95px) 0;
+    &.-countries {
+      padding: 0;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    &.-countries {
+      padding: rem(85px) 0 rem(120px);
+    }
+  }
+
+  @media screen and (min-width: $screen-l) {
+    padding: rem(95px) 0 rem(120px);
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    padding: rem(120px) 0;
+  }
+}
+
+#compareSlider {
+  overflow-x: hidden;
+}

@@ -1,0 +1,72 @@
+/*
+ * States are modes that can change
+ */
+
+.is-hidden {
+  @extend %hidden;
+}
+
+.is-inmobile {
+  overflow: hidden !important;
+}
+
+//It shows up after 768 (tablet)
+.is-mobile-hidden {
+  @extend %hidden;
+
+  @media screen and (min-width: 768px) {
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+
+//Is shows up after 769px (small desktop and tablet portrait)
+.is-tablet-hidden {
+  @extend %hidden;
+
+  @media screen and (min-width: $screen-m) {
+    display: inline-block !important;
+    visibility: visible !important;
+  }
+}
+
+//It hides at 1024px
+.is-desktop-hidden {
+  @media screen and (min-width: $screen-l) {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
+
+.is-loading {
+  @include spinner(40px, 5px);
+}
+
+.has-no-scroll {
+  overflow: hidden;
+}
+
+// From 320px
+@media screen and (min-width: $screen-xs) {
+
+}
+
+// From 640px
+@media screen and (min-width: $screen-s) {
+
+}
+
+// From 768px
+@media screen and (min-width: $screen-m) {
+
+}
+
+// From 1024px
+@media screen and (min-width: $screen-l) {
+
+}
+
+// From 1280px
+@media screen and (min-width: $screen-xl) {
+
+}

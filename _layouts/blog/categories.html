@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+
+  <body>
+    {% include icons.html %}
+
+    <div class="l-main-container js-blog">
+      {% include header.html %}
+
+      <div class="l-banner -detail -blog">
+        <div class="m-breadcrumbs">
+          <ul>
+            <li><a href="{{ site.baseurl }}"> home </a></li>
+            <li><span> / </span></li>
+            <li><a href="{{ site.baseurl }}/blog/">blog </a></li>
+            <li><span> / </span></li>
+            <li> {{ page.page-name }} </li>
+          </ul>
+        </div>
+
+        <div class="wrap">
+
+          <h1 id="categoryTitle" class="c-section-title" data-type="categories"> Blog posts from all categories </h1>
+
+        </div>
+      </div>
+
+      <div class="l-toolbar">
+        <div class="wrap">
+
+          <div class="m-year-selector">
+            <div class="btn-drop-down" id="categorySelector">
+              <select>
+                <option value="">All categories</option>
+                  {% for category in site.categories %}
+                    {% unless category[0] == "blog" %}
+                      <option value="{{ category | first | remove:' ' | downcase}}">
+                        {{ category | first }}
+                      </option>
+                      {% if forloop.last %}.{% else %}, {% endif %}
+                    {% endunless %}
+                  {% endfor %}
+              </select>
+            </div>
+          </div>
+
+          <button class="js--view-share btn">
+            <svg class="icon -regular">
+              <use xlink:href="#icon-share"></use>
+            </svg>
+            <span class="button-literal">share</span>
+          </button>
+
+        </div>
+      </div>
+
+      <div class="l-blog">
+
+        {% for category in site.categories %}
+            <div class="blog-filter -active" id="{{ category | first | remove:' ' | downcase}}">
+               {% for posts in category %}
+                 {% for post in posts %}
+                   {% if post.url %}
+
+                     {% include modules/post_list_module.html %}
+
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
+           </div>
+         {% endfor %}
+
+
+      <div class="l-toolbar -footer">
+        <div class="wrap">
+          <div class="c-share">
+            <button class="js--view-share btn">
+              <svg class="icon -regular">
+                <use xlink:href="#icon-share"></use>
+              </svg>
+              <span class="button-literal">share</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {% include modules/tag_cloud.html %}
+
+      {% include footer.html %}
+
+    </div>
+    <script>
+      var SITEURL = '{{ site.baseurl }}' || null;
+    </script>
+    <script src="{{site.baseurl}}/js/blog_bundle.js"></script>
+  </body>
+
+</html>

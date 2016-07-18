@@ -1,0 +1,9 @@
+with r as (  
+  SELECT (ST_Dump(the_geom)).geom as the_geom, 
+  iso3, 
+  bbox 
+  FROM world_borders_manu 
+  where iso3='{{iso}}'
+)
+ 
+select st_collect(the_geom) over () as the_geom, bbox from r where st_intersects(st_setSRID(st_geomfromgeojson(bbox),4326),the_geom) limit 1

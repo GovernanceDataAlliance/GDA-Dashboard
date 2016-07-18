@@ -1,0 +1,9 @@
+{{#if data}}
+  <ul>
+    {{#each data}}
+      <li class="search-area{{#if selected}} selected{{/if}}" title="{{title}}" data-iso="{{iso3}}" data-index="{{index}}"><a href="countries#{{iso3}}&{{max}}"><span class="name">{{{name}}}</span></a></li>
+    {{/each}}
+  </ul>
+{{else}}
+  <div class="no-results search-area"><span>No results</span></div>
+{{/if}}

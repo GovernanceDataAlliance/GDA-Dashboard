@@ -1,0 +1,25 @@
+.wrap,
+%wrap {
+  position: relative;
+  width: 100%;
+  max-width: rem($grid-max-width);
+  margin: 0 auto;
+  padding: 0 rem($wrap-padding-mobile);
+
+  @media screen and (min-width: $screen-s) {
+    padding: 0 rem($wrap-padding-tablet);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 0 rem($wrap-padding-desktop);
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    padding: 0 rem($wrap-padding-desktop-xl);
+  }
+}
+
+@mixin col($columns) {
+  max-width: rem(($grid-max-width)/12 * $columns);
+  width: 100%;
+}

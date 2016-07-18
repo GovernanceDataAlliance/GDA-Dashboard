@@ -1,0 +1,13 @@
+.l-grid {
+  @extend %clearfix;
+  margin: 0 auto;
+
+  &.is-dashboard-layout {
+    background-color: $beige-light;
+  }
+
+  &.-partners {
+    border-top: 1px solid $border-1;
+    border-bottom: 1px solid $border-1;
+  }
+}

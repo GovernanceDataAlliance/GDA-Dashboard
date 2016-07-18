@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    {% include icons.html %}
+    
+    <div class="l-main-container"> 
+      {% include header.html %}
+
+      {{ content }}
+
+      <div class="l-highlight distribuidorDestacado-About02">
+        <div class="wrap">  
+          <div class="m-highlight">
+            <h2 class="c-block-title">
+              {{ page.crosseling-module-title }}
+            </h2>
+            <p class="-highlighted">
+              {{ page.crosseling-module-text }}
+            </p>
+            <a href="{{ site.baseurl }}/about" class="btn -white">find out more</a>  
+          </div>
+        </div>
+      </div>
+
+      {% include footer.html %}
+    </div>
+    <script>
+      var SITEURL = '{{ site.baseurl }}' || null;
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,318 @@
+%score-font {
+  font-size: rem(65px);
+  font-family: $font-secondary;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  @media screen and (min-width: $screen-s) {
+    font-size: rem(50px);
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: rem(40px);
+  }
+
+  @media screen and (min-width: $screen-l) {
+    font-size: rem(50px);
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    font-size: rem(60px);
+  }
+}
+
+%no-data-font {
+  font-size: rem(17px);
+  font-family: $font-secondary;
+  color: #5b5b5b;
+}
+
+.m-comparison-table {
+  position: relative;
+  display: flex; display: -ms-box;
+
+  @media screen and (min-width: $screen-l) {
+    border-left: 1px solid $border-1;
+    border-right: 1px solid $border-1;
+  }
+
+  .table-cell {
+    position: relative;
+    height: rem(200px);
+    display: flex; 
+    display: -ms-box;
+    padding: rem(20px) rem(10px);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    @media screen and (min-width: $screen-m) {
+      height: rem(180px);
+    }
+
+    @media screen and (min-width: $screen-l) {
+      height: rem(160px);
+      padding: rem(20px);
+    }
+  }
+
+  h3,
+  h3 a {
+    margin-bottom: rem(10px);
+    font-size: rem(20px);
+    font-weight: 400;
+    color: $font-color-1;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: rem(18px);
+      line-height: 1.3em;
+    }
+
+    @media screen and (min-width: $screen-l) {
+      font-size: rem(20px);
+      line-height: 1.5em;
+    }
+  }
+
+  h2 {
+    display: inline-block;
+    max-width: 80%;
+    margin-right: rem(15px);
+    font-size: rem(14px);
+    font-weight: 400;
+  }
+
+  p {
+    font-size: rem(15px);
+  }
+
+  > .-index {
+    width: 30.1%;
+
+    .table-cell {
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid $border-1;
+      border-bottom: 1px solid $border-1;
+
+      &:before {
+        content: "";
+        position: absolute;
+        bottom: rem(-1px);
+        left: rem(-10px);
+        width: rem(10px);
+        height: rem(1px);
+        background-color: $border-1;
+
+        @media screen and (min-width: $screen-l) {
+          display: none;
+        }
+      }
+
+      > .organization {
+        display: flex;
+        align-items: center;
+
+        h2 {
+          max-width: 100%;
+          margin: 0;
+        }
+      }
+
+      > .score-range {
+        margin-top: rem(10px);
+        font-size: rem(14px);
+      }
+    }
+  }
+
+  > .-score {
+    width: 23.33%;
+
+    &:nth-last-child(2) {
+      .table-cell {
+        border-right: none;
+      }
+    }
+
+    &:nth-child(4) {
+      
+      .table-cell {
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: rem(-1px);
+          right: rem(-10px);
+          width: rem(10px);
+          height: rem(1px);
+          background-color: $border-1;
+
+          @media screen and (min-width: $screen-l) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .table-cell {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      flex-wrap: wrap;
+      border-right: 1px solid $border-1;
+      border-bottom: 1px solid $border-1;
+
+      &.-percent {
+        flex-direction: row;
+      }
+
+      @extend %score-font;
+
+      &.-usd {
+        @media screen and (min-width: $screen-s) {
+          font-size: rem(35px);
+        }
+
+        @media screen and (min-width: 768px) {
+          font-size: rem(30px);
+        }
+
+        @media screen and (min-width: $screen-l) {
+          font-size: rem(50px);
+        }
+
+        @media screen and (min-width: $screen-xl) {
+          font-size: rem(60px);
+        }
+      }
+
+      &.no-data {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        @extend %no-data-font;
+      }
+
+      // Scores
+      &.-score-excellent {
+        color: $excellent;
+      }
+      &.-score-good {
+        color: $good;
+      }
+      &.-score-moderate {
+        color: $moderate;
+      }
+      &.-score-fair {
+        color: $fair;
+      }
+      &.-score-poor {
+        color: $white;
+        background-color: $poor;
+      }
+    }
+  }
+
+  .units {
+    font-family: $font-secondary;
+    font-weight: 400;
+    font-size: rem(25px);
+    letter-spacing: .1px;
+    line-height: .7em;
+
+    &.-usd {
+      font-size: rem(14px);
+
+      @media screen and (min-width: $screen-l) {
+        font-size: rem(25px);
+      }
+    }
+  }
+
+  &.-mobile {
+    > .country {
+      width: 100%;
+
+      .table-cell {
+        flex-direction: column;
+        align-items: center;
+
+        border-bottom: 1px solid $border-1;
+
+        // min-height: rem(200px);
+        height: rem(245px);
+        text-align: center;
+
+        > .score {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          @extend %score-font;
+
+          &.-usd span:not(.units) {
+            font-size: rem(50px);
+          }
+
+          &.-percent {
+            flex-direction: row;
+          }
+
+          &.no-data {
+            min-height: rem(79px);
+            margin-top: rem(10px);
+
+            @extend %no-data-font;
+          }
+
+        }
+
+        > .score-range {
+          margin-top: rem(10px);
+        }
+
+        // Scores
+        &.-score-excellent {
+          .score {
+            color: $excellent;
+          }
+        }
+        &.-score-good {
+          .score {
+            color: $good;
+          }
+        }
+        &.-score-moderate {
+          .score {
+            color: $moderate;
+          }
+        }
+        &.-score-fair {
+          .score {
+            color: $fair;
+          }
+        }
+        &.-score-poor {
+          color: $white;
+          background-color: $poor;
+
+          h3, a {
+            color: $white;
+          }
+        }
+
+      }
+    }
+  }
+
+  .advise-wrapper {
+    position: absolute;
+    top: 0;
+    left: 30.1%;
+    right: 0;
+  }
+}

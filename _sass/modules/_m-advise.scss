@@ -1,0 +1,30 @@
+.m-advise {
+  @extend %clearfix;
+  position: absolute;
+  top: 0;
+  width: 90%;
+  margin: rem(100px) auto;
+  padding: rem(50px) rem(60px);
+  background-color: $bg-color-4;
+  font-style: italic;
+  font-size: rem(20px);
+
+  &.-compare {
+    position: relative;
+    top: 0;
+    margin: rem(50px) auto 0;
+    width: 90%;
+  }
+
+  &.-clearfix {
+    position: static;
+  }
+
+  &.-mobile {
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 100%;
+    line-height: 1;
+  }
+}

@@ -1,0 +1,212 @@
+@media print {
+
+  .l-header,
+  .l-footer,
+  .l-highlight,
+  .l-toolbar,
+  .no-printable,
+  .m-breadcrumbs,
+  .btn-info,
+  .btn,
+  .btn-drop-down:after {
+    display: none !important;
+  }
+
+  .c-section-title.-light {
+    color: $color-1;
+
+    &:after {
+      background-color: $color-1
+    }
+  }
+
+  .l-banner.-section-2 p {
+    color: $color-1;
+  }
+
+  .l-banner:before {
+    display: none !important;
+
+  }
+
+
+  //COUNTRY PAGE
+
+  .js--compare-container .js--compare-selectors {
+
+    &.is-mobile-hidden {
+      display: block !important;
+      visibility: visible !important;
+    }
+
+    .l-toolbar {
+      display: flex !important;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  .l-banner.-detail.-country {
+    padding-top: 2.5em;
+  }
+
+  .l-banner.-detail {
+    padding-top: 2.5em;
+    padding-bottom: 2.5em;
+  }
+
+  .l-grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .is-dashboard-layout  .m-card {
+    width: 50%;
+    flex-basis: 50%;
+    height: 420px;
+
+    &.-not-covered {
+      display: none !important;
+    }
+
+    &:nth-child(2n) {
+      border-right: 1px solid $border-1;
+    }
+
+    .index-score {
+      flex-direction: column;
+
+      > .js--partial-ranks {
+        width: 100%;
+      }
+    }
+
+    .card-wrap {
+      height: 100%;
+    }
+
+    .index-description > .description-wrapper .description {
+      max-height: none !important;
+    }
+
+    .index-score > .resume {
+      width: 100% !important;
+      flex-direction: column !important;
+    }
+
+    .index-score > .resume > .graph {
+      max-width: 50%!important;
+    }
+
+    .index-description > .description-wrapper .description .read-more,
+    .index-description > .description-wrapper .description .read-less {
+      display: none !important;
+    }
+
+    .index-score .partial-scores {
+      display: flex !important;
+      align-items: flex-start !important;
+    }
+
+    .index-score .partial-scores > li {
+      width: 31%;
+    }
+
+    .index-score .info {
+      margin-top: 0!important;
+    }
+
+    .index-score .partial-scores .partial-score,
+    .index-score .partial-scores .partial-rank {
+      text-align: center;
+    }
+
+    .index-score .info span {
+      display: inline-block !important;
+    }
+
+
+    // .description,
+    .index-description > .description-wrapper {
+      display: block !important;
+    }
+
+    .-not-covered {
+      display: none !important;
+    }
+  }
+
+
+  //COMPARE PAGE
+  .l-banner.-section-2 {
+    background-image: none;
+    background-color: $bg-color-4;
+    border-bottom: 1px solid $border-1;
+  }
+
+  .l-toolbar.-selectors.-fixed {
+    position: static;
+    width: auto;
+  }
+
+  .l-content.-fixed {
+    margin-top: 0;
+  }
+
+  .m-comparison-table h3 {
+    font-size: rem(16px);
+    font-weight: 600;
+  }
+
+  .m-comparison-table .table-cell {
+    height: rem(150px) !important;
+    font-size: 25px;
+  }
+
+  .m-comparison-table > .-score .table-cell {
+    height: rem(150px);
+    font-size: 25px;
+  }
+
+  .m-year-selector > .-index {
+    display: flex !important;
+  }
+
+  .m-year-selector.-compare {
+    flex: 1 1 auto;
+
+    &.-index {
+      display: flex;
+      width: 30.1%;
+    }
+
+    &.-score {
+      width: 23.33%;
+      padding: 10px 1%;
+    }
+  }
+
+  //DATA PAGE
+  .l-banner.-detail .description {
+    display: none;
+  }
+
+  .m-table .table-row > .wrap {
+    height: auto !important;
+  }
+
+  .rest-tier.is-hidden {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .m-table .table-row.-load-more {
+    display: none !important;
+  }
+
+  // infowindow
+  .m-modal-window {
+    display: none;
+  }
+
+}

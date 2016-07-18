@@ -1,0 +1,22 @@
+.c-block-title {
+  font-size: rem(35px);
+  margin-bottom: rem(15px);
+
+  @media screen and (min-width: $screen-s) {
+    font-size: rem(38px);
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: rem(55px);
+    line-height: rem(62px);
+    margin-bottom: rem(40px);
+  }
+
+  @media screen and (min-width: $screen-l) {
+    margin-bottom: rem(40px);
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    font-size: rem(60px);
+  }
+}

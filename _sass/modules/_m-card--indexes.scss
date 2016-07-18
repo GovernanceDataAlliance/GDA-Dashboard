@@ -1,0 +1,123 @@
+.m-card--indexes {
+  width: 100%;
+  padding: 0 rem($wrap-padding-mobile);
+  border-bottom: 1px solid $border-1;
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  .index-description {
+    @include col(6);
+    display: block;
+    flex-basis: 100%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: rem(40px) 0;
+
+    > .name {
+      font-size: rem(30px);
+      font-weight: 400;
+      line-height: 32px;
+      margin-bottom: rem(7px);
+    }
+
+    > .description {
+      font-size: rem(15px);
+    }
+
+    > .organization {
+      font-size: rem(15px);
+      color: $font-color-1;
+      margin-bottom: 0;
+    }
+
+    span {
+      display: flex;
+      height: rem(40px);
+      width: 50%;
+      margin-bottom: rem(15px);
+      background-position: top left;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    .img {
+      display: block;
+      width: rem(200px);
+      height: rem(30px);
+      margin-bottom: rem(20px);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: top left;
+    }
+
+    &:hover {
+      .name {
+        color: $color-4;
+      }
+    }
+  }
+
+  @media screen and (min-width: $screen-s) {
+    padding: 0 rem($wrap-padding-desktop);
+
+    .index-description {
+      padding: rem(60px) 0;
+    }
+  }
+
+  @media screen and (min-width: $screen-m) {
+    justify-content: space-between;
+    width: 50%;
+    float: left;
+    height: rem(285px);
+    padding: 0 rem($wrap-padding-tablet);
+
+    .img {
+      height: rem(40px);
+    }
+
+    &:nth-child(2n) {
+      justify-content: flex-start;
+
+      .index-description {
+        padding-left: rem($wrap-padding-desktop);
+        padding-right: rem($wrap-padding-desktop);
+      }
+    }
+
+    &:nth-child(2n + 1) {
+      justify-content: flex-end;
+      border-right: 1px solid $border-1;
+
+      .index-description {
+        padding-left: $wrap-padding-desktop;
+        padding-right: $wrap-padding-desktop;
+      }
+    }
+
+    &:nth-last-child(2) {
+      border-right: 0;
+      border-bottom: 0;
+    }
+
+    &:nth-child(2n)  {
+      border-bottom: 1px solid $border-1;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+      border-right: 0;
+    }
+
+    &:nth-child(2n + 1) {
+      border-right: 1px solid $border-1;
+    }
+  }
+}

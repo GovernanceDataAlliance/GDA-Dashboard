@@ -1,0 +1,103 @@
+select {
+  @extend %clean-button-or-input;
+  color: $font-color-3;
+  font-family: $font-secondary;
+  font-size: 16px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+/*
+ * Reset chosen. Just in case you are using
+ * chosen.js.
+ */
+.chzn-container-single .chzn-single {
+  color: $font-color-3;
+  background-image: none;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  font-size: 11px;
+  height: auto;
+  font-family: $font-secondary;
+}
+
+.chzn-container-single .chzn-drop {
+  width: 110% !important;
+  padding: 0 0 10px 0;
+  border: none;
+  border-radius: 0;
+  background-color: $light-grey-two;
+  transform: translate(-5%, 1px);
+  font-family: $font-secondary;
+}
+
+.chzn-container-single .chzn-single span {
+  white-space: normal;
+}
+
+.chzn-container {
+  width: 100% !important;
+}
+
+.chzn-container-single .chzn-single {
+  line-height: 28px;
+}
+
+.chzn-container-single .chzn-search {
+  padding: 10px 5%;
+}
+
+.chzn-container-single .chzn-search input {
+  width: 100% !important;
+  padding: 8px 30px 8px 5px;
+  border-color: $bg-color-3;
+  color: $font-color-3;
+  background: url('/css/img/search.svg') no-repeat  95% 50%;
+  background-size: 15px 15px;
+}
+
+.chzn-container .chzn-results {
+  margin: 0;
+  padding: 0;
+}
+
+.chzn-container .chzn-results .active-result {
+  font-family: $font-main;
+  color: $font-color-3;
+  padding: rem(5px) 5%;
+  font-size: rem(14px);
+
+  &.result-selected {
+    color: $font-color-3;
+    background: none;
+    background-color: rgba(190, 183, 170, .2);
+  }
+
+  &.highlighted {
+    color: $font-color-hover;
+    font-weight: 700;
+    text-decoration: underline;
+    background: none;
+  }
+}
+
+.chzn-container .chzn-results .no-results {
+  background: transparent;
+  color: $font-color-3;
+
+  &:hover {
+    color: $font-color-3;
+  }
+
+  span {
+    color: $font-color-3;
+  }
+}
+
+.chzn-container-single .chzn-single span {
+  text-transform: uppercase;
+  color: $font-color-3;
+}

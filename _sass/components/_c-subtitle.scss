@@ -1,0 +1,19 @@
+.c-subtitle {
+  font-size: rem(24px);
+  margin-bottom: rem(15px);
+  font-weight: 400;
+
+  @media screen and (min-width: 768px) {
+    font-size: rem(30px);
+    line-height: rem(37px);
+    margin-bottom: rem(30px);
+  }
+
+  @media screen and (min-width: $screen-l) {
+    margin-bottom: rem(20px);
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    margin-bottom: rem(40px);
+  }
+}

@@ -1,0 +1,253 @@
+
+.m-markdown {
+  max-width: 100%;
+
+  > .content {
+    margin-top: rem(20px);
+
+    @media screen and (min-width: $screen-m) {
+      margin-top: rem(50px);
+    }
+
+    // Paragraphs, links
+    p, a {
+      @extend %md-paragraph;
+    }
+
+    > p {
+      margin-bottom: rem(10px);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: rem(25px);
+      }
+    }
+
+    a {
+      color: $font-color-3;
+      &:hover {
+        color: $color-4;
+      }
+    }
+
+    // Headings
+    h2, h3, h4, h5 {
+      margin: rem(10px) 0;
+      font-weight: 400;
+      color: $font-color-1;
+      letter-spacing: rem(.3px);
+    }
+
+    h2 {
+      font-size: rem(30px);
+      line-height: rem(37px);
+    }
+
+    h3 {
+      font-size: rem(12px);
+      text-transform: uppercase;
+    }
+
+    h4 {
+      font-size: rem(20px);
+      line-height: rem(43px);
+    }
+
+    h5 {
+      @extend %md-paragraph;
+      font-weight: 400;
+    }
+
+    // h6 is used as coming paragraph
+    h6 {
+      margin-bottom: rem(40px);
+      font-size: rem(16px);
+      line-height: rem(26px);
+      letter-spacing: rem(.3px);
+      font-weight: 400;
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: rem(35px);
+        font-size: rem(20px);
+        line-height: rem(34px);
+      }
+    }
+
+    // Lists
+    ul {
+      margin: rem(30px) 0;
+      list-style-type: none;
+      line-height: rem(29px);
+      letter-spacing: rem(.4px);
+
+      > li {
+        margin-bottom: rem(20px);
+        font-size: rem(14px);
+        &:before {
+          content: '';
+          display: inline-block;
+          width: rem(10px);
+          height: rem(10px);
+          margin-right: rem(15px);
+          border-radius: 50%;
+          background-color: $color-4;
+        }
+
+        @media screen and (min-width: $screen-xl) {
+          margin-bottom: rem(30px);
+          font-size: rem(15px);
+        }
+      }
+
+      ul {
+        padding-left: rem(40px);
+
+        li {
+          &:before {
+            content: '';
+            display: inline-block;
+            width: rem(5px);
+            height: rem(5px);
+            margin-right: rem(15px);
+            border-radius: 50%;
+            border: 1px solid $color-4;
+          }
+        }
+      }
+    }
+
+    ol {
+      margin: rem(30px) 0;
+      padding-left: rem(15px);
+
+      li {
+        margin-bottom: rem(15px);
+        padding-left: rem(10px);
+        font-size: rem(14px);
+        // font-style: italic;
+        color: $font-color-1;
+        line-height: rem(29px);
+        letter-spacing: rem(.4px);
+
+        @media screen and (min-width: $screen-xl) {
+          font-size: rem(15px);
+        }
+      }
+    }
+
+    // Tables
+    table {
+      margin: rem(30px) 0;
+
+      thead > tr {
+        background-color: $light-grey-two;
+      }
+
+      thead th {
+        padding: rem(10px) 0;
+        font-size: rem(14px);
+        text-align: center !important;
+        font-weight: 700;
+      }
+
+      tbody > tr {
+        background-color: $white;
+      }
+
+      tbody > tr:first-child td {
+        border-top: 0;
+      }
+
+      tbody > tr:last-child td {
+        border-bottom: 0;
+      }
+
+      tbody td {
+        padding: rem(30px);
+        font-size: rem(14px);
+        line-height: rem(21px);
+        letter-spacing: rem(.4px);
+        text-align: left !important;
+        border-right: rem(1px) solid rgba($grey, .3);
+        border-bottom: rem(1px) solid rgba($grey, .3);
+      }
+
+      tbody td:first-child {
+        font-weight: 700;
+      }
+
+      tbody td:last-child {
+        border-right: 0;
+      }
+    }
+
+    // Miscellaneous
+    hr {
+      height: rem(1px);
+      margin: rem(40px) 0;
+      border: 0;
+      background: $light-grey;
+
+      @media screen and (min-width: 768px) {
+        margin: rem(100px) 0;
+      }
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+
+      @media screen and (min-width: $screen-xl) {
+        width: auto;
+      }
+    }
+
+    > blockquote {
+      margin: rem(25px) 0;
+      text-align: center;
+
+      &:before,
+      &:after {
+        font-size: rem(24px);
+      }
+
+      &:before {
+        content: '“';
+      }
+
+      &:after {
+        content: '”';
+      }
+
+      > p {
+        display: inline;
+        margin: 0;
+        font-size: rem(24px);
+        line-height: rem(37px);
+      }
+
+      @media screen and (min-width: $screen-l) {
+        max-width: 75%;
+        margin: rem(25px) auto;
+      }
+
+      @media screen and(min-width: $screen-xl) {
+        > p {
+          font-size: rem(30px);
+          line-height: rem(44px);
+        }
+      }
+    }
+  }
+}

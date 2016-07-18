@@ -1,0 +1,10 @@
+with r as (select short_name, iso, max(year) as year from  indicator_data group by short_name, iso),
+  
+d as (select indicator_data.short_name, indicator_data.iso, indicator_data.year, indicator_data.score, desired_direction, income_group, region from indicator_data inner join indicator_config on indicator_data.short_name=indicator_config.short_name inner join wb_countries_clasification on indicator_data.iso=wb_countries_clasification.iso), 
+
+s as (select short_name, iso, year, score, income_group, region, dense_rank() OVER (PARTITION BY short_name, year{{cohort}} ORDER BY score DESC) rank from d where score is not null and desired_direction='up' 
+union  
+select short_name, iso, year, score, income_group, region, dense_rank() OVER (PARTITION BY short_name, year{{cohort}} ORDER BY score asc) rank from d where score is not null and desired_direction='down')
+
+select r.short_name, r.iso, r.year, s.score,  rank, s.region, s.income_group from r inner join s on r.short_name= s.short_name and r.iso= s.iso and r.year=s.year where r.iso='{{iso}}' AND r.short_name='{{index}}'
+order by r.short_name{{cohort}}, rank, year asc

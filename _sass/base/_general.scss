@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+}
+
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: $font-main, Helvetica, Arial, sans-serif;
+  color: $font-color-1;
+  font-size: rem(15px);
+  background-color: #eee;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+
+  @media screen and (min-width: $screen-s) {
+    font-size: 18px;
+  }
+
+  @media screen and (min-width: $screen-m) {
+    font-size: $font-size;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2em;
+
+  + .btn {
+    margin-top: rem(20px);
+  }
+
+  @media screen and (min-width: $screen-xs) {
+
+    + .btn {
+      margin-top: rem(40px);
+    }
+  }
+
+  @media screen and (min-width: $screen-m) {
+    line-height: 1.5em;
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    line-height: 1.8em;
+  }
+}
+
+p {
+  font-size: rem(14px);
+  line-height: rem(26px);
+
+  + .btn {
+    margin-top: rem(20px);
+  }
+
+  + p {
+    margin-top: rem(10px);
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: rem(15px);
+    line-height: rem(29px);
+    
+  }
+
+  @media screen and (min-width: $screen-m) {
+
+    + .btn {
+      margin-top: rem(30px);
+    }
+  }
+  
+  @media screen and (min-width: $screen-l) {
+    // font-size: rem(18px);
+    // line-height: rem(31px);
+
+    &.description {
+      font-size: rem(20px);
+      line-height: rem(34px);
+    }
+  }
+}
+
+a, button, input, select, textarea {
+  &:focus {
+    outline: 0;
+  }
+}
+
+a, button {
+  text-decoration: none;
+  color: $font-color-3;
+  font-size: rem(15px);
+}
+
+ul {
+  @extend %list-reset;
+}
+
+button {
+  @extend %clean-button-or-input;
+}
+
+svg:not(:root) {
+  overflow: visible;
+}
+////////////////////
+//**** utils  ****//
+////////////////////
+.is-flex {
+  display: flex; display: -ms-box;
+  display: -ms-box;
+}
+
+.is-bold {
+  font-weight: bold;
+}
+
+.is-small-text {
+  font-size: rem(15px);
+
+  p + & {
+    margin-top: rem(20px);
+  }
+
+  @media screen and (min-width: $screen-xs) {
+    p + & {
+      margin-top: rem(50px);
+    }
+  }
+}

@@ -1,0 +1,34 @@
+$header-height-desktop: rem(95px);
+$header-height: rem(70px);
+
+%l-main-container {
+  max-width: $grid-max-width;
+  width: 100%;
+  margin: 0 auto;
+  background-color: $white;
+
+  @media screen and (min-width: $screen-xl) {
+    border-left: 1px solid $light-grey;
+    border-right: 1px solid $light-grey;
+  }
+}
+
+
+.l-main-container {
+  @extend %l-main-container;
+  margin-top: $header-height;
+  
+  @media screen and (min-width: $screen-m) {
+    margin-top: 0;
+  }
+}
+
+
+.js--countries,
+.js--compare-container {
+  min-height: rem(500px);
+}
+
+.js--indicators-container {
+  min-height: rem(900px);
+}

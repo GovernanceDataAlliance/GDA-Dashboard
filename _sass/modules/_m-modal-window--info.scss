@@ -1,0 +1,46 @@
+.m-modal-window .-indicator {
+
+  .indicator-logo {
+    //I know 56px is wired. But it renders the img better than odd mesures.
+    height: rem(56px);
+    background-position: top left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: rem(35px);
+
+    @media screen and (min-width: $screen-s) {
+      margin-bottom: rem(25px);
+    }
+  }
+
+  .indicator-organization {
+    margin: rem(20px) 0;
+  }
+
+  .info-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: rem(20px);
+
+    @media screen and (min-width: $screen-s) {
+      margin-bottom: rem(15px);
+      flex-direction: row;
+    }
+  }
+
+  .score-range {
+    width: 100%;
+  }
+
+  .indicator-website {
+    width: 100%;
+    white-space: nowrap;
+    margin-top: rem(20px);
+
+    @media screen and (min-width: $screen-s) {
+      width: auto;
+    }
+  }
+}

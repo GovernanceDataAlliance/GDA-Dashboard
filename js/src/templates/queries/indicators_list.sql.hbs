@@ -1,0 +1,10 @@
+with years as (
+  SELECT short_name, max(year) as max_year  FROM indicator_data 
+  group by short_name
+)
+
+select c.*, years.max_year 
+from indicator_config c 
+inner join years 
+on years.short_name = c.short_name 
+order by c.product_name

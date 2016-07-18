@@ -1,0 +1,114 @@
+.m-cohort-groups {
+  position: absolute;
+  bottom: rem(-10px);
+  z-index: 2;
+  left: rem($wrap-padding-mobile);
+  right: rem($wrap-padding-mobile);
+  max-width: rem($grid-max-width);
+  padding: rem($wrap-padding-mobile);
+  background-color: $bg-color-4;
+  transform: translatey(100%);
+
+  &:after {
+    content: "";
+    @include equi-triangle(rem(10px), $bg-color-4, top);
+    position: absolute;
+    top: rem(-10px);
+    right: rem(50px);
+  }
+
+
+  @media screen and (min-width: $screen-s) {
+    left: rem($wrap-padding-tablet);
+    right: rem($wrap-padding-tablet);
+    
+    &:after {
+      right: rem(220px);
+    }
+
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: rem($wrap-padding-desktop);
+    left: rem($wrap-padding-desktop);
+    right: rem($wrap-padding-desktop);
+    border: none;
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    left: rem(80px);
+    right: rem(80px);
+  }
+
+  .cohort-wrapper {
+    max-height: rem(350px);
+    overflow: auto;
+
+    @media screen and (min-width: $screen-s) {
+      max-height: none;
+    }
+  }
+
+  .groups {
+    display: flex; display: -ms-box;
+    flex-direction: column;
+
+    @media screen and (min-width: $screen-s) {
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    > .group {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      margin-bottom: rem(20px);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @media screen and (min-width: $screen-s) {
+        flex-basis: 50%;
+        margin-bottom: rem(20px);
+
+        &:nth-last-child(2) {
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 960px) {
+        flex-basis: 25%;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+
+  h3 {
+    width: 100%;
+    margin-bottom: rem(30px);
+    font-size: rem(12px);
+    font-family: $font-secondary;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin-bottom: rem(15px);
+    font-size: rem(20px);
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+
+  li {
+    font-size: rem(15px);
+    color: $color-2;
+    padding: rem(8px) 0;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-4;
+    }
+  }
+}

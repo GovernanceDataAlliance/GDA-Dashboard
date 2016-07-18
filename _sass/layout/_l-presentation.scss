@@ -1,0 +1,126 @@
+$backgrounds-presentation: 'distribuidoresMul-01', 'distribuidoresMul-03', 'distribuidoresMul-04';
+
+.l-presentation {
+  position: relative;
+
+  @media screen and (min-width: 960px) {
+    display: flex;
+    display: -ms-box;
+    flex-direction: row;
+
+    &.-reverse {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &.-mobile-reverse {
+    flex-direction: column-reverse;
+
+    @media screen and (min-width: 960px) {
+      flex-direction: row-reverse;
+    }
+  }
+
+
+  > .intro {
+    position: relative;
+    display: flex;
+    flex: 1 1 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    // padding: rem(30px) rem($wrap-padding-mobile) rem(45px);
+    background-color: $white;
+
+
+    &.-dark {
+      background-color: $bg-color-2;
+    }
+
+    &.-right:after,
+    &.-left:after {
+      content: "";
+      position: absolute;
+      top: rem(-15px);
+      left: rem(30px);
+      z-index: 1;
+      @include equi-triangle(rem(15px), $white, top);
+    }
+    //Paddings and layout stuff are at .m-presentation for IE...
+    @media screen and (min-width: $screen-s) {
+      // padding: rem(40px) rem($wrap-padding-tablet) rem(60px);
+    }
+
+    @media screen and (min-width: 768px) {
+      // padding: rem(50px) rem($wrap-padding-desktop) rem(70px);
+    }
+
+    @media screen and (min-width: 960px) {
+      // padding: rem(45px) rem($wrap-padding-desktop) rem(80px);
+
+      &.-left,
+      &.-right {
+      }
+
+      &.-right:after {
+        top: rem(40px);
+        left: rem(-30px);
+        z-index: 1;
+        @include equi-triangle(rem(15px), $white, left);
+      }
+
+      &.-left:after {
+        top: rem(40px);
+        right: rem(-30px);
+        left: auto;
+        z-index: 1;
+        @include equi-triangle(rem(15px), $white, right);
+      }
+    }
+
+    @media screen and (min-width: $screen-xl) {
+      // padding: rem(75px) rem($wrap-padding-desktop-xl) rem(100px);
+
+      &.-left {
+        align-items: flex-end;
+      }
+
+      &.-dark {
+        padding: rem(170px) 0;
+      }
+    }
+  }
+
+  > .picture {
+    height: rem(195px);
+    position: relative;
+    flex-basis: 50%;
+    background-color: #ddd;
+
+    @for $i from 1 through length($backgrounds-presentation) {
+      &.#{nth($backgrounds-presentation, $i)}{
+        background-image: url('img/#{nth($backgrounds-presentation, $i)}.jpg');
+        background-size: cover;
+        background-position: center;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-color: rgba(65, 52, 43, 0.5);
+        }
+      }
+    }
+
+    @media screen and (min-width: $screen-s) {
+      height: rem(328px);
+    }
+
+    @media screen and (min-width: 960px) {
+      height: auto;
+    }
+  }
+}

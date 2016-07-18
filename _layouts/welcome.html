@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body class="welcome">
+    {% include icons.html %}
+    <div class="l-main-container">
+      {% include header.html %}
+
+      <div class="js-welcome">
+
+        <div class="l-banner -main promoHome">
+          <div class="wrap">
+            <div>
+              <h3 class="c-main-title">
+                {{ page.title }}
+              </h3>
+              <p class="highlighted-text">
+                {{ page.search_intro }}:
+              </p>
+            </div>
+
+            <div class="m-search js--search">
+              <button class="btn-open-search js--open-search-mb">Search country</button>
+              <div class="js--search-mobile"></div>
+              <div class="js--search-desktop" id="searchBox"></div>
+            </div>
+          </div>
+          <button class="scroll-down">
+            <svg class="icon icon-mouse"><use xlink:href="#icon-mouse"></use></svg>
+          </button>
+        </div>
+
+        <div class="l-presentation -reverse">
+          <div class="picture {{ page.module-1-image }}"></div>
+          <div class="intro -left">
+            <div class="m-presentation  -left">
+              <h2 class="c-subtitle">{{ page.module-1-title }}</h2>
+              <p>{{ page.module-1-content }}</p>
+              <a href="{{ page.module-1-link-url }}" class="btn">{{ page.module-1-link-text }} &gt;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="l-presentation">
+          <div class="picture {{ page.module-3-image }}">
+          </div>
+          <div class="intro -right">
+            <div class="m-presentation -right">
+              <h2 class="c-subtitle">{{ page.module-3-title }}</h2>
+              <p>{{ page.module-3-content }}</p>
+              <a href="{{ page.module-3-link-url }}" class="btn">{{ page.module-3-link-text }} &gt;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="l-presentation -reverse">
+          <div class="picture {{ page.module-4-image }}">
+          </div>
+          <div class="intro -left">
+            <div class="m-presentation -left">
+              <h2 class="c-subtitle">{{ page.module-4-title }}</h2>
+              <p>{{ page.module-4-content }}</p>
+              <a href="{{ page.module-4-link-url }}" class="btn">{{ page.module-4-link-text }} &gt;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="l-highlight distribuidorDestacado-About">
+          <div class="wrap">
+            <div class="m-highlight">
+              <h2 class="c-block-title">
+                {{ page.crosseling-module-title }}
+              </h2>
+              <p class="-highlighted">
+                {{ page.crosseling-module-text }}
+              </p>
+              <a href="{{ site.baseurl }}/about" class="btn -white">{{ page.crosseling-module-link }}</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <script>
+        var SITEURL = '{{ site.baseurl }}' || null;
+      </script>
+      <script src="js/welcome_bundle.js"></script>
+
+      {% include footer.html %}
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,33 @@
+.m-controls {
+  display: flex;
+  flex: 1 3 100%;
+  display: -ms-box;
+  align-items: stretch;
+  justify-content: space-between;
+
+  &.-full {
+    width: 100%;
+
+    @media screen and (min-width: $screen-s) {
+      width: auto;
+    }
+  }
+
+  &.-centered {
+    justify-content: center;
+
+    @media screen and (min-width: $screen-s) {
+      &:first-child {
+        justify-content: flex-start;
+      }
+
+      &:last-child {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  &.-right {
+    justify-content: flex-end;
+  }
+}

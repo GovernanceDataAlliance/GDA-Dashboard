@@ -1,0 +1,177 @@
+$sections-padding: .5rem .5rem .5rem 0;
+
+%properties-font {
+  font-family: $font-secondary;
+  font-size: rem(12px);
+  color: $font-color-1;
+  letter-spacing: 0.3px;
+  line-height: 1;
+}
+
+%title-font {
+  font-family: $font-main;
+  font-size: rem(24px);
+  line-height: 1.4;
+  color: $font-color-1;
+  font-weight: 500;
+
+  @media screen and (min-width: 768px) {
+    font-size: rem(30px);
+  }
+}
+
+
+.m-post {
+  padding: 0;
+
+  > .properties {
+    display: flex; display: -ms-box;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: rem(15px);
+
+    > .category {
+      margin-bottom: rem(25px);
+      margin-right: rem(20px);
+      text-transform: uppercase;
+      font-family: $font-secondary;
+      font-size: rem(12px);
+      color: $font-color-1;
+
+      &:hover {
+        color: $font-color-hover;
+      }
+
+      @media screen and (min-width: $screen-m) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  > .details {
+    margin-bottom: rem(25px);
+
+    @media screen and (min-width: $screen-m) {
+      margin-bottom: rem(10px);
+    }
+
+    > .author {
+      font-family: $font-main;
+      font-size: rem(15px);
+      line-height: 1.8;
+      color: $font-color-1;
+    }
+
+    > .date {
+      padding-left: .8rem;
+      margin-left: .8rem;
+
+
+      font-family: $font-secondary;
+      font-size: rem(12px);
+      line-height: 1;
+      color: $font-color-4;
+      text-transform: uppercase;
+
+      border-left: 1px solid;
+    }
+  }
+
+  > .title {
+    margin-bottom: rem(25px);
+
+    h3 {
+      @extend %title-font;
+      position: relative;
+      display: inline-block;
+      font-size: rem(24px);
+    }
+
+    &.-underlined {
+      padding-bottom: 1.5rem;
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left:0;
+        bottom: 0;
+        width: 3rem;
+        height: 3px;
+
+        background-color: $color-4;
+      }
+    }
+
+    @media screen and (min-width: $screen-m) {
+      margin-bottom: rem(30px);
+    }
+
+    h3 {
+      font-size: rem(30px);
+    }
+  }
+
+  > .image {
+    height: 24rem;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    margin: rem(20px) 0;
+
+    @include veil(rgba($bg-color-2, 0.45));
+
+    @media screen and (min-width: $screen-m) {
+      margin: rem(50px) 0 rem(30px);
+    }
+  }
+
+  .-list & {
+
+    > .title {
+
+      h3 {
+        line-height: inherit;
+        font-size: inherit;
+
+        a {
+          @extend %title-font;
+          color: $font-color-3;
+          text-decoration: none;
+
+          &:hover {
+            color: $color-4;
+          }
+        }
+      }
+    }
+  }
+
+  &.-light {
+
+    > .properties > .category,
+    > .details > .author,
+    > .details > .date,
+    > .title h3 a,
+    > .content p {
+      color: $font-color-2;
+    }
+
+    > .title a:hover {
+      color: $font-color-2 !important;
+      text-decoration: underline;
+    }
+
+    .category:hover {
+      color: $font-color-hover;
+    }
+  }
+
+  @media screen and (min-width: $screen-m) {
+
+    > .properties {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}

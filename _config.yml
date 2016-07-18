@@ -1,0 +1,111 @@
+# Site settings
+
+title: GDA Dashboard
+description: Governance Data Alliance Dashboard
+
+url: "https://github.com/GovernanceDataAlliance/GDA-Dashboard"
+baseurl: ''
+
+paginate: 2
+paginate_path: "blog/page:num"
+
+collections:
+- organizations
+
+# Build settings
+markdown: kramdown
+
+exclude: ['scripts', 'node_modules', 'vendor']
+
+# prose.io
+prose:
+  rooturl: ''
+  siteurl: 'http://governancedata.org'
+  media: 'css/img'
+  ignore:
+    - _config.yml
+    - _config_dev.yml
+    - /_layouts
+    - /_includes
+    - /js
+    - /_sass
+    - /_site
+    - /blog/categories.html
+    - /blog/tags.html
+    - /scripts
+    - .editorconfig
+    - .gitignore
+    - .jekyll-metadata
+    - .ruby-version
+    - .travis.yml
+    - Gemfile
+    - Gemfile.lock
+    - favicon.ico
+    - Gruntfile.js
+    - package.json
+    - README.md
+    - CNAME
+    - useful-info.txt
+  metadata:
+    blog:
+      - name: layout
+        field:
+          element: "hidden"
+          label: "layout"
+          value: blog/post
+      - name: "published"
+        field:
+          element: 'hidden'
+          value: true
+      - name: title
+        field:
+          element: "text"
+          label: "title"
+      - name: date
+        field:
+          element: "text"
+          label: "date"
+          placeholder: YYYY-MM-DD HH:MM:SS
+      - name: author
+        field:
+          element: "text"
+          label: "author"
+      - name: image
+        field:
+          element: "text"
+          label: image
+          placeholder: "example.jpg"
+      - name: category
+        field:
+          element: "text"
+          label: category
+          placeholder: "add only one category"
+          value:
+      - name: tags
+        field:
+          element: "text"
+          label: tags
+          placeholder: tag1 tag_2 tag-3
+    _organizations:
+      - name: name
+        field:
+          element: "text"
+          label: "name"
+      - name: "published"
+        field:
+          element: 'hidden'
+          value: true
+      - name: logo
+        field:
+          element: "text"
+          label: "logo"
+          placeholder: "example.jpg"
+          value:
+      - name: link
+        field:
+          element: "text"
+          label: "link"
+      - name: description
+        field:
+          element: "text"
+          label: "description"

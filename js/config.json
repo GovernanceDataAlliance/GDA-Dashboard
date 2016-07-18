@@ -1,0 +1,10 @@
+{
+  "cartodb": {
+    "user_name": "gda",
+    "country_table_name": "world_borders",
+    "country_join": "world_borders w JOIN wb_countries_clasification x ON w.iso3 = x.iso",
+    "indicator_data_table_name": "indicator_data",
+    "indicator_config_table_name": "indicator_config",
+    "ranking_groups_table_name": "wb_countries_clasification"
+  }
+}

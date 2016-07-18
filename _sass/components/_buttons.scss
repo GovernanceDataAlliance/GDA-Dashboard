@@ -1,0 +1,368 @@
+.btn {
+  font-size: rem(11px);
+  font-family: $font-secondary;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+
+
+  @media screen and (min-width: $screen-s) {
+    width: auto;
+  }
+
+  @media screen and (min-width: $screen-m) {
+    font-size: rem(11px);
+  }
+
+  .button-literal {
+    display: none;
+    line-height: rem(20px);
+
+    @media screen and (min-width: 768px) {
+      display: inline-block;
+      margin-left: rem(5px);
+    }
+
+    @media screen and (min-width:  $screen-l) {
+      margin-left: rem(10px);
+    }
+  }
+
+  .icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  > span,
+  .button-literal {
+    padding: 0;
+    color: $font-color-3;
+  }
+
+  &.is-active {
+    color: $font-color-1;
+    background-color: #dedcda;
+    min-height: 100%;
+
+    > span,
+    .button-literal {
+      color: $font-color-1;
+    }
+
+    &:hover {
+      color: $font-color-1;
+
+      svg {
+        fill: $color-1;
+      }
+
+      > span,
+      .button-literal {
+        color: $font-color-1;
+      }
+    }
+  }
+
+  &:hover {
+    color: $color-4;
+
+    > span,
+    .button-literal {
+      color: $color-4;
+    }
+  }
+
+  &.-white {
+    display: inline-block;
+    padding: 20px 60px;
+    border: 1px solid $white;
+    color: $white;
+
+    > span,
+    .button-literal {
+      color: $white;
+    }
+
+    &:hover {
+      color: $font-color-3;
+      background-color: $white;
+
+      > span,
+      .button-literal {
+        color: $font-color-3;
+      }
+    }
+  }
+
+  &.-primary {
+    display: inline-block;
+    padding: 20px 60px;
+    border: 1px solid $color-1;
+    color: $color-1;
+
+    > span,
+    .button-literal {
+      color: $color-1;
+    }
+  }
+
+  &.-secondary {
+    display: inline-block;
+    padding: 20px 60px;
+    border: 1px solid $color-4;
+    color: $color-2;
+
+    > span,
+    .button-literal {
+      color: $color-2;
+    }
+
+    &:hover {
+      color: $font-color-2;
+      background-color: $color-4;
+
+      > span,
+      .button-literal {
+        color: $font-color-2;
+      }
+    }
+  }
+
+  &.-centered {
+    display: flex;
+    align-self: center;
+  }
+
+  &.js--download,
+  &.js--print,
+  &.compare-link {
+    margin-right: rem(20px);
+
+    &:first-child {
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
+
+  &.btn-layout-dashboard,
+  &.btn-layout-list {
+    .button-literal {
+      display: none;
+    }
+
+    @media screen and (min-width: $screen-s) {
+      padding: 0 rem(20px);
+
+      .button-literal {
+        display: none;
+      }
+    }
+
+    @media screen and (min-width: 960px) {
+      padding: 0 rem(20px);
+      display: inline-block;
+
+      .button-literal {
+        display: inline-block;
+      }
+    }
+  }
+
+  &.-disabled {
+    opacity: .5;
+    cursor: default;
+    &:hover {
+      background: $white;
+      color: $font-color-3;
+    }
+  }
+}
+
+.btn-info {
+  color: $white;
+  background-color: $color-4;
+  border-radius: 50%;
+  width: 17px;
+  height: 17px;
+  padding: 0;
+  margin-left: rem(8px);
+  line-height: 17px;
+  text-align: center;
+  font-weight: 700;
+
+  &:hover {
+    background-color: #5DE8FF;
+  }
+}
+
+.btn-drop-down {
+  position: relative;
+  font-size: rem(16px);
+  line-height: rem(16px) !important;
+  width: 100%;
+  height: rem(45px);
+  padding: 0 rem(6px) 0 rem(15px);
+  border: 1px solid $color-4;
+
+  @media screen and (min-width: $screen-m) {
+    height: rem(45px);
+    font-size: rem(11px);
+    line-height: rem(11px) !important;
+    padding: 0 rem(12px);
+  }
+
+  &.btn {
+    text-align: left;
+  }
+
+  .-year & {
+    margin-right: 9%;
+
+    @media screen and (min-width: 768px) {
+      margin-right: 0;
+      margin: rem(12px) 6%;
+    }
+  }
+
+  .-data & {
+    margin-top: 0;
+  }
+
+  select {
+    padding: 0;
+    padding-right: 15%;
+    width: 100%;
+    height: rem(45px);
+    text-transform: uppercase;
+
+    @media screen and (min-width: $screen-m) {
+      padding-right: 5%;
+    }
+
+    &:hover {
+      color: $color-4;
+    }
+
+    &:disabled {
+      opacity: .5;
+    }
+  }
+
+  .chzn-container,
+  .chzn-container-single .chzn-single {
+    height: rem(43px);
+    line-height: rem(40px);
+    padding: 0;
+
+    span:hover {
+      color: $color-4;
+    }
+  }
+
+  &:after {
+    content: "";
+    @extend %centery;
+    @include arrow (5px, $color-2, 2px, 225deg);
+    top: 40%;
+    right: rem(20px);
+    pointer-events: none;
+
+    @media screen and (min-width: $screen-s) {
+      right: rem(10px);
+    }
+
+    @media screen and (min-width: $screen-l) {
+      right: rem(20px);
+    }
+  }
+}
+
+.l-banner .btn-drop-down .chzn-container-single .chzn-drop {
+
+  @media screen and (min-width: $screen-m) {
+    width: 100% !important;
+    transform: translatey(2px);
+  }
+}
+
+.btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+
+  //Margin left and bottom are to make click area bigger
+  margin: rem(30px) rem(20px) rem(5px) rem(5px);
+
+  cursor: pointer;
+  font-family: $font-main;
+  font-weight: bold;
+  color: $color-4;
+  font-size: rem(20px);
+
+  width: rem(24px);
+  height: rem(24px);
+  line-height: rem(17px);
+  letter-spacing: -1px;
+  border-radius: 50%;
+  text-align: center;
+  border: 2px solid $color-4;
+
+  &.-color-1 {
+    color: $color-1;
+    border-color: $color-1;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin: rem(40px) rem(30px) 0 0;
+  }
+
+  @media screen and (min-width: $screen-l) {
+    position: absolute;
+    margin: rem(40px) rem(40px) 0 0;
+  }
+}
+
+
+.read-more,
+.read-less {
+  position: relative;
+  margin-left: 10px;
+  font-family: "Montserrat";
+  font-size: rem(11px);
+  text-transform: uppercase;
+  color: $font-color-3;
+  cursor: pointer;
+  white-space: nowrap;
+  &:hover {
+    color: $color-4;
+    &:after {
+      border-color: $color-4;
+    }
+  }
+}
+
+.read-more:after,
+.read-less:after {
+  content: '';
+  position: absolute;
+}
+
+.read-more:after {
+  top: 0;
+  right: -15px;
+  @include arrow (5px, $color-2, 2px, 225deg);
+  transform: rotate(225deg) translate(0, -50%);
+}
+
+.read-less:after {
+  top: 50%;
+  right: -10px;
+  @include arrow (5px, $color-2, 2px, 45deg);
+  transform: rotate(45deg) translate(0, -50%);
+}

@@ -1,0 +1,93 @@
+/*
+ * Add here values that
+ * affect the whole proyect
+ */
+////////////////////
+//**** Screen ****//
+////////////////////
+$screen-xs: 320px;
+$screen-s: 640px;
+$screen-m: 769px;
+$screen-l: 1024px;
+$screen-xl: 1280px;
+$screen-xxl: 1300px;
+
+
+////////////////////
+//****  Grid  ****//
+////////////////////
+$grid-max-width: 1400px;
+$wrap-padding-mobile: 20px;
+$wrap-padding-tablet: 30px;
+$wrap-padding-desktop: 40px;
+$wrap-padding-desktop-xl: 80px;
+$content-width: 80%;
+$content-width-xl: 90%;
+
+////////////////////
+//**** Fonts ****//
+////////////////////
+$font-main: 'Lora', sans-serif;
+$font-secondary: 'Montserrat';
+
+//Font sizes
+$font-size: 20px;
+
+
+////////////////////
+//**** Colors ****//
+////////////////////
+$white: #fff;
+$beige: #beb7aa;
+$beige-medium: #eceae8;
+$beige-light: #f4f3f2;
+$turquoise: #39a1b2;
+$brown: #42352b;
+$magenta: #97102c;
+$yellow: #e9b33b;
+$dark-green: #63A850;
+$green: #AEB44D;
+$celeste: #49c9de;
+$orange: #cd8200;
+$blue: #5883b4;
+$dark-sky-blue: #55cee2;
+
+
+$dark-grey: #9b9b9b;
+$grey: #b4b6b6;
+$light-grey: #d6d8d9;
+$light-grey-two: #eeedea;
+
+//Theme colors
+$color-1: $brown;
+$color-2: $turquoise;
+$color-3: $magenta;
+$color-4: $celeste;
+
+$bg-color-1: $beige-light;
+$bg-color-2: $brown;
+$bg-color-3: $beige;
+$bg-color-4: $beige-medium;
+
+$excellent: $dark-green;
+$good: $green;
+$moderate: $yellow;
+$fair: $orange;
+$poor: $magenta;
+
+//Font colors
+$font-color-1: $brown;
+$font-color-2: $white;
+$font-color-3: $turquoise;
+$font-color-4: $dark-grey;
+$font-color-hover: $turquoise;
+
+//bprder-colors
+$border-1: $light-grey;
+
+//Rank colors
+$rank-1: $green;
+
+////////////////////
+//**** Margins ***//
+////////////////////

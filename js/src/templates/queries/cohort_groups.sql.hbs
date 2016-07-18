@@ -1,0 +1,21 @@
+with cohorts as (
+  SELECT distinct on 
+    (income_group) income_group as category, 'income_group' as type 
+  FROM {{table}} 
+
+  union 
+
+  SELECT distinct on 
+    (lending_category) lending_category as category, 'lending_category' as type 
+  FROM {{table}} 
+
+  union 
+
+  SELECT distinct on 
+    (region) region as category, 'region' as type 
+  FROM {{table}} 
+  order by type, category
+) 
+
+SELECT * from cohorts 
+where category is not null

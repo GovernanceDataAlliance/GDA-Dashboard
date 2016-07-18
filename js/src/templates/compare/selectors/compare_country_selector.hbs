@@ -1,0 +1,25 @@
+<div class="l-toolbar -compare -selectors">
+  <div class="wrap">
+    <div class="l-compare-selectors">
+
+      <div class="btn-drop-down">
+        <select class="js--compare-selector" name="selectcountry-{{index}}" id="selectcountry-{{index}}">
+          <option value="no_data">Select country</option>
+          {{#each countries}}
+            <option value="{{this.iso3}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+      <div class="btn-drop-down">
+        <select class="js--compare-year" id="selectyear-{{index}}" name="selectyear-{{index}}">
+          <option value="no-data">select year</option>
+          {{#each years}}
+          <option value="{{year}}">{{year}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+    </div>
+  </div>
+</div>

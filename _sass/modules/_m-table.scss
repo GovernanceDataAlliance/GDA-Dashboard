@@ -1,0 +1,142 @@
+.m-table {
+
+  > .top-tier {
+    > .table-row:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  > .rest-tier {
+    border-top: 1px solid $border-1;
+    > .table-row:last-child{
+      border-bottom: 0;
+    }
+  }
+
+  .table-row {
+    border-bottom: 1px solid $border-1;
+
+    > .wrap {
+      display: flex; display: -ms-box;
+      justify-content: space-between;
+      align-items: center;
+      height: rem(70px);
+
+      @media screen and (min-width: 768px) {
+        height: rem(100px);
+      }
+
+      > .description {
+        display: flex; display: -ms-box;
+        align-items: center;
+      }
+    }
+
+    .rank {
+      font-size: rem(30px);
+      margin-left: rem(40px);
+    }
+
+    .name {
+      font-size: rem(15px);
+      // color: $font-color-1;
+
+      @media screen and (min-width: 768px) {
+       margin-left: rem(25px);
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .score {
+      font-size: rem(35px);
+      letter-spacing: -2px;
+
+      p {
+        display: inline-block;
+        font-size: rem(35px);
+        font-family: $font-secondary;
+        font-weight: 700;
+      }
+
+      .max_score {
+        font-size: rem(20px);
+      }
+
+      .usd {
+        .max_score, 
+        .units {
+          font-size: rem(12px);
+        }
+
+        @media screen and (min-width: 768px) {
+          .max_score, 
+          .units {
+            font-size: rem(20px);
+          }
+        }
+      }
+
+      .units {
+        align-self: flex-end;
+        font-family: $font-secondary;
+        font-weight: 400;
+        font-size: rem(20px);
+        letter-spacing: .1px;
+        line-height: .7em;
+      }
+
+      // Scores
+      &.-score-excellent {
+        color: $excellent;
+      }
+
+      &.-score-good {
+        color: $good;
+      }
+
+      &.-score-moderate {
+        color: $moderate;
+      }
+
+      &.-score-fair {
+        color: $fair;
+      }
+
+      &.-score-poor {
+        color: $poor;
+      }
+    }
+
+    &.-load-more {
+      font-family: $font-secondary;
+      font-size: rem(11px);
+      letter-spacing: rem(0.6px);
+      color: $font-color-3;
+      text-transform: uppercase;
+      cursor:pointer;
+      border-top: 1px solid $border-1;
+      border-bottom: 0;
+
+      > .wrap {
+        justify-content: center;
+
+        p {
+          font-size: rem(11px);
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+
+  .figure {
+    fill: $bg-color-3;
+    display: none;
+
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
+  }
+}

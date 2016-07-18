@@ -1,0 +1,42 @@
+<div class="l-post -list {% unless post.image == '' %} -img {% endunless %}" {% unless post.image == '' %} style="background-image:url({{site.baseurl}}/css/img/blog/{{post.image}})" {% endunless %} >
+  <div class="wrap">
+
+    <div class="m-post {% unless post.image == '' %} -light {% endunless %}">
+
+      <div class="properties">
+        {% unless post.category ==  nil %}
+        <a class="category" href="{{site.baseurl}}/blog/categories#{{ post.category }}"> {{post.category}} </a>
+        {%endunless%}
+        {% unless post.tags == empty %}
+        <div class="tags">
+          {% for tag in post.tags %}
+          <a class="c-tag" href="{{site.baseurl}}/blog/tags#{{tag | downcase}}">#{{tag}}</a>
+          {% endfor %}
+        </div>
+        {%endunless%}
+      </div>
+
+      <div class="details">
+        <span class="author">
+          Author: {{ post.author }}
+        </span>
+        <span class="date">
+          <time>{{ post.date | date: '%B %d, %Y'}}</time>
+        </span>
+      </div>
+
+      <div class="title">
+        <h3>
+          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+        </h3>
+      </div>
+
+      <div class="content">
+        {{post.excerpt}}
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

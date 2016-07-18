@@ -1,0 +1,62 @@
+.c-brand {
+  display: flex; 
+  display: -ms-box;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  &:hover {
+    background-color: lighten($bg-color-2, 5);
+  }
+
+  .welcome & {
+    pointer-events: none;
+    cursor: default;
+
+    &:hover {
+      background-color: $bg-color-2;
+    }
+  }
+
+  img {
+    width: rem(40px);
+    height: rem(40px);
+
+    &.tablet {
+      display: none;
+    }
+
+    @media screen and (min-width: 768px) {
+      width: auto;
+
+      &.tablet {
+        display: block;
+      }
+
+      &.mobile {
+        display: none;
+      }
+    }
+
+    @media screen and (min-width: $screen-l) {
+      height: auto;
+    }
+  }
+
+  &.-expanded {
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: rem(50px);
+    }
+
+    @media screen and (min-width: 768px) {
+      img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+      }
+    }
+  }
+}

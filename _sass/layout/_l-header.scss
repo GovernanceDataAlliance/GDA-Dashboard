@@ -1,0 +1,109 @@
+$header-height-desktop: rem(95px);
+$header-height: rem(70px);
+
+.l-header {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  transition: transform 0.5s ease;
+  position: fixed;
+  top: -70px;
+  left: 0;
+  right: 0;
+  height: $header-height;
+  z-index: 20;
+  background-color: $white;
+
+  &.hide {
+    transform: translatey(0);
+  }
+
+  &.show {
+    transform: translatey(70px);
+  }
+
+  @media screen and (min-width: $screen-m) {
+    position: relative;
+    height: rem(80px);
+  }
+
+  @media screen and (min-width: $screen-l) {
+    height: $header-height-desktop;
+  }
+
+  .l-brand {
+    display: flex;
+    justify-content: center;
+    width: rem(95px);
+    background-color: $bg-color-2;
+
+    @media screen and (min-width: 768px) {
+      flex-basis: 37%;
+      width: rem(270px);
+    }
+    
+    @media screen and (min-width: $screen-m) {
+      width: rem(360px);
+    }
+
+    @media screen and (min-width: $screen-l) {
+      height: $header-height-desktop;
+    }
+  }
+
+  .l-menus {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+
+    @media screen and (min-width: $screen-m) {
+      width: 100%;
+    }
+
+    .menus-wrapper {
+      display: none;
+
+      @media screen and (min-width: $screen-m) {
+        width: 100%;
+        position: static;
+        display: flex;
+        background-color: transparent;
+        transform: translatex(0);
+      }
+    }
+
+    .scroll-wrapper {
+      @media screen and (min-width: $screen-m) {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        overflow-y: hidden;
+        padding: 0;
+      }
+    }
+
+    .btn-mobile-menu {
+      width: $header-height;
+      height: $header-height;
+
+      @media screen and (min-width: $screen-m) {
+        display: none;
+      }
+
+      svg {
+        width: rem(20px);
+        height: rem(20px);
+        fill: $color-1;
+      }
+
+      @media screen and (min-width: 768px) {
+        height: rem(80px);
+      }
+
+      @media screen and (min-width: $screen-l) {
+        height: $header-height-desktop;
+      }
+    }
+  }
+}

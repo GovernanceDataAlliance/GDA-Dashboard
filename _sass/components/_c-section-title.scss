@@ -1,0 +1,99 @@
+.c-section-title {
+  position: relative;
+  padding-bottom: rem(20px);
+  margin-bottom: rem(40px);
+  font-size: rem(40px);
+  font-weight: 400;
+  color: $font-color-1;
+  line-height: 1em;
+
+  .m-markdown & {
+    max-width: 100%;
+  }
+
+  span {
+    display: block;
+    font-size: rem(15px);
+    line-height: rem(15px);
+    margin-top: rem(10px);
+    font-weight: 400;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: rem(60px);
+    height: rem(3px);
+    background-color: $color-4;
+  }
+
+  &.-small {
+    margin-bottom: rem(20px);
+    font-size: rem(12px);
+    font-family: $font-secondary;
+    text-transform: uppercase;
+  }
+
+  &.-light {
+    color: $font-color-2;
+    &:after {
+      background-color: $white;
+    }
+  }
+
+  &.-country-name {
+    padding-bottom: rem(20px);
+    margin-bottom: 0;
+  }
+
+  + p {
+    font-size: rem(16px);
+    line-height: rem(26px);
+    margin-top: rem(20px);
+  }
+
+  @media screen and (min-width: $screen-s) {
+    padding-bottom: rem(50px);
+    margin-bottom: rem(50px);
+
+    &.-small {
+      padding-bottom: rem(40px);
+      margin-bottom: rem(40px);
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: rem(45px);
+    margin-bottom: rem(55px);
+    padding-bottom: rem(55px);
+
+    &.-small {
+      padding-bottom: rem(45px);
+      margin-bottom: rem(45px);
+    }
+
+    span {
+      margin-top: rem(20px);
+    }
+
+    &.-country-name {
+      padding: rem(40px) 0 rem(30px) 0;
+    }
+  }
+
+  @media screen and (min-width: $screen-l) {
+    font-size: rem(50px);
+    line-height: 1.2em;
+    max-width: 70%;
+
+    &.-country-name {
+      padding-bottom: rem(40px);
+    }
+
+    + p {
+      margin-top: rem(50px);
+    }
+  }
+}

@@ -1,0 +1,94 @@
+.m-social-share {
+  display: flex;
+  justify-content: center;
+
+  .icon {
+    width: rem(20px);
+    height: rem(20px);
+    fill: $color-4;
+    transition: all .2s ease-in-out;
+
+    &.-twitter svg:hover {
+      transform: scale(1.2);
+      fill: $color-4;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: rem(50px);
+
+    .btn-social > a {
+      padding: 0 10px;
+    }
+  }
+
+  &.-header {
+    width: rem(60px);
+
+    ul {
+      margin-top: 0;
+    }
+  }
+
+  &.-footer {
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      width: rem(120px);
+      margin-top: rem(30px);
+    }
+  }
+
+  @media screen and (min-width: $screen-s) {
+    &.-footer {
+      margin-left: rem(20px);
+      padding-right: rem($wrap-padding-mobile / 2);
+
+      ul {
+        height: 100%;
+      }
+    }
+  }
+
+  @media screen and (min-width: $screen-m) {
+    &.-header {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: rem(95px);
+      display: flex; display: -ms-box;
+      align-items: center;
+      padding: 0 rem(20px);
+      border-left: 1px solid $border-1;
+
+      ul {
+        width: 100%;
+      }
+    }
+
+    &.-footer {
+      margin-top: 0;
+      margin-left: rem(20px);
+
+      ul {
+        align-items: baseline;
+        justify-content: space-between;
+        margin-top: 0;
+      }
+    }
+  }
+
+  @media screen and (min-width: $screen-l) {
+    &.-header {
+      width: rem(100px);
+      padding: 0 rem(20px);
+    }
+  }
+}

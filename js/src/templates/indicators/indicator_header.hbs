@@ -1,0 +1,32 @@
+<div class="l-banner -detail -col">
+  <div class="m-breadcrumbs">
+    <ul>
+      <li><a href="/">home </a></li>
+      <li><span> / </span></li>
+      <li><a href="{{siteURL}}/indicators"> data </a></li>
+      <li><span> / </span></li>
+      <li> {{indicator.product_name}}</li>
+    </ul>
+  </div>
+
+  <div class="c-share-shortcut">
+    <button class="js--view-share btn">
+      <svg class="icon -regular">
+        <use xlink:href="#icon-share"></use>
+      </svg>
+      <span class="button-literal">share</span>
+    </button>
+  </div>
+
+  <div class="wrap">
+    <div class="m-title">
+      <h1 class="c-section-title">
+        {{indicator.product_name}}
+        <span>by {{indicator.organization}}</span>
+      </h1>
+      <img class="{{indicator.short_name}}" src="css/img/logos/{{indicator.product_logo}}" alt="{{indicator.product_name}} logo">
+    </div>
+    <p class="description">{{indicator.product_description}}</p>
+    <a class="btn -secondary" target="_blank" href="{{indicator.methodology_link}}">Visit website</a>
+  </div>
+</div>
