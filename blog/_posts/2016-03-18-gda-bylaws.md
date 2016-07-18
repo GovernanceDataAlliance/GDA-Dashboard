@@ -1,16 +1,17 @@
 ---
-published: false
+published: true
 layout: blog/post
 title: Governance Data Alliance Bylaws
 date: "2016-03-18 19:00:00 +0200"
 author: Caroline Poirrier
 image: ""
 category: ""
-tags: ""
+tags: Operations
 ---
 
 
-##Introduction
+What follows are the Governance Data Alliance's bylaws, including information about the Alliance's governance, and membership, among others.
+
 
 The Governance Data Alliance (GDA or Alliance) is a network of national and international organisations and individuals, established in 2015 on the understanding that: 
 
@@ -21,7 +22,7 @@ The Governance Data Alliance (GDA or Alliance) is a network of national and inte
 
 These Bylaws are the foundational document for the GDA, setting out the ground rules which guide the development and growth of the Alliance, its planning and organisational processes and the spirit of its work. 
 
-##Mission Statement
+## Mission Statement##
 
 _**Vision**_: 
 
@@ -40,7 +41,7 @@ The GDA and its members are committed to the following core values: 
 - Engaging actively in the work of the Alliance in a spirit of respect for other members.
 - Respect for human rights and democracy, human dignity and equality, including based on race, religion and gender. 
 
-##Activities
+## Activities##
 
 The GDA’s activities include, but are not limited to: 
 
@@ -57,11 +58,11 @@ The GDA’s activities include, but are not limited to: 
 - Coordinating the participation of the Alliance and its members in other governance data activities. 
 - Providing support to Alliance members. 
 
-##Structure of the Alliance
+## Structure of the Alliance##
 
 The GDA is comprised of members, the Steering Committee and the Secretariat. In addition, the Alliance may establish working groups on specific topics. 
 
-##Membership
+## Membership##
 
 The GDA is a network of organisations and individuals which fall into three different cohorts – producers of governance data, users of governance data and funders of governance data – which subscribe to the GDA’s Mission Statement and which otherwise meet the rules regarding membership.
 
@@ -102,7 +103,7 @@ The GDA Membership consists of the three different types of members as follows:�
 4. Procedures for General Membership Meetings shall be adopted by the Steering Committee with the support of the Secretariat. 
 5. Decisions at General Membership Meetings shall normally be by consensus, provided that a vote shall be taken on a matter at the request of five or more members. 
 
-##Steering Committee
+## Steering Committee
 
 The governing body of the GDA is the Steering Committee. It shall work in a collegiate manner which ensures input by members into key decisions. 
 
@@ -136,7 +137,7 @@ Decisions of the Steering Committee shall normally be taken by consensus provide
 
 The Steering Committee shall meet at least two times annually, with at least one of those meetings ideally being in person, subject to availability of funding. Procedures for Steering Committee meetings shall be adopted by the Steering Committee with the support of the Secretariat, and shall be communicated to the members. 
 
-##Secretariat
+## Secretariat
 
 The Secretariat will be hosted by Results for Development Institute for the first 18 months following the election of the first Steering Committee, following which the Steering Committee shall put forward a proposal to the members for future hosting options. The Secretariat is accountable to the Steering Committee and to the members.
 
@@ -150,7 +151,7 @@ The tasks of the Secretariat include: 
 6. Organising the elections for the Steering Committee. 
 7. Such other tasks to realise the Alliance’s mission as may be agreed by the Steering Committee and/or the members, subject to available funding. 
 
-##Branding
+## Branding
 
 Use of the name and logo of the GDA shall be subject to agreement by the Steering Committee in accordance with the following:
 
@@ -158,20 +159,20 @@ Use of the name and logo of the GDA shall be subject to agreement by the Steerin
 2. Public statements bearing the name and logo of the Alliance shall be made only on occasions when it is essential for the Alliance to speak collectively, as determined by the Steering Committee. 
 3. Members may use the name and logo of the Alliance for promotional purposes – for example by exhibiting them on their websites to indicate membership – in line with any rules set for this purpose by the Steering Committee.
 
-##Fundraising
+## Fundraising
 
 1. Responsibility for core fundraising for the Alliance and for the allocation of core funds raised shall lie with the Steering Committee and Secretariat. 
 2. Core funds shall be managed, including as to contractual, legal and accounting obligations, by the Secretariat
 3. Core funds shall be allocated to activities in the manner agreed between the Steering Committee and the Secretariat, provided that Observer Members are not eligible to apply to use any funds which may otherwise be allocated for use by members.
 4. Any two members, not including Observer Members, may put forward a proposal to conduct fundraising in the name of the Alliance, subject to prior approval by the Steering Committee.
 
-##Amendments to the Bylaws
+##  Amendments to the Bylaws
 
 Proposals for amendments to these Bylaws must be endorsed by at least 10 Member Organisations, including two members of the Steering Committee. Where a proposal is made to amend the Bylaws, the following procedures will be followed:
 
 1. The Chair of the Steering Committee shall conduct a debate on the proposal among the members with a view to reaching consensus.
 2. If necessary, a vote will be held among the Member Organisations and Individual Members and an amendment will be deemed to have been adopted if three-fifths of those voting support the amendment, including at least one-half of the voting Member Organisations.
 
-##Working Language
+## Working Language
 
-The working language of the Alliance shall be English. Where possible, and subject to funding, documents will be translated. 
+The working language of the Alliance shall be English. Where possible, and subject to funding, documents will be translated.
