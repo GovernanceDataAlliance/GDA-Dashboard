@@ -1,7 +1,7 @@
 ---
 published: true
 name: BertelsmannStiftung
-logo: bti.jpg
+logo: bti.png
 link: 'http://www.bertelsmann-stiftung.de/en/home/'
 ---
 ## A New Post
