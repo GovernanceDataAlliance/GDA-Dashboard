@@ -1,3 +1,1 @@
-![MCC_New.jpg]({{site.baseurl}}/css/img/logos/MCC_New.jpg)
-
-
+![bti.png]({{site.baseurl}}/css/img/logos/bti.png)
