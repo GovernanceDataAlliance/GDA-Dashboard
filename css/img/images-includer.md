@@ -1,1 +1,1 @@
-![bti.png]({{site.baseurl}}/css/img/logos/bti.png)
+![bs.png]({{site.baseurl}}/css/img/logos/bs.png)
