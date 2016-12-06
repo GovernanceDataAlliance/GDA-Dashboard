@@ -1,7 +1,7 @@
 ---
 published: true
 name: CIVICUS
-link: 'http://www.civicus.org/index.php/en/'
+link: 'http://www.civicus.org/'
 logo: civicus.jpg
 ---
 ## A New Post
