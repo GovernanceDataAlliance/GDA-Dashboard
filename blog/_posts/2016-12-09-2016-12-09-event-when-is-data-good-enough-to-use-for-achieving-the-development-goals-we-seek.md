@@ -1,7 +1,7 @@
 ---
 published: true
 layout: blog/post
-title: When is governance data “good enough”?  New Report Launch Event 12.15.16
+title: 'Research report Launch Event 12.15.16: When is governance data “good enough”? '
 date: '2016-12-09'
 author: Caroline Poirrier
 image: ''
@@ -16,7 +16,7 @@ The new research report, “In the Eye of the Beholder: When is Governance Data 
 
 While our research focused on governance data, the report and findings have important implications for all development practitioners focused on using data to promote reform in health, education, or other sectors.  
 
-Please join us for a roundtable on Thursday, December 15th at 10AM to discuss the report’s findings and their relevance to sectors beyond governance. The session will involve an interactive discussion with:
+[Please join us for a roundtable](https://www.eventbrite.com/myevent?eid=30031713664) on Thursday, December 15th at 10AM to discuss the report’s findings and their relevance to sectors beyond governance. The session will involve an interactive discussion with:
 
 + Samantha Custer, Director of Policy Analysis at AidData 
 + Nathaniel Heller, Managing Director at Results for Development 
@@ -24,7 +24,7 @@ Please join us for a roundtable on Thursday, December 15th at 10AM to discuss th
 + Alicia Phillips Mandaville, Vice President at InterAction
 + Alejandro Ponce, Chief Research Officer at the World Justice Project
 
-The event will take place at Results for Development’s offices:
+The [event](https://www.eventbrite.com/myevent?eid=30031713664) will take place at Results for Development’s offices:
 1111 19th Street NW
 Suite 700
 Washington, DC 20036
