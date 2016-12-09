@@ -4,9 +4,7 @@ layout: blog/post
 title: 'Research report Launch Event 12.15.16: When is governance data “good enough”? '
 date: '2016-12-09'
 author: Caroline Poirrier
-image: ''
-category: ''
-tags: ''
+image: sam.jpg
 ---
 In the context of the “data revolution” and initiatives such as the [Global Partnership for Sustainable Development Data](http://www.data4sdgs.org) (GPSDD), there is increasing hope that investing in more and better data collection and dissemination can help us accelerate progress towards the Sustainable Development Goals. But often these efforts are anchored on increasing the raw supply of available data while failing to understand who actually uses development data, why, and what types of data are most effective in supporting evidence-informed reforms in low- and middle-income countries. 
 
@@ -28,7 +26,3 @@ The [event](https://www.eventbrite.com/e/roundtable-discussion-of-new-report-on-
 1111 19th Street NW
 Suite 700
 Washington, DC 20036
-
-
-
-
