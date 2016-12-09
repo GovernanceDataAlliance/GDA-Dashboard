@@ -16,7 +16,7 @@ The new research report, “In the Eye of the Beholder: When is Governance Data 
 
 While our research focused on governance data, the report and findings have important implications for all development practitioners focused on using data to promote reform in health, education, or other sectors.  
 
-[Please join us for a roundtable](https://www.eventbrite.com/myevent?eid=30031713664) on Thursday, December 15th at 10AM to discuss the report’s findings and their relevance to sectors beyond governance. The session will involve an interactive discussion with:
+[Please join us for a roundtable](https://www.eventbrite.com/e/roundtable-discussion-of-new-report-on-governance-data-tickets-30031713664) on Thursday, December 15th at 10AM to discuss the report’s findings and their relevance to sectors beyond governance. The session will involve an interactive discussion with:
 
 + Samantha Custer, Director of Policy Analysis at AidData 
 + Nathaniel Heller, Managing Director at Results for Development 
@@ -24,7 +24,7 @@ While our research focused on governance data, the report and findings have impo
 + Alicia Phillips Mandaville, Vice President at InterAction
 + Alejandro Ponce, Chief Research Officer at the World Justice Project
 
-The [event](https://www.eventbrite.com/myevent?eid=30031713664) will take place at Results for Development’s offices:
+The [event](https://www.eventbrite.com/e/roundtable-discussion-of-new-report-on-governance-data-tickets-30031713664) will take place at Results for Development’s offices:
 1111 19th Street NW
 Suite 700
 Washington, DC 20036
