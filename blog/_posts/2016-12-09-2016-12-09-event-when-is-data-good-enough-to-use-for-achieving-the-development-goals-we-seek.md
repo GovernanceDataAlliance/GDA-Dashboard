@@ -1,11 +1,9 @@
 ---
 published: true
 layout: blog/post
-title: >-
-  2016-12-09-Event: When is data “good enough” to use for achieving the
-  development goals we seek?
-date: ''
-author: ''
+title: 'When is governance data “good enough”? - Report Launch Event on December 15th:'
+date: '2016-12-09'
+author: Caroline Poirrier
 image: ''
 category: ''
 tags: ''
