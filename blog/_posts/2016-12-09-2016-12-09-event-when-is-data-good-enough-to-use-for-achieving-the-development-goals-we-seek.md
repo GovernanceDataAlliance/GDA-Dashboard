@@ -1,7 +1,7 @@
 ---
 published: true
 layout: blog/post
-title: 'When is governance data “good enough”? - Report Launch Event on December 15th:'
+title: When is governance data “good enough”?  New Report Launch Event 12.15.16
 date: '2016-12-09'
 author: Caroline Poirrier
 image: ''
