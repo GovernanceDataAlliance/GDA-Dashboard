@@ -27,4 +27,4 @@ The [event](https://www.eventbrite.com/e/roundtable-discussion-of-new-report-on-
 Suite 700
 Washington, DC 20036
 
-The Twitter hashtag for the event is #GDAreport
+Follow the conversation using #GDAreport.
