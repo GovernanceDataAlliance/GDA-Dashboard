@@ -26,3 +26,5 @@ The [event](https://www.eventbrite.com/e/roundtable-discussion-of-new-report-on-
 1111 19th Street NW
 Suite 700
 Washington, DC 20036
+
+The Twitter hashtag for the event is #GDAreport
