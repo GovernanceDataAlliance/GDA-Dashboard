@@ -10,7 +10,7 @@ In the context of the “data revolution” and initiatives such as the [Global 
 
 In close partnership with [AidData](http://aiddata.org), the Governance Data Alliance has been undertaking cutting-edge research to better understand who governance data users are, how they use currently available governance data, and how data could be better targeted to enhance its uptake for reform. Building on the [2014 Reform Efforts Survey](http://aiddata.org/marketplace-of-ideas-for-policy-change) of 6,750 development policymakers and practitioners from 126 developing countries, the Alliance has recently carried out a first-of-its-kind poll of governance data users assessing their current data usage patterns and desires for future data availability. 
 
-The new research report, “In the Eye of the Beholder: When is Governance Data Good Enough,” offers a unique window into the firsthand experiences of public, private, and civil society leaders in advancing governance reforms in their countries, and the role (or lack thereof) of a broad range of governance data in that process. The report seeks to tackle two fundamental questions: how is governance data viewed by the people it is intended to influence, and is the data we have today “good enough” to usher in the change we are looking for?
+The new research report, “[In the Eye of the Beholder: When is Governance Data Good Enough](http://aiddata.org/when-is-governance-data-good-enough),” offers a unique window into the firsthand experiences of public, private, and civil society leaders in advancing governance reforms in their countries, and the role (or lack thereof) of a broad range of governance data in that process. The report seeks to tackle two fundamental questions: how is governance data viewed by the people it is intended to influence, and is the data we have today “good enough” to usher in the change we are looking for?
 
 While our research focused on governance data, the report and findings have important implications for all development practitioners focused on using data to promote reform in health, education, or other sectors.  
 
@@ -26,5 +26,7 @@ The [event](https://www.eventbrite.com/e/roundtable-discussion-of-new-report-on-
 1111 19th Street NW
 Suite 700
 Washington, DC 20036
+
+The report is available [here](http://aiddata.org/when-is-governance-data-good-enough).
 
 Follow the conversation using #GDAreport.
