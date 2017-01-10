@@ -1,8 +1,6 @@
 ---
 published: true
 name: Bertelsmann Stiftung
-logo: bs.png
-link: 'http://www.bertelsmann-stiftung.de/en/startseite/'
 ---
 ## A New Post
 
