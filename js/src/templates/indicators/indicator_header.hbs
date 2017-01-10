@@ -22,7 +22,12 @@
     <div class="m-title">
       <h1 class="c-section-title">
         {{indicator.product_name}}
-        <span>by {{indicator.organization}}</span>
+        <span class="inline">
+          by {{indicator.organization}}
+          {{#if indicator.next_publication_date}}
+            | Next update: {{indicator.next_publication_date}}
+          {{/if}}
+        </span>
       </h1>
       <img class="{{indicator.short_name}}" src="css/img/logos/{{indicator.product_logo}}" alt="{{indicator.product_name}} logo">
     </div>
