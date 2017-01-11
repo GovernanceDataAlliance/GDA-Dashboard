@@ -8,6 +8,9 @@ tags: meeting_notes producers_workshop
 image: ''
 category: ''
 ---
+With the mounting concern around the “shrinking” of civic space in countries around the world, calls for recognizing and addressing the issue are multiplying. A number of indices and indicators have been produced to assess elements of civic space. But there have also been calls for a “civic space index” to more fully capture trends across countries. What are the current measures, and how do they address the concept of civic space? Are they the research tools we need to help fight back against closing space? If not, what more might be needed? How might new efforts complement existing tools? The Governance Data Alliance producers group discussed these and other questions at a workshop that took place on December 13, 2016.
+
+
 **Presenters**
 + Gwendolyn Bevis – Management Systems International (MSI); works on the CSO Sustainability Index (CSO SI)
 + Jennifer Stuart – National Center for Not-for-Profit Law (ICNL); works on the CSO Sustainability Index (CSO SI)
