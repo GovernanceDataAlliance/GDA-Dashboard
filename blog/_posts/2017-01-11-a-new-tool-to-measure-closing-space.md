@@ -31,7 +31,8 @@ category: ''
 
 ## I. Introducing existing tools, particularly CSO SI and the Civil Society Monitor
 
-**USAID’s  CSO Sustainability Index (CSO SI) – Jen**+ In each country, a local implementing partner convenes a panel of 8-12 experts and informed observers
+**USAID’s  CSO Sustainability Index (CSO SI) – Jen**
++ In each country, a local implementing partner convenes a panel of 8-12 experts and informed observers
 + The Panel scores 7 dimensions of CSO sustainability (scores range from 0-7)
 + The implementing partners draft a country report based on scores and discussion and additional context information
 + The report is then reviewed and finalized by an editorial committee comprising ICNL, USAID, MSI, Aga Khan Foundation, and country/regional experts
@@ -50,7 +51,6 @@ category: ''
 **_See the matrix for information on other tools._**
 
 ## II. Discussion
-
 **Nathaniel Heller, R4D**
 You can think of “civic space” rights and issues as belonging to two categories
 + Fundamental rights – of assembly, speech, expression etc. (rights recognized and enshrined in international norms and treaties)
