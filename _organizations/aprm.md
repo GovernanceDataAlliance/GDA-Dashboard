@@ -2,6 +2,7 @@
 published: true
 logo: aprm.png
 link: 'http://aprm-au.org'
+name: African Peer Review Mechanism
 ---
 ## A New Post
 
