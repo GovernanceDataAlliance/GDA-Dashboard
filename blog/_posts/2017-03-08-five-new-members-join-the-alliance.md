@@ -5,7 +5,8 @@ title: Five New Members Join the Alliance
 date: '2017-03-08'
 author: Caroline Poirrier
 ---
-We are excited to announce that the Alliance’s membership has recently welcomed five new members:
+## We are excited to announce that the Alliance’s membership has recently welcomed five new members:
+
  
 - The [African Peer Review Mechanism](http://aprm-au.org/about-us), as a data producer and user
 - [Dr. David Armstrong](http://www.quantoid.net/), as a user
