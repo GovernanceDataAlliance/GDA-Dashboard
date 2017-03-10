@@ -3,7 +3,6 @@ published: true
 layout: blog/post
 date: "2016-02-01"
 author: Caroline Poirrier
-image: ""
 category: ""
 tags: meeting_notes producers_workshop
 title: Research Design and Use of Data

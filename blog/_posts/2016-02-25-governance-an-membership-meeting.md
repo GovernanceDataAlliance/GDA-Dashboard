@@ -3,7 +3,6 @@ published: false
 layout: blog/post
 date: "2015-05-26"
 author: Caroline Poirrier
-image: ""
 category: meeting notes
 tags: meeting_notes
 title: "Governance and Membership Meeting "

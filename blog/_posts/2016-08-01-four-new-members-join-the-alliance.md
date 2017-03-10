@@ -4,7 +4,6 @@ layout: blog/post
 title: Four New Members Join the Alliance
 date: 2016-07-8-01
 author: Caroline Poirrier
-image: ""
 ---
 We are very excited to announce that four new members have formally joined the Alliance: 
 

@@ -4,10 +4,10 @@
     {{ page.title }}
   </h1>
 
-  {% unless page.image == '' %}
+  {% if page.image %}
   <div class="image" style="background-image:url({{site.baseurl}}/css/img/blog/{{page.image}})"></div>
-  {%endunless%}
-  
+  {%endif%}
+
   <div class="properties">
     {% unless page.category == nil %}
     <a class="category" href="{{site.baseurl}}/blog/categories#{{ page.category }}"> {{page.category}} </a>
@@ -20,7 +20,7 @@
     </div>
     {%endunless%}
   </div>
-  
+
   <div class="details">
     <span class="author">
       Author: {{ page.author }}

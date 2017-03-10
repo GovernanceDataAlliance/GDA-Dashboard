@@ -3,7 +3,6 @@ published: true
 layout: blog/post
 date: "2015-12-14"
 author: ""
-image: ""
 category: ""
 tags: meeting_notes producers_workshop
 title: Data Collection and Analysis Tools

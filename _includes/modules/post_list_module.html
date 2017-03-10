@@ -1,7 +1,7 @@
-<div class="l-post -list {% unless post.image == '' %} -img {% endunless %}" {% unless post.image == '' %} style="background-image:url({{site.baseurl}}/css/img/blog/{{post.image}})" {% endunless %} >
+<div class="l-post -list {% if post.image %} -img {% endif %}" {% if post.image && post.image !== '' %} style="background-image:url({{site.baseurl}}/css/img/blog/{{post.image}})" {% endif %} >
   <div class="wrap">
 
-    <div class="m-post {% unless post.image == '' %} -light {% endunless %}">
+    <div class="m-post {% if post.image %} -light {% endif %}">
 
       <div class="properties">
         {% unless post.category ==  nil %}

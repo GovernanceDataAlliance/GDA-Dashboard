@@ -3,7 +3,6 @@ published: true
 layout: blog/post
 date: "2016-03-15"
 author: Nathaniel Heller
-image: ""
 category: ""
 tags: ""
 title: "Governance Assessments: Worth Investing in or Not?"

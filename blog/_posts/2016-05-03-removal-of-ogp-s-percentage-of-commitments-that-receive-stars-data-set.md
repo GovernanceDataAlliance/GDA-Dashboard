@@ -3,7 +3,6 @@ published: true
 layout: blog/post
 date: "2016-03-16"
 author: Preston Whitt
-image: ""
 category: ""
 tags: data
 title: "Removal of OGP's \"percentage of commitments that receive stars\" data set"

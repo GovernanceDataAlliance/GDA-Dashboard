@@ -4,7 +4,6 @@ layout: blog/post
 title: Governance Data Alliance Bylaws
 date: "2016-03-18 19:00:00 +0200"
 author: Caroline Poirrier
-image: ""
 category: ""
 tags: Operations
 ---

@@ -3,7 +3,6 @@ published: true
 layout: blog/post
 date: "2016-02-29"
 author: Caroline Poirrier
-image: ""
 category: ""
 tags: producers_workshop meeting_notes
 title: Data Storage and Visualization

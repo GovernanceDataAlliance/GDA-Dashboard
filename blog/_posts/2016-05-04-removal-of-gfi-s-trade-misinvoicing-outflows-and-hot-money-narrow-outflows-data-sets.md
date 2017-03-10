@@ -3,7 +3,6 @@ published: true
 layout: blog/post
 date: "2016-03-30"
 author: Joseph Spanjers
-image: ""
 category: ""
 tags: data
 title: Removal of GFI’s “Trade Misinvoicing Outflows” and “Hot Money Narrow Outflows” Data Sets
