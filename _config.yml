@@ -75,7 +75,6 @@ prose:
           element: "text"
           label: image
           placeholder: "example.jpg"
-          value: false
       - name: category
         field:
           element: "text"
