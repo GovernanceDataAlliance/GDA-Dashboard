@@ -1,14 +1,15 @@
 ---
 published: true
 layout: blog/post
-image: ' css/img/Map.png'
-title: ''
+image: /map.png
+title: >-
+  To what extent do Alliance indicators share variance with the unmeasurable
+  concept of governance?
 date: '2017-03-16'
 author: David Armstrong
 category: ''
 tags: ''
 ---
-
 Hi, my name is Dave and I'm one of the newest members of the Governance Data Alliance. I am an associate professor of political science at Western University in London, Ontario. I focus mostly on political methodology, specifically as it relates to measurement.
 
 As a member of the GDA, I wanted to try to contribute something to the project, recognizing that I am a user, rather than producer, of governance data. I thought it might be useful to apply the methodological tools I use to investigate the idea of governance. In particular, I wonder to what extent different governance indicators overlap with each other. That is to say, how much does knowing something about one governance indicator tell us something about others. This is something that can easily be evaluated using techniques common to measurement analysis, namely factor analysis.
@@ -27,13 +28,14 @@ The goal here is to see how much of the variance in each of these variables is e
 
 In general, if we were to try to understand what drives differences in governance, the "thing", for lack of a better term, that helps us distinguish between countries on this dimension, it might relate to accountability and predictability, along with and related to the protection of rights. Perhaps we might even call it stability. The  [Open Government Index](http://www.governancedata.org/indicators#OGI:2015) deals with access to information as well as the existence of (and participation in) mechanisms for accountability. The  [Rule of Law Index](http://www.governancedata.org/indicators#ROLI:2016) offers a look at perceived implementation of the rule of law and protection of fundamental rights and liberties as does, at least to some extent the  [Corruption Perceptions Index](http://www.governancedata.org/indicators#corruption_perceptions_index:2015). Both  [Nations in Transit](http://www.governancedata.org/indicators#Nations_in_Transit:2015) and  [Freedom in the World](http://www.governancedata.org/indicators#freedom_in_the_world:2015) deal with both perceived and realized threats to civil liberties and political rights. Both of the  [Doing Business](http://www.governancedata.org/indicators#doing_business:2016) indicators deal with regulation and regularization in business practices, something tantamount to the protection of property rights.
 
-![bar chart]({{site.baseurl}}/css/img/Bar%20Chart.png)
+![chart.png]({{site.baseurl}}/css/img/blog/chart.png)
 
-**Proportion of Variance Explained by Latent**
 
-The figure below shows a map of the governance scores by country for 2015
 
-![map]({{site.baseurl}}/css/img/Map.png)
+**The figure below shows a map of the governance scores by country for 2015**
+
+![map.png]({{site.baseurl}}/css/img/blog/map.png)
+
 
 
 So, what is the takeaway from this exercise? First, there is a great degree of commonality among different indicators of governance. They tend to measure similar, though not exactly the same, aspects of governance. This does not necessarily mean that they set out to measure exactly the same thing, but that good governance on one measure tends to correspond with good governance on other measures. Perhaps the ambitious open government goals measured by the  [IRM](http://www.governancedata.org/indicators#irm_action_plan_count_star:2015) are simply too wide-ranging to be captured here. The key insight here is to consider the extent to which important indicators are not well captured by the latent concept and think about other potential measures that would tap the same underlying concept or idea. This could lead to a richer and more nuanced understanding of what governance means.
