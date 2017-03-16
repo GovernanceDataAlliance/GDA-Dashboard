@@ -5,7 +5,7 @@ image: /map.png
 title: >-
   To what extent do Alliance indicators share variance with the unmeasurable
   concept of governance?
-date: 2017-03-16-To what extent
+date: '2017-03-16'
 author: David Armstrong
 ---
 Hi, my name is Dave and I'm one of the newest members of the Governance Data Alliance. I am an associate professor of political science at Western University in London, Ontario. I focus mostly on political methodology, specifically as it relates to measurement. 
