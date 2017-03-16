@@ -31,7 +31,6 @@ In general, if we were to try to understand what drives differences in governanc
 **The figure below shows a map of the governance scores by country for 2015**
 
 ![map.png]({{site.baseurl}}/css/img/blog/map.png)
-
 ![legend.png]({{site.baseurl}}/css/img/blog/legend.png)
 
 
