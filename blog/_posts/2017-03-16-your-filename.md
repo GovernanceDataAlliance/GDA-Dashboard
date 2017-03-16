@@ -2,9 +2,7 @@
 published: true
 layout: blog/post
 image: /map.png
-title: >-
-  To what extent do Alliance indicators share variance with the unmeasurable
-  concept of governance?
+title: Exploring Conceptual Overlap in Alliance Governance Indicators
 date: '2017-03-16'
 author: David Armstrong
 ---
@@ -34,6 +32,7 @@ In general, if we were to try to understand what drives differences in governanc
 
 ![map.png]({{site.baseurl}}/css/img/blog/map.png)
 
+![legend.png]({{site.baseurl}}/css/img/blog/legend.png)
 
 
 So, what is the takeaway from this exercise? First, there is a great degree of commonality among different indicators of governance. They tend to measure similar, though not exactly the same, aspects of governance. This does not necessarily mean that they set out to measure exactly the same thing, but that good governance on one measure tends to correspond with good governance on other measures. Perhaps the ambitious open government goals measured by the  [IRM](http://www.governancedata.org/indicators#irm_action_plan_count_star:2015) are simply too wide-ranging to be captured here. The key insight here is to consider the extent to which important indicators are not well captured by the latent concept and think about other potential measures that would tap the same underlying concept or idea. This could lead to a richer and more nuanced understanding of what governance means.
