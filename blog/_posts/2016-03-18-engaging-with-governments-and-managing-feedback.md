@@ -1,11 +1,8 @@
 ---
 published: true
 layout: blog/post
-date: "2015-11-09"
-author: ""
-image: ""
-category: ""
-tags: "meeting_notes producers_workshop "
+date: '2015-11-09'
+tags: 'meeting_notes producers_workshop '
 title: Engaging with governments and managing feedback
 ---
 
@@ -16,7 +13,7 @@ Below are the notes from our first producers' workshop. The session, co-led by F
 ## I - Engagement with government
 Tour de table: what are different groups’ current policies and practices around engaging government? 
 
-**Johannes/GI **
+**Johannes/GI**
 - GI does not have a policy about engagement; it tends to be ad hoc, with some country engagement workshops
 
 **Jesse/WRI**
@@ -27,7 +24,7 @@ For the Environmental Democracy Index (EDI):
 	- WRI agreed  to take responses into account if they were helpful
 	- WRI received 17 responses; most were substantive
 
-**Melissa/WB **
+**Melissa/WB**
 For Doing Business:
 - Governments are notified about changes in the methodology 
 - They are not provided with the data for review
@@ -141,7 +138,7 @@ Important for the Bank to make sure that the data is accurate but also independe
 **Nathaniel/R4D**
 There is a trade-off between making data real time and allowing for comparability across countries over time
 
-**Joe/GFI **
+**Joe/GFI**
 GFI releases its report on an annual basis
 - Could release data more often (monthly) by using STATA
 - There is a concern, however, that if data is published more frequently, GFI would lose the impact of the currently concentrated once-a-year pressure on government as well as data comparability
@@ -199,7 +196,7 @@ GFI releases its report on an annual basis
 - Many things determine whether/when an organization engages with government and how often they collect/update data
 - Feedback on the workshop would be appreciated!
 
-**Nathaniel/R4D - Next steps ** 
+**Nathaniel/R4D - Next steps** 
 - Lots of learning and lessons emerging which would be useful to a broader audience
 - How should we document this - through a blog post?
 - What we all heard today: decisions around government engagement and frequency of data collection depend on the organization, the data, theory of change, etc. – It would be useful to give people a typology to think through these choices 
